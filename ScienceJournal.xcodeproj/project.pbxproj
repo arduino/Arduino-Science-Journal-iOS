@@ -3035,7 +3035,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "Google Inc.";
+				ORGANIZATIONNAME = Arduino;
 				TargetAttributes = {
 					68EBA6D91E20421E0089FF7F = {
 						CreatedOnToolsVersion = 8.2.1;
