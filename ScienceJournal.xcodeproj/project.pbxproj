@@ -608,6 +608,7 @@
 		8BFCF97C1FAA2B5E0030A6DC /* ArchivedFlagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCF97B1FAA2B5D0030A6DC /* ArchivedFlagCell.swift */; };
 		8BFCF97E1FAA2EDC0030A6DC /* ArchiveFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCF97D1FAA2EDC0030A6DC /* ArchiveFlagView.swift */; };
 		924D434B56557C3367183755 /* Pods_ScienceJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */; };
+		BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */; };
 		D54E27EF21A3423A0055743E /* AudioAnalyzerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */; };
 		D54E27F121A346980055743E /* TestResources in Resources */ = {isa = PBXBuildFile; fileRef = D54E27F021A346980055743E /* TestResources */; };
 		D5929B1486B341B6A50367D9 /* libPods-ScienceJournalUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551CFA53B9638874BCF64A15 /* libPods-ScienceJournalUITests.a */; };
@@ -1302,6 +1303,7 @@
 		8BFCF97D1FAA2EDC0030A6DC /* ArchiveFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveFlagView.swift; sourceTree = "<group>"; };
 		93AFC6D21C987695548ADC66 /* Pods-ScienceJournal.dogfood.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.dogfood.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.dogfood.xcconfig"; sourceTree = "<group>"; };
 		958B33107B78081C00CE9569 /* Pods-ScienceJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
 		C910BBBCF124BDC00C1BCC07 /* Pods-ScienceJournalUITests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		CD482804BCE6CEED23042379 /* Pods-ScienceJournalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerTest.swift; sourceTree = "<group>"; };
@@ -2554,6 +2556,8 @@
 				8BD3A1061F27B76B00A5DDBD /* MDCPalette+ScienceJournal.swift */,
 				8B1791AD1F0FFAB7008C0B31 /* MDCTabBar+ScienceJournal.swift */,
 				68ACCC481F9565F800FDCD38 /* NumberFormatter+ScienceJournal.swift */,
+				BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */,
+				8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */,
 				8B2FD9BA20C58051007513FE /* String+Pluralize.swift */,
 				680659151EC24EBD0090670C /* String+ScienceJournal.swift */,
 				68F14AC11F21801F0054E799 /* TimeInterval+ScienceJournal.swift */,
@@ -2563,7 +2567,6 @@
 				58BC1BC422C18FEB00DA7EDC /* UIImage+ScienceJournal.swift */,
 				8BA5BF331F44904F00EB77E8 /* UIPanGestureRecognizer+ScienceJournal.swift */,
 				48E48DC022A63CEB004301E4 /* UIScrollView+Capturing.swift */,
-				8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */,
 				8B9C59471F478A820063FFA9 /* UIScrollView+ScienceJournal.swift */,
 				684896E81F0207CD00DF1EE2 /* UIStackView+ScienceJournal.swift */,
 				5C8784A421679E040046786D /* UITextView+ScienceJournal.swift */,
@@ -3442,6 +3445,7 @@
 				8B27A1652065349E009BE265 /* StatView.swift in Sources */,
 				8B6EF71E1E538E970026D1E5 /* SensorDataManager.swift in Sources */,
 				8B994A851F9158C300E9A709 /* CaptureSessionUser.swift in Sources */,
+				BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */,
 				680659281EC39B7A0090670C /* TrialCardCell.swift in Sources */,
 				5CBD9AB31F7067AA00D22D21 /* SensorConfigTypeOptionSelectorView.swift in Sources */,
 				8BCCDF631EB9277900E85517 /* PhotoLibraryViewController.swift in Sources */,
