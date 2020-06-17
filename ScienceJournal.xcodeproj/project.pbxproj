@@ -4097,7 +4097,7 @@
 					"\"SystemConfiguration\"",
 					"-l\"iconv\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.opensource.ScienceJournal;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.arduino.ScienceJournal;
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DEBUG_IMPLICIT_OBJC_ENTRYPOINT = 0;
@@ -4281,7 +4281,7 @@
 					"-l\"iconv\"",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -DSCIENCEJOURNAL_DOGFOOD_BUILD";
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.opensource.ScienceJournal;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.arduino.ScienceJournal;
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Science Journal Dev";
@@ -4527,7 +4527,7 @@
 					"-l\"iconv\"",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -DSCIENCEJOURNAL_ENABLE_DEBUG -DSCIENCEJOURNAL_DEV_BUILD";
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.opensource.ScienceJournal;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.arduino.ScienceJournal;
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -4583,7 +4583,7 @@
 					"\"SystemConfiguration\"",
 					"-l\"iconv\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.google.opensource.ScienceJournal;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.arduino.ScienceJournal;
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Science Journal Dev";
