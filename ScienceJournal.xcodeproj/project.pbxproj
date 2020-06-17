@@ -3042,7 +3042,7 @@
 				TargetAttributes = {
 					68EBA6D91E20421E0089FF7F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = EQHXZ8M8AV;
+						DevelopmentTeam = 7KT7ZWMCJT;
 						LastSwiftMigration = 1110;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -4059,8 +4059,9 @@
 			baseConfigurationReference = D65BB81A86250B67E7CA196C /* Pods-ScienceJournal.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal_dogfood_color;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MDFInternationalization\"",
@@ -4224,8 +4225,9 @@
 			baseConfigurationReference = 93AFC6D21C987695548ADC66 /* Pods-ScienceJournal.dogfood.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal_dogfood_color;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = EQHXZ8M8AV;
+				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MDFInternationalization\"",
@@ -4284,7 +4286,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cc.arduino.ScienceJournal;
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Science Journal Dev";
 				SWIFT_DEBUG_IMPLICIT_OBJC_ENTRYPOINT = 0;
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/ModuleMaps\"/**";
 				SWIFT_VERSION = 5.0;
@@ -4468,9 +4469,10 @@
 			baseConfigurationReference = 81B6ADB3C8B55839B4C266D2 /* Pods-ScienceJournal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal_dogfood_color;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = EQHXZ8M8AV;
+				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MDFInternationalization\"",
@@ -4531,7 +4533,7 @@
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "Science Journal Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "ScienceJournal Development";
 				SWIFT_DEBUG_IMPLICIT_OBJC_ENTRYPOINT = 3;
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/ModuleMaps\"/**";
 				SWIFT_VERSION = 5.0;
@@ -4545,8 +4547,9 @@
 			baseConfigurationReference = 1F4A9ECB04F0828D44D2C26D /* Pods-ScienceJournal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal_color;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = EQHXZ8M8AV;
+				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MDFInternationalization\"",
@@ -4586,7 +4589,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cc.arduino.ScienceJournal;
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Science Journal Dev";
 				SWIFT_DEBUG_IMPLICIT_OBJC_ENTRYPOINT = 0;
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/ModuleMaps\"/**";
 				SWIFT_VERSION = 5.0;
