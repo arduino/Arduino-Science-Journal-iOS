@@ -1743,15 +1743,15 @@ public class MetadataManager {
   func registerBluetoothSensors() {
     // Load any existing bluetooth specs from disk and create sensors.
     for spec in bluetoothSensorSpecs {
-      let interface = MakingScienceSensorInterface(name: spec.rememberedAppearance.name,
-                                                   identifier: spec.gadgetInfo.address)
-      if let sensorConfig = try? GSJBleSensorConfig(data: spec.config) {
-        interface.sensorConfig = sensorConfig
+      if let interface = MKRWiFi1010ServiceInterface.sensor(for: spec) {
+        let sensor = BluetoothSensor(sensorInterface: interface,
+                                     sensorTimer: sensorController.unifiedSensorTimer)
+        sensorController.addOrUpdateBluetoothSensor(sensor)
+      } else {
+        // We could not restore existing sensor. Delete it from disk.
+        deleteBluetoothSensor(withID: spec.gadgetInfo.address,
+                              providerID: spec.gadgetInfo.providerID)
       }
-
-      let sensor = BluetoothSensor(sensorInterface: interface,
-                                   sensorTimer: sensorController.unifiedSensorTimer)
-      sensorController.addOrUpdateBluetoothSensor(sensor)
     }
   }
 

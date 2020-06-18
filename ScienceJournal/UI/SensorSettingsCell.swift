@@ -55,12 +55,16 @@ class SensorSettingsCell: MDCCollectionViewCell {
       switch controlType {
       case .none:
         checkBox.isHidden = true
+        checkBox.isHidden = false
+        checkBox.alpha = 0
         rotatingButton.isHidden = true
       case .rotatingButton:
         checkBox.isHidden = true
+        checkBox.alpha = 1
         rotatingButton.isHidden = false
       case .checkBox:
         checkBox.isHidden = false
+        checkBox.alpha = 1
         rotatingButton.isHidden = true
       }
     }

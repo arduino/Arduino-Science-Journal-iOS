@@ -62,7 +62,7 @@ open class SensorController {
 
   /// Supported BLE Services.
   var bleServices: [BLEServiceInterface] {
-    return [MakingScienceServiceInterface()]
+    return [MKRWiFi1010ServiceInterface()]
   }
 
   /// Known bluetooth sensors keyed by service ID.

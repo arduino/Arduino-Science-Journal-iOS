@@ -222,7 +222,8 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
 
             // When 3rd party sensors are added, this will need to be added to the correct
             // device section.
-            let section = DeviceSection(name: sensorInterface.name, iconName: "ic_sensor_bluetooth")
+            let section = DeviceSection(name: section.serviceInterface.name,
+                                        iconName: section.serviceInterface.iconName)
             section.sensors.append(bluetoothSensor)
             deviceSections.append(section)
 
@@ -290,10 +291,10 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
             cell.image = UIImage(named: section.iconName)
             cell.tintColor = MDCPalette.blue.tint500
           } else {
-            cell.controlType = .checkBox
+            cell.controlType = .none
             let sensorInterface = section.peripherals[sectionIndex - 1]
             cell.textLabel.text = sensorInterface.name
-            cell.image = nil
+            cell.image = UIImage(named: sensorInterface.iconName)
             cell.tintColor = MDCPalette.grey.tint500
           }
           break
