@@ -1,0 +1,13 @@
+desc "Send a new build to TestFlight internal testers"
+lane :internal do
+	ensure_git_status_clean
+
+	increment_build_number(
+    	xcodeproj: "ScienceJournal.xcodeproj"
+  	)
+  	
+	build_app(scheme: "ScienceJournal", workspace: "ScienceJournal.xcworkspace")
+	
+	commit_version_bump
+	push_to_git_remote
+end

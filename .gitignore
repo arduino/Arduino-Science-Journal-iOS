@@ -36,3 +36,7 @@ Info-Combined.plist
 
 ## Local option overrides for SwiftLint
 .swiftlint.options.local
+
+## fastlane
+fastlane/report.xml
+fastlane/README.md

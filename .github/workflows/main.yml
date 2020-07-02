@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: macos-10.15
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Install dependencies
+      run: |
+        brew install protobuf@3.6; brew link protobuf@3.6 -f
+        gem install cocoapods
+        gem install fastlane
+        gem cleanup
+        pod install
+        
+    - uses: apple-actions/import-codesign-certs@v1
+      with: 
+        p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+        p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+        
+    - name: Import provisioning profile
+      env:
+        PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE }}
+      run: |
+        mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+        echo "$PROVISIONING_PROFILE" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
+        
+    - name: Build app
+      run: |
+        fastlane internal
+        
+    - name: Upload app to App Store Connect
+      env:
+        APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USER }}
+        APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_APP_PASSWORD }}
+        PRODUCT_NAME: "ScienceJournal"
+      run: |
+        xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"

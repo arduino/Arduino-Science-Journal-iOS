@@ -76,10 +76,10 @@ post_install do |installer|
   end
   puts "Generating Science Journal protos..."
   system("cd Protos && ./generate.sh")
-  puts "Updating version numbers and generating plist..."
-  system("cd Scripts && ./update_version_numbers.sh")
   puts "Removing unfixable warnings..."
   remove_unfixable_warnings! installer
+  puts "Fixing UIWebView usage..."
+  replace_uiwebview_with_wkwebview! installer
 end
 
 def upgrade_to_recommended_settings! config
@@ -97,6 +97,23 @@ def remove_unfixable_warnings! installer
       installer.pods_project.files.map(&:path).grep(/MDC\w+ColorThemer.h/).each do |file|
         path = "Pods/MaterialComponents/#{file}"
         content = IO.read(path).gsub(/__deprecated_msg\([^)]*\)/, '')
+        File.chmod(0644, path)
+        IO.write(path, content)
+        File.chmod(0444, path)
+      end
+    end
+  end
+end
+
+def replace_uiwebview_with_wkwebview! installer
+  installer.pod_targets.each do |target|
+    if target.name == 'MaterialComponents' && target.version == '85.0.0'
+      installer.pods_project.files.map(&:path).grep(/MDCBottomSheetPresentationController.m/).each do |file|
+        path = "Pods/MaterialComponents/#{file}"
+        content = IO.read(path)
+          .gsub(/UIWebView/, 'WKWebView')
+          .gsub(/#import "MDCBottomSheetPresentationController.h"/,
+                "#import \"MDCBottomSheetPresentationController.h\"\n\n#import <WebKit/WebKit.h>\n")
         File.chmod(0644, path)
         IO.write(path, content)
         File.chmod(0444, path)

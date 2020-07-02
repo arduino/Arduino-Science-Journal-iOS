@@ -38,11 +38,8 @@ extension Bundle {
       // This can be set to arbitrary values in dev as needed.
       return 9999
     #else
-      // This assumes the version string is in the format "1.2.3".
-      let versionParts = appVersionString.components(separatedBy: ".")
-      let build = versionParts[2]
-      guard let version = Int32(build) else {
-        fatalError("Build version string must be three integers separated by periods.")
+      guard let version = Int32(appVersionString) else {
+        fatalError("Unable to get build version.")
       }
       return version
     #endif
