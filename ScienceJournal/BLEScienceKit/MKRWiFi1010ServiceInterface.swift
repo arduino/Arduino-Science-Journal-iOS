@@ -22,8 +22,10 @@ import CoreBluetooth
 struct MKRWiFi1010Ids {
   static let serviceUUID = CBUUID(string: "555a0001-0000-467a-9538-01f0652c74e8")
   static let voltageUUID = CBUUID(string: "555a0001-4001-467a-9538-01f0652c74e8")
+  static let currentUUID = CBUUID(string: "555a0001-4002-467a-9538-01f0652c74e8")
 
   static let voltageProviderID = "arduino_sk_voltage"
+  static let currentProviderID = "arduino_sk_current"
 }
 
 class MKRWiFi1010ServiceInterface: BLEServiceInterface {
@@ -43,13 +45,18 @@ class MKRWiFi1010ServiceInterface: BLEServiceInterface {
     switch spec.gadgetInfo.providerID {
     case MKRWiFi1010Ids.voltageProviderID:
       return BLEScienceKitVoltageSensorInterface(spec: spec)
+    case MKRWiFi1010Ids.currentProviderID:
+      return BLEScienceKitCurrentSensorInterface(spec: spec)
     default:
       return nil
     }
   }
 
   func devicesForPeripheral(_ peripheral: CBPeripheral) -> [BLESensorInterface] {
-    return [BLEScienceKitVoltageSensorInterface(peripheral: peripheral)]
+    return [
+      BLEScienceKitVoltageSensorInterface(peripheral: peripheral),
+      BLEScienceKitCurrentSensorInterface(peripheral: peripheral)
+    ]
   }
 }
 
@@ -66,5 +73,21 @@ extension BLEScienceKitVoltageSensorInterface {
               identifier: spec.gadgetInfo.address,
               serviceId: MKRWiFi1010Ids.serviceUUID,
               characteristic: MKRWiFi1010Ids.voltageUUID)
+  }
+}
+
+extension BLEScienceKitCurrentSensorInterface {
+  convenience init(peripheral: CBPeripheral) {
+    self.init(providerId: MKRWiFi1010Ids.currentProviderID,
+              identifier: peripheral.identifier.uuidString,
+              serviceId: MKRWiFi1010Ids.serviceUUID,
+              characteristic: MKRWiFi1010Ids.currentUUID)
+  }
+
+  convenience init(spec: SensorSpec) {
+    self.init(providerId: spec.gadgetInfo.providerID,
+              identifier: spec.gadgetInfo.address,
+              serviceId: MKRWiFi1010Ids.serviceUUID,
+              characteristic: MKRWiFi1010Ids.currentUUID)
   }
 }
