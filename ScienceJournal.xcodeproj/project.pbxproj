@@ -2378,7 +2378,9 @@
 				68EBA6F11E20421E0089FF7F /* ScienceJournalTests */,
 				68EBA6FC1E20421E0089FF7F /* ScienceJournalUITests */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		68EBA6DB1E20421E0089FF7F /* Products */ = {
 			isa = PBXGroup;
