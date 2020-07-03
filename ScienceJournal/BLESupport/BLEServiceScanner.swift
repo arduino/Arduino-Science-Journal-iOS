@@ -68,6 +68,18 @@ class BLEServiceScanner: NSObject, CBCentralManagerDelegate {
   fileprivate(set) var requestedPeripheralId: UUID?
   fileprivate(set) var requestedPeripheralConnectionBlock: ConnectionClosure?
 
+  private weak var delayTimer: Timer? {
+    didSet {
+      if let timer = oldValue, timer.isValid { timer.invalidate() }
+    }
+  }
+
+  private weak var resumeTimer: Timer? {
+    didSet {
+      if let timer = oldValue, timer.isValid { timer.invalidate() }
+    }
+  }
+
   init(services: [CBUUID]? = nil) {
     serviceUUIDs = services
     super.init()
@@ -103,8 +115,22 @@ class BLEServiceScanner: NSObject, CBCentralManagerDelegate {
     }
 
     for discovered in discoveredPeripherals where discovered.peripheral.identifier == uuid {
-        connectTo(discovered.peripheral, completion: completion)
-        return
+      connectTo(discovered.peripheral, completion: completion)
+      return
+    }
+
+    // CBCentralManager might be already connected to this pheripheral
+    // (e.g. from another BLEServiceScanner instance). In this case scanning
+    // wouldn't discover it so we're going to reuse the already connected one.
+    let connectedPeripherals =
+      centralManager.retrieveConnectedPeripherals(withServices: serviceUUIDs ?? [])
+
+    if let peripheral = connectedPeripherals.first(where: { $0.identifier == uuid }) {
+      discoveredPeripherals.append(
+        DiscoveredPeripheral(peripheral: peripheral, serviceIds: serviceUUIDs)
+      )
+      connectTo(peripheral, completion: completion)
+      return
     }
 
     // If there isn't already a peripheral with this id, store it for later.
@@ -129,24 +155,26 @@ class BLEServiceScanner: NSObject, CBCentralManagerDelegate {
     centralManager.cancelPeripheralConnection(peripheral)
   }
 
-  @objc fileprivate func resumeScanning() {
+  /// Resume scanning without waiting the automatic timeout.
+  /// Useful when a peripherals refresh is needed.
+  @objc func resumeScanning() {
     guard shouldScan, let serviceUUIDs = serviceUUIDs else { return }
 
     centralManager.scanForPeripherals(withServices: serviceUUIDs, options: nil)
-    Timer.scheduledTimer(timeInterval: scanInterval,
-                         target: self,
-                         selector: #selector(delayScanning),
-                         userInfo: nil,
-                         repeats: false)
+    delayTimer = Timer.scheduledTimer(timeInterval: scanInterval,
+                                      target: self,
+                                      selector: #selector(delayScanning),
+                                      userInfo: nil,
+                                      repeats: false)
   }
 
   @objc fileprivate func delayScanning() {
     centralManager.stopScan()
-    Timer.scheduledTimer(timeInterval: pauseInterval,
-                         target: self,
-                         selector: #selector(resumeScanning),
-                         userInfo: nil,
-                         repeats: false)
+    resumeTimer = Timer.scheduledTimer(timeInterval: pauseInterval,
+                                       target: self,
+                                       selector: #selector(resumeScanning),
+                                       userInfo: nil,
+                                       repeats: false)
   }
 
   // MARK: - CBCentralManagerDelegate
