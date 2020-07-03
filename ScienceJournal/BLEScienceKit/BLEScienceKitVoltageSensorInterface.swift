@@ -23,8 +23,6 @@ import CoreBluetooth
 import third_party_sciencejournal_ios_ScienceJournalProtos
 
 class BLEScienceKitVoltageSensorInterface: BLESensorInterface {
-  let characteristic: CBUUID
-
   var identifier: String
 
   var serviceId: CBUUID
@@ -57,6 +55,8 @@ class BLEScienceKitVoltageSensorInterface: BLESensorInterface {
                                                                 secondParagraph: "",
                                                                 imageName: "")
 
+  var characteristic: CBUUID { CBUUID(string: identifier) }
+
   private var serviceScanner: BLEServiceScanner
   private var peripheralInterface: BLEPeripheralInterface?
 
@@ -64,10 +64,8 @@ class BLEScienceKitVoltageSensorInterface: BLESensorInterface {
 
   required init(providerId: String,
                 identifier: String,
-                serviceId: CBUUID,
-                characteristic: CBUUID) {
+                serviceId: CBUUID) {
     self.providerId = providerId
-    self.characteristic = characteristic
     self.identifier = identifier
     self.serviceId = serviceId
     self.serviceScanner = BLEServiceScanner(services: [serviceId])
@@ -78,7 +76,7 @@ class BLEScienceKitVoltageSensorInterface: BLESensorInterface {
   }
 
   func connect(_ completion: @escaping (Bool) -> Void) {
-    serviceScanner.connectToPeripheral(withIdentifier: identifier) { (peripheral, error) in
+    serviceScanner.connectToPeripheral(withIdentifier: providerId) { (peripheral, error) in
       // Stop scanning.
       self.serviceScanner.stopScanning()
 
