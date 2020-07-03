@@ -611,6 +611,7 @@
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC3B963A249B5509000D7646 /* BLEScienceKitVoltageSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9639249B5509000D7646 /* BLEScienceKitVoltageSensorInterface.swift */; };
 		BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */; };
+		BCD3083A24AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3083924AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift */; };
 		D54E27EF21A3423A0055743E /* AudioAnalyzerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */; };
 		D54E27F121A346980055743E /* TestResources in Resources */ = {isa = PBXBuildFile; fileRef = D54E27F021A346980055743E /* TestResources */; };
 		D5929B1486B341B6A50367D9 /* libPods-ScienceJournalUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551CFA53B9638874BCF64A15 /* libPods-ScienceJournalUITests.a */; };
@@ -1307,6 +1308,7 @@
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC3B9639249B5509000D7646 /* BLEScienceKitVoltageSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensorInterface.swift; sourceTree = "<group>"; };
 		BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
+		BCD3083924AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitCurrentSensorInterface.swift; sourceTree = "<group>"; };
 		C910BBBCF124BDC00C1BCC07 /* Pods-ScienceJournalUITests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		CD482804BCE6CEED23042379 /* Pods-ScienceJournalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerTest.swift; sourceTree = "<group>"; };
@@ -2376,7 +2378,9 @@
 				68EBA6F11E20421E0089FF7F /* ScienceJournalTests */,
 				68EBA6FC1E20421E0089FF7F /* ScienceJournalUITests */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		68EBA6DB1E20421E0089FF7F /* Products */ = {
 			isa = PBXGroup;
@@ -2953,6 +2957,7 @@
 		BC3B9634249A6A3E000D7646 /* BLEScienceKit */ = {
 			isa = PBXGroup;
 			children = (
+				BCD3083924AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift */,
 				BC3B9639249B5509000D7646 /* BLEScienceKitVoltageSensorInterface.swift */,
 				BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */,
 			);
@@ -3410,6 +3415,7 @@
 				8B9319641EF9A11900A078F4 /* DrawerPosition.swift in Sources */,
 				8B35F50A1EAA6C220032FE15 /* RotatingExpandButton.swift in Sources */,
 				8B111F641E41212B000400F1 /* Sensor.swift in Sources */,
+				BCD3083A24AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift in Sources */,
 				8BE9CECE20E6CF2C00DE796F /* DrawerItemKeys.swift in Sources */,
 				5CCB62B61F8679ED00F9BB7D /* CSVWriter.swift in Sources */,
 				D59CA3CE219CEE690082A27B /* MovingAverage.swift in Sources */,

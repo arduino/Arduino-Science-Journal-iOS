@@ -220,12 +220,19 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
             let sensorInterface = section.peripherals.remove(at: sectionIndex - 1)
             let bluetoothSensor = metadataManager.saveAndUpdateBluetoothSensor(sensorInterface)
 
-            // When 3rd party sensors are added, this will need to be added to the correct
-            // device section.
-            let section = DeviceSection(name: section.serviceInterface.name,
-                                        iconName: section.serviceInterface.iconName)
-            section.sensors.append(bluetoothSensor)
-            deviceSections.append(section)
+            var deviceSection = deviceSections.first(where: {
+              $0.name == section.serviceInterface.name
+            })
+            if deviceSection == nil {
+              deviceSection = DeviceSection(name: section.serviceInterface.name,
+                                            iconName: section.serviceInterface.iconName)
+              deviceSections.append(deviceSection!)
+            }
+            deviceSection!.sensors.append(bluetoothSensor)
+
+            if !isSensorEnabled(bluetoothSensor) {
+              toggleSensorEnabled(bluetoothSensor)
+            }
 
             delegate?.sensorSettingsDataSource(self, sensorShouldShowOptions: sensorInterface)
           }
@@ -393,6 +400,12 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
 
     deviceSections.remove(at: sectionIndex)
     delegate?.sensorSettingsDataSourceNeedsRefresh(self)
+
+    // When removing a bluetooth device let's resume scanning in order
+    // to make all sensors reappear in the available devices section.
+    if !section.isInternalSensors {
+      serviceScanner.resumeScanning()
+    }
   }
 
   // MARK: - Private
@@ -424,18 +437,16 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
 
   func serviceScannerDiscoveredNewPeripherals(_ serviceScanner: BLEServiceScanner) {
     let bluetoothSensors = sensorController.bluetoothSensors.values.reduce([], +)
-    let addresses = bluetoothSensors.map { $0.sensorInterafce.identifier }
-    let unpairedPeripherals = serviceScanner.discoveredPeripherals.filter { (discovered) -> Bool in
-      !addresses.contains(discovered.peripheral.identifier.uuidString)
-    }
+    let savedSensors = bluetoothSensors.map { $0.sensorInterafce.identifier }
 
     for section in serviceSections {
       var sensors = [BLESensorInterface]()
-      for discoveredPeripheral in unpairedPeripherals {
+      for discoveredPeripheral in serviceScanner.discoveredPeripherals {
         guard let serviceIds = discoveredPeripheral.serviceIds else { continue }
         if serviceIds.contains(section.serviceInterface.serviceId) {
           let discoveredSensors =
               section.serviceInterface.devicesForPeripheral(discoveredPeripheral.peripheral)
+                .filter { !savedSensors.contains($0.identifier) }
           sensors.append(contentsOf: discoveredSensors)
         }
       }

@@ -1,8 +1,8 @@
 //  
-//  BLEScienceKitVoltageSensorInterface.swift
+//  BLEScienceKitCurrentSensorInterface.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 18/06/2020.
+//  Created by Emilio Pavia on 02/07/2020.
 //  Copyright © 2020 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,9 +20,7 @@
 import UIKit
 import CoreBluetooth
 
-import third_party_sciencejournal_ios_ScienceJournalProtos
-
-class BLEScienceKitVoltageSensorInterface: BLESensorInterface {
+class BLEScienceKitCurrentSensorInterface: BLESensorInterface {
   var identifier: String
 
   var serviceId: CBUUID
@@ -30,23 +28,22 @@ class BLEScienceKitVoltageSensorInterface: BLESensorInterface {
   var providerId: String
 
   // FIXME: Localize
-  var name: String { "Voltage" }
+  var name: String { "Current" }
 
-  var iconName: String { "mkrsci_sensor_voltage" }
+  var iconName: String { "mkrsci_sensor_current" }
 
-  var animatingIconName: String { "mkrsci_voltage" }
+  var animatingIconName: String { "mkrsci_current" }
 
   var config: Data?
 
   var peripheral: CBPeripheral?
 
-  var unitDescription: String? { "V" }
+  var unitDescription: String? { "A" }
 
   // FIXME: Localize
   var textDescription: String {
-    "The difference in electric " +
-    "potential between two places " +
-    "that allows a current to flow" }
+    "The amount of flow of charged " +
+    "particles between two places" }
 
   var hasOptions: Bool { false }
 
@@ -82,8 +79,8 @@ class BLEScienceKitVoltageSensorInterface: BLESensorInterface {
 
       guard peripheral != nil else {
         print("[BluetoothSensor] Error connecting to " +
-              "peripheral: \(String(describing: error?.peripheral.name)) " +
-              "address: \(String(describing: error?.peripheral.identifier))")
+          "peripheral: \(String(describing: error?.peripheral.name)) " +
+          "address: \(String(describing: error?.peripheral.identifier))")
         // TODO: Pass along connection error http://b/64684813
         completion(false)
         return
