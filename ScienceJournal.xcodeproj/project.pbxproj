@@ -613,6 +613,7 @@
 		BCEC93A524C033D20041296C /* BLEScienceKitSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */; };
 		BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */; };
 		BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */; };
+		BCEC93AB24C0471A0041296C /* BLEScienceKitResistanceSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */; };
 		D54E27EF21A3423A0055743E /* AudioAnalyzerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */; };
 		D54E27F121A346980055743E /* TestResources in Resources */ = {isa = PBXBuildFile; fileRef = D54E27F021A346980055743E /* TestResources */; };
 		D5929B1486B341B6A50367D9 /* libPods-ScienceJournalUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551CFA53B9638874BCF64A15 /* libPods-ScienceJournalUITests.a */; };
@@ -1311,6 +1312,7 @@
 		BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitSensorInterface.swift; sourceTree = "<group>"; };
 		BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensor.swift; sourceTree = "<group>"; };
 		BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitCurrentSensor.swift; sourceTree = "<group>"; };
+		BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitResistanceSensor.swift; sourceTree = "<group>"; };
 		C910BBBCF124BDC00C1BCC07 /* Pods-ScienceJournalUITests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		CD482804BCE6CEED23042379 /* Pods-ScienceJournalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerTest.swift; sourceTree = "<group>"; };
@@ -2959,12 +2961,21 @@
 		BC3B9634249A6A3E000D7646 /* BLEScienceKit */ = {
 			isa = PBXGroup;
 			children = (
-				BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */,
 				BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */,
-				BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */,
 				BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */,
+				BCEC93AC24C0472E0041296C /* Sensors */,
 			);
 			path = BLEScienceKit;
+			sourceTree = "<group>";
+		};
+		BCEC93AC24C0472E0041296C /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */,
+				BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */,
+				BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */,
+			);
+			path = Sensors;
 			sourceTree = "<group>";
 		};
 		D80999890678E0AFC0831674 /* Pods */ = {
@@ -3698,6 +3709,7 @@
 				8B84E0301EAFF429005E9AA0 /* DrawerView.swift in Sources */,
 				8B1B2AF91EE9851400990FE8 /* PopUpMenuCell.swift in Sources */,
 				5C7DB7D220EA974200F915CD /* OperationResult.swift in Sources */,
+				BCEC93AB24C0471A0041296C /* BLEScienceKitResistanceSensor.swift in Sources */,
 				5CF7C5FF1E663AFF0029BD28 /* TimeAxisView.swift in Sources */,
 				5C7EFC5D202E36120007F99E /* GSJOperationQueue.swift in Sources */,
 				8B9F06121EF42CE10030B011 /* TriggerInformation.swift in Sources */,

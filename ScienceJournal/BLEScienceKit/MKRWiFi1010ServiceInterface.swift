@@ -42,6 +42,8 @@ class MKRWiFi1010ServiceInterface: BLEServiceInterface {
       return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitVoltageSensor())
     case BLEScienceKitCurrentSensor.uuid.uuidString:
       return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitCurrentSensor())
+    case BLEScienceKitResistanceSensor.uuid.uuidString:
+      return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitResistanceSensor())
     default:
       return nil
     }
@@ -51,6 +53,7 @@ class MKRWiFi1010ServiceInterface: BLEServiceInterface {
     return [
       BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitVoltageSensor()),
       BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitCurrentSensor()),
+      BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitResistanceSensor())
     ]
   }
 }
