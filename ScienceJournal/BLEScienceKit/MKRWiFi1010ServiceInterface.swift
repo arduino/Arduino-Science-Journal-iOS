@@ -21,8 +21,6 @@ import CoreBluetooth
 
 struct MKRWiFi1010Ids {
   static let serviceUUID = CBUUID(string: "555a0001-0000-467a-9538-01f0652c74e8")
-  static let voltageUUID = CBUUID(string: "555a0001-4001-467a-9538-01f0652c74e8")
-  static let currentUUID = CBUUID(string: "555a0001-4002-467a-9538-01f0652c74e8")
 }
 
 class MKRWiFi1010ServiceInterface: BLEServiceInterface {
@@ -40,10 +38,10 @@ class MKRWiFi1010ServiceInterface: BLEServiceInterface {
 
   class func sensor(for spec: SensorSpec) -> BLESensorInterface? {
     switch spec.gadgetInfo.address {
-    case MKRWiFi1010Ids.voltageUUID.uuidString:
-      return BLEScienceKitVoltageSensorInterface(spec: spec)
-    case MKRWiFi1010Ids.currentUUID.uuidString:
-      return BLEScienceKitCurrentSensorInterface(spec: spec)
+    case BLEScienceKitVoltageSensor.uuid.uuidString:
+      return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitVoltageSensor())
+    case BLEScienceKitCurrentSensor.uuid.uuidString:
+      return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitCurrentSensor())
     default:
       return nil
     }
@@ -51,36 +49,22 @@ class MKRWiFi1010ServiceInterface: BLEServiceInterface {
 
   func devicesForPeripheral(_ peripheral: CBPeripheral) -> [BLESensorInterface] {
     return [
-      BLEScienceKitVoltageSensorInterface(peripheral: peripheral),
-      BLEScienceKitCurrentSensorInterface(peripheral: peripheral)
+      BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitVoltageSensor()),
+      BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitCurrentSensor()),
     ]
   }
 }
 
-extension BLEScienceKitVoltageSensorInterface {
-  convenience init(peripheral: CBPeripheral) {
-    self.init(providerId: peripheral.identifier.uuidString,
-              identifier: MKRWiFi1010Ids.voltageUUID.uuidString,
+extension BLEScienceKitSensorInterface {
+  convenience init(peripheral: CBPeripheral, sensor: BLEScienceKitSensor) {
+    self.init(sensor: sensor,
+              providerId: peripheral.identifier.uuidString,
               serviceId: MKRWiFi1010Ids.serviceUUID)
   }
 
-  convenience init(spec: SensorSpec) {
-    self.init(providerId: spec.gadgetInfo.providerID,
-              identifier: spec.gadgetInfo.address,
-              serviceId: MKRWiFi1010Ids.serviceUUID)
-  }
-}
-
-extension BLEScienceKitCurrentSensorInterface {
-  convenience init(peripheral: CBPeripheral) {
-    self.init(providerId: peripheral.identifier.uuidString,
-              identifier: MKRWiFi1010Ids.currentUUID.uuidString,
-              serviceId: MKRWiFi1010Ids.serviceUUID)
-  }
-
-  convenience init(spec: SensorSpec) {
-    self.init(providerId: spec.gadgetInfo.providerID,
-              identifier: spec.gadgetInfo.address,
+  convenience init(spec: SensorSpec, sensor: BLEScienceKitSensor) {
+    self.init(sensor: sensor,
+              providerId: spec.gadgetInfo.providerID,
               serviceId: MKRWiFi1010Ids.serviceUUID)
   }
 }

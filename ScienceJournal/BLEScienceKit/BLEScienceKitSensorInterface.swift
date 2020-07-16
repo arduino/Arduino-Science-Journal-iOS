@@ -1,8 +1,8 @@
 //  
-//  BLEScienceKitCurrentSensorInterface.swift
+//  BLEScienceKitSensorInterface.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 02/07/2020.
+//  Created by Emilio Pavia on 16/07/2020.
 //  Copyright © 2020 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,37 +20,47 @@
 import UIKit
 import CoreBluetooth
 
-class BLEScienceKitCurrentSensorInterface: BLESensorInterface {
-  var identifier: String
+import third_party_sciencejournal_ios_ScienceJournalProtos
+
+protocol BLEScienceKitSensor {
+  static var uuid: CBUUID { get }
+
+  var name: String { get }
+  var iconName: String { get }
+  var animatingIconName: String { get }
+  var unitDescription: String? { get }
+  var textDescription: String { get }
+  var learnMoreInformation: Sensor.LearnMore { get }
+
+  func point(for data: Data) -> Double
+}
+
+class BLEScienceKitSensorInterface: BLESensorInterface {
+  let sensor: BLEScienceKitSensor
+
+  var identifier: String { type(of: sensor).uuid.uuidString }
 
   var serviceId: CBUUID
 
   var providerId: String
 
-  // FIXME: Localize
-  var name: String { "Current" }
+  var name: String { sensor.name }
 
-  var iconName: String { "mkrsci_sensor_current" }
+  var iconName: String { sensor.iconName }
 
-  var animatingIconName: String { "mkrsci_current" }
+  var animatingIconName: String { sensor.animatingIconName }
 
   var config: Data?
 
   var peripheral: CBPeripheral?
 
-  var unitDescription: String? { "A" }
+  var unitDescription: String? { sensor.unitDescription }
 
-  // FIXME: Localize
-  var textDescription: String {
-    "The amount of flow of charged " +
-    "particles between two places" }
+  var textDescription: String { sensor.textDescription }
 
   var hasOptions: Bool { false }
 
-  // FIXME: Change
-  var learnMoreInformation: Sensor.LearnMore = Sensor.LearnMore(firstParagraph: "",
-                                                                secondParagraph: "",
-                                                                imageName: "")
+  var learnMoreInformation: Sensor.LearnMore { sensor.learnMoreInformation }
 
   var characteristic: CBUUID { CBUUID(string: identifier) }
 
@@ -59,11 +69,11 @@ class BLEScienceKitCurrentSensorInterface: BLESensorInterface {
 
   private lazy var clock = Clock()
 
-  required init(providerId: String,
-                identifier: String,
+  required init(sensor: BLEScienceKitSensor,
+                providerId: String,
                 serviceId: CBUUID) {
+    self.sensor = sensor
     self.providerId = providerId
-    self.identifier = identifier
     self.serviceId = serviceId
     self.serviceScanner = BLEServiceScanner(services: [serviceId])
   }
@@ -79,8 +89,8 @@ class BLEScienceKitCurrentSensorInterface: BLESensorInterface {
 
       guard peripheral != nil else {
         print("[BluetoothSensor] Error connecting to " +
-          "peripheral: \(String(describing: error?.peripheral.name)) " +
-          "address: \(String(describing: error?.peripheral.identifier))")
+              "peripheral: \(String(describing: error?.peripheral.name)) " +
+              "address: \(String(describing: error?.peripheral.identifier))")
         // TODO: Pass along connection error http://b/64684813
         completion(false)
         return
@@ -98,10 +108,10 @@ class BLEScienceKitCurrentSensorInterface: BLESensorInterface {
     let interface = BLEPeripheralInterface(peripheral: peripheral,
                                            serviceUUID: serviceId,
                                            characteristicUUIDs: [characteristic])
-    interface.updatesForCharacteristic(characteristic, block: { [clock] data in
-      let float = data.withUnsafeBytes { $0.load(as: Float.self) }
+    interface.updatesForCharacteristic(characteristic, block: { [clock, sensor] data in
+      let point = sensor.point(for: data)
       let dataPoint = DataPoint(x: clock.millisecondsSince1970,
-                                y: Double(float))
+                                y: point)
       listener(dataPoint)
     })
     self.peripheralInterface = interface

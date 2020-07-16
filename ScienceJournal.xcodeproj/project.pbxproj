@@ -609,9 +609,10 @@
 		8BFCF97E1FAA2EDC0030A6DC /* ArchiveFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCF97D1FAA2EDC0030A6DC /* ArchiveFlagView.swift */; };
 		924D434B56557C3367183755 /* Pods_ScienceJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
-		BC3B963A249B5509000D7646 /* BLEScienceKitVoltageSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9639249B5509000D7646 /* BLEScienceKitVoltageSensorInterface.swift */; };
 		BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */; };
-		BCD3083A24AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3083924AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift */; };
+		BCEC93A524C033D20041296C /* BLEScienceKitSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */; };
+		BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */; };
+		BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */; };
 		D54E27EF21A3423A0055743E /* AudioAnalyzerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */; };
 		D54E27F121A346980055743E /* TestResources in Resources */ = {isa = PBXBuildFile; fileRef = D54E27F021A346980055743E /* TestResources */; };
 		D5929B1486B341B6A50367D9 /* libPods-ScienceJournalUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551CFA53B9638874BCF64A15 /* libPods-ScienceJournalUITests.a */; };
@@ -1306,9 +1307,10 @@
 		93AFC6D21C987695548ADC66 /* Pods-ScienceJournal.dogfood.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.dogfood.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.dogfood.xcconfig"; sourceTree = "<group>"; };
 		958B33107B78081C00CE9569 /* Pods-ScienceJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
-		BC3B9639249B5509000D7646 /* BLEScienceKitVoltageSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensorInterface.swift; sourceTree = "<group>"; };
 		BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
-		BCD3083924AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitCurrentSensorInterface.swift; sourceTree = "<group>"; };
+		BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitSensorInterface.swift; sourceTree = "<group>"; };
+		BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensor.swift; sourceTree = "<group>"; };
+		BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitCurrentSensor.swift; sourceTree = "<group>"; };
 		C910BBBCF124BDC00C1BCC07 /* Pods-ScienceJournalUITests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		CD482804BCE6CEED23042379 /* Pods-ScienceJournalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerTest.swift; sourceTree = "<group>"; };
@@ -2371,12 +2373,12 @@
 		68EBA6D11E20421E0089FF7F = {
 			isa = PBXGroup;
 			children = (
-				756449A1BBD2BCE08FA6A6A7 /* Frameworks */,
-				D80999890678E0AFC0831674 /* Pods */,
-				68EBA6DB1E20421E0089FF7F /* Products */,
 				68EBA6DC1E20421E0089FF7F /* ScienceJournal */,
 				68EBA6F11E20421E0089FF7F /* ScienceJournalTests */,
 				68EBA6FC1E20421E0089FF7F /* ScienceJournalUITests */,
+				756449A1BBD2BCE08FA6A6A7 /* Frameworks */,
+				D80999890678E0AFC0831674 /* Pods */,
+				68EBA6DB1E20421E0089FF7F /* Products */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -2957,8 +2959,9 @@
 		BC3B9634249A6A3E000D7646 /* BLEScienceKit */ = {
 			isa = PBXGroup;
 			children = (
-				BCD3083924AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift */,
-				BC3B9639249B5509000D7646 /* BLEScienceKitVoltageSensorInterface.swift */,
+				BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */,
+				BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */,
+				BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */,
 				BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */,
 			);
 			path = BLEScienceKit;
@@ -3415,7 +3418,7 @@
 				8B9319641EF9A11900A078F4 /* DrawerPosition.swift in Sources */,
 				8B35F50A1EAA6C220032FE15 /* RotatingExpandButton.swift in Sources */,
 				8B111F641E41212B000400F1 /* Sensor.swift in Sources */,
-				BCD3083A24AE22B2000220DA /* BLEScienceKitCurrentSensorInterface.swift in Sources */,
+				BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */,
 				8BE9CECE20E6CF2C00DE796F /* DrawerItemKeys.swift in Sources */,
 				5CCB62B61F8679ED00F9BB7D /* CSVWriter.swift in Sources */,
 				D59CA3CE219CEE690082A27B /* MovingAverage.swift in Sources */,
@@ -3532,6 +3535,7 @@
 				5C6C62631EE07B3800798989 /* BasicSensorAppearance.swift in Sources */,
 				8BA5BF391F44DE7700EB77E8 /* CaptureSessionInterruptionObserver.swift in Sources */,
 				48C767B520F92BA800A67C4A /* SignInViewController.swift in Sources */,
+				BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */,
 				8BCCDF5F1EB9265800E85517 /* CameraActionBar.swift in Sources */,
 				3FA7052622F8DF5100753842 /* ActionAreaMasterContentContainerViewController.swift in Sources */,
 				68CD50D81E57DD51005E928F /* SensorCardCell.swift in Sources */,
@@ -3622,6 +3626,7 @@
 				68A854F21ED3977C0010B28E /* ExperimentsListHeaderView.swift in Sources */,
 				5CBD9AAD1F6C836600D22D21 /* OptionSelectorView.swift in Sources */,
 				8B1791D11F140F22008C0B31 /* TriggerValueEntryView.swift in Sources */,
+				BCEC93A524C033D20041296C /* BLEScienceKitSensorInterface.swift in Sources */,
 				5C2C2A2F20373014007F2FA5 /* UnzipOperation.swift in Sources */,
 				687FAA0C202C1162004C1D04 /* SensorTrigger.pbobjc.m in Sources */,
 				8B244F441E661AC100FC03B5 /* DataModel.xcdatamodeld in Sources */,
@@ -3847,7 +3852,6 @@
 				48AAE5DC22D7AD88009D3EFB /* PDFExportOverlayViewController.swift in Sources */,
 				68F14AC21F21801F0054E799 /* TimeInterval+ScienceJournal.swift in Sources */,
 				5C7B87BF1FCDABC700EDEF1D /* EditTimestampView.swift in Sources */,
-				BC3B963A249B5509000D7646 /* BLEScienceKitVoltageSensorInterface.swift in Sources */,
 				5C63842221067BD4008281DF /* ExclusivityController.swift in Sources */,
 				5C32452B1EF1D5B300E8664B /* DisplayTextNoteViewData.swift in Sources */,
 				5CBD9AA91F6C1B8100D22D21 /* PinType.swift in Sources */,
