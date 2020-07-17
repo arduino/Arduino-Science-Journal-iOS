@@ -281,6 +281,12 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
             cell.tintColor = MDCPalette.grey.tint500
             cell.isCheckBoxDisabled = section.isInternalSensors &&
                 numberOfEnabledInternalSensorIDs <= 1 && isSensorEnabled(sensor)
+
+            if isSensorConfigurable(sensor) {
+              cell.setButtonImage(UIImage(named: "ic_settings"))
+            } else {
+              cell.setButtonImage(nil)
+            }
           }
           break
         }
@@ -431,6 +437,14 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
     } else {
       enabledSensorIDs.append(sensor.sensorId)
     }
+  }
+
+  private func isSensorConfigurable(_ sensor: Sensor) -> Bool {
+    guard let bluetoothSensor = sensor as? BluetoothSensor else {
+      return false
+    }
+
+    return bluetoothSensor.sensorInterafce.hasOptions
   }
 
   // MARK: - BLEServiceScannerDelegate

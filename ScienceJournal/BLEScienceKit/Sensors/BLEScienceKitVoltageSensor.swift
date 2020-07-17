@@ -41,6 +41,8 @@ struct BLEScienceKitVoltageSensor: BLEScienceKitSensor {
                      imageName: "")
   }
 
+  var config: BLEScienceKitSensorConfig?
+
   func point(for data: Data) -> Double {
     let float = data.withUnsafeBytes { $0.load(as: Float.self) }
     return Double(float)

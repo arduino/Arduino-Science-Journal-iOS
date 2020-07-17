@@ -610,6 +610,9 @@
 		924D434B56557C3367183755 /* Pods_ScienceJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */; };
+		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
+		BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */; };
+		BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */; };
 		BCEC93A524C033D20041296C /* BLEScienceKitSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */; };
 		BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */; };
 		BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */; };
@@ -1309,6 +1312,9 @@
 		958B33107B78081C00CE9569 /* Pods-ScienceJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
+		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
+		BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigViewController.swift; sourceTree = "<group>"; };
+		BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigSelectorView.swift; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitSensorInterface.swift; sourceTree = "<group>"; };
 		BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensor.swift; sourceTree = "<group>"; };
 		BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitCurrentSensor.swift; sourceTree = "<group>"; };
@@ -2964,14 +2970,25 @@
 				BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */,
 				BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */,
 				BCEC93AC24C0472E0041296C /* Sensors */,
+				BCB6953B24C08FA500CFCD9F /* UI */,
 			);
 			path = BLEScienceKit;
+			sourceTree = "<group>";
+		};
+		BCB6953B24C08FA500CFCD9F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */,
+				BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		BCEC93AC24C0472E0041296C /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
 				BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */,
+				BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */,
 				BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */,
 				BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */,
 			);
@@ -3547,6 +3564,7 @@
 				8BA5BF391F44DE7700EB77E8 /* CaptureSessionInterruptionObserver.swift in Sources */,
 				48C767B520F92BA800A67C4A /* SignInViewController.swift in Sources */,
 				BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */,
+				BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */,
 				8BCCDF5F1EB9265800E85517 /* CameraActionBar.swift in Sources */,
 				3FA7052622F8DF5100753842 /* ActionAreaMasterContentContainerViewController.swift in Sources */,
 				68CD50D81E57DD51005E928F /* SensorCardCell.swift in Sources */,
@@ -3671,6 +3689,7 @@
 				5CE521A4209D045700767C8E /* RootUserManager.swift in Sources */,
 				3F22062423046E9D00FB19D0 /* ActionAreaBarViewController.swift in Sources */,
 				5CFC8E5E204757A100A674C2 /* IconPath.swift in Sources */,
+				BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */,
 				58C4DB1622D53B4C0029E519 /* PDFExportController.swift in Sources */,
 				6806591C1EC2704D0090670C /* TextNoteCardView.swift in Sources */,
 				68D606691F0C1D190077ABCD /* EditExperimentPhotoView.swift in Sources */,
@@ -3682,6 +3701,7 @@
 				5C72195D1ED8D04700817F0B /* Experiment.swift in Sources */,
 				8B5922A11F9E374A0090DB6F /* LocalizedNumberFormatter.swift in Sources */,
 				5C61A2B520BF4DC6007E7F3D /* ExperimentChange.swift in Sources */,
+				BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */,
 				8BCCAD581EDF62F300278F05 /* PopUpMenuTransitionController.swift in Sources */,
 				8B111F6B1E412287000400F1 /* Date+ScienceJournal.swift in Sources */,
 				5CCB62BC1F8BCFDD00F9BB7D /* TrialDataWriter.swift in Sources */,

@@ -264,7 +264,17 @@ class SensorSettingsViewController: MaterialHeaderCollectionViewController,
       }))
       popUpMenuVC.present(from: self, position: .sourceView(button))
     } else {
-      // TODO: Handle configure button press. http://b/66649890
+      guard !deviceSection.isInternalSensors else {
+        return
+      }
+
+      guard let sensor = deviceSection.sensors[indexPath.item - (headerIndex + 1)]
+        as? BluetoothSensor else { return }
+
+      let sensorInterface = sensor.sensorInterafce
+      sensorInterface.presentOptions(from: self) {
+        self.metadataManager.saveAndUpdateBluetoothSensor(sensorInterface)
+      }
     }
   }
 

@@ -164,6 +164,10 @@ extension MakingScienceSensorConfigViewController {
   override open var analyticsViewName: String { return "BluetoothSensorConfig" }
 }
 
+extension ScienceKitSensorConfigViewController {
+  override open var analyticsViewName: String { return "ScienceKitSensorConfig" }
+}
+
 // MARK: Settings
 
 extension SettingsViewController {

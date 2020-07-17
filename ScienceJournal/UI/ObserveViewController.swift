@@ -758,6 +758,20 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
     sensorCard.toneGenerator.stop()
   }
 
+  private func updateSensorCard(_ sensorCard: SensorCard, with sensor: Sensor) {
+    guard sensorCard.sensor.sensorId == sensor.sensorId else { return }
+
+    // Stop listening to previous sensor
+    removeListener(forSensorCard: sensorCard)
+    observeDataSource.endUsingSensor(sensorCard.sensor)
+
+    // Start listening to new sensor
+    sensorCard.sensor = sensor
+
+    observeDataSource.beginUsingSensor(sensorCard.sensor)
+    addListener(forSensorCard: sensorCard)
+  }
+
   private func removeSensorCardCell(_ cell: SensorCardCell) {
     guard let indexPath = collectionView?.indexPath(for: cell) else {
       return
@@ -933,6 +947,10 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
     for sensorCard in observeItems {
       if !availableSensorIDs.contains(sensorCard.sensor.sensorId) {
         removeSensorCardFromDataSource(sensorCard)
+      } else if let sensor = sensorController.sensor(for: sensorCard.sensor.sensorId),
+        sensorCard.sensor != sensor {
+
+        updateSensorCard(sensorCard, with: sensor)
       }
     }
 
@@ -1046,8 +1064,10 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
   func setAvailableSensorIDs(_ availableSensorIDs: [String], andAddListeners: Bool) {
     if availableSensorIDs != self.availableSensorIDs {
       self.observeDataSource.availableSensorIDs = availableSensorIDs
-      updateSensorsForAvailableSensorIDs(andAddListener: andAddListeners)
     }
+    // Even if sensor IDs didn't change, sensors could (e.g. configuration
+    // changed), so let's update them.
+    updateSensorsForAvailableSensorIDs(andAddListener: andAddListeners)
   }
 
   /// The visual triggers to show for a sensor.

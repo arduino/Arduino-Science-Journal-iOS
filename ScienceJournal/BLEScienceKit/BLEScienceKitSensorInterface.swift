@@ -20,7 +20,15 @@
 import UIKit
 import CoreBluetooth
 
+import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
 import third_party_sciencejournal_ios_ScienceJournalProtos
+
+enum BLEScienceKitSensorConfig: Int, Codable {
+  case raw
+  case temperatureCelsius
+  case temperatureFahrenheit
+  case light
+}
 
 protocol BLEScienceKitSensor {
   static var uuid: CBUUID { get }
@@ -31,12 +39,19 @@ protocol BLEScienceKitSensor {
   var unitDescription: String? { get }
   var textDescription: String { get }
   var learnMoreInformation: Sensor.LearnMore { get }
+  var options: [BLEScienceKitSensorConfig] { get }
+
+  var config: BLEScienceKitSensorConfig? { get set }
 
   func point(for data: Data) -> Double
 }
 
+extension BLEScienceKitSensor {
+  var options: [BLEScienceKitSensorConfig] { [] }
+}
+
 class BLEScienceKitSensorInterface: BLESensorInterface {
-  let sensor: BLEScienceKitSensor
+  var sensor: BLEScienceKitSensor
 
   var identifier: String { type(of: sensor).uuid.uuidString }
 
@@ -50,7 +65,18 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
 
   var animatingIconName: String { sensor.animatingIconName }
 
-  var config: Data?
+  var config: Data? {
+    get {
+      guard let config = sensor.config else { return nil }
+      return try? JSONEncoder().encode(config)
+    }
+    set {
+      guard let data = newValue else { return }
+      let config = try? JSONDecoder().decode(BLEScienceKitSensorConfig.self,
+                                             from: data)
+      sensor.config = config
+    }
+  }
 
   var peripheral: CBPeripheral?
 
@@ -58,7 +84,7 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
 
   var textDescription: String { sensor.textDescription }
 
-  var hasOptions: Bool { false }
+  var hasOptions: Bool { !sensor.options.isEmpty }
 
   var learnMoreInformation: Sensor.LearnMore { sensor.learnMoreInformation }
 
@@ -68,6 +94,9 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
   private var peripheralInterface: BLEPeripheralInterface?
 
   private lazy var clock = Clock()
+
+  private var configViewController: ScienceKitSensorConfigViewController?
+  private var configCompletionBlock: (() -> Void)?
 
   required init(sensor: BLEScienceKitSensor,
                 providerId: String,
@@ -79,7 +108,26 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
   }
 
   func presentOptions(from viewController: UIViewController, completion: @escaping () -> Void) {
+    configCompletionBlock = completion
 
+    let dialogController = MDCDialogTransitionController()
+    // swiftlint:disable force_cast
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    // swiftlint:enable force_cast
+    let dialog =
+        ScienceKitSensorConfigViewController(analyticsReporter: appDelegate.analyticsReporter)
+    dialog.options = sensor.options
+    dialog.config = sensor.config ?? .raw
+
+    dialog.okButton.addTarget(self,
+                              action: #selector(sensorConfigOKButtonPressed),
+                              for: .touchUpInside)
+    dialog.modalPresentationStyle = .custom
+    dialog.transitioningDelegate = dialogController
+    dialog.mdc_dialogPresentationController?.dismissOnBackgroundTap = false
+    viewController.present(dialog, animated: true)
+
+    configViewController = dialog
   }
 
   func connect(_ completion: @escaping (Bool) -> Void) {
@@ -119,5 +167,20 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
 
   func stopObserving() {
     peripheralInterface?.stopUpdatesForCharacteristic(characteristic)
+  }
+}
+
+private extension BLEScienceKitSensorInterface {
+  @objc
+  func sensorConfigOKButtonPressed() {
+    guard let configViewController = configViewController else {
+      return
+    }
+
+    sensor.config = configViewController.config
+
+    let completion = configCompletionBlock
+    configCompletionBlock = nil
+    configViewController.dismiss(animated: true, completion: completion)
   }
 }
