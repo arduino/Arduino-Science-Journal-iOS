@@ -8,6 +8,8 @@ lane :internal do
   	
 	build_app(scheme: "ScienceJournal", workspace: "ScienceJournal.xcworkspace")
 	
+	upload_to_testflight
+	
 	commit_version_bump
 	push_to_git_remote
 end
