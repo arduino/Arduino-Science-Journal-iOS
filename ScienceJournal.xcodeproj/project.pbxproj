@@ -4114,7 +4114,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D65BB81A86250B67E7CA196C /* Pods-ScienceJournal.adhoc.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal_dogfood_color;
+				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
@@ -4282,7 +4282,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93AFC6D21C987695548ADC66 /* Pods-ScienceJournal.dogfood.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal_dogfood_color;
+				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
@@ -4528,7 +4528,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81B6ADB3C8B55839B4C266D2 /* Pods-ScienceJournal.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal_dogfood_color;
+				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -4606,7 +4606,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1F4A9ECB04F0828D44D2C26D /* Pods-ScienceJournal.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal_color;
+				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
