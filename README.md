@@ -19,7 +19,7 @@ and organize your questions and ideas. It's the lab notebook you always have wit
 
 ## More
 
-Science Journal formerly brought to you by Making & Science, an initiative by Google. Arduino Science Journal is now an official [Arduino Education] product.
+Science Journal formerly brought to you by Making & Science, an initiative by Google. Arduino Science Journal is now an official [Arduino Education](https://www.arduino.cc/education) product.
 
 ---
 
