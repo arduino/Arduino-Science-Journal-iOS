@@ -69,13 +69,12 @@ dispute. If you are unable to resolve the matter for any reason, or if the
 behavior is threatening or harassing, report it. We are dedicated to providing
 an environment where participants feel welcome and safe.
 
-Reports should be directed to Josh Liebowitz, <a href="mailto:taquitos@google.com">taquitos@google.com</a>, or on Twitter: [@taquitos](https://twitter.com/taquitos), the
-Project Steward(s) for Science Journal iOS. It is the Project Steward’s duty to
-receive and address reported violations of the code of conduct. They will then
-work with a committee consisting of representatives from the Open Source
-Programs Office and the Google Open Source Strategy team. If for any reason you
-are uncomfortable reaching out the Project Steward, please email
-<a href="mailto:opensource@google.com">opensource@google.com</a>.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be
+reported by contacting the project team at <a href="mailto:support@arduino.cc">support@arduino.cc</a>. All
+complaints will be reviewed and investigated and will result in a response that
+is deemed necessary and appropriate to the circumstances. The project team is
+obligated to maintain confidentiality with regard to the reporter of an incident.
+Further details of specific enforcement policies may be posted separately.
 
 We will investigate every complaint, but you may not receive a direct response.
 We will use our discretion in determining when and how to follow up on reported
