@@ -81,22 +81,15 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
   }
 
   class ServiceSection: SubSection {
-    var peripherals = [BLESensorInterface]()
-    var serviceInterface: BLEServiceInterface
+    var peripherals = [DiscoveredPeripheral]()
+
     override var rowCount: Int {
       return collapsed ? 1 : peripherals.count + 1
-    }
-
-    init(serviceInterface: BLEServiceInterface, name: String, iconName: String) {
-      self.serviceInterface = serviceInterface
-      super.init(name: name, iconName: iconName)
     }
   }
 
   var deviceSections = [DeviceSection]()
 
-  // There is only one supported service for now. When other bluetooth services are supported this
-  // will become an array of service sections.
   var serviceSections = [ServiceSection]()
 
   let serviceScanner: BLEServiceScanner
@@ -143,25 +136,19 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
     internalSensorIDs = sensorController.supportedInternalSensors.map { $0.sensorId }
 
     if sensorController.bluetoothSensors.count > 0 {
-      for (serviceId, sensors) in sensorController.bluetoothSensors {
-        guard let service = sensorController.service(forId: serviceId) else {
+      for (_, sensors) in sensorController.bluetoothSensors {
+        guard let peripheralName = sensors.first?.sensorInterafce.peripheralName else {
           continue
         }
-        let deviceSection = DeviceSection(name: service.name,
-                                          iconName: "ic_sensor_bluetooth")
-        deviceSection.sensors = sensors
+
+        let deviceSection = DeviceSection(name: peripheralName,
+                                          iconName: "ic_arduino_device")
+        deviceSection.sensors = sensors.sortedByName
         deviceSections.append(deviceSection)
       }
     }
 
-    // Available devices listed bluetooth devices that have been discovered. Currently only the
-    // Science Journal BLE service is available.
-    for serviceInterface in sensorController.bleServices {
-      let section = ServiceSection(serviceInterface: serviceInterface,
-                                   name: serviceInterface.name,
-                                   iconName: serviceInterface.iconName)
-      serviceSections.append(section)
-    }
+    serviceSections.append(ServiceSection(name: "Arduino Boards", iconName: "ic_sensor_bluetooth"))
 
     // Listen for available BLE devices.
     let supportedServicesIds = sensorController.bleServices.map { $0.serviceId }
@@ -217,24 +204,37 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
           if sectionIndex == 0 {
             section.collapsed = !section.collapsed
           } else {
-            let sensorInterface = section.peripherals.remove(at: sectionIndex - 1)
-            let bluetoothSensor = metadataManager.saveAndUpdateBluetoothSensor(sensorInterface)
+            let discovery = section.peripherals.remove(at: sectionIndex - 1)
 
-            var deviceSection = deviceSections.first(where: {
-              $0.name == section.serviceInterface.name
-            })
-            if deviceSection == nil {
-              deviceSection = DeviceSection(name: section.serviceInterface.name,
-                                            iconName: section.serviceInterface.iconName)
-              deviceSections.append(deviceSection!)
+            if let service = sensorController
+              .bleServices
+              .first(where: { discovery.serviceIds?.contains($0.serviceId) ?? false }) {
+
+              var sensors = [BluetoothSensor]()
+              for sensorInterface in service.devicesForPeripheral(discovery.peripheral) {
+                let sensor = metadataManager.saveAndUpdateBluetoothSensor(sensorInterface)
+                sensors.append(sensor)
+              }
+
+              if !sensors.isEmpty {
+                let deviceName = discovery.peripheral.name ?? section.name
+
+                let deviceSection: DeviceSection
+                if let existing = deviceSections.first(where: { $0.name == deviceName }) {
+                  deviceSection = existing
+                } else {
+                  deviceSection = DeviceSection(name: deviceName,
+                                                iconName: "ic_arduino_device")
+                  deviceSections.append(deviceSection)
+                }
+
+                let existingSensors = deviceSection.sensors.compactMap { $0 as? BluetoothSensor }
+                sensors.removeAll(where: { existingSensors.map({ $0.sensorInterafce.identifier })
+                  .contains($0.sensorInterafce.identifier) })
+                deviceSection.sensors.append(contentsOf: sensors)
+                deviceSection.sensors = deviceSection.sensors.sortedByName
+              }
             }
-            deviceSection!.sensors.append(bluetoothSensor)
-
-            if !isSensorEnabled(bluetoothSensor) {
-              toggleSensorEnabled(bluetoothSensor)
-            }
-
-            delegate?.sensorSettingsDataSource(self, sensorShouldShowOptions: sensorInterface)
           }
           delegate?.sensorSettingsDataSourceNeedsRefresh(self)
           break
@@ -306,8 +306,8 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
           } else {
             cell.controlType = .none
             let sensorInterface = section.peripherals[sectionIndex - 1]
-            cell.textLabel.text = sensorInterface.name
-            cell.image = UIImage(named: sensorInterface.iconName)
+            cell.textLabel.text = sensorInterface.peripheral.name
+            cell.image = UIImage(named: "ic_arduino_device")
             cell.tintColor = MDCPalette.grey.tint500
           }
           break
@@ -450,21 +450,18 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
   // MARK: - BLEServiceScannerDelegate
 
   func serviceScannerDiscoveredNewPeripherals(_ serviceScanner: BLEServiceScanner) {
-    let bluetoothSensors = sensorController.bluetoothSensors.values.reduce([], +)
-    let savedSensors = bluetoothSensors.map { $0.sensorInterafce.identifier }
+    guard let section = serviceSections.first else { return }
 
-    for section in serviceSections {
-      var sensors = [BLESensorInterface]()
-      for discoveredPeripheral in serviceScanner.discoveredPeripherals {
-        guard let serviceIds = discoveredPeripheral.serviceIds else { continue }
-        if serviceIds.contains(section.serviceInterface.serviceId) {
-          let discoveredSensors =
-              section.serviceInterface.devicesForPeripheral(discoveredPeripheral.peripheral)
-                .filter { !savedSensors.contains($0.identifier) }
-          sensors.append(contentsOf: discoveredSensors)
-        }
+    for discovededPeripheral in serviceScanner.discoveredPeripherals {
+      guard !section.peripherals.contains(discovededPeripheral) else {
+        continue
       }
-      section.peripherals = sensors
+
+      guard !deviceSections.map({ $0.name }).contains(discovededPeripheral.peripheral.name) else {
+        continue
+      }
+
+      section.peripherals.append(discovededPeripheral)
     }
 
     delegate?.sensorSettingsDataSourceNeedsRefresh(self)

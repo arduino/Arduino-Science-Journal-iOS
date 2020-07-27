@@ -1768,6 +1768,7 @@ public class MetadataManager {
   @discardableResult func saveAndUpdateBluetoothSensor(
       _ sensorInterface: BLESensorInterface) -> BluetoothSensor {
     let sensorSpec = SensorSpec(bleSensorInterface: sensorInterface)
+    sensorSpec.gadgetInfo.hostID = sensorInterface.peripheralName
     saveBluetoothSensor(sensorSpec)
     let bluetoothSensor = BluetoothSensor(sensorInterface: sensorInterface,
                                           sensorTimer: sensorController.unifiedSensorTimer)

@@ -31,6 +31,9 @@ protocol BLESensorInterface {
   /// implementation.
   var providerId: String { get }
 
+  /// The name of the sensor's peripheral.
+  var peripheralName: String { get }
+
   /// The name of the sensor as it will appear in the UI.
   var name: String { get }
 

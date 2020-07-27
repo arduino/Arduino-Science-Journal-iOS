@@ -47,6 +47,8 @@ class MakingScienceSensorInterface: BLESensorInterface {
     return "bluetooth_le"
   }
 
+  var peripheralName: String { "" }
+
   var name: String
 
   var iconName: String {

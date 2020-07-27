@@ -71,13 +71,15 @@ extension BLEScienceKitSensorInterface {
   convenience init(peripheral: CBPeripheral, sensor: BLEScienceKitSensor) {
     self.init(sensor: sensor,
               providerId: peripheral.identifier.uuidString,
-              serviceId: MKRWiFi1010Ids.serviceUUID)
+              serviceId: MKRWiFi1010Ids.serviceUUID,
+              peripheralName: peripheral.name ?? "")
   }
 
   convenience init(spec: SensorSpec, sensor: BLEScienceKitSensor) {
     self.init(sensor: sensor,
               providerId: spec.gadgetInfo.providerID,
-              serviceId: MKRWiFi1010Ids.serviceUUID)
+              serviceId: MKRWiFi1010Ids.serviceUUID,
+              peripheralName: spec.gadgetInfo.hostID)
     config = spec.config
   }
 }

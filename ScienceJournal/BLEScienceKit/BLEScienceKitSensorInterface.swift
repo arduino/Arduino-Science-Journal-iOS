@@ -59,6 +59,8 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
 
   var providerId: String
 
+  var peripheralName: String
+
   var name: String { sensor.name }
 
   var iconName: String { sensor.iconName }
@@ -100,10 +102,12 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
 
   required init(sensor: BLEScienceKitSensor,
                 providerId: String,
-                serviceId: CBUUID) {
+                serviceId: CBUUID,
+                peripheralName: String) {
     self.sensor = sensor
     self.providerId = providerId
     self.serviceId = serviceId
+    self.peripheralName = peripheralName
     self.serviceScanner = BLEServiceScanner(services: [serviceId])
   }
 
