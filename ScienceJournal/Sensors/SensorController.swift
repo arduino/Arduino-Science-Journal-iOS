@@ -151,10 +151,15 @@ open class SensorController {
 
   private func removeBluetoothSensorFromLookup(_ bluetoothSensor: BluetoothSensor,
                                                serviceID: CBUUID) {
-    guard var serviceSensors = bluetoothSensors[serviceID],
-        let index = serviceSensors.firstIndex(of: bluetoothSensor) else {
+    guard var serviceSensors = bluetoothSensors[serviceID] else {
       return
     }
+
+    let sensorIds = serviceSensors.map { $0.sensorId }
+    guard let index = sensorIds.firstIndex(of: bluetoothSensor.sensorId) else {
+      return
+    }
+
     serviceSensors.remove(at: index)
     if serviceSensors.count == 0 {
       bluetoothSensors[serviceID] = nil
