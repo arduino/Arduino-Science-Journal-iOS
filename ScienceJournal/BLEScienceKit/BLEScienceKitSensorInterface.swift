@@ -108,6 +108,11 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
   }
 
   func presentOptions(from viewController: UIViewController, completion: @escaping () -> Void) {
+    guard sensor.options.count > 1 else {
+      completion()
+      return
+    }
+
     configCompletionBlock = completion
 
     let dialogController = MDCDialogTransitionController()
