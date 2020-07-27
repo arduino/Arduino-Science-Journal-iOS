@@ -2,10 +2,10 @@
   <img src="GitHubAssets/sj_lockup.png?raw=true" alt="Science Journal Logo" width="700">
 </h3>
 
-[![Twitter: @GScienceJournal](https://img.shields.io/badge/contact-@GScienceJournal-673fb4.svg?style=flat)](https://twitter.com/GScienceJournal)
+[![Twitter: @Arduino](https://img.shields.io/badge/Contact-%40Arduino-orange)](https://twitter.com/arduino)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-[Science Journal for iOS][appstore] allows you to gather data from the world around you. It uses sensors to
+[Arduino Science Journal for iOS][appstore] allows you to gather data from the world around you. It uses sensors to
 measure your environment, like light and sound, so you can graph your data, record your experiments,
 and organize your questions and ideas. It's the lab notebook you always have with you.
 
@@ -13,16 +13,13 @@ and organize your questions and ideas. It's the lab notebook you always have wit
 
 ## Features
 
-* Visualize and graph data from a variety of sources including your device's  built-in sensor 📱
-* Connect to external sensors over BLE ↭🔌
-* Annotate observations with pictures 🏔 and notes 📝
+* 📈 Visualize and graph data from a variety of sources including your device's built-in sensor
+* 📲 Connect to external sensors over BLE .
+* 📷 Annotate with pictures and 📝 notes.
 
 ## More
 
-Science Journal is brought to you by [Making & Science][ms], an initiative by [Google](https://www.google.com/intl/en/about/). 
-
-Open Science
-Journal is not an official Google product.
+Science Journal formerly brought to you by Making & Science, an initiative by Google. Arduino Science Journal is now an official [Arduino Education](https://www.arduino.cc/education) product.
 
 ---
 
@@ -54,7 +51,7 @@ Then you can open `ScienceJournal.xcworkspace`
 
 ## Contribute to Science Journal iOS
 
-Check out [CONTRIBUTING.md](https://github.com/google/science-journal-ios/blob/master/CONTRIBUTING.md) for more information on how to help with Science Journal iOS.
+Check out [CONTRIBUTING.md](https://github.com/arduino/Arduino/blob/master/CONTRIBUTING.md) for more information on how to help with Science Journal iOS.
 
 ## Code of Conduct
 
@@ -62,4 +59,4 @@ Help us keep _Science Journal_ open and inclusive. Please read and follow our [C
 
 ## License
 
-This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/google/science-journal-ios/blob/master/LICENSE) file.
+This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/bcmi-labs/Science-Journal-Android/blob/master/LICENSE) file.

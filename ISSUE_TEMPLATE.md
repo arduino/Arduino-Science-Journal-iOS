@@ -4,9 +4,9 @@
 
 - [ ] This is an issue for the open source project, not the App Store Science Journal App
 - [ ] Updated Science Journal iOS to the latest version
-- [ ] I read the [Contribution Guidelines](https://github.com/google/science-journal-ios/blob/master/CONTRIBUTING.md)
+- [ ] I read the [Contribution Guidelines](https://github.com/arduino/Arduino/blob/master/CONTRIBUTING.md)
 - [ ] I searched the forums for help [Science Journal forums](https://productforums.google.com/forum/#!forum/sciencejournal)
-- [ ] I searched for [existing GitHub issues](https://github.com/google/science-journal-ios/issues)
+- [ ] I searched for [existing GitHub issues](https://github.com/bcmi-labs/Science-Journal-iOS/issues)
 
 ### Issue Description
 
