@@ -1,8 +1,8 @@
 //  
-//  BLEScienceKitInput1Sensor.swift
+//  BLEScienceKitInput2Sensor.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 16/07/2020.
+//  Created by Emilio Pavia on 27/07/2020.
 //  Copyright © 2020 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,17 +19,15 @@
 
 import CoreBluetooth
 
-struct BLEScienceKitInput1Sensor: BLEScienceKitSensor {
-  static var uuid: CBUUID { CBUUID(string: "555a0001-2001-467a-9538-01f0652c74e8") }
+struct BLEScienceKitInput2Sensor: BLEScienceKitSensor {
+  static var uuid: CBUUID { CBUUID(string: "555a0001-2002-467a-9538-01f0652c74e8") }
 
-  var name: String { "Input 1" }
+  var name: String { "Input 2" }
 
-  var iconName: String { "mkrsci_sensor_input_1" }
+  var iconName: String { "mkrsci_sensor_input_2" }
 
   var animatingIconName: String {
     switch config {
-    case .temperatureCelsius, .temperatureFahrenheit:
-      return "mkrsci_temperature"
     case .light:
       return "mkrsci_light"
     default:
@@ -39,10 +37,6 @@ struct BLEScienceKitInput1Sensor: BLEScienceKitSensor {
 
   var unitDescription: String? {
     switch config {
-    case .temperatureCelsius:
-      return "\u{00B0}C"
-    case .temperatureFahrenheit:
-      return "\u{00B0}F"
     case .light:
       return "lux"
     default:
@@ -59,32 +53,20 @@ struct BLEScienceKitInput1Sensor: BLEScienceKitSensor {
   }
 
   var options: [BLEScienceKitSensorConfig] = [
-    .temperatureCelsius, .temperatureFahrenheit, .light, .raw
+    .light, .raw
   ]
 
-  var config: BLEScienceKitSensorConfig? = .temperatureCelsius
+  var config: BLEScienceKitSensorConfig? = .raw
 
   func point(for data: Data) -> Double {
     let rawValue = data.withUnsafeBytes { $0.load(as: Int16.self) }
 
     switch config {
-    case .temperatureCelsius:
-      return celsius(from: rawValue)
-    case .temperatureFahrenheit:
-      return fahrenheit(from: celsius(from: rawValue))
     case .light:
       return light(from: rawValue)
     default:
       return Double(rawValue)
     }
-  }
-
-  private func celsius(from rawValue: Int16) -> Double {
-    (((Double(rawValue) * Double(3300)) / Double(1023)) - Double(500)) * Double(0.1)
-  }
-
-  private func fahrenheit(from celsius: Double) -> Double {
-    (celsius * (Double(9) / Double(5))) + Double(32)
   }
 
   private func light(from rawValue: Int16) -> Double {
