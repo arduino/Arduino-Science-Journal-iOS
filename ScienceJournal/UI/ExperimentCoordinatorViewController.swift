@@ -152,7 +152,7 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
     EditExperimentViewControllerDelegate, ImageSelectorDelegate, NotesViewControllerDelegate,
     ObserveViewControllerDelegate, SensorSettingsDelegate, TriggerListDelegate,
     ExperimentItemsViewControllerDelegate, ExperimentUpdateListener, ExperimentStateListener,
-    CameraImageProviderDelegate {
+    CameraImageProviderDelegate, UIAdaptivePresentationControllerDelegate {
 
   typealias ReadyForPDFExportBlock = () -> Void
 
@@ -804,6 +804,7 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
     if UIDevice.current.userInterfaceIdiom == .pad {
       vc.modalPresentationStyle = .formSheet
     }
+    vc.presentationController?.delegate = self
     present(vc, animated: true)
   }
 
@@ -1037,8 +1038,9 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
   // MARK: - SensorSettingsDelegate
 
   func sensorSettingsViewController(_ sensorSettingsViewController: SensorSettingsViewController,
-                                    didRequestCloseWithEnabledSensors enabledSensorIDs: [String]) {
-    dismiss(animated: true) {
+                                    didChangeEnabledSensors enabledSensorIDs: [String],
+                                    shouldDismiss: Bool) {
+    let updateSensors = {
       guard !RecordingState.isRecording else {
         // Sensors should not be enabled or disabled during a recording.
         showSnackbar(withMessage: String.sensorSettingsCouldNotUpdateWhileRecording,
@@ -1056,6 +1058,26 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
       self.metadataManager.saveExperimentWithoutDateOrDirtyChange(self.experiment)
       self.updateObserveWithAvailableSensors()
     }
+
+    if shouldDismiss {
+      dismiss(animated: true, completion: updateSensors)
+    } else {
+      updateSensors()
+    }
+  }
+
+  // MARK: - UIAdaptivePresentationControllerDelegate
+  func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+    guard let sensorSettingsViewController =
+      presentationController.presentedViewController
+        as? SensorSettingsViewController else {
+      return
+    }
+
+    self.sensorSettingsViewController(
+      sensorSettingsViewController,
+      didChangeEnabledSensors: sensorSettingsViewController.enabledSensorIDs,
+      shouldDismiss: false)
   }
 
   // MARK: - UIGestureRecognizerDelegate

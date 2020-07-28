@@ -21,14 +21,15 @@ import third_party_objective_c_material_components_ios_components_Collections_Co
 import third_party_objective_c_material_components_ios_components_Palettes_Palettes
 
 protocol SensorSettingsDelegate: class {
-  /// Called when the sensor settings view controller close button is pressed. The delegate is
-  /// responsible for dismissing this view controller.
+  /// Called when the sensor settings view controller changes enabled sensors. The delegate is
+  /// responsible for dismissing this view controller is `shouldDismiss` is `true`.
   ///
   /// - Parameters:
   ///   - sensorSettingsViewController: The sensor settings view controller.
   ///   - enabledSensorIDs: The IDs of the sensors that are enabled.
   func sensorSettingsViewController(_ sensorSettingsViewController: SensorSettingsViewController,
-                                    didRequestCloseWithEnabledSensors enabledSensorIDs: [String])
+                                    didChangeEnabledSensors enabledSensorIDs: [String],
+                                    shouldDismiss: Bool)
 }
 
 /// Displays the sensors active for the current experiment with options to enable or disable
@@ -37,6 +38,8 @@ class SensorSettingsViewController: MaterialHeaderCollectionViewController,
     SensorSettingsDataSourceDelegate, SensorSettingsCellDelegate {
 
   // MARK: - Properties
+
+  var enabledSensorIDs: [String] { dataSource.enabledSensorIDs }
 
   /// The delegate.
   weak var delegate: SensorSettingsDelegate?
@@ -133,7 +136,8 @@ class SensorSettingsViewController: MaterialHeaderCollectionViewController,
   @objc func closeButtonPressed() {
     delegate?.sensorSettingsViewController(
         self,
-        didRequestCloseWithEnabledSensors: dataSource.enabledSensorIDs)
+        didChangeEnabledSensors: enabledSensorIDs,
+        shouldDismiss: true)
   }
 
   // MARK: - UICollectionViewDataSource
@@ -261,6 +265,10 @@ class SensorSettingsViewController: MaterialHeaderCollectionViewController,
           }
         }
         self.dataSource.removeSection(atIndexPath: indexPath)
+        self.delegate?.sensorSettingsViewController(
+          self,
+          didChangeEnabledSensors: self.enabledSensorIDs,
+          shouldDismiss: false)
       }))
       popUpMenuVC.present(from: self, position: .sourceView(button))
     } else {
