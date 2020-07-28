@@ -614,6 +614,7 @@
 		BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */; };
 		BC7AB0FD24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */; };
 		BC7AB0FE24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */; };
+		BC7AB10024D0857400703B2E /* BLEScienceKitMagnetometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FF24D0857400703B2E /* BLEScienceKitMagnetometerSensor.swift */; };
 		BC80411224CED6310098E17E /* BLEScienceKitInput2Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */; };
 		BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
@@ -1322,6 +1323,7 @@
 		BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerZSensor.swift; sourceTree = "<group>"; };
 		BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerXSensor.swift; sourceTree = "<group>"; };
+		BC7AB0FF24D0857400703B2E /* BLEScienceKitMagnetometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitMagnetometerSensor.swift; sourceTree = "<group>"; };
 		BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput2Sensor.swift; sourceTree = "<group>"; };
 		BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput3Sensor.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
@@ -3007,6 +3009,7 @@
 				BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */,
 				BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */,
 				BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */,
+				BC7AB0FF24D0857400703B2E /* BLEScienceKitMagnetometerSensor.swift */,
 				BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */,
 				BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */,
 			);
@@ -3477,6 +3480,7 @@
 				5CD726D7204F4B070019DBBF /* CopyImportedFilesOperation.swift in Sources */,
 				5C8784A521679E040046786D /* UITextView+ScienceJournal.swift in Sources */,
 				5C7DE8C31EC117750015F407 /* ShapeView.swift in Sources */,
+				BC7AB10024D0857400703B2E /* BLEScienceKitMagnetometerSensor.swift in Sources */,
 				8BDC0281201FA7DA00BB0059 /* PitchSensor.swift in Sources */,
 				3F158A13231DF7F5005E319E /* CrossDissolveTransitionAnimation.swift in Sources */,
 				8B9F06131EF42CE10030B011 /* TriggerNote.swift in Sources */,
