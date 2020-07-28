@@ -36,6 +36,8 @@ class SensorSettingsCell: MDCCollectionViewCell {
   enum ControlType {
     /// No control.
     case none
+    /// Empty space.
+    case empty
     /// A rotating button.
     case rotatingButton
     /// A check box.
@@ -55,6 +57,9 @@ class SensorSettingsCell: MDCCollectionViewCell {
       switch controlType {
       case .none:
         checkBox.isHidden = true
+        checkBox.alpha = 1
+        rotatingButton.isHidden = true
+      case .empty:
         checkBox.isHidden = false
         checkBox.alpha = 0
         rotatingButton.isHidden = true

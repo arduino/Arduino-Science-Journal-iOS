@@ -304,7 +304,7 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
             cell.image = UIImage(named: section.iconName)
             cell.tintColor = MDCPalette.blue.tint500
           } else {
-            cell.controlType = .none
+            cell.controlType = .empty
             let sensorInterface = section.peripherals[sectionIndex - 1]
             cell.textLabel.text = sensorInterface.peripheral.name
             cell.image = UIImage(named: "ic_arduino_device")
