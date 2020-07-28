@@ -611,6 +611,9 @@
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */; };
 		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
+		BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */; };
+		BC7AB0FD24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */; };
+		BC7AB0FE24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */; };
 		BC80411224CED6310098E17E /* BLEScienceKitInput2Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */; };
 		BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
@@ -1316,6 +1319,9 @@
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
 		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
+		BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerYSensor.swift; sourceTree = "<group>"; };
+		BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerZSensor.swift; sourceTree = "<group>"; };
+		BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerXSensor.swift; sourceTree = "<group>"; };
 		BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput2Sensor.swift; sourceTree = "<group>"; };
 		BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput3Sensor.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
@@ -2993,6 +2999,9 @@
 		BCEC93AC24C0472E0041296C /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */,
+				BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */,
+				BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */,
 				BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */,
 				BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */,
 				BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */,
@@ -3442,6 +3451,7 @@
 				68B32A321F9E89BA0067DAF3 /* SettingsCell.swift in Sources */,
 				68CD50D71E57DD4E005E928F /* ObserveDataSource.swift in Sources */,
 				687FAA05202C1162004C1D04 /* Caption.pbobjc.m in Sources */,
+				BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */,
 				5C11AE6E1EB7D8800077F752 /* BLESensorInterface.swift in Sources */,
 				5CE521AD20A4A7B300767C8E /* UserFlowViewController.swift in Sources */,
 				8B4B60161E44DADF009AFB1B /* MotionSensor.swift in Sources */,
@@ -3888,6 +3898,7 @@
 				6808657E1EAECC52005F54E1 /* LicenseViewController.swift in Sources */,
 				5C6E574E20349CB700EE8457 /* GetTrialSensorDumpOperation.swift in Sources */,
 				687FAA04202C1162004C1D04 /* Experiment.pbobjc.m in Sources */,
+				BC7AB0FE24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift in Sources */,
 				8BD9721A1ECCB1AD0048DC50 /* ExperimentDataParser.swift in Sources */,
 				68E3618C203F7F0900B1B979 /* main.swift in Sources */,
 				5CAD5EEA1E8D7E06008F50C3 /* Clock.swift in Sources */,
@@ -3907,6 +3918,7 @@
 				5C7219621ED8D04700817F0B /* UserMetadata.swift in Sources */,
 				8B031EEC2098BA6D008F6F28 /* ExistingDataOptionsHeaderView.swift in Sources */,
 				8B00318021346C1500B9BBFB /* PullToRefreshController.swift in Sources */,
+				BC7AB0FD24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift in Sources */,
 				D59CA3D4219CEE690082A27B /* Peak.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

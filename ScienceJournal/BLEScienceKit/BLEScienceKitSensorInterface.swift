@@ -31,6 +31,7 @@ enum BLEScienceKitSensorConfig: Int, Codable {
 }
 
 protocol BLEScienceKitSensor {
+  static var identifier: String { get }
   static var uuid: CBUUID { get }
 
   var name: String { get }
@@ -47,13 +48,15 @@ protocol BLEScienceKitSensor {
 }
 
 extension BLEScienceKitSensor {
+  static var identifier: String { uuid.uuidString }
+
   var options: [BLEScienceKitSensorConfig] { [] }
 }
 
 class BLEScienceKitSensorInterface: BLESensorInterface {
   var sensor: BLEScienceKitSensor
 
-  var identifier: String { type(of: sensor).uuid.uuidString }
+  var identifier: String { type(of: sensor).identifier }
 
   var serviceId: CBUUID
 
@@ -90,7 +93,7 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
 
   var learnMoreInformation: Sensor.LearnMore { sensor.learnMoreInformation }
 
-  var characteristic: CBUUID { CBUUID(string: identifier) }
+  var characteristic: CBUUID { type(of: sensor).uuid }
 
   private var serviceScanner: BLEServiceScanner
   private var peripheralInterface: BLEPeripheralInterface?
