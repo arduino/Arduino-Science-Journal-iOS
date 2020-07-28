@@ -610,6 +610,7 @@
 		924D434B56557C3367183755 /* Pods_ScienceJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */; };
+		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
 		BC80411224CED6310098E17E /* BLEScienceKitInput2Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */; };
 		BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
@@ -1314,6 +1315,7 @@
 		958B33107B78081C00CE9569 /* Pods-ScienceJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
+		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
 		BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput2Sensor.swift; sourceTree = "<group>"; };
 		BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput3Sensor.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
@@ -2995,6 +2997,7 @@
 				BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */,
 				BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */,
 				BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */,
+				BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */,
 				BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */,
 				BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */,
 			);
@@ -3512,6 +3515,7 @@
 				5C684EF420A4CC50008414C0 /* AppFlowViewController.swift in Sources */,
 				680D406F1F030882004E5555 /* NoteDetailEditCaptionCell.swift in Sources */,
 				5CBD9ABE1F7427E500D22D21 /* ScaleFilter.swift in Sources */,
+				BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */,
 				5C7EFC5B202E29970007F99E /* OperationCondition.swift in Sources */,
 				D59CA3DC219F51350082A27B /* Int+ScienceJournal.swift in Sources */,
 				5C612F1420AC7E8E0097CCAB /* ExperimentLibrary.swift in Sources */,
