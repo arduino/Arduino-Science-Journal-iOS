@@ -1,5 +1,5 @@
 //  
-//  BLEScienceKitVoltageSensorSpec.swift
+//  BLEScienceKitVoltageSensor.swift
 //  ScienceJournal
 //
 //  Created by Emilio Pavia on 16/07/2020.

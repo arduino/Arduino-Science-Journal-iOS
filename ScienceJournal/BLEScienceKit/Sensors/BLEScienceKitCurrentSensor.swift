@@ -1,5 +1,5 @@
 //  
-//  BLEScienceKitCurrentSensorSpec.swift
+//  BLEScienceKitCurrentSensor.swift
 //  ScienceJournal
 //
 //  Created by Emilio Pavia on 16/07/2020.
