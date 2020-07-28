@@ -615,6 +615,9 @@
 		BC7AB0FD24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */; };
 		BC7AB0FE24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */; };
 		BC7AB10024D0857400703B2E /* BLEScienceKitMagnetometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FF24D0857400703B2E /* BLEScienceKitMagnetometerSensor.swift */; };
+		BC7AB10424D0880E00703B2E /* BLEScienceKitGyroscopeZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB10124D0880D00703B2E /* BLEScienceKitGyroscopeZSensor.swift */; };
+		BC7AB10524D0880E00703B2E /* BLEScienceKitGyroscopeYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB10224D0880D00703B2E /* BLEScienceKitGyroscopeYSensor.swift */; };
+		BC7AB10624D0880E00703B2E /* BLEScienceKitGyroscopeXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB10324D0880D00703B2E /* BLEScienceKitGyroscopeXSensor.swift */; };
 		BC80411224CED6310098E17E /* BLEScienceKitInput2Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */; };
 		BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
@@ -1324,6 +1327,9 @@
 		BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerZSensor.swift; sourceTree = "<group>"; };
 		BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerXSensor.swift; sourceTree = "<group>"; };
 		BC7AB0FF24D0857400703B2E /* BLEScienceKitMagnetometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitMagnetometerSensor.swift; sourceTree = "<group>"; };
+		BC7AB10124D0880D00703B2E /* BLEScienceKitGyroscopeZSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitGyroscopeZSensor.swift; sourceTree = "<group>"; };
+		BC7AB10224D0880D00703B2E /* BLEScienceKitGyroscopeYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitGyroscopeYSensor.swift; sourceTree = "<group>"; };
+		BC7AB10324D0880D00703B2E /* BLEScienceKitGyroscopeXSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitGyroscopeXSensor.swift; sourceTree = "<group>"; };
 		BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput2Sensor.swift; sourceTree = "<group>"; };
 		BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput3Sensor.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
@@ -3005,6 +3011,9 @@
 				BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */,
 				BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */,
 				BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */,
+				BC7AB10324D0880D00703B2E /* BLEScienceKitGyroscopeXSensor.swift */,
+				BC7AB10224D0880D00703B2E /* BLEScienceKitGyroscopeYSensor.swift */,
+				BC7AB10124D0880D00703B2E /* BLEScienceKitGyroscopeZSensor.swift */,
 				BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */,
 				BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */,
 				BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */,
@@ -3605,6 +3614,7 @@
 				5CCB62C01F8E84F800F9BB7D /* TrialShareSettingsViewController.swift in Sources */,
 				5CFC8E66204A076800A674C2 /* PopUpMenuAction+CommonActions.swift in Sources */,
 				5C7B87C31FCDEFD200EDEF1D /* CropRangeViewController.swift in Sources */,
+				BC7AB10624D0880E00703B2E /* BLEScienceKitGyroscopeXSensor.swift in Sources */,
 				5C2E4E931EA5645700F9AA6D /* BluetoothSensor.swift in Sources */,
 				8BC909D1200FB1B800B1A053 /* UnifiedSensorTimer.swift in Sources */,
 				8B84E02E1EAFF429005E9AA0 /* DrawerItem.swift in Sources */,
@@ -3783,6 +3793,7 @@
 				D59CA3D8219F46020082A27B /* Double+ScienceJournal.swift in Sources */,
 				68E36191203F7F1500B1B979 /* AnalyticsReporterOpen.swift in Sources */,
 				6880F0171F27D20E00EFF7BC /* RenameViewController.swift in Sources */,
+				BC7AB10424D0880E00703B2E /* BLEScienceKitGyroscopeZSensor.swift in Sources */,
 				5C6E575020349FB700EE8457 /* GetSensorDataAsProtoOperation.swift in Sources */,
 				BC80411224CED6310098E17E /* BLEScienceKitInput2Sensor.swift in Sources */,
 				5CFC8E6220488A3500A674C2 /* ZipOperation.swift in Sources */,
@@ -3807,6 +3818,7 @@
 				68525A441F2BD8F700A41675 /* ExifData.swift in Sources */,
 				5C81E77E1EF86F5D00F3DEA6 /* PlaybackViewController.swift in Sources */,
 				8B10E9551F87EFCF0060A0AD /* ClosedRange+ScienceJournal.swift in Sources */,
+				BC7AB10524D0880E00703B2E /* BLEScienceKitGyroscopeYSensor.swift in Sources */,
 				5C7219711EDFA4AB00817F0B /* TextNote.swift in Sources */,
 				5CF371012012906D00AD85D2 /* Bool+ScienceJournal.swift in Sources */,
 				8B06406A203E0F4600F66356 /* ImageAnimationView.swift in Sources */,
