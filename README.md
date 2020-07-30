@@ -1,5 +1,5 @@
-<h3 align="center">
-  <img src="GitHubAssets/sj_lockup.png?raw=true" alt="Science Journal Logo" width="700">
+<h3 align="left">
+  <img src="https://content.arduino.cc/assets/SJ_Banner_Github1.png" alt="Science Journal Logo" width="700">
 </h3>
 
 [![Twitter: @Arduino](https://img.shields.io/badge/Contact-%40Arduino-orange)](https://twitter.com/arduino)
