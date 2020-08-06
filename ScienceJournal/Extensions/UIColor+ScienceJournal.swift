@@ -24,7 +24,7 @@ extension UIColor {
   // MARK: - App bar
 
   /// The default background color for the app bar.
-  static let appBarDefaultBackgroundColor = MDCPalette.deepPurple.tint500
+  static let appBarDefaultBackgroundColor = ArduinoColors.goldPalette().tint500()!
 
   /// The default background color for the darkend area under the status bar.
   static let appBarDefaultStatusBarBackgroundColor = UIColor(red: 0.267,
