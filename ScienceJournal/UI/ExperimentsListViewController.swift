@@ -289,7 +289,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
     createExperimentFAB.accessibilityLabel = String.btnNewExperimentContentDescription
     createExperimentFAB.setImage(UIImage(named: "ic_add"), for: .normal)
     createExperimentFAB.tintColor = .white
-    createExperimentFAB.setBackgroundColor(appBar.headerViewController.headerView.backgroundColor,
+    createExperimentFAB.setBackgroundColor(ArduinoColors.grayPalette().tint500()!,
                                            for: .normal)
     createExperimentFAB.addTarget(self,
                                   action: #selector(addExperimentButtonPressed),
