@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,37 +19,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_image_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ezH-dD-NyD">
-                                <rect key="frame" x="107.5" y="233.5" width="160" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="3UX-8v-2Ib"/>
-                                    <constraint firstAttribute="width" constant="160" id="rGP-6j-k3f"/>
-                                </constraints>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_image_add_button" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-b0-1Ap">
+                                <rect key="frame" x="293" y="588" width="68" height="68"/>
                             </imageView>
-                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google_logo" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-b0-1Ap">
-                                <rect key="frame" x="125" y="560" width="125" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="Z2d-j9-5OQ"/>
-                                    <constraint firstAttribute="width" constant="125" id="ueW-ti-sP5"/>
-                                </constraints>
-                            </imageView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-EX-IF7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <color key="backgroundColor" red="0.73725490196078436" green="0.67450980392156867" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ezH-dD-NyD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="3sT-Xr-BOB"/>
-                            <constraint firstItem="IEO-b0-1Ap" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Hjv-cU-dne"/>
-                            <constraint firstItem="ezH-dD-NyD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Wap-h7-IeH"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="IEO-b0-1Ap" secondAttribute="bottom" constant="60" id="lLb-a2-wOT"/>
+                            <constraint firstAttribute="trailing" secondItem="vwe-EX-IF7" secondAttribute="trailing" id="I0W-ys-6RJ"/>
+                            <constraint firstItem="vwe-EX-IF7" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="JQp-hQ-n2g"/>
+                            <constraint firstItem="vwe-EX-IF7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="SbH-sN-Ibq"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="IEO-b0-1Ap" secondAttribute="bottom" constant="11" id="ceO-9Q-Ee4"/>
+                            <constraint firstAttribute="trailing" secondItem="IEO-b0-1Ap" secondAttribute="trailing" constant="14" id="jHS-SD-8bn"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
-        <image name="google_logo" width="125" height="47"/>
-        <image name="launch_image_icon" width="160" height="160"/>
+        <image name="launch_image_add_button" width="68" height="68"/>
     </resources>
 </document>
