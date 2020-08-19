@@ -56,10 +56,6 @@ open class ActionBar: UIView {
     fatalError("init(coder:) is not supported")
   }
 
-  override open var intrinsicContentSize: CGSize {
-    return CGSize(width: UIView.noIntrinsicMetric, height: ViewConstants.toolbarHeight)
-  }
-
   private func configureView(with buttonType: ButtonType) {
     addSubview(button)
     button.inkColor = .clear
@@ -68,7 +64,9 @@ open class ActionBar: UIView {
     button.tintColor = .white
     button.translatesAutoresizingMaskIntoConstraints = false
     button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-    button.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    button.topAnchor.constraint(equalTo: topAnchor, constant: 6).isActive = true
+    button.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,
+                                   constant: -6).isActive = true
   }
 
 }

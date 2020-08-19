@@ -80,9 +80,9 @@ open class DrawerView: UIView, MDCTabBarDelegate {
   // MARK: - Constants
 
   /// The background color of the drawer's main bar, which contains tabs.
-  static let barBackgroundColor = UIColor(red: 0.196, green: 0.196, blue: 0.196, alpha: 1)
+  static let barBackgroundColor = ArduinoColors.grayPalette().tint700()
   /// The background color of the drawer's action bar.
-  static let actionBarBackgroundColor = UIColor(red: 0.196, green: 0.196, blue: 0.196, alpha: 0.95)
+  static let actionBarBackgroundColor = ArduinoColors.grayPalette().tint700()
   /// The background color to be used to darken the statusBar frame when the drawer is open to full.
   static let statusBarBackgroundColor = UIColor(red: 0.176, green: 0.176, blue: 0.176, alpha: 1)
 
@@ -506,7 +506,7 @@ open class DrawerView: UIView, MDCTabBarDelegate {
     tabBar.itemAppearance = .images
     tabBar.tintColor = .white
     tabBar.selectedItemTintColor = .white
-    tabBar.unselectedItemTintColor = UIColor(red: 0.510, green: 0.518, blue: 0.522, alpha: 1.0)
+    tabBar.unselectedItemTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
     tabBarWrapper.addSubview(tabBar)
 
     // Customize the MDCShadow metrics to put the shadow above the tab bar, but use the same metrics
@@ -521,7 +521,7 @@ open class DrawerView: UIView, MDCTabBarDelegate {
 
     // Tab bar grabber.
     panningView.addSubview(grabber)
-    grabber.tintColor = UIColor(red: 0.388, green: 0.396, blue: 0.396, alpha: 1.0)
+    grabber.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.35)
 
     // Tab bar wrapping view for accessibility purposes. Creates a larger tap target for the
     // grabber and gives it both a label and hint which describes its current position. Also adds

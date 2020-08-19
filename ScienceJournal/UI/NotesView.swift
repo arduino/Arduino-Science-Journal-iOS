@@ -46,7 +46,7 @@ class NotesView: UIView {
       sendButton.contentEdgeInsets = .zero
       sendButton.imageEdgeInsets = .zero
       sendButton.inkColor = .clear
-      sendButton.tintColor = MDCPalette.blue.tint500
+      sendButton.tintColor = ArduinoColors.tealPalette().tint500()
       addSubview(sendButton)
       sendButton.translatesAutoresizingMaskIntoConstraints = false
       sendButton.pinToEdgesOfView(self)
@@ -213,7 +213,7 @@ class NotesView: UIView {
         equalTo: sendButtonActionBarWrapper.trailingAnchor).isActive = true
     sendButtonActionBar.button.accessibilityLabel = String.addTextNoteContentDescription
 
-    sendButtonActionBarWrapper.backgroundColor = DrawerView.actionBarBackgroundColor
+    sendButtonActionBarWrapper.backgroundColor = textView.backgroundColor
     sendButtonActionBarWrapper.translatesAutoresizingMaskIntoConstraints = false
     addSubview(sendButtonActionBarWrapper)
     sendButtonActionBarWrapper.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
