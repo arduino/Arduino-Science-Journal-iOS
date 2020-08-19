@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,24 +16,20 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_image_add_button" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-b0-1Ap">
-                                <rect key="frame" x="293" y="588" width="68" height="68"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-EX-IF7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-EX-IF7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <color key="backgroundColor" red="0.73725490196078436" green="0.67450980392156867" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Llm-lL-Icb" firstAttribute="bottom" secondItem="vwe-EX-IF7" secondAttribute="bottom" constant="-56" id="18N-nL-hK4"/>
                             <constraint firstAttribute="trailing" secondItem="vwe-EX-IF7" secondAttribute="trailing" id="I0W-ys-6RJ"/>
-                            <constraint firstItem="vwe-EX-IF7" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="JQp-hQ-n2g"/>
                             <constraint firstItem="vwe-EX-IF7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="SbH-sN-Ibq"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="IEO-b0-1Ap" secondAttribute="bottom" constant="11" id="ceO-9Q-Ee4"/>
-                            <constraint firstAttribute="trailing" secondItem="IEO-b0-1Ap" secondAttribute="trailing" constant="14" id="jHS-SD-8bn"/>
+                            <constraint firstItem="vwe-EX-IF7" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="tOG-7Z-wol"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,7 +38,4 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="launch_image_add_button" width="68" height="68"/>
-    </resources>
 </document>
