@@ -47,13 +47,37 @@ class ArduinoColors {
 
   public static func goldPalette() -> ArduinoColors {
     return ArduinoColors(withTints: [
+      //Light Bronze
       PaletteTint500Name: UIColor(red: 188/255.0, green: 172/255.0, blue: 153/255.0, alpha: 1)],
                          accents: nil)
   }
 
+  public static func tealPalette() -> ArduinoColors {
+    return ArduinoColors(withTints: [
+      //Teal 6
+      PaletteTint100Name: UIColor(red: 165/255.0, green: 242/255.0, blue: 238/255.0, alpha: 1),
+      //Teal 0
+      PaletteTint200Name: UIColor(red: 127/255.0, green: 203/255.0, blue: 205/255.0, alpha: 1),
+      //Teal 1
+      PaletteTint300Name: UIColor(red: 12/255.0, green: 161/255.0, blue: 166/255.0, alpha: 1),
+      //Teal 2
+      PaletteTint400Name: UIColor(red: 0, green: 151/255.0, blue: 157/255.0, alpha: 1),
+      //Teal 3
+      PaletteTint500Name: UIColor(red: 0, green: 129/255.0, blue: 132/255.0, alpha: 1),
+      //Teal 4
+      PaletteTint600Name: UIColor(red: 0, green: 109/255.0, blue: 112/255.0, alpha: 1),
+      //Teal 5
+      PaletteTint700Name: UIColor(red: 0, green: 92/255.0, blue: 95/255.0, alpha: 1)
+      ],
+                         accents: [PaletteAccent700Name : UIColor.white]
+    )
+  }
+
   public static func grayPalette() -> ArduinoColors {
     return ArduinoColors(withTints: [
+      //Base Gray
       PaletteTint200Name: UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1),
+      //Gris
       PaletteTint500Name: UIColor(red: 78/255.0, green: 91/255.0, blue: 97/255.0, alpha: 1)],
                          accents: nil)
   }
