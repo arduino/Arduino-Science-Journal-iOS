@@ -81,6 +81,19 @@ class ArduinoColors {
       PaletteTint500Name: UIColor(red: 78/255.0, green: 91/255.0, blue: 97/255.0, alpha: 1)],
                          accents: nil)
   }
+  
+  public static func orangePalette() -> ArduinoColors {
+    return ArduinoColors(withTints: [
+      //Carrot 75%
+      PaletteTint400Name: UIColor(red: 255/255.0, green: 179/255.0, blue: 45/255.0, alpha: 1),
+      //Carrot
+      PaletteTint500Name: UIColor(red: 243/255.0, green: 156/255.0, blue: 18/255.0, alpha: 1),
+      //Orange
+      PaletteTint600Name: UIColor(red: 230/255.0, green: 126/255.0, blue: 34/255.0, alpha: 1)
+      ],
+                         accents: [PaletteAccent700Name : UIColor.white]
+    )
+  }  
 
   func tint50() -> UIColor? {
       return tints[PaletteTint50Name]
