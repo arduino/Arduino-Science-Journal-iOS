@@ -142,7 +142,7 @@ class ExperimentsListItemsViewController: UIViewController, UICollectionViewData
 
     collectionView.dataSource = self
     collectionView.delegate = self
-    collectionView.backgroundColor = MDCPalette.grey.tint200
+    collectionView.backgroundColor = ArduinoColors.grayPalette().tint200()
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.isAccessibilityElement = false
     collectionView.shouldGroupAccessibilityChildren = true
