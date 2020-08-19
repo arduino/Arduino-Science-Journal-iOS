@@ -119,6 +119,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
                                                 collectionViewLayout: UICollectionViewFlowLayout())
   private var sidebarVisibilityConstraint = NSLayoutConstraint()
   private var isSidebarVisible = false
+  private var isStatusBarHidden = false
   private let dimmingView = UIView()
   private let wrapperView = ShadowedView()
   private let accountView = SidebarAccountView()
@@ -135,6 +136,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
     self.analyticsReporter = analyticsReporter
     super.init(nibName: nil, bundle: nil)
     modalPresentationStyle = .overFullScreen
+    modalPresentationCapturesStatusBarAppearance = true
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -188,10 +190,6 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
     collectionView.topAnchor.constraint(equalTo: wrapperView.topAnchor).isActive = true
     collectionView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
     collectionView.widthAnchor.constraint(equalTo: wrapperView.widthAnchor).isActive = true
-    if #available(iOS 11.0, *) {
-      // Don't automatically adjust the collection view for safe areas.
-      collectionView.contentInsetAdjustmentBehavior = .never
-    }
 
     let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
     gestureRecognizer.delegate = self
@@ -219,9 +217,9 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
   }
 
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
-  }
+  override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+  override var prefersStatusBarHidden: Bool { isStatusBarHidden }
+  override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation { .fade }
 
   /// When the view rotates, update layout to properly resize the sidebar and enable scrolling
   /// when necessary.
@@ -278,6 +276,8 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
                    delay: 0,
                    options: .beginFromCurrentState,
                    animations: {
+      self.isStatusBarHidden = state.isSidebarVisible
+      self.setNeedsStatusBarAppearanceUpdate()
       self.dimmingView.alpha = state.dimmingAlpha
       self.wrapperView.setElevation(points: state.elevation)
       self.view.setNeedsUpdateConstraints()

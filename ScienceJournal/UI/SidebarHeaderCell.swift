@@ -43,6 +43,8 @@ class SidebarHeaderCell: MDCCollectionViewCell {
     let backgroundImage = UIImageView(image: UIImage(named: "sidebar_header_background"))
     contentView.addSubview(backgroundImage)
     backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+    backgroundImage.contentMode = .scaleAspectFill
+    backgroundImage.clipsToBounds = true
     backgroundImage.pinToEdgesOfView(contentView, withInsets: UIEdgeInsets(top: 0,
                                                                            left: 0,
                                                                            bottom: headerGap,
