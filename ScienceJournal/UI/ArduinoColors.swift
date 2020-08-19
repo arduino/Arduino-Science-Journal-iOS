@@ -76,15 +76,26 @@ class ArduinoColors {
   public static func grayPalette() -> ArduinoColors {
     return ArduinoColors(withTints: [
       //Base Gray
-      PaletteTint200Name: UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1),
+      PaletteTint50Name: UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1),
+      //Clouds
+      PaletteTint100Name: UIColor(red: 236/255.0, green: 241/255.0, blue: 241/255.0, alpha: 1),
+      //Smoke
+      PaletteTint200Name: UIColor(red: 201/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1),
+      //Concrete
+      PaletteTint300Name: UIColor(red: 149/255.0, green: 165/255.0, blue: 166/255.0, alpha: 1),
+      //Asbestos
+      PaletteTint400Name: UIColor(red: 127/255.0, green: 140/255.0, blue: 141/255.0, alpha: 1),
       //Gris
       PaletteTint500Name: UIColor(red: 78/255.0, green: 91/255.0, blue: 97/255.0, alpha: 1),
-      //Asbestos
-      PaletteTint600Name: UIColor(red: 127/255.0, green: 140/255.0, blue: 141/255.0, alpha: 1),
+      //Dust
+      PaletteTint600Name: UIColor(red: 67/255.0, green: 79/255.0, blue: 84/255.0, alpha: 1),
       //Jet
       PaletteTint700Name: UIColor(red: 55/255.0, green: 65/255.0, blue: 70/255.0, alpha: 1),
       //Charcoal
-      PaletteTint900Name: UIColor(red: 44/255.0, green: 53/255.0, blue: 58/255.0, alpha: 1)],
+      PaletteTint800Name: UIColor(red: 44/255.0, green: 53/255.0, blue: 58/255.0, alpha: 1),
+      //Onyx
+      PaletteTint900Name: UIColor(red: 23/255.0, green: 30/255.0, blue: 33/255.0, alpha: 1),
+      ],
                          accents: nil)
   }
   
@@ -99,7 +110,7 @@ class ArduinoColors {
       ],
                          accents: [PaletteAccent700Name : UIColor.white]
     )
-  }  
+  }
 
   func tint50() -> UIColor? {
       return tints[PaletteTint50Name]
