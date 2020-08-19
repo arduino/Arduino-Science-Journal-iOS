@@ -62,6 +62,7 @@ class SettingsCell: UICollectionViewCell {
     descriptionLabel.numberOfLines = 0
     descriptionLabel.font = Metrics.descriptionLabelFont
     descriptionLabel.alpha = MDCTypography.body1FontOpacity()
+    descriptionLabel.textColor = ArduinoColors.grayPalette().tint500()
   }
 
 }
