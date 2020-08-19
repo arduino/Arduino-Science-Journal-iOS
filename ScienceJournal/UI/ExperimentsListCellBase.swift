@@ -154,6 +154,7 @@ class ExperimentsListCellBase: AutoLayoutMaterialCardCell {
     titleLabel.lineBreakMode = .byTruncatingMiddle
     titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
     titleLabel.isAccessibilityElement = false
+    titleLabel.textColor = ArduinoColors.grayPalette().tint900()
 
     // The title stack, horizontal.
     titleStack.addArrangedSubview(titleLabel)

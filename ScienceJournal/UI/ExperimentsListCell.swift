@@ -69,7 +69,7 @@ class ExperimentsListCell: ExperimentsListCellBase {
   private func configureView() {
     // Menu button.
     titleStack.addArrangedSubview(menuButton)
-    menuButton.tintColor = .black
+    menuButton.tintColor = ArduinoColors.grayPalette().tint500()
     menuButton.hitAreaInsets = UIEdgeInsets(top: -30, left: -30, bottom: -10, right: -10)
     menuButton.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
     menuButton.isAccessibilityElement = true

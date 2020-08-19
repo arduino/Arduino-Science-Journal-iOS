@@ -80,7 +80,9 @@ class ArduinoColors {
       //Gris
       PaletteTint500Name: UIColor(red: 78/255.0, green: 91/255.0, blue: 97/255.0, alpha: 1),
       //Asbestos
-      PaletteTint600Name: UIColor(red: 127/255.0, green: 140/255.0, blue: 141/255.0, alpha: 1)],
+      PaletteTint600Name: UIColor(red: 127/255.0, green: 140/255.0, blue: 141/255.0, alpha: 1),
+      //Charcoal
+      PaletteTint900Name: UIColor(red: 44/255.0, green: 53/255.0, blue: 58/255.0, alpha: 1)],
                          accents: nil)
   }
   
