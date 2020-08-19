@@ -295,7 +295,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
                                   action: #selector(addExperimentButtonPressed),
                                   for: .touchUpInside)
     createExperimentFAB.translatesAutoresizingMaskIntoConstraints = false
-    createExperimentFAB.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+    createExperimentFAB.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
                                                 constant: -fabPadding).isActive = true
     createExperimentFAB.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                   constant: -fabPadding).isActive = true
