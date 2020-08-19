@@ -33,10 +33,7 @@ extension UIColor {
                                                              alpha: 1.0)
 
   /// The background color for the app bar while reviewing trials and notes.
-  static let appBarReviewBackgroundColor = UIColor(red: 0.282,
-                                                   green: 0.569,
-                                                   blue: 0.894,
-                                                   alpha: 1.0)
+  static let appBarReviewBackgroundColor = ArduinoColors.goldPalette().tint500()!
 
   /// The background color for the darkened area under the status bar while reviewing trials and
   /// notes.
@@ -46,10 +43,7 @@ extension UIColor {
                                                             alpha: 1.0)
 
   /// The background color for the app bar while editing a text note in a detail view.
-  static let appBarTextEditingBarBackgroundColor = UIColor(red: 0.608,
-                                                           green: 0.608,
-                                                           blue: 0.608,
-                                                           alpha: 1.0)
+  static let appBarTextEditingBarBackgroundColor = ArduinoColors.goldPalette().tint500()!
 
   /// The background color for the darkened area under the status bar while editing a text note in
   /// a detail view.
