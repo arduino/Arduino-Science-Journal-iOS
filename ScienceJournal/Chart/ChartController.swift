@@ -300,7 +300,7 @@ class ChartController: NSObject, ChartViewDelegate, UIScrollViewDelegate {
        notes: [DisplayNote]? = nil,
        sensorDataManager: SensorDataManager? = nil) {
     let lineColor = colorPalette?.tint600 ??
-      ArduinoColorPalette.orangePalette.tint600 ?? UIColor.darkGray
+      ArduinoColorPalette.defaultPalette.tint600 ?? UIColor.darkGray
     chartOptions = ChartOptions(placementType: placementType, lineColor: lineColor)
     chartView = ChartView(chartOptions: chartOptions)
     chartView.clipsToBounds = true

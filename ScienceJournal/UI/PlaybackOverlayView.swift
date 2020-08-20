@@ -114,7 +114,7 @@ class PlaybackOverlayView: UIView {
     }
 
     private func configureView() {
-      innerDotLayer.fillColor = ArduinoColorPalette.orangePalette.tint600!.cgColor
+      innerDotLayer.fillColor = ArduinoColorPalette.defaultPalette.tint600!.cgColor
       outerDotLayer.fillColor = UIColor(red: 0.259, green: 0.522, blue: 0.957, alpha: 0.33).cgColor
 
       layer.addSublayer(innerDotLayer)
@@ -142,11 +142,11 @@ class PlaybackOverlayView: UIView {
   }
 
   override convenience init(frame: CGRect) {
-    self.init(colorPalette: ArduinoColorPalette.orangePalette, frame: frame)
+    self.init(colorPalette: ArduinoColorPalette.defaultPalette, frame: frame)
   }
 
   required convenience init?(coder aDecoder: NSCoder) {
-    self.init(colorPalette: ArduinoColorPalette.orangePalette, coder: aDecoder)
+    self.init(colorPalette: ArduinoColorPalette.defaultPalette, coder: aDecoder)
   }
 
   private func configureView() {
