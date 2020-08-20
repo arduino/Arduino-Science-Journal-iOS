@@ -24,8 +24,7 @@ extension UIColor {
   // MARK: - App bar
 
   /// The default background color for the app bar.
-  static let appBarDefaultBackgroundColor = ArduinoColorPalette.goldPalette.tint50 ??
-                                            UIColor.lightGray
+  static let appBarDefaultBackgroundColor = ArduinoColorPalette.goldPalette.tint500 ?? UIColor.lightGray
 
   /// The default background color for the darkend area under the status bar.
   static let appBarDefaultStatusBarBackgroundColor = UIColor(red: 0.267,
@@ -44,8 +43,7 @@ extension UIColor {
                                                             alpha: 1.0)
 
   /// The background color for the app bar while editing a text note in a detail view.
-  static let appBarTextEditingBarBackgroundColor = ArduinoColorPalette.goldPalette.tint500 ??
-                                                   UIColor.gray
+  static let appBarTextEditingBarBackgroundColor = ArduinoColorPalette.goldPalette.tint500 ?? UIColor.gray
 
   /// The background color for the darkened area under the status bar while editing a text note in
   /// a detail view.
