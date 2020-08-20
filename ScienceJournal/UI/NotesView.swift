@@ -196,7 +196,7 @@ class NotesView: UIView {
   private func configureView() {
     // Text view.
     textView.alwaysBounceVertical = false
-    textView.font = MDCTypography.fontLoader().regularFont(ofSize: 16)
+    textView.font = ArduinoTypography.regularFont(forSize: 16)
     addSubview(textView)
     textView.translatesAutoresizingMaskIntoConstraints = false
     textView.pinToEdgesOfView(self)
