@@ -657,6 +657,9 @@
 		D59CA3DC219F51350082A27B /* Int+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */; };
 		D59CA3DD219F51350082A27B /* Int+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */; };
 		D59CA3DE219F51350082A27B /* Int+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */; };
+		F31242AE24EEC7AC000146F5 /* ArduinoTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */; };
+		F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */; };
+		F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */; };
 		F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389279124DC408900843D1D /* ArduinoColorPalette.swift */; };
 /* End PBXBuildFile section */
 
@@ -1355,6 +1358,9 @@
 		D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+ScienceJournal.swift"; sourceTree = "<group>"; };
 		D65BB81A86250B67E7CA196C /* Pods-ScienceJournal.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.adhoc.xcconfig"; sourceTree = "<group>"; };
 		D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScienceJournalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoTypography.swift; sourceTree = "<group>"; };
+		F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		F389279124DC408900843D1D /* ArduinoColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1761,6 +1767,7 @@
 				8B257E5C1ED475780065E7D4 /* ViewConstants.swift */,
 				8B3FA2B521513F5E002241DC /* VisibilityTrackingViewControllers.swift */,
 				F389279124DC408900843D1D /* ArduinoColorPalette.swift */,
+				F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -2944,6 +2951,7 @@
 		8BDD4C2B1EA6879000FCCA30 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F31242AF24EECE37000146F5 /* Fonts */,
 				68EBA6E41E20421E0089FF7F /* Assets.xcassets */,
 				4878E93F22974DCC004B61AF /* LaunchScreen.storyboard */,
 				5C7EFC4B202A5BAC0007F99E /* Licenses */,
@@ -3045,6 +3053,15 @@
 				486F97684E4736F8AED250F0 /* Pods-ScienceJournalUITests.dogfood.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F31242AF24EECE37000146F5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */,
+				F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3250,6 +3267,7 @@
 				4878E93E22974D21004B61AF /* Strings.bundle in Resources */,
 				5C7EFC51202A5BAC0007F99E /* protobuf.html in Resources */,
 				48BFD8CD20D065FF00FB5C1A /* motion_animator.html in Resources */,
+				F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */,
 				48FDC26B20AB51B600C472DA /* oss_licenses_index.txt in Resources */,
 				5C7EFC50202A5BAC0007F99E /* material_components.html in Resources */,
 				5C7EFC52202A5BAC0007F99E /* ziparchive.html in Resources */,
@@ -3262,6 +3280,7 @@
 				48BFD8D020D065FF00FB5C1A /* gtm_oauth_2.html in Resources */,
 				5C7EFC53202A5BAC0007F99E /* mdf_text.html in Resources */,
 				48BFD8CE20D065FF00FB5C1A /* motion_interchange.html in Resources */,
+				F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */,
 				48BFD8CF20D065FF00FB5C1A /* mdf_internationalization.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3568,6 +3587,7 @@
 				5CB2CF3B223C2B4300F73F6B /* ExperimentDataDeleter.swift in Sources */,
 				8B347446203F4A8A00E73378 /* PitchSensorAnimationView.swift in Sources */,
 				5CA7921C2257B894008D62FB /* Result.swift in Sources */,
+				F31242AE24EEC7AC000146F5 /* ArduinoTypography.swift in Sources */,
 				8B4B60181E44DFAC009AFB1B /* BarometerSensor.swift in Sources */,
 				68D606671F0C109E0077ABCD /* EditExperimentViewController.swift in Sources */,
 				685841301F16D21C000E4F7C /* PreferenceManager.swift in Sources */,
