@@ -192,7 +192,7 @@ class SensorCardCell: AutoLayoutMaterialCardCell, MDCTabBarDelegate {
       guard let palette = colorPalette else {
         return
       }
-      sensorPickerView.backgroundColor = palette.tint600
+      sensorPickerView.backgroundColor = palette.tint500
       headerView.backgroundColor = palette.tint700
       sensorLoadingView.activityView.cycleColors = [palette.tint600 ?? UIColor.darkGray]
       statsView.textColor = palette.tint600
