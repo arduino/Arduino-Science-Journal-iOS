@@ -179,7 +179,7 @@ open class PhotoLibraryViewController: ScienceJournalViewController, UICollectio
     actionBar.leadingAnchor.constraint(equalTo: actionBarWrapper.leadingAnchor).isActive = true
     actionBar.trailingAnchor.constraint(equalTo: actionBarWrapper.trailingAnchor).isActive = true
 
-    actionBarWrapper.backgroundColor = DrawerView.actionBarBackgroundColor
+    actionBarWrapper.backgroundColor = .white
     actionBarWrapper.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(actionBarWrapper)
     actionBarWrapper.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
