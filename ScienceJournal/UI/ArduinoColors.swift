@@ -36,7 +36,7 @@ let PaletteAccent200Name = "A200"
 let PaletteAccent400Name = "A300"
 let PaletteAccent700Name = "A400"
 
-class ArduinoColors {
+class ArduinoColors : Equatable {
   private var tints: [String : UIColor]
   private var accents: [String : UIColor]?
 
@@ -45,6 +45,12 @@ class ArduinoColors {
     self.accents = accents
   }
 
+  static func == (lhs: ArduinoColors, rhs: ArduinoColors) -> Bool {
+      return
+          lhs.tints == rhs.tints &&
+          lhs.accents == rhs.accents
+  }
+  
   public static func goldPalette() -> ArduinoColors {
     return ArduinoColors(withTints: [
       //Light Bronze
@@ -53,6 +59,15 @@ class ArduinoColors {
   }
 
   public static func tealPalette() -> ArduinoColors {
+    return ArduinoColors(withTints: [
+      //Sun Flower
+      PaletteTint500Name: UIColor(red: 241/255.0, green: 196/255.0, blue: 15/255.0, alpha: 1)
+      ],
+                         accents: nil
+    )
+  }
+  
+  public static func yellowPalette() -> ArduinoColors {
     return ArduinoColors(withTints: [
       //Teal 6
       PaletteTint100Name: UIColor(red: 165/255.0, green: 242/255.0, blue: 238/255.0, alpha: 1),
@@ -168,4 +183,79 @@ class ArduinoColors {
       return accents?[PaletteAccent700Name]
   }
 
+  /// Color palette options for experiment list cards.
+  static let experimentListCardColorPaletteOptions = [ArduinoColors.orangePalette(),
+                                                      ArduinoColors.yellowPalette(),
+                                                      ArduinoColors.goldPalette(),
+                                                      ArduinoColors.tealPalette()]
+
+  /// Returns the next experiment list card color palette that is least used.
+  ///
+  /// - Parameter usedPalettes: Color palettes that are already in use by experiment list cards.
+  /// - Returns: The next experiment list card color palette to use.
+  static func nextExperimentListCardColorPalette(
+      withUsedPalettes usedPalettes: [ArduinoColors]) -> ArduinoColors {
+    return nextColorPalette(from: experimentListCardColorPaletteOptions,
+                            withUsedPalettes: usedPalettes)
+  }
+
+  // MARK: - Sensor card colors
+
+  /// Color palette options for sensor cards.
+  static let sensorCardColorPaletteOptions = [ArduinoColors.orangePalette(),
+                                              ArduinoColors.yellowPalette(),
+                                              ArduinoColors.goldPalette(),
+                                              ArduinoColors.tealPalette()]
+
+  /// Returns the next sensor card color palette that is least used.
+  ///
+  /// - Parameter usedPalettes: Color palettes that are already in use by sensor cards.
+  /// - Returns: The next sensor card color palette to use.
+  static func nextSensorCardColorPalette(
+      withUsedPalettes usedPalettes: [ArduinoColors]) -> ArduinoColors {
+    return nextColorPalette(from: sensorCardColorPaletteOptions, withUsedPalettes: usedPalettes)
+  }
+
+  // MARK: - Private
+
+  // Returns the color palette that is least used out of an array of colors. (Matches Android's code
+  // for choosing card colors.)
+  private static func nextColorPalette(from colorPalettes: [ArduinoColors],
+                                       withUsedPalettes
+                                       usedPalettes: [ArduinoColors]) -> ArduinoColors {
+    // Set up a dictionary for each palette to keep track of used count.
+    var paletteIndexUsedCountDict = [Int : Int]()
+    if !usedPalettes.isEmpty {
+      for palette in usedPalettes {
+        guard let index = colorPalettes.firstIndex(of: palette) else { continue }
+        if paletteIndexUsedCountDict[index] == nil {
+          paletteIndexUsedCountDict[index] = 1
+        } else {
+          paletteIndexUsedCountDict[index]! += 1
+        }
+      }
+    }
+
+    // Loop each palette, and if it is used fewer times than the current least used color, use it.
+    // Each time around the loop increment the least used count threshold.
+    var foundColor: ArduinoColors?
+    var leastUsed = 0
+    while foundColor == nil {
+      for palette in colorPalettes {
+        guard let index = colorPalettes.firstIndex(of: palette),
+            let paletteCount = paletteIndexUsedCountDict[index],
+            paletteCount > leastUsed else {
+          foundColor = palette
+          break
+        }
+      }
+      if foundColor == nil {
+        leastUsed += 1
+      } else {
+        break
+      }
+    }
+    return foundColor!
+  }
+  
 }
