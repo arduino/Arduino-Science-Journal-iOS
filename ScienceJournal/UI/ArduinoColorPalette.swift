@@ -64,9 +64,14 @@ class ArduinoColorPalette : Equatable {
 
   public static var yellowPalette: ArduinoColorPalette {
     return ArduinoColorPalette(withTints: [
-      //TODO add tint200
+      //Sun Flower 75%
+      PaletteTint400Name: UIColor(red: 249/255.0, green: 211/255.0, blue: 21/255.0, alpha: 1),
       //Sun Flower
-      PaletteTint500Name: UIColor(red: 241/255.0, green: 196/255.0, blue: 15/255.0, alpha: 1)
+      PaletteTint500Name: UIColor(red: 241/255.0, green: 196/255.0, blue: 15/255.0, alpha: 1),
+      //Sun Flower Darker
+      PaletteTint600Name: UIColor(red: 255/255.0, green: 191/255.0, blue: 0/255.0, alpha: 1),
+      //Sun Flower Dark
+      PaletteTint700Name: UIColor(red: 239/255.0, green: 182/255.0, blue: 12/255.0, alpha: 1)
       ],
                          accents: nil
     )
