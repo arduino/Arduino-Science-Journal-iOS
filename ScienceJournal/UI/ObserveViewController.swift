@@ -442,7 +442,7 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
         let message = MDCSnackbarMessage()
         message.text = String.snapshotFailedDisconnected
         MDCSnackbarManager.setButtonTitleColor(
-          ArduinoColors.yellowPalette().tint200(), for: .normal)
+          ArduinoColorPalette.yellowPalette.tint200, for: .normal)
         MDCSnackbarManager.show(message)
         return
       }

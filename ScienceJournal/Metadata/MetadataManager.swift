@@ -443,7 +443,7 @@ public class MetadataManager {
     let experimentID = UUID().uuidString
     let overview = ExperimentOverview(experimentID: experimentID)
 
-    let colorPalette = ArduinoColors.nextExperimentListCardColorPalette(withUsedPalettes:
+    let colorPalette = ArduinoColorPalette.nextExperimentListCardColorPalette(withUsedPalettes:
         experimentOverviews.map { $0.colorPalette })
     overview.colorPalette = colorPalette
     overview.title = title
@@ -475,7 +475,7 @@ public class MetadataManager {
     }
 
     let overview = ExperimentOverview(experimentID: experimentID)
-    overview.colorPalette = ArduinoColors.nextExperimentListCardColorPalette(withUsedPalettes:
+    overview.colorPalette = ArduinoColorPalette.nextExperimentListCardColorPalette(withUsedPalettes:
         experimentOverviews.map { $0.colorPalette })
 
     // For importing, the experiment's imagePath is ignored in favor of the named cover image file.
@@ -546,7 +546,7 @@ public class MetadataManager {
     }
 
     let overview = ExperimentOverview(experimentID: experiment.ID)
-    overview.colorPalette = ArduinoColors.nextExperimentListCardColorPalette(withUsedPalettes:
+    overview.colorPalette = ArduinoColorPalette.nextExperimentListCardColorPalette(withUsedPalettes:
         experimentOverviews.map { $0.colorPalette })
 
     overview.isArchived = syncExperiment.isArchived
@@ -1307,8 +1307,9 @@ public class MetadataManager {
         }
 
         let overview = ExperimentOverview(experimentID: experimentID)
-        overview.colorPalette = ArduinoColors.nextExperimentListCardColorPalette(withUsedPalettes:
-            userMetadata.experimentOverviews.map { $0.colorPalette })
+        overview.colorPalette = ArduinoColorPalette.nextExperimentListCardColorPalette(
+                                withUsedPalettes:
+                                userMetadata.experimentOverviews.map { $0.colorPalette })
         overview.title = experiment.title
         overview.imagePath = experiment.imagePath
 
@@ -1349,7 +1350,7 @@ public class MetadataManager {
 
       let newOverview = ExperimentOverview(experimentID: experimentID)
       newOverview.colorPalette = mostRecentOverviewColorPalette ??
-          ArduinoColors.nextExperimentListCardColorPalette(withUsedPalettes:
+          ArduinoColorPalette.nextExperimentListCardColorPalette(withUsedPalettes:
               userMetadata.experimentOverviews.map { $0.colorPalette })
       newOverview.title = experiment.title
       newOverview.imagePath = experiment.imagePath

@@ -292,15 +292,15 @@ class ChartController: NSObject, ChartViewDelegate, UIScrollViewDelegate {
   ///   - notes: An array of notes to display on the chart.
   ///   - sensorDataManager: The sensor data manager.
   init(placementType: ChartPlacementType,
-       colorPalette: ArduinoColors?,
+       colorPalette: ArduinoColorPalette?,
        trialID: String? = nil,
        sensorID: String? = nil,
        sensorStats: DisplaySensorStats? = nil,
        cropRange: ChartAxis<Int64>? = nil,
        notes: [DisplayNote]? = nil,
        sensorDataManager: SensorDataManager? = nil) {
-    let lineColor = colorPalette?.tint600() ??
-      ArduinoColors.orangePalette().tint600() ?? UIColor.darkGray
+    let lineColor = colorPalette?.tint600 ??
+      ArduinoColorPalette.orangePalette.tint600 ?? UIColor.darkGray
     chartOptions = ChartOptions(placementType: placementType, lineColor: lineColor)
     chartView = ChartView(chartOptions: chartOptions)
     chartView.clipsToBounds = true

@@ -80,9 +80,9 @@ open class DrawerView: UIView, MDCTabBarDelegate {
   // MARK: - Constants
 
   /// The background color of the drawer's main bar, which contains tabs.
-  static let barBackgroundColor = ArduinoColors.grayPalette().tint700()
+  static let barBackgroundColor = ArduinoColorPalette.grayPalette.tint700
   /// The background color of the drawer's action bar.
-  static let actionBarBackgroundColor = ArduinoColors.grayPalette().tint700()
+  static let actionBarBackgroundColor = ArduinoColorPalette.grayPalette.tint700
   /// The background color to be used to darken the statusBar frame when the drawer is open to full.
   static let statusBarBackgroundColor = UIColor(red: 0.176, green: 0.176, blue: 0.176, alpha: 1)
 

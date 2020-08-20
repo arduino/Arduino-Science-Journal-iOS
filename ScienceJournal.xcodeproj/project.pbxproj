@@ -657,7 +657,7 @@
 		D59CA3DC219F51350082A27B /* Int+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */; };
 		D59CA3DD219F51350082A27B /* Int+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */; };
 		D59CA3DE219F51350082A27B /* Int+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */; };
-		F389279224DC408900843D1D /* ArduinoColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389279124DC408900843D1D /* ArduinoColors.swift */; };
+		F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389279124DC408900843D1D /* ArduinoColorPalette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1355,7 +1355,7 @@
 		D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+ScienceJournal.swift"; sourceTree = "<group>"; };
 		D65BB81A86250B67E7CA196C /* Pods-ScienceJournal.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.adhoc.xcconfig"; sourceTree = "<group>"; };
 		D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScienceJournalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F389279124DC408900843D1D /* ArduinoColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoColors.swift; sourceTree = "<group>"; };
+		F389279124DC408900843D1D /* ArduinoColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1760,7 +1760,7 @@
 				3F158A0A231AD72C005E319E /* UIViewController+MaterialHeader.swift */,
 				8B257E5C1ED475780065E7D4 /* ViewConstants.swift */,
 				8B3FA2B521513F5E002241DC /* VisibilityTrackingViewControllers.swift */,
-				F389279124DC408900843D1D /* ArduinoColors.swift */,
+				F389279124DC408900843D1D /* ArduinoColorPalette.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -3860,7 +3860,7 @@
 				68154D3D1F58EBCD000CD3E6 /* PermissionsGuideViewController.swift in Sources */,
 				8B3FA2B621513F5E002241DC /* VisibilityTrackingViewControllers.swift in Sources */,
 				8BB99E76206D7681001A1A58 /* TrialCardNoteViewPool.swift in Sources */,
-				F389279224DC408900843D1D /* ArduinoColors.swift in Sources */,
+				F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */,
 				8B84E0311EAFF429005E9AA0 /* DrawerViewController.swift in Sources */,
 				8B1791CC1F140F22008C0B31 /* TriggerOnlyWhenRecordingSwitchView.swift in Sources */,
 				8B257E5D1ED475780065E7D4 /* ViewConstants.swift in Sources */,

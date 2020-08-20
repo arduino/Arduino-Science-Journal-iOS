@@ -90,13 +90,13 @@ public class ExperimentOverview {
   }
 
   /// The color palette of the experiment list card.
-  var colorPalette: ArduinoColors {
+  var colorPalette: ArduinoColorPalette {
     get {
-      return ArduinoColors.experimentListCardColorPaletteOptions[Int(proto.colorIndex)]
+      return ArduinoColorPalette.experimentListCardColorPaletteOptions[Int(proto.colorIndex)]
     }
     set {
       proto.colorIndex =
-          Int32(ArduinoColors.experimentListCardColorPaletteOptions.firstIndex(of: newValue) ?? 0)
+          Int32(ArduinoColorPalette.experimentListCardColorPaletteOptions.firstIndex(of: newValue) ?? 0)
     }
   }
 

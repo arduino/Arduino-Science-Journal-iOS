@@ -110,7 +110,7 @@ class SettingsSwitchCell: SettingsCell {
 
   override func configureView() {
     super.configureView()
-    aSwitch.onTintColor = ArduinoColors.tealPalette().tint500()
+    aSwitch.onTintColor = ArduinoColorPalette.tealPalette.tint500
     contentView.addSubview(aSwitch)
   }
 

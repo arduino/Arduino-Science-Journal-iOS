@@ -114,7 +114,7 @@ class PlaybackOverlayView: UIView {
     }
 
     private func configureView() {
-      innerDotLayer.fillColor = ArduinoColors.orangePalette().tint600()!.cgColor
+      innerDotLayer.fillColor = ArduinoColorPalette.orangePalette.tint600!.cgColor
       outerDotLayer.fillColor = UIColor(red: 0.259, green: 0.522, blue: 0.957, alpha: 0.33).cgColor
 
       layer.addSublayer(innerDotLayer)
@@ -129,9 +129,9 @@ class PlaybackOverlayView: UIView {
   private let dottedLine = DottedLineView()
   private let chartDot = ChartDotView()
   private let timelineDot = TimelineDotView()
-  private let colorPalette: ArduinoColors?
+  private let colorPalette: ArduinoColorPalette?
 
-  init(colorPalette: ArduinoColors?, frame: CGRect = .zero, coder aDecoder: NSCoder? = nil) {
+  init(colorPalette: ArduinoColorPalette?, frame: CGRect = .zero, coder aDecoder: NSCoder? = nil) {
     self.colorPalette = colorPalette
     if let aDecoder = aDecoder {
       super.init(coder: aDecoder)!
@@ -142,16 +142,16 @@ class PlaybackOverlayView: UIView {
   }
 
   override convenience init(frame: CGRect) {
-    self.init(colorPalette: ArduinoColors.orangePalette(), frame: frame)
+    self.init(colorPalette: ArduinoColorPalette.orangePalette, frame: frame)
   }
 
   required convenience init?(coder aDecoder: NSCoder) {
-    self.init(colorPalette: ArduinoColors.orangePalette(), coder: aDecoder)
+    self.init(colorPalette: ArduinoColorPalette.orangePalette, coder: aDecoder)
   }
 
   private func configureView() {
-    flagView.color = colorPalette?.tint600()
-    chartDot.color = colorPalette?.tint600()
+    flagView.color = colorPalette?.tint600
+    chartDot.color = colorPalette?.tint600
 
     // flagView is not added as a sub view until its frame has been calculated the first time to
     // avoid a constraint error.

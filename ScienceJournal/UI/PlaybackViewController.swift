@@ -90,7 +90,7 @@ class PlaybackViewController: UIViewController, ChartControllerDelegate, Accessi
     return cropOverlayViewController?.cropRange
   }
 
-  let colorPalette: ArduinoColors?
+  let colorPalette: ArduinoColorPalette?
 
   // MARK: - Public
 
@@ -109,7 +109,7 @@ class PlaybackViewController: UIViewController, ChartControllerDelegate, Accessi
        sensorStats: DisplaySensorStats,
        cropRange: ChartAxis<Int64>? = nil,
        notes: [DisplayNote],
-       colorPalette: ArduinoColors?,
+       colorPalette: ArduinoColorPalette?,
        sensorDataManager: SensorDataManager) {
     self.sensorID = sensorID
     self.trialID = trialID

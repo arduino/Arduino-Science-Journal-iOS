@@ -1,5 +1,5 @@
 //  
-//  ArduinoColors.swift
+//  ArduinoColorPalette.swift
 //  ScienceJournal
 //
 //  Created by Sebastian Hunkeler on 06.08.20.
@@ -36,7 +36,7 @@ let PaletteAccent200Name = "A200"
 let PaletteAccent400Name = "A300"
 let PaletteAccent700Name = "A400"
 
-class ArduinoColors : Equatable {
+class ArduinoColorPalette : Equatable {
   private var tints: [String : UIColor]
   private var accents: [String : UIColor]?
 
@@ -45,21 +45,25 @@ class ArduinoColors : Equatable {
     self.accents = accents
   }
 
-  static func == (lhs: ArduinoColors, rhs: ArduinoColors) -> Bool {
+  static func == (lhs: ArduinoColorPalette, rhs: ArduinoColorPalette) -> Bool {
       return
           lhs.tints == rhs.tints &&
           lhs.accents == rhs.accents
   }
   
-  public static func goldPalette() -> ArduinoColors {
-    return ArduinoColors(withTints: [
+  public static var defaultPalette: ArduinoColorPalette {
+    return orangePalette
+  }
+  
+  public static var goldPalette: ArduinoColorPalette {
+    return ArduinoColorPalette(withTints: [
       //Light Bronze
       PaletteTint500Name: UIColor(red: 188/255.0, green: 172/255.0, blue: 153/255.0, alpha: 1)],
                          accents: nil)
   }
 
-  public static func yellowPalette() -> ArduinoColors {
-    return ArduinoColors(withTints: [
+  public static var yellowPalette: ArduinoColorPalette {
+    return ArduinoColorPalette(withTints: [
       //TODO add tint200
       //Sun Flower
       PaletteTint500Name: UIColor(red: 241/255.0, green: 196/255.0, blue: 15/255.0, alpha: 1)
@@ -68,8 +72,8 @@ class ArduinoColors : Equatable {
     )
   }
   
-  public static func tealPalette() -> ArduinoColors {
-    return ArduinoColors(withTints: [
+  public static var tealPalette: ArduinoColorPalette {
+    return ArduinoColorPalette(withTints: [
       //Teal 6
       PaletteTint100Name: UIColor(red: 165/255.0, green: 242/255.0, blue: 238/255.0, alpha: 1),
       //Teal 0
@@ -89,8 +93,8 @@ class ArduinoColors : Equatable {
     )
   }
 
-  public static func grayPalette() -> ArduinoColors {
-    return ArduinoColors(withTints: [
+  public static var grayPalette: ArduinoColorPalette {
+    return ArduinoColorPalette(withTints: [
       //Base Gray
       PaletteTint50Name: UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1),
       //Clouds
@@ -115,8 +119,8 @@ class ArduinoColors : Equatable {
                          accents: nil)
   }
   
-  public static func orangePalette() -> ArduinoColors {
-    return ArduinoColors(withTints: [
+  public static var orangePalette: ArduinoColorPalette {
+    return ArduinoColorPalette(withTints: [
       //Carrot 75%
       PaletteTint400Name: UIColor(red: 255/255.0, green: 179/255.0, blue: 45/255.0, alpha: 1),
       //Carrot
@@ -128,74 +132,74 @@ class ArduinoColors : Equatable {
     )
   }
 
-  func tint50() -> UIColor? {
+  var tint50: UIColor? {
       return tints[PaletteTint50Name]
   }
 
-  func tint100() -> UIColor? {
+  var tint100: UIColor? {
       return tints[PaletteTint100Name]
   }
 
-  func tint200() -> UIColor? {
+  var tint200: UIColor? {
       return tints[PaletteTint200Name]
   }
 
-  func tint300() -> UIColor? {
+  var tint300: UIColor? {
       return tints[PaletteTint300Name]
   }
 
-  func tint400() -> UIColor? {
+  var tint400: UIColor? {
       return tints[PaletteTint400Name]
   }
 
-  func tint500() -> UIColor? {
+  var tint500: UIColor? {
       return tints[PaletteTint500Name]
   }
 
-  func tint600() -> UIColor? {
+  var tint600: UIColor? {
       return tints[PaletteTint600Name]
   }
 
-  func tint700() -> UIColor? {
+  var tint700: UIColor? {
       return tints[PaletteTint700Name]
   }
 
-  func tint800() -> UIColor? {
+  var tint800: UIColor? {
       return tints[PaletteTint800Name]
   }
 
-  func tint900() -> UIColor? {
+  var tint900: UIColor? {
       return tints[PaletteTint900Name]
   }
 
-  func accent100() -> UIColor? {
+  var accent100: UIColor? {
       return accents?[PaletteAccent100Name]
   }
 
-  func accent200() -> UIColor? {
+  var accent200: UIColor? {
       return accents?[PaletteAccent200Name]
   }
 
-  func accent400() -> UIColor? {
+  var accent400: UIColor? {
       return accents?[PaletteAccent400Name]
   }
 
-  func accent700() -> UIColor? {
+  var accent700: UIColor? {
       return accents?[PaletteAccent700Name]
   }
 
   /// Color palette options for experiment list cards.
-  static let experimentListCardColorPaletteOptions = [ArduinoColors.orangePalette(),
-                                                      ArduinoColors.yellowPalette(),
-                                                      ArduinoColors.goldPalette(),
-                                                      ArduinoColors.tealPalette()]
+  static let experimentListCardColorPaletteOptions = [ArduinoColorPalette.orangePalette,
+                                                      ArduinoColorPalette.yellowPalette,
+                                                      ArduinoColorPalette.goldPalette,
+                                                      ArduinoColorPalette.tealPalette]
 
   /// Returns the next experiment list card color palette that is least used.
   ///
   /// - Parameter usedPalettes: Color palettes that are already in use by experiment list cards.
   /// - Returns: The next experiment list card color palette to use.
   static func nextExperimentListCardColorPalette(
-      withUsedPalettes usedPalettes: [ArduinoColors]) -> ArduinoColors {
+      withUsedPalettes usedPalettes: [ArduinoColorPalette]) -> ArduinoColorPalette {
     return nextColorPalette(from: experimentListCardColorPaletteOptions,
                             withUsedPalettes: usedPalettes)
   }
@@ -203,17 +207,17 @@ class ArduinoColors : Equatable {
   // MARK: - Sensor card colors
 
   /// Color palette options for sensor cards.
-  static let sensorCardColorPaletteOptions = [ArduinoColors.orangePalette(),
-                                              ArduinoColors.yellowPalette(),
-                                              ArduinoColors.goldPalette(),
-                                              ArduinoColors.tealPalette()]
+  static let sensorCardColorPaletteOptions = [ArduinoColorPalette.orangePalette,
+                                              ArduinoColorPalette.yellowPalette,
+                                              ArduinoColorPalette.goldPalette,
+                                              ArduinoColorPalette.tealPalette]
 
   /// Returns the next sensor card color palette that is least used.
   ///
   /// - Parameter usedPalettes: Color palettes that are already in use by sensor cards.
   /// - Returns: The next sensor card color palette to use.
   static func nextSensorCardColorPalette(
-      withUsedPalettes usedPalettes: [ArduinoColors]) -> ArduinoColors {
+      withUsedPalettes usedPalettes: [ArduinoColorPalette]) -> ArduinoColorPalette {
     return nextColorPalette(from: sensorCardColorPaletteOptions, withUsedPalettes: usedPalettes)
   }
 
@@ -221,9 +225,9 @@ class ArduinoColors : Equatable {
 
   // Returns the color palette that is least used out of an array of colors. (Matches Android's code
   // for choosing card colors.)
-  private static func nextColorPalette(from colorPalettes: [ArduinoColors],
+  private static func nextColorPalette(from colorPalettes: [ArduinoColorPalette],
                                        withUsedPalettes
-                                       usedPalettes: [ArduinoColors]) -> ArduinoColors {
+                                       usedPalettes: [ArduinoColorPalette]) -> ArduinoColorPalette {
     // Set up a dictionary for each palette to keep track of used count.
     var paletteIndexUsedCountDict = [Int : Int]()
     if !usedPalettes.isEmpty {
@@ -239,7 +243,7 @@ class ArduinoColors : Equatable {
 
     // Loop each palette, and if it is used fewer times than the current least used color, use it.
     // Each time around the loop increment the least used count threshold.
-    var foundColor: ArduinoColors?
+    var foundColor: ArduinoColorPalette?
     var leastUsed = 0
     while foundColor == nil {
       for palette in colorPalettes {

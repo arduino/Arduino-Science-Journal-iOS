@@ -118,7 +118,7 @@ class SettingsButtonCell: SettingsCell {
   override func configureView() {
     super.configureView()
     contentView.addSubview(aButton)
-    aButton.setBackgroundColor(ArduinoColors.tealPalette().tint500(), for: .normal)
+    aButton.setBackgroundColor(ArduinoColorPalette.tealPalette.tint500, for: .normal)
     aButton.setTitleColor(.white, for: .normal)
   }
 

@@ -89,7 +89,7 @@ class ExperimentsListCellBase: AutoLayoutMaterialCardCell {
   func configureForExperimentOverview(_ experimentOverview: ExperimentOverview, image: UIImage?) {
     let title = experimentOverview.title ?? String.localizedUntitledExperiment
     titleLabel.text = title
-    imageWrapper.backgroundColor = experimentOverview.colorPalette.tint500()
+    imageWrapper.backgroundColor = experimentOverview.colorPalette.tint500
     accessibilityWrapper.accessibilityLabel = title
     accessibilityWrapper.accessibilityHint = String.doubleTapToOpen
 
@@ -154,7 +154,7 @@ class ExperimentsListCellBase: AutoLayoutMaterialCardCell {
     titleLabel.lineBreakMode = .byTruncatingMiddle
     titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
     titleLabel.isAccessibilityElement = false
-    titleLabel.textColor = ArduinoColors.grayPalette().tint800()
+    titleLabel.textColor = ArduinoColorPalette.grayPalette.tint800
 
     // The title stack, horizontal.
     titleStack.addArrangedSubview(titleLabel)

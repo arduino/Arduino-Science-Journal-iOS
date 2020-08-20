@@ -154,7 +154,7 @@ class TrialCardSensorView: ExperimentCardView {
     guard let displaySensor = displaySensor else { return }
 
     // Icon
-    sensorIcon.tintColor = displaySensor.colorPalette?.tint600()
+    sensorIcon.tintColor = displaySensor.colorPalette?.tint600
     sensorIcon.image = displaySensor.icon
     sensorIcon.sizeToFit()
 
@@ -165,7 +165,7 @@ class TrialCardSensorView: ExperimentCardView {
     configureAccessibility(titleText: displaySensor.title)
 
     // Stats view
-    sensorStatsView.textColor = displaySensor.colorPalette?.tint600()
+    sensorStatsView.textColor = displaySensor.colorPalette?.tint600
     sensorStatsView.setMin(displaySensor.minValueString,
                            average: displaySensor.averageValueString,
                            max: displaySensor.maxValueString)

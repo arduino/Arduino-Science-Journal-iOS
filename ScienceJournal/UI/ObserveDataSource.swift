@@ -223,7 +223,7 @@ class ObserveDataSource: SensorDelegate {
       cellStateOptions: SensorCardCell.State.Options = .showingSensorPicker) -> SensorCard? {
     guard let sensor = availableSensors().first else { return nil }
     let nextCardColor =
-        ArduinoColors.nextSensorCardColorPalette(withUsedPalettes: items.map { $0.colorPalette })
+        ArduinoColorPalette.nextSensorCardColorPalette(withUsedPalettes: items.map { $0.colorPalette })
     return sensorCardWithSensor(sensor,
                                 cardColorPalette: nextCardColor,
                                 cellStateOptions: cellStateOptions)
@@ -238,7 +238,7 @@ class ObserveDataSource: SensorDelegate {
   /// - Returns: A `SensorCard` object that has been added to the dataSource's underlying array.
   ///   - cellStateOptions: The cell state options for this card.
   func sensorCardWithSensor(_ sensor: Sensor,
-                            cardColorPalette: ArduinoColors,
+                            cardColorPalette: ArduinoColorPalette,
                             cellStateOptions: SensorCardCell.State.Options) -> SensorCard {
     let sensorCard = SensorCard(cellStateOptions: cellStateOptions,
                                 sensor: sensor,

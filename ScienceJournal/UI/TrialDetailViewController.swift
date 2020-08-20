@@ -22,9 +22,8 @@ import third_party_objective_c_material_components_ios_components_BottomSheet_Bo
 import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
 import third_party_objective_c_material_components_ios_components_Palettes_Palettes
 import third_party_objective_c_material_components_ios_components_Snackbar_Snackbar
-// swiftlint:disable line_length
+
 import third_party_objective_c_material_components_ios_components_private_KeyboardWatcher_KeyboardWatcher
-// swiftlint:enable line_length
 
 protocol TrialDetailViewControllerDelegate: class {
   /// Informs the delegate a note should be shown.
@@ -364,7 +363,7 @@ class TrialDetailViewController: MaterialHeaderViewController,
 
     appBar.headerViewController.headerView.backgroundColor = .appBarReviewBackgroundColor
 
-    collectionView.backgroundColor = ArduinoColors.grayPalette().tint200()
+    collectionView.backgroundColor = ArduinoColorPalette.grayPalette.tint200
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(collectionView)
     collectionView.pinToEdgesOfView(view)

@@ -53,13 +53,13 @@ class SensorLayout: Equatable, Hashable {
   }
 
   /// The color palette of the sensor card.
-  var colorPalette: ArduinoColors {
+  var colorPalette: ArduinoColorPalette {
     get {
-      return ArduinoColors.sensorCardColorPaletteOptions[Int(proto.colorIndex)]
+      return ArduinoColorPalette.sensorCardColorPaletteOptions[Int(proto.colorIndex)]
     }
     set {
       proto.colorIndex =
-          Int32(ArduinoColors.sensorCardColorPaletteOptions.firstIndex(of: newValue) ?? 0)
+          Int32(ArduinoColorPalette.sensorCardColorPaletteOptions.firstIndex(of: newValue) ?? 0)
     }
   }
 
@@ -102,7 +102,7 @@ class SensorLayout: Equatable, Hashable {
   /// - Parameters:
   ///   - sensorID: The sensor ID.
   ///   - colorPalette: The color palette.
-  convenience init(sensorID: String, colorPalette: ArduinoColors) {
+  convenience init(sensorID: String, colorPalette: ArduinoColorPalette) {
     let proto = GSJSensorLayout()
     self.init(proto: proto)
     self.sensorID = sensorID
