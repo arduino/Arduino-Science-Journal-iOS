@@ -42,7 +42,7 @@ class CropOverlayView: UIView {
   private let endFlagView = DataPointFlagView()
   private let leadingDimmingView = UIView()
   private let trailingDimmingView = UIView()
-  private let colorPalette: MDCPalette?
+  private let colorPalette: ArduinoColors?
 
   private enum Metrics {
     static let flagArrowBuffer: CGFloat = 8
@@ -60,7 +60,7 @@ class CropOverlayView: UIView {
   ///   - colorPalette: A color palette.
   ///   - frame: A frame.
   ///   - aDecoder: A decoder.
-  init(colorPalette: MDCPalette?, frame: CGRect = .zero, coder aDecoder: NSCoder? = nil) {
+  init(colorPalette: ArduinoColors?, frame: CGRect = .zero, coder aDecoder: NSCoder? = nil) {
     self.colorPalette = colorPalette
     if let aDecoder = aDecoder {
       super.init(coder: aDecoder)!
@@ -267,8 +267,8 @@ class CropOverlayView: UIView {
       $0.backgroundColor = UIColor(white: 0, alpha: 0.2)
     }
 
-    [startFlagView, endFlagView].forEach { $0.color = colorPalette?.tint600 }
-    [startLine, endLine].forEach { $0.strokeColor = colorPalette?.tint600 }
+    [startFlagView, endFlagView].forEach { $0.color = colorPalette?.tint600() }
+    [startLine, endLine].forEach { $0.strokeColor = colorPalette?.tint600() }
 
     // Markers.
     [startMarker, endMarker].forEach { $0.color = .appBarReviewBackgroundColor }

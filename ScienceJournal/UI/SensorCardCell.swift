@@ -187,15 +187,15 @@ class SensorCardCell: AutoLayoutMaterialCardCell, MDCTabBarDelegate {
   }
 
   // The color palette automatically tints views as needed.
-  private var colorPalette: MDCPalette? {
+  private var colorPalette: ArduinoColors? {
     didSet {
       guard let palette = colorPalette else {
         return
       }
-      sensorPickerView.backgroundColor = palette.tint600
-      headerView.backgroundColor = palette.tint700
-      sensorLoadingView.activityView.cycleColors = [palette.tint600]
-      statsView.textColor = palette.tint600
+      sensorPickerView.backgroundColor = palette.tint600()
+      headerView.backgroundColor = palette.tint700()
+      sensorLoadingView.activityView.cycleColors = [palette.tint600() ?? UIColor.darkGray]
+      statsView.textColor = palette.tint600()
     }
   }
 
@@ -241,7 +241,7 @@ class SensorCardCell: AutoLayoutMaterialCardCell, MDCTabBarDelegate {
   func configureWithSensor(_ sensor: Sensor,
                            delegate: SensorCardCellDelegate,
                            stateOptions: State.Options,
-                           colorPalette: MDCPalette,
+                           colorPalette: ArduinoColors,
                            chartView: ChartView,
                            visualTriggers: [SensorTrigger]) {
     self.sensor = sensor

@@ -388,7 +388,7 @@ class TrialDetailSensorsView: UICollectionReusableView {
     sensorStatsView.setMin(sensor.minValueString,
                            average: sensor.averageValueString,
                            max: sensor.maxValueString)
-    if let color = sensor.colorPalette?.tint500 {
+    if let color = sensor.colorPalette?.tint500() {
       sensorStatsView.textColor = color
       sensorIcon.tintColor = color
     }

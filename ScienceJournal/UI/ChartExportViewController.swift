@@ -33,7 +33,7 @@ class ChartExportViewController: UIViewController, ChartControllerDelegate {
   private let rightInset: CGFloat = -16
   private let chartLoaded: ChartLoadedBlock
 
-  let colorPalette: MDCPalette?
+  let colorPalette: ArduinoColors?
 
   // MARK: - Public
 
@@ -53,7 +53,7 @@ class ChartExportViewController: UIViewController, ChartControllerDelegate {
        sensorStats: DisplaySensorStats,
        cropRange: ChartAxis<Int64>? = nil,
        notes: [DisplayNote],
-       colorPalette: MDCPalette?,
+       colorPalette: ArduinoColors?,
        sensorDataManager: SensorDataManager,
        chartLoaded: @escaping ChartLoadedBlock) {
     self.sensorID = sensorID

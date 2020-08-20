@@ -31,7 +31,7 @@ class CropOverlayViewController: UIViewController {
   private let chartController: ChartController
   private let timeAxisController: TimeAxisController
   private let elapsedTimeFormatter = ElapsedTimeFormatter()
-  private let colorPalette: MDCPalette?
+  private let colorPalette: ArduinoColors?
   private let cropA11yMoveDuration: Int64 = 500  // Half a second.
   private let cropValidator: CropValidator
 
@@ -73,7 +73,7 @@ class CropOverlayViewController: UIViewController {
        cropRange: ChartAxis<Int64>,
        chartController: ChartController,
        timeAxisController: TimeAxisController,
-       colorPalette: MDCPalette?) {
+       colorPalette: ArduinoColors?) {
     self.recordingRange = recordingRange
     self.cropRange = cropRange
     self.chartController = chartController

@@ -79,7 +79,7 @@ struct DisplaySensor {
   let stats: DisplaySensorStats
   let pointsAfterDecimal: Int32
   let icon: UIImage?
-  let colorPalette: MDCPalette?
+  let colorPalette: ArduinoColors?
   var chartPresentationView: UIView?
 
   /// Returns a formatted min value string.

@@ -58,8 +58,9 @@ class ArduinoColors : Equatable {
                          accents: nil)
   }
 
-  public static func tealPalette() -> ArduinoColors {
+  public static func yellowPalette() -> ArduinoColors {
     return ArduinoColors(withTints: [
+      //TODO add tint200
       //Sun Flower
       PaletteTint500Name: UIColor(red: 241/255.0, green: 196/255.0, blue: 15/255.0, alpha: 1)
       ],
@@ -67,7 +68,7 @@ class ArduinoColors : Equatable {
     )
   }
   
-  public static func yellowPalette() -> ArduinoColors {
+  public static func tealPalette() -> ArduinoColors {
     return ArduinoColors(withTints: [
       //Teal 6
       PaletteTint100Name: UIColor(red: 165/255.0, green: 242/255.0, blue: 238/255.0, alpha: 1),

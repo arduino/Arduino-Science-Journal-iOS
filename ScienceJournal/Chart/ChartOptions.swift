@@ -45,7 +45,7 @@ struct ChartOptions {
 
   // Colors
   var lineColor = UIColor.black
-  let yAxisLineColor = MDCPalette.grey.tint300
+  let yAxisLineColor = ArduinoColors.grayPalette().tint300() ?? UIColor.lightGray
 
   /// Whether the view can scroll.
   let canScrollX: Bool

@@ -27,7 +27,7 @@ class SensorCard: NSObject {
   var cellState: SensorCardCell.State
 
   /// The color pallette the card should use for certain UI elements.
-  var colorPalette: MDCPalette
+  var colorPalette: ArduinoColors
 
   /// The sensor the card is displaying.
   var sensor: Sensor {
@@ -58,7 +58,7 @@ class SensorCard: NSObject {
   ///   - colorPalette: The color palette of the sensor card.
   init(cellStateOptions: SensorCardCell.State.Options = .normal,
        sensor: Sensor,
-       colorPalette: MDCPalette) {
+       colorPalette: ArduinoColors) {
     cellState = SensorCardCell.State(options: cellStateOptions)
     self.colorPalette = colorPalette
     self.sensor = sensor
