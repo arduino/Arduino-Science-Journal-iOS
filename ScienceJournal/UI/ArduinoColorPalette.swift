@@ -57,21 +57,28 @@ class ArduinoColorPalette : Equatable {
   
   public static var goldPalette: ArduinoColorPalette {
     return ArduinoColorPalette(withTints: [
-      //Light Bronze
-      PaletteTint500Name: UIColor(red: 188/255.0, green: 172/255.0, blue: 153/255.0, alpha: 1)],
+      //Bronze
+      PaletteTint400Name: UIColor(red: 188/255.0, green: 172/255.0, blue: 153/255.0, alpha: 1),
+      //Dark Bronze
+      PaletteTint500Name: UIColor(red: 178/255.0, green: 159/255.0, blue: 137/255.0, alpha: 1),
+      //Light Gold
+      PaletteTint600Name: UIColor(red: 168/255.0, green: 145/255.0, blue: 123/255.0, alpha: 1),
+      //Gold
+      PaletteTint700Name: UIColor(red: 158/255.0, green: 132/255.0, blue: 109/255.0, alpha: 1)
+      ],
                          accents: nil)
   }
 
   public static var yellowPalette: ArduinoColorPalette {
     return ArduinoColorPalette(withTints: [
-      //Sun Flower 75%
-      PaletteTint400Name: UIColor(red: 249/255.0, green: 211/255.0, blue: 21/255.0, alpha: 1),
-      //Sun Flower
-      PaletteTint500Name: UIColor(red: 241/255.0, green: 196/255.0, blue: 15/255.0, alpha: 1),
-      //Sun Flower Darker
-      PaletteTint600Name: UIColor(red: 255/255.0, green: 191/255.0, blue: 0/255.0, alpha: 1),
-      //Sun Flower Dark
-      PaletteTint700Name: UIColor(red: 239/255.0, green: 182/255.0, blue: 12/255.0, alpha: 1)
+      //Sunflower
+      PaletteTint400Name: UIColor(red: 241/255.0, green: 196/255.0, blue: 15/255.0, alpha: 1),
+      //Dark Sunflower
+      PaletteTint500Name: UIColor(red: 241/255.0, green: 184/255.0, blue: 15/255.0, alpha: 1),
+      //Light Carrot
+      PaletteTint600Name: UIColor(red: 243/255.0, green: 167/255.0, blue: 18/255.0, alpha: 1),
+      //Carrot
+      PaletteTint700Name: UIColor(red: 243/255.0, green: 156/255.0, blue: 18/255.0, alpha: 1)
       ],
                          accents: nil
     )
@@ -79,20 +86,14 @@ class ArduinoColorPalette : Equatable {
   
   public static var tealPalette: ArduinoColorPalette {
     return ArduinoColorPalette(withTints: [
-      //Teal 6
-      PaletteTint100Name: UIColor(red: 165/255.0, green: 242/255.0, blue: 238/255.0, alpha: 1),
-      //Teal 0
-      PaletteTint200Name: UIColor(red: 127/255.0, green: 203/255.0, blue: 205/255.0, alpha: 1),
-      //Teal 1
-      PaletteTint300Name: UIColor(red: 12/255.0, green: 161/255.0, blue: 166/255.0, alpha: 1),
-      //Teal 2
-      PaletteTint400Name: UIColor(red: 0, green: 151/255.0, blue: 157/255.0, alpha: 1),
-      //Teal 3
-      PaletteTint500Name: UIColor(red: 0, green: 129/255.0, blue: 132/255.0, alpha: 1),
-      //Teal 4
-      PaletteTint600Name: UIColor(red: 0, green: 109/255.0, blue: 112/255.0, alpha: 1),
-      //Teal 5
-      PaletteTint700Name: UIColor(red: 0, green: 92/255.0, blue: 95/255.0, alpha: 1)
+      //Teal0
+      PaletteTint400Name: UIColor(red: 127/255.0, green: 203/255.0, blue: 205/255.0, alpha: 1),
+      //Teal0.5
+      PaletteTint500Name: UIColor(red: 84/255.0, green: 189/255.0, blue: 191/255.0, alpha: 1),
+      //Teal1
+      PaletteTint600Name: UIColor(red: 12/255.0, green: 161/255.0, blue: 166/255.0, alpha: 1),
+      //Teal2
+      PaletteTint700Name: UIColor(red: 0/255.0, green: 151/255.0, blue: 157/255.0, alpha: 1),
       ],
                          accents: [PaletteAccent700Name : UIColor.white]
     )
@@ -119,21 +120,21 @@ class ArduinoColorPalette : Equatable {
       //Charcoal
       PaletteTint800Name: UIColor(red: 44/255.0, green: 53/255.0, blue: 58/255.0, alpha: 1),
       //Onyx
-      PaletteTint900Name: UIColor(red: 23/255.0, green: 30/255.0, blue: 33/255.0, alpha: 1),
+      PaletteTint900Name: UIColor(red: 23/255.0, green: 30/255.0, blue: 33/255.0, alpha: 1)
       ],
                          accents: nil)
   }
   
   public static var orangePalette: ArduinoColorPalette {
     return ArduinoColorPalette(withTints: [
-      //Carrot 75%
-      PaletteTint400Name: UIColor(red: 255/255.0, green: 179/255.0, blue: 45/255.0, alpha: 1),
       //Carrot
-      PaletteTint500Name: UIColor(red: 243/255.0, green: 156/255.0, blue: 18/255.0, alpha: 1),
-      //Orange 75%
-      PaletteTint600Name: UIColor(red: 255/255.0, green: 179/255.0, blue: 45/255.0, alpha: 1),
-      //Orange
-      PaletteTint700Name: UIColor(red: 230/255.0, green: 126/255.0, blue: 34/255.0, alpha: 1)
+      PaletteTint400Name: UIColor(red: 243/255.0, green: 156/255.0, blue: 18/255.0, alpha: 1),
+      //Dark Carrot
+      PaletteTint500Name: UIColor(red: 243/255.0, green: 137/255.0, blue: 24/255.0, alpha: 1),
+      //Light Tangerine
+      PaletteTint600Name: UIColor(red: 242/255.0, green: 119/255.0, blue: 31/255.0, alpha: 1),
+      //Tangerine
+      PaletteTint700Name: UIColor(red: 242/255.0, green: 103/255.0, blue: 39/255.0, alpha: 1)
       ],
                          accents: [PaletteAccent700Name : UIColor.white]
     )
