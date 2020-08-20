@@ -363,7 +363,7 @@ class TrialDetailViewController: MaterialHeaderViewController,
 
     appBar.headerViewController.headerView.backgroundColor = .appBarReviewBackgroundColor
 
-    collectionView.backgroundColor = ArduinoColorPalette.grayPalette.tint200
+    collectionView.backgroundColor = ArduinoColorPalette.grayPalette.tint50
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(collectionView)
     collectionView.pinToEdgesOfView(view)

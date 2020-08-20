@@ -68,7 +68,10 @@ class TrialDetailAddNoteCell: UICollectionViewCell {
     contentView.addSubview(addButton)
     addButton.setTitle(String.addNoteButtonText.uppercased(), for: .normal)
     addButton.accessibilityLabel = String.addNoteButtonText
-    addButton.setTitleColor(.appBarReviewBackgroundColor, for: .normal)
+    addButton.setImage(UIImage(named: "ic_arrow_up"), for: .normal)
+    addButton.setTitleColor(ArduinoColorPalette.tealPalette.tint800, for: .normal)
+    addButton.tintColor = ArduinoColorPalette.tealPalette.tint800
+    addButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
     addButton.translatesAutoresizingMaskIntoConstraints = false
     addButton.contentEdgeInsets = TrialDetailAddNoteCell.buttonInsets
     addButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
