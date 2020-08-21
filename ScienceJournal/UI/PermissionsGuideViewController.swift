@@ -52,7 +52,6 @@ class PermissionsGuideViewController: OnboardingViewController {
   // MARK: - Properties
 
   private weak var delegate: PermissionsGuideDelegate?
-  private let doneView = UIView()
   private let headerTitle = UILabel()
   private let initialMessage = UILabel()
   private let finalMessage = UILabel()
@@ -60,18 +59,21 @@ class PermissionsGuideViewController: OnboardingViewController {
   private let microphoneMessage = UILabel()
   private let cameraMessage = UILabel()
   private let photoLibraryMessage = UILabel()
-  private let completeButton = UIButton()
-  private let continueButton = UIButton()
-  private let startButton = UIButton()
+  private let completeButton = UIButton(type: .system)
+  private let continueButton = UIButton(type: .system)
+  private let startButton = UIButton(type: .system)
+  private let logoImageView = UIImageView(image: UIImage(named: "arduino_logo"))
+  private let stepsImageView = UIImageView()
+  private let stepHeader = UIStackView()
+  private let stepIcon = UIImageView()
+  private let stepTitle = UILabel()
   private let devicePreferenceManager: DevicePreferenceManager
 
   // Used to store label constrains that will be modified on rotation.
   private var labelLeadingConstraints = [NSLayoutConstraint]()
   private var labelTrailingConstraints = [NSLayoutConstraint]()
-  private var labelTopConstraints = [NSLayoutConstraint]()
   private var headerTopConstraint: NSLayoutConstraint?
   private var continueTopConstraint: NSLayoutConstraint?
-  private var doneViewTopConstraint: NSLayoutConstraint?
 
   // The duration to animate the permission check button in.
   private var permissionCheckDuration: TimeInterval {
@@ -166,12 +168,10 @@ class PermissionsGuideViewController: OnboardingViewController {
     configureHeaderImagePinnedToTop()
 
     // Arduino logo.
-    let arduinoLogoImageView = UIImageView(image: UIImage(named: "arduino_logo"))
-    arduinoLogoImageView.translatesAutoresizingMaskIntoConstraints = false
-    wrappingView.addSubview(arduinoLogoImageView)
-    arduinoLogoImageView.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
-    arduinoLogoImageView.bottomAnchor.constraint(equalTo: wrappingView.safeAreaLayoutGuide.bottomAnchor,
-                                             constant: -Metrics.arduinoLogoBottomPadding).isActive = true
+    configureArduinoLogo()
+
+    // Step header.
+    configureStepHeader()
 
     // Header label.
     wrappingView.addSubview(headerTitle)
@@ -216,7 +216,7 @@ class PermissionsGuideViewController: OnboardingViewController {
                                         constant: Metrics.innerSpacing).isActive = true
 
     finalMessage.text = String.permissionsGuideAllDoneMessage
-    finalMessage.topAnchor.constraint(equalTo: initialMessage.topAnchor).isActive = true
+    finalMessage.topAnchor.constraint(equalToSystemSpacingBelow: stepHeader.bottomAnchor, multiplier: 1).isActive = true
 
     // Individual messages.
     notificationsMessage.text = String.permissionsGuideNotificationsInfo
@@ -225,8 +225,9 @@ class PermissionsGuideViewController: OnboardingViewController {
     photoLibraryMessage.text = String.permissionsGuidePhotoLibraryInfo
 
     // Shared individual message config.
+    var labelTopConstraints = [NSLayoutConstraint]()
     [notificationsMessage, microphoneMessage, cameraMessage, photoLibraryMessage].forEach {
-      labelTopConstraints.append($0.topAnchor.constraint(equalTo: headerImage.bottomAnchor))
+      labelTopConstraints.append($0.topAnchor.constraint(equalToSystemSpacingBelow: stepHeader.bottomAnchor, multiplier: 1))
     }
     NSLayoutConstraint.activate(labelTopConstraints)
 
@@ -237,9 +238,7 @@ class PermissionsGuideViewController: OnboardingViewController {
       $0.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
       $0.heightAnchor.constraint(equalToConstant: Metrics.buttonHeight).isActive = true
       $0.widthAnchor.constraint(equalToConstant: Metrics.buttonWidth).isActive = true
-      $0.clipsToBounds = true
-      $0.layer.cornerRadius = Metrics.buttonHeight / 2.0
-      $0.backgroundColor = ArduinoColorPalette.tealPalette.tint800
+      $0.setBackgroundImage(UIImage(named: "rounded_button_background"), for: .normal)
       $0.titleLabel?.font = ArduinoTypography.boldFont(forSize: 16)
       $0.setTitleColor(view.backgroundColor, for: .normal)
       $0.isHidden = true
@@ -253,7 +252,7 @@ class PermissionsGuideViewController: OnboardingViewController {
                                        constant: Metrics.buttonSpacing)
     startButtonTopAnchor.priority = .defaultHigh
     startButtonTopAnchor.isActive = true
-    arduinoLogoImageView.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: startButton.bottomAnchor,
+    logoImageView.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: startButton.bottomAnchor,
                                               multiplier: 1.0).isActive = true
     startButton.addTarget(self, action: #selector(startGuideButtonPressed), for: .touchUpInside)
 
@@ -273,34 +272,55 @@ class PermissionsGuideViewController: OnboardingViewController {
                                             constant: Metrics.buttonSpacing)
     continueTopConstraint?.isActive = true
 
-    // Done message with check, used after each step completes.
-    doneView.alpha = 0
-    let doneCheck = UIImageView(image: UIImage(named: "ic_check"))
-    doneCheck.tintColor = MDCPalette.green.accent200
-    let doneLabel = UILabel()
-    doneLabel.font = Metrics.bodyFont
-    doneLabel.text = String.permissionsGuideCheckComplete
-    doneLabel.textColor = .white
+    // Step counter
+    configureStepsImageView()
+  }
 
-    wrappingView.addSubview(doneView)
-    doneView.addSubview(doneCheck)
-    doneView.addSubview(doneLabel)
-    doneView.translatesAutoresizingMaskIntoConstraints = false
-    doneView.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
-    doneViewTopConstraint =
-        doneView.topAnchor.constraint(equalTo: notificationsMessage.bottomAnchor,
-                                      constant: Metrics.buttonSpacing)
-    doneViewTopConstraint?.isActive = true
+  private func configureArduinoLogo() {
+    logoImageView.translatesAutoresizingMaskIntoConstraints = false
+    wrappingView.addSubview(logoImageView)
+    logoImageView.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
+    logoImageView.bottomAnchor.constraint(equalTo: wrappingView.safeAreaLayoutGuide.bottomAnchor,
+                                          constant: -Metrics.arduinoLogoBottomPadding).isActive = true
+  }
 
-    doneCheck.translatesAutoresizingMaskIntoConstraints = false
-    doneCheck.topAnchor.constraint(equalTo: doneView.topAnchor).isActive = true
-    doneCheck.leadingAnchor.constraint(equalTo: doneView.leadingAnchor).isActive = true
-    doneCheck.bottomAnchor.constraint(equalTo: doneView.bottomAnchor).isActive = true
-    doneLabel.translatesAutoresizingMaskIntoConstraints = false
-    doneLabel.leadingAnchor.constraint(equalTo: doneCheck.trailingAnchor,
-                                       constant: Metrics.checkPadding).isActive = true
-    doneLabel.trailingAnchor.constraint(equalTo: doneView.trailingAnchor).isActive = true
-    doneLabel.centerYAnchor.constraint(equalTo: doneCheck.centerYAnchor).isActive = true
+  private func configureStepHeader() {
+    stepIcon.setContentHuggingPriority(.required, for: .horizontal)
+
+    stepTitle.font = ArduinoTypography.boldFont(forSize: 16)
+    stepTitle.textColor = ArduinoColorPalette.grayPalette.tint600
+
+    stepHeader.axis = .horizontal
+    stepHeader.alignment = .center
+    stepHeader.spacing = 10
+    stepHeader.addArrangedSubview(stepIcon)
+    stepHeader.addArrangedSubview(stepTitle)
+
+    stepHeader.translatesAutoresizingMaskIntoConstraints = false
+    wrappingView.addSubview(stepHeader)
+
+    let leadingAnchor = stepHeader.leadingAnchor.constraint(equalTo: wrappingView.readableContentGuide.leadingAnchor)
+    let trailingAnchor = stepHeader.trailingAnchor.constraint(equalTo: wrappingView.readableContentGuide.trailingAnchor)
+
+    labelLeadingConstraints.append(leadingAnchor)
+    labelTrailingConstraints.append(trailingAnchor)
+
+    NSLayoutConstraint.activate([
+      leadingAnchor,
+      trailingAnchor,
+      stepHeader.topAnchor.constraint(equalTo: headerImage.bottomAnchor,
+                                      constant: Metrics.headerTopPaddingNarrow)
+    ])
+    stepHeader.isHidden = true
+  }
+
+  private func configureStepsImageView() {
+    stepsImageView.isHidden = true
+    stepsImageView.translatesAutoresizingMaskIntoConstraints = false
+    wrappingView.addSubview(stepsImageView)
+    stepsImageView.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
+    stepsImageView.bottomAnchor.constraint(equalTo: wrappingView.safeAreaLayoutGuide.bottomAnchor,
+                                           constant: -Metrics.arduinoLogoBottomPadding).isActive = true
   }
 
   // Updates constraints for labels. Used in rotation to ensure the best fit for various screen
@@ -309,27 +329,21 @@ class PermissionsGuideViewController: OnboardingViewController {
     guard UIDevice.current.userInterfaceIdiom != .pad else { return }
 
     var headerTopPadding: CGFloat
-    var labelTopPadding: CGFloat
     if size.isWiderThanTall {
       if size.width <= 568 {
         headerTopPadding = Metrics.headerTopPaddingWideSmallScreen
-        labelTopPadding = Metrics.individualMessageTopPaddingWideSmallScreen
       } else {
         headerTopPadding = Metrics.headerTopPaddingWide
-        labelTopPadding = Metrics.individualMessageTopPaddingWide
       }
     } else {
       if size.width <= 320 {
         headerTopPadding = Metrics.headerTopPaddingNarrowSmallScreen
-        labelTopPadding = Metrics.individualMessageTopPaddingNarrowSmallScreen
       } else {
         headerTopPadding = Metrics.headerTopPaddingNarrow
-        labelTopPadding = Metrics.individualMessageTopPaddingNarrow
       }
     }
 
     headerTopConstraint?.constant = headerTopPadding
-    labelTopConstraints.forEach { $0.constant = labelTopPadding }
     labelLeadingConstraints.forEach {
       $0.constant = size.isWiderThanTall ? Metrics.outerPaddingWide : Metrics.outerPaddingNarrow
     }
@@ -341,29 +355,15 @@ class PermissionsGuideViewController: OnboardingViewController {
   // Animates to a step and fires a completion once done.
   private func animateToStep(animations: @escaping () -> Void,
                              completion: (() -> Void)? = nil) {
-    UIView.animate(withDuration: 1.0, animations: animations) { (_) in
-      guard let completion = completion else { return }
-      // Delay the completion block by a second to give the user a moment to read the tutorial
-      // text. In practice, requesting permission from the system takes a moment as well, so this
-      // ends up with a reasonable delay to read the tutorial before being prompted.
-      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-        completion()
-      }
-    }
+    animations()
+    completion?()
   }
 
   // MARK: - Steps
 
   // Displays the done notice and then, after a delay, performs the next step.
   private func markStepDoneAndPerformNext() {
-    UIView.animate(withDuration: 0.3, animations: {
-      self.doneView.alpha = 1
-    }) { (_) in
-      UIAccessibility.post(notification: .layoutChanged, argument: self.doneView)
-      DispatchQueue.main.asyncAfter(deadline: .now() + self.nextStepDelayInterval) {
-        self.performNextStep()
-      }
-    }
+    performNextStep()
   }
 
   // Performs the next step in the guide or, if none are left, shows the conclusion.
@@ -394,42 +394,28 @@ class PermissionsGuideViewController: OnboardingViewController {
                              action: #selector(checkForNotificationPermissions),
                              for: .touchUpInside)
     let showNotificationsState = {
-      self.doneView.alpha = 0
-      self.continueButton.isHidden = !UIAccessibility.isVoiceOverRunning
       self.headerTitle.alpha = 0
       self.initialMessage.alpha = 0
       self.startButton.isHidden = true
+      self.continueButton.isHidden = false
+      self.continueButton.isEnabled = true
       self.notificationsMessage.alpha = 1
-    }
-
-    let promptNotificationPermission = {
-      self.updateDoneViewConstraint(forLabel: self.notificationsMessage)
-      if !UIAccessibility.isVoiceOverRunning {
-        // If VoiceOver is running, a user will manually tap a "Check Permission" button to
-        // continue. If VO is not running, ask for permission immediately.
-        self.checkForNotificationPermissions()
-      }
-    }
-
-    guard showWelcomeView else {
-      showNotificationsState()
-      // Delay the permission prompt to give the user time to read the text and match the feel of
-      // the other steps.
-      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-        promptNotificationPermission()
-      }
-      return
+      self.logoImageView.isHidden = true
+      self.stepsImageView.isHidden = false
+      self.stepsImageView.image = UIImage(named: "permissions_step_1")
+      self.stepHeader.isHidden = false
+      self.stepIcon.image = UIImage(named: "permissions_step_notifications_icon")
+      self.stepTitle.text = String.permissionsGuideNotificationsTitle.localizedUppercase
     }
 
     animateToStep(animations: showNotificationsState) {
       UIAccessibility.post(notification: .layoutChanged, argument: self.notificationsMessage)
-      promptNotificationPermission()
     }
   }
 
   @objc private func checkForNotificationPermissions() {
     UIView.animate(withDuration: permissionCheckDuration, animations: {
-      self.continueButton.isHidden = true
+      self.continueButton.isEnabled = false
     }) { (_) in
       LocalNotificationManager.shared.registerUserNotifications()
     }
@@ -449,25 +435,23 @@ class PermissionsGuideViewController: OnboardingViewController {
     continueButton.addTarget(self,
                              action: #selector(checkForMicrophonePermissions),
                              for: .touchUpInside)
-    animateToStep(animations: {
-      self.doneView.alpha = 0
-      self.continueButton.isHidden = !UIAccessibility.isVoiceOverRunning
+    let showNotificationsState = {
+      self.continueButton.isEnabled = true
       self.notificationsMessage.alpha = 0
       self.microphoneMessage.alpha = 1
-    }) {
+      self.stepsImageView.image = UIImage(named: "permissions_step_2")
+      self.stepIcon.image = UIImage(named: "permissions_step_microphone_icon")
+      self.stepTitle.text = String.permissionsGuideMicrophoneTitle.localizedUppercase
+    }
+
+    animateToStep(animations: showNotificationsState) {
       UIAccessibility.post(notification: .layoutChanged, argument: self.microphoneMessage)
-      self.updateDoneViewConstraint(forLabel: self.microphoneMessage)
-      if !UIAccessibility.isVoiceOverRunning {
-        // If VoiceOver is running, a user will manually tap a "Check Permission" button to
-        // continue. If VO is not running, ask for permission immediately.
-        self.checkForMicrophonePermissions()
-      }
     }
   }
 
   @objc private func checkForMicrophonePermissions() {
     UIView.animate(withDuration: permissionCheckDuration, animations: {
-      self.continueButton.isHidden = true
+      self.continueButton.isEnabled = false
     }) { (_) in
       AVAudioSession.sharedInstance().requestRecordPermission { _ in
         DispatchQueue.main.async {
@@ -487,24 +471,20 @@ class PermissionsGuideViewController: OnboardingViewController {
                              action: #selector(checkForCameraPermissions),
                              for: .touchUpInside)
     animateToStep(animations: {
-      self.doneView.alpha = 0
-      self.continueButton.isHidden = !UIAccessibility.isVoiceOverRunning
+      self.continueButton.isEnabled = true
       self.microphoneMessage.alpha = 0
       self.cameraMessage.alpha = 1
+      self.stepsImageView.image = UIImage(named: "permissions_step_3")
+      self.stepIcon.image = UIImage(named: "permissions_step_camera_icon")
+      self.stepTitle.text = String.permissionsGuideCameraTitle.localizedUppercase
     }) {
       UIAccessibility.post(notification: .layoutChanged, argument: self.cameraMessage)
-      self.updateDoneViewConstraint(forLabel: self.cameraMessage)
-      if !UIAccessibility.isVoiceOverRunning {
-        // If VoiceOver is running, a user will manually tap a "Check Permission" button to
-        // continue. If VO is not running, ask for permission immediately.
-        self.checkForCameraPermissions()
-      }
     }
   }
 
   @objc private func checkForCameraPermissions() {
     UIView.animate(withDuration: permissionCheckDuration, animations: {
-      self.continueButton.isHidden = true
+      self.continueButton.isEnabled = false
     }) { (_) in
       let cameraAuthorizationStatus =
           AVCaptureDevice.authorizationStatus(for: .video)
@@ -517,6 +497,8 @@ class PermissionsGuideViewController: OnboardingViewController {
             self.markStepDoneAndPerformNext()
           }
         }
+      @unknown default:
+        break
       }
     }
   }
@@ -531,24 +513,20 @@ class PermissionsGuideViewController: OnboardingViewController {
                              action: #selector(checkForPhotoLibraryPermissions),
                              for: .touchUpInside)
     animateToStep(animations: {
-      self.doneView.alpha = 0
-      self.continueButton.isHidden = !UIAccessibility.isVoiceOverRunning
+      self.continueButton.isEnabled = true
       self.cameraMessage.alpha = 0
       self.photoLibraryMessage.alpha = 1
+      self.stepsImageView.image = UIImage(named: "permissions_step_4")
+      self.stepIcon.image = UIImage(named: "permissions_step_photos_icon")
+      self.stepTitle.text = String.permissionsGuidePhotosTitle.localizedUppercase
     }) {
       UIAccessibility.post(notification: .layoutChanged, argument: self.photoLibraryMessage)
-      self.updateDoneViewConstraint(forLabel: self.photoLibraryMessage)
-      if !UIAccessibility.isVoiceOverRunning {
-        // If VoiceOver is running, a user will manually tap a "Check Permission" button to
-        // continue. If VO is not running, ask for permission immediately.
-        self.checkForPhotoLibraryPermissions()
-      }
     }
   }
 
   @objc private func checkForPhotoLibraryPermissions() {
     UIView.animate(withDuration: permissionCheckDuration, animations: {
-      self.continueButton.isHidden = true
+      self.continueButton.isEnabled = false
     }) { (_) in
       PHPhotoLibrary.requestAuthorization { _ in
         DispatchQueue.main.sync {
@@ -563,11 +541,12 @@ class PermissionsGuideViewController: OnboardingViewController {
   // Thank the user and add a completion button which dismisses the guide.
   private func stepsDone() {
     animateToStep(animations: {
+      self.stepHeader.isHidden = true
       self.continueButton.isHidden = true
-      self.doneView.alpha = 0
       self.photoLibraryMessage.alpha = 0
       self.finalMessage.alpha = 1
       self.completeButton.isHidden = false
+      self.stepsImageView.isHidden = true
     }) {
       UIAccessibility.post(notification: .layoutChanged, argument: self.finalMessage)
     }
@@ -581,14 +560,6 @@ class PermissionsGuideViewController: OnboardingViewController {
                                                                 constant: Metrics.buttonSpacing)
     continueTopConstraint?.isActive = true
     continueButton.layoutIfNeeded()
-  }
-
-  private func updateDoneViewConstraint(forLabel label: UILabel) {
-    doneViewTopConstraint?.isActive = false
-    doneViewTopConstraint = doneView.topAnchor.constraint(equalTo: label.bottomAnchor,
-                                                          constant: Metrics.buttonSpacing)
-    doneViewTopConstraint?.isActive = true
-    doneView.layoutIfNeeded()
   }
 
   // MARK: - User actions

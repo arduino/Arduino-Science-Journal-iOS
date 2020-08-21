@@ -24,17 +24,15 @@ import Foundation
 
 extension String {
 
-  static public var appName: String { return "app_name".localized }
-  static public var appStoreIosChangelog: String { return "app_store_ios_changelog".localized }
-  static public var appStoreIosGenericChangelog: String { return "app_store_ios_generic_changelog".localized }
-  static public var appStoreName: String { return "app_store_name".localized }
-  static public var appStoreSubtitle: String { return "app_store_subtitle".localized }
-  static public var appStoreDescription: String { return "app_store_description".localized }
-  static public var appStoreKeywords: String { return "app_store_keywords".localized }
   static public var accUnits: String { return "acc_units".localized }
   static public var accX: String { return "acc_x".localized }
   static public var accY: String { return "acc_y".localized }
   static public var accZ: String { return "acc_z".localized }
+  static public var actionAbout: String { return "action_about".localized }
+  static public var actionAddCaption: String { return "action_add_caption".localized }
+  static public var actionArchive: String { return "action_archive".localized }
+  static public var actionArchiveExperimentContentDescription: String { return "action_archive_experiment_content_description".localized }
+  static public var actionArchiveRecordingContentDescription: String { return "action_archive_recording_content_description".localized }
   static public var actionAreaAddMoreNotes: String { return "action_area_add_more_notes".localized }
   static public var actionAreaButtonAddSensor: String { return "action_area_button_add_sensor".localized }
   static public var actionAreaButtonAddSensorContentDescription: String { return "action_area_button_add_sensor_content_description".localized }
@@ -49,8 +47,8 @@ extension String {
   static public var actionAreaButtonText: String { return "action_area_button_text".localized }
   static public var actionAreaButtonTextContentDescription: String { return "action_area_button_text_content_description".localized }
   static public var actionAreaCancelAddNoteContentDescription: String { return "action_area_cancel_add_note_content_description".localized }
-  static public var actionAreaFabGallerySingleContentDescription: String { return "action_area_fab_gallery_single_content_description".localized }
   static public var actionAreaFabGalleryMultipleContentDescription: String { return "action_area_fab_gallery_multiple_content_description".localized }
+  static public var actionAreaFabGallerySingleContentDescription: String { return "action_area_fab_gallery_single_content_description".localized }
   static public var actionAreaFabRecord: String { return "action_area_fab_record".localized }
   static public var actionAreaFabRecordContentDescription: String { return "action_area_fab_record_content_description".localized }
   static public var actionAreaFabStop: String { return "action_area_fab_stop".localized }
@@ -59,19 +57,14 @@ extension String {
   static public var actionAreaGalleryMultiplePhotosSelected: String { return "action_area_gallery_multiple_photos_selected".localized }
   static public var actionAreaGalleryPhotosSelected: String { return "action_area_gallery_photos_selected".localized }
   static public var actionAreaRecordingAddNoteToTimeline: String { return "action_area_recording_add_note_to_timeline".localized }
-  static public var actionAreaRecordingTitleAddTextNote: String { return "action_area_recording_title_add_text_note".localized }
   static public var actionAreaRecordingNoteSavedMessage: String { return "action_area_recording_note_saved_message".localized }
   static public var actionAreaRecordingNoteSavedViewButton: String { return "action_area_recording_note_saved_view_button".localized }
   static public var actionAreaRecordingNoteSavedViewButtonContentDescription: String { return "action_area_recording_note_saved_view_button_content_description".localized }
+  static public var actionAreaRecordingTitleAddTextNote: String { return "action_area_recording_title_add_text_note".localized }
   static public var actionAreaTitleAddSensorNote: String { return "action_area_title_add_sensor_note".localized }
   static public var actionAreaTitleAddTextNote: String { return "action_area_title_add_text_note".localized }
   static public var actionAreaTitleAddTextNoteToTimeline: String { return "action_area_title_add_text_note_to_timeline".localized }
   static public var actionAreaTitleRecording: String { return "action_area_title_recording".localized }
-  static public var actionAbout: String { return "action_about".localized }
-  static public var actionAddCaption: String { return "action_add_caption".localized }
-  static public var actionArchive: String { return "action_archive".localized }
-  static public var actionArchiveExperimentContentDescription: String { return "action_archive_experiment_content_description".localized }
-  static public var actionArchiveRecordingContentDescription: String { return "action_archive_recording_content_description".localized }
   static public var actionCancel: String { return "action_cancel".localized }
   static public var actionConfirmCasual: String { return "action_confirm_casual".localized }
   static public var actionDelete: String { return "action_delete".localized }
@@ -92,9 +85,9 @@ extension String {
   static public var actionRetry: String { return "action_retry".localized }
   static public var actionRuler: String { return "action_ruler".localized }
   static public var actionSave: String { return "action_save".localized }
-  static public var actionSettings: String { return "action_settings".localized }
   static public var actionSavePdf: String { return "action_save_pdf".localized }
   static public var actionSaveSj: String { return "action_save_sj".localized }
+  static public var actionSettings: String { return "action_settings".localized }
   static public var actionSharePdf: String { return "action_share_pdf".localized }
   static public var actionShareSj: String { return "action_share_sj".localized }
   static public var actionUnarchive: String { return "action_unarchive".localized }
@@ -109,8 +102,15 @@ extension String {
   static public var addTextNoteContentDescription: String { return "add_text_note_content_description".localized }
   static public var ambientLight: String { return "ambient_light".localized }
   static public var ambientLightUnits: String { return "ambient_light_units".localized }
-  static public var amplitude: String { return "amplitude".localized }
   static public var ambientTemperature: String { return "ambient_temperature".localized }
+  static public var amplitude: String { return "amplitude".localized }
+  static public var appName: String { return "app_name".localized }
+  static public var appStoreDescription: String { return "app_store_description".localized }
+  static public var appStoreIosChangelog: String { return "app_store_ios_changelog".localized }
+  static public var appStoreIosGenericChangelog: String { return "app_store_ios_generic_changelog".localized }
+  static public var appStoreKeywords: String { return "app_store_keywords".localized }
+  static public var appStoreName: String { return "app_store_name".localized }
+  static public var appStoreSubtitle: String { return "app_store_subtitle".localized }
   static public var archivedBadge: String { return "archived_badge".localized }
   static public var archivedContentDescription: String { return "archived_content_description".localized }
   static public var archivedExperimentMessage: String { return "archived_experiment_message".localized }
@@ -120,14 +120,16 @@ extension String {
   static public var backBtnContentDetails: String { return "back_btn_content_details".localized }
   static public var barometer: String { return "barometer".localized }
   static public var barometerUnits: String { return "barometer_units".localized }
+  static public var bluetoothHardwareDisabledMessage: String { return "bluetooth_hardware_disabled_message".localized }
   static public var bluetoothSensorScienceJournalTitle: String { return "bluetooth_sensor_science_journal_title".localized }
+  static public var brightnessSensorBlockedByInterruption: String { return "brightness_sensor_blocked_by_interruption".localized }
   static public var brightnessUnits: String { return "brightness_units".localized }
   static public var btnAddNewTrigger: String { return "btn_add_new_trigger".localized }
   static public var btnAddSensorCardDescription: String { return "btn_add_sensor_card_description".localized }
-  static public var btnEditExperimentDiscardChanges: String { return "btn_edit_experiment_discard_changes".localized }
-  static public var btnEditExperimentSaveChanges: String { return "btn_edit_experiment_save_changes".localized }
   static public var btnDeleteObjectCancel: String { return "btn_delete_object_cancel".localized }
   static public var btnDeleteObjectConfirm: String { return "btn_delete_object_confirm".localized }
+  static public var btnEditExperimentDiscardChanges: String { return "btn_edit_experiment_discard_changes".localized }
+  static public var btnEditExperimentSaveChanges: String { return "btn_edit_experiment_save_changes".localized }
   static public var btnNewExperimentContentDescription: String { return "btn_new_experiment_content_description".localized }
   static public var btnRecordDescription: String { return "btn_record_description".localized }
   static public var btnResetDescription: String { return "btn_reset_description".localized }
@@ -145,8 +147,8 @@ extension String {
   static public var chartRecordedContentDescription: String { return "chart_recorded_content_description".localized }
   static public var chartZoomInContentDescription: String { return "chart_zoom_in_content_description".localized }
   static public var chartZoomLevelContentDescription: String { return "chart_zoom_level_content_description".localized }
-  static public var chartZoomToFitContentDescription: String { return "chart_zoom_to_fit_content_description".localized }
   static public var chartZoomOutContentDescription: String { return "chart_zoom_out_content_description".localized }
+  static public var chartZoomToFitContentDescription: String { return "chart_zoom_to_fit_content_description".localized }
   static public var choosePhotoButtonText: String { return "choose_photo_button_text".localized }
   static public var claimAllExperiments: String { return "claim_all_experiments".localized }
   static public var claimAllExperimentsConfirmationAction: String { return "claim_all_experiments_confirmation_action".localized }
@@ -156,29 +158,29 @@ extension String {
   static public var claimAllExperimentsContentDescription: String { return "claim_all_experiments_content_description".localized }
   static public var claimAllExperimentsImmediatelyConfirmationMessage: String { return "claim_all_experiments_immediately_confirmation_message".localized }
   static public var claimAllExperimentsMigrationConfirmationTitle: String { return "claim_all_experiments_migration_confirmation_title".localized }
+  static public var claimExperimentConfirmationActionTitle: String { return "claim_experiment_confirmation_action_title".localized }
+  static public var claimExperimentConfirmationMessage: String { return "claim_experiment_confirmation_message".localized }
+  static public var claimExperimentConfirmationTitle: String { return "claim_experiment_confirmation_title".localized }
+  static public var claimExperimentDiskSpaceErrorMessage: String { return "claim_experiment_disk_space_error_message".localized }
+  static public var claimExperimentErrorMessage: String { return "claim_experiment_error_message".localized }
+  static public var claimExperimentSnackbarMessage: String { return "claim_experiment_snackbar_message".localized }
   static public var claimExperimentsAddToDriveContentDescription: String { return "claim_experiments_add_to_drive_content_description".localized }
   static public var claimExperimentsAddToDriveSubtitle: String { return "claim_experiments_add_to_drive_subtitle".localized }
   static public var claimExperimentsAddToDriveTitle: String { return "claim_experiments_add_to_drive_title".localized }
   static public var claimExperimentsButtonTitle: String { return "claim_experiments_button_title".localized }
-  static public var claimExperimentsDeleteContentDescription: String { return "claim_experiments_delete_content_description".localized }
   static public var claimExperimentsDeleteAll: String { return "claim_experiments_delete_all".localized }
+  static public var claimExperimentsDeleteAllConfirmationAction: String { return "claim_experiments_delete_all_confirmation_action".localized }
   static public var claimExperimentsDeleteAllConfirmationMessage: String { return "claim_experiments_delete_all_confirmation_message".localized }
   static public var claimExperimentsDeleteAllConfirmationMessagePlural: String { return "claim_experiments_delete_all_confirmation_message_plural".localized }
   static public var claimExperimentsDeleteAllContentDescription: String { return "claim_experiments_delete_all_content_description".localized }
-  static public var claimExperimentsDeleteAllMigrationConfirmationTitle: String { return "claim_experiments_delete_all_migration_confirmation_title".localized }
   static public var claimExperimentsDeleteAllMigrationConfirmationMessage: String { return "claim_experiments_delete_all_migration_confirmation_message".localized }
-  static public var claimExperimentsDeleteAllConfirmationAction: String { return "claim_experiments_delete_all_confirmation_action".localized }
+  static public var claimExperimentsDeleteAllMigrationConfirmationTitle: String { return "claim_experiments_delete_all_migration_confirmation_title".localized }
+  static public var claimExperimentsDeleteContentDescription: String { return "claim_experiments_delete_content_description".localized }
   static public var claimExperimentsDescriptionWithCount: String { return "claim_experiments_description_with_count".localized }
   static public var claimExperimentsDescriptionWithCountOne: String { return "claim_experiments_description_with_count_one".localized }
-  static public var claimExperimentsShareContentDescription: String { return "claim_experiments_share_content_description".localized }
-  static public var claimExperimentDiskSpaceErrorMessage: String { return "claim_experiment_disk_space_error_message".localized }
   static public var claimExperimentsDiskSpaceErrorMessage: String { return "claim_experiments_disk_space_error_message".localized }
-  static public var claimExperimentErrorMessage: String { return "claim_experiment_error_message".localized }
   static public var claimExperimentsErrorMessage: String { return "claim_experiments_error_message".localized }
-  static public var claimExperimentConfirmationTitle: String { return "claim_experiment_confirmation_title".localized }
-  static public var claimExperimentConfirmationActionTitle: String { return "claim_experiment_confirmation_action_title".localized }
-  static public var claimExperimentConfirmationMessage: String { return "claim_experiment_confirmation_message".localized }
-  static public var claimExperimentSnackbarMessage: String { return "claim_experiment_snackbar_message".localized }
+  static public var claimExperimentsShareContentDescription: String { return "claim_experiments_share_content_description".localized }
   static public var claimExperimentsTitle: String { return "claim_experiments_title".localized }
   static public var claimExperimentsViewTitle: String { return "claim_experiments_view_title".localized }
   static public var closeBtnContentDescription: String { return "close_btn_content_description".localized }
@@ -212,8 +214,8 @@ extension String {
   static public var deletedExperimentMessage: String { return "deleted_experiment_message".localized }
   static public var deletedRecordingMessage: String { return "deleted_recording_message".localized }
   static public var detailsHeader: String { return "details_header".localized }
-  static public var deviceOptionsCustomSensorPinLabelText: String { return "device_options_custom_sensor_pin_label_text".localized }
   static public var deviceOptionsCustomSensorFrequencyCheckboxText: String { return "device_options_custom_sensor_frequency_checkbox_text".localized }
+  static public var deviceOptionsCustomSensorPinLabelText: String { return "device_options_custom_sensor_pin_label_text".localized }
   static public var deviceOptionsOkContentDescription: String { return "device_options_ok_content_description".localized }
   static public var deviceOptionsSensorLabelText: String { return "device_options_sensor_label_text".localized }
   static public var disableAutoZoom: String { return "disable_auto_zoom".localized }
@@ -230,21 +232,21 @@ extension String {
   static public var drawerGrabberPositionHalfContentDescription: String { return "drawer_grabber_position_half_content_description".localized }
   static public var driveErrorNoConnection: String { return "drive_error_no_connection".localized }
   static public var driveErrorNoConnectionContentDescription: String { return "drive_error_no_connection_content_description".localized }
-  static public var driveErrorUnknown: String { return "drive_error_unknown".localized }
-  static public var driveErrorTemporary: String { return "drive_error_temporary".localized }
   static public var driveErrorSpace: String { return "drive_error_space".localized }
-  static public var driveSyncInformation: String { return "drive_sync_information".localized }
+  static public var driveErrorTemporary: String { return "drive_error_temporary".localized }
+  static public var driveErrorUnknown: String { return "drive_error_unknown".localized }
   static public var drive: String { return "drive_sync_cannot_reach_google_drive".localized }
+  static public var driveSyncInformation: String { return "drive_sync_information".localized }
   static public var editCropEndTime: String { return "edit_crop_end_time".localized }
   static public var editCropStartTime: String { return "edit_crop_start_time".localized }
   static public var editExperimentBtnContentDescription: String { return "edit_experiment_btn_content_description".localized }
   static public var editExperimentBtnContentDetails: String { return "edit_experiment_btn_content_details".localized }
-  static public var editExperimentUnsavedChangesDialogTitle: String { return "edit_experiment_unsaved_changes_dialog_title".localized }
-  static public var editExperimentUnsavedChangesDialogMessage: String { return "edit_experiment_unsaved_changes_dialog_message".localized }
   static public var editExperimentChangePhoto: String { return "edit_experiment_change_photo".localized }
   static public var editExperimentTitle: String { return "edit_experiment_title".localized }
-  static public var editNoteTimeMenuItem: String { return "edit_note_time_menu_item".localized }
+  static public var editExperimentUnsavedChangesDialogMessage: String { return "edit_experiment_unsaved_changes_dialog_message".localized }
+  static public var editExperimentUnsavedChangesDialogTitle: String { return "edit_experiment_unsaved_changes_dialog_title".localized }
   static public var editNoteTime: String { return "edit_note_time".localized }
+  static public var editNoteTimeMenuItem: String { return "edit_note_time_menu_item".localized }
   static public var editRecordingCropEndTimeTitle: String { return "edit_recording_crop_end_time_title".localized }
   static public var editRecordingCropStartTimeTitle: String { return "edit_recording_crop_start_time_title".localized }
   static public var editRunBtnContentDescription: String { return "edit_run_btn_content_description".localized }
@@ -264,17 +266,17 @@ extension String {
   static public var existingDataOptionsExperimentCountTextSingle: String { return "existing_data_options_experiment_count_text_single".localized }
   static public var existingDataOptionsTitle: String { return "existing_data_options_title".localized }
   static public var experiment: String { return "experiment".localized }
-  static public var experiments: String { return "experiments".localized }
+  static public var experimentManyNotes: String { return "experiment_many_notes".localized }
+  static public var experimentManyRecordings: String { return "experiment_many_recordings".localized }
   static public var experimentNotFinishedDownloadingConfirmButton: String { return "experiment_not_finished_downloading_confirm_button".localized }
   static public var experimentNotFinishedDownloadingMessage: String { return "experiment_not_finished_downloading_message".localized }
   static public var experimentNotFinishedDownloadingTitle: String { return "experiment_not_finished_downloading_title".localized }
+  static public var experimentOneNote: String { return "experiment_one_note".localized }
+  static public var experimentOneRecording: String { return "experiment_one_recording".localized }
   static public var experimentRecordingTitle: String { return "experiment_recording_title".localized }
   static public var experimentTitleHint: String { return "experiment_title_hint".localized }
   static public var experimentVersionTooNewToEdit: String { return "experiment_version_too_new_to_edit".localized }
-  static public var experimentOneNote: String { return "experiment_one_note".localized }
-  static public var experimentManyNotes: String { return "experiment_many_notes".localized }
-  static public var experimentOneRecording: String { return "experiment_one_recording".localized }
-  static public var experimentManyRecordings: String { return "experiment_many_recordings".localized }
+  static public var experiments: String { return "experiments".localized }
   static public var experimentsTutorialMessage: String { return "experiments_tutorial_message".localized }
   static public var experimentsTutorialTitle: String { return "experiments_tutorial_title".localized }
   static public var exploreYourWorld: String { return "explore_your_world".localized }
@@ -283,17 +285,17 @@ extension String {
   static public var exportExperimentChooserTitle: String { return "export_experiment_chooser_title".localized }
   static public var exportOptionsRelativeTime: String { return "export_options_relative_time".localized }
   static public var exportOptionsTitle: String { return "export_options_title".localized }
-  static public var exportPhotoChooserTitle: String { return "export_photo_chooser_title".localized }
   static public var exportPdfModalTitle: String { return "export_pdf_modal_title".localized }
-  static public var firstExperimentTitle: String { return "first_experiment_title".localized }
-  static public var firstExperimentTextNote: String { return "first_experiment_text_note".localized }
+  static public var exportPhotoChooserTitle: String { return "export_photo_chooser_title".localized }
   static public var firstExperimentPictureNoteCaption: String { return "first_experiment_picture_note_caption".localized }
   static public var firstExperimentSecondTextNote: String { return "first_experiment_second_text_note".localized }
+  static public var firstExperimentTextNote: String { return "first_experiment_text_note".localized }
+  static public var firstExperimentTitle: String { return "first_experiment_title".localized }
   static public var forgetDevice: String { return "forget_device".localized }
   static public var fullscreenContentDescription: String { return "fullscreen_content_description".localized }
   static public var getStarted: String { return "get_started".localized }
-  static public var graphOptionsAudioFeedbackEnable: String { return "graph_options_audio_feedback_enable".localized }
   static public var graphOptionsAudioFeedbackDisable: String { return "graph_options_audio_feedback_disable".localized }
+  static public var graphOptionsAudioFeedbackEnable: String { return "graph_options_audio_feedback_enable".localized }
   static public var headingInfoSection: String { return "heading_info_section".localized }
   static public var hertzUnits: String { return "hertz_units".localized }
   static public var importFailed: String { return "import_failed".localized }
@@ -308,8 +310,8 @@ extension String {
   static public var inputCameraBlockedByInterruption: String { return "input_camera_blocked_by_interruption".localized }
   static public var inputCameraBlockedViewSensorsButton: String { return "input_camera_blocked_view_sensors_button".localized }
   static public var inputCameraPermissionDenied: String { return "input_camera_permission_denied".localized }
-  static public var inputCameraPermissionDeniedTitle: String { return "input_camera_permission_denied_title".localized }
   static public var inputCameraPermissionDeniedSettings: String { return "input_camera_permission_denied_settings".localized }
+  static public var inputCameraPermissionDeniedTitle: String { return "input_camera_permission_denied_title".localized }
   static public var inputPhotoLibraryPermissionDenied: String { return "input_photo_library_permission_denied".localized }
   static public var launchFailureMessage: String { return "launch_failure_message".localized }
   static public var launchFailureSendFeedbackButton: String { return "launch_failure_send_feedback_button".localized }
@@ -335,14 +337,14 @@ extension String {
   static public var navigationItemActivities: String { return "navigation_item_activities".localized }
   static public var navigationItemExperiments: String { return "navigation_item_experiments".localized }
   static public var navigationItemSettings: String { return "navigation_item_settings".localized }
+  static public var noteAddedContentDescription: String { return "note_added_content_description".localized }
   static public var noteCaptionHint: String { return "note_caption_hint".localized }
   static public var noteCaptionHintReadOnly: String { return "note_caption_hint_read_only".localized }
   static public var noteContentDescriptionPicture: String { return "note_content_description_picture".localized }
+  static public var noteContentDescriptionSnapshot: String { return "note_content_description_snapshot".localized }
   static public var noteContentDescriptionText: String { return "note_content_description_text".localized }
   static public var noteContentDescriptionTrigger: String { return "note_content_description_trigger".localized }
-  static public var noteContentDescriptionSnapshot: String { return "note_content_description_snapshot".localized }
   static public var notes: String { return "notes".localized }
-  static public var noteAddedContentDescription: String { return "note_added_content_description".localized }
   static public var notesTabContentDescription: String { return "notes_tab_content_description".localized }
   static public var observeTabContentDescription: String { return "observe_tab_content_description".localized }
   static public var openExperimentFailed: String { return "open_experiment_failed".localized }
@@ -352,31 +354,35 @@ extension String {
   static public var percentContentDescription: String { return "percent_content_description".localized }
   static public var permissionsGuideAllDoneMessage: String { return "permissions_guide_all_done_message".localized }
   static public var permissionsGuideCameraInfo: String { return "permissions_guide_camera_info".localized }
+  static public var permissionsGuideCameraTitle: String { return "permissions_guide_camera_title".localized }
+  static public var permissionsGuideCheckComplete: String { return "permissions_guide_check_complete".localized }
+  static public var permissionsGuideContinueButtonTitle: String { return "permissions_guide_continue_button_title".localized }
   static public var permissionsGuideFinishButtonTitle: String { return "permissions_guide_finish_button_title".localized }
   static public var permissionsGuideMessageIntro: String { return "permissions_guide_message_intro".localized }
   static public var permissionsGuideMicrophoneInfo: String { return "permissions_guide_microphone_info".localized }
+  static public var permissionsGuideMicrophoneTitle: String { return "permissions_guide_microphone_title".localized }
   static public var permissionsGuideNotificationsInfo: String { return "permissions_guide_notifications_info".localized }
+  static public var permissionsGuideNotificationsTitle: String { return "permissions_guide_notifications_title".localized }
   static public var permissionsGuidePhotoLibraryInfo: String { return "permissions_guide_photo_library_info".localized }
+  static public var permissionsGuidePhotosTitle: String { return "permissions_guide_photos_title".localized }
   static public var permissionsGuideStartButtonTitle: String { return "permissions_guide_start_button_title".localized }
-  static public var permissionsGuideCheckComplete: String { return "permissions_guide_check_complete".localized }
-  static public var permissionsGuideContinueButtonTitle: String { return "permissions_guide_continue_button_title".localized }
   static public var permissionsGuideWelcomeTitle: String { return "permissions_guide_welcome_title".localized }
+  static public var phoneSensors: String { return "phone_sensors".localized }
+  static public var photoDiskSpaceErrorMessage: String { return "photo_disk_space_error_message".localized }
   static public var photoForContentDescription: String { return "photo_for_content_description".localized }
   static public var photoSelectContentDescription: String { return "photo_select_content_description".localized }
-  static public var photoDiskSpaceErrorMessage: String { return "photo_disk_space_error_message".localized }
-  static public var phoneSensors: String { return "phone_sensors".localized }
   static public var photosTabContentDescription: String { return "photos_tab_content_description".localized }
-  static public var pictureDetailInfo: String { return "picture_detail_info".localized }
   static public var pictureDetailExifDevice: String { return "picture_detail_exif_device".localized }
   static public var pictureDetailExifDimensions: String { return "picture_detail_exif_dimensions".localized }
   static public var pictureDetailExifNotes: String { return "picture_detail_exif_notes".localized }
   static public var pictureDetailExifShutterSpeed: String { return "picture_detail_exif_shutter_speed".localized }
+  static public var pictureDetailInfo: String { return "picture_detail_info".localized }
   static public var pictureNoteAddedContentDescription: String { return "picture_note_added_content_description".localized }
   static public var pitch: String { return "pitch".localized }
+  static public var pitchFlatNoteContentDescription: String { return "pitch_flat_note_content_description".localized }
   static public var pitchFlatterThanFlatNoteContentDescription: String { return "pitch_flatter_than_flat_note_content_description".localized }
   static public var pitchFlatterThanNaturalNoteContentDescription: String { return "pitch_flatter_than_natural_note_content_description".localized }
   static public var pitchFlatterThanSharpNoteContentDescription: String { return "pitch_flatter_than_sharp_note_content_description".localized }
-  static public var pitchFlatNoteContentDescription: String { return "pitch_flat_note_content_description".localized }
   static public var pitchHighContentDescription: String { return "pitch_high_content_description".localized }
   static public var pitchLowContentDescription: String { return "pitch_low_content_description".localized }
   static public var pitchNaturalNoteContentDescription: String { return "pitch_natural_note_content_description".localized }
@@ -389,75 +395,73 @@ extension String {
   static public var preferenceMigrationMessage: String { return "preference_migration_message".localized }
   static public var pullToRefreshContentDescription: String { return "pull_to_refresh_content_description".localized }
   static public var rawUnits: String { return "raw_units".localized }
-  static public var recordingStartFailed: String { return "recording_start_failed".localized }
-  static public var recordingStartFailedSensorDisconnected: String { return "recording_start_failed_sensor_disconnected".localized }
   static public var recordingEndedDialogMessage: String { return "recording_ended_dialog_message".localized }
   static public var recordingEndedDialogTitle: String { return "recording_ended_dialog_title".localized }
-  static public var recordingStopFailedContinue: String { return "recording_stop_failed_continue".localized }
+  static public var recordingStartFailed: String { return "recording_start_failed".localized }
+  static public var recordingStartFailedSensorDisconnected: String { return "recording_start_failed_sensor_disconnected".localized }
   static public var recordingStopFailedCancel: String { return "recording_stop_failed_cancel".localized }
+  static public var recordingStopFailedContinue: String { return "recording_stop_failed_continue".localized }
   static public var recordingStopFailedNoData: String { return "recording_stop_failed_no_data".localized }
   static public var recordingStopFailedNoDataTitle: String { return "recording_stop_failed_no_data_title".localized }
   static public var recordingStopped: String { return "recording_stopped".localized }
+  static public var recordingWillEndContinue: String { return "recording_will_end_continue".localized }
   static public var recordingWillEndDialogMessage: String { return "recording_will_end_dialog_message".localized }
   static public var recordingWillEndDialogTitle: String { return "recording_will_end_dialog_title".localized }
-  static public var recordingWillEndContinue: String { return "recording_will_end_continue".localized }
   static public var recordingWillEndStop: String { return "recording_will_end_stop".localized }
   static public var removeCoverImage: String { return "remove_cover_image".localized }
   static public var removeCoverImageContentDescription: String { return "remove_cover_image_content_description".localized }
+  static public var removeCoverImageFailed: String { return "remove_cover_image_failed".localized }
   static public var removeCoverImageMessage: String { return "remove_cover_image_message".localized }
   static public var removeCoverImageSuccessful: String { return "remove_cover_image_successful".localized }
-  static public var removeCoverImageFailed: String { return "remove_cover_image_failed".localized }
   static public var rpmUnits: String { return "rpm_units".localized }
   static public var runAddedContentDescription: String { return "run_added_content_description".localized }
   static public var runDefaultTitle: String { return "run_default_title".localized }
   static public var runRenameDialogTitle: String { return "run_rename_dialog_title".localized }
+  static public var runReviewActivityLabel: String { return "run_review_activity_label".localized }
   static public var runReviewDeleteConfirm: String { return "run_review_delete_confirm".localized }
   static public var runReviewDuration: String { return "run_review_duration".localized }
-  static public var runReviewActivityLabel: String { return "run_review_activity_label".localized }
   static public var saveBtnContentDescription: String { return "save_btn_content_description".localized }
   static public var saveBtnContentDetails: String { return "save_btn_content_details".localized }
   static public var saveExperiment: String { return "save_experiment".localized }
   static public var saveExperimentText: String { return "save_experiment_text".localized }
-  static public var saveToFilesTitle: String { return "save_to_files_title".localized }
   static public var saveToFilesContentDescription: String { return "save_to_files_content_description".localized }
-  static public var saveToFilesSingleSuccessMessage: String { return "save_to_files_single_success_message".localized }
+  static public var saveToFilesMultipleErrorMessage: String { return "save_to_files_multiple_error_message".localized }
   static public var saveToFilesMultipleSuccessMessage: String { return "save_to_files_multiple_success_message".localized }
   static public var saveToFilesSingleErrorMessage: String { return "save_to_files_single_error_message".localized }
-  static public var saveToFilesMultipleErrorMessage: String { return "save_to_files_multiple_error_message".localized }
+  static public var saveToFilesSingleSuccessMessage: String { return "save_to_files_single_success_message".localized }
+  static public var saveToFilesTitle: String { return "save_to_files_title".localized }
   static public var scale: String { return "scale".localized }
   static public var selectTimestampContentDescription: String { return "select_timestamp_content_description".localized }
   static public var sendCopyAction: String { return "send_copy_action".localized }
   static public var sensorAlertSettingsButtonTitle: String { return "sensor_alert_settings_button_title".localized }
   static public var sensorBrightness: String { return "sensor_brightness".localized }
   static public var sensorCardBrightnessPermissionError: String { return "sensor_card_brightness_permission_error".localized }
-  static public var brightnessSensorBlockedByInterruption: String { return "brightness_sensor_blocked_by_interruption".localized }
   static public var sensorCardErrorText: String { return "sensor_card_error_text".localized }
   static public var sensorCardLoadingText: String { return "sensor_card_loading_text".localized }
   static public var sensorCardSoundPermissionError: String { return "sensor_card_sound_permission_error".localized }
   static public var sensorCustom: String { return "sensor_custom".localized }
   static public var sensorDescFirstParagraphAcc: String { return "sensor_desc_first_paragraph_acc".localized }
-  static public var sensorDescSecondParagraphAcc: String { return "sensor_desc_second_paragraph_acc".localized }
   static public var sensorDescFirstParagraphBarometer: String { return "sensor_desc_first_paragraph_barometer".localized }
-  static public var sensorDescSecondParagraphBarometer: String { return "sensor_desc_second_paragraph_barometer".localized }
   static public var sensorDescFirstParagraphBrightness: String { return "sensor_desc_first_paragraph_brightness".localized }
-  static public var sensorDescSecondParagraphBrightness: String { return "sensor_desc_second_paragraph_brightness".localized }
   static public var sensorDescFirstParagraphCompass: String { return "sensor_desc_first_paragraph_compass".localized }
-  static public var sensorDescSecondParagraphCompass: String { return "sensor_desc_second_paragraph_compass".localized }
   static public var sensorDescFirstParagraphDecibel: String { return "sensor_desc_first_paragraph_decibel".localized }
-  static public var sensorDescSecondParagraphDecibel: String { return "sensor_desc_second_paragraph_decibel".localized }
   static public var sensorDescFirstParagraphLinearAcc: String { return "sensor_desc_first_paragraph_linear_acc".localized }
-  static public var sensorDescSecondParagraphLinearAcc: String { return "sensor_desc_second_paragraph_linear_acc".localized }
   static public var sensorDescFirstParagraphMagneticStrength: String { return "sensor_desc_first_paragraph_magnetic_strength".localized }
-  static public var sensorDescSecondParagraphMagneticStrength: String { return "sensor_desc_second_paragraph_magnetic_strength".localized }
   static public var sensorDescFirstParagraphPitch: String { return "sensor_desc_first_paragraph_pitch".localized }
-  static public var sensorDescSecondParagraphPitch: String { return "sensor_desc_second_paragraph_pitch".localized }
   static public var sensorDescFirstParagraphRaw: String { return "sensor_desc_first_paragraph_raw".localized }
-  static public var sensorDescSecondParagraphRaw: String { return "sensor_desc_second_paragraph_raw".localized }
   static public var sensorDescFirstParagraphRotation: String { return "sensor_desc_first_paragraph_rotation".localized }
-  static public var sensorDescSecondParagraphRotation: String { return "sensor_desc_second_paragraph_rotation".localized }
   static public var sensorDescFirstParagraphUnknownBluetooth: String { return "sensor_desc_first_paragraph_unknown_bluetooth".localized }
+  static public var sensorDescSecondParagraphAcc: String { return "sensor_desc_second_paragraph_acc".localized }
+  static public var sensorDescSecondParagraphBarometer: String { return "sensor_desc_second_paragraph_barometer".localized }
+  static public var sensorDescSecondParagraphBrightness: String { return "sensor_desc_second_paragraph_brightness".localized }
+  static public var sensorDescSecondParagraphCompass: String { return "sensor_desc_second_paragraph_compass".localized }
+  static public var sensorDescSecondParagraphDecibel: String { return "sensor_desc_second_paragraph_decibel".localized }
+  static public var sensorDescSecondParagraphLinearAcc: String { return "sensor_desc_second_paragraph_linear_acc".localized }
+  static public var sensorDescSecondParagraphMagneticStrength: String { return "sensor_desc_second_paragraph_magnetic_strength".localized }
+  static public var sensorDescSecondParagraphPitch: String { return "sensor_desc_second_paragraph_pitch".localized }
+  static public var sensorDescSecondParagraphRaw: String { return "sensor_desc_second_paragraph_raw".localized }
+  static public var sensorDescSecondParagraphRotation: String { return "sensor_desc_second_paragraph_rotation".localized }
   static public var sensorDescSecondParagraphUnknownBluetooth: String { return "sensor_desc_second_paragraph_unknown_bluetooth".localized }
-  static public var bluetoothHardwareDisabledMessage: String { return "bluetooth_hardware_disabled_message".localized }
   static public var sensorDescShortAccX: String { return "sensor_desc_short_acc_x".localized }
   static public var sensorDescShortAccY: String { return "sensor_desc_short_acc_y".localized }
   static public var sensorDescShortAccZ: String { return "sensor_desc_short_acc_z".localized }
@@ -472,6 +476,7 @@ extension String {
   static public var sensorDescShortRaw: String { return "sensor_desc_short_raw".localized }
   static public var sensorDescShortRotation: String { return "sensor_desc_short_rotation".localized }
   static public var sensorDescShortSineWave: String { return "sensor_desc_short_sine_wave".localized }
+  static public var sensorHelpSelectSensors: String { return "sensor_help_select_sensors".localized }
   static public var sensorNextContentDescription: String { return "sensor_next_content_description".localized }
   static public var sensorPreviousContentDescription: String { return "sensor_previous_content_description".localized }
   static public var sensorRaw: String { return "sensor_raw".localized }
@@ -483,11 +488,10 @@ extension String {
   static public var sensorTypeBackgroundIssueDialogTitle: String { return "sensor_type_background_issue_dialog_title".localized }
   static public var sensorTypeBrightnessUnavailableMessage: String { return "sensor_type_brightness_unavailable_message".localized }
   static public var sensorVoltage: String { return "sensor_voltage".localized }
-  static public var sensorHelpSelectSensors: String { return "sensor_help_select_sensors".localized }
   static public var sensorsListCollapseContentDescription: String { return "sensors_list_collapse_content_description".localized }
   static public var sensorsListExpandContentDescription: String { return "sensors_list_expand_content_description".localized }
-  static public var serverPermissionDeniedTitle: String { return "server_permission_denied_title".localized }
   static public var serverPermissionDeniedMessage: String { return "server_permission_denied_message".localized }
+  static public var serverPermissionDeniedTitle: String { return "server_permission_denied_title".localized }
   static public var serverSwitchAccountsTitle: String { return "server_switch_accounts_title".localized }
   static public var settingsDataUsageDescription: String { return "settings_data_usage_description".localized }
   static public var settingsDataUsageTitle: String { return "settings_data_usage_title".localized }
@@ -503,25 +507,21 @@ extension String {
   static public var sidebarMenuContentDescription: String { return "sidebar_menu_content_description".localized }
   static public var sidebarMenuContentDetails: String { return "sidebar_menu_content_details".localized }
   static public var signIn: String { return "sign_in".localized }
-  static public var sineWave: String { return "sine_wave".localized }
   static public var sineUnits: String { return "sine_units".localized }
+  static public var sineWave: String { return "sine_wave".localized }
   static public var snackbarNoteDeleted: String { return "snackbar_note_deleted".localized }
   static public var snackbarUndo: String { return "snackbar_undo".localized }
-  static public var snapshotButtonText: String { return "snapshot_button_text".localized }
   static public var snapshotButtonContentDetails: String { return "snapshot_button_content_details".localized }
+  static public var snapshotButtonText: String { return "snapshot_button_text".localized }
   static public var snapshotFailedDisconnected: String { return "snapshot_failed_disconnected".localized }
   static public var snapshotLabelDetailsTitle: String { return "snapshot_label_details_title".localized }
   static public var snapshotNoteAddedContentDescription: String { return "snapshot_note_added_content_description".localized }
-  static public var statMin: String { return "stat_min".localized }
-  static public var statMax: String { return "stat_max".localized }
   static public var statAverage: String { return "stat_average".localized }
+  static public var statMax: String { return "stat_max".localized }
+  static public var statMin: String { return "stat_min".localized }
   static public var switchCameraContentDescription: String { return "switch_camera_content_description".localized }
-  static public var switchOnContentDescription: String { return "switch_on_content_description".localized }
   static public var switchOffContentDescription: String { return "switch_off_content_description".localized }
-  static public var timestampPickerCropRangeError: String { return "timestamp_picker_crop_range_error".localized }
-  static public var timestampPickerFormatError: String { return "timestamp_picker_format_error".localized }
-  static public var timestampPickerPrompt: String { return "timestamp_picker_prompt".localized }
-  static public var timestampPickerRecordingRangeError: String { return "timestamp_picker_recording_range_error".localized }
+  static public var switchOnContentDescription: String { return "switch_on_content_description".localized }
   static public var temperatureUnits: String { return "temperature_units".localized }
   static public var textLabelDetailsTitle: String { return "text_label_details_title".localized }
   static public var textLabelDetailsTitleReadOnly: String { return "text_label_details_title_read_only".localized }
@@ -529,6 +529,10 @@ extension String {
   static public var textNoteAddedContentDescription: String { return "text_note_added_content_description".localized }
   static public var throbberContentDescription: String { return "throbber_content_description".localized }
   static public var throbberContentDetails: String { return "throbber_content_details".localized }
+  static public var timestampPickerCropRangeError: String { return "timestamp_picker_crop_range_error".localized }
+  static public var timestampPickerFormatError: String { return "timestamp_picker_format_error".localized }
+  static public var timestampPickerPrompt: String { return "timestamp_picker_prompt".localized }
+  static public var timestampPickerRecordingRangeError: String { return "timestamp_picker_recording_range_error".localized }
   static public var titleActivitySensorSettings: String { return "title_activity_sensor_settings".localized }
   static public var toExperimentContentDescription: String { return "to_experiment_content_description".localized }
   static public var toRunContentDescription: String { return "to_run_content_description".localized }
@@ -574,8 +578,8 @@ extension String {
   static public var untitled: String { return "untitled".localized }
   static public var useScienceJournal: String { return "use_science_journal".localized }
   static public var userFeedbackEmailInfoMessage: String { return "user_feedback_email_info_message".localized }
-  static public var userFeedbackEmailInfoTitle: String { return "user_feedback_email_info_title".localized }
   static public var userFeedbackEmailInfoSendButton: String { return "user_feedback_email_info_send_button".localized }
+  static public var userFeedbackEmailInfoTitle: String { return "user_feedback_email_info_title".localized }
   static public var videoStream: String { return "video_stream".localized }
   static public var voltageUnits: String { return "voltage_units".localized }
 
