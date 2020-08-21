@@ -83,6 +83,7 @@ class AddTrialNoteViewController: ScienceJournalViewController, UITextFieldDeleg
     super.viewDidLoad()
 
     view.backgroundColor = .white
+    view.tintColor = ArduinoColorPalette.tealPalette.tint800
 
     textField.placeholder = String.addNoteHintText
     textField.translatesAutoresizingMaskIntoConstraints = false
@@ -121,7 +122,7 @@ class AddTrialNoteViewController: ScienceJournalViewController, UITextFieldDeleg
 
     [cancelButton, saveButton].forEach { (button) in
       button.translatesAutoresizingMaskIntoConstraints = false
-      button.setTitleColor(.appBarReviewBackgroundColor, for: .normal)
+      button.setTitleColor(ArduinoColorPalette.tealPalette.tint800, for: .normal)
       button.setBackgroundColor(.clear, for: .normal)
       button.setContentCompressionResistancePriority(.required, for: .vertical)
       buttonWrapper.addSubview(button)

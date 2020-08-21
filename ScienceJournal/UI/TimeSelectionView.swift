@@ -57,7 +57,7 @@ class TimeSelectionView: ShadowedView {
     layer.cornerRadius = 2
 
     clockIcon.image = UIImage(named: "ic_access_time")
-    clockIcon.tintColor = MDCPalette.grey.tint500
+    clockIcon.tintColor = ArduinoColorPalette.grayPalette.tint500
     clockIcon.translatesAutoresizingMaskIntoConstraints = false
     clockIcon.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
@@ -65,7 +65,7 @@ class TimeSelectionView: ShadowedView {
     timestampLabel.translatesAutoresizingMaskIntoConstraints = false
 
     confirmButton.setImage(UIImage(named: "ic_check_circle"), for: .normal)
-    confirmButton.tintColor = MDCPalette.blue.tint500
+    confirmButton.tintColor = ArduinoColorPalette.tealPalette.tint800
     confirmButton.translatesAutoresizingMaskIntoConstraints = false
     confirmButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     confirmButton.accessibilityLabel = String.saveBtnContentDescription
