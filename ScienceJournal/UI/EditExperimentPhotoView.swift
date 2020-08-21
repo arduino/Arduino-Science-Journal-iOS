@@ -75,7 +75,7 @@ class EditExperimentPhotoView: UIView {
   private func configureView() {
     layer.cornerRadius = 6.0
     clipsToBounds = true
-    backgroundColor = UIColor(red: 0.808, green: 0.808, blue: 0.808, alpha: 1.0)
+    backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05)
 
     // The image view, which shows the photo for the experiment if/when it exists.
     addSubview(imageView)
@@ -96,7 +96,7 @@ class EditExperimentPhotoView: UIView {
     placeholderImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
 
     // The choose photo button.
-    chooseButton.setTitleColor(.appBarReviewBackgroundColor, for: .normal)
+    chooseButton.setTitleColor(ArduinoColorPalette.tealPalette.tint800, for: .normal)
     chooseButton.setBackgroundColor(.clear, for: .normal)
     chooseButton.setTitle(String.choosePhotoButtonText.uppercased(), for: .normal)
 
