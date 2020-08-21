@@ -43,7 +43,6 @@ class WelcomeViewController: OnboardingViewController {
   let primaryMessage = UILabel()
 
   // Constraints that will be modified on rotation.
-  private var googleLogoBottomConstraint: NSLayoutConstraint?
   private var headerTopConstraint: NSLayoutConstraint?
   private var primaryMessageLeadingConstraint: NSLayoutConstraint?
   private var primaryMessageTrailingConstraint: NSLayoutConstraint?
@@ -76,7 +75,6 @@ class WelcomeViewController: OnboardingViewController {
     super.configureView()
 
     shouldCenterWrappingViewVertically = true
-    configureSplashImagesRelativeToLogo()
 
     headerTitle.text = String.exploreYourWorld
     primaryMessage.text = String.useScienceJournal
@@ -125,22 +123,6 @@ class WelcomeViewController: OnboardingViewController {
     startButton.topAnchor.constraint(equalTo: primaryMessage.bottomAnchor,
                                      constant: Metrics.buttonSpacing).isActive = true
     startButton.addTarget(self, action: #selector(getStartedButtonPressed), for: .touchUpInside)
-
-    NSLayoutConstraint.activate([
-      logoImage.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor),
-      logoImage.topAnchor.constraint(equalTo: startButton.bottomAnchor,
-                                     constant: Metrics.logoTopPadding)
-    ])
-
-    // Google logo.
-    let googleLogoImageView = UIImageView(image: UIImage(named: "logo_google_splash"))
-    googleLogoImageView.translatesAutoresizingMaskIntoConstraints = false
-    wrappingView.addSubview(googleLogoImageView)
-    googleLogoImageView.centerXAnchor.constraint(equalTo: logoImage.centerXAnchor).isActive = true
-    googleLogoImageView.topAnchor.constraint(equalTo: logoImage.bottomAnchor,
-                                             constant: Metrics.googleLogoTopPadding).isActive = true
-    googleLogoBottomConstraint =
-        googleLogoImageView.bottomAnchor.constraint(equalTo: wrappingView.bottomAnchor)
   }
 
   // Updates constraints for labels. Used in rotation to ensure the best fit for various screen
@@ -150,7 +132,6 @@ class WelcomeViewController: OnboardingViewController {
       // When centered, add the Google logo bottom constraint and remove the header top padding.
       shouldCenterWrappingViewVertically = shouldCenter
       headerTopConstraint?.constant = shouldCenter ? 0 : Metrics.headerTopPaddingWide
-      googleLogoBottomConstraint?.isActive = shouldCenter
     }
 
     guard UIDevice.current.userInterfaceIdiom != .pad else {

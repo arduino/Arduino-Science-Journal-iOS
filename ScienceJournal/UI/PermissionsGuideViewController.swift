@@ -33,7 +33,7 @@ protocol PermissionsGuideDelegate: class {
 class PermissionsGuideViewController: OnboardingViewController {
 
   enum Metrics {
-    static let headerTopPaddingNarrow: CGFloat = 140.0
+    static let headerTopPaddingNarrow: CGFloat = 34.0
     static let headerTopPaddingNarrowSmallScreen: CGFloat = 80.0
     static let headerTopPaddingWide: CGFloat = 40.0
     static let headerTopPaddingWideSmallScreen: CGFloat = 20.0
@@ -44,6 +44,9 @@ class PermissionsGuideViewController: OnboardingViewController {
     static let checkPadding: CGFloat = 6.0
     static let doneYOffset: CGFloat = 10.0
     static let continueYOffset: CGFloat = 10.0
+    static let arduinoLogoBottomPadding: CGFloat = 30.0
+    static let buttonHeight: CGFloat = 44.0
+    static let buttonWidth: CGFloat = 220.0
   }
 
   // MARK: - Properties
@@ -57,9 +60,9 @@ class PermissionsGuideViewController: OnboardingViewController {
   private let microphoneMessage = UILabel()
   private let cameraMessage = UILabel()
   private let photoLibraryMessage = UILabel()
-  private let completeButton = MDCFlatButton()
-  private let continueButton = MDCFlatButton()
-  private let startButton = MDCFlatButton()
+  private let completeButton = UIButton()
+  private let continueButton = UIButton()
+  private let startButton = UIButton()
   private let devicePreferenceManager: DevicePreferenceManager
 
   // Used to store label constrains that will be modified on rotation.
@@ -160,21 +163,29 @@ class PermissionsGuideViewController: OnboardingViewController {
   override func configureView() {
     super.configureView()
 
-    configureSplashImagesPinnedToBottom()
+    configureHeaderImagePinnedToTop()
+
+    // Arduino logo.
+    let arduinoLogoImageView = UIImageView(image: UIImage(named: "arduino_logo"))
+    arduinoLogoImageView.translatesAutoresizingMaskIntoConstraints = false
+    wrappingView.addSubview(arduinoLogoImageView)
+    arduinoLogoImageView.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
+    arduinoLogoImageView.bottomAnchor.constraint(equalTo: wrappingView.safeAreaLayoutGuide.bottomAnchor,
+                                             constant: -Metrics.arduinoLogoBottomPadding).isActive = true
 
     // Header label.
     wrappingView.addSubview(headerTitle)
     headerTitle.translatesAutoresizingMaskIntoConstraints = false
-    headerTopConstraint = headerTitle.topAnchor.constraint(equalTo: wrappingView.topAnchor,
+    headerTopConstraint = headerTitle.topAnchor.constraint(equalTo: headerImage.bottomAnchor,
                                                            constant: Metrics.headerTopPaddingNarrow)
     headerTopConstraint?.isActive = true
-    headerTitle.textColor = .white
-    headerTitle.font = MDCTypography.headlineFont()
+    headerTitle.textColor = ArduinoColorPalette.goldPalette.tint400
+    headerTitle.font = ArduinoTypography.boldFont(forSize: 28)
     headerTitle.textAlignment = .center
-    headerTitle.text = String.permissionsGuideWelcomeTitle
-    headerTitle.adjustsFontSizeToFitWidth = true
-    headerTitle.leadingAnchor.constraint(equalTo: wrappingView.leadingAnchor).isActive = true
-    headerTitle.trailingAnchor.constraint(equalTo: wrappingView.trailingAnchor).isActive = true
+    headerTitle.text = String.permissionsGuideWelcomeTitle.localizedUppercase
+    headerTitle.numberOfLines = 0
+    headerTitle.leadingAnchor.constraint(equalTo: wrappingView.readableContentGuide.leadingAnchor).isActive = true
+    headerTitle.trailingAnchor.constraint(equalTo: wrappingView.readableContentGuide.trailingAnchor).isActive = true
 
     // Shared label config.
     [initialMessage, finalMessage, notificationsMessage, microphoneMessage, cameraMessage,
@@ -182,15 +193,19 @@ class PermissionsGuideViewController: OnboardingViewController {
       wrappingView.addSubview($0)
       $0.translatesAutoresizingMaskIntoConstraints = false
       labelLeadingConstraints.append(
-          $0.leadingAnchor.constraint(equalTo: wrappingView.leadingAnchor))
+        $0.leadingAnchor.constraint(equalTo: wrappingView.readableContentGuide.leadingAnchor))
       labelTrailingConstraints.append(
-          $0.trailingAnchor.constraint(equalTo: wrappingView.trailingAnchor))
+        $0.trailingAnchor.constraint(equalTo: wrappingView.readableContentGuide.trailingAnchor))
       $0.font = Metrics.bodyFont
-      $0.textColor = UIColor(red: 0.816, green: 0.714, blue: 0.980, alpha: 1.0)
-      $0.textAlignment = .center
+      $0.textColor = ArduinoColorPalette.grayPalette.tint800
       $0.alpha = 0
       $0.numberOfLines = 0
+      $0.textAlignment = .natural
+      $0.setContentCompressionResistancePriority(.defaultHigh + 1, for: .vertical)
     }
+
+    initialMessage.textAlignment = .center
+
     NSLayoutConstraint.activate(labelLeadingConstraints)
     NSLayoutConstraint.activate(labelTrailingConstraints)
 
@@ -211,7 +226,7 @@ class PermissionsGuideViewController: OnboardingViewController {
 
     // Shared individual message config.
     [notificationsMessage, microphoneMessage, cameraMessage, photoLibraryMessage].forEach {
-      labelTopConstraints.append($0.topAnchor.constraint(equalTo: wrappingView.topAnchor))
+      labelTopConstraints.append($0.topAnchor.constraint(equalTo: headerImage.bottomAnchor))
     }
     NSLayoutConstraint.activate(labelTopConstraints)
 
@@ -220,19 +235,26 @@ class PermissionsGuideViewController: OnboardingViewController {
       wrappingView.addSubview($0)
       $0.translatesAutoresizingMaskIntoConstraints = false
       $0.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
-      $0.setBackgroundColor(.white, for: .normal)
+      $0.heightAnchor.constraint(equalToConstant: Metrics.buttonHeight).isActive = true
+      $0.widthAnchor.constraint(equalToConstant: Metrics.buttonWidth).isActive = true
+      $0.clipsToBounds = true
+      $0.layer.cornerRadius = Metrics.buttonHeight / 2.0
+      $0.backgroundColor = ArduinoColorPalette.tealPalette.tint800
+      $0.titleLabel?.font = ArduinoTypography.boldFont(forSize: 16)
       $0.setTitleColor(view.backgroundColor, for: .normal)
-      $0.disabledAlpha = 0
-      $0.isEnabled = false
-      $0.setElevation(ShadowElevation.raisedButtonResting, for: .normal)
-      $0.setElevation(ShadowElevation.raisedButtonPressed, for: [.selected, .highlighted])
+      $0.isHidden = true
     }
 
     // Start button.
-    startButton.isEnabled = true
+    startButton.isHidden = false
     startButton.setTitle(String.permissionsGuideStartButtonTitle.uppercased(), for: .normal)
-    startButton.topAnchor.constraint(equalTo: initialMessage.bottomAnchor,
-                                     constant: Metrics.buttonSpacing).isActive = true
+    let startButtonTopAnchor =
+      startButton.topAnchor.constraint(equalTo: initialMessage.bottomAnchor,
+                                       constant: Metrics.buttonSpacing)
+    startButtonTopAnchor.priority = .defaultHigh
+    startButtonTopAnchor.isActive = true
+    arduinoLogoImageView.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: startButton.bottomAnchor,
+                                              multiplier: 1.0).isActive = true
     startButton.addTarget(self, action: #selector(startGuideButtonPressed), for: .touchUpInside)
 
     // Complete button.
@@ -373,10 +395,10 @@ class PermissionsGuideViewController: OnboardingViewController {
                              for: .touchUpInside)
     let showNotificationsState = {
       self.doneView.alpha = 0
-      self.continueButton.isEnabled = UIAccessibility.isVoiceOverRunning
+      self.continueButton.isHidden = !UIAccessibility.isVoiceOverRunning
       self.headerTitle.alpha = 0
       self.initialMessage.alpha = 0
-      self.startButton.isEnabled = false
+      self.startButton.isHidden = true
       self.notificationsMessage.alpha = 1
     }
 
@@ -407,7 +429,7 @@ class PermissionsGuideViewController: OnboardingViewController {
 
   @objc private func checkForNotificationPermissions() {
     UIView.animate(withDuration: permissionCheckDuration, animations: {
-      self.continueButton.isEnabled = false
+      self.continueButton.isHidden = true
     }) { (_) in
       LocalNotificationManager.shared.registerUserNotifications()
     }
@@ -429,7 +451,7 @@ class PermissionsGuideViewController: OnboardingViewController {
                              for: .touchUpInside)
     animateToStep(animations: {
       self.doneView.alpha = 0
-      self.continueButton.isEnabled = UIAccessibility.isVoiceOverRunning
+      self.continueButton.isHidden = !UIAccessibility.isVoiceOverRunning
       self.notificationsMessage.alpha = 0
       self.microphoneMessage.alpha = 1
     }) {
@@ -445,7 +467,7 @@ class PermissionsGuideViewController: OnboardingViewController {
 
   @objc private func checkForMicrophonePermissions() {
     UIView.animate(withDuration: permissionCheckDuration, animations: {
-      self.continueButton.isEnabled = false
+      self.continueButton.isHidden = true
     }) { (_) in
       AVAudioSession.sharedInstance().requestRecordPermission { _ in
         DispatchQueue.main.async {
@@ -466,7 +488,7 @@ class PermissionsGuideViewController: OnboardingViewController {
                              for: .touchUpInside)
     animateToStep(animations: {
       self.doneView.alpha = 0
-      self.continueButton.isEnabled = UIAccessibility.isVoiceOverRunning
+      self.continueButton.isHidden = !UIAccessibility.isVoiceOverRunning
       self.microphoneMessage.alpha = 0
       self.cameraMessage.alpha = 1
     }) {
@@ -482,7 +504,7 @@ class PermissionsGuideViewController: OnboardingViewController {
 
   @objc private func checkForCameraPermissions() {
     UIView.animate(withDuration: permissionCheckDuration, animations: {
-      self.continueButton.isEnabled = false
+      self.continueButton.isHidden = true
     }) { (_) in
       let cameraAuthorizationStatus =
           AVCaptureDevice.authorizationStatus(for: .video)
@@ -510,7 +532,7 @@ class PermissionsGuideViewController: OnboardingViewController {
                              for: .touchUpInside)
     animateToStep(animations: {
       self.doneView.alpha = 0
-      self.continueButton.isEnabled = UIAccessibility.isVoiceOverRunning
+      self.continueButton.isHidden = !UIAccessibility.isVoiceOverRunning
       self.cameraMessage.alpha = 0
       self.photoLibraryMessage.alpha = 1
     }) {
@@ -526,7 +548,7 @@ class PermissionsGuideViewController: OnboardingViewController {
 
   @objc private func checkForPhotoLibraryPermissions() {
     UIView.animate(withDuration: permissionCheckDuration, animations: {
-      self.continueButton.isEnabled = false
+      self.continueButton.isHidden = true
     }) { (_) in
       PHPhotoLibrary.requestAuthorization { _ in
         DispatchQueue.main.sync {
@@ -541,11 +563,11 @@ class PermissionsGuideViewController: OnboardingViewController {
   // Thank the user and add a completion button which dismisses the guide.
   private func stepsDone() {
     animateToStep(animations: {
-      self.continueButton.isEnabled = false
+      self.continueButton.isHidden = true
       self.doneView.alpha = 0
       self.photoLibraryMessage.alpha = 0
       self.finalMessage.alpha = 1
-      self.completeButton.isEnabled = true
+      self.completeButton.isHidden = false
     }) {
       UIAccessibility.post(notification: .layoutChanged, argument: self.finalMessage)
     }

@@ -101,8 +101,6 @@ class SignInViewController: OnboardingViewController {
   override func configureView() {
     super.configureView()
 
-    configureSplashImagesRelativeToLogo()
-
     driveMessage.text = String.driveSyncInformation
     driveMessage.translatesAutoresizingMaskIntoConstraints = false
     driveMessage.font = Metrics.bodyFont
@@ -160,8 +158,6 @@ class SignInViewController: OnboardingViewController {
     buttonStack.alignment = .center
     buttonStack.spacing = Metrics.buttonSpacingInner
     stackView.addArrangedSubview(buttonStack)
-
-    stackView.addArrangedSubview(logoImage)
 
     // Continue without signing in button.
     noSignInButton.setTitle(String.continueWithoutSignin.uppercased(), for: .normal)
