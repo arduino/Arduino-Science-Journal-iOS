@@ -70,8 +70,8 @@ class SidebarCell: UICollectionViewCell {
 
     // Title label
     contentView.addSubview(titleLabel)
-    titleLabel.textColor = .black
-    titleLabel.font = MDCTypography.body2Font()
+    titleLabel.textColor = ArduinoColorPalette.labelColor
+    titleLabel.font = ArduinoTypography.regularFont(forSize: 16)
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     titleLabel.centerYAnchor.constraint(equalTo: iconView.centerYAnchor).isActive = true
     titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor,

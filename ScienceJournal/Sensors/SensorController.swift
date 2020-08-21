@@ -34,9 +34,12 @@ open class SensorController {
 
   /// An array of all sensors the sensor controller knows about.
   var allSensors: [Sensor] {
-    return internalSensors + bluetoothSensors.values.reduce([]) { (result, array) -> [Sensor] in
+    let sortedInternalSensors = internalSensors.sortedByName
+    let sortedBluetoothSensors = bluetoothSensors.values.reduce([]) { (result, array) -> [Sensor] in
       return result + array
     }.sortedByName
+    
+    return sortedInternalSensors + sortedBluetoothSensors
   }
 
   /// The sensors internal to the current device.
@@ -70,7 +73,7 @@ open class SensorController {
 
   /// An array of all available sensors, based on each sensor's isSupported value.
   var availableSensors: [Sensor] {
-    return allSensors.filter { $0.isSupported }.sortedByName
+    return allSensors.filter { $0.isSupported }
   }
 
   private let audioCapture = AudioCapture()

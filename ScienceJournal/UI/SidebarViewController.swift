@@ -98,7 +98,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   let cellIdentifier = "SidebarCell"
   let dragWidthThresholdClose: CGFloat = -125.0
   let headerCellIdentifier = "SidebarHeaderCell"
-  let headerHeight: CGFloat = 188.0  // 178.0 image plus a 10.0 inner vertical gap.
+  let headerHeight: CGFloat = 150  // image plus a 10.0 inner vertical gap.
   let sidebarMaxWidth: CGFloat = 290.0
   let velocityCap: CGFloat = 600.0
   var wrapperViewTopConstraint: NSLayoutConstraint?
