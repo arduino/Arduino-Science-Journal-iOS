@@ -115,7 +115,7 @@ class PlaybackOverlayView: UIView {
 
     private func configureView() {
       innerDotLayer.fillColor = ArduinoColorPalette.defaultPalette.tint600!.cgColor
-      outerDotLayer.fillColor = UIColor(red: 0.259, green: 0.522, blue: 0.957, alpha: 0.33).cgColor
+      outerDotLayer.fillColor = ArduinoColorPalette.defaultPalette.tint600!.withAlphaComponent(0.25).cgColor
 
       layer.addSublayer(innerDotLayer)
       layer.addSublayer(outerDotLayer)

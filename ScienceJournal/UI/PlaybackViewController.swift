@@ -182,6 +182,7 @@ class PlaybackViewController: UIViewController, ChartControllerDelegate, Accessi
     verticalStack.axis = .vertical
 
     playButton.setImage(UIImage(named: playIconName), for: .normal)
+    playButton.tintColor = ArduinoColorPalette.grayPalette.tint500
     playButton.translatesAutoresizingMaskIntoConstraints = false
     playButton.accessibilityLabel = String.playContentDescription
 
