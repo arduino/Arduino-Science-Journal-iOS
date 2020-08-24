@@ -41,7 +41,7 @@ enum SidebarRow {
 
   var icon: String {
     switch self {
-    case .experiments: return "ic_book_36pt"
+    case .experiments: return "ic_experiment_36pt"
     case .settings: return "ic_settings_36pt"
     case .feedback: return "ic_feedback_36pt"
     case .about: return "ic_info_36pt"

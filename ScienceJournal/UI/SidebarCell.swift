@@ -27,7 +27,7 @@ class SidebarCell: UICollectionViewCell {
   let iconDimension: CGFloat = 24.0
   let iconPadding: CGFloat = 16.0
   let titlePadding: CGFloat = 72.0
-  let sidebarIconColor = UIColor(red: 0.451, green: 0.451, blue: 0.451, alpha: 1.0)
+  let sidebarIconColor = ArduinoColorPalette.grayPalette.tint500
 
   // MARK: - Properties
 
