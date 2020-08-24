@@ -55,7 +55,7 @@ class TriggerListViewController: MaterialHeaderCollectionViewController, Trigger
 
       let noTriggersLabel = UILabel()
       noTriggersLabel.alpha = ArduinoTypography.emptyViewTitleOpacity
-      noTriggersLabel.font = ArduinoTypography.emptyViewTitleFont
+      noTriggersLabel.font = ArduinoTypography.titleFont
       noTriggersLabel.text = String.emptyTriggerList
       noTriggersLabel.translatesAutoresizingMaskIntoConstraints = false
       noTriggersMessageView.addSubview(noTriggersLabel)

@@ -58,8 +58,7 @@ class ExperimentsListCellBase: AutoLayoutMaterialCardCell {
     static let titlePadding: CGFloat = 8
     static let titleSpacing: CGFloat = 6
 
-    static let titleFont = MDCTypography.fontLoader().boldFont?(ofSize: Metrics.titleFontSize) ??
-        UIFont.boldSystemFont(ofSize: Metrics.titleFontSize)
+    static let titleFont =  ArduinoTypography.titleFont
   }
 
   // MARK: - Public

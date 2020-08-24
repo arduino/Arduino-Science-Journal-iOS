@@ -33,7 +33,7 @@ class ArduinoTypography {
   }
   
   public static let emptyViewTitleOpacity: CGFloat = 0.25
-  public static let emptyViewTitleFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+  public static let titleFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
   
   public static func regularFont(forSize size:CGFloat) -> UIFont {
     guard let customFont = UIFont(name: "OpenSans", size: size) else {

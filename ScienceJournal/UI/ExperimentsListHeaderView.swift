@@ -64,8 +64,7 @@ class ExperimentsListHeaderView: UICollectionReusableView {
 
   private func configureView() {
     addSubview(textLabel)
-    textLabel.font =
-        MDCTypography.fontLoader().boldFont?(ofSize: ExperimentsListHeaderView.headerFontSize)
+    textLabel.font = ArduinoTypography.titleFont
     textLabel.textColor = ArduinoColorPalette.grayPalette.tint400
     textLabel.translatesAutoresizingMaskIntoConstraints = false
     textLabel.pinToEdgesOfView(self, withInsets: ExperimentsListHeaderView.headerInsets)
