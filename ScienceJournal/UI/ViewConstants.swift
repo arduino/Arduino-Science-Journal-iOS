@@ -45,12 +45,4 @@ struct ViewConstants {
   /// The color scheme for alerts.
   static let alertColorScheme = MDCBasicColorScheme(primaryColor: .black)
 
-  /// The color scheme for feature highlights.
-  static var featureHighlightColorScheme: MDCSemanticColorScheme {
-    let scheme = MDCSemanticColorScheme()
-    scheme.primaryColor = MDCPalette.blue.tint500
-    scheme.backgroundColor = .appBarDefaultBackgroundColor
-    return scheme
-  }
-
 }

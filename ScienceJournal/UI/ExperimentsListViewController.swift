@@ -462,7 +462,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
     fakeFAB.accessibilityLabel = String.btnNewExperimentContentDescription
     fakeFAB.setImage(UIImage(named: "ic_add"), for: .normal)
     fakeFAB.tintColor = .white
-    fakeFAB.setBackgroundColor(.appBarDefaultStatusBarBackgroundColor, for: .normal)
+    fakeFAB.setBackgroundColor(ArduinoColorPalette.grayPalette.tint500!, for: .normal)
     fakeFAB.sizeToFit()
 
     // Show the highlight.
@@ -476,10 +476,11 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
                       for: .touchUpInside)
     highlight.titleText = String.experimentsTutorialTitle
     highlight.bodyText = String.experimentsTutorialMessage
-    highlight.outerHighlightColor = MDCPalette.blue.tint700
-    MDCFeatureHighlightColorThemer.applySemanticColorScheme(
-        ViewConstants.featureHighlightColorScheme,
-        to: highlight)
+    highlight.outerHighlightColor = ArduinoColorPalette.defaultPalette.tint700
+    highlight.titleFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Medium.rawValue)
+    highlight.titleColor = ArduinoColorPalette.defaultPalette.accent700
+    highlight.bodyFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+    highlight.bodyColor = ArduinoColorPalette.defaultPalette.accent700
     present(highlight, animated: true)
     highlightController = highlight
 
