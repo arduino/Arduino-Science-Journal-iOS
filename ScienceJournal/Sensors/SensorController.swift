@@ -39,7 +39,7 @@ open class SensorController {
       return result + array
     }.sortedByName
     
-    return sortedInternalSensors + sortedBluetoothSensors
+    return sortedBluetoothSensors + sortedInternalSensors
   }
 
   /// The sensors internal to the current device.
