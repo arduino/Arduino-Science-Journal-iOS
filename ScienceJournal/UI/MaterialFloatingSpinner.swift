@@ -86,6 +86,7 @@ class MaterialFloatingSpinner: UIView {
 
   private func configureView() {
     addSubview(spinnerBackground)
+    spinner.cycleColors = [ArduinoColorPalette.tealPalette.tint700!]
     spinnerBackground.backgroundColor = .white
     spinnerBackground.translatesAutoresizingMaskIntoConstraints = false
     spinnerBackground.widthAnchor.constraint(
