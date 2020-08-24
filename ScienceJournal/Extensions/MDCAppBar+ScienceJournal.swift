@@ -54,8 +54,8 @@ extension MDCAppBar {
     headerViewController.headerView.trackingScrollView = scrollView
 
     navigationBar.titleAlignment = .leading
-    
-    navigationBar.titleTextAttributes = [.font: ArduinoTypography.boldFont(forSize: 20), .foregroundColor: UIColor.white]
+    let fontSize = ArduinoTypography.FontSize.Medium.rawValue
+    navigationBar.titleTextAttributes = [.font: ArduinoTypography.boldFont(forSize: fontSize), .foregroundColor: UIColor.white]
     navigationBar.tintColor = .white
     addSubviewsToParent()
   }

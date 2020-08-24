@@ -3,7 +3,7 @@
 # responsible for referencing this config file and the paths to lint.
 
 line_length:
-  warning: 125
+  warning: 130
 
 file_length:
   warning: 1000 # We have some longer file length we should reduce.
