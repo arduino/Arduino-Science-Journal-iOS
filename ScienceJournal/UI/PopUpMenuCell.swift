@@ -67,7 +67,7 @@ class PopUpMenuCell: UICollectionViewCell {
   static let margins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
 
   /// The text label font.
-  static let textLabelFont = MDCTypography.subheadFont()
+  static let textLabelFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
 
   /// The image view size.
   static let imageViewSize = CGSize(width: 24, height: 24)
