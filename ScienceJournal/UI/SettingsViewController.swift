@@ -112,13 +112,15 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
 
   // Configure each setting item and add it to the data source.
   private func configureSettingsItems() {
-    // Data usage setting.
+    #if USAGE_TRACKING_ENABLED
+    // Data usage setting. Unused for the time being.
     let dataUsageSetting = SettingsItem()
     dataUsageSetting.title = String.settingsDataUsageTitle
     dataUsageSetting.description = String.settingsDataUsageDescription
     dataUsageSetting.isEnabled = !preferenceManager.hasUserOptedOutOfUsageTracking
     dataUsageSetting.settingAction = #selector(dataUsageSwitchChanged(sender:))
     rows.append(dataUsageSetting)
+    #endif
 
     #if SCIENCEJOURNAL_DEV_BUILD
     // Generate root user data for testing the claim existing experiments flow.
