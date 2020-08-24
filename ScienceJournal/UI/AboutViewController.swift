@@ -42,8 +42,8 @@ class AboutViewController: MaterialHeaderCollectionViewController {
       switch self {
       case .licenses: return nil
       case .version: return Bundle.appVersionString
-      case .privacy: return "https://www.google.com/policies/privacy/"
-      case .terms: return "https://www.google.com/policies/terms/"
+      case .privacy: return "https://www.arduino.cc/PrivacyPolicy/en/"
+      case .terms: return "https://www.arduino.cc/en/Main/TermsOfService"
       }
     }
 
