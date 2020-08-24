@@ -49,23 +49,33 @@ class TriggerListViewController: MaterialHeaderCollectionViewController, Trigger
 
     private func configureView() {
       backgroundColor = .white
+      
+      let noTriggersMessageView = UIView()
+      noTriggersMessageView.translatesAutoresizingMaskIntoConstraints = false
 
       let noTriggersLabel = UILabel()
-      noTriggersLabel.alpha = MDCTypography.titleFontOpacity()
-      noTriggersLabel.font = MDCTypography.titleFont()
+      noTriggersLabel.alpha = ArduinoTypography.emptyViewTitleOpacity
+      noTriggersLabel.font = ArduinoTypography.emptyViewTitleFont
       noTriggersLabel.text = String.emptyTriggerList
       noTriggersLabel.translatesAutoresizingMaskIntoConstraints = false
-      addSubview(noTriggersLabel)
-      noTriggersLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-      noTriggersLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25).isActive = true
+      noTriggersMessageView.addSubview(noTriggersLabel)
+      noTriggersLabel.centerXAnchor.constraint(equalTo: noTriggersMessageView.centerXAnchor).isActive = true
+      noTriggersLabel.topAnchor.constraint(equalTo: noTriggersMessageView.topAnchor, constant: 12).isActive = true
 
       let triggerImageView = UIImageView(image: UIImage(named: "ic_trigger_large"))
+      triggerImageView.tintColor = .black
       triggerImageView.translatesAutoresizingMaskIntoConstraints = false
-      addSubview(triggerImageView)
-      triggerImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-      triggerImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-      triggerImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-      triggerImageView.topAnchor.constraint(equalTo: noTriggersLabel.bottomAnchor).isActive = true
+      noTriggersMessageView.addSubview(triggerImageView)
+      triggerImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+      triggerImageView.widthAnchor.constraint(equalToConstant: 130).isActive = true
+      triggerImageView.centerXAnchor.constraint(equalTo: noTriggersMessageView.centerXAnchor).isActive = true
+      triggerImageView.topAnchor.constraint(equalTo: noTriggersMessageView.topAnchor, constant: 60).isActive = true
+                  
+      addSubview(noTriggersMessageView)
+      noTriggersMessageView.heightAnchor.constraint(equalToConstant: 210).isActive = true
+      noTriggersMessageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+      noTriggersMessageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+      noTriggersMessageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
 
   }
@@ -164,7 +174,7 @@ class TriggerListViewController: MaterialHeaderCollectionViewController, Trigger
     view.addSubview(addButton)
     addButton.setImage(UIImage(named: "ic_add"), for: .normal)
     addButton.tintColor = .white
-    addButton.setBackgroundColor(MDCPalette.blue.tint600, for: .normal)
+    addButton.setBackgroundColor(ArduinoColorPalette.grayPalette.tint500!, for: .normal)
     addButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
     addButton.translatesAutoresizingMaskIntoConstraints = false
     addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
