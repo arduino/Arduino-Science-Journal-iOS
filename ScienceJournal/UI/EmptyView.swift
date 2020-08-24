@@ -30,7 +30,7 @@ class EmptyView: UIScrollView {
   struct Metrics {
     static let imageViewDimensionMultiplierRegular: CGFloat = 1
     static let imageViewDimensionMultiplierCompact: CGFloat = 0.6
-    static let innerSpacing: CGFloat = 30.0
+    static let innerSpacing: CGFloat = 20.0
     static let titleFontSize: CGFloat = 16.0
     static let verticalOffsetRegular: CGFloat = -58.0
     static let verticalOffsetCompact: CGFloat = -22.0
@@ -173,7 +173,7 @@ class EmptyView: UIScrollView {
 
     // The title label.
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
-    titleLabel.font = MDCTypography.fontLoader().boldFont?(ofSize: Metrics.titleFontSize)
+    titleLabel.font = ArduinoTypography.titleFont
     titleLabel.text = title
     titleLabel.textColor = MDCPalette.grey.tint500
     titleLabel.numberOfLines = 2
