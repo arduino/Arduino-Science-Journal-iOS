@@ -157,7 +157,7 @@ class EmptyView: UIScrollView {
   // MARK: - Private
 
   private func configureView(title: String, imageName: String) {
-    backgroundColor = MDCPalette.grey.tint200
+    backgroundColor = ArduinoColorPalette.grayPalette.tint50
 
     // Stack view to hold everything else.
     addSubview(stackView)
@@ -175,7 +175,7 @@ class EmptyView: UIScrollView {
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     titleLabel.font = ArduinoTypography.titleFont
     titleLabel.text = title
-    titleLabel.textColor = MDCPalette.grey.tint500
+    titleLabel.textColor = ArduinoColorPalette.grayPalette.tint300
     titleLabel.numberOfLines = 2
     stackView.addArrangedSubview(titleLabel)
 
