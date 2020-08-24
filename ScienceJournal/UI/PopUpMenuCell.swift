@@ -40,7 +40,7 @@ class PopUpMenuCell: UICollectionViewCell {
       }
 
       imageView.image = icon
-      imageView.tintColor = MDCPalette.grey.tint700
+      imageView.tintColor = ArduinoColorPalette.grayPalette.tint500
 
       if oldValue == nil {
         stackView.insertArrangedSubview(imageView, at: 0)
