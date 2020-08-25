@@ -175,9 +175,10 @@ class SensorSettingsViewController: MaterialHeaderCollectionViewController,
 
     if kind == UICollectionView.elementKindSectionHeader {
       if let section = SensorSettingsDataSource.Section(rawValue: indexPath.section) {
-        supplementaryView.textLabel?.text = section.sectionTitle
+        supplementaryView.textLabel?.text = section.sectionTitle?.localizedUppercase
       }
-      supplementaryView.textLabel?.textColor = MDCPalette.blue.tint500
+      supplementaryView.textLabel?.textColor = ArduinoColorPalette.grayPalette.tint600
+      supplementaryView.textLabel?.font = ArduinoTypography.boldFont(forSize: 12)
     }
     return supplementaryView
   }

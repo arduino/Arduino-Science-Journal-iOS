@@ -166,8 +166,9 @@ class SensorSettingsCell: MDCCollectionViewCell {
 
   private func configureView() {
     rotatingButton.isHidden = true
+    rotatingButton.contentMode = .center
     rotatingButton.setContentHuggingPriority(.required, for: .horizontal)
-    rotatingButton.tintColor = MDCPalette.grey.tint500
+    rotatingButton.tintColor = ArduinoColorPalette.grayPalette.tint500
     rotatingButton.translatesAutoresizingMaskIntoConstraints = false
     rotatingButton.isUserInteractionEnabled = false
 
@@ -191,8 +192,7 @@ class SensorSettingsCell: MDCCollectionViewCell {
     button.translatesAutoresizingMaskIntoConstraints = false
     button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
 
-    textLabel.alpha = MDCTypography.subheadFontOpacity()
-    textLabel.font = MDCTypography.subheadFont()
+    textLabel.font = ArduinoTypography.regularFont(forSize: 16)
     textLabel.translatesAutoresizingMaskIntoConstraints = false
 
     let views = [rotatingButton, checkBox, imageView, spacingView, textLabel, button]
@@ -201,6 +201,8 @@ class SensorSettingsCell: MDCCollectionViewCell {
     stackView.translatesAutoresizingMaskIntoConstraints = false
     contentView.addSubview(stackView)
     stackView.pinToEdgesOfView(contentView)
+
+    rotatingButton.widthAnchor.constraint(equalTo: checkBox.widthAnchor, multiplier: 1, constant: 0).isActive = true
   }
 
   @objc private func buttonPressed(_ button: UIButton) {

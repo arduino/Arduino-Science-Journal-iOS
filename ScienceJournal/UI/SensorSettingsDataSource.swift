@@ -253,7 +253,10 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
     case .instructions:
       cell.controlType = .none
       cell.textLabel.text = String.sensorHelpSelectSensors
-      cell.textLabel.textColor = MDCPalette.grey.tint400
+      cell.textLabel.textColor = ArduinoColorPalette.grayPalette.tint400
+      cell.textLabel.font = ArduinoTypography.regularFont(forSize: 16)
+      cell.textLabel.adjustsFontSizeToFitWidth = true
+      cell.textLabel.minimumScaleFactor = 0.8
     case .myDevices:
       // Device sections are sub sections of the collection view sections so we need to keep track
       // of the positioning ourselves.
@@ -266,7 +269,7 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
             cell.rotatingButton.direction = section.collapsed ? .up : .down
             cell.textLabel.text = section.name
             cell.image = UIImage(named: section.iconName)
-            cell.tintColor = MDCPalette.blue.tint500
+            cell.tintColor = ArduinoColorPalette.tealPalette.tint800
 
             if !section.isInternalSensors {
               cell.setButtonImage(UIImage(named: "ic_more_horiz"))
@@ -278,7 +281,7 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
             cell.textLabel.text = sensor.name
             cell.image = UIImage(named: sensor.iconName)
             cell.textLabel.textColor = .black
-            cell.tintColor = MDCPalette.grey.tint500
+            cell.tintColor = ArduinoColorPalette.grayPalette.tint500
             cell.isCheckBoxDisabled = section.isInternalSensors &&
                 numberOfEnabledInternalSensorIDs <= 1 && isSensorEnabled(sensor)
 
@@ -302,13 +305,13 @@ class SensorSettingsDataSource: BLEServiceScannerDelegate {
             cell.rotatingButton.direction = section.collapsed ? .up : .down
             cell.textLabel.text = section.name
             cell.image = UIImage(named: section.iconName)
-            cell.tintColor = MDCPalette.blue.tint500
+            cell.tintColor = ArduinoColorPalette.tealPalette.tint800
           } else {
             cell.controlType = .empty
             let sensorInterface = section.peripherals[sectionIndex - 1]
             cell.textLabel.text = sensorInterface.peripheral.name
             cell.image = UIImage(named: "ic_arduino_device")
-            cell.tintColor = MDCPalette.grey.tint500
+            cell.tintColor = ArduinoColorPalette.grayPalette.tint500
           }
           break
         }

@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "mkrsci_sensor_input_1.png",
+      "filename" : "mkrsci_sensor_input_1.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mkrsci_sensor_input_1@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "mkrsci_sensor_input_1@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

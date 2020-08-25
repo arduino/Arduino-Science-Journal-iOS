@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "mkrsci_acc_z.png",
+      "filename" : "mkrsci_sensor_acc_z.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mkrsci_acc_z@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "mkrsci_acc_z@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -118,7 +118,7 @@ class PopUpMenuCell: UICollectionViewCell {
 
     // Image view. Will be added to the stack view when an icon is set.
     imageView.clipsToBounds = true
-    imageView.contentMode = .scaleAspectFill
+    imageView.contentMode = .center
     imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.heightAnchor.constraint(
         equalToConstant: PopUpMenuCell.imageViewSize.height).isActive = true
@@ -127,7 +127,7 @@ class PopUpMenuCell: UICollectionViewCell {
 
     // Text label.
     textLabel.font = PopUpMenuCell.textLabelFont
-    textLabel.textColor = UIColor(white: 0, alpha: MDCTypography.subheadFontOpacity())
+    textLabel.textColor = .black
     textLabel.lineBreakMode = .byTruncatingTail
     textLabel.adjustsFontSizeToFitWidth = true
     stackView.addArrangedSubview(textLabel)

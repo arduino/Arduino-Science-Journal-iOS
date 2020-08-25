@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "mkrsci_magnetometer.png",
+      "filename" : "mkrsci_magnetometer.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mkrsci_magnetometer@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "mkrsci_magnetometer@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

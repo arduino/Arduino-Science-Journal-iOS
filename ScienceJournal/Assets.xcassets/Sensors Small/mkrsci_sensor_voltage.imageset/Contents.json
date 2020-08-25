@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "mkrsci_sensor_voltage.png",
+      "filename" : "mkrsci_sensor_voltage.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mkrsci_sensor_voltage@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "mkrsci_sensor_voltage@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
