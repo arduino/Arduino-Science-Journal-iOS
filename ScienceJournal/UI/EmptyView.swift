@@ -175,7 +175,8 @@ class EmptyView: UIScrollView {
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     titleLabel.font = ArduinoTypography.titleFont
     titleLabel.text = title
-    titleLabel.textColor = ArduinoColorPalette.grayPalette.tint300
+    titleLabel.textColor = .black
+    titleLabel.alpha = ArduinoTypography.emptyViewTitleOpacity
     titleLabel.numberOfLines = 2
     stackView.addArrangedSubview(titleLabel)
 

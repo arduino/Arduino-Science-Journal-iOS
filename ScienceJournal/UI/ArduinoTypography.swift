@@ -32,7 +32,7 @@ class ArduinoTypography {
     case XXLarge = 48.0
   }
   
-  public static let emptyViewTitleOpacity: CGFloat = 0.25
+  public static let emptyViewTitleOpacity: CGFloat = 0.3
   public static let titleFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
   
   public static func regularFont(forSize size:CGFloat) -> UIFont {
