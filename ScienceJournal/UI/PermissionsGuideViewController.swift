@@ -62,7 +62,7 @@ class PermissionsGuideViewController: OnboardingViewController {
   private let completeButton = UIButton(type: .system)
   private let continueButton = UIButton(type: .system)
   private let startButton = UIButton(type: .system)
-  private let logoImageView = UIImageView(image: UIImage(named: "arduino_logo"))
+  private let logoImageView = UIImageView(image: UIImage(named: "arduino_education_logo"))
   private let stepsImageView = UIImageView()
   private let stepHeader = UIStackView()
   private let stepIcon = UIImageView()
