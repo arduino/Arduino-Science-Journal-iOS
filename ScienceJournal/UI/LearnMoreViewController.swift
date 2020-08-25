@@ -63,7 +63,7 @@ class LearnMoreViewController: MaterialHeaderViewController {
     var paragraphLabel: UILabel {
       let paragraphLabel = UILabel()
       paragraphLabel.alpha = MDCTypography.body1FontOpacity()
-      paragraphLabel.font = MDCTypography.body1Font()
+      paragraphLabel.font = ArduinoTypography.paragraphFont
       paragraphLabel.numberOfLines = 0
       return paragraphLabel
     }
@@ -71,9 +71,8 @@ class LearnMoreViewController: MaterialHeaderViewController {
     let descriptionLabel = paragraphLabel
     descriptionLabel.text = sensor.textDescription
 
-    let whatsGoingOnLabel = UILabel()
-    whatsGoingOnLabel.alpha = MDCTypography.titleFontOpacity()
-    whatsGoingOnLabel.font = MDCTypography.titleFont()
+    let whatsGoingOnLabel = UILabel()    
+    whatsGoingOnLabel.font = ArduinoTypography.headingFont
     whatsGoingOnLabel.text = String.headingInfoSection
 
     let firstParagraphLabel = paragraphLabel
