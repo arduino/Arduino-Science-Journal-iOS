@@ -37,7 +37,7 @@ class DrawerConfigOpen: DrawerConfig {
         selectionMode: .single,
         analyticsReporter: analyticsReporter)
 
-    let notesItem = DrawerItem(tabBarImage: UIImage(named: "ic_comment"),
+    let notesItem = DrawerItem(tabBarImage: UIImage(named: "ic_comment_filled"),
                                accessibilityLabel: String.notesTabContentDescription,
                                viewController: notesViewController)
     keyedDrawerItems[DrawerItemKeys.notesViewControllerKey] = notesItem
