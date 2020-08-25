@@ -159,7 +159,7 @@
 /* Name for sonification type from data to volume / amplitude of sound [CHAR_LIMIT=30] */
 "amplitude" = "振幅";
 /* The name of this product. [CHAR_LIMIT=40] */
-"app_name" = "科學日誌";
+"app_name" = "Arduino Science Journal";
 /* The app store description for Science Journal, character limit is not flexible [CHAR_LIMIT=4000] */
 "app_store_description" = "「科學日誌」是一款 Google 推出的免費應用程式，也是專為你設計的數位科學筆記本。\n\n無論你是從事科學教育的人員，或是熱衷於在家中動手玩科學的人士，都可以將你所有的筆記、相片和觀察結果集中存於此處。你可以利用 iPhone 或 iPad 內建的感測器來測量生活中的各種自然現象，例如光線、聲音和物體的運動，並將收集到的數據繪製成圖表。此外，你也可以透過藍牙功能與外部感測器建立連線，並在周遭環境進行實驗。\n\n「科學日誌」應用程式可以讓你：\n• 使用裝置內建的感測器來測量光線、聲音、加速度及氣壓等自然現象。\n• 以文字筆記和相片的形式，將科學實驗的過程和結果記錄下來。我們日後還會提供更多種筆記類型，敬請拭目以待！\n• 讓手機連線至部分具備藍牙功能的 Arduino 和 Vernier 外部感測器裝置。\n• 建立自動化的觸發條件，讓「科學日誌」自動幫你記錄資料和做筆記。\n• 透過超音波處理機制聽見圖表的變化趨勢。\n\n權限聲明：\n• 藍牙：必須提供這項權限，才能掃描周遭是否有藍牙感測裝置。\n• 相機：必須提供這項權限，才能為實驗過程拍攝相片；亮度感應器也需要使用相機。\n• 相片庫：必須提供這項權限，才能儲存你為實驗拍攝的記錄相片，並且在實驗中加入現有的相片庫相片。\n• 麥克風：必須提供這項權限，才能使用聲音強度感測器。\n• 推播通知：必須提供這項權限，日後在背景中執行應用程式時，才能接收實驗記錄的狀態通知。\n\n歡迎瀏覽我們合作夥伴提供的教育活動：\nhttps://makingscience.withgoogle.com/science-journal/activities\n歡迎造訪支援論壇：https://productforums.google.com/forum/#!forum/sciencejournal";
 /* Change log for the iOS verison of Science Journal (note: this is multiline, with \n to separate lines) [CHAR_LIMIT=3000] */

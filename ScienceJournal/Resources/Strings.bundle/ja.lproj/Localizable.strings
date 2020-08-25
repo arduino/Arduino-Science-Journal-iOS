@@ -159,7 +159,7 @@
 /* Name for sonification type from data to volume / amplitude of sound [CHAR_LIMIT=30] */
 "amplitude" = "振幅";
 /* The name of this product. [CHAR_LIMIT=40] */
-"app_name" = "サイエンス ジャーナル";
+"app_name" = "Arduino Science Journal";
 /* The app store description for Science Journal, character limit is not flexible [CHAR_LIMIT=4000] */
 "app_store_description" = "サイエンス ジャーナルは、Google が無料で提供するデジタル研究ノートです。\n\n科学の教育関係者の方も、科学が趣味という皆さんも、メモや写真、観察記録をすべて 1 か所に保存できるので便利にお使いいただけます。iPhone や iPad のセンサーを使って光、音、動きなどの現象を測定してグラフにすることも、Bluetooth 経由で外部センサーに接続して身の周りのさまざまなものを使った実験をすることもできます。\n\nサイエンス ジャーナル アプリでは、次のようなことができます。\n• お手持ちのデバイスの内蔵センサーを使って光、音、加速度、気圧などを測定する。\n• メモを取ったり写真を撮ったりして科学実験を記録する。メモの種類は今後も追加していく予定です。\n• Bluetooth 対応の特定の Arduino デバイスを使って外部センサーに接続する。\n• 自動トリガーを作成してデータの記録やメモの入力を行う。\n• ソニフィケーションを使ってグラフの動きを音で聴く。\n\nアクセス許可に関する注意点:\n• Bluetooth: Bluetooth 対応のセンサーデバイスをスキャンする場合に必要。\n• カメラ: 実験の記録のための写真を撮る場合や明るさセンサーに必要。\n• フォト ライブラリ: 実験の記録写真の保存やライブラリから既存の写真を実験に追加する場合に必要。\n• マイク: 音量センサーに必要。\n• プッシュ通知: アプリのバックグラウンド実行時に記録ステータスを通知するために必要。\n\nパートナーによる教育活動:\nhttps://makingscience.withgoogle.com/science-journal/activities\nサポートが必要な場合: https://productforums.google.com/forum/#!forum/sciencejournal";
 /* Change log for the iOS verison of Science Journal (note: this is multiline, with \n to separate lines) [CHAR_LIMIT=3000] */

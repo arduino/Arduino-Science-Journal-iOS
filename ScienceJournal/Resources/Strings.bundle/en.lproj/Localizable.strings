@@ -159,7 +159,7 @@
 /* Name for sonification type from data to volume / amplitude of sound [CHAR_LIMIT=30] */
 "amplitude" = "Amplitude";
 /* The name of this product. [CHAR_LIMIT=40] */
-"app_name" = "Science Journal";
+"app_name" = "Arduino Science Journal";
 /* The app store description for Science Journal, character limit is not flexible [CHAR_LIMIT=4000] */
 "app_store_description" = "Science Journal is the free digital science notebook brought to you by Google.\n\nWhether you're a science educator or a hobbyist doing science at home, you can keep your notes, photos, and observations all in one convenient place. Use the sensors in your iPhone or iPad to measure and graph phenomena such as light, sound, and motion, or connect to external sensors via bluetooth to conduct experiments on the world around you.\n\nWith the Science Journal app, you can:\n• Measure light, sound, acceleration, air pressure, and more using your device’s built-in sensors.\n• Take notes and photos to document your science experiments. More note types coming soon!\n• Connect to external sensors using select Bluetooth-enabled Arduino devices.\n• Create automated triggers for recording data and taking notes.\n• Use sonification to hear the movement of your graphs.\n\nPermissions notice:\n• Bluetooth: needed to scan for bluetooth sensor devices.\n• Camera: needed to take pictures to document experiments and for the brightness sensor.\n• Photo Library: needed to store pictures taken to document experiments and for adding existing photos from your library to experiments.\n• Microphone: needed for sound intensity sensor.\n• Push notifications: needed to inform you of recording status when backgrounding the app.\n\nEducational activities by our partners:\nhttps://makingscience.withgoogle.com/science-journal/activities\nFor support: https://productforums.google.com/forum/#!forum/sciencejournal";
 /* Change log for the iOS verison of Science Journal (note: this is multiline, with \n to separate lines) [CHAR_LIMIT=3000] */
@@ -175,7 +175,7 @@
 /* Label for an item which is archived. This displays over the top of the other elements so must be short [CHAR_LIMIT=20] */
 "archived_badge" = "Archived";
 /* Accessibility hint describing an item which is archived [CHAR_LIMIT=NONE] */
-"archived_content_description" = "<xliff:g id=\"item\">%1s</xliff:g> (archived)";
+"archived_content_description" = "%1@ (archived)";
 /* Message of alert when an experiment is successfully archived [CHAR_LIMIT=100] */
 "archived_experiment_message" = "Experiment archived.";
 /* Message of alert when a run is successfully archived [CHAR_LIMIT=100] */
@@ -331,9 +331,9 @@
 /* Title of button that allows user to use app without signing in. [CHAR_LIMIT=50] */
 "continue_without_signin" = "Continue without signing in";
 /* The accessibility description of the review recording crop end marker [CHAR_LIMIT=NONE] */
-"crop_end_seekbar_content_description" = "crop end: <xliff:g id=\"time\">%1$s</xliff:g>, <xliff:g id=\"value\">%2$s</xliff:g> <xliff:g id=\"units\">%3$s</xliff:g>";
+"crop_end_seekbar_content_description" = "crop end: %1$@, %2$@ %3$@";
 /* Error message to show the user when a crop failed. This will be followed by more detailed information. [CHAR_LIMIT=50] */
-"crop_failed_message" = "Could not save crop: <xliff:g id=\"details\">%1$s</xliff:g>";
+"crop_failed_message" = "Could not save crop: %1$@";
 /* Content description for the crop end marker move left accessibility action [CHAR_LIMIT=NONE] */
 "crop_move_end_left_content_description" = "Move crop end marker left";
 /* Content description for the crop end marker move right accessibility action [CHAR_LIMIT=NONE] */
@@ -353,7 +353,7 @@
 /* Run review menu option to crop a run [CHAR_LIMIT=25] */
 "crop_run" = "Crop";
 /* The accessibility description of the review recording crop start marker [CHAR_LIMIT=NONE] */
-"crop_start_seekbar_content_description" = "crop start: <xliff:g id=\"time\">%1$s</xliff:g>, <xliff:g id=\"value\">%2$s</xliff:g> <xliff:g id=\"units\">%3$s</xliff:g>";
+"crop_start_seekbar_content_description" = "crop start: %1$@, %2$@ %3$@";
 /* Content description phrase for the current value [CHAR_LIMIT=NONE] */
 "current_value_content_description" = "Current value";
 /* Sound intensity sensor name [CHAR_LIMIT=25] */
@@ -709,27 +709,27 @@
 /* Pitch sensor name [CHAR_LIMIT=25] */
 "pitch" = "Pitch";
 /* Content description for a pitch that is equal to a flat musical note. The musical note will be used in the first placeholder, and the octave number will be used in the second placeholder. [CHAR_LIMIT=NONE] */
-"pitch_flat_note_content_description" = "<xliff:g id=\"musical_note\">%1$s</xliff:g> flat, octave <xliff:g id=\"octave_number\">%2$s</xliff:g>";
+"pitch_flat_note_content_description" = "%1$@ flat, octave %2$@";
 /* Content description for a pitch that is flatter than a flat musical note. The number of half steps flatter will be used in the first placeholder, the musical note will be used in the second placeholder, and the octave number will be used in the third placeholder. [CHAR_LIMIT=NONE] */
-"pitch_flatter_than_flat_note_content_description" = "<xliff:g id=\"half_steps_flatter\">%3$s</xliff:g> half steps flatter than <xliff:g id=\"musical_note\">%1$s</xliff:g> flat, octave <xliff:g id=\"octave_number\">%2$s</xliff:g>";
+"pitch_flatter_than_flat_note_content_description" = "%1$@ half steps flatter than %2$@ flat, octave %3$@";
 /* Content description for a pitch that is flatter than a natural musical note. The number of half steps flatter will be used in the first placeholder, the musical note will be used in the second placeholder, and the octave number will be used in the third placeholder. [CHAR_LIMIT=NONE] */
-"pitch_flatter_than_natural_note_content_description" = "<xliff:g id=\"half_steps_flatter\">%3$s</xliff:g> half steps flatter than <xliff:g id=\"musical_note\">%1$s</xliff:g>, octave <xliff:g id=\"octave_number\">%2$s</xliff:g>";
+"pitch_flatter_than_natural_note_content_description" = "%1$@ half steps flatter than %2$@, octave %3$@";
 /* Content description for a pitch that is flatter than a sharp musical note. The number of half steps flatter will be used in the first placeholder, the musical note will be used in the second placeholder, and the octave number will be used in the third placeholder. [CHAR_LIMIT=NONE] */
-"pitch_flatter_than_sharp_note_content_description" = "<xliff:g id=\"half_steps_flatter\">%3$s</xliff:g> half steps flatter than <xliff:g id=\"musical_note\">%1$s</xliff:g> sharp, octave <xliff:g id=\"octave_number\">%2$s</xliff:g>";
+"pitch_flatter_than_sharp_note_content_description" = "%1$@ half steps flatter than %2$@ sharp, octave %3$@";
 /* Content description for high pitch [CHAR_LIMIT=NONE] */
 "pitch_high_content_description" = "high pitch";
 /* Content description for low pitch [CHAR_LIMIT=NONE] */
 "pitch_low_content_description" = "low pitch";
 /* Content description for a pitch that is equal to a natural musical note. The musical note will be used in the first placeholder, and the octave number will be used in the second placeholder. [CHAR_LIMIT=NONE] */
-"pitch_natural_note_content_description" = "<xliff:g id=\"musical_note\">%1$s</xliff:g>, octave <xliff:g id=\"octave_number\">%2$s</xliff:g>";
+"pitch_natural_note_content_description" = "%1$@, octave %2$@";
 /* Content description for a pitch that is equal to a sharp musical note. The musical note will be used in the first placeholder, and the octave number will be used in the second placeholder. [CHAR_LIMIT=NONE] */
-"pitch_sharp_note_content_description" = "<xliff:g id=\"musical_note\">%1$s</xliff:g> sharp, octave <xliff:g id=\"octave_number\">%2$s</xliff:g>";
+"pitch_sharp_note_content_description" = "%1$@ sharp, octave %2$@";
 /* Content description for a pitch that is sharper than a flat musical note. The number of half steps sharper will be used in the first placeholder, the musical note will be used in the second placeholder, and the octave number will be used in the third placeholder. [CHAR_LIMIT=NONE] */
-"pitch_sharper_than_flat_note_content_description" = "<xliff:g id=\"half_steps_sharper\">%3$s</xliff:g> half steps sharper than <xliff:g id=\"musical_note\">%1$s</xliff:g> flat, octave <xliff:g id=\"octave_number\">%2$s</xliff:g>";
+"pitch_sharper_than_flat_note_content_description" = "%1$@ half steps sharper than %2$@ flat, octave %3$@";
 /* Content description for a pitch that is sharper than a natural musical note. The number of half steps sharper will be used in the first placeholder, the musical note will be used in the second placeholder, and the octave number will be used in the third placeholder. [CHAR_LIMIT=NONE] */
-"pitch_sharper_than_natural_note_content_description" = "<xliff:g id=\"half_steps_sharper\">%3$s</xliff:g> half steps sharper than <xliff:g id=\"musical_note\">%1$s</xliff:g>, octave <xliff:g id=\"octave_number\">%2$s</xliff:g>";
+"pitch_sharper_than_natural_note_content_description" = "%1$@ half steps sharper than %2$@, octave %3$@";
 /* Content description for a pitch that is sharper than a sharp musical note. The number of half steps sharper will be used in the first placeholder, the musical note will be used in the second placeholder, and the octave number will be used in the third placeholder. [CHAR_LIMIT=NONE] */
-"pitch_sharper_than_sharp_note_content_description" = "<xliff:g id=\"half_steps_sharper\">%3$s</xliff:g> half steps sharper than <xliff:g id=\"musical_note\">%1$s</xliff:g> sharp, octave <xliff:g id=\"octave_number\">%2$s</xliff:g>";
+"pitch_sharper_than_sharp_note_content_description" = "%3$@ half steps sharper than %1$@ sharp, octave %2$@";
 /* A plural version of the word describing the measurement of a dot on a screen. [CHAR_LIMIT=10] */
 "pixels" = "Pixels";
 /* Content description for a play button [CHAR_LIMIT=NONE] */
