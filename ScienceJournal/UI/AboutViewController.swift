@@ -136,7 +136,11 @@ class AboutViewController: MaterialHeaderCollectionViewController {
     if let textCell = cell as? MDCCollectionViewTextCell {
       let rowData = rows[indexPath.row]
       textCell.textLabel?.text = rowData.title
+      textCell.textLabel?.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+      textCell.textLabel?.textColor = ArduinoColorPalette.contentColor
       textCell.detailTextLabel?.text = rowData.description
+      textCell.detailTextLabel?.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+      textCell.detailTextLabel?.textColor = ArduinoColorPalette.secondaryLabelColor
       textCell.accessibilityLabel = rowData.accessibilityLabel
       textCell.accessibilityHint = rowData.accessibilityHint
       textCell.isAccessibilityElement = true

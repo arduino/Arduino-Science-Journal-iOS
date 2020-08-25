@@ -95,6 +95,8 @@ class LicensesViewController: MaterialHeaderCollectionViewController {
     if let textCell = cell as? MDCCollectionViewTextCell {
       let rowData = licenses[indexPath.row]
       textCell.textLabel?.text = rowData.title
+      textCell.textLabel?.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+      textCell.textLabel?.textColor = ArduinoColorPalette.contentColor
       textCell.isAccessibilityElement = true
       textCell.accessibilityLabel = rowData.title
       textCell.accessibilityHint = String.doubleTapToOpen
