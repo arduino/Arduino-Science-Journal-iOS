@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Sidebar Header.png",
+      "filename" : "sidebar_header_background.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Sidebar Header@2x.png",
+      "filename" : "sidebar_header_background@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Sidebar Header@3x.png",
+      "filename" : "sidebar_header_background@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
