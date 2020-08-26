@@ -23,7 +23,7 @@ struct BLEScienceKitGyroscopeYSensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0001-5002-467a-9538-01f0652c74e8") }
   static var identifier: String { "\(uuid.uuidString)_2" }
 
-  var name: String { "Gyroscope Y" }
+  var name: String { "gyr_y".localized }
 
   var iconName: String { "mkrsci_gyr_y" }
 

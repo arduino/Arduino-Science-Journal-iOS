@@ -22,7 +22,7 @@ import CoreBluetooth
 struct BLEScienceKitVoltageSensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0001-4001-467a-9538-01f0652c74e8") }
 
-  var name: String { "Voltage" }
+  var name: String { "voltage".localized }
 
   var iconName: String { "mkrsci_sensor_voltage" }
 

@@ -22,7 +22,7 @@ import CoreBluetooth
 struct BLEScienceKitInput2Sensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0001-2002-467a-9538-01f0652c74e8") }
 
-  var name: String { "Input 2" }
+  var name: String { "input_2".localized }
 
   var iconName: String { "mkrsci_sensor_input_2" }
 

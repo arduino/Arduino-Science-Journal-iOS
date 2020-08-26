@@ -354,6 +354,7 @@
 "crop_run" = "Pangkas";
 /* The accessibility description of the review recording crop start marker [CHAR_LIMIT=NONE] */
 "crop_start_seekbar_content_description" = "awal pangkasan: %1$@, %2$@ %3$@";
+"current" = "Current";
 /* Content description phrase for the current value [CHAR_LIMIT=NONE] */
 "current_value_content_description" = "Nilai saat ini";
 /* Sound intensity sensor name [CHAR_LIMIT=25] */
@@ -542,6 +543,9 @@
 "graph_options_audio_feedback_disable" = "Nonaktifkan audio";
 /* The name of the setting to turn on audio graph feedback. [CHAR_LIMIT=25] */
 "graph_options_audio_feedback_enable" = "Aktifkan audio";
+"gyr_x" = "Gyroscope X";
+"gyr_y" = "Gyroscope Y";
+"gyr_z" = "Gyroscope Z";
 /* The heading on a sensor info page where the user can learn more about a sensor [CHAR_LIMIT=40] */
 "heading_info_section" = "Apa yang Sedang Terjadi?";
 /* Displayed units for a pitch sensor, hertz [CHAR_LIMIT=10] */
@@ -560,6 +564,9 @@
 "import_storage_limit_body" = "Anda dapat mengelola penyimpanan di setelan.";
 /* Menu option to include archived recordings when viewing a list of recordings in an experiment [CHAR_LIMIT=30] */
 "include_archived_trials" = "Tampilkan arsip rekaman";
+"input_1" = "Input 1";
+"input_2" = "Input 2";
+"input_3" = "Input 3";
 /* Title for the button that takes a user to the iOS system settings for Science Journal which allows them to modify camera and photo library permissions. [CHAR_LIMIT=50] */
 "input_blocked_open_settings_button" = "Buka Setelan";
 /* Message describing that the use of a brightness sensor while recording prevents the camera from being accessible. [CHAR_LIMIT=200] */
@@ -776,6 +783,7 @@
 "remove_cover_image_message" = "Yakin ingin menghapus gambar sampul? Tindakan ini tidak dapat diurungkan.";
 /* Snackbar message when a cover image is successfully removed from an experiment. [CHAR_LIMIT=100] */
 "remove_cover_image_successful" = "Gambar sampul telah dihapus.";
+"resistance" = "Resistance";
 /* Displayed units for an RPM sensor [CHAR_LIMIT=10] */
 "rpm_units" = "RPM";
 /* Accessibility announcement when a recording is added to an experiment or recording [CHAR_LIMIT=NONE] */
@@ -1120,5 +1128,6 @@
 "user_feedback_email_info_title" = "Kami ingin tahu pendapat Anda";
 /* Displayed name of a sensor that records and displays a video stream [CHAR_LIMIT=25] */
 "video_stream" = "Streaming video";
+"voltage" = "Voltage";
 /* Displayed units for a Voltage sensor [CHAR_LIMIT=10] */
 "voltage_units" = "V";

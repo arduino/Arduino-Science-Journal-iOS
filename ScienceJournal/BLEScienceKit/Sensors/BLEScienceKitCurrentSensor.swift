@@ -22,7 +22,7 @@ import CoreBluetooth
 struct BLEScienceKitCurrentSensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0001-4002-467a-9538-01f0652c74e8") }
 
-  var name: String { "Current" }
+  var name: String { "current".localized }
 
   var iconName: String { "mkrsci_sensor_current" }
 
