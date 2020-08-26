@@ -68,7 +68,7 @@ class SensorPickerView: UIView {
 
     // Tab bar.
     tabBar.itemAppearance = .images
-    tabBar.tintColor = .yellow
+    tabBar.tintColor = .white
     tabBar.selectedItemTintColor = .white
     tabBar.unselectedItemTintColor = .white
     tabBar.barTintColor = .clear
