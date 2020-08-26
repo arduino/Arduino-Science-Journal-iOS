@@ -1,5 +1,5 @@
 /* Displayed units for an acceleration sensor [CHAR_LIMIT=10] */
-"acc_units" = "m/s\u00B2";
+"acc_units" = "m/s²";
 /* Displayed name of a sensor that shows acceleration along the X axis [CHAR_LIMIT=25] */
 "acc_x" = "Accelerometer X";
 /* Displayed name of a sensor that shows acceleration along the Y axis [CHAR_LIMIT=25] */
@@ -523,7 +523,7 @@
 /* Title for the overlay modal displayed when generating PDF for export [CHAR_LIMIT=50] */
 "export_pdf_modal_title" = "Preparing PDF";
 /* Dialog title for the chooser that pops up after exporting a photo [CHAR_LIMIT=50] */
-"export_photo_chooser_title" = "Share photo to\u2026";
+"export_photo_chooser_title" = "Share photo to…";
 /* Text note contents for first note in first experiment [CHAR_LIMIT=NONE] */
 "first_experiment_picture_note_caption" = "Welcome to Science Journal!";
 /* Text note contents for the second text note in the first experiment [CHAR_LIMIT=NONE] */
@@ -593,11 +593,11 @@
 /* Separator between features and bugs in release notes when both are present.  Should be two newlines  [CHAR LIMIT=5] */
 "listing_changelog_separator" = "\n\n";
 /* Feature 1 of the H release.  Should begin with a newline and bullet character [CHAR LIMIT=80] */
-"listing_h_feature_1" = "\n\u2022 Sound pitch sensor.";
+"listing_h_feature_1" = "\n•  Sound pitch sensor.";
 /* Feature 2 of the H release.  Should begin with a newline and bullet character [CHAR LIMIT=120] */
-"listing_h_feature_2" = "\n\u2022 Export experiments to a file, and import them to other devices.";
+"listing_h_feature_2" = "\n• Export experiments to a file, and import them to other devices.";
 /* Feature 3 of the H release.  Should begin with a newline and bullet character [CHAR LIMIT=100] */
-"listing_h_feature_3" = "\n\u2022 Export photos from an experiment.";
+"listing_h_feature_3" = "\n• Export photos from an experiment.";
 /* Button to view more notes in a trial [CHAR_LIMIT=50] */
 "load_more_notes_btn" = "View more notes";
 /* Displayed name of a sensor that shows magnetic field strength measured by the phone's magnetometer [CHAR_LIMIT=25] */
@@ -825,13 +825,13 @@
 /* Message to display to the user when a sensor card failed to load data [CHAR_LIMIT=100] */
 "sensor_card_error_text" = "Failed to load sensor data";
 /* Message to display to a user when a sensor card is loading data from the sensor [CHAR_LIMIT=50] */
-"sensor_card_loading_text" = "Loading sensor data\u2026";
+"sensor_card_loading_text" = "Loading sensor data…";
 /* Message to display to a user when an audio sensor card failed because of microphone permissions. [CHAR_LIMIT=120] */
 "sensor_card_sound_permission_error" = "Audio sensors cannot be used because Science Journal does not have permission to access your microphone.";
 /* Device options dropdown item for Custom sensor [CHAR_LIMIT=40] */
 "sensor_custom" = "Custom";
 /* Long description of a accelerometer sensor that is displayed above a representative image on the Learn More page [CHAR_LIMIT=NONE] */
-"sensor_desc_first_paragraph_acc" = "Objects have a tendency to stay put, or to keep moving if they're moving—we call this tendency inertia. Newton's First Law expresses this idea formally: An object continues in its state of motion or rest unless acted on by an unbalanced force.\n        \n\nWhen an unbalanced force does cause an object to budge, we say the object accelerates: its velocity, or speed, changes—either by speeding up, slowing down, or changing direction. Acceleration is measured as a change of velocity (meters per second) in time, or meters per second squared (m/s\u00B2).\n        \n\nYour phone has a device to measure these changes in motion—an accelerometer. Inside an accelerometer, small suspended masses are free to move. Changes in motion cause these masses to shift, much as your own head tends to flop forward when you're in a car that stops suddenly. Measuring these subtle inertial shifts, an accelerometer in a phone can detect changes in motion and orientation, useful for switching the screen from landscape to portrait mode, for playing games on your phone, and more.";
+"sensor_desc_first_paragraph_acc" = "Objects have a tendency to stay put, or to keep moving if they're moving—we call this tendency inertia. Newton's First Law expresses this idea formally: An object continues in its state of motion or rest unless acted on by an unbalanced force.\n        \n\nWhen an unbalanced force does cause an object to budge, we say the object accelerates: its velocity, or speed, changes—either by speeding up, slowing down, or changing direction. Acceleration is measured as a change of velocity (meters per second) in time, or meters per second squared (m/s²).\n        \n\nYour phone has a device to measure these changes in motion—an accelerometer. Inside an accelerometer, small suspended masses are free to move. Changes in motion cause these masses to shift, much as your own head tends to flop forward when you're in a car that stops suddenly. Measuring these subtle inertial shifts, an accelerometer in a phone can detect changes in motion and orientation, useful for switching the screen from landscape to portrait mode, for playing games on your phone, and more.";
 /* Long description of an barometer sensor displayed above a representative image on the Learn More page [CHAR_LIMIT=NONE] */
 "sensor_desc_first_paragraph_barometer" = "Though we rarely notice it, all of us live at the bottom of a deep ocean of air: Earth's atmosphere, which extends upwards of 40 kilometers (130,000 feet) high. The weight of all that air pushing down on us from above us creates what's called atmospheric pressure.\n        \n\nAt sea level, atmospheric pressure applies 14 pounds of force on every square inch—that's the equivalent of about 1,300 pounds on an area the size of a standard sheet of paper.";
 /* Long description of a brightness sensor displayed above a representative image on the Learn More page [CHAR_LIMIT=NONE] */
@@ -841,7 +841,7 @@
 /* Long description of a decibel sensor that is displayed above a representative image on the Learn More page [CHAR_LIMIT=NONE] */
 "sensor_desc_first_paragraph_decibel" = "Sounds are made by vibration. Your voice, for example, comes from vibrations in your throat's vocal cords. These vibrations create alternating zones of high and low air pressure that travel outward—much like the expanding circular ripple made by a pebble thrown into a pond.";
 /* Long description of the combined linear accelerometer sensor that is displayed above a representative image on the Learn More page [CHAR_LIMIT=NONE] */
-"sensor_desc_first_paragraph_linear_acc" = "Objects have a tendency to stay put, or to keep moving if they're moving—we call this tendency inertia. Newton's First Law expresses this idea formally: An object continues in its state of motion or rest unless acted on by an unbalanced force.\n        \n\nWhen an unbalanced force does cause an object to budge, we say the object accelerates: its velocity, or speed, changes—either by speeding up, slowing down, or changing direction. Acceleration is measured as a change of velocity (meters per second) in time, or meters per second squared (m/s\u00B2).\n        \n\nYour phone has a device to measure these changes in motion—an accelerometer. Inside an accelerometer, small suspended masses are free to move. Changes in motion cause these masses to shift, much as your own head tends to flop forward when you're in a car that stops suddenly. Measuring these subtle inertial shifts, an accelerometer in a phone can detect changes in motion and orientation, useful for switching the screen from landscape to portrait mode, for playing games on your phone, and more.";
+"sensor_desc_first_paragraph_linear_acc" = "Objects have a tendency to stay put, or to keep moving if they're moving—we call this tendency inertia. Newton's First Law expresses this idea formally: An object continues in its state of motion or rest unless acted on by an unbalanced force.\n        \n\nWhen an unbalanced force does cause an object to budge, we say the object accelerates: its velocity, or speed, changes—either by speeding up, slowing down, or changing direction. Acceleration is measured as a change of velocity (meters per second) in time, or meters per second squared (m/s²).\n        \n\nYour phone has a device to measure these changes in motion—an accelerometer. Inside an accelerometer, small suspended masses are free to move. Changes in motion cause these masses to shift, much as your own head tends to flop forward when you're in a car that stops suddenly. Measuring these subtle inertial shifts, an accelerometer in a phone can detect changes in motion and orientation, useful for switching the screen from landscape to portrait mode, for playing games on your phone, and more.";
 /* Long description of a magnetic strength sensor that is displayed above a representative image on the Learn More page [CHAR_LIMIT=NONE] */
 "sensor_desc_first_paragraph_magnetic_strength" = "Your phone contains a device designed to detect magnetic fields: a magnetometer. This tiny, three-axis sensor that uses electric currents to detect the magnetic field strength in the three dimensions of space. By combining data from all three axes we can create a total magnetic field strength sensor.\n        \n\nSome magnetometers detect magnetic fields using the Hall effect—the tendency of magnetic fields to deflect moving charge as it flows. Newer magnetometers rely on magnetoresistors, metal alloys that change their resistance in response to magnetic fields.\n        \n\nWhy does a phone need a magnetometer? Knowing your orientation in space is useful for built-in compass and navigation apps, especially those that seek to give turn-by-turn directions.";
 /* Long description of a pitch sensor that is displayed above a representative image on the Learn More page [CHAR_LIMIT=NONE] */
@@ -853,7 +853,7 @@
 /* Long description of an unknown bluetooth sensor displayed above a representative image on the Learn More page [CHAR_LIMIT=NONE] */
 "sensor_desc_first_paragraph_unknown_bluetooth" = "The data displayed here is coming from an external sensor communication with your phone via Bluetooth.";
 /* Long description of a accelerometer sensor that is displayed below a representative image on the Learn More page [CHAR_LIMIT=NONE] */
-"sensor_desc_second_paragraph_acc" = "You probably noticed a persistent acceleration in the Z axis, even with the phone sitting still on a table. This is the acceleration we experience here at the Earth's surface due to the pull of gravity, approximately 9.8 m/s\u00B2.";
+"sensor_desc_second_paragraph_acc" = "You probably noticed a persistent acceleration in the Z axis, even with the phone sitting still on a table. This is the acceleration we experience here at the Earth's surface due to the pull of gravity, approximately 9.8 m/s².";
 /* Long description of an barometer sensor displayed below a representative image on the Learn More page [CHAR_LIMIT=NONE] */
 "sensor_desc_second_paragraph_barometer" = "We don't notice this crushing pressure because we're used to it—that is, until it changes, even slightly, as it does when we visit high altitudes or ride in airplanes. Atmospheric pressure also varies with weather conditions, dropping in the presence of stormy, unstable air, and rising when air stabilizes and skies clear.\n        \n\nThe digital barometer in your phone measures atmospheric pressure in hectopascals. (A hectopascal is 100 pascals, where a pascal is one newton of force applied over a square meter of area.) You've probably heard weather forecasters give atmospheric pressure in millibars—this friendlier-sounding unit is equivalent to hectopascals.\n        \n\nYou might be wondering: Why would a phone measure pressure? Atmospheric pressure changes measurably with even slight changes in elevation, say, when you climb a flight of stairs. So a digital barometer in a phone can help detect location changes, for example, telling you what floor of a building you are on, or whether you are driving on the upper or lower deck of a bridge.";
 /* Long description of a brightness sensor displayed below a representative image on the Learn More page [CHAR_LIMIT=NONE] */
@@ -875,11 +875,11 @@
 /* Long description of an unknown bluetooth sensor displayed below a representative image on the Learn More page [CHAR_LIMIT=NONE] */
 "sensor_desc_second_paragraph_unknown_bluetooth" = "Bluetooth is a wireless technology standard using radio waves to exchange data over short distances from fixed and mobile devices.";
 /* One-sentence description of the accelerometer X sensor [CHAR_LIMIT=100] */
-"sensor_desc_short_acc_x" = "The acceleration of the phone to the left and right, in m/s\u00B2";
+"sensor_desc_short_acc_x" = "The acceleration of the phone to the left and right, in m/s²";
 /* One-sentence description of the accelerometer Y sensor [CHAR_LIMIT=100] */
-"sensor_desc_short_acc_y" = "The acceleration of the phone forward and back, in m/s\u00B2";
+"sensor_desc_short_acc_y" = "The acceleration of the phone forward and back, in m/s²";
 /* One-sentence description of the accelerometer Z sensor [CHAR_LIMIT=100] */
-"sensor_desc_short_acc_z" = "The acceleration of the phone up and down, in m/s\u00B2";
+"sensor_desc_short_acc_z" = "The acceleration of the phone up and down, in m/s²";
 /* One-sentence description of the raw sensor [CHAR_LIMIT=100] */
 "sensor_desc_short_barometer" = "The atmospheric pressure measured in hectopascals (hPa).";
 /* One-sentence description of an unknown bluetooth sensor [CHAR_LIMIT=100] */
@@ -891,7 +891,7 @@
 /* One-sentence description of the Decibel sensor [CHAR_LIMIT=100] */
 "sensor_desc_short_decibel" = "The intensity of the sound, measured in decibels (dB), reaching the sound sensor or microphone.";
 /* One-sentence description of the combined linear accelerometer sensor [CHAR_LIMIT=100] */
-"sensor_desc_short_linear_acc" = "The total acceleration of the phone, excluding the force of gravity, in m/s\u00B2";
+"sensor_desc_short_linear_acc" = "The total acceleration of the phone, excluding the force of gravity, in m/s²";
 /* One-sentence description of the magnetic strength sensor [CHAR_LIMIT=100] */
 "sensor_desc_short_magnetic_strength" = "The strength of the ambient geomagnetic field in Microtesla.";
 /* One-sentence description of the pitch sensor [CHAR_LIMIT=100] */
@@ -995,7 +995,7 @@
 /* Used by accessibility to describe the on state of a switch. [CHAR_LIMIT=NONE] */
 "switch_on_content_description" = "On";
 /* Displayed units for an ambient temperature sensor [CHAR_LIMIT=10] */
-"temperature_units" = "\u00B0C";
+"temperature_units" = "°C";
 /* Title of a activity to edit the value of a text note [CHAR_LIMIT=30] */
 "text_label_details_title" = "Edit text note";
 /* Title of a activity to view a text note that is read-only [CHAR_LIMIT=30] */
