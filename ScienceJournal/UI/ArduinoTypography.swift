@@ -27,6 +27,7 @@ class ArduinoTypography {
     case XSmall = 14.0
     case Small = 16.0
     case Medium = 20.0
+    case MediumLarge = 24.0
     case Large = 28.0
     case XLarge = 36.0
     case XXLarge = 48.0
@@ -36,6 +37,7 @@ class ArduinoTypography {
   public static let titleFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
   public static let headingFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Medium.rawValue)
   public static let paragraphFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+  public static let sensorValueFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.MediumLarge.rawValue)
   
   public static func regularFont(forSize size:CGFloat) -> UIFont {
     guard let customFont = UIFont(name: "OpenSans", size: size) else {

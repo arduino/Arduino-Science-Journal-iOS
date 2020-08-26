@@ -97,7 +97,7 @@ class CurrentValueView: UIView {
 
     // Text label.
     textLabel.textAlignment = .right
-    textLabel.font = ArduinoTypography.headingFont
+    textLabel.font = ArduinoTypography.sensorValueFont
     textLabel.translatesAutoresizingMaskIntoConstraints = false
     textLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
     stackView.addArrangedSubview(textLabel)
