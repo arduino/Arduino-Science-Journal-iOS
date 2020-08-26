@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "mkrsci_gyrz_0.png",
+      "filename" : "mkrsci_gyrz_0.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "mkrsci_gyrz_0@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "mkrsci_gyrz_0@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
