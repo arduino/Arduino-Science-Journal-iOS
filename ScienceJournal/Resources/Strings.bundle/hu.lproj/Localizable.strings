@@ -894,6 +894,14 @@
 "sensor_desc_short_linear_acc" = "A telefon teljes gyorsulása a gravitációs erő nélkül, m/s²-ben";
 /* One-sentence description of the magnetic strength sensor [CHAR_LIMIT=100] */
 "sensor_desc_short_magnetic_strength" = "A környező geomágneses mező erőssége mikroteslában.";
+"sensor_desc_short_mkrsci_acc" = "A device that measures acceleration";
+"sensor_desc_short_mkrsci_color_illuminance" = "The ambient light sensor measures light in lux, a measure of illumination that depends on the amount of incoming light and the area over which it is spread. The amount of light is measured in lux.";
+"sensor_desc_short_mkrsci_current" = "The amount of flow of charged particles between two places";
+"sensor_desc_short_mkrsci_gyr" = "A device that measures orientation and angular velocity (rotation).";
+"sensor_desc_short_mkrsci_magnetometer" = "An instrument used to measure the intensity and direction of a magnetic field";
+"sensor_desc_short_mkrsci_resistance" = "The measure of the difficulty of current flow through an object or material";
+"sensor_desc_short_mkrsci_temperature" = "Ambient temperature in C or F";
+"sensor_desc_short_mkrsci_voltage" = "The difference in electric potential between two places that allows a current to flow";
 /* One-sentence description of the pitch sensor [CHAR_LIMIT=100] */
 "sensor_desc_short_pitch" = "A hangérzékelőbe vagy mikrofonba érkező hang magassága hertzben (Hz) mérve.";
 /* One-sentence description of the raw sensor [CHAR_LIMIT=100] */

@@ -31,7 +31,7 @@ struct BLEScienceKitAccelerometerYSensor: BLEScienceKitSensor {
 
   var unitDescription: String? { "acc_units".localized }
 
-  var textDescription: String { "A device that measures acceleration" }
+  var textDescription: String { "sensor_desc_short_mkrsci_acc".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

@@ -30,10 +30,7 @@ struct BLEScienceKitVoltageSensor: BLEScienceKitSensor {
 
   var unitDescription: String? { "V" }
 
-  var textDescription: String {
-    "The difference in electric " +
-    "potential between two places " +
-    "that allows a current to flow" }
+  var textDescription: String { "sensor_desc_short_mkrsci_voltage".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

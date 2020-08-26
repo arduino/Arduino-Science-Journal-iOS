@@ -31,9 +31,7 @@ struct BLEScienceKitGyroscopeYSensor: BLEScienceKitSensor {
 
   var unitDescription: String? { "\u{00B0}/s" }
 
-  var textDescription: String {
-    "A device that measures orientation" +
-    "and angular velocity (rotation)." }
+  var textDescription: String { "sensor_desc_short_mkrsci_gyr".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

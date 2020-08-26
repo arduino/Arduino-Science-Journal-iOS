@@ -30,9 +30,7 @@ struct BLEScienceKitCurrentSensor: BLEScienceKitSensor {
 
   var unitDescription: String? { "A" }
 
-  var textDescription: String {
-    "The amount of flow of charged " +
-    "particles between two places" }
+  var textDescription: String { "sensor_desc_short_mkrsci_current".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

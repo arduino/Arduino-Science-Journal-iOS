@@ -30,10 +30,7 @@ struct BLEScienceKitMagnetometerSensor: BLEScienceKitSensor {
 
   var unitDescription: String? { "magnetic_strength_units".localized }
 
-  var textDescription: String {
-    "An instrument used to measure " +
-    "the intensity and direction of " +
-    "a magnetic field" }
+  var textDescription: String { "sensor_desc_short_mkrsci_magnetometer".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

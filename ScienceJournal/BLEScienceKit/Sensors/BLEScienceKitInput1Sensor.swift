@@ -50,7 +50,16 @@ struct BLEScienceKitInput1Sensor: BLEScienceKitSensor {
     }
   }
 
-  var textDescription: String { "" }
+  var textDescription: String {
+    switch config {
+    case .temperatureCelsius, .temperatureFahrenheit:
+      return "sensor_desc_short_mkrsci_temperature".localized
+    case .light:
+      return "sensor_desc_short_mkrsci_color_illuminance".localized
+    default:
+      return ""
+    }
+  }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

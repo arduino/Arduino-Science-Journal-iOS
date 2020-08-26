@@ -30,10 +30,7 @@ struct BLEScienceKitResistanceSensor: BLEScienceKitSensor {
 
   var unitDescription: String? { "k\u{03A9}" }
 
-  var textDescription: String {
-    "The measure of the difficulty " +
-    "of current flow through an object " +
-    "or material" }
+  var textDescription: String { "sensor_desc_short_mkrsci_resistance".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",
