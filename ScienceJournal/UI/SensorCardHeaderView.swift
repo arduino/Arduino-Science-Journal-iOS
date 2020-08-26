@@ -110,7 +110,7 @@ class SensorCardHeaderView: UIView {
 
     // Title label.
     titleLabel.textColor = .white
-    titleLabel.font = MDCTypography.body2Font()
+    titleLabel.font = ArduinoTypography.titleFont
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
     stackView.addArrangedSubview(titleLabel)
