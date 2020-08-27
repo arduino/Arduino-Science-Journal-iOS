@@ -26,10 +26,6 @@ class SnapshotCardView: ExperimentCardView {
 
   // MARK: - Constants
 
-  /// Font size for the main value label. Used in view height calculation.
-  static let valueFontSize: CGFloat = 24.0
-  /// Font size for the secondary description label. Used in view height calculation.
-  static let descriptionFontSize: CGFloat = 16.0
   /// Icon dimension.
   static let iconDimension: CGFloat = 50.0
     /// The size of the sensor icon.
@@ -158,11 +154,9 @@ class SnapshotCardView: ExperimentCardView {
     // Measure the height of the value type, constraining it to the max view width.
     let labelsHeight =
         snapshot.valueType.labelHeight(withConstrainedWidth: constrainedWidth,
-                                       font: MDCTypography.fontLoader().regularFont(
-                                           ofSize: SnapshotCardView.descriptionFontSize)) +
+                                       font: ArduinoTypography.paragraphFont) +
         snapshot.value.labelHeight(withConstrainedWidth: constrainedWidth,
-                                   font: MDCTypography.fontLoader().boldFont!(
-                                       ofSize: SnapshotCardView.valueFontSize))
+                                   font: ArduinoTypography.sensorValueFont)
     // If the icon is taller, use that instead.
     totalHeight += max(SnapshotCardView.iconDimension, labelsHeight)
 
@@ -186,16 +180,14 @@ class SnapshotCardView: ExperimentCardView {
   private func configureView() {
     // Description label.
     descriptionLabel.isAccessibilityElement = false
-    descriptionLabel.textColor = MDCPalette.grey.tint500
-    descriptionLabel.font = MDCTypography.fontLoader().regularFont(
-        ofSize: SnapshotCardView.descriptionFontSize)
+    descriptionLabel.textColor = ArduinoColorPalette.grayPalette.tint400
+    descriptionLabel.font = ArduinoTypography.paragraphFont
     addSubview(descriptionLabel)
 
     // Value label.
     valueLabel.isAccessibilityElement = false
     valueLabel.textColor = .black
-    valueLabel.font = MDCTypography.fontLoader().boldFont?(
-        ofSize: SnapshotCardView.valueFontSize)
+    valueLabel.font = ArduinoTypography.sensorValueFont
     addSubview(valueLabel)
 
     // Icon.

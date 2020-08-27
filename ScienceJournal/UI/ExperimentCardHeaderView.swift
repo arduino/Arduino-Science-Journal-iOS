@@ -103,7 +103,7 @@ class ExperimentCardHeaderView: UIView {
     // (whichever is bigger) + padding.
     let headerHeight = String.runReviewActivityLabel.labelHeight(
         withConstrainedWidth: 0,
-        font: MDCTypography.fontLoader().regularFont(ofSize: ExperimentCardView.timestampFontSize))
+        font: ArduinoTypography.labelFont)
     return max(headerHeight, ExperimentCardHeaderView.iconDimension) +
         (ExperimentCardView.headerFooterVerticalPadding * 2)
   }()
@@ -137,9 +137,8 @@ class ExperimentCardHeaderView: UIView {
     outerStack.addArrangedSubview(timestampDot)
 
     // Timestamp label.
-    headerTimestampLabel.textColor = MDCPalette.grey.tint500
-    headerTimestampLabel.font = MDCTypography.fontLoader().regularFont(
-        ofSize: ExperimentCardView.timestampFontSize)
+    headerTimestampLabel.textColor = ArduinoColorPalette.grayPalette.tint400
+    headerTimestampLabel.font = ArduinoTypography.labelFont
     headerTimestampLabel.translatesAutoresizingMaskIntoConstraints = false
     headerTimestampLabel.isAccessibilityElement = false
     outerStack.addArrangedSubview(headerTimestampLabel)

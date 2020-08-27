@@ -116,7 +116,7 @@ class TriggerCardView: ExperimentCardView {
     var timestampMeasure: CGFloat = 0
     if showingTimestamp {
       timestampMeasure = ceil(triggerNote.timestamp.string.labelWidth(
-        font: MDCTypography.fontLoader().regularFont(ofSize: TriggerCardView.timestampFontSize))) +
+        font: ArduinoTypography.labelFont)) +
         ExperimentCardView.innerHorizontalPadding
     }
 
@@ -125,11 +125,9 @@ class TriggerCardView: ExperimentCardView {
     let labelsHeight =
         triggerNote.descriptionText.labelHeight(
             withConstrainedWidth: descriptionWidth - timestampMeasure,
-            font: MDCTypography.fontLoader().regularFont(
-                ofSize: SnapshotCardView.descriptionFontSize)) +
+            font: ArduinoTypography.paragraphFont) +
         triggerNote.valueText.labelHeight(withConstrainedWidth: constrainedWidth,
-                                          font: MDCTypography.fontLoader().boldFont!(
-                                              ofSize: SnapshotCardView.valueFontSize))
+                                          font: ArduinoTypography.sensorValueFont)
 
     // Use either the icon size or the labels height, whichever is greater.
     totalHeight += max(TriggerCardView.sensorIconDimension, labelsHeight)
@@ -237,9 +235,8 @@ class TriggerCardView: ExperimentCardView {
     addSubview(descriptionLabel)
     descriptionLabel.isAccessibilityElement = false
     descriptionLabel.numberOfLines = 0
-    descriptionLabel.textColor = MDCPalette.grey.tint500
-    descriptionLabel.font =
-        MDCTypography.fontLoader().regularFont(ofSize: SnapshotCardView.descriptionFontSize)
+    descriptionLabel.textColor = ArduinoColorPalette.grayPalette.tint400
+    descriptionLabel.font = ArduinoTypography.paragraphFont
     descriptionLabel.textAlignment =
         UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .left : .right
 
@@ -247,7 +244,7 @@ class TriggerCardView: ExperimentCardView {
     addSubview(valueLabel)
     valueLabel.isAccessibilityElement = false
     valueLabel.textColor = .black
-    valueLabel.font = MDCTypography.fontLoader().boldFont?(ofSize: SnapshotCardView.valueFontSize)
+    valueLabel.font = ArduinoTypography.sensorValueFont
 
     // Timestamp label.
     addSubview(timestampLabel)

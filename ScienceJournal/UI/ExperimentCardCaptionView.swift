@@ -27,7 +27,6 @@ class ExperimentCardCaptionView: ExperimentCardView {
   // MARK: - Constants
 
   /// The font size for the caption.
-  static let captionFontSize: CGFloat = 16.0
   static let captionVerticalPadding: CGFloat = 12.0
 
   // MARK: - Properties
@@ -69,8 +68,7 @@ class ExperimentCardCaptionView: ExperimentCardView {
     var totalHeight = SeparatorView.Metrics.dimension
     // The height of the label.
     totalHeight += caption.labelHeight(withConstrainedWidth: constrainedWidth,
-                                       font: MDCTypography.fontLoader().regularFont(
-                                           ofSize: ExperimentCardCaptionView.captionFontSize))
+                                       font: ArduinoTypography.paragraphFont)
     // Top and bottom vertical padding.
     return totalHeight + (ExperimentCardCaptionView.captionVerticalPadding * 2)
   }
@@ -90,9 +88,8 @@ class ExperimentCardCaptionView: ExperimentCardView {
     labelWrapper.translatesAutoresizingMaskIntoConstraints = false
     labelWrapper.addSubview(captionLabel)
 
-    captionLabel.font = MDCTypography.fontLoader().regularFont(
-        ofSize: ExperimentCardCaptionView.captionFontSize)
-    captionLabel.textColor = MDCPalette.grey.tint600
+    captionLabel.font = ArduinoTypography.paragraphFont
+    captionLabel.textColor = ArduinoColorPalette.grayPalette.tint600
     captionLabel.numberOfLines = 0
     captionLabel.translatesAutoresizingMaskIntoConstraints = false
     let insets = UIEdgeInsets(top: 0,

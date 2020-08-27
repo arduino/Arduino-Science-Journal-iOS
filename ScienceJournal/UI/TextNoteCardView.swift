@@ -123,16 +123,14 @@ class TextNoteCardView: ExperimentCardView {
     var timestampMeasure: CGFloat = 0
     if showingTimestamp {
       timestampMeasure = ceil(textNote.timestamp.string.labelWidth(
-          font: MDCTypography.fontLoader().regularFont(
-              ofSize: TextNoteCardView.timestampFontSize))) +
+          font: ArduinoTypography.labelFont)) +
           ExperimentCardView.innerHorizontalPadding
     }
 
     // Measure the height of the text, constraining it to `width`.
     var totalHeight =
         textNote.text.labelHeight(withConstrainedWidth: constrainedWidth - timestampMeasure,
-                                                  font: MDCTypography.fontLoader().regularFont(
-                                                      ofSize: TextNoteCardView.textFontSize))
+                                                  font: ArduinoTypography.paragraphFont)
 
     if let valueSnapshots = textNote.valueSnapshots {
       // Add the vertical spacing between the labels.
@@ -230,7 +228,7 @@ class TextNoteCardView: ExperimentCardView {
     // Text view.
     addSubview(textView)
     textView.textColor = .black
-    textView.font = MDCTypography.fontLoader().regularFont(ofSize: TextNoteCardView.textFontSize)
+    textView.font = ArduinoTypography.paragraphFont
     textView.textContainerInset = .zero
     textView.textContainer.lineFragmentPadding = 0
     textView.isScrollEnabled = false

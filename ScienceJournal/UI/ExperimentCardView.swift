@@ -57,8 +57,6 @@ class ExperimentCardView: UIView {
   static let innerLabelsSpacing: CGFloat = 2.0
   /// The horizontal padding of a card view, added to the leading and trailing edges.
   static let innerHorizontalPadding: CGFloat = 16.0
-  /// The font size for the timestamp label, used in view height calculation.
-  static let timestampFontSize: CGFloat = 12.0
   /// A combined value of the total horizontal padding, used in view width calculation.
   static let horizontalPaddingTotal: CGFloat = (ExperimentCardView.innerHorizontalPadding * 2)
 
@@ -89,9 +87,8 @@ class ExperimentCardView: UIView {
   private func configureSharedViews() {
     // Timestamp label.
     timestampLabel.textAlignment = .right
-    timestampLabel.textColor = MDCPalette.grey.tint500
-    timestampLabel.font = MDCTypography.fontLoader().regularFont(
-        ofSize: ExperimentCardView.timestampFontSize)
+    timestampLabel.textColor = ArduinoColorPalette.grayPalette.tint400
+    timestampLabel.font = ArduinoTypography.labelFont
     timestampLabel.translatesAutoresizingMaskIntoConstraints = false
     // Timestamp label should stay as narrow as necessary.
     timestampLabel.setContentHuggingPriority(.required, for: .horizontal)
