@@ -181,7 +181,7 @@ open class CameraViewController: ScienceJournalViewController, DrawerItemViewCon
     actionBar.leadingAnchor.constraint(equalTo: actionBarWrapper.leadingAnchor).isActive = true
     actionBar.trailingAnchor.constraint(equalTo: actionBarWrapper.trailingAnchor).isActive = true
 
-    actionBarWrapper.backgroundColor = DrawerView.actionBarBackgroundColor
+    actionBarWrapper.backgroundColor = DrawerView.actionBarBackgroundColor?.withAlphaComponent(0.8)
     actionBarWrapper.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(actionBarWrapper)
     actionBarWrapper.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
