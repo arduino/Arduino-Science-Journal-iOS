@@ -42,7 +42,7 @@ class JumpToNowButton: MDCFloatingButton {
     accessibilityLabel = String.btnResetDescription
     tintColor = .white
     setImage(UIImage(named: "ic_last_page"), for: .normal)
-    setBackgroundColor(MDCPalette.purple.tint900, for: .normal)
+    setBackgroundColor(ArduinoColorPalette.grayPalette.tint500, for: .normal)
   }
 
   override var intrinsicContentSize: CGSize {

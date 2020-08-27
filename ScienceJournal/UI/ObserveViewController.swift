@@ -308,7 +308,7 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
     recordButtonView.trailingAnchor.constraint(
         equalTo: recordButtonViewWrapper.trailingAnchor).isActive = true
 
-    recordButtonViewWrapper.backgroundColor = DrawerView.actionBarBackgroundColor
+    recordButtonViewWrapper.backgroundColor = DrawerView.actionBarBackgroundColor?.withAlphaComponent(0.8)
     recordButtonViewWrapper.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(recordButtonViewWrapper)
     recordButtonViewWrapper.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

@@ -111,7 +111,7 @@ class RecordButtonView: UIView {
     let timerWrapper = UIView()
     timerWrapper.translatesAutoresizingMaskIntoConstraints = false
     timerWrapper.addSubview(timerLabel)
-    timerLabel.font = MDCTypography.headlineFont()
+    timerLabel.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Large.rawValue)
     timerLabel.textAlignment = .left
     timerLabel.textColor = .white
     timerLabel.translatesAutoresizingMaskIntoConstraints = false
