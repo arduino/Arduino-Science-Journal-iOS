@@ -202,6 +202,7 @@ extension String {
   static public var cropRecordingFailedRangeTooSmall: String { return "crop_recording_failed_range_too_small".localized }
   static public var cropRun: String { return "crop_run".localized }
   static public var cropStartSeekbarContentDescription: String { return "crop_start_seekbar_content_description".localized }
+  static public var current: String { return "current".localized }
   static public var currentValueContentDescription: String { return "current_value_content_description".localized }
   static public var decibel: String { return "decibel".localized }
   static public var decibelUnits: String { return "decibel_units".localized }
@@ -296,6 +297,9 @@ extension String {
   static public var getStarted: String { return "get_started".localized }
   static public var graphOptionsAudioFeedbackDisable: String { return "graph_options_audio_feedback_disable".localized }
   static public var graphOptionsAudioFeedbackEnable: String { return "graph_options_audio_feedback_enable".localized }
+  static public var gyrX: String { return "gyr_x".localized }
+  static public var gyrY: String { return "gyr_y".localized }
+  static public var gyrZ: String { return "gyr_z".localized }
   static public var headingInfoSection: String { return "heading_info_section".localized }
   static public var hertzUnits: String { return "hertz_units".localized }
   static public var importFailed: String { return "import_failed".localized }
@@ -305,6 +309,9 @@ extension String {
   static public var importStorageLimit: String { return "import_storage_limit".localized }
   static public var importStorageLimitBody: String { return "import_storage_limit_body".localized }
   static public var includeArchivedTrials: String { return "include_archived_trials".localized }
+  static public var input1: String { return "input_1".localized }
+  static public var input2: String { return "input_2".localized }
+  static public var input3: String { return "input_3".localized }
   static public var inputBlockedOpenSettingsButton: String { return "input_blocked_open_settings_button".localized }
   static public var inputCameraBlockedByBrightnessSensor: String { return "input_camera_blocked_by_brightness_sensor".localized }
   static public var inputCameraBlockedByInterruption: String { return "input_camera_blocked_by_interruption".localized }
@@ -413,6 +420,7 @@ extension String {
   static public var removeCoverImageFailed: String { return "remove_cover_image_failed".localized }
   static public var removeCoverImageMessage: String { return "remove_cover_image_message".localized }
   static public var removeCoverImageSuccessful: String { return "remove_cover_image_successful".localized }
+  static public var resistance: String { return "resistance".localized }
   static public var rpmUnits: String { return "rpm_units".localized }
   static public var runAddedContentDescription: String { return "run_added_content_description".localized }
   static public var runDefaultTitle: String { return "run_default_title".localized }
@@ -472,6 +480,14 @@ extension String {
   static public var sensorDescShortDecibel: String { return "sensor_desc_short_decibel".localized }
   static public var sensorDescShortLinearAcc: String { return "sensor_desc_short_linear_acc".localized }
   static public var sensorDescShortMagneticStrength: String { return "sensor_desc_short_magnetic_strength".localized }
+  static public var sensorDescShortMkrsciAcc: String { return "sensor_desc_short_mkrsci_acc".localized }
+  static public var sensorDescShortMkrsciColorIlluminance: String { return "sensor_desc_short_mkrsci_color_illuminance".localized }
+  static public var sensorDescShortMkrsciCurrent: String { return "sensor_desc_short_mkrsci_current".localized }
+  static public var sensorDescShortMkrsciGyr: String { return "sensor_desc_short_mkrsci_gyr".localized }
+  static public var sensorDescShortMkrsciMagnetometer: String { return "sensor_desc_short_mkrsci_magnetometer".localized }
+  static public var sensorDescShortMkrsciResistance: String { return "sensor_desc_short_mkrsci_resistance".localized }
+  static public var sensorDescShortMkrsciTemperature: String { return "sensor_desc_short_mkrsci_temperature".localized }
+  static public var sensorDescShortMkrsciVoltage: String { return "sensor_desc_short_mkrsci_voltage".localized }
   static public var sensorDescShortPitch: String { return "sensor_desc_short_pitch".localized }
   static public var sensorDescShortRaw: String { return "sensor_desc_short_raw".localized }
   static public var sensorDescShortRotation: String { return "sensor_desc_short_rotation".localized }
@@ -581,6 +597,7 @@ extension String {
   static public var userFeedbackEmailInfoSendButton: String { return "user_feedback_email_info_send_button".localized }
   static public var userFeedbackEmailInfoTitle: String { return "user_feedback_email_info_title".localized }
   static public var videoStream: String { return "video_stream".localized }
+  static public var voltage: String { return "voltage".localized }
   static public var voltageUnits: String { return "voltage_units".localized }
 
 }

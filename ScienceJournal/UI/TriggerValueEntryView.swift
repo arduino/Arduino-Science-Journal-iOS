@@ -98,8 +98,7 @@ class TriggerValueEntryView: TriggerOptionEntryView {
   private func configureView() {
     textField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
 
-    unitDescriptionLabel.alpha = MDCTypography.body2FontOpacity()
-    unitDescriptionLabel.font = MDCTypography.body2Font()
+    unitDescriptionLabel.font = ArduinoTypography.paragraphFont
     unitDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
     addSubview(unitDescriptionLabel)
     unitDescriptionLabel.centerYAnchor.constraint(equalTo: textField.centerYAnchor).isActive = true

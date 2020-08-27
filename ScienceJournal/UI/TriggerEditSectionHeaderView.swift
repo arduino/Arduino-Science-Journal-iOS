@@ -42,8 +42,8 @@ class TriggerEditSectionHeaderView: UIView {
   // MARK: - Private
 
   private func configureView() {
-    textLabel.font = MDCTypography.boldFont(from: MDCTypography.body2Font())
-    textLabel.textColor = MDCPalette.blue.tint600
+    textLabel.font = ArduinoTypography.paragraphFont
+    textLabel.textColor = ArduinoColorPalette.grayPalette.tint400
     textLabel.translatesAutoresizingMaskIntoConstraints = false
     addSubview(textLabel)
     textLabel.pinToEdgesOfView(self,

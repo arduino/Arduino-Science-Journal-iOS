@@ -139,6 +139,10 @@ class TriggerListViewController: MaterialHeaderCollectionViewController, Trigger
     triggerListDataSource = TriggerListDataSource(sensorTriggers: sensorTriggers)
 
     super.init(analyticsReporter: analyticsReporter)
+
+    // Always register collection view cells early to avoid a reload occurring first.
+    collectionView?.register(TriggerListCell.self,
+                             forCellWithReuseIdentifier: triggerListCellIdentifier)
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -147,10 +151,6 @@ class TriggerListViewController: MaterialHeaderCollectionViewController, Trigger
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    // Always register collection view cells early to avoid a reload occurring first.
-    collectionView?.register(TriggerListCell.self,
-                             forCellWithReuseIdentifier: triggerListCellIdentifier)
 
     accessibilityViewIsModal = true
 

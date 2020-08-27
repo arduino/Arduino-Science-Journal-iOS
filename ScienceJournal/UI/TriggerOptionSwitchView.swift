@@ -57,12 +57,13 @@ class TriggerOptionSwitchView: UIView {
   // MARK: - Private
 
   private func configureView() {
-    titleLabel.font = MDCTypography.body2Font()
+    titleLabel.font = ArduinoTypography.paragraphFont
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     addSubview(titleLabel)
     titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18).isActive = true
 
+    aSwitch.onTintColor = ArduinoColorPalette.tealPalette.tint800
     aSwitch.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
     aSwitch.translatesAutoresizingMaskIntoConstraints = false
     addSubview(aSwitch)

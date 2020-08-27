@@ -78,8 +78,7 @@ class TriggerListCell: MDCCollectionViewCell {
     stackView.pinToEdgesOfView(contentView)
 
     // Text label.
-    textLabel.alpha = MDCTypography.body1FontOpacity()
-    textLabel.font = MDCTypography.body1Font()
+    textLabel.font = ArduinoTypography.paragraphFont
     textLabel.lineBreakMode = .byTruncatingTail
     textLabel.numberOfLines = 2
     textLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -87,6 +86,7 @@ class TriggerListCell: MDCCollectionViewCell {
     stackView.addArrangedSubview(textLabel)
 
     // Switch.
+    aSwitch.onTintColor = ArduinoColorPalette.tealPalette.tint800
     aSwitch.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
     aSwitch.translatesAutoresizingMaskIntoConstraints = false
     aSwitch.setContentHuggingPriority(.required, for: .horizontal)
@@ -94,7 +94,7 @@ class TriggerListCell: MDCCollectionViewCell {
 
     // Menu button.
     menuButton.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
-    menuButton.tintColor = .darkGray
+    menuButton.tintColor = ArduinoColorPalette.grayPalette.tint500
     menuButton.translatesAutoresizingMaskIntoConstraints = false
     menuButton.hitAreaInsets = UIEdgeInsets(top: -20, left: -10, bottom: -20, right: -10)
     stackView.addArrangedSubview(menuButton)

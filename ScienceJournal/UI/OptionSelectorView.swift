@@ -84,23 +84,22 @@ class OptionSelectorView: UIView {
 
   private func configureView() {
     let headerLabel = UILabel()
-    headerLabel.font = MDCTypography.body2Font()
+    headerLabel.font = ArduinoTypography.paragraphFont
     headerLabel.text = headerLabelText
-    headerLabel.textColor = MDCPalette.grey.tint600
+    headerLabel.textColor = ArduinoColorPalette.grayPalette.tint400
     headerLabel.translatesAutoresizingMaskIntoConstraints = false
     addSubview(headerLabel)
     headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
     headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
 
-    selectionLabel.alpha = MDCTypography.body2FontOpacity()
-    selectionLabel.font = MDCTypography.body2Font()
+    selectionLabel.font = ArduinoTypography.paragraphFont
     selectionLabel.translatesAutoresizingMaskIntoConstraints = false
     addSubview(selectionLabel)
     selectionLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor,
                                         constant: 12).isActive = true
     selectionLabel.leadingAnchor.constraint(equalTo: headerLabel.leadingAnchor).isActive = true
 
-    line.backgroundColor = MDCPalette.grey.tint400
+    line.backgroundColor = ArduinoColorPalette.grayPalette.tint400
     line.translatesAutoresizingMaskIntoConstraints = false
     addSubview(line)
     line.topAnchor.constraint(equalTo: selectionLabel.bottomAnchor,
@@ -114,6 +113,7 @@ class OptionSelectorView: UIView {
     dropDownButton.hitAreaInsets = UIEdgeInsets(top: 0, left: -160, bottom: 0, right: 0)
     dropDownButton.setImage(UIImage(named: "ic_arrow_drop_down"), for: .normal)
     dropDownButton.translatesAutoresizingMaskIntoConstraints = false
+    dropDownButton.tintColor = ArduinoColorPalette.tealPalette.tint800
     addSubview(dropDownButton)
     dropDownButton.bottomAnchor.constraint(equalTo: line.topAnchor, constant: 6).isActive = true
     dropDownButton.trailingAnchor.constraint(equalTo: line.trailingAnchor,

@@ -73,7 +73,7 @@ class TriggerOptionEntryView: UIView {
   // MARK: - Private
 
   private func configureView() {
-    textField.font = MDCTypography.body2Font()
+    textField.font = ArduinoTypography.paragraphFont
     if let textFieldKeyboardType = textFieldKeyboardType {
       textField.keyboardType = textFieldKeyboardType
     }
