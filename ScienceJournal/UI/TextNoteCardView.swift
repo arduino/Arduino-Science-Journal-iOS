@@ -56,8 +56,6 @@ class TextNoteCardView: ExperimentCardView {
 
   // MARK: - Constants
 
-  /// Font size for the text view. Used in view height calculation.
-  static let textFontSize: CGFloat = 16.0
   /// Font size for the value snapshots label. Used in view height calculation.
   static let valueSnapshotsFontSize: CGFloat = 12.0
 
@@ -184,8 +182,7 @@ class TextNoteCardView: ExperimentCardView {
     if let textNote = textNote {
       textHeight = textNote.text.labelHeight(
           withConstrainedWidth: bounds.size.width - timestampWidthOffset,
-          font: MDCTypography.fontLoader().regularFont(
-              ofSize: TextNoteCardView.textFontSize))
+          font: ArduinoTypography.paragraphFont)
     }
     textView.frame = CGRect(x: bounds.minX + ExperimentCardView.innerHorizontalPadding,
                             y: bounds.minY + ExperimentCardView.innerVerticalPadding,
