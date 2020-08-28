@@ -561,31 +561,12 @@ public class MetadataManager {
   /// Creates a default experiment with some welcome content the first time the user launches the
   /// app.
   func createDefaultExperimentIfNecessary() {
+    #if !(SCIENCEJOURNAL_DEV_BUILD)
     guard !preferenceManager.defaultExperimentWasCreated else { return }
+    #endif
     let (experiment, _) = createExperiment(withTitle: String.firstExperimentTitle)
-
-    // Set chronological timestamps so they display in the correct order.
-    let timestamp = Date().millisecondsSince1970
-
-    if let defaultExperimentPicture = UIImage(named: "default_experiment_picture") {
-      let picturePath = relativePicturePath(for: "default_experiment_picture")
-      saveImage(defaultExperimentPicture, atPicturePath: picturePath, experimentID: experiment.ID)
-      let pictureNote = PictureNote()
-      pictureNote.timestamp = timestamp
-      pictureNote.caption = Caption(text: String.firstExperimentPictureNoteCaption)
-      pictureNote.filePath = picturePath
-      experiment.notes.append(pictureNote)
-      updateCoverImageForAddedImageIfNeeded(imagePath: picturePath, experiment: experiment)
-    }
-
-    let textNote = TextNote(text: String.firstExperimentTextNote)
-    textNote.timestamp = timestamp + 100
-    experiment.notes.append(textNote)
-
-    let linkNote = TextNote(text: String.firstExperimentSecondTextNote)
-    linkNote.timestamp = timestamp + 200
-    experiment.notes.append(linkNote)
-
+    let composer = DefaultExperimentComposer(metaDataManager: self)
+    composer.populateDefaultExperiment(experiment: experiment)
     saveExperiment(experiment)
     preferenceManager.defaultExperimentWasCreated = true
   }

@@ -660,6 +660,7 @@
 		F31242AE24EEC7AC000146F5 /* ArduinoTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */; };
 		F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */; };
 		F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */; };
+		F362AC2A24F41D3600926698 /* DefaultExperimentComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */; };
 		F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389279124DC408900843D1D /* ArduinoColorPalette.swift */; };
 /* End PBXBuildFile section */
 
@@ -1361,6 +1362,7 @@
 		F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoTypography.swift; sourceTree = "<group>"; };
 		F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExperimentComposer.swift; sourceTree = "<group>"; };
 		F389279124DC408900843D1D /* ArduinoColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2680,6 +2682,7 @@
 				8B2055771E8310B7000B4403 /* MetadataManager.swift */,
 				8B5BE2DD1E942A6700C32B74 /* SensorTriggerEvaluator.swift */,
 				8BDD4C291EA6661B00FCCA30 /* TriggerAlertHelper.swift */,
+				F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */,
 			);
 			path = Metadata;
 			sourceTree = "<group>";
@@ -3847,6 +3850,7 @@
 				8B06406A203E0F4600F66356 /* ImageAnimationView.swift in Sources */,
 				8BDC027D201F73AA00BB0059 /* SoundIntensitySensor.swift in Sources */,
 				5C68572E1E5768570083EE3D /* ChartOptions.swift in Sources */,
+				F362AC2A24F41D3600926698 /* DefaultExperimentComposer.swift in Sources */,
 				680D40601F02BB24004E5555 /* NoteMetadataDetailHeaderView.swift in Sources */,
 				6806591A1EC24EC50090670C /* ExperimentCardView.swift in Sources */,
 				5C4EB9FC2024C372002C285C /* ExperimentStateManager.swift in Sources */,

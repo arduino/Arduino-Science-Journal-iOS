@@ -1109,9 +1109,11 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
   }
 
   private func createDefaultExperimentIfNecessary() {
+    #if !(SCIENCEJOURNAL_DEV_BUILD)
     guard !self.preferenceManager.defaultExperimentWasCreated else {
       return
     }
+    #endif
 
     guard let driveSyncManager = userManager.driveSyncManager else {
       // If there is no Drive sync manager, create the default experiment if it has not been
