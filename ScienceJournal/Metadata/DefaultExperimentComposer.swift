@@ -37,7 +37,7 @@ class DefaultExperimentComposer {
     addIntroNote(experiment: experiment)
     addNewExperimentNote(experiment: experiment)
     addToolbarNote(experiment: experiment)
-    //addActionAreaNote(experiment: experiment)
+    addActionAreaNote(experiment: experiment)
     addSensorNote(experiment: experiment)
     addSensorSettingsNote(experiment: experiment)
     addNotesNote(experiment: experiment)
@@ -71,8 +71,8 @@ class DefaultExperimentComposer {
   }
   
   private func addNewExperimentNote(experiment: Experiment) {
-    if let picture = UIImage(named: "default_experiment_new_eperiment") {
-      let picturePath = metaDataManager.relativePicturePath(for: "default_experiment_new_eperiment")
+    if let picture = UIImage(named: "default_experiment_new_experiment") {
+      let picturePath = metaDataManager.relativePicturePath(for: "default_experiment_new_experiment")
       metaDataManager.saveImage(picture, atPicturePath: picturePath, experimentID: experiment.ID)
       let pictureNote = PictureNote()
       pictureNote.timestamp = timestamp + 300
@@ -102,7 +102,7 @@ class DefaultExperimentComposer {
       metaDataManager.saveImage(picture, atPicturePath: picturePath, experimentID: experiment.ID)
       let pictureNote = PictureNote()
       pictureNote.timestamp = timestamp + 400
-      pictureNote.caption = Caption(text: "The actioan area in the app can help you record the data around you. Let’s take a look!")
+      pictureNote.caption = Caption(text: "The observation toolbar in the app can help you record the data around you. Let’s take a look!")
       pictureNote.filePath = picturePath
       experiment.notes.append(pictureNote)
     }
@@ -156,21 +156,9 @@ class DefaultExperimentComposer {
     }
   }
   
-//  private func addRecordNote(experiment: Experiment) {
-//    if let picture = UIImage(named: "default_experiment_new_eperiment") {
-//      let picturePath = metaDataManager.relativePicturePath(for: "default_experiment_new_eperiment")
-//      metaDataManager.saveImage(picture, atPicturePath: picturePath, experimentID: experiment.ID)
-//      let pictureNote = PictureNote()
-//      pictureNote.timestamp = timestamp + 900
-//      pictureNote.caption = Caption(text: "You can also record sensor data over time, select a sensor and press the Record button to start capturing data (red).")
-//      pictureNote.filePath = picturePath
-//      experiment.notes.append(pictureNote)
-//    }
-//  }
-  
   private func addPhotosNote(experiment: Experiment) {
     if let picture = UIImage(named: "default_experiment_camera") {
-      let picturePath = metaDataManager.relativePicturePath(for: "default_experiment_new_eperiment")
+      let picturePath = metaDataManager.relativePicturePath(for: "default_experiment_camera")
       metaDataManager.saveImage(picture, atPicturePath: picturePath, experimentID: experiment.ID)
       let pictureNote = PictureNote()
       pictureNote.timestamp = timestamp + 1000
