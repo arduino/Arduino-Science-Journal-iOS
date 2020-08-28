@@ -60,3 +60,10 @@ Help us keep _Science Journal_ open and inclusive. Please read and follow our [C
 ## License
 
 This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/bcmi-labs/Science-Journal-Android/blob/master/LICENSE) file.
+
+
+## Security
+
+If you think you found a vulnerability or other security-related bug in the Arduino Science Journal, please read our [security policy](https://www.arduino.cc/en/Main/Security) and report the bug to our Security Team 🛡️ Thank you!
+
+e-mail contact: [security@arduino.cc](mailto:security@arduino.cc)
