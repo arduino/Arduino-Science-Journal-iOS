@@ -25,6 +25,10 @@ If the above doesn't help, please [submit an issue](https://github.com/bcmi-labs
 - To start working on Science Journal iOS, check out [Your First PR](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/YOUR_FIRST_PR.md).
 - We have a few limits on what changes we can accept, from a techinical perspective. It might not be obvious, so please read [Change Limitations](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/CHANGE_LIMITATIONS.md).
 
+## Contributor License Agreement (CLA)
+
+Upon your first pull request to Science Journal iOS, we ask you to sign the [Contributor License Agreement](). Once the CLA has been accepted, the PR will be available to merge and you will not be asked to sign it again unless your GitHub username or email address changes.
+
 
 ## Why did my issue/PR get closed?
 
