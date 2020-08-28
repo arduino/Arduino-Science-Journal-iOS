@@ -8,7 +8,7 @@ We host our source code inside Google and treat that as the “source of truth�
 
 ### Module maps and import statements
 
-We use custom module maps that link directly to various dependencies like [SSOAuth](https://github.com/google/science-journal-ios/blob/master/ModuleMaps/SSOAuth.modulemaps/module.modulemap). We can’t modify these as our internal dependency management tool has some requirements that necessitate the current import format. You can see that come into play where imports are prefixed with things like “[googlemac_iPhone](https://github.com/google/science-journal-ios/blob/master/ScienceJournal/Accounts/AccountsManager.swift#L19)”. Sadly, we must leave these in.
+We use custom module maps that link directly to various dependencies like [SSOAuth](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/ModuleMaps/SSOAuth.modulemaps/module.modulemap). We can’t modify these as our internal dependency management tool has some requirements that necessitate the current import format. You can see that come into play where imports are prefixed with things like “[googlemac_iPhone](https://github.com/bcmi-labs/Science-Journal-iOS/blob/a172a0b2ec1987c214c29371bcdbc2ecbecc901a/ScienceJournal/Accounts/AccountsManager.swift#L19)”. Sadly, we must leave these in.
 
 ### Updating Swift
 
