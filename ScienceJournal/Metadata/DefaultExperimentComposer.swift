@@ -37,7 +37,7 @@ class DefaultExperimentComposer {
     addIntroNote(experiment: experiment)
     addNewExperimentNote(experiment: experiment)
     addToolbarNote(experiment: experiment)
-    addActionAreaNote(experiment: experiment)
+    //addActionAreaNote(experiment: experiment)
     addSensorNote(experiment: experiment)
     addSensorSettingsNote(experiment: experiment)
     addNotesNote(experiment: experiment)
@@ -76,7 +76,7 @@ class DefaultExperimentComposer {
       metaDataManager.saveImage(picture, atPicturePath: picturePath, experimentID: experiment.ID)
       let pictureNote = PictureNote()
       pictureNote.timestamp = timestamp + 300
-      pictureNote.caption = Caption(text: "To create a new experiment, click one the + in the bottom of the Arduino Science Journal app home screen. Then click on the pencil icon in the top to give your experiment a good name!")
+      pictureNote.caption = Caption(text: "To create a new experiment, click on the + in the bottom of the Arduino Science Journal app home screen. Then click on the pencil icon in the top to give your experiment a good name!")
        
       //pictureNote.caption = Caption(text: String.firstExperimentPictureNoteCaption)
       pictureNote.filePath = picturePath
@@ -90,7 +90,7 @@ class DefaultExperimentComposer {
       metaDataManager.saveImage(picture, atPicturePath: picturePath, experimentID: experiment.ID)
       let pictureNote = PictureNote()
       pictureNote.timestamp = timestamp + 400
-      pictureNote.caption = Caption(text: "The observation toolbar in the app can help you record the data around you. Let’s take a look!")
+      pictureNote.caption = Caption(text: "The observation toolbar in the app can help you record the data around you. Let’s take a closer look!")
       pictureNote.filePath = picturePath
       experiment.notes.append(pictureNote)
     }
@@ -102,7 +102,7 @@ class DefaultExperimentComposer {
       metaDataManager.saveImage(picture, atPicturePath: picturePath, experimentID: experiment.ID)
       let pictureNote = PictureNote()
       pictureNote.timestamp = timestamp + 400
-      pictureNote.caption = Caption(text: "The observation toolbar in the app can help you record the data around you. Let’s take a look!")
+      pictureNote.caption = Caption(text: "The observation toolbar in the app can help you record the data around you. Let’s take a closer look!")
       pictureNote.filePath = picturePath
       experiment.notes.append(pictureNote)
     }
