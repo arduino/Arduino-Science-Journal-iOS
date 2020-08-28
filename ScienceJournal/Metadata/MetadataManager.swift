@@ -561,9 +561,7 @@ public class MetadataManager {
   /// Creates a default experiment with some welcome content the first time the user launches the
   /// app.
   func createDefaultExperimentIfNecessary() {
-    #if !(SCIENCEJOURNAL_DEV_BUILD)
-    guard !preferenceManager.defaultExperimentWasCreated else { return }
-    #endif
+    guard !preferenceManager.defaultExperimentWasCreated else { return }    
     let (experiment, _) = createExperiment(withTitle: String.firstExperimentTitle)
     let composer = DefaultExperimentComposer(metaDataManager: self)
     composer.populateDefaultExperiment(experiment: experiment)
