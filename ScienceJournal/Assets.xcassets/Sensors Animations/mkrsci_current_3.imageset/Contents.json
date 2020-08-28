@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "mkrsci_current_3.pdf",
+      "filename" : "mkrsci_current_3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "mkrsci_current_3@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "mkrsci_current_3@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
