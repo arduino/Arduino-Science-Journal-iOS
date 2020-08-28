@@ -9,7 +9,7 @@
 measure your environment, like light and sound, so you can graph your data, record your experiments,
 and organize your questions and ideas. It's the lab notebook you always have with you.
 
-![Arduino Science Journal](https://content.arduino.cc/assets/iphonescienjournalnew_shadws_crop.png)
+![Arduino Science Journal](https://content.arduino.cc/assets/SJ-screen_mockup_Blogpost%20-%20Main%20Pic.png)
 
 ## Features
 
