@@ -46,8 +46,8 @@ Then you can open `ScienceJournal.xcworkspace`
 
 **Note:** there is a `ScienceJournal.xcodeproj` file, but since we use CocoaPods, you shouldn't use that project file. If you do, nothing will work 😭
 
-[appstore]: https://itunes.apple.com/us/app/science-journal-by-google/id1251205555?mt=8
-[ms]: https://makingscience.withgoogle.com
+[appstore]: https://apps.apple.com/us/app/arduino-science-journal/id1518014927?mt=8
+[ms]: https://science-journal.arduino.cc
 
 ## Contribute to Science Journal iOS
 
