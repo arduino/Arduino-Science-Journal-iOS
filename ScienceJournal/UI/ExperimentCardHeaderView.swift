@@ -145,7 +145,7 @@ class ExperimentCardHeaderView: UIView {
 
     // The comment button.
     commentButton.setImage(UIImage(named: "ic_comment"), for: .normal)
-    commentButton.tintColor = MDCPalette.grey.tint500
+    commentButton.tintColor = ArduinoColorPalette.grayPalette.tint500
     commentButton.inkColor = .clear
     commentButton.autoresizesSubviews = false
     commentButton.contentEdgeInsets = .zero
