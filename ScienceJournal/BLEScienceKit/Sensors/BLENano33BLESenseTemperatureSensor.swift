@@ -22,13 +22,13 @@ import CoreBluetooth
 struct BLENano33BLESenseTemperatureSensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0014-467a-9538-01f0652c74e8") }
 
-  var name: String { "magnetic_field_strength".localized }
+  var name: String { "ambient_temperature".localized }
 
-  var iconName: String { "mkrsci_sensor_temperature" }
+  var iconName: String { "arduino_sensor_temperature" }
 
-  var animatingIconName: String { "mkrsci_temperature" }
+  var animatingIconName: String { "arduino_temperature" }
 
-  var unitDescription: String? { "magnetic_strength_units".localized }
+  var unitDescription: String? { "temperature_units".localized }
 
   var textDescription: String {
     "An instrument used to measure " +
@@ -43,14 +43,8 @@ struct BLENano33BLESenseTemperatureSensor: BLEScienceKitSensor {
   var config: BLEScienceKitSensorConfig?
 
   func point(for data: Data) -> Double {
-    guard data.count == 12 else { return 0 }
-
-    let a = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
-    let b = data.withUnsafeBytes { $0.load(fromByteOffset: 4, as: Float.self) }
-    let c = data.withUnsafeBytes { $0.load(fromByteOffset: 8, as: Float.self) }
-
-    return Double(sqrt(
-      pow(a, 2) + pow(b, 2) + pow(c, 2)
-    ) * 100)
+    guard data.count == 4 else { return 0 }
+    let temperature = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
+    return Double(temperature)
   }
 }
