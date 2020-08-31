@@ -661,6 +661,7 @@
 		F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */; };
 		F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */; };
 		F362AC2A24F41D3600926698 /* DefaultExperimentComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */; };
+		F384EA4024FD82E200E1F1DE /* Nano33BLESenseServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */; };
 		F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389279124DC408900843D1D /* ArduinoColorPalette.swift */; };
 /* End PBXBuildFile section */
 
@@ -1363,6 +1364,7 @@
 		F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExperimentComposer.swift; sourceTree = "<group>"; };
+		F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseServiceInterface.swift; sourceTree = "<group>"; };
 		F389279124DC408900843D1D /* ArduinoColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3002,6 +3004,7 @@
 			isa = PBXGroup;
 			children = (
 				BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */,
+				F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */,
 				BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */,
 				BCEC93AC24C0472E0041296C /* Sensors */,
 				BCB6953B24C08FA500CFCD9F /* UI */,
@@ -3601,6 +3604,7 @@
 				48D02B7A2220CA750063AC28 /* AnalyticsScreenViews.swift in Sources */,
 				684896E91F0207CD00DF1EE2 /* UIStackView+ScienceJournal.swift in Sources */,
 				8BD3A1071F27B76B00A5DDBD /* MDCPalette+ScienceJournal.swift in Sources */,
+				F384EA4024FD82E200E1F1DE /* Nano33BLESenseServiceInterface.swift in Sources */,
 				4850DC9C21C979BC00A5C4A0 /* RemoteConfigManagerDisabled.swift in Sources */,
 				5CE047811F60721500E8EAA1 /* SensorSpec+BLESensorInterface.swift in Sources */,
 				3F5F35F62296E7F7003C33F9 /* FileSystemLayout.swift in Sources */,
