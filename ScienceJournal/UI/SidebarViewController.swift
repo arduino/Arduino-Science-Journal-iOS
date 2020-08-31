@@ -118,8 +118,6 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   private var collectionView = UICollectionView(frame: .zero,
                                                 collectionViewLayout: UICollectionViewFlowLayout())
   private var sidebarVisibilityConstraint = NSLayoutConstraint()
-  private var isSidebarVisible = false
-  private var isStatusBarHidden = false
   private let dimmingView = UIView()
   private let wrapperView = ShadowedView()
   private let accountView = SidebarAccountView()
@@ -218,8 +216,6 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   }
 
   override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-  override var prefersStatusBarHidden: Bool { isStatusBarHidden }
-  override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation { .fade }
 
   /// When the view rotates, update layout to properly resize the sidebar and enable scrolling
   /// when necessary.
@@ -276,14 +272,11 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
                    delay: 0,
                    options: .beginFromCurrentState,
                    animations: {
-      self.isStatusBarHidden = state.isSidebarVisible
-      self.setNeedsStatusBarAppearanceUpdate()
       self.dimmingView.alpha = state.dimmingAlpha
       self.wrapperView.setElevation(points: state.elevation)
       self.view.setNeedsUpdateConstraints()
       self.view.layoutIfNeeded()
     }) { (_) in
-      self.isSidebarVisible = state.isSidebarVisible
       if state == SidebarState.visible {
         self.delegate?.sidebarDidOpen()
       } else {
