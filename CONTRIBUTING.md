@@ -4,7 +4,7 @@
 
 ### App Store downloaded Science Journal
 
-If you're having a problem with [Science Journal from the App Store](https://itunes.apple.com/us/app/science-journal-by-google/id1251205555?mt=8), the fastest way to get support is by using the in-app feedback button. This can be found by navigating to the experiment list screen, tapping on the hamburger menu, and then tapping "Feedback".
+If you're having a problem with [Science Journal from the App Store](https://apps.apple.com/us/app/arduino-science-journal/id1518014927?mt=8), the fastest way to get support is by using the in-app feedback button. This can be found by navigating to the experiment list screen, tapping on the hamburger menu, and then tapping "Feedback".
 
 ### Downloaded and built from GitHub
 
