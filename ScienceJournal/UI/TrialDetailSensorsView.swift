@@ -40,8 +40,7 @@ class TrialDetailSensorsView: UICollectionReusableView {
   static let chartPlaybackHeight = PlaybackViewController.viewHeight
   static let edgeInsets = UIEdgeInsets(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
   static let iconDimension: CGFloat = 24.0
-  static let innerVerticalSpacing = TrialDetailSensorsView.edgeInsets.top
-  static let titleFontSize: CGFloat = 14.0
+  static let innerVerticalSpacing = TrialDetailSensorsView.edgeInsets.top  
   let titleHorizontalSpacing: CGFloat = 10.0
 
   // MARK: - Properties
@@ -117,8 +116,7 @@ class TrialDetailSensorsView: UICollectionReusableView {
   static let height: CGFloat = {
     // Padding at the top of the title.
     var totalHeight = TrialDetailSensorsView.edgeInsets.top
-    let titleFont =
-        MDCTypography.fontLoader().boldFont!(ofSize: TrialDetailSensorsView.titleFontSize)
+    let titleFont = ArduinoTypography.titleFont
     let titleHeight = String.decibel.labelHeight(withConstrainedWidth: 0, font: titleFont)
     // Either the height of the title or the sensor icon, whichever if taller.
     totalHeight += max(titleHeight, TrialDetailSensorsView.iconDimension)
@@ -264,9 +262,8 @@ class TrialDetailSensorsView: UICollectionReusableView {
     sensorIcon.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
     // Title for the sensor.
-    sensorTitle.font =
-        MDCTypography.fontLoader().boldFont?(ofSize: TrialDetailSensorsView.titleFontSize)
-    sensorTitle.textColor = MDCPalette.grey.tint800
+    sensorTitle.font = ArduinoTypography.titleFont
+    sensorTitle.textColor = ArduinoColorPalette.grayPalette.tint800
     sensorTitle.translatesAutoresizingMaskIntoConstraints = false
 
     // Stack view for the icon and title.

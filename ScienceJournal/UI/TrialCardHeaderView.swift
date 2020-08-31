@@ -28,7 +28,7 @@ class TrialCardHeaderView: UIView {
     var totalHeight = ExperimentCardView.innerVerticalPadding * 2
     // Measure the title label's height and use it or the icon's height, whichever is bigger.
     totalHeight += ceil(String.runReviewActivityLabel.labelHeight(withConstrainedWidth: 0,
-                                                                  font: MDCTypography.body2Font()))
+                                                                  font: ArduinoTypography.subtitleFont))
     return totalHeight
   }
 
@@ -132,7 +132,7 @@ class TrialCardHeaderView: UIView {
   }
 
   private func applyLabelStyles(to label: UILabel) {
-    label.font = MDCTypography.body2Font()
+    label.font = ArduinoTypography.subtitleFont
     label.textColor = .white
   }
 

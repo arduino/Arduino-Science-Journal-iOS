@@ -32,9 +32,8 @@ class StatView: UIView {
   static var height: CGFloat = {
     let headerHeight = ceil(SensorStatType.min.title.labelHeight(
         withConstrainedWidth: 0,
-        font: MDCTypography.fontLoader().regularFont(ofSize: Metrics.headerFontSize)))
-    let lightFont = MDCTypography.fontLoader().lightFont(ofSize: Metrics.valueFontSize) ??
-        UIFont.systemFont(ofSize: Metrics.valueFontSize)
+        font: ArduinoTypography.labelFont))
+    let lightFont = ArduinoTypography.paragraphFont
     return headerHeight + ceil("1".labelHeight(withConstrainedWidth: 0, font: lightFont))
   }()
 
@@ -64,9 +63,7 @@ class StatView: UIView {
   private let headerLabel = UILabel()
   private let valueLabel = UILabel()
 
-  private enum Metrics {
-    static let headerFontSize: CGFloat = 12.0
-    static let valueFontSize: CGFloat = 16.0
+  private enum Metrics {    
     static let maxWidth: CGFloat = 60.0
   }
 
@@ -119,13 +116,12 @@ class StatView: UIView {
   private func configureView() {
     isAccessibilityElement = true
 
-    headerLabel.textColor = MDCPalette.grey.tint600
-    headerLabel.font = MDCTypography.fontLoader().regularFont(ofSize: Metrics.headerFontSize)
+    headerLabel.textColor = ArduinoColorPalette.secondaryLabelColor
+    headerLabel.font = ArduinoTypography.labelFont
     headerLabel.sizeToFit()
     addSubview(headerLabel)
 
-    valueLabel.font = MDCTypography.fontLoader().lightFont(ofSize: Metrics.valueFontSize) ??
-        UIFont.systemFont(ofSize: Metrics.valueFontSize)
+    valueLabel.font = ArduinoTypography.paragraphFont
     addSubview(valueLabel)
   }
 

@@ -35,6 +35,8 @@ class ArduinoTypography {
   
   public static let emptyViewTitleOpacity: CGFloat = 0.3
   public static let titleFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+  public static let subtitleFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+  public static let flatButtonFont = ArduinoTypography.subtitleFont
   public static let headingFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Medium.rawValue)
   public static let paragraphFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
   public static let labelFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XXSmall.rawValue)

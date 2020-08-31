@@ -25,8 +25,6 @@ class TrialDetailHeaderCell: UICollectionViewCell {
 
   // MARK: - Constants
 
-  static let valueFontSize: CGFloat = 22.0
-  static let descriptionFontSize: CGFloat = 14.0
   static let edgeInsets = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 10.0, right: 16.0)
   let innerHorizontalSpacing: CGFloat = 10.0
 
@@ -41,9 +39,7 @@ class TrialDetailHeaderCell: UICollectionViewCell {
   static var height: CGFloat {
     var totalHeight = TrialDetailHeaderCell.edgeInsets.top +
         TrialDetailHeaderCell.edgeInsets.bottom
-    let valueFont =
-        MDCTypography.fontLoader().mediumFont(ofSize: TrialDetailHeaderCell.valueFontSize) ??
-        UIFont.boldSystemFont(ofSize: TrialDetailHeaderCell.valueFontSize)
+    let valueFont = ArduinoTypography.headingFont
     totalHeight +=
         String.runReviewActivityLabel.labelHeight(withConstrainedWidth: 0, font: valueFont) * 2
     totalHeight += SeparatorView.Metrics.dimension
@@ -68,17 +64,14 @@ class TrialDetailHeaderCell: UICollectionViewCell {
     backgroundColor = .white
 
     // The title of this trial.
-    titleLabel.font =
-        MDCTypography.fontLoader().mediumFont(ofSize: TrialDetailHeaderCell.valueFontSize) ??
-        UIFont.boldSystemFont(ofSize: TrialDetailHeaderCell.valueFontSize)
+    titleLabel.font = ArduinoTypography.headingFont
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
     // The duration header.
     let durationHeaderLabel = UILabel()
     durationHeaderLabel.text = String.runReviewDuration
-    durationHeaderLabel.font =
-        MDCTypography.fontLoader().regularFont(ofSize: TrialDetailHeaderCell.descriptionFontSize)
+    durationHeaderLabel.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
     durationHeaderLabel.textAlignment = .right
     durationHeaderLabel.textColor = MDCPalette.grey.tint700
     durationHeaderLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -92,15 +85,13 @@ class TrialDetailHeaderCell: UICollectionViewCell {
     topStack.translatesAutoresizingMaskIntoConstraints = false
 
     // The timestamp for this trial.
-    timestampLabel.font =
-        MDCTypography.fontLoader().regularFont(ofSize: TrialDetailHeaderCell.descriptionFontSize)
-    timestampLabel.textColor = MDCPalette.grey.tint700
+    timestampLabel.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    timestampLabel.textColor = ArduinoColorPalette.secondaryLabelColor
     timestampLabel.translatesAutoresizingMaskIntoConstraints = false
     timestampLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
     // The duration of this trial.
-    durationLabel.font =
-        MDCTypography.fontLoader().mediumFont(ofSize: TrialDetailHeaderCell.valueFontSize)
+    durationLabel.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Medium.rawValue)
     durationLabel.textAlignment =
         UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft ? .left : .right
     durationLabel.textColor = UIColor.appBarReviewBackgroundColor

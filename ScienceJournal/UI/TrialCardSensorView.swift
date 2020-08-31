@@ -30,9 +30,7 @@ class TrialCardSensorView: ExperimentCardView {
     // Padding at the top of the view.
     var totalHeight = ExperimentCardView.innerVerticalPadding
     // Measure the title label's height and use it or the icon's height, whichever is bigger.
-    let titleFont =
-        MDCTypography.fontLoader().mediumFont(ofSize: Metrics.titleFontSize) ??
-        UIFont.boldSystemFont(ofSize: Metrics.titleFontSize)
+    let titleFont = ArduinoTypography.titleFont
     let titleHeight = ceil(String.decibel.labelHeight(withConstrainedWidth: 0, font: titleFont))
     totalHeight += max(titleHeight, Metrics.iconDimension)
     // SensorStatsView height.
@@ -63,8 +61,7 @@ class TrialCardSensorView: ExperimentCardView {
   private enum Metrics {
     /// The height and width of icons used in this cell.
     static let iconDimension: CGFloat = 24.0
-    /// The height of the title label.
-    static let titleFontSize: CGFloat = 16.0
+    
     // Spacing between the icon and title, horizontally.
     static let titleSpacing: CGFloat = 10.0
   }
@@ -131,9 +128,8 @@ class TrialCardSensorView: ExperimentCardView {
     titleWrapper.addSubview(sensorIcon)
 
     // Title
-    titleLabel.textColor = .black
-    titleLabel.font = MDCTypography.fontLoader().mediumFont(ofSize: Metrics.titleFontSize) ??
-        UIFont.boldSystemFont(ofSize: Metrics.titleFontSize)
+    titleLabel.textColor = ArduinoColorPalette.grayPalette.tint800
+    titleLabel.font = ArduinoTypography.titleFont
     titleWrapper.addSubview(titleLabel)
     addSubview(titleWrapper)
 
