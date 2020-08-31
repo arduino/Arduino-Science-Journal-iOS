@@ -40,7 +40,7 @@ class TrialDetailSensorsView: UICollectionReusableView {
   static let chartPlaybackHeight = PlaybackViewController.viewHeight
   static let edgeInsets = UIEdgeInsets(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
   static let iconDimension: CGFloat = 24.0
-  static let innerVerticalSpacing = TrialDetailSensorsView.edgeInsets.top  
+  static let innerVerticalSpacing = TrialDetailSensorsView.edgeInsets.top
   let titleHorizontalSpacing: CGFloat = 10.0
 
   // MARK: - Properties
@@ -65,7 +65,7 @@ class TrialDetailSensorsView: UICollectionReusableView {
   private var pages = [UIView]()
   let nextSensorButton = MDCFlatButton()
   let previousSensorButton = MDCFlatButton()
-  private let sensorIcon = UIImageView()
+  private let sensorIconView = UIView()
   private let sensorPageView = UIScrollView()
   let sensorStatsView = SensorStatsView(min: "0", average: "0", max: "0")
   private let sensorTitle = UILabel()
@@ -254,12 +254,12 @@ class TrialDetailSensorsView: UICollectionReusableView {
     }
 
     // The icon for the sensor.
-    sensorIcon.translatesAutoresizingMaskIntoConstraints = false
-    sensorIcon.widthAnchor.constraint(
+    sensorIconView.translatesAutoresizingMaskIntoConstraints = false
+    sensorIconView.widthAnchor.constraint(
+        equalToConstant: TrialDetailSensorsView.iconDimension * 2 ).isActive = true
+    sensorIconView.heightAnchor.constraint(
         equalToConstant: TrialDetailSensorsView.iconDimension).isActive = true
-    sensorIcon.heightAnchor.constraint(
-        equalToConstant: TrialDetailSensorsView.iconDimension).isActive = true
-    sensorIcon.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+    sensorIconView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
     // Title for the sensor.
     sensorTitle.font = ArduinoTypography.titleFont
@@ -267,7 +267,7 @@ class TrialDetailSensorsView: UICollectionReusableView {
     sensorTitle.translatesAutoresizingMaskIntoConstraints = false
 
     // Stack view for the icon and title.
-    let infoStack = UIStackView(arrangedSubviews: [sensorIcon, sensorTitle])
+    let infoStack = UIStackView(arrangedSubviews: [sensorIconView, sensorTitle])
     infoStack.spacing = titleHorizontalSpacing
     infoStack.alignment = .center
     infoStack.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
@@ -381,13 +381,30 @@ class TrialDetailSensorsView: UICollectionReusableView {
   private func updateMetadataWithSensor(_ sensor: DisplaySensor) {
     // TODO: Set colors based on sensor layout palette.
     sensorTitle.text = sensor.title
-    sensorIcon.image = sensor.icon
+        
+   //TODO Extract into classes and reuse image views
+    sensorIconView.subviews.forEach({ $0.removeFromSuperview() })
+    
+    // Icon
+    let sensorIconImage = UIImageView()
+    sensorIconImage.tintColor = sensor.colorPalette?.tint600
+    sensorIconImage.image = sensor.icon
+    sensorIconImage.sizeToFit()
+        
+    let type = sensor.ID.prefix(4) == "555A" ? "sensor_type_arduino" : "sensor_type_phone"
+    let sensorTypeImage = UIImageView(image: UIImage(named: type))
+    sensorIconImage.sizeToFit()
+    
+    sensorIconView.addSubview(sensorTypeImage)
+    sensorIconView.addSubview(sensorIconImage)
+    sensorIconImage.frame.origin = CGPoint(x: TrialDetailSensorsView.iconDimension, y: 0)
+    
     sensorStatsView.setMin(sensor.minValueString,
                            average: sensor.averageValueString,
                            max: sensor.maxValueString)
     if let color = sensor.colorPalette?.tint500 {
       sensorStatsView.textColor = color
-      sensorIcon.tintColor = color
+      //sensorIconView.tintColor = color
     }
   }
 

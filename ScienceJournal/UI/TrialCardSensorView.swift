@@ -52,7 +52,7 @@ class TrialCardSensorView: ExperimentCardView {
 
   var experimentDisplay: ExperimentDisplay = .normal
 
-  private let sensorIcon = UIImageView()
+  private let sensorIconView = UIView()
   private let titleLabel = UILabel()
   private let titleWrapper = UIView()
   private let sensorStatsView = SensorStatsView(min: "0", average: "0", max: "0")
@@ -90,21 +90,21 @@ class TrialCardSensorView: ExperimentCardView {
     let titleWrapperHeight = max(Metrics.iconDimension, titleLabel.frame.height)
     let maxTitleLabelWidth = bounds.width - ExperimentCardView.horizontalPaddingTotal -
         Metrics.titleSpacing - Metrics.iconDimension
-    sensorIcon.frame = CGRect(x: 0,
+    sensorIconView.frame = CGRect(x: 0,
                               y: floor((titleWrapperHeight - Metrics.iconDimension) / 2),
-                              width: Metrics.iconDimension,
+                              width: Metrics.iconDimension * 2,
                               height: Metrics.iconDimension)
     titleLabel.sizeToFit()
-    titleLabel.frame = CGRect(x: sensorIcon.frame.maxX + Metrics.titleSpacing,
+    titleLabel.frame = CGRect(x: sensorIconView.frame.maxX + Metrics.titleSpacing,
                               y: floor((titleWrapperHeight - titleLabel.frame.height) / 2),
                               width: min(titleLabel.frame.width, maxTitleLabelWidth),
                               height: titleLabel.frame.height)
-    let titleWrapperWidth = sensorIcon.frame.width + Metrics.titleSpacing + titleLabel.frame.width
+    let titleWrapperWidth = sensorIconView.frame.width + Metrics.titleSpacing + titleLabel.frame.width
     titleWrapper.frame = CGRect(x: floor((bounds.width - titleWrapperWidth) / 2),
                                 y: ExperimentCardView.innerVerticalPadding,
                                 width: titleWrapperWidth,
                                 height: titleWrapperHeight)
-    [sensorIcon, titleLabel].forEach { $0.adjustFrameForLayoutDirection() }
+    [sensorIconView, titleLabel].forEach { $0.adjustFrameForLayoutDirection() }
 
     // Stats view
     sensorStatsView.frame =
@@ -125,7 +125,7 @@ class TrialCardSensorView: ExperimentCardView {
 
   private func configureView() {
     // Icon
-    titleWrapper.addSubview(sensorIcon)
+    titleWrapper.addSubview(sensorIconView)
 
     // Title
     titleLabel.textColor = ArduinoColorPalette.grayPalette.tint800
@@ -149,10 +149,22 @@ class TrialCardSensorView: ExperimentCardView {
   private func updateViewWithSensor() {
     guard let displaySensor = displaySensor else { return }
 
+    //TODO Extract into classes and reuse image views
+    sensorIconView.subviews.forEach({ $0.removeFromSuperview() })
+    
     // Icon
-    sensorIcon.tintColor = displaySensor.colorPalette?.tint600
-    sensorIcon.image = displaySensor.icon
-    sensorIcon.sizeToFit()
+    let sensorIconImage = UIImageView()
+    sensorIconImage.tintColor = displaySensor.colorPalette?.tint600
+    sensorIconImage.image = displaySensor.icon
+    sensorIconImage.sizeToFit()
+        
+    let type = displaySensor.ID.prefix(4) == "555A" ? "sensor_type_arduino" : "sensor_type_phone"
+    let sensorTypeImage = UIImageView(image: UIImage(named: type))
+    sensorIconImage.sizeToFit()
+    
+    sensorIconView.addSubview(sensorTypeImage)
+    sensorIconView.addSubview(sensorIconImage)
+    sensorIconImage.frame.origin = CGPoint(x: Metrics.iconDimension, y: 0)
 
     // Title
     titleLabel.text = displaySensor.title
