@@ -70,9 +70,8 @@ class RenameViewController: ScienceJournalViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
-
-    let titleFont = MDCTypography.fontLoader().boldFont?(ofSize: titleFontSize) ??
-        UIFont.boldSystemFont(ofSize: titleFontSize)
+    
+    let titleFont = ArduinoTypography.boldFont(forSize: titleFontSize)
 
     // Title for the dialog.
     titleLabel.font = titleFont
