@@ -4,11 +4,11 @@ While we wish we could accept all changes (especially changes that make the orga
 
 ## What is up with this weird module map or strange import statement 🤷‍♂️?
 
-We host our source code inside Google and treat that as the “source of truth”. The internal build toolchain and dependency manager are not CocoaPods. In order to be able to work with both internal and external tooling, we’ve had to make some concessions with how the project is configured. There are a number of considerations you must make if you’re thinking about changing things that look non-standard. 
+We host our source code in this repo and treat that as the “source of truth”. The internal build toolchain and dependency manager are not CocoaPods. In order to be able to work with both internal and external tooling, we’ve had to make some concessions with how the project is configured. There are a number of considerations you must make if you’re thinking about changing things that look non-standard. 
 
 ### Module maps and import statements
 
-We use custom module maps that link directly to various dependencies like [SSOAuth](https://github.com/google/science-journal-ios/blob/master/ModuleMaps/SSOAuth.modulemaps/module.modulemap). We can’t modify these as our internal dependency management tool has some requirements that necessitate the current import format. You can see that come into play where imports are prefixed with things like “[googlemac_iPhone](https://github.com/google/science-journal-ios/blob/master/ScienceJournal/Accounts/AccountsManager.swift#L19)”. Sadly, we must leave these in.
+We use custom module maps that link directly to various dependencies like [SSOAuth](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/ModuleMaps/SSOAuth.modulemaps/module.modulemap). We can’t modify these as our internal dependency management tool has some requirements that necessitate the current import format. You can see that come into play where imports are prefixed with things like “[googlemac_iPhone](https://github.com/bcmi-labs/Science-Journal-iOS/blob/a172a0b2ec1987c214c29371bcdbc2ecbecc901a/ScienceJournal/Accounts/AccountsManager.swift#L19)”. Sadly, we must leave these in.
 
 ### Updating Swift
 

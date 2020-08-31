@@ -12,7 +12,7 @@ If you want to work on something else, e.g. new functionality or fixing a bug, i
 
 ## Checking out the Science Journal iOS repo
 
-- Click the “Fork” button in the upper right corner of the [main Science Journal iOS repo](https://github.com/google/science-journal-ios)
+- Click the “Fork” button in the upper right corner of the [main Science Journal iOS repo](https://github.com/bcmi-labs/Science-Journal-iOS)
 - Clone your fork:
   - `git clone git@github.com:<YOUR_GITHUB_USER>/science-journal-ios.git`
   - Learn more about how to manage your fork: [https://help.github.com/articles/working-with-forks/](https://help.github.com/articles/working-with-forks/)
@@ -29,7 +29,7 @@ First, run unit tests: Select the `ScienceJournal` scheme, select a simulator ta
 
 ## Submitting a PR
 
-When the coding is done and you’ve finished testing your changes, you're ready to submit a PR to the [Science Journal iOS main repo](https://github.com/google/science-journal-ios). Everything you need to know about submitting the PR itself is inside our [Pull Request Template][pr template]. Some best practices are:
+When the coding is done and you’ve finished testing your changes, you're ready to submit a PR to the [Science Journal iOS main repo](https://github.com/bcmi-labs/Science-Journal-iOS). Everything you need to know about submitting the PR itself is inside our [Pull Request Template][pr template]. Some best practices are:
 
 - Use a descriptive title
 - Link the issues related to your PR in the body

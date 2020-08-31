@@ -9,7 +9,7 @@
 measure your environment, like light and sound, so you can graph your data, record your experiments,
 and organize your questions and ideas. It's the lab notebook you always have with you.
 
-<img src="GitHubAssets/image1.png?raw=true" alt="iOS screenshot showing experiments list." width="175"><img src="GitHubAssets/image2.png?raw=true" alt="iOS screenshot showing `Iodine Clock` experiment." width="175"><img src="GitHubAssets/image3.png?raw=true" alt="iOS screenshot showing `Iodine Clock` recording showing brightness sensor with various values." width="175"><img src="GitHubAssets/image4.png?raw=true" alt="iOS screenshot showing `Iodine Clock` recording with notes alongside brightness sensor with various values." width="175">
+![Arduino Science Journal](https://content.arduino.cc/assets/SJ-screen_mockup_Blogpost%20-%20Main%20Pic.png)
 
 ## Features
 
@@ -46,8 +46,8 @@ Then you can open `ScienceJournal.xcworkspace`
 
 **Note:** there is a `ScienceJournal.xcodeproj` file, but since we use CocoaPods, you shouldn't use that project file. If you do, nothing will work 😭
 
-[appstore]: https://itunes.apple.com/us/app/science-journal-by-google/id1251205555?mt=8
-[ms]: https://makingscience.withgoogle.com
+[appstore]: https://apps.apple.com/us/app/arduino-science-journal/id1518014927?mt=8
+[ms]: https://science-journal.arduino.cc
 
 ## Contribute to Science Journal iOS
 
@@ -60,3 +60,10 @@ Help us keep _Science Journal_ open and inclusive. Please read and follow our [C
 ## License
 
 This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/bcmi-labs/Science-Journal-Android/blob/master/LICENSE) file.
+
+
+## Security
+
+If you think you found a vulnerability or other security-related bug in the Arduino Science Journal, please read our [security policy](https://www.arduino.cc/en/Main/Security) and report the bug to our Security Team 🛡️ Thank you!
+
+e-mail contact: [security@arduino.cc](mailto:security@arduino.cc)
