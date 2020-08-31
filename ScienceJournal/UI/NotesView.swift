@@ -46,7 +46,7 @@ class NotesView: UIView {
       sendButton.contentEdgeInsets = .zero
       sendButton.imageEdgeInsets = .zero
       sendButton.inkColor = .clear
-      sendButton.tintColor = ArduinoColorPalette.tealPalette.tint500
+      sendButton.tintColor = ArduinoColorPalette.tealPalette.tint800
       addSubview(sendButton)
       sendButton.translatesAutoresizingMaskIntoConstraints = false
       sendButton.pinToEdgesOfView(self)
