@@ -4,7 +4,7 @@
 
 ### App Store downloaded Science Journal
 
-If you're having a problem with [Science Journal from the App Store](https://itunes.apple.com/us/app/science-journal-by-google/id1251205555?mt=8), the fastest way to get support is by using the in-app feedback button. This can be found by navigating to the experiment list screen, tapping on the hamburger menu, and then tapping "Feedback".
+If you're having a problem with [Science Journal from the App Store](https://apps.apple.com/us/app/arduino-science-journal/id1518014927?mt=8), the fastest way to get support is by using the in-app feedback button. This can be found by navigating to the experiment list screen, tapping on the hamburger menu, and then tapping "Feedback".
 
 ### Downloaded and built from GitHub
 
@@ -12,22 +12,23 @@ If you built the app yourself, somebody else, or any other distribution channel 
 
 Before submitting a new GitHub issue, please make sure to
 
-- Check out our forums [Science Journal forums](https://productforums.google.com/forum/#!forum/sciencejournal)
-- Check out the README in [this repo](https://github.com/google/science-journal-ios/blob/master/README.md)
-- Search for [existing GitHub issues](https://github.com/google/science-journal-ios/issues)
+- Check out our forums [Science Journal forums](https://forum.arduino.cc/index.php?board=131.0)
+- Check out the README in [this repo](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/README.md)
+- Search for [existing GitHub issues](https://github.com/bcmi-labs/Science-Journal-iOS/issues)
 
-If the above doesn't help, please [submit an issue](https://github.com/google/science-journal-ios/issues) on GitHub and provide information about your setup.
+If the above doesn't help, please [submit an issue](https://github.com/bcmi-labs/Science-Journal-iOS/issues) on GitHub and provide information about your setup.
 
 **Note**: If you want to report a regression in Science Journal iOS (something that has worked before, but broke with a new release), please mark your issue title as such using `[Regression] Your title here`. This enables us to quickly detect and fix regressions.
 
 ## I want to contribute to Science Journal iOS
 
-- To start working on Science Journal iOS, check out [Your First PR](https://github.com/google/science-journal-ios/blob/master/YOUR_FIRST_PR.md).
-- We have a few limits on what changes we can accept, from a techinical perspective. It might not be obvious, so please read [Change Limitations](https://github.com/google/science-journal-ios/blob/master/CHANGE_LIMITATIONS.md).
+- To start working on Science Journal iOS, check out [Your First PR](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/YOUR_FIRST_PR.md).
+- We have a few limits on what changes we can accept, from a techinical perspective. It might not be obvious, so please read [Change Limitations](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/CHANGE_LIMITATIONS.md).
 
-### Google Contributor License Agreement (CLA)
+## Contributor License Agreement (CLA)
 
-Upon your first pull request to Science Journal iOS, the [googlebot](https://github.com/googlebot) will ask you to sign the Google Contributor License Agreement. Once the CLA has been accepted, the PR will be available to merge and you will not be asked to sign it again unless your GitHub username or email address changes.
+Upon your first pull request to Science Journal iOS, we ask you to sign the [Contributor License Agreement](). Once the CLA has been accepted, the PR will be available to merge and you will not be asked to sign it again unless your GitHub username or email address changes.
+
 
 ## Why did my issue/PR get closed?
 
@@ -41,8 +42,8 @@ One of the best ways we can keep Science Journal iOS an approachable, stable, an
 
 ## Code of Conduct
 
-Help us keep Science Journal iOS open and inclusive. Please read and follow our [Code of Conduct](https://github.com/google/science-journal-ios/blob/master/CODE_OF_CONDUCT.md).
+Help us keep Science Journal iOS open and inclusive. Please read and follow our [Code of Conduct](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
-This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/google/science-journal-ios/blob/master/LICENSE.md) file.
+This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/LICENSE) file.
