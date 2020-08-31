@@ -12,9 +12,7 @@
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>CFBundleDisplayName</key>
-	<string>Sci Journal</string>
-	<key>CFBundleDisplayName~ipad</key>
-	<string>Science Journal</string>
+	<string>Arduino SJ</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
