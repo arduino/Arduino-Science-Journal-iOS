@@ -662,6 +662,7 @@
 		F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */; };
 		F362AC2A24F41D3600926698 /* DefaultExperimentComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */; };
 		F384EA4024FD82E200E1F1DE /* Nano33BLESenseServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */; };
+		F384EA4224FD834000E1F1DE /* BLENano33BLESenseTemperatureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384EA4124FD833F00E1F1DE /* BLENano33BLESenseTemperatureSensor.swift */; };
 		F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389279124DC408900843D1D /* ArduinoColorPalette.swift */; };
 /* End PBXBuildFile section */
 
@@ -1365,6 +1366,7 @@
 		F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExperimentComposer.swift; sourceTree = "<group>"; };
 		F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseServiceInterface.swift; sourceTree = "<group>"; };
+		F384EA4124FD833F00E1F1DE /* BLENano33BLESenseTemperatureSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLENano33BLESenseTemperatureSensor.swift; sourceTree = "<group>"; };
 		F389279124DC408900843D1D /* ArduinoColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3024,6 +3026,7 @@
 		BCEC93AC24C0472E0041296C /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				F384EA4124FD833F00E1F1DE /* BLENano33BLESenseTemperatureSensor.swift */,
 				BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */,
 				BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */,
 				BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */,
@@ -3766,6 +3769,7 @@
 				5C72195D1ED8D04700817F0B /* Experiment.swift in Sources */,
 				8B5922A11F9E374A0090DB6F /* LocalizedNumberFormatter.swift in Sources */,
 				5C61A2B520BF4DC6007E7F3D /* ExperimentChange.swift in Sources */,
+				F384EA4224FD834000E1F1DE /* BLENano33BLESenseTemperatureSensor.swift in Sources */,
 				BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */,
 				8BCCAD581EDF62F300278F05 /* PopUpMenuTransitionController.swift in Sources */,
 				8B111F6B1E412287000400F1 /* Date+ScienceJournal.swift in Sources */,
