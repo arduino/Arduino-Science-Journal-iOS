@@ -65,7 +65,7 @@ class PhotoLibraryCell: UICollectionViewCell {
   private let spinner = MaterialFloatingSpinner()
   /// The image view for a selected state.
   private let multipleSelectionIndicator =
-    UIImageView(image: UIImage(named: "ic_check_circle_purple")!)
+    UIImageView(image: UIImage(named: "ic_check_circle_teal")!)
   /// The `multipleSelectionIndicator`'s border.
   private let multipleSelectionBorder = CAShapeLayer()
 
