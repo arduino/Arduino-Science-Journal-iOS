@@ -391,7 +391,8 @@ class TrialDetailSensorsView: UICollectionReusableView {
     sensorIconImage.image = sensor.icon
     sensorIconImage.sizeToFit()
         
-    let type = sensor.ID.prefix(4) == "555A" ? "sensor_type_arduino" : "sensor_type_phone"
+    let isExternalSensor = (sensor.ID.prefix(4) == "555A" ||  sensor.ID.contains("bluetooth"))
+    let type = isExternalSensor ? "sensor_type_arduino" : "sensor_type_phone"
     let sensorTypeImage = UIImageView(image: UIImage(named: type))
     sensorIconImage.sizeToFit()
     

@@ -158,7 +158,8 @@ class TrialCardSensorView: ExperimentCardView {
     sensorIconImage.image = displaySensor.icon
     sensorIconImage.sizeToFit()
         
-    let type = displaySensor.ID.prefix(4) == "555A" ? "sensor_type_arduino" : "sensor_type_phone"
+    let isExternalSensor = (displaySensor.ID.prefix(4) == "555A" ||  displaySensor.ID.contains("bluetooth"))
+    let type = isExternalSensor ? "sensor_type_arduino" : "sensor_type_phone"
     let sensorTypeImage = UIImageView(image: UIImage(named: type))
     sensorIconImage.sizeToFit()
     
