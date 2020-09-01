@@ -71,6 +71,9 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
     case Nano33BLESenseHumiditySensor.identifier:
       return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseHumiditySensor(),
                                 serviceId: Nano33BLESenseIds.serviceUUID)
+    case Nano33BLESenseProximitySensor.identifier:
+        return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseProximitySensor(),
+                                serviceId: Nano33BLESenseIds.serviceUUID)
     default:
       return nil
     }
@@ -99,7 +102,9 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
       BLEScienceKitSensorInterface(peripheral: peripheral,
                                    sensor: Nano33BLESenseBarometricPressureSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseHumiditySensor(), serviceId: Nano33BLESenseIds.serviceUUID)
+                                   sensor: Nano33BLESenseHumiditySensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: Nano33BLESenseProximitySensor(), serviceId: Nano33BLESenseIds.serviceUUID)
     ]
   }
 }

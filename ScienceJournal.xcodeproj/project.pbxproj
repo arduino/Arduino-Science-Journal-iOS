@@ -660,6 +660,7 @@
 		F31242AE24EEC7AC000146F5 /* ArduinoTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */; };
 		F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */; };
 		F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */; };
+		F32D236824FEDDAC00C7E8CE /* Nano33BLESenseProximitySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */; };
 		F362AC2A24F41D3600926698 /* DefaultExperimentComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */; };
 		F366759624FE5697004E567D /* Nano33BLESenseAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759324FE5696004E567D /* Nano33BLESenseAccelerometerYSensor.swift */; };
 		F366759724FE5697004E567D /* Nano33BLESenseAccelerometerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759524FE5697004E567D /* Nano33BLESenseAccelerometerXSensor.swift */; };
@@ -1374,6 +1375,7 @@
 		F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoTypography.swift; sourceTree = "<group>"; };
 		F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseProximitySensor.swift; sourceTree = "<group>"; };
 		F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExperimentComposer.swift; sourceTree = "<group>"; };
 		F366759324FE5696004E567D /* Nano33BLESenseAccelerometerYSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		F366759424FE5696004E567D /* Nano33BLESenseAccelerometerZSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseAccelerometerZSensor.swift; sourceTree = "<group>"; };
@@ -3096,6 +3098,7 @@
 		F366759224FE542B004E567D /* Nano 33 BLE Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */,
 				F36675A524FEB18C004E567D /* Nano33BLESenseHumiditySensor.swift */,
 				F36675A324FE9D36004E567D /* Nano33BLESenseBarometricPressureSensor.swift */,
 				F36675A124FE5F5E004E567D /* Nano33BLESenseMagnetometerSensor.swift */,
@@ -3666,6 +3669,7 @@
 				8B1791911F06AAC1008C0B31 /* TriggerListViewController.swift in Sources */,
 				D59CA3C8219CEE690082A27B /* SoundUtils.swift in Sources */,
 				68EBA6C51F0428E400B24AA8 /* TriggerDetailViewController.swift in Sources */,
+				F32D236824FEDDAC00C7E8CE /* Nano33BLESenseProximitySensor.swift in Sources */,
 				5C6C62631EE07B3800798989 /* BasicSensorAppearance.swift in Sources */,
 				8BA5BF391F44DE7700EB77E8 /* CaptureSessionInterruptionObserver.swift in Sources */,
 				BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */,
