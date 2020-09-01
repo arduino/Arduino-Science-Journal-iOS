@@ -1,8 +1,8 @@
 //  
-//  BLEScienceKitAccelerometerYSensor.swift
+//  BLEScienceKitGyroscopeXSensor.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 16/07/2020.
+//  Created by Sebastian Romero on 1/09/2020.
 //  Copyright © 2020 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,19 +19,19 @@
 
 import CoreBluetooth
 
-struct BLENano33BLESenseAccelerometerYSensor: BLEScienceKitSensor {
-  static var uuid: CBUUID { CBUUID(string: "555a0002-0011-467a-9538-01f0652c74e8") }
-  static var identifier: String { "\(uuid.uuidString)_2" }
+struct Nano33BLESenseGyroscopeXSensor: BLEScienceKitSensor {
+  static var uuid: CBUUID { CBUUID(string: "555a0002-0012-467a-9538-01f0652c74e8") }
+  static var identifier: String { "\(uuid.uuidString)_1" }
 
-  var name: String { "acc_y".localized }
+  var name: String { "gyr_x".localized }
 
-  var iconName: String { "mkrsci_sensor_acc_y" }
+  var iconName: String { "mkrsci_gyr_x" }
 
-  var animatingIconName: String { "mkrsci_accy" }
+  var animatingIconName: String { "mkrsci_gyrx" }
 
-  var unitDescription: String? { "acc_units".localized }
+  var unitDescription: String? { "\u{00B0}/s" }
 
-  var textDescription: String { "sensor_desc_short_mkrsci_acc".localized }
+  var textDescription: String { "sensor_desc_short_mkrsci_gyr".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",
@@ -44,8 +44,8 @@ struct BLENano33BLESenseAccelerometerYSensor: BLEScienceKitSensor {
   func point(for data: Data) -> Double {
     guard data.count == 12 else { return 0 }
 
-    let y = data.withUnsafeBytes { $0.load(fromByteOffset: 4, as: Float.self) }
+    let x = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
 
-    return Double(y) * -10
+    return Double(x)
   }
 }

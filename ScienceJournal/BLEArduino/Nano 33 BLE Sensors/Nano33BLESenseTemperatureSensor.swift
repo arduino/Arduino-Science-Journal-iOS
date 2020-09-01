@@ -2,7 +2,7 @@
 //  BLEScienceKitMagnetometerSensor.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 16/07/2020.
+//  Created by Sebastian Romero on 1/09/2020.
 //  Copyright © 2020 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,18 +19,20 @@
 
 import CoreBluetooth
 
-struct BLENano33BLESenseMagnetometerSensor: BLEScienceKitSensor {
-  static var uuid: CBUUID { CBUUID(string: "555a0002-0013-467a-9538-01f0652c74e8") }
+struct Nano33BLESenseTemperatureSensor: BLEScienceKitSensor {
+  static var uuid: CBUUID { CBUUID(string: "555a0002-0014-467a-9538-01f0652c74e8") }
 
-  var name: String { "magnetic_field_strength".localized }
+  var name: String { "ambient_temperature".localized }
 
-  var iconName: String { "mkrsci_magnetometer" }
+  var iconName: String { "ic_sensor_temperature" }
 
-  var animatingIconName: String { "mkrsci_magnetometer" }
+  var animatingIconName: String { "arduino_temperature" }
 
-  var unitDescription: String? { "magnetic_strength_units".localized }
+  var unitDescription: String? { "temperature_units".localized }
 
-  var textDescription: String { "sensor_desc_short_mkrsci_magnetometer".localized }
+  var textDescription: String {
+    "An instrument used to measure " +
+    "the temperature of the envirionment" }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",
@@ -41,14 +43,9 @@ struct BLENano33BLESenseMagnetometerSensor: BLEScienceKitSensor {
   var config: BLEScienceKitSensorConfig?
 
   func point(for data: Data) -> Double {
-    guard data.count == 12 else { return 0 }
-
-    let a = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
-    let b = data.withUnsafeBytes { $0.load(fromByteOffset: 4, as: Float.self) }
-    let c = data.withUnsafeBytes { $0.load(fromByteOffset: 8, as: Float.self) }
-
-    return Double(sqrt(
-      pow(a, 2) + pow(b, 2) + pow(c, 2)
-    ))
+    guard data.count == 4 else { return 0 }
+    let temperature = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
+    //TODO Handle Fahrenheit: return Double(temperature + (9.0f / 5.0f) + 32.0f)
+    return Double(temperature)
   }
 }

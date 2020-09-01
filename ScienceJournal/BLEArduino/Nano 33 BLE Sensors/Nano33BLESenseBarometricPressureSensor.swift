@@ -1,5 +1,5 @@
 //  
-//  BLEScienceKitAccelerometerZSensor.swift
+//  BLEScienceKitMagnetometerSensor.swift
 //  ScienceJournal
 //
 //  Created by Sebastian Romero on 1/09/2020.
@@ -19,19 +19,20 @@
 
 import CoreBluetooth
 
-struct Nano33BLESenseAccelerometerZSensor: BLEScienceKitSensor {
-  static var uuid: CBUUID { CBUUID(string: "555a0002-0011-467a-9538-01f0652c74e8") }
-  static var identifier: String { "\(uuid.uuidString)_3" }
+struct Nano33BLESenseBarometricPressureSensor: BLEScienceKitSensor {
+  static var uuid: CBUUID { CBUUID(string: "555a0002-0015-467a-9538-01f0652c74e8") }
 
-  var name: String { "acc_z".localized }
+  var name: String { "barometer".localized }
 
-  var iconName: String { "mkrsci_sensor_acc_z" }
+  var iconName: String { "ic_sensor_barometer" }
 
-  var animatingIconName: String { "mkrsci_accz" }
+  var animatingIconName: String { "sensor_barometer" }
 
-  var unitDescription: String? { "acc_units".localized }
+  var unitDescription: String? { "barometer_units".localized }
 
-  var textDescription: String { "sensor_desc_short_mkrsci_acc".localized }
+  var textDescription: String {
+    "An instrument used to measure " +
+    "the barometric pressure" }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",
@@ -42,10 +43,9 @@ struct Nano33BLESenseAccelerometerZSensor: BLEScienceKitSensor {
   var config: BLEScienceKitSensorConfig?
 
   func point(for data: Data) -> Double {
-    guard data.count == 12 else { return 0 }
-
-    let z = data.withUnsafeBytes { $0.load(fromByteOffset: 8, as: Float.self) }
-
-    return Double(z) * 10
+    guard data.count == 4 else { return 0 }
+    let pressure = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
+    //For converstion to atm: pressure / 101.325
+    return Double(pressure * 10.0 )
   }
 }

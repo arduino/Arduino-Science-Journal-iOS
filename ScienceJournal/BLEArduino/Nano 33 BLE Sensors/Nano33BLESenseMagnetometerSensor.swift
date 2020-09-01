@@ -2,7 +2,7 @@
 //  BLEScienceKitMagnetometerSensor.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 16/07/2020.
+//  Created by Sebastian Romero on 1/09/2020.
 //  Copyright © 2020 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,20 +19,18 @@
 
 import CoreBluetooth
 
-struct BLENano33BLESenseBarometricPressureSensor: BLEScienceKitSensor {
-  static var uuid: CBUUID { CBUUID(string: "555a0002-0015-467a-9538-01f0652c74e8") }
+struct Nano33BLESenseMagnetometerSensor: BLEScienceKitSensor {
+  static var uuid: CBUUID { CBUUID(string: "555a0002-0013-467a-9538-01f0652c74e8") }
 
-  var name: String { "barometer".localized }
+  var name: String { "magnetic_field_strength".localized }
 
-  var iconName: String { "ic_sensor_barometer" }
+  var iconName: String { "mkrsci_magnetometer" }
 
-  var animatingIconName: String { "sensor_barometer" }
+  var animatingIconName: String { "mkrsci_magnetometer" }
 
-  var unitDescription: String? { "barometer_units".localized }
+  var unitDescription: String? { "magnetic_strength_units".localized }
 
-  var textDescription: String {
-    "An instrument used to measure " +
-    "the barometric pressure" }
+  var textDescription: String { "sensor_desc_short_mkrsci_magnetometer".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",
@@ -43,9 +41,14 @@ struct BLENano33BLESenseBarometricPressureSensor: BLEScienceKitSensor {
   var config: BLEScienceKitSensorConfig?
 
   func point(for data: Data) -> Double {
-    guard data.count == 4 else { return 0 }
-    let pressure = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
-    //For converstion to atm: pressure / 101.325
-    return Double(pressure * 10.0 )
+    guard data.count == 12 else { return 0 }
+
+    let a = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
+    let b = data.withUnsafeBytes { $0.load(fromByteOffset: 4, as: Float.self) }
+    let c = data.withUnsafeBytes { $0.load(fromByteOffset: 8, as: Float.self) }
+
+    return Double(sqrt(
+      pow(a, 2) + pow(b, 2) + pow(c, 2)
+    ))
   }
 }

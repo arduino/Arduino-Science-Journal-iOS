@@ -19,7 +19,7 @@
 
 import CoreBluetooth
 
-struct BLENano33BLESenseHumiditySensor: BLEScienceKitSensor {
+struct Nano33BLESenseHumiditySensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0016-467a-9538-01f0652c74e8") }
 
   var name: String { "humidity".localized }

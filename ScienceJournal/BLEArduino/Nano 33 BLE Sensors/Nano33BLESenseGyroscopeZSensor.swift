@@ -1,5 +1,5 @@
 //  
-//  BLEScienceKitAccelerometerZSensor.swift
+//  BLEScienceKitGyroscopeZSensor.swift
 //  ScienceJournal
 //
 //  Created by Sebastian Romero on 1/09/2020.
@@ -19,19 +19,19 @@
 
 import CoreBluetooth
 
-struct Nano33BLESenseAccelerometerZSensor: BLEScienceKitSensor {
-  static var uuid: CBUUID { CBUUID(string: "555a0002-0011-467a-9538-01f0652c74e8") }
+struct Nano33BLESenseGyroscopeZSensor: BLEScienceKitSensor {
+  static var uuid: CBUUID { CBUUID(string: "555a0002-0012-467a-9538-01f0652c74e8") }
   static var identifier: String { "\(uuid.uuidString)_3" }
 
-  var name: String { "acc_z".localized }
+  var name: String { "gyr_z".localized }
 
-  var iconName: String { "mkrsci_sensor_acc_z" }
+  var iconName: String { "mkrsci_gyr_z" }
 
-  var animatingIconName: String { "mkrsci_accz" }
+  var animatingIconName: String { "mkrsci_gyrz" }
 
-  var unitDescription: String? { "acc_units".localized }
+  var unitDescription: String? { "\u{00B0}/s" }
 
-  var textDescription: String { "sensor_desc_short_mkrsci_acc".localized }
+  var textDescription: String { "sensor_desc_short_mkrsci_gyr".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",
@@ -46,6 +46,6 @@ struct Nano33BLESenseAccelerometerZSensor: BLEScienceKitSensor {
 
     let z = data.withUnsafeBytes { $0.load(fromByteOffset: 8, as: Float.self) }
 
-    return Double(z) * 10
+    return Double(z)
   }
 }

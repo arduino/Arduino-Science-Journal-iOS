@@ -1,8 +1,8 @@
 //  
-//  BLEScienceKitMagnetometerSensor.swift
+//  BLEScienceKitAccelerometerYSensor.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 16/07/2020.
+//  Created by Sebastian Romero on 1/09/2020.
 //  Copyright © 2020 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,20 +19,19 @@
 
 import CoreBluetooth
 
-struct BLENano33BLESenseTemperatureSensor: BLEScienceKitSensor {
-  static var uuid: CBUUID { CBUUID(string: "555a0002-0014-467a-9538-01f0652c74e8") }
+struct Nano33BLESenseAccelerometerYSensor: BLEScienceKitSensor {
+  static var uuid: CBUUID { CBUUID(string: "555a0002-0011-467a-9538-01f0652c74e8") }
+  static var identifier: String { "\(uuid.uuidString)_2" }
 
-  var name: String { "ambient_temperature".localized }
+  var name: String { "acc_y".localized }
 
-  var iconName: String { "ic_sensor_temperature" }
+  var iconName: String { "mkrsci_sensor_acc_y" }
 
-  var animatingIconName: String { "arduino_temperature" }
+  var animatingIconName: String { "mkrsci_accy" }
 
-  var unitDescription: String? { "temperature_units".localized }
+  var unitDescription: String? { "acc_units".localized }
 
-  var textDescription: String {
-    "An instrument used to measure " +
-    "the temperature of the envirionment" }
+  var textDescription: String { "sensor_desc_short_mkrsci_acc".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",
@@ -43,9 +42,10 @@ struct BLENano33BLESenseTemperatureSensor: BLEScienceKitSensor {
   var config: BLEScienceKitSensorConfig?
 
   func point(for data: Data) -> Double {
-    guard data.count == 4 else { return 0 }
-    let temperature = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
-    //TODO Handle Fahrenheit: return Double(temperature + (9.0f / 5.0f) + 32.0f)
-    return Double(temperature)
+    guard data.count == 12 else { return 0 }
+
+    let y = data.withUnsafeBytes { $0.load(fromByteOffset: 4, as: Float.self) }
+
+    return Double(y) * -10
   }
 }

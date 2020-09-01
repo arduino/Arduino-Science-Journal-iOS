@@ -1,8 +1,8 @@
 //  
-//  BLEScienceKitAccelerometerXSensor.swift
+//  BLEScienceKitAccelerometerZSensor.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 16/07/2020.
+//  Created by Sebastian Romero on 1/09/2020.
 //  Copyright © 2020 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,15 +19,15 @@
 
 import CoreBluetooth
 
-struct BLENano33BLESenseAccelerometerXSensor: BLEScienceKitSensor {
+struct Nano33BLESenseAccelerometerZSensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0011-467a-9538-01f0652c74e8") }
-  static var identifier: String { "\(uuid.uuidString)_1" }
+  static var identifier: String { "\(uuid.uuidString)_3" }
 
-  var name: String { "acc_x".localized }
+  var name: String { "acc_z".localized }
 
-  var iconName: String { "mkrsci_sensor_acc_x" }
+  var iconName: String { "mkrsci_sensor_acc_z" }
 
-  var animatingIconName: String { "mkrsci_accx" }
+  var animatingIconName: String { "mkrsci_accz" }
 
   var unitDescription: String? { "acc_units".localized }
 
@@ -44,8 +44,8 @@ struct BLENano33BLESenseAccelerometerXSensor: BLEScienceKitSensor {
   func point(for data: Data) -> Double {
     guard data.count == 12 else { return 0 }
 
-    let x = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
+    let z = data.withUnsafeBytes { $0.load(fromByteOffset: 8, as: Float.self) }
 
-    return Double(x) * -10
+    return Double(z) * 10
   }
 }

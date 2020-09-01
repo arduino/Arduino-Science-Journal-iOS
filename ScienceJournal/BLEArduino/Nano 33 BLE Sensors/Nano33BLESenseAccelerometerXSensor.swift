@@ -1,5 +1,5 @@
 //  
-//  BLEScienceKitAccelerometerZSensor.swift
+//  BLEScienceKitAccelerometerXSensor.swift
 //  ScienceJournal
 //
 //  Created by Sebastian Romero on 1/09/2020.
@@ -19,15 +19,15 @@
 
 import CoreBluetooth
 
-struct Nano33BLESenseAccelerometerZSensor: BLEScienceKitSensor {
+struct Nano33BLESenseAccelerometerXSensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0011-467a-9538-01f0652c74e8") }
-  static var identifier: String { "\(uuid.uuidString)_3" }
+  static var identifier: String { "\(uuid.uuidString)_1" }
 
-  var name: String { "acc_z".localized }
+  var name: String { "acc_x".localized }
 
-  var iconName: String { "mkrsci_sensor_acc_z" }
+  var iconName: String { "mkrsci_sensor_acc_x" }
 
-  var animatingIconName: String { "mkrsci_accz" }
+  var animatingIconName: String { "mkrsci_accx" }
 
   var unitDescription: String? { "acc_units".localized }
 
@@ -44,8 +44,8 @@ struct Nano33BLESenseAccelerometerZSensor: BLEScienceKitSensor {
   func point(for data: Data) -> Double {
     guard data.count == 12 else { return 0 }
 
-    let z = data.withUnsafeBytes { $0.load(fromByteOffset: 8, as: Float.self) }
+    let x = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
 
-    return Double(z) * 10
+    return Double(x) * -10
   }
 }

@@ -2,7 +2,7 @@
 //  BLEScienceKitGyroscopeYSensor.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 16/07/2020.
+//  Created by Sebastian Romero on 1/09/2020.
 //  Copyright © 2020 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@
 
 import CoreBluetooth
 
-struct BLENano33BLESenseGyroscopeYSensor: BLEScienceKitSensor {
+struct Nano33BLESenseGyroscopeYSensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0012-467a-9538-01f0652c74e8") }
   static var identifier: String { "\(uuid.uuidString)_2" }
 

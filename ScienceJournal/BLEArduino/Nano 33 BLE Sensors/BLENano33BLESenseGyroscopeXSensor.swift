@@ -19,7 +19,7 @@
 
 import CoreBluetooth
 
-struct BLENano33BLESenseGyroscopeXSensor: BLEScienceKitSensor {
+struct Nano33BLESenseGyroscopeXSensor: BLEScienceKitSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0012-467a-9538-01f0652c74e8") }
   static var identifier: String { "\(uuid.uuidString)_1" }
 
