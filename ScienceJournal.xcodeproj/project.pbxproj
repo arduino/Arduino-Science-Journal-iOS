@@ -662,6 +662,7 @@
 		F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */; };
 		F32D236824FEDDAC00C7E8CE /* Nano33BLESenseProximitySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */; };
 		F32D236A24FEE75A00C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D236924FEE75900C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift */; };
+		F32D236C24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D236B24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift */; };
 		F362AC2A24F41D3600926698 /* DefaultExperimentComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */; };
 		F366759624FE5697004E567D /* Nano33BLESenseAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759324FE5696004E567D /* Nano33BLESenseAccelerometerYSensor.swift */; };
 		F366759724FE5697004E567D /* Nano33BLESenseAccelerometerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759524FE5697004E567D /* Nano33BLESenseAccelerometerXSensor.swift */; };
@@ -1378,6 +1379,7 @@
 		F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseProximitySensor.swift; sourceTree = "<group>"; };
 		F32D236924FEE75900C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseColorIlluminanceSensor.swift; sourceTree = "<group>"; };
+		F32D236B24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseColorTemperatureSensor.swift; sourceTree = "<group>"; };
 		F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExperimentComposer.swift; sourceTree = "<group>"; };
 		F366759324FE5696004E567D /* Nano33BLESenseAccelerometerYSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		F366759424FE5696004E567D /* Nano33BLESenseAccelerometerZSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseAccelerometerZSensor.swift; sourceTree = "<group>"; };
@@ -3101,6 +3103,7 @@
 			isa = PBXGroup;
 			children = (
 				F32D236924FEE75900C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift */,
+				F32D236B24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift */,
 				F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */,
 				F36675A524FEB18C004E567D /* Nano33BLESenseHumiditySensor.swift */,
 				F36675A324FE9D36004E567D /* Nano33BLESenseBarometricPressureSensor.swift */,
@@ -3791,6 +3794,7 @@
 				8B244F4A1E66231200FC03B5 /* Managed.swift in Sources */,
 				5CB340441F9945F700370734 /* SensorLoadingView.swift in Sources */,
 				8B4B601A1E44FC37009AFB1B /* CompassSensor.swift in Sources */,
+				F32D236C24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift in Sources */,
 				68E3C8CE1FD72A7400255ADF /* RatingsPromptManager.swift in Sources */,
 				3F158A0D231AFDAD005E319E /* EmptyStateContainerViewController.swift in Sources */,
 				683171581F0DE09100E641B4 /* PictureInfoViewController.swift in Sources */,
