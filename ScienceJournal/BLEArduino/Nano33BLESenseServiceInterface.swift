@@ -41,6 +41,15 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
     case BLENano33BLESenseTemperatureSensor.identifier:
       return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseTemperatureSensor(),
                                           serviceId: Nano33BLESenseIds.serviceUUID)
+    case BLENano33BLESenseAccelerometerXSensor.identifier:
+    return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseAccelerometerXSensor(),
+                                        serviceId: Nano33BLESenseIds.serviceUUID)
+    case BLENano33BLESenseAccelerometerYSensor.identifier:
+    return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseAccelerometerYSensor(),
+                                        serviceId: Nano33BLESenseIds.serviceUUID)
+    case BLENano33BLESenseAccelerometerZSensor.identifier:
+    return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseAccelerometerZSensor(),
+                                        serviceId: Nano33BLESenseIds.serviceUUID)
     default:
       return nil
     }
@@ -49,6 +58,13 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
   func devicesForPeripheral(_ peripheral: CBPeripheral) -> [BLESensorInterface] {
     return [
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: BLENano33BLESenseTemperatureSensor(), serviceId: Nano33BLESenseIds.serviceUUID)]
+                                   sensor: BLENano33BLESenseTemperatureSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLENano33BLESenseAccelerometerXSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLENano33BLESenseAccelerometerYSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLENano33BLESenseAccelerometerZSensor(), serviceId: Nano33BLESenseIds.serviceUUID)
+    ]
   }
 }
