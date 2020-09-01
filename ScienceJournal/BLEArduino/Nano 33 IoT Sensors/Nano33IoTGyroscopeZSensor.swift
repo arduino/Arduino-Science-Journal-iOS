@@ -27,7 +27,7 @@ struct Nano33IoTGyroscopeZSensor: BLEScienceKitSensor {
 
   var iconName: String { "mkrsci_gyr_z" }
 
-  var animatingIconName: String { "mkrsci_gyrz" }
+  var animatingIconName: String { "nano_gyroscope_z" }
 
   var unitDescription: String? { "\u{00B0}/s" }
 

@@ -27,7 +27,7 @@ struct Nano33IoTAccelerometerZSensor: BLEScienceKitSensor {
 
   var iconName: String { "mkrsci_sensor_acc_z" }
 
-  var animatingIconName: String { "mkrsci_accz" }
+  var animatingIconName: String { "nano_accelerometer_z" }
 
   var unitDescription: String? { "acc_units".localized }
 
