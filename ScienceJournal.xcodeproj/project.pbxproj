@@ -663,6 +663,14 @@
 		F32D236824FEDDAC00C7E8CE /* Nano33BLESenseProximitySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */; };
 		F32D236A24FEE75A00C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D236924FEE75900C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift */; };
 		F32D236C24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D236B24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift */; };
+		F32D236E24FEF8AB00C7E8CE /* Nano33IoTServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D236D24FEF8AB00C7E8CE /* Nano33IoTServiceInterface.swift */; };
+		F32D237724FEFA8A00C7E8CE /* Nano33IoTGyroscopeXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D237224FEF9B400C7E8CE /* Nano33IoTGyroscopeXSensor.swift */; };
+		F32D237824FEFA8A00C7E8CE /* Nano33IoTGyroscopeYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D237124FEF9B400C7E8CE /* Nano33IoTGyroscopeYSensor.swift */; };
+		F32D237924FEFA8A00C7E8CE /* Nano33IoTGyroscopeZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D237324FEF9B400C7E8CE /* Nano33IoTGyroscopeZSensor.swift */; };
+		F32D237A24FEFA8A00C7E8CE /* Nano33IoTLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D237524FEF9B400C7E8CE /* Nano33IoTLinearAccelerometerSensor.swift */; };
+		F32D237B24FEFA8A00C7E8CE /* Nano33IoTAccelerometerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D237024FEF9B300C7E8CE /* Nano33IoTAccelerometerXSensor.swift */; };
+		F32D237C24FEFA8A00C7E8CE /* Nano33IoTAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D237424FEF9B400C7E8CE /* Nano33IoTAccelerometerYSensor.swift */; };
+		F32D237D24FEFA8A00C7E8CE /* Nano33IoTAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D237624FEF9B400C7E8CE /* Nano33IoTAccelerometerZSensor.swift */; };
 		F362AC2A24F41D3600926698 /* DefaultExperimentComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */; };
 		F366759624FE5697004E567D /* Nano33BLESenseAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759324FE5696004E567D /* Nano33BLESenseAccelerometerYSensor.swift */; };
 		F366759724FE5697004E567D /* Nano33BLESenseAccelerometerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759524FE5697004E567D /* Nano33BLESenseAccelerometerXSensor.swift */; };
@@ -1380,6 +1388,14 @@
 		F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseProximitySensor.swift; sourceTree = "<group>"; };
 		F32D236924FEE75900C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseColorIlluminanceSensor.swift; sourceTree = "<group>"; };
 		F32D236B24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseColorTemperatureSensor.swift; sourceTree = "<group>"; };
+		F32D236D24FEF8AB00C7E8CE /* Nano33IoTServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33IoTServiceInterface.swift; sourceTree = "<group>"; };
+		F32D237024FEF9B300C7E8CE /* Nano33IoTAccelerometerXSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33IoTAccelerometerXSensor.swift; sourceTree = "<group>"; };
+		F32D237124FEF9B400C7E8CE /* Nano33IoTGyroscopeYSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33IoTGyroscopeYSensor.swift; sourceTree = "<group>"; };
+		F32D237224FEF9B400C7E8CE /* Nano33IoTGyroscopeXSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33IoTGyroscopeXSensor.swift; sourceTree = "<group>"; };
+		F32D237324FEF9B400C7E8CE /* Nano33IoTGyroscopeZSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33IoTGyroscopeZSensor.swift; sourceTree = "<group>"; };
+		F32D237424FEF9B400C7E8CE /* Nano33IoTAccelerometerYSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33IoTAccelerometerYSensor.swift; sourceTree = "<group>"; };
+		F32D237524FEF9B400C7E8CE /* Nano33IoTLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33IoTLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
+		F32D237624FEF9B400C7E8CE /* Nano33IoTAccelerometerZSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33IoTAccelerometerZSensor.swift; sourceTree = "<group>"; };
 		F362AC2924F41D3600926698 /* DefaultExperimentComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExperimentComposer.swift; sourceTree = "<group>"; };
 		F366759324FE5696004E567D /* Nano33BLESenseAccelerometerYSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		F366759424FE5696004E567D /* Nano33BLESenseAccelerometerZSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseAccelerometerZSensor.swift; sourceTree = "<group>"; };
@@ -3031,9 +3047,11 @@
 		BC3B9634249A6A3E000D7646 /* BLEArduino */ = {
 			isa = PBXGroup;
 			children = (
+				F32D236F24FEF91700C7E8CE /* Nano 33 IoT Sensors */,
 				F366759224FE542B004E567D /* Nano 33 BLE Sensors */,
 				BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */,
 				F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */,
+				F32D236D24FEF8AB00C7E8CE /* Nano33IoTServiceInterface.swift */,
 				BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */,
 				BCEC93AC24C0472E0041296C /* ScienceKit Sensors */,
 				BCB6953B24C08FA500CFCD9F /* UI */,
@@ -3097,6 +3115,20 @@
 				F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F32D236F24FEF91700C7E8CE /* Nano 33 IoT Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				F32D237224FEF9B400C7E8CE /* Nano33IoTGyroscopeXSensor.swift */,
+				F32D237124FEF9B400C7E8CE /* Nano33IoTGyroscopeYSensor.swift */,
+				F32D237324FEF9B400C7E8CE /* Nano33IoTGyroscopeZSensor.swift */,
+				F32D237524FEF9B400C7E8CE /* Nano33IoTLinearAccelerometerSensor.swift */,
+				F32D237024FEF9B300C7E8CE /* Nano33IoTAccelerometerXSensor.swift */,
+				F32D237424FEF9B400C7E8CE /* Nano33IoTAccelerometerYSensor.swift */,
+				F32D237624FEF9B400C7E8CE /* Nano33IoTAccelerometerZSensor.swift */,
+			);
+			path = "Nano 33 IoT Sensors";
 			sourceTree = "<group>";
 		};
 		F366759224FE542B004E567D /* Nano 33 BLE Sensors */ = {
@@ -3583,6 +3615,7 @@
 				68BD95641E8DA45100FEB0B2 /* ScaleSoundType.swift in Sources */,
 				5C7B87C11FCDD6F300EDEF1D /* ErrorDialog.swift in Sources */,
 				5CE6388E20ADC1A4004A712F /* SignInFlowViewController.swift in Sources */,
+				F32D237C24FEFA8A00C7E8CE /* Nano33IoTAccelerometerYSensor.swift in Sources */,
 				8BA65D70206160A90071C148 /* RecordedTrialCardView.swift in Sources */,
 				6813334E1EC6423200ED7A32 /* SensorPickerView.swift in Sources */,
 				687FAA19202C1162004C1D04 /* SensorSpec.pbobjc.m in Sources */,
@@ -3590,6 +3623,7 @@
 				8B031EEE2098C39C008F6F28 /* ExistingDataOptionsCell.swift in Sources */,
 				8B6054842049C4840036C1E4 /* AlphaFadeTransitionController.swift in Sources */,
 				8BA5BF341F44904F00EB77E8 /* UIPanGestureRecognizer+ScienceJournal.swift in Sources */,
+				F32D236E24FEF8AB00C7E8CE /* Nano33IoTServiceInterface.swift in Sources */,
 				5C4730662110DE6D0066A550 /* WriteMissingSensorDataProtosOperation.swift in Sources */,
 				5C2E4E951EA6B1A700F9AA6D /* GSJBleSensorConfig+ScienceJournal.swift in Sources */,
 				687FAA1B202C1162004C1D04 /* InputDevice.pbobjc.m in Sources */,
@@ -3673,7 +3707,9 @@
 				3F158A0B231AD72C005E319E /* UIViewController+MaterialHeader.swift in Sources */,
 				5C6E57522034B93100EE8457 /* ExportExperimentSensorDataOperation.swift in Sources */,
 				8B1791911F06AAC1008C0B31 /* TriggerListViewController.swift in Sources */,
+				F32D237D24FEFA8A00C7E8CE /* Nano33IoTAccelerometerZSensor.swift in Sources */,
 				D59CA3C8219CEE690082A27B /* SoundUtils.swift in Sources */,
+				F32D237B24FEFA8A00C7E8CE /* Nano33IoTAccelerometerXSensor.swift in Sources */,
 				68EBA6C51F0428E400B24AA8 /* TriggerDetailViewController.swift in Sources */,
 				F32D236824FEDDAC00C7E8CE /* Nano33BLESenseProximitySensor.swift in Sources */,
 				5C6C62631EE07B3800798989 /* BasicSensorAppearance.swift in Sources */,
@@ -3891,6 +3927,7 @@
 				5C72196B1EDF2E0100817F0B /* TrialStats.swift in Sources */,
 				48282B6D20CB0079007A2102 /* SettingsButtonCell.swift in Sources */,
 				F366759E24FE5B60004E567D /* Nano33BLESenseGyroscopeZSensor.swift in Sources */,
+				F32D237A24FEFA8A00C7E8CE /* Nano33IoTLinearAccelerometerSensor.swift in Sources */,
 				5C2C2A3520378FD9007F2FA5 /* ImportDocumentOperation.swift in Sources */,
 				8B29D3A91F9E48A700D1DDA9 /* AVAudioSessionRouteChangeReason+ScienceJournal.swift in Sources */,
 				5CC81C1C1F292EBE00AC9E9E /* TimeSelectionView.swift in Sources */,
@@ -3941,6 +3978,7 @@
 				8B1791931F06B1F4008C0B31 /* TriggerListDataSource.swift in Sources */,
 				5C50F58D1F61F22F00711D28 /* FileVersion.swift in Sources */,
 				5C7219601ED8D04700817F0B /* SensorLayout.swift in Sources */,
+				F32D237824FEFA8A00C7E8CE /* Nano33IoTGyroscopeYSensor.swift in Sources */,
 				5C7BC35220C9ADC800CACFAB /* DriveConstructorDisabled.swift in Sources */,
 				68E36193203F7F1500B1B979 /* AnalyticsReporter.swift in Sources */,
 				8B2FD9BB20C58051007513FE /* String+Pluralize.swift in Sources */,
@@ -3982,6 +4020,7 @@
 				8BCCAD561EDF593C00278F05 /* PopUpMenuAction.swift in Sources */,
 				687FAA0D202C1162004C1D04 /* SensorTriggerLabelValue.pbobjc.m in Sources */,
 				8BF9DA9D2268BED80052C285 /* ExistingDataMigrationManagerErrorArray+ScienceJournal.swift in Sources */,
+				F32D237724FEFA8A00C7E8CE /* Nano33IoTGyroscopeXSensor.swift in Sources */,
 				8B0682D220A33E39003DA2A3 /* ExperimentInteractionOptions.swift in Sources */,
 				8B5114EB20B49F53005953BD /* ClaimExperimentListCell.swift in Sources */,
 				680659161EC24EBD0090670C /* String+ScienceJournal.swift in Sources */,
@@ -4020,6 +4059,7 @@
 				5C7B87BF1FCDABC700EDEF1D /* EditTimestampView.swift in Sources */,
 				5C63842221067BD4008281DF /* ExclusivityController.swift in Sources */,
 				5C32452B1EF1D5B300E8664B /* DisplayTextNoteViewData.swift in Sources */,
+				F32D237924FEFA8A00C7E8CE /* Nano33IoTGyroscopeZSensor.swift in Sources */,
 				5CBD9AA91F6C1B8100D22D21 /* PinType.swift in Sources */,
 				5C2C2A372037922E007F2FA5 /* CopyFileOperation.swift in Sources */,
 				8BA975A520FE5B8700A0306E /* UserAssetManager.swift in Sources */,

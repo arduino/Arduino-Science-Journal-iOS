@@ -1731,7 +1731,11 @@ public class MetadataManager {
         let sensor = BluetoothSensor(sensorInterface: interface,
                                      sensorTimer: sensorController.unifiedSensorTimer)
         sensorController.addOrUpdateBluetoothSensor(sensor)
-      } else {
+      } else if let interface = Nano33IoTServiceInterface.sensor(for: spec) {
+             let sensor = BluetoothSensor(sensorInterface: interface,
+                                          sensorTimer: sensorController.unifiedSensorTimer)
+             sensorController.addOrUpdateBluetoothSensor(sensor)
+           } else {
         // We could not restore existing sensor. Delete it from disk.
         deleteBluetoothSensor(withID: spec.gadgetInfo.address,
                               providerID: spec.gadgetInfo.providerID)
