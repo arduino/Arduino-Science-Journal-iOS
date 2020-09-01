@@ -2448,7 +2448,7 @@
 				68E3618B203F7F0900B1B979 /* AppDelegateOpen.swift */,
 				5CAD5EF11E952F8C008F50C3 /* BLEMakingScience */,
 				5C11AE6A1EB7D8280077F752 /* BLEProtocols */,
-				BC3B9634249A6A3E000D7646 /* BLEScienceKit */,
+				BC3B9634249A6A3E000D7646 /* BLEArduino */,
 				5C44D9D41FBCC7270050E81C /* BLESupport */,
 				8BA5BF371F44DE4000EB77E8 /* CaptureSession */,
 				489182BD1E4542CE00E91D73 /* Chart */,
@@ -3002,16 +3002,17 @@
 			path = ViewData;
 			sourceTree = "<group>";
 		};
-		BC3B9634249A6A3E000D7646 /* BLEScienceKit */ = {
+		BC3B9634249A6A3E000D7646 /* BLEArduino */ = {
 			isa = PBXGroup;
 			children = (
+				F366759224FE542B004E567D /* Nano 33 BLE Sensors */,
 				BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */,
 				F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */,
 				BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */,
-				BCEC93AC24C0472E0041296C /* Sensors */,
+				BCEC93AC24C0472E0041296C /* ScienceKit Sensors */,
 				BCB6953B24C08FA500CFCD9F /* UI */,
 			);
-			path = BLEScienceKit;
+			path = BLEArduino;
 			sourceTree = "<group>";
 		};
 		BCB6953B24C08FA500CFCD9F /* UI */ = {
@@ -3023,10 +3024,9 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		BCEC93AC24C0472E0041296C /* Sensors */ = {
+		BCEC93AC24C0472E0041296C /* ScienceKit Sensors */ = {
 			isa = PBXGroup;
 			children = (
-				F384EA4124FD833F00E1F1DE /* BLENano33BLESenseTemperatureSensor.swift */,
 				BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */,
 				BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */,
 				BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */,
@@ -3042,7 +3042,7 @@
 				BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */,
 				BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */,
 			);
-			path = Sensors;
+			path = "ScienceKit Sensors";
 			sourceTree = "<group>";
 		};
 		D80999890678E0AFC0831674 /* Pods */ = {
@@ -3071,6 +3071,14 @@
 				F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F366759224FE542B004E567D /* Nano 33 BLE Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				F384EA4124FD833F00E1F1DE /* BLENano33BLESenseTemperatureSensor.swift */,
+			);
+			path = "Nano 33 BLE Sensors";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

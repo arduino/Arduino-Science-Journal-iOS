@@ -113,6 +113,21 @@ class BLEScienceKitSensorInterface: BLESensorInterface {
     self.peripheralName = peripheralName
     self.serviceScanner = BLEServiceScanner(services: [serviceId])
   }
+  
+  convenience init(peripheral: CBPeripheral, sensor: BLEScienceKitSensor, serviceId: CBUUID) {
+    self.init(sensor: sensor,
+              providerId: peripheral.identifier.uuidString,
+              serviceId: serviceId,
+              peripheralName: peripheral.name ?? "")
+  }
+
+  convenience init(spec: SensorSpec, sensor: BLEScienceKitSensor, serviceId: CBUUID) {
+    self.init(sensor: sensor,
+              providerId: spec.gadgetInfo.providerID,
+              serviceId: serviceId,
+              peripheralName: spec.gadgetInfo.hostID)
+    config = spec.config
+  }
 
   func presentOptions(from viewController: UIViewController, completion: @escaping () -> Void) {
     guard sensor.options.count > 1 else {

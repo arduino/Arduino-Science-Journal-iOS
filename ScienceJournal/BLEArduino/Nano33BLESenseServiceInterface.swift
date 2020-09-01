@@ -39,7 +39,8 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
   class func sensor(for spec: SensorSpec) -> BLESensorInterface? {
     switch spec.gadgetInfo.address {
     case BLENano33BLESenseTemperatureSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseTemperatureSensor())
+      return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseTemperatureSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     default:
       return nil
     }
@@ -48,6 +49,6 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
   func devicesForPeripheral(_ peripheral: CBPeripheral) -> [BLESensorInterface] {
     return [
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: BLENano33BLESenseTemperatureSensor())]
+                                   sensor: BLENano33BLESenseTemperatureSensor(), serviceId: Nano33BLESenseIds.serviceUUID)]
   }
 }

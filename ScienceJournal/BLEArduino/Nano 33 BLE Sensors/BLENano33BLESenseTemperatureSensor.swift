@@ -24,7 +24,7 @@ struct BLENano33BLESenseTemperatureSensor: BLEScienceKitSensor {
 
   var name: String { "ambient_temperature".localized }
 
-  var iconName: String { "arduino_sensor_temperature" }
+  var iconName: String { "ic_sensor_temperature" }
 
   var animatingIconName: String { "arduino_temperature" }
 
