@@ -3048,7 +3048,7 @@
 			isa = PBXGroup;
 			children = (
 				F32D236F24FEF91700C7E8CE /* Nano 33 IoT Sensors */,
-				F366759224FE542B004E567D /* Nano 33 BLE Sensors */,
+				F366759224FE542B004E567D /* Nano 33 BLE Sense Sensors */,
 				BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */,
 				F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */,
 				F32D236D24FEF8AB00C7E8CE /* Nano33IoTServiceInterface.swift */,
@@ -3131,7 +3131,7 @@
 			path = "Nano 33 IoT Sensors";
 			sourceTree = "<group>";
 		};
-		F366759224FE542B004E567D /* Nano 33 BLE Sensors */ = {
+		F366759224FE542B004E567D /* Nano 33 BLE Sense Sensors */ = {
 			isa = PBXGroup;
 			children = (
 				F32D236924FEE75900C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift */,
@@ -3149,7 +3149,7 @@
 				F366759424FE5696004E567D /* Nano33BLESenseAccelerometerZSensor.swift */,
 				F384EA4124FD833F00E1F1DE /* Nano33BLESenseTemperatureSensor.swift */,
 			);
-			path = "Nano 33 BLE Sensors";
+			path = "Nano 33 BLE Sense Sensors";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
