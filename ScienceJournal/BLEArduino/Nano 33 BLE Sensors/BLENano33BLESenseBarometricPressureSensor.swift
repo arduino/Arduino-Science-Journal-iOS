@@ -19,20 +19,20 @@
 
 import CoreBluetooth
 
-struct BLENano33BLESenseTemperatureSensor: BLEScienceKitSensor {
-  static var uuid: CBUUID { CBUUID(string: "555a0002-0014-467a-9538-01f0652c74e8") }
+struct BLENano33BLESenseBarometricPressureSensor: BLEScienceKitSensor {
+  static var uuid: CBUUID { CBUUID(string: "555a0002-0015-467a-9538-01f0652c74e8") }
 
-  var name: String { "ambient_temperature".localized }
+  var name: String { "barometer".localized }
 
-  var iconName: String { "ic_sensor_temperature" }
+  var iconName: String { "ic_sensor_barometer" }
 
-  var animatingIconName: String { "arduino_temperature" }
+  var animatingIconName: String { "sensor_barometer" }
 
-  var unitDescription: String? { "temperature_units".localized }
+  var unitDescription: String? { "barometer_units".localized }
 
   var textDescription: String {
     "An instrument used to measure " +
-    "the temperature of the envirionment" }
+    "the barometric pressure" }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",
@@ -44,8 +44,8 @@ struct BLENano33BLESenseTemperatureSensor: BLEScienceKitSensor {
 
   func point(for data: Data) -> Double {
     guard data.count == 4 else { return 0 }
-    let temperature = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
-    //TODO Handle Fahrenheit: return Double(temperature + (9.0f / 5.0f) + 32.0f)
-    return Double(temperature)
+    let pressure = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
+    //For converstion to atm: pressure / 101.325
+    return Double(pressure * 10.0 )
   }
 }
