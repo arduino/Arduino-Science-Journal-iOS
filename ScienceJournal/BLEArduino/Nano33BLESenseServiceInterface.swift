@@ -36,6 +36,8 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
     return "ic_sensor_bluetooth"
   }
 
+  // swiftlint:disable line_length
+  
   class func sensor(for spec: SensorSpec) -> BLESensorInterface? {
     switch spec.gadgetInfo.address {
     case BLENano33BLESenseTemperatureSensor.identifier:
@@ -53,6 +55,15 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
     case BLENano33BLESenseLinearAccelerometerSensor.identifier:
       return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseLinearAccelerometerSensor(),
                                       serviceId: Nano33BLESenseIds.serviceUUID)
+    case BLENano33BLESenseGyroscopeXSensor.identifier:
+      return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseGyroscopeXSensor(),
+                                      serviceId: Nano33BLESenseIds.serviceUUID)
+    case BLENano33BLESenseGyroscopeYSensor.identifier:
+      return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseGyroscopeYSensor(),
+                                      serviceId: Nano33BLESenseIds.serviceUUID)
+    case BLENano33BLESenseGyroscopeZSensor.identifier:
+      return BLEScienceKitSensorInterface(spec: spec, sensor: BLENano33BLESenseGyroscopeZSensor(),
+                                      serviceId: Nano33BLESenseIds.serviceUUID)
     default:
       return nil
     }
@@ -69,7 +80,14 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
       BLEScienceKitSensorInterface(peripheral: peripheral,
                                    sensor: BLENano33BLESenseAccelerometerZSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: BLENano33BLESenseLinearAccelerometerSensor(), serviceId: Nano33BLESenseIds.serviceUUID)
+                                   sensor: BLENano33BLESenseLinearAccelerometerSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLENano33BLESenseGyroscopeXSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLENano33BLESenseGyroscopeYSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLENano33BLESenseGyroscopeZSensor(), serviceId: Nano33BLESenseIds.serviceUUID)
     ]
   }
 }
+// swiftlint:enable line_length
