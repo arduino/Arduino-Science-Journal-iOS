@@ -1,5 +1,5 @@
 //  
-//  BLEScienceKitGyroscopeYSensor.swift
+//  Nano33IoTGyroscopeYSensor.swift
 //  ScienceJournal
 //
 //  Created by Sebastian Romero on 1/09/2020.

@@ -1,5 +1,5 @@
 //  
-//  BLEScienceKitMagnetometerSensor.swift
+//  Nano33BLESenseTemperatureSensor.swift
 //  ScienceJournal
 //
 //  Created by Sebastian Romero on 1/09/2020.

@@ -1,5 +1,5 @@
 //  
-//  BLEScienceKitAccelerometerYSensor.swift
+//  Nano33IoTAccelerometerYSensor.swift
 //  ScienceJournal
 //
 //  Created by Sebastian Romero on 1/09/2020.

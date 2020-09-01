@@ -1,5 +1,5 @@
 //  
-//  BLEScienceKitMagnetometerSensor.swift
+//  Nano33BLESenseBarometricPressureSensor.swift
 //  ScienceJournal
 //
 //  Created by Sebastian Romero on 1/09/2020.
