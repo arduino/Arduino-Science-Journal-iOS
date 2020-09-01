@@ -664,6 +664,7 @@
 		F366759624FE5697004E567D /* BLENano33BLESenseAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759324FE5696004E567D /* BLENano33BLESenseAccelerometerYSensor.swift */; };
 		F366759724FE5697004E567D /* BLENano33BLESenseAccelerometerXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759524FE5697004E567D /* BLENano33BLESenseAccelerometerXSensor.swift */; };
 		F366759824FE5697004E567D /* BLENano33BLESenseAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759424FE5696004E567D /* BLENano33BLESenseAccelerometerZSensor.swift */; };
+		F366759A24FE59C2004E567D /* BLENano33BLESenseLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366759924FE59C2004E567D /* BLENano33BLESenseLinearAccelerometerSensor.swift */; };
 		F384EA4024FD82E200E1F1DE /* Nano33BLESenseServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */; };
 		F384EA4224FD834000E1F1DE /* BLENano33BLESenseTemperatureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384EA4124FD833F00E1F1DE /* BLENano33BLESenseTemperatureSensor.swift */; };
 		F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389279124DC408900843D1D /* ArduinoColorPalette.swift */; };
@@ -1371,6 +1372,7 @@
 		F366759324FE5696004E567D /* BLENano33BLESenseAccelerometerYSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLENano33BLESenseAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		F366759424FE5696004E567D /* BLENano33BLESenseAccelerometerZSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLENano33BLESenseAccelerometerZSensor.swift; sourceTree = "<group>"; };
 		F366759524FE5697004E567D /* BLENano33BLESenseAccelerometerXSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLENano33BLESenseAccelerometerXSensor.swift; sourceTree = "<group>"; };
+		F366759924FE59C2004E567D /* BLENano33BLESenseLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLENano33BLESenseLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
 		F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseServiceInterface.swift; sourceTree = "<group>"; };
 		F384EA4124FD833F00E1F1DE /* BLENano33BLESenseTemperatureSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLENano33BLESenseTemperatureSensor.swift; sourceTree = "<group>"; };
 		F389279124DC408900843D1D /* ArduinoColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoColorPalette.swift; sourceTree = "<group>"; };
@@ -3082,6 +3084,7 @@
 		F366759224FE542B004E567D /* Nano 33 BLE Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				F366759924FE59C2004E567D /* BLENano33BLESenseLinearAccelerometerSensor.swift */,
 				F366759524FE5697004E567D /* BLENano33BLESenseAccelerometerXSensor.swift */,
 				F366759324FE5696004E567D /* BLENano33BLESenseAccelerometerYSensor.swift */,
 				F366759424FE5696004E567D /* BLENano33BLESenseAccelerometerZSensor.swift */,
@@ -3840,6 +3843,7 @@
 				8B2838FB1F8C14A8005CCB01 /* VisualTriggerView.swift in Sources */,
 				3F591E26232888BE00491D65 /* UIKit+ActionArea.swift in Sources */,
 				BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */,
+				F366759A24FE59C2004E567D /* BLENano33BLESenseLinearAccelerometerSensor.swift in Sources */,
 				8B4B601C1E4522E6009AFB1B /* AltimeterSensor.swift in Sources */,
 				3F2A630022A15EF500A320C6 /* FileSystemLayoutMigration.swift in Sources */,
 				D59CA3D8219F46020082A27B /* Double+ScienceJournal.swift in Sources */,
