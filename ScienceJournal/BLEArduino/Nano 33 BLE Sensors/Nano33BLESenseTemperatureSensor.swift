@@ -28,11 +28,18 @@ struct Nano33BLESenseTemperatureSensor: BLEScienceKitSensor {
 
   var animatingIconName: String { "arduino_temperature" }
 
-  var unitDescription: String? { "temperature_units".localized }
+  var unitDescription: String? {
+    switch config {
+    case .temperatureCelsius:
+      return "temperature_units".localized
+    case .temperatureFahrenheit:
+      return "\u{00B0}F"
+    default:
+      return nil
+    }
+  }
 
-  var textDescription: String {
-    "An instrument used to measure " +
-    "the temperature of the envirionment" }
+  var textDescription: String { "sensor_desc_short_mkrsci_temperature".localized }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",
@@ -40,12 +47,22 @@ struct Nano33BLESenseTemperatureSensor: BLEScienceKitSensor {
                      imageName: "")
   }
 
-  var config: BLEScienceKitSensorConfig?
+  var options: [BLEScienceKitSensorConfig] = [
+    .temperatureCelsius, .temperatureFahrenheit
+  ]
+
+  var config: BLEScienceKitSensorConfig? = .temperatureCelsius
 
   func point(for data: Data) -> Double {
     guard data.count == 4 else { return 0 }
     let temperature = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
-    //TODO Handle Fahrenheit: return Double(temperature + (9.0f / 5.0f) + 32.0f)
-    return Double(temperature)
+    
+    switch config {
+    case .temperatureFahrenheit:
+      return Double(temperature * (9.0 / 5.0) + 32.0)
+    default:
+      return Double(temperature)
+    }
+
   }
 }
