@@ -178,7 +178,9 @@ class PermissionsGuideViewController: OnboardingViewController {
     headerTitle.translatesAutoresizingMaskIntoConstraints = false
     headerTopConstraint = headerTitle.topAnchor.constraint(equalTo: headerImage.bottomAnchor,
                                                            constant: Metrics.headerTopPaddingNarrow)
+    headerTopConstraint?.priority = .defaultHigh
     headerTopConstraint?.isActive = true
+
     headerTitle.textColor = ArduinoColorPalette.goldPalette.tint400
     headerTitle.font = ArduinoTypography.boldFont(forSize: 28)
     headerTitle.textAlignment = .center
@@ -186,6 +188,8 @@ class PermissionsGuideViewController: OnboardingViewController {
     headerTitle.numberOfLines = 0
     headerTitle.leadingAnchor.constraint(equalTo: wrappingView.readableContentGuide.leadingAnchor).isActive = true
     headerTitle.trailingAnchor.constraint(equalTo: wrappingView.readableContentGuide.trailingAnchor).isActive = true
+    headerTitle.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: headerImage.bottomAnchor,
+                                     multiplier: 1).isActive = true
 
     // Shared label config.
     [initialMessage, finalMessage, notificationsMessage, microphoneMessage, cameraMessage,
@@ -233,11 +237,15 @@ class PermissionsGuideViewController: OnboardingViewController {
 
     // Shared button config.
     [startButton, completeButton, continueButton].forEach {
+      $0.contentEdgeInsets = UIEdgeInsets(top: 0,
+                                          left: Metrics.buttonHeight/2.0,
+                                          bottom: 0,
+                                          right: Metrics.buttonHeight/2.0)
       wrappingView.addSubview($0)
       $0.translatesAutoresizingMaskIntoConstraints = false
       $0.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
       $0.heightAnchor.constraint(equalToConstant: Metrics.buttonHeight).isActive = true
-      $0.widthAnchor.constraint(equalToConstant: Metrics.buttonWidth).isActive = true
+      $0.widthAnchor.constraint(greaterThanOrEqualToConstant: Metrics.buttonWidth).isActive = true
       $0.setBackgroundImage(UIImage(named: "rounded_button_background"), for: .normal)
       $0.titleLabel?.font = ArduinoTypography.boldFont(forSize: 16)
       $0.setTitleColor(view.backgroundColor, for: .normal)
@@ -270,7 +278,11 @@ class PermissionsGuideViewController: OnboardingViewController {
     continueTopConstraint =
         continueButton.topAnchor.constraint(equalTo: notificationsMessage.bottomAnchor,
                                             constant: Metrics.buttonSpacing)
+    continueTopConstraint?.priority = .defaultHigh-1
     continueTopConstraint?.isActive = true
+
+    startButton.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: initialMessage.bottomAnchor,
+                                     multiplier: 1).isActive = true
 
     // Step counter
     configureStepsImageView()
@@ -278,6 +290,7 @@ class PermissionsGuideViewController: OnboardingViewController {
 
   private func configureArduinoLogo() {
     logoImageView.translatesAutoresizingMaskIntoConstraints = false
+    logoImageView.contentMode = .scaleAspectFit
     wrappingView.addSubview(logoImageView)
     logoImageView.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
     logoImageView.bottomAnchor.constraint(equalTo: wrappingView.safeAreaLayoutGuide.bottomAnchor,
@@ -317,10 +330,13 @@ class PermissionsGuideViewController: OnboardingViewController {
   private func configureStepsImageView() {
     stepsImageView.isHidden = true
     stepsImageView.translatesAutoresizingMaskIntoConstraints = false
+    stepsImageView.setContentCompressionResistancePriority(.required, for: .vertical)
     wrappingView.addSubview(stepsImageView)
     stepsImageView.centerXAnchor.constraint(equalTo: wrappingView.centerXAnchor).isActive = true
     stepsImageView.bottomAnchor.constraint(equalTo: wrappingView.safeAreaLayoutGuide.bottomAnchor,
                                            constant: -Metrics.arduinoLogoBottomPadding).isActive = true
+    stepsImageView.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: continueButton.bottomAnchor,
+                                        multiplier: 1.0).isActive = true
   }
 
   // Updates constraints for labels. Used in rotation to ensure the best fit for various screen
@@ -558,6 +574,7 @@ class PermissionsGuideViewController: OnboardingViewController {
     continueTopConstraint?.isActive = false
     continueTopConstraint = continueButton.topAnchor.constraint(equalTo: label.bottomAnchor,
                                                                 constant: Metrics.buttonSpacing)
+    continueTopConstraint?.priority = .defaultHigh-1
     continueTopConstraint?.isActive = true
     continueButton.layoutIfNeeded()
   }
