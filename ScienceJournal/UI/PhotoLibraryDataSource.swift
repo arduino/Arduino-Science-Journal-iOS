@@ -93,7 +93,7 @@ class PhotoLibraryDataSource: NSObject, PHPhotoLibraryChangeObserver {
     let authStatus = PHPhotoLibrary.authorizationStatus()
     switch authStatus {
     case .denied, .restricted: return false
-    case .authorized: return true
+    case .authorized, .limited: return true
     case .notDetermined:
       // Prompt user for the permission to use the camera.
       PHPhotoLibrary.requestAuthorization({ (status) in
@@ -103,6 +103,7 @@ class PhotoLibraryDataSource: NSObject, PHPhotoLibraryChangeObserver {
         }
       })
       return false
+    @unknown default: return false
     }
   }
 
