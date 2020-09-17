@@ -39,23 +39,29 @@ class MKRWiFi1010ServiceInterface: BLEServiceInterface {
   class func sensor(for spec: SensorSpec) -> BLESensorInterface? {
     switch spec.gadgetInfo.address {
     case BLEScienceKitVoltageSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitVoltageSensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: BLEScienceKitVoltageSensor(),
+                                          serviceId: MKRWiFi1010Ids.serviceUUID)
     case BLEScienceKitCurrentSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitCurrentSensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: BLEScienceKitCurrentSensor(),
+                                          serviceId: MKRWiFi1010Ids.serviceUUID)
     case BLEScienceKitResistanceSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitResistanceSensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: BLEScienceKitResistanceSensor(),
+                                          serviceId: MKRWiFi1010Ids.serviceUUID)
     case BLEScienceKitInput1Sensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitInput1Sensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: BLEScienceKitInput1Sensor(),
+                                          serviceId: MKRWiFi1010Ids.serviceUUID)
     case BLEScienceKitInput2Sensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitInput2Sensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: BLEScienceKitInput2Sensor(),
+                                          serviceId: MKRWiFi1010Ids.serviceUUID)
     case BLEScienceKitInput3Sensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: BLEScienceKitInput3Sensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: BLEScienceKitInput3Sensor(),
+                                          serviceId: MKRWiFi1010Ids.serviceUUID)
     case BLEScienceKitLinearAccelerometerSensor.identifier:
       return BLEScienceKitSensorInterface(spec: spec,
                                           sensor: BLEScienceKitLinearAccelerometerSensor(),
@@ -95,18 +101,24 @@ class MKRWiFi1010ServiceInterface: BLEServiceInterface {
 
   func devicesForPeripheral(_ peripheral: CBPeripheral) -> [BLESensorInterface] {
     return [
-      BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitVoltageSensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID),
-      BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitCurrentSensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID),
-      BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitResistanceSensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID),
-      BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitInput1Sensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID),
-      BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitInput2Sensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID),
-      BLEScienceKitSensorInterface(peripheral: peripheral, sensor: BLEScienceKitInput3Sensor(),
-      serviceId: MKRWiFi1010Ids.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLEScienceKitVoltageSensor(),
+                                   serviceId: MKRWiFi1010Ids.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLEScienceKitCurrentSensor(),
+                                   serviceId: MKRWiFi1010Ids.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLEScienceKitResistanceSensor(),
+                                   serviceId: MKRWiFi1010Ids.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLEScienceKitInput1Sensor(),
+                                   serviceId: MKRWiFi1010Ids.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLEScienceKitInput2Sensor(),
+                                   serviceId: MKRWiFi1010Ids.serviceUUID),
+      BLEScienceKitSensorInterface(peripheral: peripheral,
+                                   sensor: BLEScienceKitInput3Sensor(),
+                                   serviceId: MKRWiFi1010Ids.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
                                    sensor: BLEScienceKitLinearAccelerometerSensor(),
                                    serviceId: MKRWiFi1010Ids.serviceUUID),

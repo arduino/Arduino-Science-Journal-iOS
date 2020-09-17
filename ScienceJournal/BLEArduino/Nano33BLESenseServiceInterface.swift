@@ -39,47 +39,61 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
   class func sensor(for spec: SensorSpec) -> BLESensorInterface? {
     switch spec.gadgetInfo.address {
     case Nano33BLESenseTemperatureSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseTemperatureSensor(),
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseTemperatureSensor(),
                                           serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseAccelerometerXSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseAccelerometerXSensor(),
-                                        serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseAccelerometerXSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseAccelerometerYSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseAccelerometerYSensor(),
-                                        serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseAccelerometerYSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseAccelerometerZSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseAccelerometerZSensor(),
-                                        serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseAccelerometerZSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseLinearAccelerometerSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseLinearAccelerometerSensor(),
-                                      serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseLinearAccelerometerSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseGyroscopeXSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseGyroscopeXSensor(),
-                                      serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseGyroscopeXSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseGyroscopeYSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseGyroscopeYSensor(),
-                                      serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseGyroscopeYSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseGyroscopeZSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseGyroscopeZSensor(),
-                                      serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseGyroscopeZSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseMagnetometerSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseMagnetometerSensor(),
-                                    serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseMagnetometerSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseBarometricPressureSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseBarometricPressureSensor(),
-                                  serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseBarometricPressureSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseHumiditySensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseHumiditySensor(),
-                                serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseHumiditySensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseProximitySensor.identifier:
-        return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseProximitySensor(),
-                                serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseProximitySensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseColorIlluminanceSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseColorIlluminanceSensor(),
-                            serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseColorIlluminanceSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     case Nano33BLESenseColorTemperatureSensor.identifier:
-      return BLEScienceKitSensorInterface(spec: spec, sensor: Nano33BLESenseColorTemperatureSensor(),
-                            serviceId: Nano33BLESenseIds.serviceUUID)
+      return BLEScienceKitSensorInterface(spec: spec,
+                                          sensor: Nano33BLESenseColorTemperatureSensor(),
+                                          serviceId: Nano33BLESenseIds.serviceUUID)
     default:
       return nil
     }
@@ -88,33 +102,47 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
   func devicesForPeripheral(_ peripheral: CBPeripheral) -> [BLESensorInterface] {
     return [
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseTemperatureSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseTemperatureSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseAccelerometerXSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseAccelerometerXSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseAccelerometerYSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseAccelerometerYSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseAccelerometerZSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseAccelerometerZSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseLinearAccelerometerSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseLinearAccelerometerSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseGyroscopeXSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseGyroscopeXSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseGyroscopeYSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseGyroscopeYSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseGyroscopeZSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseGyroscopeZSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseMagnetometerSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseMagnetometerSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseBarometricPressureSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseBarometricPressureSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseHumiditySensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseHumiditySensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseProximitySensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseProximitySensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseColorIlluminanceSensor(), serviceId: Nano33BLESenseIds.serviceUUID),
+                                   sensor: Nano33BLESenseColorIlluminanceSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID),
       BLEScienceKitSensorInterface(peripheral: peripheral,
-                                   sensor: Nano33BLESenseColorTemperatureSensor(), serviceId: Nano33BLESenseIds.serviceUUID)
+                                   sensor: Nano33BLESenseColorTemperatureSensor(),
+                                   serviceId: Nano33BLESenseIds.serviceUUID)
     ]
   }
 }
