@@ -90,19 +90,31 @@ class PhotoLibraryDataSource: NSObject, PHPhotoLibraryChangeObserver {
 
   /// The permissions state of the capturer.
   var isPhotoLibraryPermissionGranted: Bool {
-    let authStatus = PHPhotoLibrary.authorizationStatus()
+    let authStatus: PHAuthorizationStatus
+    if #available(iOS 14, *) {
+      authStatus = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+    } else {
+      authStatus = PHPhotoLibrary.authorizationStatus()
+    }
     switch authStatus {
     case .denied, .restricted: return false
-    case .authorized: return true
+    case .authorized, .limited: return true
     case .notDetermined:
-      // Prompt user for the permission to use the camera.
-      PHPhotoLibrary.requestAuthorization({ (status) in
+      let handler: (PHAuthorizationStatus) -> Void = { status in
         DispatchQueue.main.sync {
           let granted = status == .authorized
           self.delegate?.photoLibraryDataSourcePermissionsDidChange(accessGranted: granted)
         }
-      })
+      }
+
+      // Prompt user for the permission to use the camera.
+      if #available(iOS 14, *) {
+        PHPhotoLibrary.requestAuthorization(for: .readWrite, handler: handler)
+      } else {
+        PHPhotoLibrary.requestAuthorization(handler)
+      }
       return false
+    @unknown default: return false
     }
   }
 
