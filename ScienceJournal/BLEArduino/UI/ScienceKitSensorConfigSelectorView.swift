@@ -19,7 +19,7 @@
 
 import UIKit
 
-extension BLEScienceKitSensorConfig {
+extension BLEArduinoSensorConfig {
   var name: String {
     switch self {
     case .raw:
@@ -50,7 +50,7 @@ class ScienceKitSensorConfigSelectorView: OptionSelectorView {
     return String.deviceOptionsSensorLabelText
   }
 
-  convenience init(options: [BLEScienceKitSensorConfig]) {
+  convenience init(options: [BLEArduinoSensorConfig]) {
     self.init()
     self.options = options
   }
@@ -69,7 +69,7 @@ class ScienceKitSensorConfigSelectorView: OptionSelectorView {
   weak var typeDelegate: SensorConfigTypeOptionDelegate?
 
   /// The selected config type.
-  var configType = BLEScienceKitSensorConfig.raw {
+  var configType = BLEArduinoSensorConfig.raw {
     didSet {
       guard configType != oldValue else { return }
       selectionLabel.text = configType.name
@@ -77,7 +77,7 @@ class ScienceKitSensorConfigSelectorView: OptionSelectorView {
     }
   }
 
-  var options = [BLEScienceKitSensorConfig]()
+  var options = [BLEArduinoSensorConfig]()
 
   override func dropDownButtonPressed() {
     var actions = [PopUpMenuAction]()

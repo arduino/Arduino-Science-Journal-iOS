@@ -623,7 +623,7 @@
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
 		BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */; };
 		BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */; };
-		BCEC93A524C033D20041296C /* BLEScienceKitSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */; };
+		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
 		BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */; };
 		BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */; };
 		BCEC93AB24C0471A0041296C /* BLEScienceKitResistanceSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */; };
@@ -1355,7 +1355,7 @@
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
 		BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigViewController.swift; sourceTree = "<group>"; };
 		BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigSelectorView.swift; sourceTree = "<group>"; };
-		BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitSensorInterface.swift; sourceTree = "<group>"; };
+		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
 		BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensor.swift; sourceTree = "<group>"; };
 		BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitCurrentSensor.swift; sourceTree = "<group>"; };
 		BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitResistanceSensor.swift; sourceTree = "<group>"; };
@@ -3031,26 +3031,15 @@
 		BC3B9634249A6A3E000D7646 /* BLEArduino */ = {
 			isa = PBXGroup;
 			children = (
-				F366759224FE542B004E567D /* Nano 33 BLE Sense Sensors */,
-				BCEC93A424C033D20041296C /* BLEScienceKitSensorInterface.swift */,
-				F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */,
-				BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */,
-				BCEC93AC24C0472E0041296C /* ScienceKit Sensors */,
+				BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */,
+				BCEC93AC24C0472E0041296C /* MKRWiFi1010 */,
+				F366759224FE542B004E567D /* Nano33BLE */,
 				BCB6953B24C08FA500CFCD9F /* UI */,
 			);
 			path = BLEArduino;
 			sourceTree = "<group>";
 		};
-		BCB6953B24C08FA500CFCD9F /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */,
-				BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		BCEC93AC24C0472E0041296C /* ScienceKit Sensors */ = {
+		BC9D3E0A2513B7A4009ACA46 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
 				BC7AB0FB24D07A6500703B2E /* BLEScienceKitAccelerometerXSensor.swift */,
@@ -3068,7 +3057,46 @@
 				BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */,
 				BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */,
 			);
-			path = "ScienceKit Sensors";
+			path = Sensors;
+			sourceTree = "<group>";
+		};
+		BC9D3E0E2513B7C3009ACA46 /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				F32D236924FEE75900C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift */,
+				F32D236B24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift */,
+				F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */,
+				F36675A524FEB18C004E567D /* Nano33BLESenseHumiditySensor.swift */,
+				F36675A324FE9D36004E567D /* Nano33BLESenseBarometricPressureSensor.swift */,
+				F36675A124FE5F5E004E567D /* Nano33BLESenseMagnetometerSensor.swift */,
+				F366759B24FE5B60004E567D /* Nano33BLESenseGyroscopeXSensor.swift */,
+				F366759D24FE5B60004E567D /* Nano33BLESenseGyroscopeYSensor.swift */,
+				F366759C24FE5B60004E567D /* Nano33BLESenseGyroscopeZSensor.swift */,
+				F366759924FE59C2004E567D /* Nano33BLESenseLinearAccelerometerSensor.swift */,
+				F366759524FE5697004E567D /* Nano33BLESenseAccelerometerXSensor.swift */,
+				F366759324FE5696004E567D /* Nano33BLESenseAccelerometerYSensor.swift */,
+				F366759424FE5696004E567D /* Nano33BLESenseAccelerometerZSensor.swift */,
+				F384EA4124FD833F00E1F1DE /* Nano33BLESenseTemperatureSensor.swift */,
+			);
+			path = Sensors;
+			sourceTree = "<group>";
+		};
+		BCB6953B24C08FA500CFCD9F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */,
+				BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BCEC93AC24C0472E0041296C /* MKRWiFi1010 */ = {
+			isa = PBXGroup;
+			children = (
+				BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */,
+				BC9D3E0A2513B7A4009ACA46 /* Sensors */,
+			);
+			path = MKRWiFi1010;
 			sourceTree = "<group>";
 		};
 		D80999890678E0AFC0831674 /* Pods */ = {
@@ -3099,25 +3127,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		F366759224FE542B004E567D /* Nano 33 BLE Sense Sensors */ = {
+		F366759224FE542B004E567D /* Nano33BLE */ = {
 			isa = PBXGroup;
 			children = (
-				F32D236924FEE75900C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift */,
-				F32D236B24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift */,
-				F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */,
-				F36675A524FEB18C004E567D /* Nano33BLESenseHumiditySensor.swift */,
-				F36675A324FE9D36004E567D /* Nano33BLESenseBarometricPressureSensor.swift */,
-				F36675A124FE5F5E004E567D /* Nano33BLESenseMagnetometerSensor.swift */,
-				F366759B24FE5B60004E567D /* Nano33BLESenseGyroscopeXSensor.swift */,
-				F366759D24FE5B60004E567D /* Nano33BLESenseGyroscopeYSensor.swift */,
-				F366759C24FE5B60004E567D /* Nano33BLESenseGyroscopeZSensor.swift */,
-				F366759924FE59C2004E567D /* Nano33BLESenseLinearAccelerometerSensor.swift */,
-				F366759524FE5697004E567D /* Nano33BLESenseAccelerometerXSensor.swift */,
-				F366759324FE5696004E567D /* Nano33BLESenseAccelerometerYSensor.swift */,
-				F366759424FE5696004E567D /* Nano33BLESenseAccelerometerZSensor.swift */,
-				F384EA4124FD833F00E1F1DE /* Nano33BLESenseTemperatureSensor.swift */,
+				F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */,
+				BC9D3E0E2513B7C3009ACA46 /* Sensors */,
 			);
-			path = "Nano 33 BLE Sense Sensors";
+			path = Nano33BLE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3773,7 +3789,7 @@
 				68A854F21ED3977C0010B28E /* ExperimentsListHeaderView.swift in Sources */,
 				5CBD9AAD1F6C836600D22D21 /* OptionSelectorView.swift in Sources */,
 				8B1791D11F140F22008C0B31 /* TriggerValueEntryView.swift in Sources */,
-				BCEC93A524C033D20041296C /* BLEScienceKitSensorInterface.swift in Sources */,
+				BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */,
 				5C2C2A2F20373014007F2FA5 /* UnzipOperation.swift in Sources */,
 				F366759724FE5697004E567D /* Nano33BLESenseAccelerometerXSensor.swift in Sources */,
 				687FAA0C202C1162004C1D04 /* SensorTrigger.pbobjc.m in Sources */,
