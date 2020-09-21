@@ -22,17 +22,15 @@ import CoreBluetooth
 struct Nano33BLESenseProximitySensor: BLEArduinoSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0017-467a-9538-01f0652c74e8") }
 
-  var name: String { "proximity".localized }
+  var name: String { String.proximity }
 
   var iconName: String { "sensor_proximity" }
 
   var animatingIconName: String { "nano33_ble_sense_proximity" }
 
-  var unitDescription: String? { "raw_units".localized }
+  var unitDescription: String? { String.proximityUnits }
 
-  var textDescription: String {
-    "An instrument used to measure " +
-    "the proximity to an object" }
+  var textDescription: String { String.sensorDescShortMkrsciProximity }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

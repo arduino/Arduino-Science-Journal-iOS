@@ -22,22 +22,20 @@ import CoreBluetooth
 struct Nano33BLESenseBarometricPressureSensor: BLEArduinoSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0015-467a-9538-01f0652c74e8") }
 
-  var name: String { "barometer".localized }
+  var name: String { String.barometer }
 
   var iconName: String { "ic_sensor_barometer" }
 
   var animatingIconName: String { "sensor_barometer" }
 
-  var unitDescription: String? { "barometer_units".localized }
+  var unitDescription: String? { String.barometerUnits }
 
-  var textDescription: String {
-    "An instrument used to measure " +
-    "the barometric pressure" }
+  var textDescription: String { String.sensorDescShortBarometer }
 
   var learnMoreInformation: Sensor.LearnMore {
-    Sensor.LearnMore(firstParagraph: "",
-                     secondParagraph: "",
-                     imageName: "")
+    Sensor.LearnMore(firstParagraph: String.sensorDescFirstParagraphBarometer,
+                     secondParagraph: String.sensorDescSecondParagraphBarometer,
+                     imageName: "learn_more_barometer")
   }
 
   var config: BLEArduinoSensorConfig?

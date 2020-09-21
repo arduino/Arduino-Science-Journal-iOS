@@ -23,15 +23,15 @@ struct Nano33BLESenseColorIlluminanceSensor: BLEArduinoSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0018-467a-9538-01f0652c74e8") }
   static var identifier: String { "\(uuid.uuidString)_1" }
 
-  var name: String { "ambient_light".localized }
+  var name: String { String.ambientLight }
 
   var iconName: String { "ic_sensor_light" }
 
   var animatingIconName: String { "mkrsci_light" }
 
-  var unitDescription: String? { "ambient_light_units".localized }
+  var unitDescription: String? { String.ambientLightUnits }
 
-  var textDescription: String { "sensor_desc_short_mkrsci_color_illuminance".localized }
+  var textDescription: String { String.sensorDescShortMkrsciColorIlluminance }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

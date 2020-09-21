@@ -22,17 +22,15 @@ import CoreBluetooth
 struct Nano33BLESenseHumiditySensor: BLEArduinoSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0016-467a-9538-01f0652c74e8") }
 
-  var name: String { "humidity".localized }
+  var name: String { String.humidity }
 
   var iconName: String { "sensor_humidity" }
 
   var animatingIconName: String { "sensor_humidity" }
 
-  var unitDescription: String? { "raw_units".localized }
+  var unitDescription: String? { String.humidityUnits }
 
-  var textDescription: String {
-    "An instrument used to measure " +
-    "the humidity of the envirionment" }
+  var textDescription: String { String.sensorDescShortMkrsciHumidity }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

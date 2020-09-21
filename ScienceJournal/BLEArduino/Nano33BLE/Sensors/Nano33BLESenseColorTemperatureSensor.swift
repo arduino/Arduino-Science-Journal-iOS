@@ -23,15 +23,15 @@ struct Nano33BLESenseColorTemperatureSensor: BLEArduinoSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0018-467a-9538-01f0652c74e8") }
   static var identifier: String { "\(uuid.uuidString)_2" }
 
-  var name: String { "Color Temperature" } //"color_temperature".localized
+  var name: String { String.colorTemperature }
 
   var iconName: String { "sensor_color" }
 
   var animatingIconName: String { "sensor_color" }
 
-  var unitDescription: String? { "K" } //"color_temperature_units".localized
+  var unitDescription: String? { String.colorTemperatureUnits }
 
-  var textDescription: String { "sensor_desc_short_mkrsci_color_temperature".localized }
+  var textDescription: String { String.sensorDescShortMkrsciColorTemperature }
 
   var learnMoreInformation: Sensor.LearnMore {
     Sensor.LearnMore(firstParagraph: "",

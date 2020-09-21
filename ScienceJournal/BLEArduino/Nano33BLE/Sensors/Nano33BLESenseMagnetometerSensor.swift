@@ -22,20 +22,20 @@ import CoreBluetooth
 struct Nano33BLESenseMagnetometerSensor: BLEArduinoSensor {
   static var uuid: CBUUID { CBUUID(string: "555a0002-0013-467a-9538-01f0652c74e8") }
 
-  var name: String { "magnetic_field_strength".localized }
+  var name: String { String.magneticFieldStrength }
 
   var iconName: String { "mkrsci_magnetometer" }
 
   var animatingIconName: String { "mkrsci_magnetometer" }
 
-  var unitDescription: String? { "magnetic_strength_units".localized }
+  var unitDescription: String? { String.magneticStrengthUnits }
 
-  var textDescription: String { "sensor_desc_short_mkrsci_magnetometer".localized }
+  var textDescription: String { String.sensorDescShortMagneticStrength }
 
   var learnMoreInformation: Sensor.LearnMore {
-    Sensor.LearnMore(firstParagraph: "",
-                     secondParagraph: "",
-                     imageName: "")
+    Sensor.LearnMore(firstParagraph: String.sensorDescFirstParagraphMagneticStrength,
+                     secondParagraph: String.sensorDescSecondParagraphMagneticStrength,
+                     imageName: "learn_more_magnet")
   }
 
   var config: BLEArduinoSensorConfig?
