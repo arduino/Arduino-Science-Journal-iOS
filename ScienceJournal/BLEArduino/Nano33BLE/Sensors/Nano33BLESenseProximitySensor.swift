@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseProximitySensor.swift
 //  ScienceJournal
 //

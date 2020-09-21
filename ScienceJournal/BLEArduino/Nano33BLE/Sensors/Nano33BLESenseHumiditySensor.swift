@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseHumiditySensor.swift
 //  ScienceJournal
 //

@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseTemperatureSensor.swift
 //  ScienceJournal
 //
@@ -56,7 +56,7 @@ struct Nano33BLESenseTemperatureSensor: BLEArduinoSensor {
   func point(for data: Data) -> Double {
     guard data.count == 4 else { return 0 }
     let temperature = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Float.self) }
-    
+
     switch config {
     case .temperatureFahrenheit:
       return Double(temperature * (9.0 / 5.0) + 32.0)

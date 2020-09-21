@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseAccelerometerXSensor.swift
 //  ScienceJournal
 //

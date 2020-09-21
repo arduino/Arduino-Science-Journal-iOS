@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseServiceInterface.swift
 //  ScienceJournal
 //
@@ -27,15 +27,15 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
   var serviceId: CBUUID {
     return Nano33BLESenseIds.serviceUUID
   }
-  
+
   var name: String {
     return "Nano 33 BLE Sense"
   }
-  
+
   var iconName: String {
     return "ic_sensor_bluetooth"
   }
-  
+
   class func sensor(for spec: SensorSpec) -> BLESensorInterface? {
     switch spec.gadgetInfo.address {
     case Nano33BLESenseTemperatureSensor.identifier:
@@ -98,7 +98,7 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
       return nil
     }
   }
-  
+
   func devicesForPeripheral(_ peripheral: CBPeripheral) -> [BLESensorInterface] {
     return [
       BLEArduinoSensorInterface(peripheral: peripheral,

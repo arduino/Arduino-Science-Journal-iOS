@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseGyroscopeYSensor.swift
 //  ScienceJournal
 //

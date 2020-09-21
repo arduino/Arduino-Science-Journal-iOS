@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseColorIlluminanceSensor.swift
 //  ScienceJournal
 //

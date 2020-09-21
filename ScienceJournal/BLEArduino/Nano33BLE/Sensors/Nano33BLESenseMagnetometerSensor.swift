@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseMagnetometerSensor.swift
 //  ScienceJournal
 //

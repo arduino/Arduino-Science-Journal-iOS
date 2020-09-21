@@ -27,15 +27,15 @@ class MKRWiFi1010ServiceInterface: BLEServiceInterface {
   var serviceId: CBUUID {
     return MKRWiFi1010Ids.serviceUUID
   }
-  
+
   var name: String {
     return "MKR WiFi 1010"
   }
-  
+
   var iconName: String {
     return "ic_sensor_bluetooth"
   }
-  
+
   class func sensor(for spec: SensorSpec) -> BLESensorInterface? {
     switch spec.gadgetInfo.address {
     case BLEScienceKitVoltageSensor.identifier:
@@ -98,7 +98,7 @@ class MKRWiFi1010ServiceInterface: BLEServiceInterface {
       return nil
     }
   }
-  
+
   func devicesForPeripheral(_ peripheral: CBPeripheral) -> [BLESensorInterface] {
     return [
       BLEArduinoSensorInterface(peripheral: peripheral,

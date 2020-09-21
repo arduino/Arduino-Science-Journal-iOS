@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseColorTemperatureSensor.swift
 //  ScienceJournal
 //
@@ -47,7 +47,7 @@ struct Nano33BLESenseColorTemperatureSensor: BLEArduinoSensor {
     let rawR = data.withUnsafeBytes { $0.load(fromByteOffset: 0, as: Int16.self) }
     let rawG = data.withUnsafeBytes { $0.load(fromByteOffset: 1 * 4, as: Int16.self) }
     let rawB = data.withUnsafeBytes { $0.load(fromByteOffset: 2 * 4, as: Int16.self) }
-    
+
     // 1. Map RGB values to their XYZ counterparts.
     let r = (Double(rawR) / 4097.0)
     let g = (Double(rawG) / 4097.0)
@@ -55,17 +55,17 @@ struct Nano33BLESenseColorTemperatureSensor: BLEArduinoSensor {
     let x = (0.412453 * r) + (0.35758 * g) + (0.180423 * b)
     let y = (0.212671 * r) + (0.71516 * g) + (0.072169 * b)
     let z = (0.019334 * r) + (0.119193 * g) + (0.950227 * b)
-    
+
     // 2. Calculate the chromaticity co-ordinates
     let xchrome = x / (x + y + z)
     let ychrome = y / (x + y + z)
-    
+
     // 3. Use to determine the CCT
     let n = (xchrome - 0.3320) / (0.1858 - ychrome)
-    
+
     // 4. Calculate the final CCT
     let cct = (449.0 * pow(n, 3)) + (3525.0 * pow(n, 2)) + (6823.3 * n) + 5520.33
-    
+
     if cct > 15000.0 {
       return 15000.0
     } else if cct < 0 || cct.isNaN {

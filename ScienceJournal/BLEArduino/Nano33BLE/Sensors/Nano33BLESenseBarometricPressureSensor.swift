@@ -1,4 +1,4 @@
-//  
+//
 //  Nano33BLESenseBarometricPressureSensor.swift
 //  ScienceJournal
 //

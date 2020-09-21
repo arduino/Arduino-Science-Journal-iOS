@@ -29,25 +29,25 @@ class ScienceKitSensorConfigViewController: ScienceJournalViewController {
     static let verticalViewInsets = viewInsets.top + viewInsets.bottom
     static let verticalSpacing: CGFloat = 10
   }
-  
+
   var options = [BLEArduinoSensorConfig]() {
     didSet {
       typeSelector.options = options
     }
   }
-  
+
   var config = BLEArduinoSensorConfig.raw {
     didSet {
       typeSelector.configType = config
     }
   }
-  
+
   let okButton = MDCFlatButton()
-  
+
   private let stackView = UIStackView()
   private let headerLabel = UILabel()
   private let typeSelector = ScienceKitSensorConfigSelectorView()
-  
+
   /// The height required to display the view's contents depending on type selection.
   private var totalHeight: CGFloat {
     let headerHeight =
@@ -55,34 +55,34 @@ class ScienceKitSensorConfigViewController: ScienceJournalViewController {
     let okButtonHeight = okButton.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
     let typeSelectorHeight =
       typeSelector.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
-    
+
     let height = headerHeight + okButtonHeight + typeSelectorHeight + Metrics.verticalViewInsets
     let verticalSpaces: CGFloat = 2
     return height + Metrics.verticalSpacing * verticalSpaces
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     view.backgroundColor = .white
-    
+
     accessibilityViewIsModal = true
-    
+
     stackView.axis = .vertical
     stackView.spacing = Metrics.verticalSpacing
     stackView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(stackView)
-    
+
     headerLabel.text = String.titleActivitySensorSettings
     headerLabel.font = MDCTypography.titleFont()
     headerLabel.translatesAutoresizingMaskIntoConstraints = false
     stackView.addArrangedSubview(headerLabel)
-    
+
     typeSelector.optionSelectorDelegate = self
     typeSelector.typeDelegate = self
     typeSelector.translatesAutoresizingMaskIntoConstraints = false
     stackView.addArrangedSubview(typeSelector)
-    
+
     let buttonWrapper = UIView()
     buttonWrapper.translatesAutoresizingMaskIntoConstraints = false
     buttonWrapper.addSubview(okButton)
@@ -91,23 +91,23 @@ class ScienceKitSensorConfigViewController: ScienceJournalViewController {
     okButton.topAnchor.constraint(equalTo: buttonWrapper.topAnchor).isActive = true
     okButton.trailingAnchor.constraint(equalTo: buttonWrapper.trailingAnchor).isActive = true
     okButton.bottomAnchor.constraint(equalTo: buttonWrapper.bottomAnchor).isActive = true
-    
+
     okButton.setTitle(String.actionOk, for: .normal)
     okButton.accessibilityHint = String.deviceOptionsOkContentDescription
     stackView.addArrangedSubview(buttonWrapper)
-    
+
     stackView.pinToEdgesOfView(view)
     stackView.layoutMargins = Metrics.viewInsets
     stackView.isLayoutMarginsRelativeArrangement = true
-    
+
     setPreferredContentSize()
   }
-  
+
   override func accessibilityPerformEscape() -> Bool {
     dismiss(animated: true)
     return true
   }
-  
+
   private func setPreferredContentSize() {
     // When presented as a Material dialog, the preferred content size dictates its displayed size.
     preferredContentSize = CGSize(width: 200, height: totalHeight)
