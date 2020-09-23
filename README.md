@@ -55,11 +55,11 @@ Check out [CONTRIBUTING.md](https://github.com/arduino/Arduino/blob/master/CONTR
 
 ## Code of Conduct
 
-Help us keep _Science Journal_ open and inclusive. Please read and follow our [Code of Conduct](https://github.com/google/science-journal-ios/blob/master/CODE_OF_CONDUCT.md).
+Help us keep _Science Journal_ open and inclusive. Please read and follow our [Code of Conduct](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
-This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/bcmi-labs/Science-Journal-Android/blob/master/LICENSE) file.
+This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/LICENSE) file.
 
 
 ## Security
