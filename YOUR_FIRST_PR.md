@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Before you start working on Science Journal iOS, make sure you've read [CONTRIBUTING.md](https://github.com/google/science-journal-ios/blob/master/CONTRIBUTING.md).
+Before you start working on Science Journal iOS, make sure you've read [CONTRIBUTING.md](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/CONTRIBUTING.md).
 
 ## Finding things to work on
 
@@ -12,7 +12,7 @@ If you want to work on something else, e.g. new functionality or fixing a bug, i
 
 ## Checking out the Science Journal iOS repo
 
-- Click the “Fork” button in the upper right corner of the [main Science Journal iOS repo](https://github.com/bcmi-labs/Science-Journal-iOS)
+- Click the “Fork” button in the upper right corner of the [main Science Journal iOS repo](https://github.com/arduino/Arduino-Science-Journal-iOS)
 - Clone your fork:
   - `git clone git@github.com:<YOUR_GITHUB_USER>/science-journal-ios.git`
   - Learn more about how to manage your fork: [https://help.github.com/articles/working-with-forks/](https://help.github.com/articles/working-with-forks/)
@@ -29,7 +29,7 @@ First, run unit tests: Select the `ScienceJournal` scheme, select a simulator ta
 
 ## Submitting a PR
 
-When the coding is done and you’ve finished testing your changes, you're ready to submit a PR to the [Science Journal iOS main repo](https://github.com/bcmi-labs/Science-Journal-iOS). Everything you need to know about submitting the PR itself is inside our [Pull Request Template][pr template]. Some best practices are:
+When the coding is done and you’ve finished testing your changes, you're ready to submit a PR to the [Science Journal iOS main repo](https://github.com/arduino/Arduino-Science-Journal-iOS). Everything you need to know about submitting the PR itself is inside our [Pull Request Template][pr template]. Some best practices are:
 
 - Use a descriptive title
 - Link the issues related to your PR in the body
@@ -43,5 +43,4 @@ Before you make any changes after your code has been reviewed, you should always
 After your contribution is merged, it’s not immediately available to all users. Your change will be shipped as part of the next release. If your change is time-sensitive, please let us know so we can schedule a release for your change.
 
 <!-- Links -->
-[you can do this]: https://github.com/google/science-journal-ios/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22complexity%3A+you+can+do+this%22+
-
+[you can do this]: https://github.com/arduino/Arduino-Science-Journal-iOS/labels/You%20can%20do%20this
