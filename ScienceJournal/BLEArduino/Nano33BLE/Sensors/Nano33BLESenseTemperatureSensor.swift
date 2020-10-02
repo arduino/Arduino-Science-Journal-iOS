@@ -26,7 +26,7 @@ struct Nano33BLESenseTemperatureSensor: BLEArduinoSensor {
 
   var iconName: String { "ic_sensor_temperature" }
 
-  var animatingIconName: String { "arduino_temperature" }
+  var animatingIconName: String { "mkrsci_temperature" }
 
   var unitDescription: String? {
     switch config {
