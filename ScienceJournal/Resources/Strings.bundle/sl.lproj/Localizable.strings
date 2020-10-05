@@ -320,6 +320,8 @@
 "close_btn_content_description" = "Zapri";
 /* Accessibility details for the close button on a view [CHAR_LIMIT=NONE] */
 "close_btn_content_details" = "Nazaj na prejšnji pogled";
+"color_temperature" = "Color Temperature";
+"color_temperature_units" = "K";
 /* Displayed name of a sensor that shows a compass orientation [CHAR_LIMIT=25] */
 "compass" = "Kompas";
 /* Units for a compass sensor [CHAR_LIMIT=10] */
@@ -550,6 +552,8 @@
 "heading_info_section" = "Kaj se dogaja?";
 /* Displayed units for a pitch sensor, hertz [CHAR_LIMIT=10] */
 "hertz_units" = "Hz";
+"humidity" = "Humidity";
+"humidity_units" = "%";
 /* Generic Error for attempting to import [CHAR_LIMIT=NONE] */
 "import_failed" = "Prišlo je do neznane napake.";
 /* Error for attempting to import a corrupted file [CHAR_LIMIT=NONE] */
@@ -743,6 +747,8 @@
 "play_content_description" = "Predvajaj";
 /* Snackbar message when preferences are migrated from root to account users. [CHAR_LIMIT=100] */
 "preference_migration_message" = "Obstoječe nastavitve naprave so bile uporabljene v tem računu";
+"proximity" = "Proximity";
+"proximity_units" = "%";
 /* Accessibility announcement indicating pull to refresh has been initiated. [CHAR_LIMIT=NONE] */
 "pull_to_refresh_content_description" = "Osveževanje";
 /* Displayed units for a raw sensor, a percentage [CHAR_LIMIT=10] */
@@ -904,9 +910,12 @@
 "sensor_desc_short_magnetic_strength" = "Moč okoljskega geomagnetnega polja, izražena v enoti mikrotesla.";
 "sensor_desc_short_mkrsci_acc" = "A device that measures acceleration";
 "sensor_desc_short_mkrsci_color_illuminance" = "The ambient light sensor measures light in lux, a measure of illumination that depends on the amount of incoming light and the area over which it is spread. The amount of light is measured in lux.";
+"sensor_desc_short_mkrsci_color_temperature" = "Color temperature is a characteristic of visible light that has important applications in many industries, such as: lighting, photography, astrophysics, manufacturing, and other fields. Color temperature is expressed in Kelvins (K), a unit of measurement for absolute temperature.";
 "sensor_desc_short_mkrsci_current" = "The amount of flow of charged particles between two places";
 "sensor_desc_short_mkrsci_gyr" = "A device that measures orientation and angular velocity (rotation).";
+"sensor_desc_short_mkrsci_humidity" = "A humidity sensor is an electronic device that measures the humidity in its environment and converts it into an electrical signal. Relative humidity is measured in %.";
 "sensor_desc_short_mkrsci_magnetometer" = "An instrument used to measure the intensity and direction of a magnetic field";
+"sensor_desc_short_mkrsci_proximity" = "A proximity sensor is a sensor able to detect the presence of nearby objects without any physical contact. A proximity sensor often emits an electromagnetic field or a beam of electromagnetic radiation (infrared, for instance), and looks for changes in the field or return signal. The object being sensed is often referred to as the proximity sensor's target. Proximity here is measured in millimeters or mm.";
 "sensor_desc_short_mkrsci_resistance" = "The measure of the difficulty of current flow through an object or material";
 "sensor_desc_short_mkrsci_temperature" = "Ambient temperature in C or F";
 "sensor_desc_short_mkrsci_voltage" = "The difference in electric potential between two places that allows a current to flow";

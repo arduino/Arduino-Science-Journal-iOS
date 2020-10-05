@@ -185,6 +185,8 @@ extension String {
   static public var claimExperimentsViewTitle: String { return "claim_experiments_view_title".localized }
   static public var closeBtnContentDescription: String { return "close_btn_content_description".localized }
   static public var closeBtnContentDetails: String { return "close_btn_content_details".localized }
+  static public var colorTemperature: String { return "color_temperature".localized }
+  static public var colorTemperatureUnits: String { return "color_temperature_units".localized }
   static public var compass: String { return "compass".localized }
   static public var compassUnits: String { return "compass_units".localized }
   static public var concatenationSeparator: String { return "concatenation_separator".localized }
@@ -302,6 +304,8 @@ extension String {
   static public var gyrZ: String { return "gyr_z".localized }
   static public var headingInfoSection: String { return "heading_info_section".localized }
   static public var hertzUnits: String { return "hertz_units".localized }
+  static public var humidity: String { return "humidity".localized }
+  static public var humidityUnits: String { return "humidity_units".localized }
   static public var importFailed: String { return "import_failed".localized }
   static public var importFailedFile: String { return "import_failed_file".localized }
   static public var importFailedRecording: String { return "import_failed_recording".localized }
@@ -400,6 +404,8 @@ extension String {
   static public var pixels: String { return "pixels".localized }
   static public var playContentDescription: String { return "play_content_description".localized }
   static public var preferenceMigrationMessage: String { return "preference_migration_message".localized }
+  static public var proximity: String { return "proximity".localized }
+  static public var proximityUnits: String { return "proximity_units".localized }
   static public var pullToRefreshContentDescription: String { return "pull_to_refresh_content_description".localized }
   static public var rawUnits: String { return "raw_units".localized }
   static public var recordingEndedDialogMessage: String { return "recording_ended_dialog_message".localized }
@@ -482,9 +488,12 @@ extension String {
   static public var sensorDescShortMagneticStrength: String { return "sensor_desc_short_magnetic_strength".localized }
   static public var sensorDescShortMkrsciAcc: String { return "sensor_desc_short_mkrsci_acc".localized }
   static public var sensorDescShortMkrsciColorIlluminance: String { return "sensor_desc_short_mkrsci_color_illuminance".localized }
+  static public var sensorDescShortMkrsciColorTemperature: String { return "sensor_desc_short_mkrsci_color_temperature".localized }
   static public var sensorDescShortMkrsciCurrent: String { return "sensor_desc_short_mkrsci_current".localized }
   static public var sensorDescShortMkrsciGyr: String { return "sensor_desc_short_mkrsci_gyr".localized }
+  static public var sensorDescShortMkrsciHumidity: String { return "sensor_desc_short_mkrsci_humidity".localized }
   static public var sensorDescShortMkrsciMagnetometer: String { return "sensor_desc_short_mkrsci_magnetometer".localized }
+  static public var sensorDescShortMkrsciProximity: String { return "sensor_desc_short_mkrsci_proximity".localized }
   static public var sensorDescShortMkrsciResistance: String { return "sensor_desc_short_mkrsci_resistance".localized }
   static public var sensorDescShortMkrsciTemperature: String { return "sensor_desc_short_mkrsci_temperature".localized }
   static public var sensorDescShortMkrsciVoltage: String { return "sensor_desc_short_mkrsci_voltage".localized }

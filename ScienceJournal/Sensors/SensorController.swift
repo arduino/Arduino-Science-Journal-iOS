@@ -65,7 +65,7 @@ open class SensorController {
 
   /// Supported BLE Services.
   var bleServices: [BLEServiceInterface] {
-    return [MKRWiFi1010ServiceInterface()]
+    return [MKRWiFi1010ServiceInterface(), Nano33BLESenseServiceInterface()]
   }
 
   /// Known bluetooth sensors keyed by service ID.
