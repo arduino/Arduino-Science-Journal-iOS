@@ -93,6 +93,7 @@ class TrialCardHeaderView: UIView {
     addSubview(titleLabel)
     applyLabelStyles(to: titleLabel)
 
+    titleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     let titleInsets = UIEdgeInsets(top: ExperimentCardView.innerVerticalPadding,
                                    left: ExperimentCardView.innerHorizontalPadding,
@@ -104,6 +105,7 @@ class TrialCardHeaderView: UIView {
     addSubview(durationLabel)
     applyLabelStyles(to: durationLabel)
 
+    durationLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
     durationLabel.translatesAutoresizingMaskIntoConstraints = false
     let durationInsets = UIEdgeInsets(top: ExperimentCardView.innerVerticalPadding,
                                       left: 0,
