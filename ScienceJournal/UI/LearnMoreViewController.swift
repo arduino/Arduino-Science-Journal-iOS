@@ -102,6 +102,10 @@ class LearnMoreViewController: MaterialHeaderViewController {
     scrollView.addSubview(stackView)
     stackView.pinToEdgesOfView(scrollView)
     stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+
+    if sensor.learnMore == nil || sensor.learnMore!.isEmpty {
+      whatsGoingOnLabel.isHidden = true
+    }
   }
 
   override func accessibilityPerformEscape() -> Bool {
@@ -115,4 +119,10 @@ class LearnMoreViewController: MaterialHeaderViewController {
     dismiss(animated: true)
   }
 
+}
+
+extension Sensor.LearnMore {
+  var isEmpty: Bool {
+    firstParagraph.isEmpty && secondParagraph.isEmpty && imageName.isEmpty
+  }
 }
