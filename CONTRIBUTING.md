@@ -13,17 +13,17 @@ If you built the app yourself, somebody else, or any other distribution channel 
 Before submitting a new GitHub issue, please make sure to
 
 - Check out our forums [Science Journal forums](https://forum.arduino.cc/index.php?board=131.0)
-- Check out the README in [this repo](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/README.md)
-- Search for [existing GitHub issues](https://github.com/bcmi-labs/Science-Journal-iOS/issues)
+- Check out the README in [this repo](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/README.md)
+- Search for [existing GitHub issues](https://github.com/arduino/Arduino-Science-Journal-iOS/issues)
 
-If the above doesn't help, please [submit an issue](https://github.com/bcmi-labs/Science-Journal-iOS/issues) on GitHub and provide information about your setup.
+If the above doesn't help, please [submit an issue](https://github.com/arduino/Arduino-Science-Journal-iOS/issues) on GitHub and provide information about your setup.
 
 **Note**: If you want to report a regression in Science Journal iOS (something that has worked before, but broke with a new release), please mark your issue title as such using `[Regression] Your title here`. This enables us to quickly detect and fix regressions.
 
 ## I want to contribute to Science Journal iOS
 
-- To start working on Science Journal iOS, check out [Your First PR](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/YOUR_FIRST_PR.md).
-- We have a few limits on what changes we can accept, from a techinical perspective. It might not be obvious, so please read [Change Limitations](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/CHANGE_LIMITATIONS.md).
+- To start working on Science Journal iOS, check out [Your First PR](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/YOUR_FIRST_PR.md).
+- We have a few limits on what changes we can accept, from a techinical perspective. It might not be obvious, so please read [Change Limitations](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/CHANGE_LIMITATIONS.md).
 
 ## Contributor License Agreement (CLA)
 
@@ -42,8 +42,8 @@ One of the best ways we can keep Science Journal iOS an approachable, stable, an
 
 ## Code of Conduct
 
-Help us keep Science Journal iOS open and inclusive. Please read and follow our [Code of Conduct](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/CODE_OF_CONDUCT.md).
+Help us keep Science Journal iOS open and inclusive. Please read and follow our [Code of Conduct](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
-This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/LICENSE) file.
+This project is licensed under the terms of the Apache 2.0 license. See the [LICENSE](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/LICENSE) file.
