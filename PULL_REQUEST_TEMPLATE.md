@@ -2,8 +2,8 @@
 
 ### Checklist
 - [ ] All new and existing tests pass
-- [ ] I've read the [Contribution Guidelines](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/CONTRIBUTING.md)
-- [ ] I've read [Change Limitations](https://github.com/bcmi-labs/Science-Journal-iOS/blob/master/CHANGE_LIMITATIONS.md)
+- [ ] I've read the [Contribution Guidelines](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/CONTRIBUTING.md)
+- [ ] I've read [Change Limitations](https://github.com/arduino/Arduino-Science-Journal-iOS/blob/main/CHANGE_LIMITATIONS.md)
 
 ### Motivation and Context
 <!-- Why is this change required? What problem does it solve? -->
