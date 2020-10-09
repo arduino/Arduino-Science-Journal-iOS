@@ -15,7 +15,7 @@
  */
 
 import UIKit
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
+import MaterialComponents.MaterialPalettes
 
 /// Provides the configuration for views under this controller's tree for various states.
 enum ExperimentDisplay {

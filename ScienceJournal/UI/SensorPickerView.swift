@@ -16,8 +16,8 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Buttons_Buttons
-import third_party_objective_c_material_components_ios_components_Tabs_Tabs
+import MaterialComponents.MaterialButtons
+import MaterialComponents.MaterialTabs
 
 /// A view with the sensor settings button and a picker view for selecting sensors.
 class SensorPickerView: UIView {

@@ -16,8 +16,8 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Buttons_Buttons
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialButtons
+import MaterialComponents.MaterialTypography
 
 protocol TrialDetailAddNoteCellDelegate: class {
   /// Informs the delegate that the add note button was pressed.

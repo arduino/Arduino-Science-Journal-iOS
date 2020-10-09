@@ -16,8 +16,8 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Ink_Ink
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialInk
+import MaterialComponents.MaterialTypography
 
 /// Cell used in the sidebar to display a menu option with a title and icon.
 class SidebarCell: UICollectionViewCell {

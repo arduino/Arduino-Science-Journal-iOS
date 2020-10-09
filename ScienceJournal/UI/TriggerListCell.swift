@@ -16,8 +16,8 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_CollectionCells_CollectionCells
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialCollectionCells
+import MaterialComponents.MaterialTypography
 
 protocol TriggerListCellDelegate: class {
   /// Called when the switch value changes.

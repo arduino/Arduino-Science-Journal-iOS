@@ -17,8 +17,8 @@
 import SnapKit
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_ButtonBar_ButtonBar
-import third_party_objective_c_material_components_ios_components_ShadowLayer_ShadowLayer
+import MaterialComponents.MaterialButtonBar
+import MaterialComponents.MaterialShadowLayer
 
 // MARK: - ActionArea.BarViewController
 

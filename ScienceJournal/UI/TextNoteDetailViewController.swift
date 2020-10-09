@@ -16,8 +16,7 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Typography_Typography
-import third_party_objective_c_material_components_ios_components_private_KeyboardWatcher_KeyboardWatcher
+import MaterialComponents.MaterialTypography
 
 /// The detail view of a text note which allows for editing of the text contents.
 class TextNoteDetailViewController: MaterialHeaderViewController, NoteDetailController {

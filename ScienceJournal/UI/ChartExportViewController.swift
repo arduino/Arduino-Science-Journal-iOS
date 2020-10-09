@@ -16,7 +16,7 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
+import MaterialComponents.MaterialPalettes
 
 /// Responsible for presentation of a chart in review mode. Derived from PlaybackViewController
 /// for the purposes of rendering a chart for PDF export from view hierarchy.

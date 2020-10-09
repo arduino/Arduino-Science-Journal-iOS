@@ -16,8 +16,8 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_ShadowLayer_ShadowLayer
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialShadowLayer
+import MaterialComponents.MaterialTypography
 
 /// A view that shows an archived flag, which can appear in an archived experiment list cell or
 /// trial card cell.

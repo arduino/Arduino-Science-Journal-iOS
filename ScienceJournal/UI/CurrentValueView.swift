@@ -16,8 +16,8 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Buttons_Buttons
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialButtons
+import MaterialComponents.MaterialTypography
 
 /// Shows the current value of the sensor in a label, and an icon.
 class CurrentValueView: UIView {

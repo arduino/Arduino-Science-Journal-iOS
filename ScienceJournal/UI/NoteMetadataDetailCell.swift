@@ -16,8 +16,8 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialPalettes
+import MaterialComponents.MaterialTypography
 
 /// A cell that displays the description, value and icon for metadata about a note.
 class NoteMetadataDetailCell: UICollectionViewCell {

@@ -16,7 +16,7 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_AppBar_AppBar
+import MaterialComponents.MaterialAppBar
 
 // TODO: Ensure this handles existing issues or use one of the other superclasses.
 // TODO: Consider making this private and wrapping content VCs that are not subclasses
