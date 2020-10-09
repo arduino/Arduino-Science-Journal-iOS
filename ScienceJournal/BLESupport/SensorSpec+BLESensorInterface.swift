@@ -29,9 +29,13 @@ extension SensorSpec {
     proto.info.address = bleSensorInterface.identifier
     proto.info.providerId = bleSensorInterface.providerId
     proto.rememberedAppearance.name = bleSensorInterface.name
-    proto.rememberedAppearance.iconPath = IconPath(type: .proto, pathString: nil).proto
     proto.rememberedAppearance.units = bleSensorInterface.unitDescription
     proto.rememberedAppearance.shortDescription = bleSensorInterface.textDescription
+
+    let iconPath = IconPath(type: .proto, pathString: bleSensorInterface.identifier).proto
+    proto.rememberedAppearance.iconPath = iconPath
+    proto.rememberedAppearance.largeIconPath = iconPath
+
     self.init(proto: proto)
   }
 

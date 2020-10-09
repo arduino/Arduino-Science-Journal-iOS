@@ -271,7 +271,7 @@ class ExperimentDataParser {
   private func imageAttributesForAppearance(_ appearance: BasicSensorAppearance,
                                             size: CGSize?,
                                             value: Double?) -> (UIImage?, String?) {
-    guard let iconPath = appearance.largeIconPath, iconPath.type == .builtin else {
+    guard let iconPath = appearance.largeIconPath else {
       return (UIImage(named: ExperimentDataParser.genericLargeIconName), nil)
     }
 
@@ -285,7 +285,7 @@ class ExperimentDataParser {
     }
 
     switch iconPath.type {
-    case .builtin:
+    case .builtin, .proto:
       return (UIImage(named: sensor.iconName + ExperimentDataParser.largeIconSuffix), nil)
     default: return (UIImage(named: ExperimentDataParser.genericLargeIconName), nil)
     }
