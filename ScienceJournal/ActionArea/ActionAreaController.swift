@@ -149,7 +149,7 @@ extension ActionArea {
         switch self {
         case .portrait:
           return "portrait(\(mode))"
-        case let .landscape(mode):
+        case let .landscape(_, mode):
           return "landscape(\(mode))"
         }
       }
@@ -983,7 +983,7 @@ private extension ActionArea.Controller {
   }
 
   func animateBarElevation(barIsElevated: Bool) {
-    guard let master = presentedMasterViewController else { return }
+    guard presentedMasterViewController != nil else { return }
 
     func animate() {
       if isExpanded {
@@ -1130,6 +1130,8 @@ extension ActionArea.Controller: UINavigationControllerDelegate {
         transitionDuration: Metrics.defaultAnimationDuration
       )
     case .push, .pop, .none:
+      return nil
+    @unknown default:
       return nil
     }
   }

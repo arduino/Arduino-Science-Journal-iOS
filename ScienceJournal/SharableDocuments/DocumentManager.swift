@@ -125,7 +125,7 @@ class DocumentManager {
                                 experimentURL: newExperimentURL,
                                 sensorDataManager: sensorDataManager,
                                 metadataManager: metadataManager)
-    let observer = BlockObserver { (operation, errors) in
+    let observer = BlockObserver(finishHandler: { (operation, errors) in
       if !operation.didFinishSuccessfully {
         self.experimentDataDeleter.permanentlyDeleteExperiment(withID: newExperimentID)
 
@@ -141,7 +141,7 @@ class DocumentManager {
                                         object: self,
                                         userInfo: userInfo)
       }
-    }
+    })
     importDocumentOperation.addObserver(observer)
     importDocumentOperation.addObserver(BackgroundTaskObserver())
     operationQueue.addOperation(importDocumentOperation)
@@ -205,7 +205,7 @@ class DocumentManager {
         experiment: experiment,
         experimentURL: metadataManager.experimentDirectoryURL(for: experimentID),
         sensorDataManager: sensorDataManager)
-    let blockObserver = BlockObserver { (operation, _) in
+    let blockObserver = BlockObserver(finishHandler: { (operation, _) in
       DispatchQueue.main.async {
         guard let documentURL = (operation as? ExportDocumentOperation)?.documentURL else {
           completion(nil)
@@ -213,7 +213,7 @@ class DocumentManager {
         }
         completion(documentURL)
       }
-    }
+    })
     documentExportOperation.addObserver(blockObserver)
     documentExportOperation.addObserver(BackgroundTaskObserver())
 
@@ -273,7 +273,7 @@ extension DocumentManager {
                                   experimentURL: newExperimentURL,
                                   sensorDataManager: sensorDataManager,
                                   metadataManager: metadataManager)
-      let observer = BlockObserver { (operation, _) in
+      let observer = BlockObserver(finishHandler: { (operation, _) in
         if operation.didFinishSuccessfully {
           self.metadataManager.addImportedExperiment(withID: newExperimentID)
 
@@ -284,16 +284,16 @@ extension DocumentManager {
         } else {
           self.experimentDataDeleter.permanentlyDeleteExperiment(withID: newExperimentID)
         }
-      }
+      })
       importDocumentOperation.addObserver(observer)
       importDocumentOperation.addObserver(BackgroundTaskObserver())
       importOperations.append(importDocumentOperation)
     }
 
     let groupOperation = GroupOperation(operations: importOperations)
-    let groupObserver = BlockObserver { (_, _) in
+    let groupObserver = BlockObserver(finishHandler: { (_, _) in
       completion?()
-    }
+    })
     groupOperation.addObserver(groupObserver)
     operationQueue.addOperation(groupOperation)
   }

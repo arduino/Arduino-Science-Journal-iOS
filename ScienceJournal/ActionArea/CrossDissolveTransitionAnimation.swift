@@ -42,6 +42,8 @@ final class CrossDissolveTransitionAnimation: NSObject, UIViewControllerAnimated
       animatePush(using: transitionContext)
     case .pop:
       animatePop(using: transitionContext)
+    @unknown default:
+      transitionContext.completeTransition(false)
     }
   }
 

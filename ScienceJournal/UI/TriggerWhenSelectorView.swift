@@ -61,6 +61,8 @@ class TriggerWhenSelectorView: TriggerOptionSelectorView {
       selectionLabel.text = String.triggerWhenDropsBelow
     case .triggerWhenRisesAbove:
       selectionLabel.text = String.triggerWhenRisesAbove
+    @unknown default:
+      selectionLabel.text = nil
     }
   }
 

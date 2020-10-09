@@ -70,6 +70,8 @@ class TriggerTypeSelectorView: TriggerOptionSelectorView {
       selectionLabel.text = String.triggerTypeStartRecording
     case .triggerActionStopRecording:
       selectionLabel.text = String.triggerTypeStopRecording
+    @unknown default:
+      selectionLabel.text = nil
     }
   }
 

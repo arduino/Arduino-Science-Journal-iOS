@@ -131,6 +131,8 @@ public class Note {
       return SnapshotNote(proto: labelProto)
     case .sensorTrigger:
       return TriggerNote(proto: labelProto)
+    @unknown default:
+      return Note(proto: labelProto)
     }
   }
 

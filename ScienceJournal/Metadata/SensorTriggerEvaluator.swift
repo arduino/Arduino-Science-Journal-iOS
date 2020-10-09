@@ -56,6 +56,8 @@ class SensorTriggerEvaluator {
         return value < sensorTrigger.triggerInformation.valueToTrigger
       case .triggerWhenAbove:
         return value > sensorTrigger.triggerInformation.valueToTrigger
+      @unknown default:
+        return false
       }
     }
     self.previousValue = value
