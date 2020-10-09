@@ -4279,7 +4279,6 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf\"",
 				);
 				INFOPLIST_FILE = ScienceJournal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -4448,7 +4447,6 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf\"",
 				);
 				INFOPLIST_FILE = ScienceJournal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -4696,7 +4694,6 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf\"",
 				);
 				INFOPLIST_FILE = ScienceJournal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -4774,7 +4771,6 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf\"",
 				);
 				INFOPLIST_FILE = ScienceJournal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
