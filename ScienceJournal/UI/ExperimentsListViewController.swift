@@ -18,7 +18,6 @@ import UIKit
 
 import third_party_objective_c_material_components_ios_components_Buttons_Buttons
 import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
-import third_party_objective_c_material_components_ios_components_FeatureHighlight_ColorThemer
 import third_party_objective_c_material_components_ios_components_FeatureHighlight_FeatureHighlight
 import third_party_objective_c_material_components_ios_components_Palettes_Palettes
 import third_party_objective_c_material_components_ios_components_Snackbar_Snackbar
@@ -385,7 +384,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
 
     // Unoding an archive or delete is unstable when this view is off screen so dismiss snackbars.
     [snackbarCategoryArchivedExperiment, snackbarCategoryDeletedExperiment].forEach {
-      MDCSnackbarManager.dismissAndCallCompletionBlocks(withCategory: $0)
+      MDCSnackbarManager.default.dismissAndCallCompletionBlocks(withCategory: $0)
     }
 
     // Make sure the highlight doesn't appear when off screen.
@@ -618,7 +617,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
                        undoBlock: undoBlock)
     } else {
       // If the user is unarchiving, hide any archived state undo snackbars.
-      MDCSnackbarManager.dismissAndCallCompletionBlocks(
+      MDCSnackbarManager.default.dismissAndCallCompletionBlocks(
           withCategory: snackbarCategoryArchivedExperiment)
     }
   }

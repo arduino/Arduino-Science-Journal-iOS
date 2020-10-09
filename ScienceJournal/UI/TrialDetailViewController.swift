@@ -446,7 +446,7 @@ class TrialDetailViewController: MaterialHeaderViewController,
                                               name: UIResponder.keyboardWillHideNotification,
                                               object: nil)
 
-    MDCSnackbarManager.dismissAndCallCompletionBlocks(
+    MDCSnackbarManager.default.dismissAndCallCompletionBlocks(
         withCategory: trialNoteDeleteUndoSnackbarCategory)
   }
 

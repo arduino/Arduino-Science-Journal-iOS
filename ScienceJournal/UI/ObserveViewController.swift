@@ -441,9 +441,9 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
         // Not all sensors provided a snapshot, show a toast alert.
         let message = MDCSnackbarMessage()
         message.text = String.snapshotFailedDisconnected
-        MDCSnackbarManager.setButtonTitleColor(
+        MDCSnackbarManager.default.setButtonTitleColor(
           ArduinoColorPalette.yellowPalette.tint200, for: .normal)
-        MDCSnackbarManager.show(message)
+        MDCSnackbarManager.default.show(message)
         return
       }
       self.delegate?.observeViewController(self, didCreateSensorSnapshots: sensorSnapshots)

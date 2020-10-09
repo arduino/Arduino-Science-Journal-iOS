@@ -480,7 +480,7 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
     [snackbarCategoryTriggersDisabled, snackbarCategoryDeletedRecording,
         snackbarCategoryNoteDeleted, snackbarCategoryExperimentArchivedState,
         snackbarCategoryTrialArchivedState, snackbarCategoryCouldNotUpdateSensorSettings].forEach {
-          MDCSnackbarManager.dismissAndCallCompletionBlocks(withCategory: $0)
+          MDCSnackbarManager.default.dismissAndCallCompletionBlocks(withCategory: $0)
     }
   }
 
@@ -935,7 +935,7 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
                        undoBlock: undoBlock)
     } else {
       // If the user is unarchiving, hide any archived state undo snackbars.
-      MDCSnackbarManager.dismissAndCallCompletionBlocks(
+      MDCSnackbarManager.default.dismissAndCallCompletionBlocks(
           withCategory: snackbarCategoryTrialArchivedState)
     }
   }
@@ -958,7 +958,7 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
                        undoBlock: undoBlock)
     } else {
       // If the user is unarchiving, hide any archived state undo snackbars.
-      MDCSnackbarManager.dismissAndCallCompletionBlocks(
+      MDCSnackbarManager.default.dismissAndCallCompletionBlocks(
         withCategory: self.snackbarCategoryExperimentArchivedState)
 
       observeViewController.addListenersForAllSensorCards()

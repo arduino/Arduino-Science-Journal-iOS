@@ -63,7 +63,7 @@ func showSnackbar(withMessage messageText: String,
   message.action = action
 
   DispatchQueue.main.async {
-    MDCSnackbarManager.setButtonTitleColor(MDCPalette.yellow.tint200, for: .normal)
-    MDCSnackbarManager.show(message)
+    MDCSnackbarManager.default.setButtonTitleColor(MDCPalette.yellow.tint200, for: .normal)
+    MDCSnackbarManager.default.show(message)
   }
 }
