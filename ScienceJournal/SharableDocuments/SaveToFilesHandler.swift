@@ -15,7 +15,7 @@
  */
 
 import UIKit
-import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
+import MaterialComponents.MaterialDialogs
 
 /// Handles saving experiments, trial data and images to the Files app.
 class SaveToFilesHandler: NSObject, UIDocumentPickerDelegate {

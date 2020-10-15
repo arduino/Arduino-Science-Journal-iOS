@@ -17,7 +17,7 @@
 import Photos
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Buttons_Buttons
+import MaterialComponents.MaterialButtons
 
 /// Subclass of the photo library view controller for analytics purposes and uses a check mark
 /// action bar button instead of a send icon.

@@ -79,6 +79,7 @@ class SensorTrigger {
       case .triggerActionNote: return String.triggerTypeNote
       case .triggerActionStartRecording: return String.triggerTypeStartRecording
       case .triggerActionStopRecording: return String.triggerTypeStopRecording
+      @unknown default: return ""
       }
     }
 
@@ -90,6 +91,7 @@ class SensorTrigger {
       case .triggerWhenBelow: return String.triggerListWhenBelow
       case .triggerWhenDropsBelow: return String.triggerListWhenDroppingBelow
       case .triggerWhenRisesAbove: return String.triggerListWhenRisingAbove
+      @unknown default: return ""
       }
     }
 

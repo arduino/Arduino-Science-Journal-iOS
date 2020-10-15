@@ -16,9 +16,9 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Buttons_Buttons
-import third_party_objective_c_material_components_ios_components_ProgressView_ProgressView
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialButtons
+import MaterialComponents.MaterialProgressView
+import MaterialComponents.MaterialTypography
 
 /// A view controller for managing trial share settings.
 class TrialShareSettingsViewController: ScienceJournalViewController {

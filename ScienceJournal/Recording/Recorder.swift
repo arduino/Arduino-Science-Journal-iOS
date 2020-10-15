@@ -251,8 +251,12 @@ class Recorder: Equatable, SensorTriggerFrequencyObserverDelegate {
           self.triggerAlertHelper.playTriggerAlertVibration()
         case .triggerAlertVisual:
           self.delegate?.recorder(self, didFireVisualTrigger: sensorTrigger)
+        @unknown default:
+          break
         }
       }
+    @unknown default:
+      break
     }
   }
 

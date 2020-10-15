@@ -16,8 +16,8 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Collections_Collections
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
+import MaterialComponents.MaterialCollections
+import MaterialComponents.MaterialPalettes
 
 protocol ExperimentsListItemsDelegate: class {
   /// Tells the delegate the user selected an experiment.

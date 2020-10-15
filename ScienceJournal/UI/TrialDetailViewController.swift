@@ -18,12 +18,10 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_BottomSheet_BottomSheet
-import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
-import third_party_objective_c_material_components_ios_components_Snackbar_Snackbar
-
-import third_party_objective_c_material_components_ios_components_private_KeyboardWatcher_KeyboardWatcher
+import MaterialComponents.MaterialBottomSheet
+import MaterialComponents.MaterialDialogs
+import MaterialComponents.MaterialPalettes
+import MaterialComponents.MaterialSnackbar
 
 protocol TrialDetailViewControllerDelegate: class {
   /// Informs the delegate a note should be shown.
@@ -446,7 +444,7 @@ class TrialDetailViewController: MaterialHeaderViewController,
                                               name: UIResponder.keyboardWillHideNotification,
                                               object: nil)
 
-    MDCSnackbarManager.dismissAndCallCompletionBlocks(
+    MDCSnackbarManager.default.dismissAndCallCompletionBlocks(
         withCategory: trialNoteDeleteUndoSnackbarCategory)
   }
 

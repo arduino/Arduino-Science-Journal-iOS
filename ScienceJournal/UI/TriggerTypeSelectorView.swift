@@ -16,7 +16,7 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialTypography
 import third_party_sciencejournal_ios_ScienceJournalProtos
 
 protocol TriggerTypeSelectorDelegate: class {
@@ -70,6 +70,8 @@ class TriggerTypeSelectorView: TriggerOptionSelectorView {
       selectionLabel.text = String.triggerTypeStartRecording
     case .triggerActionStopRecording:
       selectionLabel.text = String.triggerTypeStopRecording
+    @unknown default:
+      selectionLabel.text = nil
     }
   }
 

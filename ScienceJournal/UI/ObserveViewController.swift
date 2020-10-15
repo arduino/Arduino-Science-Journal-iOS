@@ -18,11 +18,10 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Collections_Collections
-import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
-import third_party_objective_c_material_components_ios_components_Dialogs_ColorThemer
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
-import third_party_objective_c_material_components_ios_components_Snackbar_Snackbar
+import MaterialComponents.MaterialCollections
+import MaterialComponents.MaterialDialogs
+import MaterialComponents.MaterialPalettes
+import MaterialComponents.MaterialSnackbar
 import third_party_sciencejournal_ios_ScienceJournalProtos
 
 protocol ObserveViewControllerDelegate: class {
@@ -441,9 +440,9 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
         // Not all sensors provided a snapshot, show a toast alert.
         let message = MDCSnackbarMessage()
         message.text = String.snapshotFailedDisconnected
-        MDCSnackbarManager.setButtonTitleColor(
+        MDCSnackbarManager.default.setButtonTitleColor(
           ArduinoColorPalette.yellowPalette.tint200, for: .normal)
-        MDCSnackbarManager.show(message)
+        MDCSnackbarManager.default.show(message)
         return
       }
       self.delegate?.observeViewController(self, didCreateSensorSnapshots: sensorSnapshots)

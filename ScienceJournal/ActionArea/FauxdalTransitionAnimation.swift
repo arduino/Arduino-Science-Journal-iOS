@@ -47,6 +47,8 @@ final class FauxdalTransitionAnimation: NSObject, UIViewControllerAnimatedTransi
       animatePush(using: transitionContext)
     case .pop:
       animatePop(using: transitionContext)
+    @unknown default:
+      transitionContext.completeTransition(false)
     }
   }
 

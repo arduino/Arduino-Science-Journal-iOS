@@ -20,7 +20,7 @@
 import UIKit
 import CoreBluetooth
 
-import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
+import MaterialComponents.MaterialDialogs
 import third_party_sciencejournal_ios_ScienceJournalProtos
 
 enum BLEArduinoSensorConfig: Int, Codable {

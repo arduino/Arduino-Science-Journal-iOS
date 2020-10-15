@@ -16,8 +16,8 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialPalettes
+import MaterialComponents.MaterialTypography
 
 /// The header view for a section in the trigger edit view. It has a single label.
 class TriggerEditSectionHeaderView: UIView {

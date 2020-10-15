@@ -57,6 +57,8 @@ extension UINavigationController.Operation: CustomStringConvertible {
       return "push"
     case .pop:
       return "pop"
+    @unknown default:
+      return "unknown"
     }
   }
 

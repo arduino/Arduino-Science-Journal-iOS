@@ -28,6 +28,7 @@ extension GSJTriggerInformation_TriggerWhen {
     case .triggerWhenDropsBelow: return String.triggerWhenDroppedBelow.lowercased()
     case .triggerWhenAbove: return String.triggerWhenIsAbove.lowercased()
     case .triggerWhenBelow: return String.triggerWhenIsBelow.lowercased()
+    @unknown default: return ""
     }
   }
 
@@ -37,6 +38,8 @@ extension GSJTriggerInformation_TriggerWhen {
     case .triggerWhenAbove, .triggerWhenBelow:
       return true
     case .triggerWhenAt, .triggerWhenDropsBelow, .triggerWhenRisesAbove:
+      return false
+    @unknown default:
       return false
     }
   }

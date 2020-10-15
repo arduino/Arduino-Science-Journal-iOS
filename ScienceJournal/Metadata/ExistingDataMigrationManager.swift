@@ -222,7 +222,7 @@ class ExistingDataMigrationManager {
     migrateOperations.append(addExperimentAndCleanup)
 
     let migrate = GroupOperation(operations: migrateOperations)
-    migrate.addObserver(BlockObserver { _, _ in
+    migrate.addObserver(BlockObserver(finishHandler: { _, _ in
       // Errors
       var errors = [ExistingDataMigrationManagerError]()
       if !addExperimentSuccess {
@@ -238,7 +238,7 @@ class ExistingDataMigrationManager {
       DispatchQueue.main.async {
         completion(errors)
       }
-    })
+    }))
     migrate.addObserver(BackgroundTaskObserver())
 
     migrationQueue.addOperation(migrate)

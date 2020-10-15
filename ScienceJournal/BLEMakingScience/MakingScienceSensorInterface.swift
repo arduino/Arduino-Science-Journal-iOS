@@ -17,7 +17,7 @@
 import CoreBluetooth
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
+import MaterialComponents.MaterialDialogs
 import third_party_sciencejournal_ios_ScienceJournalProtos
 
 /// Interface for the Making Science Arduino sensor.

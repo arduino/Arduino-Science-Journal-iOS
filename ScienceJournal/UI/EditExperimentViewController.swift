@@ -16,11 +16,9 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
-import third_party_objective_c_material_components_ios_components_TextFields_TextFields
-
-import third_party_objective_c_material_components_ios_components_private_KeyboardWatcher_KeyboardWatcher
+import MaterialComponents.MaterialDialogs
+import MaterialComponents.MaterialPalettes
+import MaterialComponents.MaterialTextFields
 
 protocol EditExperimentViewControllerDelegate: class {
   /// Informs the delegate a new title was set.

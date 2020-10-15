@@ -4270,7 +4270,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4279,7 +4279,6 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf\"",
 				);
 				INFOPLIST_FILE = ScienceJournal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -4439,7 +4438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4448,7 +4447,6 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf\"",
 				);
 				INFOPLIST_FILE = ScienceJournal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -4686,7 +4684,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4696,7 +4694,6 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf\"",
 				);
 				INFOPLIST_FILE = ScienceJournal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -4765,7 +4762,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4774,7 +4771,6 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MaterialComponents\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf\"",
 				);
 				INFOPLIST_FILE = ScienceJournal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

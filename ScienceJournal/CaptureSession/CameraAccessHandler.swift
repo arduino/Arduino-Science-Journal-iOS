@@ -35,6 +35,7 @@ class CameraAccessHandler {
         requestCompletion?(granted)
       }
       return false
+    @unknown default: return false
     }
   }
 

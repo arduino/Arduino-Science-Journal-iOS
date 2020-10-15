@@ -16,8 +16,8 @@
 
 import Foundation
 
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
-import third_party_objective_c_material_components_ios_components_Snackbar_Snackbar
+import MaterialComponents.MaterialPalettes
+import MaterialComponents.MaterialSnackbar
 
 /// Displays a snackbar with a button to undo an action. This is displayed for destructive actions
 /// to give the user a moment to undo that action. The undo block should encapsulate the
@@ -63,7 +63,7 @@ func showSnackbar(withMessage messageText: String,
   message.action = action
 
   DispatchQueue.main.async {
-    MDCSnackbarManager.setButtonTitleColor(MDCPalette.yellow.tint200, for: .normal)
-    MDCSnackbarManager.show(message)
+    MDCSnackbarManager.default.setButtonTitleColor(MDCPalette.yellow.tint200, for: .normal)
+    MDCSnackbarManager.default.show(message)
   }
 }

@@ -15,7 +15,7 @@
  */
 
 import UIKit
-import third_party_objective_c_material_components_ios_components_ActionSheet_ActionSheet
+import MaterialComponents.MaterialActionSheet
 
 /// Handles file type selection in the process of exporting documents.
 class FileTypeSelectionHandler: NSObject {

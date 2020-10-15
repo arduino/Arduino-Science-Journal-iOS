@@ -16,9 +16,9 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Collections_Collections
-import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialCollections
+import MaterialComponents.MaterialDialogs
+import MaterialComponents.MaterialTypography
 
 protocol ExistingDataOptionsDelegate: class {
   /// Delegate method for selecting to save all experiments.

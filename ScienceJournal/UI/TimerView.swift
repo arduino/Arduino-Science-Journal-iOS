@@ -15,8 +15,8 @@
  */
 
 import UIKit
-import third_party_objective_c_material_components_ios_components_Typography_Typography
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
+import MaterialComponents.MaterialTypography
+import MaterialComponents.MaterialPalettes
 
 /// The timer view is a capsule containing the current recording timer.
 /// It is meant to be used in a bar button item.

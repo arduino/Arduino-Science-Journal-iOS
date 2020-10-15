@@ -18,11 +18,9 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Dialogs_Dialogs
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
-import third_party_objective_c_material_components_ios_components_Snackbar_Snackbar
-
-import third_party_objective_c_material_components_ios_components_private_KeyboardWatcher_KeyboardWatcher
+import MaterialComponents.MaterialDialogs
+import MaterialComponents.MaterialPalettes
+import MaterialComponents.MaterialSnackbar
 
 protocol ExperimentCoordinatorViewControllerDelegate: class {
 
@@ -480,7 +478,7 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
     [snackbarCategoryTriggersDisabled, snackbarCategoryDeletedRecording,
         snackbarCategoryNoteDeleted, snackbarCategoryExperimentArchivedState,
         snackbarCategoryTrialArchivedState, snackbarCategoryCouldNotUpdateSensorSettings].forEach {
-          MDCSnackbarManager.dismissAndCallCompletionBlocks(withCategory: $0)
+          MDCSnackbarManager.default.dismissAndCallCompletionBlocks(withCategory: $0)
     }
   }
 
@@ -935,7 +933,7 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
                        undoBlock: undoBlock)
     } else {
       // If the user is unarchiving, hide any archived state undo snackbars.
-      MDCSnackbarManager.dismissAndCallCompletionBlocks(
+      MDCSnackbarManager.default.dismissAndCallCompletionBlocks(
           withCategory: snackbarCategoryTrialArchivedState)
     }
   }
@@ -958,7 +956,7 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
                        undoBlock: undoBlock)
     } else {
       // If the user is unarchiving, hide any archived state undo snackbars.
-      MDCSnackbarManager.dismissAndCallCompletionBlocks(
+      MDCSnackbarManager.default.dismissAndCallCompletionBlocks(
         withCategory: self.snackbarCategoryExperimentArchivedState)
 
       observeViewController.addListenersForAllSensorCards()

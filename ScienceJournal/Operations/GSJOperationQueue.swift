@@ -79,9 +79,9 @@ open class GSJOperationQueue: OperationQueue {
       if !concurrencyCategories.isEmpty {
         let exclusivityController = ExclusivityController.shared
         exclusivityController.addOperation(gsjOp, categories: concurrencyCategories)
-        gsjOp.addObserver(BlockObserver { operation, _ in
+        gsjOp.addObserver(BlockObserver(finishHandler: { operation, _ in
           exclusivityController.removeOperation(operation, categories: concurrencyCategories)
-        })
+        }))
       }
 
       // Inform the operation it is being enqueued. This is a required step for the operation to

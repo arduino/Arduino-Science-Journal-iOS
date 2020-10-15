@@ -201,6 +201,9 @@ class BLEServiceScanner: NSObject, CBCentralManagerDelegate {
       print("Bluetooth is powered on.")
       isBluetoothAvailable = true
       resumeScanning()
+    @unknown default:
+      print("Bluetooth unknown state.")
+      isBluetoothAvailable = false
     }
 
     if previouslyAvailable != isBluetoothAvailable {

@@ -18,9 +18,9 @@ import AVFoundation
 import Photos
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Buttons_Buttons
-import third_party_objective_c_material_components_ios_components_Palettes_Palettes
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialButtons
+import MaterialComponents.MaterialPalettes
+import MaterialComponents.MaterialTypography
 
 protocol PermissionsGuideDelegate: class {
   /// Informs the delegate the guide was completed and should be closed.

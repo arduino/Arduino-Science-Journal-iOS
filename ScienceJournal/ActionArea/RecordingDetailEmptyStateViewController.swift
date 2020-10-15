@@ -16,7 +16,7 @@
 
 import UIKit
 
-import third_party_objective_c_material_components_ios_components_Typography_Typography
+import MaterialComponents.MaterialTypography
 
 // TODO: This VC still needs a final image.
 // This VC represents the empty state detail view controller when the user is viewing the trial
