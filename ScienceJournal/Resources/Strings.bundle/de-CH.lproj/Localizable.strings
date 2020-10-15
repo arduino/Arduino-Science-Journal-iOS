@@ -670,7 +670,7 @@
 /* A description of the camera permission and why we need it. [CHAR_LIMIT=220] */
 "permissions_guide_camera_info" = "Jetzt überprüfen wir, ob wir auf Ihre Kameras zugreifen dürfen. Wir verwenden die Frontkamera für den Helligkeitssensor, und Sie können mit beiden Kameras Fotonotizen zu Experimenten und Aufzeichnungen hinzufügen.";
 /* The title for the camera permission info. [CHAR_LIMIT=30] */
-"permissions_guide_camera_title" = "Camera";
+"permissions_guide_camera_title" = "Kamera";
 /* The message to tell a user we're done checking for a permission [CHAR_LIMIT=20] */
 "permissions_guide_check_complete" = "Fertig!";
 /* The title of the button that starts the current permission check [CHAR_LIMIT=30] */
@@ -682,15 +682,15 @@
 /* A description of the microphone permission and why we need it. [CHAR_LIMIT=220] */
 "permissions_guide_microphone_info" = "Nun überprüfen wir die Zugriffsberechtigung auf Ihr Mikrofon, das für den Audiosensor verwendet wird. Audioinhalte werden dabei nicht aufgezeichnet, gespeichert oder übertragen, wir messen nur die Schallintensität.";
 /* The title for the microphone permission info. [CHAR_LIMIT=30] */
-"permissions_guide_microphone_title" = "Microphone";
+"permissions_guide_microphone_title" = "Mikrofon";
 /* A description of the push notification permission and why we need it. [CHAR_LIMIT=220] */
 "permissions_guide_notifications_info" = "Zuerst überprüfen wir die Berechtigung, Ihnen Push-Benachrichtigungen zu schicken. Wir nutzen diese nur, um Ihnen mitzuteilen, wenn Ihre Aufzeichnung fast beendet ist, wenn Sie die App während der Aufzeichnung im Hintergrund laufen lassen.";
 /* The title for the push notification permission info. [CHAR_LIMIT=30] */
-"permissions_guide_notifications_title" = "Notifications";
+"permissions_guide_notifications_title" = "Benachrichtigungen";
 /* A description of the photo library permission and why we need it. [CHAR_LIMIT=220] */
 "permissions_guide_photo_library_info" = "Zum Schluss überprüfen wir die Berechtigung, auf Ihre Fotogalerie zuzugreifen, damit Sie Ihre vorhandenen Fotos zu Experimenten und Aufzeichnungen hinzufügen und wir Fotos in Ihrer Galerie speichern können.";
 /* The title for the photos permission info. [CHAR_LIMIT=30] */
-"permissions_guide_photos_title" = "Photos";
+"permissions_guide_photos_title" = "Fotos";
 /* The title of the button that starts to guide the user through a series of permissions prompts. [CHAR_LIMIT=20] */
 "permissions_guide_start_button_title" = "Los gehts.";
 /* The welcome message title when prompting the user through a series of permissions prompts. [CHAR_LIMIT=50] */

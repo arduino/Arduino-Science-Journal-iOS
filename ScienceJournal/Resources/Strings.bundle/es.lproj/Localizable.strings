@@ -79,7 +79,7 @@
 /* Title of the view that allows a user to add a text note to a recording at the given timestamp. The placeholder will be filled with the timestamp. [CHAR_LIMIT=30] */
 "action_area_title_add_text_note_to_timeline" = "Add text note to %@";
 /* The title of the modal view when a user is recording data. [CHAR_LIMIT=25] */
-"action_area_title_recording" = "Recording";
+"action_area_title_recording" = "Grabación";
 /* Menu option for canceling an action. [CHAR_LIMIT=10] */
 "action_cancel" = "Cancelar";
 /* A phrase meaning the user understands what they were told. Casual, if possible (i.e. instead of "I understand", use "Got it" [CHAR_LIMIT=15] */
