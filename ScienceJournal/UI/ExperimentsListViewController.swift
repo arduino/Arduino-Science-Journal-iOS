@@ -671,6 +671,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
   func menuButtonPressedForCell(_ cell: ExperimentsListCell, attachmentButton: UIButton) {
     guard let overview = experimentsListItemsViewController.overview(forCell: cell) else { return }
     let archiveTitle = overview.isArchived ? String.actionUnarchive : String.actionArchive
+    let archiveIcon = overview.isArchived ? UIImage(named: "ic_unarchive") : UIImage(named: "ic_archive")
     let archiveAccessibilityLabel = overview.isArchived ?
         String.actionUnarchiveExperimentContentDescription :
         String.actionArchiveExperimentContentDescription
@@ -693,7 +694,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
     // Archive.
     popUpMenu.addAction(PopUpMenuAction(
         title: archiveTitle,
-        icon: UIImage(named: "ic_archive"),
+        icon: archiveIcon,
         accessibilityLabel: archiveAccessibilityLabel) { _ -> Void in
       self.delegate?.experimentsListToggleArchiveStateForExperiment(withID: overview.experimentID)
     })
