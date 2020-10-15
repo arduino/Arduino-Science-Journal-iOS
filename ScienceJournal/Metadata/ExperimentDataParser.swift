@@ -185,9 +185,9 @@ class ExperimentDataParser {
                                           units: appearance.units,
                                           pointsAfterDecimal: appearance.pointsAfterDecimal)
         let (sensorIcon, sensorIconAccessibilityLabel) =
-            imageAttributesForAppearance(sensorSnapshot.sensorSpec.rememberedAppearance,
-                                         size: SnapshotCardView.sensorIconSize,
-                                         value: sensorSnapshot.value)
+            imageAttributesForSensor(sensorSnapshot.sensorSpec,
+                                     size: SnapshotCardView.sensorIconSize,
+                                     value: sensorSnapshot.value)
         return DisplaySnapshotValue(value: snapshotValue,
                                     valueType: appearance.name,
                                     sensorIcon: sensorIcon,
@@ -211,9 +211,9 @@ class ExperimentDataParser {
                         units: sensorSpec.rememberedAppearance.units,
                         pointsAfterDecimal: sensorSpec.rememberedAppearance.pointsAfterDecimal)
       let (sensorIcon, sensorIconAccessibilityLabel) =
-          imageAttributesForAppearance(sensorSpec.rememberedAppearance,
-                                       size: TriggerCardView.sensorIconSize,
-                                       value: triggerInformation.valueToTrigger)
+          imageAttributesForSensor(sensorSpec,
+                                   size: TriggerCardView.sensorIconSize,
+                                   value: triggerInformation.valueToTrigger)
       return DisplayTriggerNoteViewData(ID: note.ID,
                                         trialID: trial?.ID,
                                         descriptionText: descriptionText,
@@ -259,24 +259,33 @@ class ExperimentDataParser {
     }
   }
 
-  /// Returns a large size icon for the given sensor appearance. Optionally a value can be passed
+  /// Returns a large size icon for the given sensor. Optionally a value can be passed
   /// for icons that change based on a sensor value. If no icon can be found the default icon is
   /// returned. In some cases, an accessibility label is also returned.
   ///
   /// - Parameters:
-  ///   - appearance: The appearance to parse an icon image from.
+  ///   - appearance: The sensor spec to parse an icon image from.
   ///   - size: The icon size for icons that need it. Optional.
   ///   - value: A sensor value for icons that need it. Optional.
   /// - Returns: A tuple containing an optional image and an optional accessibility label.
-  private func imageAttributesForAppearance(_ appearance: BasicSensorAppearance,
-                                            size: CGSize?,
-                                            value: Double?) -> (UIImage?, String?) {
+  private func imageAttributesForSensor(_ sensor: SensorSpec,
+                                        size: CGSize?,
+                                        value: Double?) -> (UIImage?, String?) {
+    let appearance = sensor.rememberedAppearance
+    
     guard let iconPath = appearance.largeIconPath else {
       return (UIImage(named: ExperimentDataParser.genericLargeIconName), nil)
     }
 
+    guard iconPath.type == .builtin else {
+      guard let sensor = sensorController.sensor(for: sensor.gadgetInfo.address) else {
+        return (UIImage(named: ExperimentDataParser.genericLargeIconName), nil)
+      }
+      return (UIImage(named: sensor.iconName + ExperimentDataParser.largeIconSuffix), nil)
+    }
+
     guard let pathString = iconPath.pathString,
-        let sensor = sensorController.sensor(for: pathString) else {
+          let sensor = sensorController.sensor(for: pathString) else {
       return (UIImage(named: ExperimentDataParser.genericLargeIconName), nil)
     }
 
@@ -285,7 +294,7 @@ class ExperimentDataParser {
     }
 
     switch iconPath.type {
-    case .builtin, .proto:
+    case .builtin:
       return (UIImage(named: sensor.iconName + ExperimentDataParser.largeIconSuffix), nil)
     default: return (UIImage(named: ExperimentDataParser.genericLargeIconName), nil)
     }
