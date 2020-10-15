@@ -25,7 +25,7 @@ struct Nano33BLESenseGyroscopeYSensor: BLEArduinoSensor {
 
   var name: String { "gyr_y".localized }
 
-  var iconName: String { "mkrsci_gyr_y" }
+  var iconName: String { "nano_gyr_y" }
 
   var animatingIconName: String { "nano_gyroscope_y" }
 
