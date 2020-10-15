@@ -25,7 +25,7 @@ struct Nano33BLESenseAccelerometerZSensor: BLEArduinoSensor {
 
   var name: String { "acc_z".localized }
 
-  var iconName: String { "mkrsci_sensor_acc_z" }
+  var iconName: String { "nano_sensor_acc_z" }
 
   var animatingIconName: String { "nano_accelerometer_z" }
 
