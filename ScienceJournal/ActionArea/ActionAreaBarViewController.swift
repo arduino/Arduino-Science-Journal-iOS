@@ -81,7 +81,11 @@ extension ActionArea {
       }
     }
 
-    private var barHeightFromBottomEdge: CGFloat { return view.bounds.height - bar.frame.minY }
+    private var barHeightFromBottomEdge: CGFloat {
+      return view.bounds.height
+        - view.safeAreaInsets.bottom
+        - bar.frame.minY
+    }
 
     private var currentAlpha: CGFloat {
       switch (actionItem.isEmpty, isEnabled) {
@@ -237,13 +241,13 @@ extension ActionArea {
       case .lower:
         transition(before: {}, during: {
           self.bar.transform = CGAffineTransform(translationX: 0, y: self.barHeightFromBottomEdge)
+          self.updateAdditionalSafeAreaInsets()
         }, after: {
           self.bar.transform = .identity
           self.actionItem = .empty
           self.bar.items = []
           self.bar.alpha = self.currentAlpha
           self.primary = nil
-          self.updateAdditionalSafeAreaInsets()
         }, with: coordinator)
       }
     }
