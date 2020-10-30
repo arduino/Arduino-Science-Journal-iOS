@@ -35,7 +35,7 @@ extension ActionArea {
 
       enum Bar {
         static let backgroundColor = UIColor(white: 0.98, alpha: 1.0)
-        static let buttonTitleColor: UIColor = .gray
+        static let buttonTitleColor: UIColor = ArduinoColorPalette.grayPalette.tint800 ?? .gray
         static let cornerRadius: CGFloat = 15
         static let defaultMargins = UIEdgeInsets(top: 0, left: 8, bottom: 8, right: 8)
         static let disabledAlpha: CGFloat = 0.2
@@ -462,6 +462,7 @@ extension ActionArea {
       view.numberOfLines = 2
       view.textAlignment = .center
       view.textColor = BarViewController.Metrics.Bar.buttonTitleColor
+      view.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
       return view
     }()
 
@@ -476,7 +477,7 @@ extension ActionArea {
       snp.setLabel("action")
       accessibilityHint = item.accessibilityHint
 
-      button.setImage(item.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+      button.setImage(item.image, for: .normal)
       button.addTarget(item, action: #selector(BarButtonItem.execute), for: .touchUpInside)
       addSubview(button)
       button.snp.setLabel("action.button")
