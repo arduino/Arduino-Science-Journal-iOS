@@ -972,7 +972,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       let recordItem = ActionArea.BarButtonItem(
         title: String.actionAreaFabRecord,
         accessibilityHint: String.actionAreaFabRecordContentDescription,
-        image: UIImage(named: "record_button")
+        image: UIImage(named: "ic_action_area_record_button")
       ) {
         experimentCoordinator.observeViewController.recordButtonPressed()
       }
@@ -980,7 +980,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       let stopItem = ActionArea.BarButtonItem(
         title: String.actionAreaFabStop,
         accessibilityHint: String.actionAreaFabStopContentDescription,
-        image: UIImage(named: "stop_button")
+        image: UIImage(named: "ic_action_area_stop_button")
       ) {
         experimentCoordinator.observeViewController.recordButtonPressed()
       }

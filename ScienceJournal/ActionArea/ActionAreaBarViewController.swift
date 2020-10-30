@@ -118,6 +118,7 @@ extension ActionArea {
     private func create(primary: BarButtonItem) -> UIButton {
       let button = MDCFloatingButton()
       button.mode = .expanded
+      button.isUppercaseTitle = false
       button.setTitle(primary.title, for: .normal)
       button.setImage(primary.image, for: .normal)
       button.setTitleColor(.black, for: .normal)
