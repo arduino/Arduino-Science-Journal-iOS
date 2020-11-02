@@ -82,9 +82,7 @@ extension ActionArea {
     }
 
     private var barHeightFromBottomEdge: CGFloat {
-      return view.bounds.height
-        - view.safeAreaInsets.bottom
-        - bar.frame.minY
+      return view.bounds.height - bar.frame.minY
     }
 
     private var currentAlpha: CGFloat {
@@ -144,7 +142,10 @@ extension ActionArea {
     private func updateAdditionalSafeAreaInsets() {
       if bar.alpha > 0 {
         content.additionalSafeAreaInsets =
-          UIEdgeInsets(top: 0, left: 0, bottom: barHeightFromBottomEdge, right: 0)
+          UIEdgeInsets(top: 0,
+                       left: 0,
+                       bottom: barHeightFromBottomEdge - view.safeAreaInsets.bottom,
+                       right: 0)
       } else {
         content.additionalSafeAreaInsets = .zero
       }
