@@ -24,13 +24,15 @@ class CurrentValueView: UIView {
 
   // MARK: - Properties
 
-  var animatingIconWrapperView = UIView()
+  let animatingIconWrapperView = UIView()
   let textLabel = UILabel()
   let infoButton = MDCFlatButton()
 
   var animatingIconView = SensorAnimationView() {
     didSet {
-      oldValue.removeFromSuperview()
+      if oldValue.superview == animatingIconWrapperView {
+        oldValue.removeFromSuperview()
+      }
 
       animatingIconWrapperView.addSubview(animatingIconView)
       animatingIconView.translatesAutoresizingMaskIntoConstraints = false
