@@ -66,18 +66,12 @@ extension ActionArea {
 
     // MARK: - Implementation
 
-    private var primaryConstraints: MutuallyExclusiveConstraints<UIUserInterfaceSizeClass>?
-
     /// The `ActionItem` to display in the Action Area Bar.
     private var actionItem: ActionItem = .empty
 
     private var primary: UIButton? {
       didSet {
         oldValue?.removeFromSuperview()
-
-        if primary == nil {
-          primaryConstraints = nil
-        }
       }
     }
 
@@ -127,14 +121,10 @@ extension ActionArea {
 
       button.layoutIfNeeded()
       view.addSubview(button)
-      primaryConstraints = MutuallyExclusiveConstraints { constraints in
-        button.snp.makeConstraints { make in
-          make.bottom.equalTo(bar.snp.top).offset(-1 * Metrics.Bar.toFABSpacing)
-        }
-        constraints[.compact] = button.snp.prepareConstraints { $0.centerX.equalToSuperview() }
-        constraints[.regular] = button.snp.prepareConstraints { $0.right.equalTo(bar) }
+      button.snp.makeConstraints { make in
+        make.bottom.equalTo(bar.snp.top).offset(-1 * Metrics.Bar.toFABSpacing)
+        make.centerX.equalToSuperview()
       }
-      primaryConstraints?.activate(traitCollection.horizontalSizeClass)
 
       return button
     }
