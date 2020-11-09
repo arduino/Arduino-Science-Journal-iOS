@@ -30,6 +30,12 @@ extension BLEArduinoSensorConfig {
       return "Temperature (Fahrenheit)"
     case .light:
       return "Light"
+    case .resistor1kOhm:
+      return "1kΩ Resistor"
+    case .resistor10kOhm:
+      return "10kΩ Resistor"
+    case .resistor1MOhm:
+      return "1MΩ Resistor"
     }
   }
 
@@ -39,6 +45,8 @@ extension BLEArduinoSensorConfig {
       return UIImage(named: "ic_sensor_temperature")!
     case .light:
       return UIImage(named: "ic_sensor_light")!
+    case .resistor1kOhm, .resistor10kOhm, .resistor1MOhm:
+      return UIImage(named: "ic_sensor_resistance")!
     case .raw:
       return UIImage(named: "ic_sensor_raw")!
     }

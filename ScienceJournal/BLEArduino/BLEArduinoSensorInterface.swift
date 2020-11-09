@@ -28,6 +28,9 @@ enum BLEArduinoSensorConfig: Int, Codable {
   case temperatureCelsius
   case temperatureFahrenheit
   case light
+  case resistor1kOhm
+  case resistor10kOhm
+  case resistor1MOhm
 }
 
 protocol BLEArduinoSensor {

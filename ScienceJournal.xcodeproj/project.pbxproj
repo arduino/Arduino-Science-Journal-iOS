@@ -692,6 +692,7 @@
 		F36675A224FE5F5E004E567D /* Nano33BLESenseMagnetometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36675A124FE5F5E004E567D /* Nano33BLESenseMagnetometerSensor.swift */; };
 		F36675A424FE9D36004E567D /* Nano33BLESenseBarometricPressureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36675A324FE9D36004E567D /* Nano33BLESenseBarometricPressureSensor.swift */; };
 		F36675A624FEB18D004E567D /* Nano33BLESenseHumiditySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36675A524FEB18C004E567D /* Nano33BLESenseHumiditySensor.swift */; };
+		F380EC5F256FF0F900C9539D /* Nano33BLESenseResistanceSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380EC5E256FF0F900C9539D /* Nano33BLESenseResistanceSensor.swift */; };
 		F384EA4024FD82E200E1F1DE /* Nano33BLESenseServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */; };
 		F384EA4224FD834000E1F1DE /* Nano33BLESenseTemperatureSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384EA4124FD833F00E1F1DE /* Nano33BLESenseTemperatureSensor.swift */; };
 		F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389279124DC408900843D1D /* ArduinoColorPalette.swift */; };
@@ -1502,6 +1503,7 @@
 		F36675A124FE5F5E004E567D /* Nano33BLESenseMagnetometerSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseMagnetometerSensor.swift; sourceTree = "<group>"; };
 		F36675A324FE9D36004E567D /* Nano33BLESenseBarometricPressureSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseBarometricPressureSensor.swift; sourceTree = "<group>"; };
 		F36675A524FEB18C004E567D /* Nano33BLESenseHumiditySensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseHumiditySensor.swift; sourceTree = "<group>"; };
+		F380EC5E256FF0F900C9539D /* Nano33BLESenseResistanceSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseResistanceSensor.swift; sourceTree = "<group>"; };
 		F384EA3F24FD82E100E1F1DE /* Nano33BLESenseServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseServiceInterface.swift; sourceTree = "<group>"; };
 		F384EA4124FD833F00E1F1DE /* Nano33BLESenseTemperatureSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseTemperatureSensor.swift; sourceTree = "<group>"; };
 		F389279124DC408900843D1D /* ArduinoColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoColorPalette.swift; sourceTree = "<group>"; };
@@ -3193,6 +3195,7 @@
 		BC9D3E0E2513B7C3009ACA46 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				F380EC5E256FF0F900C9539D /* Nano33BLESenseResistanceSensor.swift */,
 				F32D236924FEE75900C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift */,
 				F32D236B24FEECC400C7E8CE /* Nano33BLESenseColorTemperatureSensor.swift */,
 				F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */,
@@ -3988,6 +3991,7 @@
 				5C6CCE3F1FCCCD3A008987F9 /* EditTimestampViewController.swift in Sources */,
 				5C7EFC59202DFFE50007F99E /* GSJOperation.swift in Sources */,
 				8B175C85209D08AC000E2974 /* ExperimentsListItemsViewController.swift in Sources */,
+				F380EC5F256FF0F900C9539D /* Nano33BLESenseResistanceSensor.swift in Sources */,
 				5C72195D1ED8D04700817F0B /* Experiment.swift in Sources */,
 				F36675A624FEB18D004E567D /* Nano33BLESenseHumiditySensor.swift in Sources */,
 				8B5922A11F9E374A0090DB6F /* LocalizedNumberFormatter.swift in Sources */,
