@@ -24,7 +24,9 @@ struct BLEScienceKitMagnetometerSensor: BLEArduinoSensor {
 
   var name: String { "magnetic_field_strength".localized }
 
-  var iconName: String { "mkrsci_magnetometer" }
+  var iconName: String { "ic_sensor_magnet" }
+  
+  var filledIconName: String { "ic_sensor_magnet_filled" }
 
   var animatingIconName: String { "mkrsci_magnetometer" }
 

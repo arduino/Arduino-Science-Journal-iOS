@@ -59,6 +59,7 @@ class BrightnessSensor: Sensor, AVCaptureVideoDataOutputSampleBufferDelegate {
                name: String.sensorBrightness,
                textDescription: String.sensorDescShortBrightness,
                iconName: "ic_sensor_light",
+               filledIconName: "ic_sensor_light_filled",
                animatingIconView: animatingIconView,
                unitDescription: String.brightnessUnits,
                learnMore: learnMore,

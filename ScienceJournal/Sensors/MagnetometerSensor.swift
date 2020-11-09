@@ -34,6 +34,7 @@ class MagnetometerSensor: MotionSensor {
                name: String.magneticFieldStrength,
                textDescription: String.sensorDescShortMagneticStrength,
                iconName: "ic_sensor_magnet",
+               filledIconName: "ic_sensor_magnet_filled",
                animatingIconView: animatingIconView,
                unitDescription: String.magneticStrengthUnits,
                learnMore: learnMore,

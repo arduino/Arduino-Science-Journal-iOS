@@ -26,6 +26,8 @@ struct Nano33BLESenseColorIlluminanceSensor: BLEArduinoSensor {
   var name: String { String.ambientLight }
 
   var iconName: String { "ic_sensor_light" }
+  
+  var filledIconName: String { "ic_sensor_light_filled" }
 
   var animatingIconName: String { "mkrsci_light" }
 

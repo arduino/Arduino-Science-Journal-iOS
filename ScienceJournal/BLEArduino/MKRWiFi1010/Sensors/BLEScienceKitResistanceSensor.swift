@@ -24,7 +24,9 @@ struct BLEScienceKitResistanceSensor: BLEArduinoSensor {
 
   var name: String { "resistance".localized }
 
-  var iconName: String { "mkrsci_sensor_resistance" }
+  var iconName: String { "ic_sensor_resistance" }
+  
+  var filledIconName: String { "ic_sensor_resistance_filled" }
 
   var animatingIconName: String { "mkrsci_resistance" }
 

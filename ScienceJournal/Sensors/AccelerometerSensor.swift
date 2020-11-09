@@ -72,6 +72,7 @@ class AccelerometerSensor: MotionSensor {
   ///   - sensorId: The sensor ID.
   ///   - name: The name of the sensor.
   ///   - iconName: The icon name for the sensor.
+  ///   - filledIconName: The filled icon name for the sensor.
   ///   - animatingIconView: The animating icon view.
   ///   - textDescription: The text description of the accelerometer sensor.
   ///   - learnMore: The contents of the learn more view for a sensor.
@@ -79,6 +80,7 @@ class AccelerometerSensor: MotionSensor {
   init(sensorId: String,
        name: String,
        iconName: String,
+       filledIconName: String,
        animatingIconView: SensorAnimationView,
        textDescription: String,
        learnMore: LearnMore,
@@ -87,6 +89,7 @@ class AccelerometerSensor: MotionSensor {
                name: name,
                textDescription: textDescription,
                iconName: iconName,
+               filledIconName: filledIconName,
                animatingIconView: animatingIconView,
                unitDescription: String.accUnits,
                learnMore: learnMore,
@@ -140,12 +143,14 @@ class SingleAxisAccelerometer: AccelerometerSensor {
   ///   - sensorId: The sensor ID.
   ///   - name: The name of the sensor.
   ///   - iconName: The icon name for the sensor.
+  ///   - filledIconName: The filled icon name for the sensor.
   ///   - animatingIconName: The animating icon name for the sensor.
   ///   - textDescription: The text description of the accelerometer sensor.
   ///   - sensorTimer: The sensor timer to use for this sensor.
   init(sensorId: String,
        name: String,
        iconName: String,
+       filledIconName: String,
        animatingIconName: String,
        textDescription: String,
        sensorTimer: SensorTimer) {
@@ -156,6 +161,7 @@ class SingleAxisAccelerometer: AccelerometerSensor {
     super.init(sensorId: sensorId,
                name: name,
                iconName: iconName,
+               filledIconName: filledIconName,
                animatingIconView: animatingIconView,
                textDescription: textDescription,
                learnMore: learnMore,
@@ -174,6 +180,7 @@ class AccelerometerXSensor: SingleAxisAccelerometer {
     super.init(sensorId: "AccX",
                name: String.accX,
                iconName: "ic_sensor_acc_x",
+               filledIconName: "ic_sensor_acc_x_filled",
                animatingIconName: "sensor_acc_x",
                textDescription: String.sensorDescShortAccX,
                sensorTimer: sensorTimer)
@@ -198,6 +205,7 @@ class AccelerometerYSensor: SingleAxisAccelerometer {
     super.init(sensorId: "AccY",
                name: String.accY,
                iconName: "ic_sensor_acc_y",
+               filledIconName: "ic_sensor_acc_y_filled",
                animatingIconName: "sensor_acc_y",
                textDescription: String.sensorDescShortAccY,
                sensorTimer: sensorTimer)
@@ -222,6 +230,7 @@ class AccelerometerZSensor: SingleAxisAccelerometer {
     super.init(sensorId: "AccZ",
                name: String.accZ,
                iconName: "ic_sensor_acc_z",
+               filledIconName: "ic_sensor_acc_z_filled",
                animatingIconName: "sensor_acc_z",
                textDescription: String.sensorDescShortAccZ,
                sensorTimer: sensorTimer)
@@ -309,6 +318,7 @@ class LinearAccelerometerSensor: AccelerometerSensor {
     super.init(sensorId: "LinearAccelerometerSensor",
                name: String.linearAccelerometer,
                iconName: "ic_sensor_acc_linear",
+               filledIconName: "ic_sensor_acc_linear_filled",
                animatingIconView: animatingIconView,
                textDescription: String.sensorDescShortLinearAcc,
                learnMore: learnMore,

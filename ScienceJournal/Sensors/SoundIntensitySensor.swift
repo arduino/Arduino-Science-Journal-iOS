@@ -35,6 +35,7 @@ class SoundIntensitySensor: AudioSensor {
                name: String.decibel,
                textDescription: String.sensorDescShortDecibel,
                iconName: "ic_sensor_audio",
+               filledIconName: "ic_sensor_audio_filled",
                animatingIconView: animatingIconView,
                unitDescription: String.decibelUnits,
                learnMore: learnMore,

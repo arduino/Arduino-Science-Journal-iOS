@@ -48,6 +48,7 @@ final class PitchSensor: AudioSensor {
                name: String.pitch,
                textDescription: String.sensorDescShortPitch,
                iconName: "ic_sensor_sound_frequency",
+               filledIconName: "ic_sensor_sound_frequency_filled",
                animatingIconView: PitchSensorAnimationView(),
                unitDescription: String.hertzUnits,
                learnMore: learnMore,

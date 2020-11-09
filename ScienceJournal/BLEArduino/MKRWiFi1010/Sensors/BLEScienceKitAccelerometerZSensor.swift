@@ -25,7 +25,9 @@ struct BLEScienceKitAccelerometerZSensor: BLEArduinoSensor {
 
   var name: String { "acc_z".localized }
 
-  var iconName: String { "mkrsci_sensor_acc_z" }
+  var iconName: String { "ic_sensor_acc_z" }
+  
+  var filledIconName: String { "ic_sensor_acc_z_filled" }
 
   var animatingIconName: String { "mkrsci_accz" }
 

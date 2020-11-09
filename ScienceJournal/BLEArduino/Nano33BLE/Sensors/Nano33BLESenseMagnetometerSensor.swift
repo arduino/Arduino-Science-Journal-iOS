@@ -24,9 +24,11 @@ struct Nano33BLESenseMagnetometerSensor: BLEArduinoSensor {
 
   var name: String { String.magneticFieldStrength }
 
-  var iconName: String { "mkrsci_magnetometer" }
+  var iconName: String { "ic_sensor_magnet" }
+  
+  var filledIconName: String { iconName }
 
-  var animatingIconName: String { "mkrsci_magnetometer" }
+  var animatingIconName: String { "ic_sensor_magnet_filled" }
 
   var unitDescription: String? { String.magneticStrengthUnits }
 

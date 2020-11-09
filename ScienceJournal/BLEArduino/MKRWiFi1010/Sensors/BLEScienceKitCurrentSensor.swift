@@ -24,7 +24,9 @@ struct BLEScienceKitCurrentSensor: BLEArduinoSensor {
 
   var name: String { "current".localized }
 
-  var iconName: String { "mkrsci_sensor_current" }
+  var iconName: String { "ic_sensor_current" }
+  
+  var filledIconName: String { "ic_sensor_current_filled" }
 
   var animatingIconName: String { "mkrsci_current" }
 

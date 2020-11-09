@@ -36,6 +36,7 @@ class SingleValueSensor: Sensor {
                name: sensorName,
                textDescription: textDescription,
                iconName: "ic_sensor_generic",
+               filledIconName: "ic_sensor_generic",
                animatingIconView: animatingIconView,
                unitDescription: nil,
                learnMore: learnMore,
