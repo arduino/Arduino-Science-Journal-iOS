@@ -36,6 +36,7 @@ protocol BLEArduinoSensor {
 
   var name: String { get }
   var iconName: String { get }
+  var filledIconName: String { get }
   var animatingIconName: String { get }
   var unitDescription: String? { get }
   var textDescription: String { get }
@@ -67,6 +68,8 @@ class BLEArduinoSensorInterface: BLESensorInterface {
   var name: String { sensor.name }
 
   var iconName: String { sensor.iconName }
+  
+  var filledIconName: String { sensor.filledIconName }
 
   var animatingIconName: String { sensor.animatingIconName }
 

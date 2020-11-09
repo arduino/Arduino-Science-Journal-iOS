@@ -40,6 +40,9 @@ protocol BLESensorInterface {
   /// The name of the icon image to display in the UI.
   var iconName: String { get }
 
+  /// The name of the filled icon image to display in the UI.
+  var filledIconName: String { get }
+
   /// The name of the image to display when viewing the current value view.
   var animatingIconName: String { get }
 

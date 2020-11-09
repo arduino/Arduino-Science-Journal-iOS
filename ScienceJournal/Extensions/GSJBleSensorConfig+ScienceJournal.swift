@@ -63,6 +63,11 @@ extension GSJBleSensorConfig {
       case .raw: return "ic_sensor_raw"
       }
     }
+    
+    var filledIconName: String {
+      // Defaults to normal icons as there are no filled versions of these icons
+      return iconName
+    }
 
     var animatingIconName: String {
       // TODO: Return the proper unique icon for each type.
