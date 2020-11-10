@@ -37,3 +37,4 @@ disabled_rules:
   - computed_accessors_order
   - unneeded_notification_center_removal
   - mark
+  - inclusive_language
