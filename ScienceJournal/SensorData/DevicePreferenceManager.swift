@@ -49,6 +49,8 @@ class DevicePreferenceManager {
   /// Whether at least one user has completed the permissions guide.
   var hasAUserCompletedPermissionsGuide: Bool {
     get {
+      // TODO: remove this
+      return false
       return defaults.bool(forKey: Keys.hasAUserCompletedPermissionsGuideKey)
     }
     set {
