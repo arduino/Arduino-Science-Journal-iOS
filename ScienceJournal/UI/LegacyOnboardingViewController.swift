@@ -23,7 +23,7 @@ import MaterialComponents.MaterialTypography
 /// The base class for onboarding view controllers that contains the Science Journal colors,
 /// iconography and layout. Permissions and welcome screens should subclass this to adhere to the
 /// designed look for initial flows.
-class OnboardingViewController: ScienceJournalViewController {
+class LegacyOnboardingViewController: ScienceJournalViewController {
 
   // MARK: - Properties
 

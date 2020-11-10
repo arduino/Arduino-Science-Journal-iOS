@@ -26,7 +26,7 @@ protocol WelcomeViewControllerDelegate: class {
 }
 
 /// A view controller that displays a splash image and a get started button.
-class WelcomeViewController: OnboardingViewController {
+class WelcomeViewController: LegacyOnboardingViewController {
 
   enum Metrics {
     static let googleLogoTopPadding: CGFloat = 30.0
