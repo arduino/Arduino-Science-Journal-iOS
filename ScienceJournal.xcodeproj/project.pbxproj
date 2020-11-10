@@ -70,7 +70,7 @@
 		48BFD8D120D065FF00FB5C1A /* google_api_client_for_rest.html in Resources */ = {isa = PBXBuildFile; fileRef = 48BFD8CA20D065FF00FB5C1A /* google_api_client_for_rest.html */; };
 		48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */ = {isa = PBXBuildFile; fileRef = 48BFD8CB20D065FF00FB5C1A /* google_toolbox_for_mac.html */; };
 		48C1DF2C222477010049629D /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C1DF2B222477010049629D /* AnalyticsEvent.swift */; };
-		48C767B120F7F1BB00A67C4A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B020F7F1BB00A67C4A /* OnboardingViewController.swift */; };
+		48C767B120F7F1BB00A67C4A /* LegacyOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B020F7F1BB00A67C4A /* LegacyOnboardingViewController.swift */; };
 		48C767B520F92BA800A67C4A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B420F92BA800A67C4A /* SignInViewController.swift */; };
 		48C767B820F92BC100A67C4A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B720F92BC100A67C4A /* WelcomeViewController.swift */; };
 		48D02B7A2220CA750063AC28 /* AnalyticsScreenViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02B792220CA750063AC28 /* AnalyticsScreenViews.swift */; };
@@ -609,7 +609,7 @@
 		8BFCF97E1FAA2EDC0030A6DC /* ArchiveFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCF97D1FAA2EDC0030A6DC /* ArchiveFlagView.swift */; };
 		924D434B56557C3367183755 /* Pods_ScienceJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
-		BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */; };
+		BC55783F249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */; };
 		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
 		BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */; };
 		BC7AB0FD24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */; };
@@ -766,7 +766,7 @@
 		48BFD8CA20D065FF00FB5C1A /* google_api_client_for_rest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = google_api_client_for_rest.html; sourceTree = "<group>"; };
 		48BFD8CB20D065FF00FB5C1A /* google_toolbox_for_mac.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = google_toolbox_for_mac.html; sourceTree = "<group>"; };
 		48C1DF2B222477010049629D /* AnalyticsEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
-		48C767B020F7F1BB00A67C4A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		48C767B020F7F1BB00A67C4A /* LegacyOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyOnboardingViewController.swift; sourceTree = "<group>"; };
 		48C767B420F92BA800A67C4A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		48C767B720F92BC100A67C4A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		48D02B792220CA750063AC28 /* AnalyticsScreenViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsScreenViews.swift; sourceTree = "<group>"; };
@@ -1342,7 +1342,7 @@
 		93AFC6D21C987695548ADC66 /* Pods-ScienceJournal.dogfood.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.dogfood.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.dogfood.xcconfig"; sourceTree = "<group>"; };
 		958B33107B78081C00CE9569 /* Pods-ScienceJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
-		BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
+		BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyOnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
 		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
 		BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerZSensor.swift; sourceTree = "<group>"; };
@@ -1850,6 +1850,8 @@
 			isa = PBXGroup;
 			children = (
 				8BD7F8041F7D9951004C80B4 /* ActionBar.swift */,
+				F389279124DC408900843D1D /* ArduinoColorPalette.swift */,
+				F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */,
 				5C880BA12190D9E900594166 /* ButtonViewController.swift */,
 				8B9BEC32213485AD00225EF5 /* CommonUIComponents.swift */,
 				8B9BEC342134863B00225EF5 /* CommonUIComponentsOpen.swift */,
@@ -1857,6 +1859,7 @@
 				5C7B87C01FCDD6F300EDEF1D /* ErrorDialog.swift */,
 				5C878522216E602C0046786D /* GradientView.swift */,
 				8BB23E751FFD85B400850148 /* KeyboardObserver.swift */,
+				48C767B020F7F1BB00A67C4A /* LegacyOnboardingViewController.swift */,
 				689155E51F0C5DDB006EEDD1 /* MaterialBarButtonItem.swift */,
 				688F79D11EBBA51D0046A970 /* MaterialCardCell.swift */,
 				68FB61101F3A70DA008281DB /* MaterialFloatingSpinner.swift */,
@@ -1864,7 +1867,6 @@
 				68C3C9481E42B59900F339C4 /* MaterialHeaderViewController.swift */,
 				687232221F703F8E0080E57F /* MaterialLeftBarButtonItems.swift */,
 				68279C211ED63FD1003F778B /* MenuButton.swift */,
-				48C767B020F7F1BB00A67C4A /* OnboardingViewController.swift */,
 				5CBD9AAC1F6C836600D22D21 /* OptionSelectorView.swift */,
 				8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */,
 				68C6C7861F171F4F00B07C93 /* RecordingBar.swift */,
@@ -1875,8 +1877,6 @@
 				3F158A0A231AD72C005E319E /* UIViewController+MaterialHeader.swift */,
 				8B257E5C1ED475780065E7D4 /* ViewConstants.swift */,
 				8B3FA2B521513F5E002241DC /* VisibilityTrackingViewControllers.swift */,
-				F389279124DC408900843D1D /* ArduinoColorPalette.swift */,
-				F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -2549,9 +2549,9 @@
 				686E3D2C1F58880300250628 /* Analytics */,
 				68EBA6DD1E20421E0089FF7F /* AppDelegate.swift */,
 				68E3618B203F7F0900B1B979 /* AppDelegateOpen.swift */,
+				BC3B9634249A6A3E000D7646 /* BLEArduino */,
 				5CAD5EF11E952F8C008F50C3 /* BLEMakingScience */,
 				5C11AE6A1EB7D8280077F752 /* BLEProtocols */,
-				BC3B9634249A6A3E000D7646 /* BLEArduino */,
 				5C44D9D41FBCC7270050E81C /* BLESupport */,
 				8BA5BF371F44DE4000EB77E8 /* CaptureSession */,
 				489182BD1E4542CE00E91D73 /* Chart */,
@@ -2566,6 +2566,7 @@
 				68E3618A203F7F0900B1B979 /* main.swift */,
 				8B2053441E8D822500206061 /* Metadata */,
 				8B54BA161F4F0E3D006AADAA /* Notifications */,
+				BCD417E6255ADA6B007546A1 /* Onboarding */,
 				5C7EFC57202DFFA90007F99E /* Operations */,
 				58C4DB1222D53B1B0029E519 /* PDFExport */,
 				5CAD5EE81E8D7DF8008F50C3 /* Protocols */,
@@ -2708,11 +2709,11 @@
 				8B9ADF901ECF75FB00C7DB7D /* GSJSensorStat+ScienceJournal.swift */,
 				8B9F061A1EF446130030B011 /* GSJTriggerInformation_TriggerWhen+ScienceJournal.swift */,
 				D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */,
+				BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */,
 				6856C8981EEF0E3E00FFCED5 /* MDCAppBar+ScienceJournal.swift */,
 				8BD3A1061F27B76B00A5DDBD /* MDCPalette+ScienceJournal.swift */,
 				8B1791AD1F0FFAB7008C0B31 /* MDCTabBar+ScienceJournal.swift */,
 				68ACCC481F9565F800FDCD38 /* NumberFormatter+ScienceJournal.swift */,
-				BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */,
 				8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */,
 				8B2FD9BA20C58051007513FE /* String+Pluralize.swift */,
 				680659151EC24EBD0090670C /* String+ScienceJournal.swift */,
@@ -3166,6 +3167,13 @@
 				BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		BCD417E6255ADA6B007546A1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		BCEC93AC24C0472E0041296C /* MKRWiFi1010 */ = {
@@ -3699,7 +3707,7 @@
 				8B27A1652065349E009BE265 /* StatView.swift in Sources */,
 				8B6EF71E1E538E970026D1E5 /* SensorDataManager.swift in Sources */,
 				8B994A851F9158C300E9A709 /* CaptureSessionUser.swift in Sources */,
-				BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */,
+				BC55783F249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift in Sources */,
 				680659281EC39B7A0090670C /* TrialCardCell.swift in Sources */,
 				5CBD9AB31F7067AA00D22D21 /* SensorConfigTypeOptionSelectorView.swift in Sources */,
 				8BCCDF631EB9277900E85517 /* PhotoLibraryViewController.swift in Sources */,
@@ -4060,7 +4068,7 @@
 				5CAD5EF51E952F8C008F50C3 /* PacketAssembler.swift in Sources */,
 				58512C6C22AB2FD9001E5CA2 /* FileTypeSelectionHandler.swift in Sources */,
 				68EACA671EAFC05300BB5892 /* ExperimentsListViewController.swift in Sources */,
-				48C767B120F7F1BB00A67C4A /* OnboardingViewController.swift in Sources */,
+				48C767B120F7F1BB00A67C4A /* LegacyOnboardingViewController.swift in Sources */,
 				8BCB0F8E21A32593003FB9E7 /* ElapsedTimeEventManager.swift in Sources */,
 				682FC3B81EDB78C300F40B11 /* RecordingAnimatedView.swift in Sources */,
 				8B1791CD1F140F22008C0B31 /* TriggerOptionEntryView.swift in Sources */,
