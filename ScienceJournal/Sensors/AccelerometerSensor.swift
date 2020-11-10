@@ -310,7 +310,7 @@ class LinearAccelerometerSensor: AccelerometerSensor {
   ///
   /// - Parameter sensorTimer: The sensor timer to use for this sensor.
   init(sensorTimer: SensorTimer) {
-    let animatingIconView = RelativeScaleAnimationView(iconName: "sensor_acc_linear")
+    let animatingIconView = RelativeScaleAnimationView(iconName: "mkrsci_linear_accelerometer")
     let learnMore =
         LearnMore(firstParagraph: String.sensorDescFirstParagraphLinearAcc,
                   secondParagraph: String.sensorDescSecondParagraphLinearAcc,

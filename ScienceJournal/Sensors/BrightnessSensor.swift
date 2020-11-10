@@ -51,7 +51,7 @@ class BrightnessSensor: Sensor, AVCaptureVideoDataOutputSampleBufferDelegate {
   /// - Parameter sensorTimer: The sensor timer to use for this sensor.
   init(sensorTimer: SensorTimer) {
     // TODO: Fix the learn more text and description. http://b/64940813
-    let animatingIconView = RelativeScaleAnimationView(iconName: "sensor_light")
+    let animatingIconView = RelativeScaleAnimationView(iconName: "mkrsci_light")
     let learnMore = LearnMore(firstParagraph: String.sensorDescFirstParagraphBrightness,
                               secondParagraph: String.sensorDescSecondParagraphBrightness,
                               imageName: "learn_more_light")
