@@ -36,6 +36,7 @@ class UnifiedSensorTimerTest: XCTestCase {
                  name: "",
                  textDescription: "",
                  iconName: "",
+                 filledIconName: "",
                  animatingIconView: SensorAnimationView(),
                  unitDescription: nil,
                  learnMore: LearnMore(firstParagraph: "", secondParagraph: "", imageName: ""),
