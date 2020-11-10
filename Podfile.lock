@@ -9,7 +9,7 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
-  - MaterialComponents/ActionSheet (118.2.0):
+  - MaterialComponents/ActionSheet (119.0.0):
     - MaterialComponents/Availability
     - MaterialComponents/BottomSheet
     - MaterialComponents/Elevation
@@ -18,13 +18,13 @@ PODS:
     - MaterialComponents/Ripple
     - MaterialComponents/ShadowElevations
     - MaterialComponents/Typography
-  - MaterialComponents/ActivityIndicator (118.2.0):
+  - MaterialComponents/ActivityIndicator (119.0.0):
     - MaterialComponents/Palettes
     - MaterialComponents/private/Application
     - MDFInternationalization
     - MotionAnimator (~> 2.0)
-  - MaterialComponents/AnimationTiming (118.2.0)
-  - MaterialComponents/AppBar (118.2.0):
+  - MaterialComponents/AnimationTiming (119.0.0)
+  - MaterialComponents/AppBar (119.0.0):
     - MaterialComponents/FlexibleHeader
     - MaterialComponents/HeaderStackView
     - MaterialComponents/NavigationBar
@@ -35,8 +35,8 @@ PODS:
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
     - MDFInternationalization
-  - MaterialComponents/Availability (118.2.0)
-  - MaterialComponents/BottomSheet (118.2.0):
+  - MaterialComponents/Availability (119.0.0)
+  - MaterialComponents/BottomSheet (119.0.0):
     - MaterialComponents/Elevation
     - MaterialComponents/private/KeyboardWatcher
     - MaterialComponents/private/Math
@@ -44,11 +44,11 @@ PODS:
     - MaterialComponents/ShadowLayer
     - MaterialComponents/ShapeLibrary
     - MaterialComponents/Shapes
-  - MaterialComponents/ButtonBar (118.2.0):
+  - MaterialComponents/ButtonBar (119.0.0):
     - MaterialComponents/Buttons
     - MaterialComponents/private/Application
     - MDFInternationalization
-  - MaterialComponents/Buttons (118.2.0):
+  - MaterialComponents/Buttons (119.0.0):
     - MaterialComponents/Elevation
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
@@ -60,10 +60,10 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
-  - "MaterialComponents/Buttons+ColorThemer (118.2.0)":
+  - "MaterialComponents/Buttons+ColorThemer (119.0.0)":
     - MaterialComponents/Buttons
     - MaterialComponents/schemes/Color
-  - MaterialComponents/CollectionCells (118.2.0):
+  - MaterialComponents/CollectionCells (119.0.0):
     - MaterialComponents/CollectionLayoutAttributes
     - MaterialComponents/Ink
     - MaterialComponents/Palettes
@@ -77,8 +77,8 @@ PODS:
     - MaterialComponents/Ripple
     - MaterialComponents/Typography
     - MDFInternationalization
-  - MaterialComponents/CollectionLayoutAttributes (118.2.0)
-  - MaterialComponents/Collections (118.2.0):
+  - MaterialComponents/CollectionLayoutAttributes (119.0.0)
+  - MaterialComponents/Collections (119.0.0):
     - MaterialComponents/Availability
     - MaterialComponents/CollectionCells
     - MaterialComponents/CollectionLayoutAttributes
@@ -88,7 +88,7 @@ PODS:
     - MaterialComponents/ShadowElevations
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
-  - MaterialComponents/Dialogs (118.2.0):
+  - MaterialComponents/Dialogs (119.0.0):
     - MaterialComponents/Buttons
     - MaterialComponents/Elevation
     - MaterialComponents/private/KeyboardWatcher
@@ -97,23 +97,23 @@ PODS:
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
     - MDFInternationalization
-  - "MaterialComponents/Dialogs+ColorThemer (118.2.0)":
+  - "MaterialComponents/Dialogs+ColorThemer (119.0.0)":
     - "MaterialComponents/Buttons+ColorThemer"
     - MaterialComponents/Dialogs
     - MaterialComponents/Themes
-  - MaterialComponents/Elevation (118.2.0):
+  - MaterialComponents/Elevation (119.0.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/FeatureHighlight (118.2.0):
+  - MaterialComponents/FeatureHighlight (119.0.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Math
     - MaterialComponents/Typography
     - MDFTextAccessibility
-  - "MaterialComponents/FeatureHighlight+ColorThemer (118.2.0)":
+  - "MaterialComponents/FeatureHighlight+ColorThemer (119.0.0)":
     - MaterialComponents/FeatureHighlight
     - MaterialComponents/Themes
-  - MaterialComponents/FlexibleHeader (118.2.0):
+  - MaterialComponents/FlexibleHeader (119.0.0):
     - MaterialComponents/Availability
     - MaterialComponents/Elevation
     - "MaterialComponents/FlexibleHeader+ShiftBehavior"
@@ -124,80 +124,80 @@ PODS:
     - MaterialComponents/ShadowElevations
     - MaterialComponents/ShadowLayer
     - MDFTextAccessibility
-  - "MaterialComponents/FlexibleHeader+ShiftBehavior (118.2.0)"
-  - "MaterialComponents/FlexibleHeader+ShiftBehaviorEnabledWithStatusBar (118.2.0)":
+  - "MaterialComponents/FlexibleHeader+ShiftBehavior (119.0.0)"
+  - "MaterialComponents/FlexibleHeader+ShiftBehaviorEnabledWithStatusBar (119.0.0)":
     - "MaterialComponents/FlexibleHeader+ShiftBehavior"
-  - MaterialComponents/HeaderStackView (118.2.0)
-  - MaterialComponents/Ink (118.2.0):
+  - MaterialComponents/HeaderStackView (119.0.0)
+  - MaterialComponents/Ink (119.0.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/NavigationBar (118.2.0):
+  - MaterialComponents/NavigationBar (119.0.0):
     - MaterialComponents/ButtonBar
     - MaterialComponents/Elevation
     - MaterialComponents/private/Math
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
-  - MaterialComponents/OverlayWindow (118.2.0):
+  - MaterialComponents/OverlayWindow (119.0.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Application
-  - MaterialComponents/PageControl (118.2.0):
+  - MaterialComponents/PageControl (119.0.0):
     - MDFInternationalization
-  - MaterialComponents/Palettes (118.2.0)
-  - MaterialComponents/private/Application (118.2.0)
-  - MaterialComponents/private/Color (118.2.0):
+  - MaterialComponents/Palettes (119.0.0)
+  - MaterialComponents/private/Application (119.0.0)
+  - MaterialComponents/private/Color (119.0.0):
     - MaterialComponents/Availability
-  - MaterialComponents/private/Icons/Base (118.2.0)
-  - MaterialComponents/private/Icons/ic_arrow_back (118.2.0):
+  - MaterialComponents/private/Icons/Base (119.0.0)
+  - MaterialComponents/private/Icons/ic_arrow_back (119.0.0):
     - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/Icons/ic_check (118.2.0):
+  - MaterialComponents/private/Icons/ic_check (119.0.0):
     - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/Icons/ic_check_circle (118.2.0):
+  - MaterialComponents/private/Icons/ic_check_circle (119.0.0):
     - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/Icons/ic_chevron_right (118.2.0):
+  - MaterialComponents/private/Icons/ic_chevron_right (119.0.0):
     - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/Icons/ic_info (118.2.0):
+  - MaterialComponents/private/Icons/ic_info (119.0.0):
     - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/Icons/ic_radio_button_unchecked (118.2.0):
+  - MaterialComponents/private/Icons/ic_radio_button_unchecked (119.0.0):
     - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/Icons/ic_reorder (118.2.0):
+  - MaterialComponents/private/Icons/ic_reorder (119.0.0):
     - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/KeyboardWatcher (118.2.0):
+  - MaterialComponents/private/KeyboardWatcher (119.0.0):
     - MaterialComponents/private/Application
-  - MaterialComponents/private/Math (118.2.0)
-  - MaterialComponents/private/Overlay (118.2.0)
-  - MaterialComponents/private/UIMetrics (118.2.0):
+  - MaterialComponents/private/Math (119.0.0)
+  - MaterialComponents/private/Overlay (119.0.0)
+  - MaterialComponents/private/UIMetrics (119.0.0):
     - MaterialComponents/private/Application
-  - MaterialComponents/ProgressView (118.2.0):
+  - MaterialComponents/ProgressView (119.0.0):
     - MaterialComponents/Palettes
     - MaterialComponents/private/Math
     - MDFInternationalization
-  - MaterialComponents/Ripple (118.2.0):
+  - MaterialComponents/Ripple (119.0.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/schemes/Color (118.2.0):
+  - MaterialComponents/schemes/Color (119.0.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
-  - MaterialComponents/schemes/Typography (118.2.0):
+  - MaterialComponents/schemes/Typography (119.0.0):
     - "MaterialComponents/schemes/Typography+BasicFontScheme"
     - "MaterialComponents/schemes/Typography+Scheming"
     - MaterialComponents/Typography
-  - "MaterialComponents/schemes/Typography+BasicFontScheme (118.2.0)"
-  - "MaterialComponents/schemes/Typography+Scheming (118.2.0)"
-  - MaterialComponents/ShadowElevations (118.2.0)
-  - MaterialComponents/ShadowLayer (118.2.0):
+  - "MaterialComponents/schemes/Typography+BasicFontScheme (119.0.0)"
+  - "MaterialComponents/schemes/Typography+Scheming (119.0.0)"
+  - MaterialComponents/ShadowElevations (119.0.0)
+  - MaterialComponents/ShadowLayer (119.0.0):
     - MaterialComponents/ShadowElevations
-  - MaterialComponents/ShapeLibrary (118.2.0):
+  - MaterialComponents/ShapeLibrary (119.0.0):
     - MaterialComponents/private/Math
     - MaterialComponents/Shapes
-  - MaterialComponents/Shapes (118.2.0):
+  - MaterialComponents/Shapes (119.0.0):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
-  - MaterialComponents/Snackbar (118.2.0):
+  - MaterialComponents/Snackbar (119.0.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Availability
     - MaterialComponents/Buttons
@@ -210,7 +210,7 @@ PODS:
     - MaterialComponents/ShadowElevations
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
-  - MaterialComponents/Tabs (118.2.0):
+  - MaterialComponents/Tabs (119.0.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Elevation
     - MaterialComponents/Ink
@@ -221,7 +221,7 @@ PODS:
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
     - MDFInternationalization
-  - MaterialComponents/TextFields (118.2.0):
+  - MaterialComponents/TextFields (119.0.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Buttons
     - MaterialComponents/Elevation
@@ -229,10 +229,10 @@ PODS:
     - MaterialComponents/private/Math
     - MaterialComponents/Typography
     - MDFInternationalization
-  - MaterialComponents/Themes (118.2.0):
+  - MaterialComponents/Themes (119.0.0):
     - MaterialComponents/schemes/Color
     - MaterialComponents/schemes/Typography
-  - MaterialComponents/Typography (118.2.0):
+  - MaterialComponents/Typography (119.0.0):
     - MaterialComponents/private/Application
     - MaterialComponents/private/Math
     - MDFTextAccessibility
@@ -244,7 +244,7 @@ PODS:
   - Protobuf (3.5.0)
   - SnapKit (5.0.0)
   - SSZipArchive (2.1.1)
-  - SwiftLint (0.40.3)
+  - SwiftLint (0.41.0)
 
 DEPENDENCIES:
   - GoogleAPIClientForREST/Drive (~> 1.2.1)
@@ -301,7 +301,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   GoogleAPIClientForREST: a8b95a252014ce2e618df6b75dc72eca2c00b4af
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  MaterialComponents: fc3dba46cf3ae8495728a875778b47d0c6ec7ed5
+  MaterialComponents: 69a725e28406a97816441dea4ec6ec38265a08bb
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
@@ -309,7 +309,7 @@ SPEC CHECKSUMS:
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
-  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
+  SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
 PODFILE CHECKSUM: 7fc20c5c17bd14830e5b0930dfd5f5b75cdf86d3
 
