@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Notizen, Hier können Sie eine Textnotiz zu diesem Experiment hinzufügen";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Beobachten, Mithilfe von Sensoren können Sie hier Wertübersichten oder Aufzeichnungen zu diesem Experiment hinzuzufügen";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Experiment kann nicht geöffnet werden";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

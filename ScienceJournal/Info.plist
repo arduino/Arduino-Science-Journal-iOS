@@ -6,6 +6,8 @@
 	<array>
 		<string>OpenSans-Regular.ttf</string>
 		<string>OpenSans-Bold.ttf</string>
+		<string>RobotoMono-Bold.ttf</string>
+		<string>RobotoMono-Regular.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

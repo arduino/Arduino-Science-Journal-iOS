@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Catatan, Tambahkan catatan teks ke eksperimen ini";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Amati, Gunakan sensor untuk menambahkan snapshot atau rekaman nilai ke eksperimen ini";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Tidak dapat membuka eksperimen";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

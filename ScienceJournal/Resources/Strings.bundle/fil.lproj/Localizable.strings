@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Mga tala, Maglagay ng text na tala sa eksperimentong ito";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Mag-obserba, Gamitin ang mga sensor upang makapagdagdag ng mga value na snapshot o mga recording sa eksperimentong ito";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Hindi mabuksan ang eksperimento";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

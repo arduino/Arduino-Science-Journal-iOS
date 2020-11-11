@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Piezīmes. Pievienojiet teksta piezīmi šim eksperimentam";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Novērošana. Izmantojiet sensorus, lai pievienotu šim eksperimentam vērtību momentuzņēmumus vai ierakstus.";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Nevar atvērt eksperimentu";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

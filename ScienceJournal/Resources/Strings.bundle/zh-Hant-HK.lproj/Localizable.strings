@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "附註，你可以為這項實驗新增文字附註";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "觀察；使用感測器即可為這項實驗新增值的螢幕截圖或記錄";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "無法開啟實驗";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Ghi chú, Thêm chú thích bằng văn bản vào thí nghiệm này";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Quan sát, Sử dụng cảm biến để thêm bản ghi hoặc ảnh chụp nhanh giá trị vào thí nghiệm này";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Không thể mở thí nghiệm";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

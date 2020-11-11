@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "הערות, ניתן להוסיף הערת טקסט לניסוי הזה";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "כרטיסיית הצפייה, ניתן להשתמש בחיישנים כדי להוסיף תמונות מצב של ערכים או מדידות לניסוי הזה";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "לא ניתן לפתוח את הניסוי";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

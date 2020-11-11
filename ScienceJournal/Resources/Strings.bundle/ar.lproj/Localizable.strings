@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "الملاحظات: لإضافة ملاحظة نصية إلى هذه التجربة";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "المراقبة: يمكنك استخدام أجهزة الاستشعار لإضافة لقطات أو تسجيلات للقِيَم إلى هذه التجربة";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "لا يمكن فتح التجربة.";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

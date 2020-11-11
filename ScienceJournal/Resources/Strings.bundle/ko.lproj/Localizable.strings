@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "메모, 이 실험에 텍스트 메모를 추가합니다.";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "관찰, 센서를 사용하여 이 실험에 값 스냅샷 또는 기록을 추가합니다.";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "실험을 불러올 수 없음";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

@@ -95,3 +95,13 @@ extension UIViewController {
   }
 
 }
+
+extension UIViewController {
+  /// Loads a view controller from a nib with the same name.
+  ///
+  /// - Parameters:
+  ///   - bundle: The bundle where to load the nib from (main by default).
+  class func fromNib<T: UIViewController>(in bundle: Bundle = Bundle.main) -> T {
+    return T(nibName: String(describing: T.self), bundle: bundle)
+  }
+}
