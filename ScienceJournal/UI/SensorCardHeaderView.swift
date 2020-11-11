@@ -30,7 +30,7 @@ class SensorCardHeaderView: UIView {
   let titleLabel = UILabel()
 
   private lazy var audioImageView: UIImageView = {
-    let audioImageView = UIImageView(image: UIImage(named: "ic_music_note"))
+    let audioImageView = UIImageView(image: UIImage(named: "ic_volume_up_filled"))
     audioImageView.tintColor = .white
     audioImageView.translatesAutoresizingMaskIntoConstraints = false
     audioImageView.widthAnchor.constraint(
