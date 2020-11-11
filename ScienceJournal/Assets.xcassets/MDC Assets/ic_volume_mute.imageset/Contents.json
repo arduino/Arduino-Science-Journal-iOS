@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_volume_mute.pdf",
+      "filename" : "ic_volume_mute.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ic_volume_mute@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "ic_volume_mute@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
