@@ -34,7 +34,7 @@ extension ActionArea {
       }
 
       enum Bar {
-        static let backgroundColor = UIColor(white: 0.98, alpha: 1.0)
+        static let backgroundColor = UIColor.white
         static let buttonTitleColor: UIColor = ArduinoColorPalette.grayPalette.tint800 ?? .gray
         static let cornerRadius: CGFloat = 15
         static let defaultMargins = UIEdgeInsets(top: 0, left: 8, bottom: 8, right: 8)
@@ -101,8 +101,9 @@ extension ActionArea {
     private var bar: Bar = {
       let view = Bar()
       view.clipsToBounds = false
-      view.layer.shadowRadius = Metrics.Bar.shadow.bottomShadowRadius
-      view.layer.shadowOffset = Metrics.Bar.shadow.bottomShadowOffset
+      view.layer.shadowRadius = 12
+      view.layer.shadowOffset = CGSize(width: 0, height: 4)
+      view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
       view.alpha = 0
       return view
     }()
