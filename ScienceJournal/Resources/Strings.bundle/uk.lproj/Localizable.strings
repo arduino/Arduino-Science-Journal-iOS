@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Нотатки, додати текстову нотатку в цей експеримент";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Спостереження, додати в цей експеримент знімки або записи зі значеннями за допомогою датчиків";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Не вдалося відкрити експеримент";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

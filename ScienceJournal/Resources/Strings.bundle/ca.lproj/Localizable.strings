@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Notes: afegeix una nota de text a aquest experiment";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Observació: utilitza els sensors per afegir visualitzacions generals o enregistraments amb els valors d'aquest experiment";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "No es pot obrir l'experiment";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

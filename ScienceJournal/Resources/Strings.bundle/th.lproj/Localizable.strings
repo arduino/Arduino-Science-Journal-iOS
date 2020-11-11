@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "โน้ต สำหรับเพิ่มโน้ตข้อความลงในการทดลองนี้";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "สังเกต สำหรับเพิ่มสแนปชอตโดยใช้เซ็นเซอร์หรือบันทึกค่าลงในการทดลองนี้";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "เปิดการทดลองไม่ได้";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

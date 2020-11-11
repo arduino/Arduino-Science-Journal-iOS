@@ -190,12 +190,8 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     sidebar.delegate = self
 
     if !devicePreferenceManager.hasAUserCompletedPermissionsGuide {
-      let permissionsVC =
-          PermissionsGuideViewController(delegate: self,
-                                         analyticsReporter: analyticsReporter,
-                                         devicePreferenceManager: devicePreferenceManager,
-                                         showWelcomeView: !accountsManager.supportsAccounts)
-      navController.setViewControllers([permissionsVC], animated: false)
+      let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
+      navController.setViewControllers([onboardingVC], animated: false)
     } else {
       // Don't need the permissions guide, just show the experiments list.
       showExperimentsList(animated: false)

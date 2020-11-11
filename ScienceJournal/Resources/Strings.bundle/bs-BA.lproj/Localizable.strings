@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Bilješke: dodajte tekstualnu bilješku za taj eksperiment";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Promatranje: upotrijebite senzore da biste eksperimentu dodali važne slike ili snimke";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Eksperiment se ne može otvoriti";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

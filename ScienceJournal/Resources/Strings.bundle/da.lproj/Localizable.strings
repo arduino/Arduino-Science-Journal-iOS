@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Noter, føj en tekstnote til dette eksperiment";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Observer, brug sensorer til at føje øjebliksbilleder eller registreringer til dette eksperiment";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Eksperimentet kan ikke åbnes";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

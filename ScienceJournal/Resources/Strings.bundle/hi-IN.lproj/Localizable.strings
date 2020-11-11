@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "नोट, इस प्रयोग के लिए एक लेख नोट जोड़ता है";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "निरीक्षण टैब, इस प्रयोग में मान के स्नैपशॉट या रिकॉर्डिंग जोड़ने के लिए सेंसर का उपयोग करता है";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "प्रयोग नहीं खोला जा सकता";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

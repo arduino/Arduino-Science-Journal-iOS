@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Pastabos, Pridėkite teksto pastabą prie šio įrašo";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Stebėjimas, Naudodami jutiklius prie šio eksperimento pridėkite vertės momentinių nuotraukų ar įrašų";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Eksperimento atidaryti nepavyko";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

@@ -620,9 +620,13 @@
 		BC7AB10624D0880E00703B2E /* BLEScienceKitGyroscopeXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB10324D0880D00703B2E /* BLEScienceKitGyroscopeXSensor.swift */; };
 		BC80411224CED6310098E17E /* BLEScienceKitInput2Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */; };
 		BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */; };
+		BC809183255BDFDB0074E25A /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC809181255BDFDB0074E25A /* RobotoMono-Bold.ttf */; };
+		BC809184255BDFDB0074E25A /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC809182255BDFDB0074E25A /* RobotoMono-Regular.ttf */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
 		BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */; };
 		BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */; };
+		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
+		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
 		BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */; };
 		BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */; };
@@ -1353,9 +1357,13 @@
 		BC7AB10324D0880D00703B2E /* BLEScienceKitGyroscopeXSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitGyroscopeXSensor.swift; sourceTree = "<group>"; };
 		BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput2Sensor.swift; sourceTree = "<group>"; };
 		BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput3Sensor.swift; sourceTree = "<group>"; };
+		BC809181255BDFDB0074E25A /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
+		BC809182255BDFDB0074E25A /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
 		BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigViewController.swift; sourceTree = "<group>"; };
 		BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigSelectorView.swift; sourceTree = "<group>"; };
+		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
 		BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensor.swift; sourceTree = "<group>"; };
 		BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitCurrentSensor.swift; sourceTree = "<group>"; };
@@ -2349,6 +2357,7 @@
 				8B79B6AA2098BA1B009C7C04 /* ExistingDataOptions */,
 				688F79D31EBBA5230046A970 /* Experiments */,
 				8B65A94E2225923700D1FDF9 /* LoadingViewController.swift */,
+				BCD417E6255ADA6B007546A1 /* Onboarding */,
 				68154D3B1F58EB98000CD3E6 /* Permissions */,
 				5C7DE8C11EC116190015F407 /* Playback */,
 				8BCCAD521EDF365500278F05 /* PopUpMenu */,
@@ -2566,7 +2575,6 @@
 				68E3618A203F7F0900B1B979 /* main.swift */,
 				8B2053441E8D822500206061 /* Metadata */,
 				8B54BA161F4F0E3D006AADAA /* Notifications */,
-				BCD417E6255ADA6B007546A1 /* Onboarding */,
 				5C7EFC57202DFFA90007F99E /* Operations */,
 				58C4DB1222D53B1B0029E519 /* PDFExport */,
 				5CAD5EE81E8D7DF8008F50C3 /* Protocols */,
@@ -3172,6 +3180,8 @@
 		BCD417E6255ADA6B007546A1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				BCD41808255AF639007546A1 /* OnboardingViewController.swift */,
+				BCD41809255AF639007546A1 /* OnboardingViewController.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -3209,6 +3219,8 @@
 			children = (
 				F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */,
 				F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */,
+				BC809181255BDFDB0074E25A /* RobotoMono-Bold.ttf */,
+				BC809182255BDFDB0074E25A /* RobotoMono-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -3429,10 +3441,13 @@
 				48FDC26B20AB51B600C472DA /* oss_licenses_index.txt in Resources */,
 				5C7EFC50202A5BAC0007F99E /* material_components.html in Resources */,
 				5C7EFC52202A5BAC0007F99E /* ziparchive.html in Resources */,
+				BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */,
 				48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */,
+				BC809184255BDFDB0074E25A /* RobotoMono-Regular.ttf in Resources */,
 				48BFD8D120D065FF00FB5C1A /* google_api_client_for_rest.html in Resources */,
 				68EBA6E51E20421E0089FF7F /* Assets.xcassets in Resources */,
 				BCF411EC253854E0002D6C73 /* InfoPlist.strings in Resources */,
+				BC809183255BDFDB0074E25A /* RobotoMono-Bold.ttf in Resources */,
 				4878E94022974DCC004B61AF /* LaunchScreen.storyboard in Resources */,
 				8BDD4C2D1EA687FD00FCCA30 /* trigger_sound1.mp3 in Resources */,
 				48BFD8CC20D065FF00FB5C1A /* gtm_session_fetcher.html in Resources */,
@@ -3855,6 +3870,7 @@
 				D59CA3D1219CEE690082A27B /* Harmonic.swift in Sources */,
 				8B1B2AF71EE84DE100990FE8 /* PopUpMenuAnchor.swift in Sources */,
 				8B92B5701EB90047004C356E /* PhotoLibraryCell.swift in Sources */,
+				BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */,
 				5C880BA22190D9E900594166 /* ButtonViewController.swift in Sources */,
 				3FA7052822F8DF6B00753842 /* ActionAreaDetailContentContainerViewController.swift in Sources */,
 				68C3C9491E42B59900F339C4 /* MaterialHeaderViewController.swift in Sources */,

@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Notities, Voeg een tekstnotitie toe aan dit experiment";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Observeren, Gebruik sensoren om momentopnamen van waarden of opnamen aan dit experiment toe te voegen";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Kan experiment niet openen";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

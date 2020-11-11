@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Белешке, додајте текстуалну белешку експерименту";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Посматрање, додајте експерименту важне снимке или забелешке помоћу сензора";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Експеримент не може да се отвори";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

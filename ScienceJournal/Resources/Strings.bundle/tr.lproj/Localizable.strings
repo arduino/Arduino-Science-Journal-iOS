@@ -655,6 +655,7 @@
 "notes_tab_content_description" = "Notlar, Bu deneye bir yazılı not ekleyin";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Gözlem, Bu deneye değerlere ait anlık görüntüler veya kayıtlar eklemek için sensörleri kullanın";
+"onboarding_navigation_title" = "GETTING STARTED";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
 "open_experiment_failed" = "Deney açılamıyor";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */

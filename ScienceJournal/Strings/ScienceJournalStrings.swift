@@ -358,6 +358,7 @@ extension String {
   static public var notes: String { return "notes".localized }
   static public var notesTabContentDescription: String { return "notes_tab_content_description".localized }
   static public var observeTabContentDescription: String { return "observe_tab_content_description".localized }
+  static public var onboardingNavigationTitle: String { return "onboarding_navigation_title".localized }
   static public var openExperimentFailed: String { return "open_experiment_failed".localized }
   static public var openFileFailed: String { return "open_file_failed".localized }
   static public var openFileFailedBody: String { return "open_file_failed_body".localized }
