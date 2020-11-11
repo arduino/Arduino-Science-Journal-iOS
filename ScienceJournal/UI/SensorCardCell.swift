@@ -282,7 +282,7 @@ class SensorCardCell: AutoLayoutMaterialCardCell, MDCTabBarDelegate {
     var selectedItemIndex: Int?
     for (index, sensor) in self.allSensors.enumerated() {
       sensorTabBarItems.append(UITabBarItem(title: sensor.name,
-                                            image: UIImage(named: sensor.iconName),
+                                            image: UIImage(named: sensor.filledIconName),
                                             tag: index))
       if let selectedSensor = self.sensor {
         if sensor.sensorId == selectedSensor.sensorId {

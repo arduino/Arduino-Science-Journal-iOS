@@ -25,6 +25,8 @@ struct Nano33BLESenseTemperatureSensor: BLEArduinoSensor {
   var name: String { "ambient_temperature".localized }
 
   var iconName: String { "ic_sensor_temperature" }
+  
+  var filledIconName: String { iconName }
 
   var animatingIconName: String { "mkrsci_temperature" }
 

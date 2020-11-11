@@ -42,6 +42,7 @@ class BluetoothSensor: Sensor, BLEServiceScannerDelegate {
                name: sensorInterface.name,
                textDescription: sensorInterface.textDescription,
                iconName: sensorInterface.iconName,
+               filledIconName: sensorInterface.filledIconName,
                animatingIconView: animatingIconView,
                unitDescription: sensorInterface.unitDescription,
                learnMore: sensorInterafce.learnMoreInformation,

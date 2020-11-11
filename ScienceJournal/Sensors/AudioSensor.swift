@@ -35,6 +35,7 @@ class AudioSensor: Sensor {
   ///   - name: The name of the sensor.
   ///   - textDescription: The text description of the sensor.
   ///   - iconName: The icon name for the sensor.
+  ///   - filledIconName: The filled icon name for the sensor.
   ///   - animatingIconView: The animating icon view.
   ///   - unitDescription: Units the sensor's values are measured in.
   ///   - learnMore: The contents of the learn more view for a sensor.
@@ -44,6 +45,7 @@ class AudioSensor: Sensor {
        name: String,
        textDescription: String,
        iconName: String,
+       filledIconName: String,
        animatingIconView: SensorAnimationView,
        unitDescription: String,
        learnMore: LearnMore,
@@ -54,6 +56,7 @@ class AudioSensor: Sensor {
                name: name,
                textDescription: textDescription,
                iconName: iconName,
+               filledIconName: filledIconName,
                animatingIconView: animatingIconView,
                unitDescription: unitDescription,
                learnMore: learnMore,

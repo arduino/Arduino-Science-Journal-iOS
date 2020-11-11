@@ -34,6 +34,7 @@ class AltimeterSensor: Sensor {
   ///   - name: The name of the sensor.
   ///   - textDescription: The text description of the accelerometer sensor.
   ///   - iconName: The icon name for the sensor.
+  ///   - filledIconName: The filled icon name for the sensor.
   ///   - animatingIconName: The animating icon name for the sensor.
   ///   - unitDescription: Units the sensor's values are measured in.
   ///   - learnMore: The contents of the learn more view for a sensor.
@@ -42,6 +43,7 @@ class AltimeterSensor: Sensor {
        name: String,
        textDescription: String,
        iconName: String,
+       filledIconName: String,
        animatingIconName: String,
        unitDescription: String?,
        learnMore: LearnMore,
@@ -51,6 +53,7 @@ class AltimeterSensor: Sensor {
                name: name,
                textDescription: textDescription,
                iconName: iconName,
+               filledIconName: filledIconName,
                animatingIconView: animatingIconView,
                unitDescription: unitDescription,
                learnMore: learnMore,

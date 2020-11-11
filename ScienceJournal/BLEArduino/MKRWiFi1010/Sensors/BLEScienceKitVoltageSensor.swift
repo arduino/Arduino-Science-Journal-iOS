@@ -24,7 +24,9 @@ struct BLEScienceKitVoltageSensor: BLEArduinoSensor {
 
   var name: String { "voltage".localized }
 
-  var iconName: String { "mkrsci_sensor_voltage" }
+  var iconName: String { "ic_sensor_voltage" }
+  
+  var filledIconName: String { "ic_sensor_voltage_filled" }
 
   var animatingIconName: String { "mkrsci_voltage" }
 

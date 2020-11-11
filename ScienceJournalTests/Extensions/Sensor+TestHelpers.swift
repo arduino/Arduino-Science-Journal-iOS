@@ -33,11 +33,13 @@ extension Sensor {
                   name: String = "",
                   textDescription: String = "",
                   iconName: String = "",
+                  filledIconName: String = "",
                   unitDescription: String? = nil) -> Sensor {
     return Sensor(sensorId: sensorId,
                   name: name,
                   textDescription: textDescription,
                   iconName: iconName,
+                  filledIconName: filledIconName,
                   animatingIconView: SensorAnimationView(),
                   unitDescription: unitDescription,
                   learnMore: LearnMore(firstParagraph: "", secondParagraph: "", imageName: ""),

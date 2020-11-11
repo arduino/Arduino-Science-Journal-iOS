@@ -33,6 +33,8 @@ class Sensor: NSObject {
   let textDescription: String
   /// An icon file name for the Sensor, used in places like the sensor picker in Observe.
   let iconName: String
+  /// An icon file name for the Sensor, used in places with colored background
+  let filledIconName: String
   /// The animating icon view for the sensor.
   let animatingIconView: SensorAnimationView
   /// Units the sensor's values are measured in.
@@ -88,6 +90,7 @@ class Sensor: NSObject {
        name: String,
        textDescription: String,
        iconName: String,
+       filledIconName: String,
        animatingIconView: SensorAnimationView,
        unitDescription: String?,
        learnMore: LearnMore,
@@ -96,6 +99,7 @@ class Sensor: NSObject {
     self.name = name
     self.textDescription = textDescription
     self.iconName = iconName
+    self.filledIconName = filledIconName
     self.animatingIconView = animatingIconView
     self.unitDescription = unitDescription
     self.learnMore = learnMore

@@ -24,7 +24,9 @@ struct Nano33BLESenseProximitySensor: BLEArduinoSensor {
 
   var name: String { String.proximity }
 
-  var iconName: String { "sensor_proximity" }
+  var iconName: String { "ic_sensor_proximity" }
+  
+  var filledIconName: String { "ic_sensor_proximity_filled" }
 
   var animatingIconName: String { "nano33_ble_sense_proximity" }
 

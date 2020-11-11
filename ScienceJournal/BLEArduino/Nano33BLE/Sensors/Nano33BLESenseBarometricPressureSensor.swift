@@ -25,6 +25,8 @@ struct Nano33BLESenseBarometricPressureSensor: BLEArduinoSensor {
   var name: String { String.barometer }
 
   var iconName: String { "ic_sensor_barometer" }
+  
+  var filledIconName: String { "ic_sensor_barometer_filled" }
 
   var animatingIconName: String { "sensor_barometer" }
 

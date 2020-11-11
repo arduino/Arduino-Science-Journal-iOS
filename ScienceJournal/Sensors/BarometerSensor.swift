@@ -31,6 +31,7 @@ class BarometerSensor: AltimeterSensor {
                name: String.barometer,
                textDescription: String.sensorDescShortBarometer,
                iconName: "ic_sensor_barometer",
+               filledIconName: "ic_sensor_barometer_filled",
                animatingIconName: "sensor_barometer",
                unitDescription: String.barometerUnits,
                learnMore: learnMore,

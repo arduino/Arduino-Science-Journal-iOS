@@ -26,7 +26,7 @@ class MagnetometerSensor: MotionSensor {
   ///
   /// - Parameter sensorTimer: The sensor timer to use for this sensor.
   init(sensorTimer: SensorTimer) {
-    let animatingIconView = RelativeScaleAnimationView(iconName: "sensor_magnet")
+    let animatingIconView = RelativeScaleAnimationView(iconName: "mkrsci_magnetometer")
     let learnMore = LearnMore(firstParagraph: String.sensorDescFirstParagraphMagneticStrength,
                               secondParagraph: String.sensorDescSecondParagraphMagneticStrength,
                               imageName: "learn_more_magnet")
@@ -34,6 +34,7 @@ class MagnetometerSensor: MotionSensor {
                name: String.magneticFieldStrength,
                textDescription: String.sensorDescShortMagneticStrength,
                iconName: "ic_sensor_magnet",
+               filledIconName: "ic_sensor_magnet_filled",
                animatingIconView: animatingIconView,
                unitDescription: String.magneticStrengthUnits,
                learnMore: learnMore,

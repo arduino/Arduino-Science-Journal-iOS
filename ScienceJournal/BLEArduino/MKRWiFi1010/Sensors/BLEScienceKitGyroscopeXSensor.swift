@@ -25,7 +25,9 @@ struct BLEScienceKitGyroscopeXSensor: BLEArduinoSensor {
 
   var name: String { "gyr_x".localized }
 
-  var iconName: String { "mkrsci_gyr_x" }
+  var iconName: String { "ic_sensor_gyr_x" }
+  
+  var filledIconName: String { "ic_sensor_gyr_x_filled" }
 
   var animatingIconName: String { "mkrsci_gyrx" }
 

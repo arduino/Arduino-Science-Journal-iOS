@@ -58,6 +58,14 @@ class MakingScienceSensorInterface: BLESensorInterface {
     }
     return sensorType.iconName
   }
+  
+  var filledIconName: String {
+    guard let sensorType = sensorConfig?.sensorTypeEnum else {
+      // Default to the raw icon.
+      return GSJBleSensorConfig.SensorType.raw.filledIconName
+    }
+    return sensorType.filledIconName
+  }
 
   var animatingIconName: String {
     guard let sensorType = sensorConfig?.sensorTypeEnum else {

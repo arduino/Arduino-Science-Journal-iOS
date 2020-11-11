@@ -44,6 +44,9 @@ class TestSensorInterface: BLESensorInterface {
   var iconName: String {
     return "TEST ICON NAME"
   }
+  var filledIconName: String {
+    return "TEST FILLED ICON NAME"
+  }
   var animatingIconName: String {
     return "TEST"
   }

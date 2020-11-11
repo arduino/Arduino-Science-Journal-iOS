@@ -24,7 +24,9 @@ struct Nano33BLESenseHumiditySensor: BLEArduinoSensor {
 
   var name: String { String.humidity }
 
-  var iconName: String { "sensor_humidity" }
+  var iconName: String { "ic_sensor_humidity" }
+  
+  var filledIconName: String { "ic_sensor_humidity_filled" }
 
   var animatingIconName: String { "sensor_humidity" }
 

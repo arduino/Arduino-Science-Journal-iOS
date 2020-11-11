@@ -27,7 +27,7 @@ class SoundIntensitySensor: AudioSensor {
   ///   - audioCapture: The audio capture to use for measuring sound.
   ///   - sensorTimer: The sensor timer to use for this sensor.
   init(audioCapture: AudioCapture, sensorTimer: SensorTimer) {
-    let animatingIconView = RelativeScaleAnimationView(iconName: "sensor_audio")
+    let animatingIconView = RelativeScaleAnimationView(iconName: "sensor_microhpone")
     let learnMore = LearnMore(firstParagraph: String.sensorDescFirstParagraphDecibel,
                               secondParagraph: String.sensorDescSecondParagraphDecibel,
                               imageName: "learn_more_audio")
@@ -35,6 +35,7 @@ class SoundIntensitySensor: AudioSensor {
                name: String.decibel,
                textDescription: String.sensorDescShortDecibel,
                iconName: "ic_sensor_audio",
+               filledIconName: "ic_sensor_audio_filled",
                animatingIconView: animatingIconView,
                unitDescription: String.decibelUnits,
                learnMore: learnMore,

@@ -39,6 +39,7 @@ class CompassSensor: Sensor, CLLocationManagerDelegate {
                name: String.compass,
                textDescription: String.sensorDescShortCompass,
                iconName: "ic_sensor_compass",
+               filledIconName: "ic_sensor_compass_filled",
                animatingIconView: animatingIconView,
                unitDescription: String.compassUnits,
                learnMore: learnMore,
