@@ -153,7 +153,7 @@ class TimeAxisView: UIScrollView {
   private lazy var recordingLineLayer: CAShapeLayer = {
     let shapeLayer = CAShapeLayer()
     shapeLayer.lineWidth = self.recordingLineWidth
-    shapeLayer.strokeColor = UIColor.red.cgColor
+    shapeLayer.strokeColor = UIColor.trialHeaderRecordingBackgroundColor.cgColor
     self.layer.addSublayer(shapeLayer)
     return shapeLayer
   }()
@@ -163,7 +163,7 @@ class TimeAxisView: UIScrollView {
     let shapeLayer = CAShapeLayer()
     shapeLayer.lineWidth = self.recordingLineWidth
     shapeLayer.strokeColor = UIColor.white.cgColor
-    shapeLayer.fillColor = UIColor.red.cgColor
+    shapeLayer.fillColor = UIColor.trialHeaderRecordingBackgroundColor.cgColor
     self.layer.addSublayer(shapeLayer)
     return shapeLayer
   }()
@@ -354,8 +354,8 @@ class TimeAxisView: UIScrollView {
                               height: noteDotRadius * 2)
     let noteDotLayer = CAShapeLayer()
     noteDotLayer.lineWidth = noteDotLineWidth
-    noteDotLayer.strokeColor = UIColor.red.cgColor
-    noteDotLayer.fillColor = UIColor.yellow.cgColor
+    noteDotLayer.strokeColor = UIColor.trialHeaderRecordingBackgroundColor.cgColor
+    noteDotLayer.fillColor = ArduinoColorPalette.warningColor.cgColor
     noteDotLayer.path = UIBezierPath(ovalIn: noteDotFrame).cgPath
     shapeLayers.append(noteDotLayer)
     layer.addSublayer(noteDotLayer)
