@@ -39,6 +39,7 @@ class ArduinoTypography {
   public static let flatButtonFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
   public static let headingFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Medium.rawValue)
   public static let paragraphFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+  public static let badgeFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
   public static let labelFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XXSmall.rawValue)
   public static let sensorValueFont = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.MediumLarge.rawValue)
   
