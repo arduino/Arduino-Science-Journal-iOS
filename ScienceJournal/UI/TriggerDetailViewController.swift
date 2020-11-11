@@ -230,7 +230,7 @@ class TriggerDetailViewController: MaterialHeaderCollectionViewController,
       deleteBarButton.button.addTarget(self,
                                        action: #selector(deleteButtonPressed),
                                        for: .touchUpInside)
-      deleteBarButton.button.setImage(UIImage(named: "ic_delete"), for: .normal)
+      deleteBarButton.button.setImage(UIImage(named: "ic_delete_filled"), for: .normal)
       deleteBarButton.accessibilityLabel = String.deleteNoteMenuItem
       navigationItem.rightBarButtonItem = deleteBarButton
     }
