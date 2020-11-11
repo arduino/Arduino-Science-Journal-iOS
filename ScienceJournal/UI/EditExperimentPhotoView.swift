@@ -32,7 +32,7 @@ class EditExperimentPhotoView: UIView {
   private let chooseButton = MDCFlatButton()
   weak var delegate: EditExperimentPhotoViewDelegate?
   private let imageView = UIImageView()
-  private let placeholderImageView = UIImageView(image: UIImage(named: "ic_landscape_large"))
+  private let placeholderImageView = UIImageView(image: UIImage(named: "ic_photo_large"))
   private let placeholderStack = UIStackView()
 
   var photo: UIImage? {
@@ -96,11 +96,13 @@ class EditExperimentPhotoView: UIView {
     placeholderImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
 
     // The choose photo button.
+    chooseButton.setTitleFont(ArduinoTypography.flatButtonFont, for: .normal)
     chooseButton.setTitleColor(ArduinoColorPalette.tealPalette.tint800, for: .normal)
     chooseButton.setBackgroundColor(.clear, for: .normal)
     chooseButton.setTitle(String.choosePhotoButtonText.uppercased(), for: .normal)
 
     // Change button.
+    changeButton.setTitleFont(ArduinoTypography.flatButtonFont, for: .normal)
     changeButton.setBackgroundColor(.white, for: .normal)
     changeButton.setTitleColor(.black, for: .normal)
     changeButton.setTitle(String.editExperimentChangePhoto.uppercased(), for: .normal)
