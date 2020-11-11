@@ -140,6 +140,7 @@ class EditExperimentViewController: MaterialHeaderViewController, EditExperiment
     // Text field and its controller.
     scrollView.addSubview(textField)
     textField.delegate = self
+    textField.font = ArduinoTypography.paragraphFont
     textField.text = experiment.title
     existingTitle = experiment.title
     textField.clearButtonMode = .whileEditing
@@ -158,7 +159,8 @@ class EditExperimentViewController: MaterialHeaderViewController, EditExperiment
     textFieldWidthConstraint?.isActive = true
 
     let controller = MDCTextInputControllerUnderline(textInput: textField)
-    controller.floatingPlaceholderNormalColor = .appBarReviewBackgroundColor
+    controller.floatingPlaceholderNormalColor = ArduinoColorPalette.labelColor
+    controller.floatingPlaceholderActiveColor = ArduinoColorPalette.labelColor    
     controller.activeColor = .appBarReviewBackgroundColor
     textFieldController = controller
 
