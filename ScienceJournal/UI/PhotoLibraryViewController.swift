@@ -197,6 +197,7 @@ open class PhotoLibraryViewController: ScienceJournalViewController, UICollectio
       view.addSubview(sendFAB)
       sendFAB.accessibilityLabel = String.addPictureNoteContentDescription
       sendFAB.setImage(Metrics.sendFABImage, for: .normal)
+      sendFAB.tintColor = .white
       sendFAB.contentEdgeInsets = Metrics.sendFABContentInsets
       sendFAB.disabledAlpha = Metrics.sendFABDisabledAlpha
       sendFAB.addTarget(self, action: #selector(actionBarButtonPressed), for: .touchUpInside)
