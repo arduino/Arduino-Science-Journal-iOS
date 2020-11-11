@@ -35,7 +35,7 @@ extension ActionArea {
 
       enum Bar {
         static let backgroundColor = UIColor(white: 0.98, alpha: 1.0)
-        static let buttonTitleColor: UIColor = .gray
+        static let buttonTitleColor: UIColor = ArduinoColorPalette.grayPalette.tint800 ?? .gray
         static let cornerRadius: CGFloat = 15
         static let defaultMargins = UIEdgeInsets(top: 0, left: 8, bottom: 8, right: 8)
         static let disabledAlpha: CGFloat = 0.2
@@ -66,22 +66,18 @@ extension ActionArea {
 
     // MARK: - Implementation
 
-    private var primaryConstraints: MutuallyExclusiveConstraints<UIUserInterfaceSizeClass>?
-
     /// The `ActionItem` to display in the Action Area Bar.
     private var actionItem: ActionItem = .empty
 
     private var primary: UIButton? {
       didSet {
         oldValue?.removeFromSuperview()
-
-        if primary == nil {
-          primaryConstraints = nil
-        }
       }
     }
 
-    private var barHeightFromBottomEdge: CGFloat { return view.bounds.height - bar.frame.minY }
+    private var barHeightFromBottomEdge: CGFloat {
+      return view.bounds.height - bar.frame.minY
+    }
 
     private var currentAlpha: CGFloat {
       switch (actionItem.isEmpty, isEnabled) {
@@ -114,6 +110,7 @@ extension ActionArea {
     private func create(primary: BarButtonItem) -> UIButton {
       let button = MDCFloatingButton()
       button.mode = .expanded
+      button.isUppercaseTitle = false
       button.setTitle(primary.title, for: .normal)
       button.setImage(primary.image, for: .normal)
       button.setTitleColor(.black, for: .normal)
@@ -124,14 +121,10 @@ extension ActionArea {
 
       button.layoutIfNeeded()
       view.addSubview(button)
-      primaryConstraints = MutuallyExclusiveConstraints { constraints in
-        button.snp.makeConstraints { make in
-          make.bottom.equalTo(bar.snp.top).offset(-1 * Metrics.Bar.toFABSpacing)
-        }
-        constraints[.compact] = button.snp.prepareConstraints { $0.centerX.equalToSuperview() }
-        constraints[.regular] = button.snp.prepareConstraints { $0.right.equalTo(bar) }
+      button.snp.makeConstraints { make in
+        make.bottom.equalTo(bar.snp.top).offset(-1 * Metrics.Bar.toFABSpacing)
+        make.centerX.equalToSuperview()
       }
-      primaryConstraints?.activate(traitCollection.horizontalSizeClass)
 
       return button
     }
@@ -139,7 +132,10 @@ extension ActionArea {
     private func updateAdditionalSafeAreaInsets() {
       if bar.alpha > 0 {
         content.additionalSafeAreaInsets =
-          UIEdgeInsets(top: 0, left: 0, bottom: barHeightFromBottomEdge, right: 0)
+          UIEdgeInsets(top: 0,
+                       left: 0,
+                       bottom: barHeightFromBottomEdge - view.safeAreaInsets.bottom,
+                       right: 0)
       } else {
         content.additionalSafeAreaInsets = .zero
       }
@@ -237,13 +233,13 @@ extension ActionArea {
       case .lower:
         transition(before: {}, during: {
           self.bar.transform = CGAffineTransform(translationX: 0, y: self.barHeightFromBottomEdge)
+          self.updateAdditionalSafeAreaInsets()
         }, after: {
           self.bar.transform = .identity
           self.actionItem = .empty
           self.bar.items = []
           self.bar.alpha = self.currentAlpha
           self.primary = nil
-          self.updateAdditionalSafeAreaInsets()
         }, with: coordinator)
       }
     }
@@ -458,6 +454,7 @@ extension ActionArea {
       view.numberOfLines = 2
       view.textAlignment = .center
       view.textColor = BarViewController.Metrics.Bar.buttonTitleColor
+      view.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
       return view
     }()
 
@@ -472,7 +469,7 @@ extension ActionArea {
       snp.setLabel("action")
       accessibilityHint = item.accessibilityHint
 
-      button.setImage(item.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+      button.setImage(item.image, for: .normal)
       button.addTarget(item, action: #selector(BarButtonItem.execute), for: .touchUpInside)
       addSubview(button)
       button.snp.setLabel("action.button")

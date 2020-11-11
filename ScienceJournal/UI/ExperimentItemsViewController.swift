@@ -166,21 +166,14 @@ class ExperimentItemsViewController: VisibilityTrackingViewController,
 
     // Collection view.
     collectionView.alwaysBounceVertical = true
+    collectionView.showsHorizontalScrollIndicator = false
     collectionView.dataSource = self
     collectionView.delegate = self
     collectionView.backgroundColor = experimentDisplay.backgroundColor
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(collectionView)
 
-    if FeatureFlags.isActionAreaEnabled == true {
-      collectionView.snp.makeConstraints { (make) in
-        make.top.bottom.equalToSuperview()
-        make.leading.equalTo(view.snp.leadingMargin)
-        make.trailing.equalTo(view.snp.trailingMargin)
-      }
-    } else {
-      collectionView.pinToEdgesOfView(view)
-    }
+    collectionView.pinToEdgesOfView(view)
   }
 
   override func viewWillTransition(to size: CGSize,
@@ -299,10 +292,13 @@ class ExperimentItemsViewController: VisibilityTrackingViewController,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
     let width: CGFloat
     if FeatureFlags.isActionAreaEnabled {
+      let sectionInsets = self.collectionView(collectionView,
+                                              layout: collectionViewLayout,
+                                              insetForSectionAt: indexPath.section)
       let collectionViewWidth = collectionView.bounds.width
       let insets = [collectionView.adjustedContentInset, cellInsets]
         .reduce(0) { return $0 + $1.left + $1.right }
-      width = collectionViewWidth - insets
+      width = collectionViewWidth - insets - sectionInsets.left - sectionInsets.right
     } else {
       width = collectionView.bounds.size.width - collectionView.contentInset.right -
         cellInsets.left - cellInsets.right
@@ -487,6 +483,12 @@ class ExperimentItemsViewController: VisibilityTrackingViewController,
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       insetForSectionAt section: Int) -> UIEdgeInsets {
+    var cellInsets = self.cellInsets
+    if FeatureFlags.isActionAreaEnabled {
+      cellInsets.left += view.layoutMargins.left
+      cellInsets.right += view.layoutMargins.right
+    }
+
     // Determine the last section with items.
     var lastSectionWithItems: Int?
     for i in 0..<experimentDataSource.numberOfSections {
