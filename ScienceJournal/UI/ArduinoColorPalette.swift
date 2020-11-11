@@ -54,6 +54,7 @@ class ArduinoColorPalette : Equatable {
   public static var labelColor:UIColor = ArduinoColorPalette.grayPalette.tint800!
   public static var secondaryLabelColor:UIColor = ArduinoColorPalette.grayPalette.tint500!
   public static var contentColor:UIColor = .black
+  public static var containerBackgroundColor:UIColor = ArduinoColorPalette.grayPalette.tint50!
   
   public static var defaultPalette: ArduinoColorPalette {
     return orangePalette
