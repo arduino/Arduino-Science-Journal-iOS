@@ -63,7 +63,9 @@ func showSnackbar(withMessage messageText: String,
   message.action = action
 
   DispatchQueue.main.async {
-    MDCSnackbarManager.default.setButtonTitleColor(MDCPalette.yellow.tint200, for: .normal)
+    MDCSnackbarManager.default.setButtonTitleColor(.white, for: .normal)
+    MDCSnackbarManager.default.messageFont = ArduinoTypography.paragraphFont
+    MDCSnackbarManager.default.buttonFont = ArduinoTypography.flatButtonFont
     MDCSnackbarManager.default.show(message)
   }
 }
