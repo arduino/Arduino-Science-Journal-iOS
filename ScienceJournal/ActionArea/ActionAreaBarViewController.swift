@@ -363,7 +363,16 @@ extension ActionArea {
 extension ActionArea.BarViewController {
   override func setCustomTint(_ customTint: CustomTint) {
     super.setCustomTint(customTint)
-    bar.setCustomTint(customTint)
+
+    // FIXME: Workaround to allow tinting only when in recording mode
+    if customTint.primary.isEqual(UIColor.trialHeaderRecordingBackgroundColor) {
+      bar.setCustomTint(customTint)
+    } else {
+      let defaultTint = CustomTint(primary: ArduinoColorPalette.iconColor,
+                                   secondary: ArduinoColorPalette.containerBackgroundColor)
+      bar.setCustomTint(defaultTint)
+    }
+
   }
 }
 

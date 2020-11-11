@@ -58,7 +58,7 @@ extension UIColor {
   static let trialHeaderDefaultBackgroundColor: UIColor = .appBarReviewBackgroundColor
 
   /// The background color for the trial cell header while recording.
-  static let trialHeaderRecordingBackgroundColor = MDCPalette.red.tint600
+  static let trialHeaderRecordingBackgroundColor = ArduinoColorPalette.alertColor
 
   /// The background color for the trial cell header when archived. It is the same as
   /// `trialHeaderDefaultBackgroundColor`, but its alpha is 0.3.

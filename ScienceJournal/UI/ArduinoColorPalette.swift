@@ -51,11 +51,13 @@ class ArduinoColorPalette : Equatable {
           lhs.accents == rhs.accents
   }
   
-  public static var labelColor:UIColor = ArduinoColorPalette.grayPalette.tint800!
-  public static var secondaryLabelColor:UIColor = ArduinoColorPalette.grayPalette.tint500!
-  public static var contentColor:UIColor = .black
-  public static var containerBackgroundColor:UIColor = ArduinoColorPalette.grayPalette.tint50!
-  
+  public static let labelColor:UIColor = ArduinoColorPalette.grayPalette.tint800!
+  public static let secondaryLabelColor:UIColor = ArduinoColorPalette.grayPalette.tint500!
+  public static let iconColor:UIColor = ArduinoColorPalette.grayPalette.tint500!
+  public static let contentColor:UIColor = .black
+  public static let containerBackgroundColor:UIColor = ArduinoColorPalette.grayPalette.tint50!
+  public static let alertColor:UIColor = UIColor(red: 0.855, green: 0.357, blue: 0.29, alpha: 1)
+
   public static var defaultPalette: ArduinoColorPalette {
     return orangePalette
   }
