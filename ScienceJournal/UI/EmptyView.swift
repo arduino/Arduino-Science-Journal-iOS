@@ -157,7 +157,7 @@ class EmptyView: UIScrollView {
   // MARK: - Private
 
   private func configureView(title: String, imageName: String) {
-    backgroundColor = ArduinoColorPalette.grayPalette.tint50
+    backgroundColor = ArduinoColorPalette.containerBackgroundColor
 
     // Stack view to hold everything else.
     addSubview(stackView)

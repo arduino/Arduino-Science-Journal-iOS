@@ -266,7 +266,7 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
     styler.cellStyle = .default
     MDCAlertColorThemer.apply(ViewConstants.alertColorScheme)
 
-    collectionView?.backgroundColor = .white
+    collectionView?.backgroundColor = ArduinoColorPalette.containerBackgroundColor
     if FeatureFlags.isActionAreaEnabled {
       collectionView?.contentInsetAdjustmentBehavior = .automatic
     } else {
