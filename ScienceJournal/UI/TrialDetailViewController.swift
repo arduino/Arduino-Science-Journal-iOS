@@ -780,7 +780,7 @@ class TrialDetailViewController: MaterialHeaderViewController,
 
     func addAddCaptionAction() {
       popUpMenu.addAction(PopUpMenuAction(title: String.actionAddCaption,
-                                          icon: UIImage(named: "ic_comment")) { _ -> Void in
+                                          icon: UIImage(named: "ic_comment_add")) { _ -> Void in
         self.experimentCardCellCommentButtonPressed(cell)
       })
     }
