@@ -377,7 +377,7 @@ class TrialDetailViewController: MaterialHeaderViewController,
 
     // Configure right bar buttons for playback state.
     editBarButton.button.addTarget(self, action: #selector(editButtonPressed), for: .touchUpInside)
-    editBarButton.button.setImage(UIImage(named: "ic_edit"), for: .normal)
+    editBarButton.button.setImage(UIImage(named: "ic_edit_filled"), for: .normal)
     editBarButton.button.accessibilityLabel = String.editRunBtnContentDescription
     editBarButton.button.accessibilityHint = String.editRunBtnContentDetails
 
