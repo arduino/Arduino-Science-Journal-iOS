@@ -30,7 +30,7 @@ protocol UserFlowViewControllerDelegate: class {
 /// Manages the navigation of the user flow which begins after a user has signed in and includes
 /// all management of data such as viewing, creating, and adding to experiments.
 class UserFlowViewController: UIViewController, ExperimentsListViewControllerDelegate,
-    ExperimentCoordinatorViewControllerDelegate, PermissionsGuideDelegate, SidebarDelegate,
+    ExperimentCoordinatorViewControllerDelegate, SidebarDelegate,
     UINavigationControllerDelegate, ExperimentItemDelegate {
 
   /// The user flow view controller delegate.
@@ -191,6 +191,10 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
     if !devicePreferenceManager.hasAUserCompletedPermissionsGuide {
       let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
+      onboardingVC.onClose = { [weak self] in
+        self?.devicePreferenceManager.hasAUserCompletedPermissionsGuide = true
+        self?.showExperimentsList(animated: true)
+      }
       navController.setViewControllers([onboardingVC], animated: false)
     } else {
       // Don't need the permissions guide, just show the experiments list.
@@ -356,12 +360,6 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       errorOperation.addDependency(importBeganOperation)
     }
     queue.addOperation(errorOperation)
-  }
-
-  // MARK: - PermissionsGuideDelegate
-
-  func permissionsGuideDidComplete(_ viewController: PermissionsGuideViewController) {
-    showExperimentsList(animated: true)
   }
 
   // MARK: - SidebarDelegate

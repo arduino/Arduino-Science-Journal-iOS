@@ -38,3 +38,19 @@ extension UIStackView {
   }
 
 }
+
+extension UIStackView {
+  
+  /// Adds an arranged views to the stack view, optionally specifying a custom spacing below it.
+  ///
+  /// - Parameters:
+  ///   - view: The view
+  ///   - customSpacing: If specified the custom spacing after the view. Default is nil.
+  func addArrangedSubview(_ view: UIView, customSpacing: CGFloat? = nil) {
+    addArrangedSubview(view)
+
+    if let spacing = customSpacing {
+      setCustomSpacing(spacing, after: view)
+    }
+  }
+}

@@ -168,3 +168,17 @@ extension UIView {
   }
 
 }
+
+extension UIView {
+  
+  /// Loads a view from a nib.
+  ///
+  /// - Parameters
+  ///   - named: The name of the nib. If nil it uses the class name.
+  ///   - bundle: The bundle where to load the nib from (main by default).
+  class func fromNib<T: UIView>(named: String? = nil, in bundle: Bundle = Bundle.main) -> T {
+    // swiftlint:disable force_cast
+    return bundle.loadNibNamed(named ?? String(describing: T.self), owner: nil, options: nil)![0] as! T
+    // swiftlint:enable force_cast
+  }
+}
