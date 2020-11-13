@@ -21,20 +21,27 @@ import UIKit
 
 class OnboardingPage2ViewController: OnboardingPageViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
-    /*
-    // MARK: - Navigation
+    title = String.onboarding02Title
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    stackView.addArrangedSubview(OnboardingText(text: String.onboarding02Text01), customSpacing: 28)
+
+    let image = OnboardingImage(imageName: "onboarding_02")
+    stackView.addArrangedSubview(image, customSpacing: 16)
+
+    let quickTip = OnboardingQuickTip(text: String.onboarding02QuickTip)
+    stackView.addArrangedSubview(
+      OnboardingContainer(content: quickTip,
+                          anchoredTo: [.top, .bottom],
+                          centered: true)
+    )
+
+    quickTip.widthAnchor.constraint(equalTo: image.widthAnchor, constant: -48)
+      .isActive = true
+
+    stackView.addArrangedSubview(OnboardingSpacer())
+  }
 
 }
