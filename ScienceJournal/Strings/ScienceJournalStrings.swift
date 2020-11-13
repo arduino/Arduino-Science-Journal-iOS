@@ -358,7 +358,35 @@ extension String {
   static public var notes: String { return "notes".localized }
   static public var notesTabContentDescription: String { return "notes_tab_content_description".localized }
   static public var observeTabContentDescription: String { return "observe_tab_content_description".localized }
+  static public var onboarding01QuickTip: String { return "onboarding_01_quick_tip".localized }
+  static public var onboarding01Text01: String { return "onboarding_01_text_01".localized }
+  static public var onboarding01Title: String { return "onboarding_01_title".localized }
+  static public var onboarding02QuickTip: String { return "onboarding_02_quick_tip".localized }
+  static public var onboarding02Text01: String { return "onboarding_02_text_01".localized }
+  static public var onboarding02Title: String { return "onboarding_02_title".localized }
+  static public var onboarding03Text01: String { return "onboarding_03_text_01".localized }
+  static public var onboarding03Text02: String { return "onboarding_03_text_02".localized }
+  static public var onboarding03Title: String { return "onboarding_03_title".localized }
+  static public var onboarding04Text01: String { return "onboarding_04_text_01".localized }
+  static public var onboarding04Text02: String { return "onboarding_04_text_02".localized }
+  static public var onboarding04Text03: String { return "onboarding_04_text_03".localized }
+  static public var onboarding04Text04: String { return "onboarding_04_text_04".localized }
+  static public var onboarding04Text05: String { return "onboarding_04_text_05".localized }
+  static public var onboarding04Title: String { return "onboarding_04_title".localized }
+  static public var onboarding05QuickTip: String { return "onboarding_05_quick_tip".localized }
+  static public var onboarding05Text01: String { return "onboarding_05_text_01".localized }
+  static public var onboarding05Title: String { return "onboarding_05_title".localized }
+  static public var onboarding06Text01: String { return "onboarding_06_text_01".localized }
+  static public var onboarding06Text02: String { return "onboarding_06_text_02".localized }
+  static public var onboarding06Text03: String { return "onboarding_06_text_03".localized }
+  static public var onboarding06Title: String { return "onboarding_06_title".localized }
+  static public var onboarding07Text01: String { return "onboarding_07_text_01".localized }
+  static public var onboarding07Title: String { return "onboarding_07_title".localized }
+  static public var onboardingFinishButton: String { return "onboarding_finish_button".localized }
+  static public var onboardingNavigationHint: String { return "onboarding_navigation_hint".localized }
   static public var onboardingNavigationTitle: String { return "onboarding_navigation_title".localized }
+  static public var onboardingQuickTipHeader: String { return "onboarding_quick_tip_header".localized }
+  static public var onboardingSkipButton: String { return "onboarding_skip_button".localized }
   static public var openExperimentFailed: String { return "open_experiment_failed".localized }
   static public var openFileFailed: String { return "open_file_failed".localized }
   static public var openFileFailedBody: String { return "open_file_failed_body".localized }
