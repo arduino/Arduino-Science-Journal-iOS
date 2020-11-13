@@ -57,6 +57,7 @@ class ArduinoColorPalette : Equatable {
   public static let contentColor:UIColor = .black
   public static let containerBackgroundColor:UIColor = ArduinoColorPalette.grayPalette.tint50!
   public static let alertColor:UIColor = UIColor(red: 0.855, green: 0.357, blue: 0.29, alpha: 1)
+  public static let warningColor:UIColor = UIColor(red: 0.945, green: 0.769, blue: 0.059, alpha: 1)
 
   public static var defaultPalette: ArduinoColorPalette {
     return orangePalette

@@ -144,7 +144,7 @@ class ExperimentCardHeaderView: UIView {
     outerStack.addArrangedSubview(headerTimestampLabel)
 
     // The comment button.
-    commentButton.setImage(UIImage(named: "ic_comment"), for: .normal)
+    commentButton.setImage(UIImage(named: "ic_comment_add"), for: .normal)
     commentButton.tintColor = ArduinoColorPalette.grayPalette.tint500
     commentButton.inkColor = .clear
     commentButton.autoresizesSubviews = false

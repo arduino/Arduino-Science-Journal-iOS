@@ -109,7 +109,7 @@ class ClaimExperimentListCell: ExperimentsListCellBase {
     saveToFilesButton.accessibilityHint = String.saveToFilesContentDescription
 
     let deleteButton = MDCFlatButton()
-    deleteButton.setImage(UIImage(named: "ic_delete"), for: .normal)
+    deleteButton.setImage(UIImage(named: "ic_delete_filled"), for: .normal)
     deleteButton.addTarget(self, action: #selector(deleteButtonPressed), for: .touchUpInside)
     deleteButton.accessibilityLabel = String.claimExperimentsDeleteContentDescription
 

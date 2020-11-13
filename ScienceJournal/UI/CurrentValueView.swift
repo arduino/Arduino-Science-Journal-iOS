@@ -105,7 +105,7 @@ class CurrentValueView: UIView {
     stackView.addArrangedSubview(textLabel)
 
     // Info button.
-    infoButton.setImage(UIImage(named: "ic_info"), for: .normal)
+    infoButton.setImage(UIImage(named: "ic_info_filled"), for: .normal)
     infoButton.tintColor = .darkGray
     infoButton.inkColor = .clear
     infoButton.contentEdgeInsets = .zero

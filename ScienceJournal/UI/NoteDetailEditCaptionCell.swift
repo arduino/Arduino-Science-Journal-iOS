@@ -72,6 +72,7 @@ class NoteDetailEditCaptionCell: UICollectionViewCell, UITextFieldDelegate {
                         action: #selector(textFieldEditingChanged),
                         for: .allEditingEvents)
     textField.delegate = self
+    textField.font = ArduinoTypography.paragraphFont
     textField.translatesAutoresizingMaskIntoConstraints = false
     textField.placeholder = String.noteCaptionHint
     textField.clearButtonMode = .never
@@ -80,7 +81,8 @@ class NoteDetailEditCaptionCell: UICollectionViewCell, UITextFieldDelegate {
     textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
 
     let controller = MDCTextInputControllerUnderline(textInput: textField)
-    controller.floatingPlaceholderNormalColor = .appBarReviewBackgroundColor
+    controller.floatingPlaceholderNormalColor = ArduinoColorPalette.labelColor
+    controller.floatingPlaceholderActiveColor = ArduinoColorPalette.labelColor
     controller.activeColor = .appBarReviewBackgroundColor
 
     textFieldController = controller
