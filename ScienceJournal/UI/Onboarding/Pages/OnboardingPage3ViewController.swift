@@ -21,20 +21,73 @@ import UIKit
 
 class OnboardingPage3ViewController: OnboardingPageViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-  
-    /*
-    // MARK: - Navigation
+    title = String.onboarding03Title
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    stackView.addArrangedSubview(
+      OnboardingContainer(content: OnboardingIllustration(),
+                          anchoredTo: [.top, .bottom],
+                          centered: true),
+      customSpacing: 48
+    )
+    stackView.addArrangedSubview(OnboardingText(text: String.onboarding03Text02), customSpacing: 28)
 
+    stackView.addArrangedSubview(OnboardingSpacer())
+  }
+
+}
+
+private class OnboardingIllustration: UIView {
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+
+    let topStackView = UIStackView()
+    topStackView.axis = .horizontal
+    topStackView.spacing = 20
+    topStackView.alignment = .center
+
+    let addImage = OnboardingImage(imageName: "onboarding_03_01")
+    addImage.setContentHuggingPriority(.required, for: .horizontal)
+    topStackView.addArrangedSubview(addImage)
+
+    let label = UILabel()
+    label.numberOfLines = 0
+    label.textColor = ArduinoColorPalette.grayPalette.tint700
+    label.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    label.text = String.onboarding03Text01
+
+    topStackView.addArrangedSubview(label)
+
+    topStackView.widthAnchor.constraint(equalToConstant: 270).isActive = true
+
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.spacing = 36
+
+    stackView.addArrangedSubview(topStackView)
+
+    let image = OnboardingImage(imageName: "onboarding_03_02")
+    stackView.addArrangedSubview(image)
+    
+    addSubview(stackView)
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.pinToEdgesOfView(self)
+
+    let connector = OnboardingConnector(edges: [.leading, .bottom])
+    insertSubview(connector, at: 0)
+
+    connector.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      connector.topAnchor.constraint(equalTo: addImage.bottomAnchor),
+      connector.leadingAnchor.constraint(equalTo: addImage.centerXAnchor),
+      connector.trailingAnchor.constraint(equalTo: image.centerXAnchor),
+      connector.bottomAnchor.constraint(equalTo: image.centerYAnchor)
+    ])
+  }
+
+  required init?(coder: NSCoder) {
+    super.init(coder: coder)
+  }
 }

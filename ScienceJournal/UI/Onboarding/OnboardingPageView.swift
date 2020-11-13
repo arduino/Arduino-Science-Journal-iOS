@@ -145,6 +145,79 @@ class OnboardingContainer: UIView {
   }
 }
 
+class OnboardingConnector: UIView {
+
+  var edges: [Edge] = []
+
+  private lazy var shapeLayer: CAShapeLayer = {
+    let shapeLayer = CAShapeLayer()
+    shapeLayer.fillColor = UIColor.clear.cgColor
+    shapeLayer.strokeColor = ArduinoColorPalette.grayPalette.tint300?.cgColor
+    shapeLayer.lineWidth = 2
+    shapeLayer.lineDashPattern = [4, 4]
+    return shapeLayer
+  }()
+
+  private var path: CGPath {
+    let path = CGMutablePath()
+
+    let p1: CGPoint
+    let p2: CGPoint
+    let p3: CGPoint
+    let p4: CGPoint
+    if traitCollection.layoutDirection == .rightToLeft {
+      p1 = CGPoint(x: bounds.width, y: 0)
+      p2 = CGPoint(x: bounds.width, y: bounds.height)
+      p3 = CGPoint(x: 0, y: bounds.height)
+      p4 = CGPoint(x: 0, y: 0)
+    } else {
+      p1 = CGPoint(x: 0, y: 0)
+      p2 = CGPoint(x: 0, y: bounds.height)
+      p3 = CGPoint(x: bounds.width, y: bounds.height)
+      p4 = CGPoint(x: bounds.width, y: 0)
+    }
+
+    path.move(to: p1)
+    if edges.contains(.leading) {
+      path.addLine(to: p2)
+    } else {
+      path.move(to: p2)
+    }
+
+    if edges.contains(.bottom) {
+      path.addLine(to: p3)
+    } else {
+      path.move(to: p3)
+    }
+
+    if edges.contains(.trailing) {
+      path.addLine(to: p4)
+    } else {
+      path.move(to: p4)
+    }
+
+    if edges.contains(.top) {
+      path.addLine(to: p1)
+    } else {
+      path.move(to: p1)
+    }
+
+    return path
+  }
+
+  convenience init(edges: [Edge]) {
+    self.init(frame: .zero)
+    self.edges = edges
+    layer.addSublayer(shapeLayer)
+  }
+
+  override func layoutSublayers(of layer: CALayer) {
+    super.layoutSublayers(of: layer)
+    shapeLayer.frame = self.layer.bounds
+    shapeLayer.path = self.path
+  }
+}
+
 class OnboardingText: UILabel {
   convenience init(text: String) {
     self.init()
@@ -157,8 +230,8 @@ class OnboardingText: UILabel {
     attributedText = NSAttributedString(htmlBody: text,
                                         font: font,
                                         color: textColor,
-                                        alignment: textAlignment,
-                                        lineHeight: 24)
+                                        lineHeight: 24,
+                                        layoutDirection: traitCollection.layoutDirection)
   }
 }
 
@@ -239,7 +312,8 @@ class OnboardingQuickTip: UIStackView {
     tip.attributedText = NSAttributedString(htmlBody: text,
                                             font: tipFont,
                                             color: tipColor,
-                                            lineHeight: 24)
+                                            lineHeight: 24,
+                                            layoutDirection: traitCollection.layoutDirection)
 
     let textContainer = UIStackView(arrangedSubviews: [header, tip])
     textContainer.axis = .vertical
