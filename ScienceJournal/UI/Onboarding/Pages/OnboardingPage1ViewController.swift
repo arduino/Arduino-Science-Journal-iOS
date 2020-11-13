@@ -73,7 +73,8 @@ class OnboardingNavigationHint: UIStackView {
     hint.attributedText = NSAttributedString(htmlBody: String.onboardingNavigationHint,
                                              font: hintFont,
                                              color: hintColor,
-                                             lineHeight: 8)
+                                             lineHeight: 8,
+                                             layoutDirection: traitCollection.layoutDirection)
 
     let image = UIImageView(image: UIImage(named: "onboarding_hint"))
     image.setContentCompressionResistancePriority(.required, for: .horizontal)
