@@ -32,7 +32,7 @@ class OnboardingPage3ViewController: OnboardingPageViewController {
                           centered: true),
       customSpacing: 48
     )
-    stackView.addArrangedSubview(OnboardingText(text: String.onboarding03Text02), customSpacing: 28)
+    stackView.addArrangedSubview(OnboardingText(text: String.onboarding03Text02))
 
     stackView.addArrangedSubview(OnboardingSpacer())
   }
@@ -51,14 +51,10 @@ private class OnboardingIllustration: UIView {
     let addImage = OnboardingImage(imageName: "onboarding_03_01")
     addImage.setContentHuggingPriority(.required, for: .horizontal)
     topStackView.addArrangedSubview(addImage)
-
-    let label = UILabel()
-    label.numberOfLines = 0
-    label.textColor = ArduinoColorPalette.grayPalette.tint700
-    label.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
-    label.text = String.onboarding03Text01
-
-    topStackView.addArrangedSubview(label)
+    
+    topStackView.addArrangedSubview(
+      OnboardingIllustrationText(text: String.onboarding03Text01)
+    )
 
     topStackView.widthAnchor.constraint(equalToConstant: 270).isActive = true
 

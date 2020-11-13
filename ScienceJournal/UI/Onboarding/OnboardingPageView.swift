@@ -125,7 +125,16 @@ class OnboardingPageControl: UIStackView {
   }
 }
 
-class OnboardingSpacer: UIView {}
+class OnboardingSpacer: UIView {
+  convenience init(fixed: CGFloat? = nil) {
+    self.init()
+    if let fixed = fixed {
+      setContentCompressionResistancePriority(.required, for: .horizontal)
+      setContentHuggingPriority(.required, for: .horizontal)
+      widthAnchor.constraint(equalToConstant: fixed).isActive = true
+    }
+  }
+}
 
 class OnboardingContainer: UIView {
   convenience init(content: UIView,
@@ -232,6 +241,18 @@ class OnboardingText: UILabel {
                                         color: textColor,
                                         lineHeight: 24,
                                         layoutDirection: traitCollection.layoutDirection)
+  }
+}
+
+class OnboardingIllustrationText: UILabel {
+  convenience init(text: String) {
+    self.init()
+
+    numberOfLines = 0
+
+    font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    textColor = ArduinoColorPalette.grayPalette.tint700!
+    self.text = text
   }
 }
 
