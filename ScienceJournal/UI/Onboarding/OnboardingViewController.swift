@@ -52,7 +52,7 @@ class OnboardingViewController: UIViewController {
     setupView()
     setupTopBar()
     setupPageViewController()
-    setupGestureRecognizers()
+//    setupGestureRecognizers()
   }
 }
 
