@@ -52,7 +52,7 @@ class OnboardingViewController: UIViewController {
     setupView()
     setupTopBar()
     setupPageViewController()
-//    setupGestureRecognizers()
+    setupGestureRecognizers()
   }
 }
 
@@ -164,24 +164,14 @@ private extension OnboardingViewController {
     let destination = pageControl.currentPage - 1
     guard let page = page(at: destination) else { return }
     pageControl.currentPage = destination
-
-    // this prevents triggering other taps while the animation is ongoing
-    view.isUserInteractionEnabled = false
-    pageViewController.setViewControllers([page], direction: .reverse, animated: true) { [weak view] _ in
-      view?.isUserInteractionEnabled = true
-    }
+    pageViewController.setViewControllers([page], direction: .reverse, animated: false)
   }
 
   func goForward() {
     let destination = pageControl.currentPage + 1
     guard let page = page(at: destination) else { return }
     pageControl.currentPage = destination
-
-    // this prevents triggering other taps while the animation is ongoing
-    view.isUserInteractionEnabled = false
-    pageViewController.setViewControllers([page], direction: .forward, animated: true) { [weak view] _ in
-      view?.isUserInteractionEnabled = true
-    }
+    pageViewController.setViewControllers([page], direction: .forward, animated: false)
   }
 
   @IBAction
