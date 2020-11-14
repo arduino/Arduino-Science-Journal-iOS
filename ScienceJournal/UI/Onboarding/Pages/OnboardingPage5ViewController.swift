@@ -22,19 +22,58 @@ import UIKit
 class OnboardingPage5ViewController: OnboardingPageViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+      title = String.onboarding05Title
 
-        // Do any additional setup after loading the view.
-    }
-    
-    /*
-    // MARK: - Navigation
+      let image1 = OnboardingImage(imageName: "onboarding_05_01")
+      image1.setContentHuggingPriority(.required, for: .horizontal)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+      let image2 = OnboardingImage(imageName: "onboarding_05_02")
+      image2.setContentHuggingPriority(.required, for: .horizontal)
+      image2.setContentCompressionResistancePriority(.required - 1, for: .horizontal)
+      
+      let text = OnboardingIllustrationText(text: String.onboarding05Text01)
+      text.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+
+      let quickTip = OnboardingQuickTip(text: String.onboarding05QuickTip)
+
+      let topStackView = UIStackView(arrangedSubviews: [image1, text])
+      topStackView.axis = .horizontal
+      topStackView.spacing = 16
+      topStackView.alignment = .center
+
+      stackView.addArrangedSubview(
+        OnboardingContainer(content: topStackView,
+                            anchoredTo: [.top, .bottom],
+                            centered: true),
+        customSpacing: 50
+      )
+      stackView.addArrangedSubview(
+        OnboardingContainer(content: image2,
+                            anchoredTo: [.top, .bottom],
+                            centered: true),
+        customSpacing: 20
+      )
+      stackView.addArrangedSubview(
+        OnboardingContainer(content: quickTip,
+                            anchoredTo: [.top, .bottom],
+                            centered: true)
+      )
+      stackView.addArrangedSubview(OnboardingSpacer())
+
+      topStackView.widthAnchor.constraint(equalTo: image2.widthAnchor)
+        .isActive = true
+      quickTip.widthAnchor.constraint(equalTo: image2.widthAnchor, constant: -48)
+        .isActive = true
+
+      let connector = OnboardingConnector(edges: [.top, .bottom, .leading])
+      scrollView.insertSubview(connector, at: 0)
+      connector.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+        connector.topAnchor.constraint(equalTo: image1.centerYAnchor, constant: -3),
+        connector.bottomAnchor.constraint(equalTo: image2.topAnchor, constant: 69),
+        connector.leadingAnchor.constraint(equalTo: image1.leadingAnchor, constant: -20),
+        connector.trailingAnchor.constraint(equalTo: image1.centerXAnchor),
+      ])
     }
-    */
 
 }

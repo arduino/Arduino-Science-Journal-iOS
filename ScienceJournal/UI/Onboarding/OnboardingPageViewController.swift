@@ -22,7 +22,8 @@ import UIKit
 class OnboardingPageViewController: UIViewController {
 
   var onPrimaryAction: (() -> Void)?
-  
+
+  var scrollView: UIScrollView { pageView.scrollView }
   var stackView: UIStackView { pageView.stackView }
   
   private lazy var pageView: OnboardingPageView = OnboardingPageView.fromNib()

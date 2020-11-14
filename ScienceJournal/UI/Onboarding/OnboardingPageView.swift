@@ -333,7 +333,7 @@ class OnboardingQuickTip: UIStackView {
     tip.attributedText = NSAttributedString(htmlBody: text,
                                             font: tipFont,
                                             color: tipColor,
-                                            lineHeight: 24,
+                                            lineHeight: 22,
                                             layoutDirection: traitCollection.layoutDirection)
 
     let textContainer = UIStackView(arrangedSubviews: [header, tip])
