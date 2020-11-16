@@ -40,5 +40,10 @@ class OnboardingPageViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     pageView.titleLabel.text = self.title
+
+    // we need to calculate the scroll view content size
+    // before updating the indicator
+    scrollView.layoutIfNeeded()
+    pageView.updateScrollViewIndicator()
   }
 }
