@@ -26,10 +26,13 @@ class OnboardingPageView: UIView {
 
   @IBOutlet weak var titleLabel: UILabel!
 
+  @IBOutlet private weak var scrollIndicator: OnboardingScrollIndicator!
+
   override func awakeFromNib() {
     super.awakeFromNib()
 
     backgroundColor = ArduinoColorPalette.grayPalette.tint50
+    bringSubviewToFront(scrollIndicator)
 
     stackView.isLayoutMarginsRelativeArrangement = true
     stackView.setCustomSpacing(20, after: titleLabel)
@@ -42,6 +45,31 @@ class OnboardingPageView: UIView {
     super.layoutSubviews()
 
     updateStackViewMargins()
+    updateScrollViewIndicator()
+  }
+
+  func updateScrollViewIndicator() {
+    let transform: CGAffineTransform
+
+    if scrollView.isContentOutsideOfSafeArea {
+      transform = .identity
+    } else {
+      transform = CGAffineTransform(translationX: 0, y: scrollIndicator.frame.height)
+    }
+
+    guard transform != scrollIndicator.transform else {
+      return
+    }
+
+    UIView.animate(withDuration: 0.2) {
+      self.scrollIndicator.transform = transform
+    }
+  }
+}
+
+extension OnboardingPageView: UIScrollViewDelegate {
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    updateScrollViewIndicator()
   }
 }
 
@@ -341,5 +369,17 @@ class OnboardingQuickTip: UIStackView {
     textContainer.spacing = 0
 
     addArrangedSubview(textContainer)
+  }
+}
+
+class OnboardingScrollIndicator: UIView {
+  @IBOutlet private weak var safeAreaBackgroundView: UIView!
+  @IBOutlet private weak var backgroundImageView: UIImageView!
+
+  override func awakeFromNib() {
+    super.awakeFromNib()
+
+    safeAreaBackgroundView.backgroundColor = ArduinoColorPalette.grayPalette.tint50
+    backgroundImageView.image = UIImage(named: "onboarding_scroll_indicator_bg")?.resizableImage(withCapInsets: .zero)
   }
 }
