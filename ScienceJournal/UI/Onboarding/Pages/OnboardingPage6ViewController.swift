@@ -21,20 +21,52 @@ import UIKit
 
 class OnboardingPage6ViewController: OnboardingPageViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+    title = String.onboarding06Title
+
+    stackView.addArrangedSubview(OnboardingText(text: String.onboarding06Text01),
+                                 customSpacing: 36)
+
+    let image1 = OnboardingImage(imageName: "onboarding_06_01")
+    image1.setContentHuggingPriority(.required, for: .horizontal)
+
+    let image2 = OnboardingImage(imageName: "onboarding_06_02")
+    image2.setContentHuggingPriority(.required, for: .horizontal)
+
+    let image3 = OnboardingImage(imageName: "onboarding_06_03")
+    image3.setContentHuggingPriority(.required, for: .horizontal)
+    image3.setContentCompressionResistancePriority(.required - 1, for: .horizontal)
     
-    /*
-    // MARK: - Navigation
+    let text1 = OnboardingText(text: String.onboarding06Text02, lineHeight: nil)
+    let text2 = OnboardingText(text: String.onboarding06Text03, lineHeight: nil)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var constraints = [NSLayoutConstraint]()
+
+    [(image1, text1), (image2, text2)].forEach { image, text in
+      let stackView = UIStackView(arrangedSubviews: [image, text])
+      stackView.axis = .horizontal
+      stackView.spacing = 20
+      stackView.alignment = .top
+
+      constraints.append(stackView.widthAnchor.constraint(equalTo: image3.widthAnchor, constant: -36))
+
+      self.stackView.addArrangedSubview(
+        OnboardingContainer(content: stackView,
+                            anchoredTo: [.top, .bottom],
+                            centered: true),
+        customSpacing: 16)
     }
-    */
 
+    stackView.addArrangedSubview(
+      OnboardingContainer(content: image3,
+                          anchoredTo: [.top, .bottom],
+                          centered: true)
+    )
+
+    stackView.addArrangedSubview(OnboardingSpacer())
+
+    NSLayoutConstraint.activate(constraints)
+  }
 }
