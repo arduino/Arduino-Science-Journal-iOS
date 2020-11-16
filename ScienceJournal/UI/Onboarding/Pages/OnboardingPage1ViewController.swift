@@ -36,18 +36,19 @@ class OnboardingPage1ViewController: OnboardingPageViewController {
     )
     stackView.addArrangedSubview(OnboardingSpacer())
 
-    stackView.addArrangedSubview(
-      OnboardingContainer(content: OnboardingNavigationHint(),
-                          anchoredTo: [.top, .bottom, .trailing],
-                          centered: false)
-    )
-
     let button = OnboardingButton(style: .outline,
                                   title: String.onboardingSkipButton)
     button.addTarget(self, action: #selector(skip(_:)), for: .touchUpInside)
 
     stackView.addArrangedSubview(
-      OnboardingContainer(content: button)
+      OnboardingContainer(content: button),
+      customSpacing: 20
+    )
+
+    stackView.addArrangedSubview(
+      OnboardingContainer(content: OnboardingNavigationHint(),
+                          anchoredTo: [.top, .bottom],
+                          centered: true)
     )
   }
 
@@ -62,14 +63,14 @@ class OnboardingNavigationHint: UIStackView {
   init() {
     super.init(frame: .zero)
     backgroundColor = .clear
-    axis = .vertical
-    spacing = 8
+    axis = .horizontal
+    spacing = 2
 
-    let hintFont = ArduinoTypography.monoRegularFont(forSize: 9)
+    let hintFont = ArduinoTypography.monoRegularFont(forSize: 10)
     let hintColor = ArduinoColorPalette.grayPalette.tint400!
 
     let hint = UILabel()
-    hint.numberOfLines = 0
+    hint.numberOfLines = 1
     hint.attributedText = NSAttributedString(htmlBody: String.onboardingNavigationHint,
                                              font: hintFont,
                                              color: hintColor,
@@ -82,8 +83,8 @@ class OnboardingNavigationHint: UIStackView {
     image.setContentHuggingPriority(.required, for: .horizontal)
     image.setContentHuggingPriority(.required, for: .vertical)
 
-    addArrangedSubview(hint)
     addArrangedSubview(image)
+    addArrangedSubview(hint)
   }
 
   required init(coder: NSCoder) {
