@@ -28,6 +28,8 @@ class DevicePreferenceManager {
         "GSJ_HasAUserChosenAnExistingDataMigrationOptionKey"
     static let hasAUserCompletedPermissionsGuideKey =
         "GSJ_HasUserCompletedPermissionsGuide"
+    static let hasAUserViewedOnboardingGuideKey =
+      "GSJ_HasUserViewedOnboarding"
     static let fileSystemLayoutVersion =
         "GSJ_FileSystemLayoutVersion"
   }
@@ -53,6 +55,17 @@ class DevicePreferenceManager {
     }
     set {
       defaults.set(newValue, forKey: Keys.hasAUserCompletedPermissionsGuideKey)
+      defaults.synchronize()
+    }
+  }
+
+  /// Whether at least one user has completed the permissions guide.
+  var hasAUserViewedOnboarding: Bool {
+    get {
+      return defaults.bool(forKey: Keys.hasAUserViewedOnboardingGuideKey)
+    }
+    set {
+      defaults.set(newValue, forKey: Keys.hasAUserViewedOnboardingGuideKey)
       defaults.synchronize()
     }
   }
