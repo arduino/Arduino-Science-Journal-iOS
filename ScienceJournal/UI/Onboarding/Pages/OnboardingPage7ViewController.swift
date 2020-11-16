@@ -21,20 +21,64 @@ import UIKit
 
 class OnboardingPage7ViewController: OnboardingPageViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
-    /*
-    // MARK: - Navigation
+    title = String.onboarding07Title
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    let image1 = OnboardingImage(imageName: "onboarding_07_01")
+    image1.setContentHuggingPriority(.required, for: .horizontal)
 
+    let image2 = OnboardingImage(imageName: "onboarding_07_02")
+    image2.setContentHuggingPriority(.required, for: .horizontal)
+    image2.setContentCompressionResistancePriority(.required - 1, for: .horizontal)
+
+    let text1 = OnboardingText(text: String.onboarding07Text01, lineHeight: 24)
+
+    let textContainer = UIStackView(arrangedSubviews: [image1, text1])
+    textContainer.axis = .horizontal
+    textContainer.spacing = 20
+    textContainer.alignment = .center
+
+    stackView.addArrangedSubview(
+      OnboardingContainer(content: textContainer,
+                          anchoredTo: [.top, .bottom],
+                          centered: true),
+      customSpacing: 80)
+
+    stackView.addArrangedSubview(
+      OnboardingContainer(content: image2,
+                          anchoredTo: [.top, .bottom],
+                          centered: true),
+      customSpacing: 28
+    )
+
+    stackView.addArrangedSubview(OnboardingSpacer())
+
+    let button = OnboardingButton(style: .filled,
+                                  title: String.onboardingFinishButton)
+    button.addTarget(self, action: #selector(finish(_:)), for: .touchUpInside)
+
+    stackView.addArrangedSubview(
+      OnboardingContainer(content: button),
+      customSpacing: 20
+    )
+
+    textContainer.widthAnchor.constraint(equalTo: image2.widthAnchor).isActive = true
+
+    let connector = OnboardingPolylineConnector()
+    scrollView.insertSubview(connector, at: 0)
+    connector.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      connector.topAnchor.constraint(equalTo: image1.bottomAnchor, constant: 20),
+      connector.bottomAnchor.constraint(equalTo: image2.topAnchor, constant: 10),
+      connector.leadingAnchor.constraint(equalTo: image1.centerXAnchor),
+      connector.trailingAnchor.constraint(equalTo: image2.trailingAnchor, constant: -70),
+    ])
+  }
+
+  @objc
+  private func finish(_ sender: UIButton) {
+    onPrimaryAction?()
+  }
 }
