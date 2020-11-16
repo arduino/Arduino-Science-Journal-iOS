@@ -133,7 +133,9 @@ private extension OnboardingViewController {
     case 5:
       return OnboardingPage6ViewController()
     case 6:
-      return OnboardingPage7ViewController()
+      return OnboardingPage7ViewController(
+        primaryAction: { [weak self] in self?.onClose?() }
+      )
     default:
       return nil
     }
