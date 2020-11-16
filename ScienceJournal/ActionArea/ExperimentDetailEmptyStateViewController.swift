@@ -29,10 +29,10 @@ final class ExperimentDetailEmptyStateViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = .white
+    view.backgroundColor = ArduinoColorPalette.containerBackgroundColor
 
     let backgroundImageView =
-      UIImageView(image: UIImage(named: "action_area_add_notes"))
+      UIImageView(image: UIImage(named: "action_area_add_note_placeholder"))
     view.addSubview(backgroundImageView)
     backgroundImageView.snp.makeConstraints { make in
       make.centerX.equalToSuperview()
@@ -40,7 +40,7 @@ final class ExperimentDetailEmptyStateViewController: UIViewController {
     }
 
     let label = UILabel()
-    label.font = Metrics.labelFont
+    label.font = ArduinoTypography.subtitleFont
     label.text = String.actionAreaAddMoreNotes
     label.textColor = Metrics.labelTextColor
     view.addSubview(label)
