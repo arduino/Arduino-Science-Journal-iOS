@@ -31,7 +31,7 @@ final class RecordingDetailEmptyStateViewController: UIViewController {
 
   let label: UILabel = {
     let label = UILabel()
-    label.font = Metrics.labelFont
+    label.font = ArduinoTypography.subtitleFont
     label.textColor = Metrics.labelTextColor
     return label
   }()
@@ -56,6 +56,7 @@ final class RecordingDetailEmptyStateViewController: UIViewController {
     }
 
     let imageView = UIImageView(image: UIImage(named: "ic_access_time"))
+    imageView.tintColor = Metrics.labelTextColor
     updateLabel()
     let stackView = UIStackView(arrangedSubviews: [imageView, label])
     stackView.spacing = Metrics.stackSpacing
