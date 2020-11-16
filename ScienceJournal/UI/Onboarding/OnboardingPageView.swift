@@ -256,7 +256,7 @@ class OnboardingConnector: UIView {
 }
 
 class OnboardingText: UILabel {
-  convenience init(text: String) {
+  convenience init(text: String, lineHeight: Float? = 24) {
     self.init()
 
     numberOfLines = 0
@@ -267,7 +267,7 @@ class OnboardingText: UILabel {
     attributedText = NSAttributedString(htmlBody: text,
                                         font: font,
                                         color: textColor,
-                                        lineHeight: 24,
+                                        lineHeight: lineHeight,
                                         layoutDirection: traitCollection.layoutDirection)
   }
 }
