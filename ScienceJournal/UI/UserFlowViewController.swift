@@ -188,18 +188,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     }
 
     sidebar.delegate = self
-
-    if !devicePreferenceManager.hasAUserCompletedPermissionsGuide {
-      let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
-      onboardingVC.onClose = { [weak self] in
-        self?.devicePreferenceManager.hasAUserCompletedPermissionsGuide = true
-        self?.showExperimentsList(animated: true)
-      }
-      navController.setViewControllers([onboardingVC], animated: false)
-    } else {
-      // Don't need the permissions guide, just show the experiments list.
-      showExperimentsList(animated: false)
-    }
+    showExperimentsList(animated: false)
 
     // Listen to application notifications.
     NotificationCenter.default.addObserver(self,
@@ -237,6 +226,10 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
     // Generate the default experiment if necessary.
     createDefaultExperimentIfNecessary()
+
+    if !devicePreferenceManager.hasAUserCompletedPermissionsGuide {
+      showOnboarding()
+    }
   }
 
   override var prefersStatusBarHidden: Bool {
@@ -396,11 +389,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
           withStyleMatching: navController.topViewController) else { return }
       navController.pushViewController(feedbackViewController, animated: true)
     case .onboarding:
-      let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
-      onboardingVC.onClose = { [weak onboardingVC] in
-        onboardingVC?.dismiss(animated: true, completion: nil)
-      }
-      present(onboardingVC, animated: true, completion: nil)
+      showOnboarding()
     default:
       break
     }
@@ -1198,6 +1187,17 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
     showPreferenceMigrationMessageOp.addCondition(MutuallyExclusive.modalUI)
     operationQueue.addOperation(showPreferenceMigrationMessageOp)
+  }
+
+  private func showOnboarding() {
+    let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
+    onboardingVC.onClose = { [weak self, weak onboardingVC] in
+      self?.devicePreferenceManager.hasAUserCompletedPermissionsGuide = true
+      onboardingVC?.dismiss(animated: true, completion: nil)
+    }
+
+    onboardingVC.modalPresentationStyle = .formSheet
+    navController.present(onboardingVC, animated: true)
   }
 
   // MARK: - UINavigationControllerDelegate
