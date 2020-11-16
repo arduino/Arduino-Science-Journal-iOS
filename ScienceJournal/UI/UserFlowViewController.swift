@@ -395,6 +395,12 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       guard let feedbackViewController = feedbackReporter.feedbackViewController(
           withStyleMatching: navController.topViewController) else { return }
       navController.pushViewController(feedbackViewController, animated: true)
+    case .onboarding:
+      let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
+      onboardingVC.onClose = { [weak onboardingVC] in
+        onboardingVC?.dismiss(animated: true, completion: nil)
+      }
+      present(onboardingVC, animated: true, completion: nil)
     default:
       break
     }
