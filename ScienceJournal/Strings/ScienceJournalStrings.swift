@@ -345,6 +345,7 @@ extension String {
   static public var menuItemSetTriggers: String { return "menu_item_set_triggers".localized }
   static public var myDevices: String { return "my_devices".localized }
   static public var nameExperimentDialogTitle: String { return "name_experiment_dialog_title".localized }
+  static public var navigationGettingStarted: String { return "navigation_getting_started".localized }
   static public var navigationItemActivities: String { return "navigation_item_activities".localized }
   static public var navigationItemExperiments: String { return "navigation_item_experiments".localized }
   static public var navigationItemSettings: String { return "navigation_item_settings".localized }
@@ -385,6 +386,7 @@ extension String {
   static public var onboardingFinishButton: String { return "onboarding_finish_button".localized }
   static public var onboardingNavigationHint: String { return "onboarding_navigation_hint".localized }
   static public var onboardingNavigationTitle: String { return "onboarding_navigation_title".localized }
+  static public var onboardingNavigationTitleTablet: String { return "onboarding_navigation_title_tablet".localized }
   static public var onboardingQuickTipHeader: String { return "onboarding_quick_tip_header".localized }
   static public var onboardingSkipButton: String { return "onboarding_skip_button".localized }
   static public var openExperimentFailed: String { return "open_experiment_failed".localized }

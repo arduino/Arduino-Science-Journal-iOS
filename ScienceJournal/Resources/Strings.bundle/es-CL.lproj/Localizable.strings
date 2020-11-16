@@ -629,6 +629,7 @@
 "my_devices" = "Mis dispositivos";
 /* Title of a dialog to name an experiment that is not yet named [CHAR_LIMIT=50] */
 "name_experiment_dialog_title" = "Define un nombre para este experimento";
+"navigation_getting_started" = "Getting Started";
 /* Title of the navigation item to go to making science activities [CHAR_LIMIT=25] */
 "navigation_item_activities" = "Actividades";
 /* Title of the navigation item to select experiment list page [CHAR_LIMIT=25] */
@@ -673,15 +674,16 @@
 "onboarding_05_quick_tip" = "You can add multiple sensors to your experiment to observe them simultaneously.";
 "onboarding_05_text_01" = "Pick a built-in phone sensor or connect and Arudino board to see live sensor data";
 "onboarding_05_title" = "Select a Sensor";
-"onboarding_06_text_01" = "To capture sensor data and save it to your experiment you can either start a <b>recording</b> or you can use the  <b>snapshot</b> function.";
+"onboarding_06_text_01" = "To capture sensor data and save it to your experiment you can either start a <b>recording</b> or you can use the <b>snapshot</b> function.";
 "onboarding_06_text_02" = "Start a <b>recording</b> to capture the change of sensor values over time.";
 "onboarding_06_text_03" = "Create a point-in-time <b>snapshot</b> to capture the current sensor values.";
 "onboarding_06_title" = "Create a Recording";
 "onboarding_07_text_01" = "It can be challenging to look at the display while doing an experiment. Tap “Enable audio” to transform sensor values into audible <b>sound</b>.";
 "onboarding_07_title" = "Transform to sound";
 "onboarding_finish_button" = "START EXPERIMENTING";
-"onboarding_navigation_hint" = "Tap here or swipe left to proceed";
+"onboarding_navigation_hint" = "Swipe left to proceed";
 "onboarding_navigation_title" = "GETTING STARTED";
+"onboarding_navigation_title_tablet" = "GETTING STARTED WITH SCIENCE JOURNAL";
 "onboarding_quick_tip_header" = "Quick Tip:";
 "onboarding_skip_button" = "SKIP INTRO";
 /* Headline for import error dialogs [CHAR_LIMIT=50] */
