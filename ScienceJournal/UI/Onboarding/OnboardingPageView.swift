@@ -45,10 +45,19 @@ class OnboardingPageView: UIView {
     super.layoutSubviews()
 
     updateStackViewMargins()
-    updateScrollViewIndicator()
+    updateScrollViewIndicator(animated: false)
   }
 
-  func updateScrollViewIndicator() {
+  func updateScrollViewIndicator(animated: Bool = true) {
+    if !animated {
+      // if not animated we are setting the initial state
+      // so let's make sure content size and frames are setup
+      // correctly
+      UIView.performWithoutAnimation {
+        self.scrollView.layoutIfNeeded()
+      }
+    }
+
     let transform: CGAffineTransform
 
     if scrollView.isContentOutsideOfSafeArea {
@@ -61,8 +70,14 @@ class OnboardingPageView: UIView {
       return
     }
 
-    UIView.animate(withDuration: 0.2) {
-      self.scrollIndicator.transform = transform
+    if animated {
+      UIView.animate(withDuration: 0.2) {
+        self.scrollIndicator.transform = transform
+      }
+    } else {
+      UIView.performWithoutAnimation {
+        self.scrollIndicator.transform = transform
+      }
     }
   }
 }
