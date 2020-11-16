@@ -227,7 +227,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     // Generate the default experiment if necessary.
     createDefaultExperimentIfNecessary()
 
-    if !devicePreferenceManager.hasAUserCompletedPermissionsGuide {
+    if !devicePreferenceManager.hasAUserViewedOnboarding {
       showOnboarding()
     }
   }
@@ -1191,13 +1191,13 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
   private func showOnboarding() {
     let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
-    onboardingVC.onClose = { [weak self, weak onboardingVC] in
-      self?.devicePreferenceManager.hasAUserCompletedPermissionsGuide = true
+    onboardingVC.modalPresentationStyle = .formSheet
+    onboardingVC.onClose = { [weak onboardingVC] in
       onboardingVC?.dismiss(animated: true, completion: nil)
     }
-
-    onboardingVC.modalPresentationStyle = .formSheet
-    navController.present(onboardingVC, animated: true)
+    navController.present(onboardingVC, animated: true) { [weak self] in
+      self?.devicePreferenceManager.hasAUserViewedOnboarding = true
+    }
   }
 
   // MARK: - UINavigationControllerDelegate
