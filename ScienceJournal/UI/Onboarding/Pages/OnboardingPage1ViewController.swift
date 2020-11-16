@@ -32,7 +32,8 @@ class OnboardingPage1ViewController: OnboardingPageViewController {
       OnboardingContainer(content: OnboardingQuickTip(text: String.onboarding01QuickTip),
                           anchoredTo: [.top, .bottom, .leading],
                           width: 260,
-                          centered: false)
+                          centered: false),
+      customSpacing: 28
     )
     stackView.addArrangedSubview(OnboardingSpacer())
 
