@@ -33,7 +33,7 @@ class OnboardingPage7ViewController: OnboardingPageViewController {
     image2.setContentHuggingPriority(.required, for: .horizontal)
     image2.setContentCompressionResistancePriority(.required - 1, for: .horizontal)
 
-    let text1 = OnboardingText(text: String.onboarding07Text01, lineHeight: 24)
+    let text1 = OnboardingHTMLText(text: String.onboarding07Text01, lineHeight: 24)
 
     let textContainer = UIStackView(arrangedSubviews: [image1, text1])
     textContainer.axis = .horizontal

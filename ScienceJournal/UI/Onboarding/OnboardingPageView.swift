@@ -334,7 +334,7 @@ class OnboardingPolylineConnector: UIView {
   }
 }
 
-class OnboardingText: UILabel {
+class OnboardingHTMLText: UILabel {
   convenience init(text: String, lineHeight: Float? = 24) {
     self.init()
 
@@ -351,7 +351,7 @@ class OnboardingText: UILabel {
   }
 }
 
-class OnboardingIllustrationText: UILabel {
+class OnboardingText: UILabel {
   convenience init(text: String) {
     self.init()
 

@@ -32,7 +32,7 @@ class OnboardingPage4ViewController: OnboardingPageViewController {
                           centered: true),
       customSpacing: 57
     )
-    stackView.addArrangedSubview(OnboardingText(text: String.onboarding04Text05))
+    stackView.addArrangedSubview(OnboardingHTMLText(text: String.onboarding04Text05))
 
     stackView.addArrangedSubview(OnboardingSpacer())
   }
@@ -47,13 +47,13 @@ private class OnboardingIllustration: UIView {
     stackView.axis = .vertical
     stackView.spacing = 0
 
-    let text1 = OnboardingIllustrationText(text: String.onboarding04Text01)
-    let text2 = OnboardingIllustrationText(text: String.onboarding04Text02)
+    let text1 = OnboardingText(text: String.onboarding04Text01)
+    let text2 = OnboardingText(text: String.onboarding04Text02)
 
-    let text3 = OnboardingIllustrationText(text: String.onboarding04Text03)
+    let text3 = OnboardingText(text: String.onboarding04Text03)
     text3.textAlignment = .right
 
-    let text4 = OnboardingIllustrationText(text: String.onboarding04Text04)
+    let text4 = OnboardingText(text: String.onboarding04Text04)
     text4.textAlignment = .right
 
     let image = OnboardingImage(imageName: "onboarding_04")
