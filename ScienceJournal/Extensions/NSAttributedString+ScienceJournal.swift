@@ -52,7 +52,7 @@ extension NSAttributedString {
                 color: rgba(\(r * 255.0), \(g * 255.0), \(b * 255.0), \(a));
                 font-family: \(fontFamily) !important;
                 font-size: \(font.pointSize) !important;
-                line-height: \(lh)px;
+                line-height: \(lh);
                 direction: \(layoutDirection.htmlDirection);
             }
             a {
