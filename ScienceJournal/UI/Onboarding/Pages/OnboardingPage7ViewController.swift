@@ -56,6 +56,7 @@ class OnboardingPage7ViewController: OnboardingPageViewController {
     stackView.addArrangedSubview(OnboardingSpacer())
 
     let button = OnboardingButton(style: .filled,
+                                  size: .large,
                                   title: String.onboardingFinishButton)
     button.addTarget(self, action: #selector(finish(_:)), for: .touchUpInside)
 
