@@ -26,7 +26,7 @@ class OnboardingPageView: UIView {
 
   @IBOutlet weak var titleLabel: UILabel!
 
-  @IBOutlet private weak var scrollIndicator: OnboardingScrollIndicator!
+  @IBOutlet weak var scrollIndicator: OnboardingScrollIndicator!
 
   override func awakeFromNib() {
     super.awakeFromNib()

@@ -42,6 +42,7 @@ class OnboardingViewController: UIViewController {
 
   private lazy var tapGestureRecognizer: UITapGestureRecognizer = {
     let tap = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
+    tap.delegate = self
     return tap
   }()
 
@@ -77,6 +78,21 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
                           transitionCompleted completed: Bool) {
 
     pageControl.currentPage = pageNumber(of: pageViewController.viewControllers?.first) ?? 0
+  }
+}
+
+extension OnboardingViewController: UIGestureRecognizerDelegate {
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    guard let page = pageViewController.viewControllers?.first as? OnboardingPageViewController else {
+      return true
+    }
+
+    let scrollIndicator = page.scrollIndicator
+    guard scrollIndicator.bounds.contains(touch.location(in: scrollIndicator)) else {
+      return true
+    }
+
+    return false
   }
 }
 

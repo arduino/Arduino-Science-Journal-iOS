@@ -25,6 +25,7 @@ class OnboardingPageViewController: UIViewController {
 
   var scrollView: UIScrollView { pageView.scrollView }
   var stackView: UIStackView { pageView.stackView }
+  var scrollIndicator: UIView { pageView.scrollIndicator }
   
   private lazy var pageView: OnboardingPageView = OnboardingPageView.fromNib()
 
