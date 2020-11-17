@@ -42,7 +42,7 @@ extension NSAttributedString {
       fontFamily = font.familyName
     }
 
-    let lh = lineHeight != nil ? "\(lineHeight!)" : "normal"
+    let lh = lineHeight != nil ? "\(lineHeight!)px" : "normal"
 
     let document = """
         <html>
