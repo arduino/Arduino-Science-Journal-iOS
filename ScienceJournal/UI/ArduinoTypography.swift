@@ -46,7 +46,7 @@ class ArduinoTypography {
   public static func regularFont(forSize size:CGFloat) -> UIFont {
     guard let customFont = UIFont(name: "OpenSans", size: size) else {
         fatalError("""
-            Failed to load the "CustomFont-Light" font.
+            Failed to load the "OpenSans" font.
             Make sure the font file is included in the project and the font name is spelled correctly.
             """
         )
@@ -57,10 +57,32 @@ class ArduinoTypography {
   public static func boldFont(forSize size:CGFloat) -> UIFont {
     guard let customFont = UIFont(name: "OpenSans-Bold", size: size) else {
         fatalError("""
-            Failed to load the "CustomFont-Light" font.
+            Failed to load the "OpenSans-Bold" font.
             Make sure the font file is included in the project and the font name is spelled correctly.
             """
         )
+    }
+    return UIFontMetrics.default.scaledFont(for: customFont)
+  }
+
+  public static func monoRegularFont(forSize size:CGFloat) -> UIFont {
+    guard let customFont = UIFont(name: "RobotoMono-Regular", size: size) else {
+      fatalError("""
+            Failed to load the "RobotoMono-Regular" font.
+            Make sure the font file is included in the project and the font name is spelled correctly.
+            """
+      )
+    }
+    return UIFontMetrics.default.scaledFont(for: customFont)
+  }
+
+  public static func monoBoldFont(forSize size:CGFloat) -> UIFont {
+    guard let customFont = UIFont(name: "RobotoMono-Bold", size: size) else {
+      fatalError("""
+            Failed to load the "RobotoMono-Bold" font.
+            Make sure the font file is included in the project and the font name is spelled correctly.
+            """
+      )
     }
     return UIFontMetrics.default.scaledFont(for: customFont)
   }

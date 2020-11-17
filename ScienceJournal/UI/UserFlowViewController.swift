@@ -30,7 +30,7 @@ protocol UserFlowViewControllerDelegate: class {
 /// Manages the navigation of the user flow which begins after a user has signed in and includes
 /// all management of data such as viewing, creating, and adding to experiments.
 class UserFlowViewController: UIViewController, ExperimentsListViewControllerDelegate,
-    ExperimentCoordinatorViewControllerDelegate, PermissionsGuideDelegate, SidebarDelegate,
+    ExperimentCoordinatorViewControllerDelegate, SidebarDelegate,
     UINavigationControllerDelegate, ExperimentItemDelegate {
 
   /// The user flow view controller delegate.
@@ -188,18 +188,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     }
 
     sidebar.delegate = self
-
-    if !devicePreferenceManager.hasAUserCompletedPermissionsGuide {
-      let permissionsVC =
-          PermissionsGuideViewController(delegate: self,
-                                         analyticsReporter: analyticsReporter,
-                                         devicePreferenceManager: devicePreferenceManager,
-                                         showWelcomeView: !accountsManager.supportsAccounts)
-      navController.setViewControllers([permissionsVC], animated: false)
-    } else {
-      // Don't need the permissions guide, just show the experiments list.
-      showExperimentsList(animated: false)
-    }
+    showExperimentsList(animated: false)
 
     // Listen to application notifications.
     NotificationCenter.default.addObserver(self,
@@ -237,6 +226,10 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
     // Generate the default experiment if necessary.
     createDefaultExperimentIfNecessary()
+
+    if !devicePreferenceManager.hasAUserViewedOnboarding {
+      showOnboarding()
+    }
   }
 
   override var prefersStatusBarHidden: Bool {
@@ -362,12 +355,6 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     queue.addOperation(errorOperation)
   }
 
-  // MARK: - PermissionsGuideDelegate
-
-  func permissionsGuideDidComplete(_ viewController: PermissionsGuideViewController) {
-    showExperimentsList(animated: true)
-  }
-
   // MARK: - SidebarDelegate
 
   func sidebarShouldShow(_ item: SidebarRow) {
@@ -401,6 +388,8 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       guard let feedbackViewController = feedbackReporter.feedbackViewController(
           withStyleMatching: navController.topViewController) else { return }
       navController.pushViewController(feedbackViewController, animated: true)
+    case .onboarding:
+      showOnboarding()
     default:
       break
     }
@@ -1198,6 +1187,17 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
     showPreferenceMigrationMessageOp.addCondition(MutuallyExclusive.modalUI)
     operationQueue.addOperation(showPreferenceMigrationMessageOp)
+  }
+
+  private func showOnboarding() {
+    let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
+    onboardingVC.modalPresentationStyle = .formSheet
+    onboardingVC.onClose = { [weak onboardingVC] in
+      onboardingVC?.dismiss(animated: true, completion: nil)
+    }
+    navController.present(onboardingVC, animated: true) { [weak self] in
+      self?.devicePreferenceManager.hasAUserViewedOnboarding = true
+    }
   }
 
   // MARK: - UINavigationControllerDelegate

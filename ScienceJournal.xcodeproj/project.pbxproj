@@ -70,7 +70,7 @@
 		48BFD8D120D065FF00FB5C1A /* google_api_client_for_rest.html in Resources */ = {isa = PBXBuildFile; fileRef = 48BFD8CA20D065FF00FB5C1A /* google_api_client_for_rest.html */; };
 		48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */ = {isa = PBXBuildFile; fileRef = 48BFD8CB20D065FF00FB5C1A /* google_toolbox_for_mac.html */; };
 		48C1DF2C222477010049629D /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C1DF2B222477010049629D /* AnalyticsEvent.swift */; };
-		48C767B120F7F1BB00A67C4A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B020F7F1BB00A67C4A /* OnboardingViewController.swift */; };
+		48C767B120F7F1BB00A67C4A /* LegacyOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B020F7F1BB00A67C4A /* LegacyOnboardingViewController.swift */; };
 		48C767B520F92BA800A67C4A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B420F92BA800A67C4A /* SignInViewController.swift */; };
 		48C767B820F92BC100A67C4A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B720F92BC100A67C4A /* WelcomeViewController.swift */; };
 		48D02B7A2220CA750063AC28 /* AnalyticsScreenViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02B792220CA750063AC28 /* AnalyticsScreenViews.swift */; };
@@ -609,7 +609,7 @@
 		8BFCF97E1FAA2EDC0030A6DC /* ArchiveFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCF97D1FAA2EDC0030A6DC /* ArchiveFlagView.swift */; };
 		924D434B56557C3367183755 /* Pods_ScienceJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
-		BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */; };
+		BC55783F249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */; };
 		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
 		BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */; };
 		BC7AB0FD24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */; };
@@ -620,9 +620,25 @@
 		BC7AB10624D0880E00703B2E /* BLEScienceKitGyroscopeXSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB10324D0880D00703B2E /* BLEScienceKitGyroscopeXSensor.swift */; };
 		BC80411224CED6310098E17E /* BLEScienceKitInput2Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */; };
 		BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */; };
+		BC809183255BDFDB0074E25A /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC809181255BDFDB0074E25A /* RobotoMono-Bold.ttf */; };
+		BC809184255BDFDB0074E25A /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC809182255BDFDB0074E25A /* RobotoMono-Regular.ttf */; };
+		BC809203255C4EB90074E25A /* ArduinoTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809202255C4EB90074E25A /* ArduinoTypography.swift */; };
+		BC809249255C51350074E25A /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809248255C51350074E25A /* OnboardingPageViewController.swift */; };
+		BC80924E255C51480074E25A /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80924D255C51480074E25A /* OnboardingPageView.swift */; };
+		BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC809258255C51550074E25A /* OnboardingPageView.xib */; };
+		BC809265255C57C80074E25A /* OnboardingPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809264255C57C80074E25A /* OnboardingPage1ViewController.swift */; };
+		BC809273255C623C0074E25A /* NSAttributedString+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809272255C623C0074E25A /* NSAttributedString+ScienceJournal.swift */; };
+		BC80927B255D89100074E25A /* OnboardingPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80927A255D89100074E25A /* OnboardingPage2ViewController.swift */; };
+		BC809280255D891A0074E25A /* OnboardingPage3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80927F255D891A0074E25A /* OnboardingPage3ViewController.swift */; };
+		BC809285255D89230074E25A /* OnboardingPage4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809284255D89230074E25A /* OnboardingPage4ViewController.swift */; };
+		BC80928A255D892D0074E25A /* OnboardingPage5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809289255D892D0074E25A /* OnboardingPage5ViewController.swift */; };
+		BC80928F255D893A0074E25A /* OnboardingPage6ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */; };
+		BC809294255D89460074E25A /* OnboardingPage7ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
 		BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */; };
 		BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */; };
+		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
+		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
 		BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */; };
 		BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */; };
@@ -658,7 +674,6 @@
 		D59CA3DC219F51350082A27B /* Int+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */; };
 		D59CA3DD219F51350082A27B /* Int+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */; };
 		D59CA3DE219F51350082A27B /* Int+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */; };
-		F31242AE24EEC7AC000146F5 /* ArduinoTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */; };
 		F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */; };
 		F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */; };
 		F32D236824FEDDAC00C7E8CE /* Nano33BLESenseProximitySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */; };
@@ -766,7 +781,7 @@
 		48BFD8CA20D065FF00FB5C1A /* google_api_client_for_rest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = google_api_client_for_rest.html; sourceTree = "<group>"; };
 		48BFD8CB20D065FF00FB5C1A /* google_toolbox_for_mac.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = google_toolbox_for_mac.html; sourceTree = "<group>"; };
 		48C1DF2B222477010049629D /* AnalyticsEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
-		48C767B020F7F1BB00A67C4A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		48C767B020F7F1BB00A67C4A /* LegacyOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyOnboardingViewController.swift; sourceTree = "<group>"; };
 		48C767B420F92BA800A67C4A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		48C767B720F92BC100A67C4A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		48D02B792220CA750063AC28 /* AnalyticsScreenViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsScreenViews.swift; sourceTree = "<group>"; };
@@ -1342,7 +1357,7 @@
 		93AFC6D21C987695548ADC66 /* Pods-ScienceJournal.dogfood.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.dogfood.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.dogfood.xcconfig"; sourceTree = "<group>"; };
 		958B33107B78081C00CE9569 /* Pods-ScienceJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
-		BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
+		BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyOnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
 		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
 		BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerZSensor.swift; sourceTree = "<group>"; };
@@ -1353,9 +1368,25 @@
 		BC7AB10324D0880D00703B2E /* BLEScienceKitGyroscopeXSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitGyroscopeXSensor.swift; sourceTree = "<group>"; };
 		BC80411124CED6310098E17E /* BLEScienceKitInput2Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput2Sensor.swift; sourceTree = "<group>"; };
 		BC80411324CED7B60098E17E /* BLEScienceKitInput3Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput3Sensor.swift; sourceTree = "<group>"; };
+		BC809181255BDFDB0074E25A /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
+		BC809182255BDFDB0074E25A /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
+		BC809202255C4EB90074E25A /* ArduinoTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoTypography.swift; sourceTree = "<group>"; };
+		BC809248255C51350074E25A /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		BC80924D255C51480074E25A /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
+		BC809258255C51550074E25A /* OnboardingPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingPageView.xib; sourceTree = "<group>"; };
+		BC809264255C57C80074E25A /* OnboardingPage1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage1ViewController.swift; sourceTree = "<group>"; };
+		BC809272255C623C0074E25A /* NSAttributedString+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+ScienceJournal.swift"; sourceTree = "<group>"; };
+		BC80927A255D89100074E25A /* OnboardingPage2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage2ViewController.swift; sourceTree = "<group>"; };
+		BC80927F255D891A0074E25A /* OnboardingPage3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage3ViewController.swift; sourceTree = "<group>"; };
+		BC809284255D89230074E25A /* OnboardingPage4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage4ViewController.swift; sourceTree = "<group>"; };
+		BC809289255D892D0074E25A /* OnboardingPage5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage5ViewController.swift; sourceTree = "<group>"; };
+		BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage6ViewController.swift; sourceTree = "<group>"; };
+		BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage7ViewController.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
 		BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigViewController.swift; sourceTree = "<group>"; };
 		BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigSelectorView.swift; sourceTree = "<group>"; };
+		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
 		BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensor.swift; sourceTree = "<group>"; };
 		BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitCurrentSensor.swift; sourceTree = "<group>"; };
@@ -1451,7 +1482,6 @@
 		D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+ScienceJournal.swift"; sourceTree = "<group>"; };
 		D65BB81A86250B67E7CA196C /* Pods-ScienceJournal.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.adhoc.xcconfig"; sourceTree = "<group>"; };
 		D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScienceJournalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoTypography.swift; sourceTree = "<group>"; };
 		F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		F32D236724FEDDAB00C7E8CE /* Nano33BLESenseProximitySensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano33BLESenseProximitySensor.swift; sourceTree = "<group>"; };
@@ -1850,6 +1880,8 @@
 			isa = PBXGroup;
 			children = (
 				8BD7F8041F7D9951004C80B4 /* ActionBar.swift */,
+				F389279124DC408900843D1D /* ArduinoColorPalette.swift */,
+				BC809202255C4EB90074E25A /* ArduinoTypography.swift */,
 				5C880BA12190D9E900594166 /* ButtonViewController.swift */,
 				8B9BEC32213485AD00225EF5 /* CommonUIComponents.swift */,
 				8B9BEC342134863B00225EF5 /* CommonUIComponentsOpen.swift */,
@@ -1857,6 +1889,7 @@
 				5C7B87C01FCDD6F300EDEF1D /* ErrorDialog.swift */,
 				5C878522216E602C0046786D /* GradientView.swift */,
 				8BB23E751FFD85B400850148 /* KeyboardObserver.swift */,
+				48C767B020F7F1BB00A67C4A /* LegacyOnboardingViewController.swift */,
 				689155E51F0C5DDB006EEDD1 /* MaterialBarButtonItem.swift */,
 				688F79D11EBBA51D0046A970 /* MaterialCardCell.swift */,
 				68FB61101F3A70DA008281DB /* MaterialFloatingSpinner.swift */,
@@ -1864,7 +1897,6 @@
 				68C3C9481E42B59900F339C4 /* MaterialHeaderViewController.swift */,
 				687232221F703F8E0080E57F /* MaterialLeftBarButtonItems.swift */,
 				68279C211ED63FD1003F778B /* MenuButton.swift */,
-				48C767B020F7F1BB00A67C4A /* OnboardingViewController.swift */,
 				5CBD9AAC1F6C836600D22D21 /* OptionSelectorView.swift */,
 				8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */,
 				68C6C7861F171F4F00B07C93 /* RecordingBar.swift */,
@@ -1875,8 +1907,6 @@
 				3F158A0A231AD72C005E319E /* UIViewController+MaterialHeader.swift */,
 				8B257E5C1ED475780065E7D4 /* ViewConstants.swift */,
 				8B3FA2B521513F5E002241DC /* VisibilityTrackingViewControllers.swift */,
-				F389279124DC408900843D1D /* ArduinoColorPalette.swift */,
-				F31242AD24EEC7AC000146F5 /* ArduinoTypography.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -2349,6 +2379,7 @@
 				8B79B6AA2098BA1B009C7C04 /* ExistingDataOptions */,
 				688F79D31EBBA5230046A970 /* Experiments */,
 				8B65A94E2225923700D1FDF9 /* LoadingViewController.swift */,
+				BCD417E6255ADA6B007546A1 /* Onboarding */,
 				68154D3B1F58EB98000CD3E6 /* Permissions */,
 				5C7DE8C11EC116190015F407 /* Playback */,
 				8BCCAD521EDF365500278F05 /* PopUpMenu */,
@@ -2549,9 +2580,9 @@
 				686E3D2C1F58880300250628 /* Analytics */,
 				68EBA6DD1E20421E0089FF7F /* AppDelegate.swift */,
 				68E3618B203F7F0900B1B979 /* AppDelegateOpen.swift */,
+				BC3B9634249A6A3E000D7646 /* BLEArduino */,
 				5CAD5EF11E952F8C008F50C3 /* BLEMakingScience */,
 				5C11AE6A1EB7D8280077F752 /* BLEProtocols */,
-				BC3B9634249A6A3E000D7646 /* BLEArduino */,
 				5C44D9D41FBCC7270050E81C /* BLESupport */,
 				8BA5BF371F44DE4000EB77E8 /* CaptureSession */,
 				489182BD1E4542CE00E91D73 /* Chart */,
@@ -2708,11 +2739,12 @@
 				8B9ADF901ECF75FB00C7DB7D /* GSJSensorStat+ScienceJournal.swift */,
 				8B9F061A1EF446130030B011 /* GSJTriggerInformation_TriggerWhen+ScienceJournal.swift */,
 				D59CA3DB219F51350082A27B /* Int+ScienceJournal.swift */,
+				BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */,
 				6856C8981EEF0E3E00FFCED5 /* MDCAppBar+ScienceJournal.swift */,
 				8BD3A1061F27B76B00A5DDBD /* MDCPalette+ScienceJournal.swift */,
 				8B1791AD1F0FFAB7008C0B31 /* MDCTabBar+ScienceJournal.swift */,
+				BC809272255C623C0074E25A /* NSAttributedString+ScienceJournal.swift */,
 				68ACCC481F9565F800FDCD38 /* NumberFormatter+ScienceJournal.swift */,
-				BC55783E249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift */,
 				8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */,
 				8B2FD9BA20C58051007513FE /* String+Pluralize.swift */,
 				680659151EC24EBD0090670C /* String+ScienceJournal.swift */,
@@ -3117,6 +3149,20 @@
 			path = BLEArduino;
 			sourceTree = "<group>";
 		};
+		BC809263255C578A0074E25A /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				BC809264255C57C80074E25A /* OnboardingPage1ViewController.swift */,
+				BC80927A255D89100074E25A /* OnboardingPage2ViewController.swift */,
+				BC80927F255D891A0074E25A /* OnboardingPage3ViewController.swift */,
+				BC809284255D89230074E25A /* OnboardingPage4ViewController.swift */,
+				BC809289255D892D0074E25A /* OnboardingPage5ViewController.swift */,
+				BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */,
+				BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
 		BC9D3E0A2513B7A4009ACA46 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
@@ -3168,6 +3214,19 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		BCD417E6255ADA6B007546A1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BC809263255C578A0074E25A /* Pages */,
+				BC80924D255C51480074E25A /* OnboardingPageView.swift */,
+				BC809258255C51550074E25A /* OnboardingPageView.xib */,
+				BC809248255C51350074E25A /* OnboardingPageViewController.swift */,
+				BCD41808255AF639007546A1 /* OnboardingViewController.swift */,
+				BCD41809255AF639007546A1 /* OnboardingViewController.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		BCEC93AC24C0472E0041296C /* MKRWiFi1010 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3201,6 +3260,8 @@
 			children = (
 				F31242B024EECE37000146F5 /* OpenSans-Bold.ttf */,
 				F31242B124EECE37000146F5 /* OpenSans-Regular.ttf */,
+				BC809181255BDFDB0074E25A /* RobotoMono-Bold.ttf */,
+				BC809182255BDFDB0074E25A /* RobotoMono-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -3420,11 +3481,15 @@
 				F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */,
 				48FDC26B20AB51B600C472DA /* oss_licenses_index.txt in Resources */,
 				5C7EFC50202A5BAC0007F99E /* material_components.html in Resources */,
+				BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */,
 				5C7EFC52202A5BAC0007F99E /* ziparchive.html in Resources */,
+				BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */,
 				48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */,
+				BC809184255BDFDB0074E25A /* RobotoMono-Regular.ttf in Resources */,
 				48BFD8D120D065FF00FB5C1A /* google_api_client_for_rest.html in Resources */,
 				68EBA6E51E20421E0089FF7F /* Assets.xcassets in Resources */,
 				BCF411EC253854E0002D6C73 /* InfoPlist.strings in Resources */,
+				BC809183255BDFDB0074E25A /* RobotoMono-Bold.ttf in Resources */,
 				4878E94022974DCC004B61AF /* LaunchScreen.storyboard in Resources */,
 				8BDD4C2D1EA687FD00FCCA30 /* trigger_sound1.mp3 in Resources */,
 				48BFD8CC20D065FF00FB5C1A /* gtm_session_fetcher.html in Resources */,
@@ -3680,6 +3745,7 @@
 				5CE6388E20ADC1A4004A712F /* SignInFlowViewController.swift in Sources */,
 				8BA65D70206160A90071C148 /* RecordedTrialCardView.swift in Sources */,
 				6813334E1EC6423200ED7A32 /* SensorPickerView.swift in Sources */,
+				BC809285255D89230074E25A /* OnboardingPage4ViewController.swift in Sources */,
 				687FAA19202C1162004C1D04 /* SensorSpec.pbobjc.m in Sources */,
 				3FA7052A22F8E3BF00753842 /* ExperimentDetailEmptyStateViewController.swift in Sources */,
 				8B031EEE2098C39C008F6F28 /* ExistingDataOptionsCell.swift in Sources */,
@@ -3699,7 +3765,7 @@
 				8B27A1652065349E009BE265 /* StatView.swift in Sources */,
 				8B6EF71E1E538E970026D1E5 /* SensorDataManager.swift in Sources */,
 				8B994A851F9158C300E9A709 /* CaptureSessionUser.swift in Sources */,
-				BC55783F249A4C57005F4FBE /* OnboardingViewController+MetricsFix.swift in Sources */,
+				BC55783F249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift in Sources */,
 				680659281EC39B7A0090670C /* TrialCardCell.swift in Sources */,
 				5CBD9AB31F7067AA00D22D21 /* SensorConfigTypeOptionSelectorView.swift in Sources */,
 				8BCCDF631EB9277900E85517 /* PhotoLibraryViewController.swift in Sources */,
@@ -3740,7 +3806,6 @@
 				5CB2CF3B223C2B4300F73F6B /* ExperimentDataDeleter.swift in Sources */,
 				8B347446203F4A8A00E73378 /* PitchSensorAnimationView.swift in Sources */,
 				5CA7921C2257B894008D62FB /* Result.swift in Sources */,
-				F31242AE24EEC7AC000146F5 /* ArduinoTypography.swift in Sources */,
 				8B4B60181E44DFAC009AFB1B /* BarometerSensor.swift in Sources */,
 				68D606671F0C109E0077ABCD /* EditExperimentViewController.swift in Sources */,
 				685841301F16D21C000E4F7C /* PreferenceManager.swift in Sources */,
@@ -3819,6 +3884,7 @@
 				68CD98971F3E47B500E3BF3C /* Timestamp.swift in Sources */,
 				585D619422B1C38100EB2114 /* ChartExportViewController.swift in Sources */,
 				8B5114EF20B49F5F005953BD /* ClaimExperimentsView.swift in Sources */,
+				BC809294255D89460074E25A /* OnboardingPage7ViewController.swift in Sources */,
 				8B54BA181F4F0E85006AADAA /* LocalNotificationManager.swift in Sources */,
 				8B1B2AF51EE84DBB00990FE8 /* PopUpMenuPosition.swift in Sources */,
 				8B2053461E8D9BAF00206061 /* RecordingManager.swift in Sources */,
@@ -3847,6 +3913,7 @@
 				D59CA3D1219CEE690082A27B /* Harmonic.swift in Sources */,
 				8B1B2AF71EE84DE100990FE8 /* PopUpMenuAnchor.swift in Sources */,
 				8B92B5701EB90047004C356E /* PhotoLibraryCell.swift in Sources */,
+				BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */,
 				5C880BA22190D9E900594166 /* ButtonViewController.swift in Sources */,
 				3FA7052822F8DF6B00753842 /* ActionAreaDetailContentContainerViewController.swift in Sources */,
 				68C3C9491E42B59900F339C4 /* MaterialHeaderViewController.swift in Sources */,
@@ -3901,6 +3968,7 @@
 				8BC4D5BA1EBB7B160086906D /* RecordButtonView.swift in Sources */,
 				5C2C2A33203780ED007F2FA5 /* ImportExperimentOperation.swift in Sources */,
 				8B9F060F1EF42CCB0030B011 /* SensorTrigger.swift in Sources */,
+				BC80928F255D893A0074E25A /* OnboardingPage6ViewController.swift in Sources */,
 				5CE521A4209D045700767C8E /* RootUserManager.swift in Sources */,
 				3F22062423046E9D00FB19D0 /* ActionAreaBarViewController.swift in Sources */,
 				5CFC8E5E204757A100A674C2 /* IconPath.swift in Sources */,
@@ -3925,6 +3993,7 @@
 				5CCB62BC1F8BCFDD00F9BB7D /* TrialDataWriter.swift in Sources */,
 				5C7219611ED8D04700817F0B /* Trial.swift in Sources */,
 				6856C8971EEF0E1500FFCED5 /* MaterialHeaderCollectionViewController.swift in Sources */,
+				BC809249255C51350074E25A /* OnboardingPageViewController.swift in Sources */,
 				8B244F511E67745A00FC03B5 /* SensorData.swift in Sources */,
 				5C7EFC5F202E38710007F99E /* OperationObserver.swift in Sources */,
 				8B3D1E2A1F55AA8A00E32082 /* SensorEntry.swift in Sources */,
@@ -3942,6 +4011,7 @@
 				68E36196203F7F2300B1B979 /* FeedbackReporter.swift in Sources */,
 				F36675A424FE9D36004E567D /* Nano33BLESenseBarometricPressureSensor.swift in Sources */,
 				5C2C2A3120377F0D007F2FA5 /* RemoveFileOperation.swift in Sources */,
+				BC809203255C4EB90074E25A /* ArduinoTypography.swift in Sources */,
 				68C6C7871F171F4F00B07C93 /* RecordingBar.swift in Sources */,
 				5CE6388820AC8A37004A712F /* LocalSyncStatus.swift in Sources */,
 				5C19CE301FD09D7F00938D49 /* TrialStatsAdjuster.swift in Sources */,
@@ -3987,6 +4057,7 @@
 				48282B6D20CB0079007A2102 /* SettingsButtonCell.swift in Sources */,
 				F366759E24FE5B60004E567D /* Nano33BLESenseGyroscopeZSensor.swift in Sources */,
 				5C2C2A3520378FD9007F2FA5 /* ImportDocumentOperation.swift in Sources */,
+				BC80928A255D892D0074E25A /* OnboardingPage5ViewController.swift in Sources */,
 				8B29D3A91F9E48A700D1DDA9 /* AVAudioSessionRouteChangeReason+ScienceJournal.swift in Sources */,
 				5CC81C1C1F292EBE00AC9E9E /* TimeSelectionView.swift in Sources */,
 				6856DF791F228F5000EDFB99 /* EditExperimentPhotoLibraryViewController.swift in Sources */,
@@ -4003,8 +4074,10 @@
 				5C7DE8C61EC22B100015F407 /* ElapsedTimeFormatter.swift in Sources */,
 				8BA5BF3B1F45CEDA00EB77E8 /* AVCaptureSessionInterruptionReason+ScienceJournal.swift in Sources */,
 				68525A441F2BD8F700A41675 /* ExifData.swift in Sources */,
+				BC80924E255C51480074E25A /* OnboardingPageView.swift in Sources */,
 				5C81E77E1EF86F5D00F3DEA6 /* PlaybackViewController.swift in Sources */,
 				8B10E9551F87EFCF0060A0AD /* ClosedRange+ScienceJournal.swift in Sources */,
+				BC80927B255D89100074E25A /* OnboardingPage2ViewController.swift in Sources */,
 				BC7AB10524D0880E00703B2E /* BLEScienceKitGyroscopeYSensor.swift in Sources */,
 				5C7219711EDFA4AB00817F0B /* TextNote.swift in Sources */,
 				5CF371012012906D00AD85D2 /* Bool+ScienceJournal.swift in Sources */,
@@ -4048,19 +4121,21 @@
 				F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */,
 				8B84E0311EAFF429005E9AA0 /* DrawerViewController.swift in Sources */,
 				8B1791CC1F140F22008C0B31 /* TriggerOnlyWhenRecordingSwitchView.swift in Sources */,
+				BC809280255D891A0074E25A /* OnboardingPage3ViewController.swift in Sources */,
 				8B257E5D1ED475780065E7D4 /* ViewConstants.swift in Sources */,
 				8B9F061B1EF446130030B011 /* GSJTriggerInformation_TriggerWhen+ScienceJournal.swift in Sources */,
 				5C62DC1A1FFD41A800A4F348 /* ExperimentUpdateManager.swift in Sources */,
 				489182BC1E45041800E91D73 /* UIView+Animation.swift in Sources */,
 				8BCCAD5E1EE5EDB500278F05 /* ShadowedView.swift in Sources */,
 				8B497DC7204F27C600DFC4E1 /* BackgroundTaskObserver.swift in Sources */,
+				BC809265255C57C80074E25A /* OnboardingPage1ViewController.swift in Sources */,
 				681333481EC6420F00ED7A32 /* PictureCardView.swift in Sources */,
 				5C63833E2100CA8D008281DF /* NoteDetailController.swift in Sources */,
 				5CA166D91F97AF8000379DE6 /* SensorCard.swift in Sources */,
 				5CAD5EF51E952F8C008F50C3 /* PacketAssembler.swift in Sources */,
 				58512C6C22AB2FD9001E5CA2 /* FileTypeSelectionHandler.swift in Sources */,
 				68EACA671EAFC05300BB5892 /* ExperimentsListViewController.swift in Sources */,
-				48C767B120F7F1BB00A67C4A /* OnboardingViewController.swift in Sources */,
+				48C767B120F7F1BB00A67C4A /* LegacyOnboardingViewController.swift in Sources */,
 				8BCB0F8E21A32593003FB9E7 /* ElapsedTimeEventManager.swift in Sources */,
 				682FC3B81EDB78C300F40B11 /* RecordingAnimatedView.swift in Sources */,
 				8B1791CD1F140F22008C0B31 /* TriggerOptionEntryView.swift in Sources */,
@@ -4088,6 +4163,7 @@
 				3F18EBDB233EEE8200A8E52E /* MutuallyExclusiveConstraints.swift in Sources */,
 				687232231F703F8E0080E57F /* MaterialLeftBarButtonItems.swift in Sources */,
 				4850DC9921C9797C00A5C4A0 /* RemoteConfigManager.swift in Sources */,
+				BC809273255C623C0074E25A /* NSAttributedString+ScienceJournal.swift in Sources */,
 				8B9BEC352134863B00225EF5 /* CommonUIComponentsOpen.swift in Sources */,
 				8B9F06251EF478FF0030B011 /* DisplayTriggerNoteViewData.swift in Sources */,
 				68CD98931F3E479100E3BF3C /* StatCalculator.swift in Sources */,
@@ -4435,7 +4511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4603,7 +4679,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4849,7 +4925,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4927,7 +5003,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -26,7 +26,7 @@ protocol SignInViewControllerDelegate: class {
 }
 
 /// A view controller that displays a splash image and a sign in button.
-class SignInViewController: OnboardingViewController {
+class SignInViewController: LegacyOnboardingViewController {
 
   enum Metrics {
     static let driveMessageTopPaddingNarrow: CGFloat = 80.0

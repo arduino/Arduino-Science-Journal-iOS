@@ -30,7 +30,7 @@ protocol PermissionsGuideDelegate: class {
 // swiftlint:disable type_body_length
 /// An animated, multi-step guide to walk the user through granting Science Journal all the various
 /// permissions needed.
-class PermissionsGuideViewController: OnboardingViewController {
+class PermissionsGuideViewController: LegacyOnboardingViewController {
 
   enum Metrics {
     static let headerTopPaddingNarrow: CGFloat = 34.0
