@@ -56,4 +56,3 @@ class OnboardingScrollIndicator: UIView {
     animator?.stopAnimation(true)
   }
 }
-
