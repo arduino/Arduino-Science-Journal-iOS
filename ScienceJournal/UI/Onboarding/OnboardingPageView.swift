@@ -377,17 +377,30 @@ class OnboardingButton: UIButton {
     case outline
     case filled
   }
+  
+  enum Size {
+    case small
+    case large
+  }
 
   private var style = Style.outline
+  private var size = Size.small
 
   convenience init(style: Style, title: String) {
+    self.init(style: style, size: .small, title: title)
+  }
+  
+  convenience init(style: Style, size: Size, title: String) {
     self.init(type: .system)
 
+    self.size = size
     self.style = style
 
-    contentEdgeInsets = UIEdgeInsets(top: 4, left: 28, bottom: 4, right: 28)
+    let verticalSpacing:CGFloat = self.size == .small ? 4 : 8
+    contentEdgeInsets = UIEdgeInsets(top: verticalSpacing, left: 28, bottom: verticalSpacing, right: 28)
     setTitle(title, for: .normal)
-    titleLabel?.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    let fontSize = self.size == .small ? ArduinoTypography.FontSize.XSmall : ArduinoTypography.FontSize.Small
+    titleLabel?.font = ArduinoTypography.boldFont(forSize: fontSize.rawValue)
 
     updateStyle()
   }
