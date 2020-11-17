@@ -91,7 +91,7 @@ class OnboardingNavigationHint: UIStackView {
     spacing = 2
 
     let hintFont = ArduinoTypography.monoRegularFont(forSize: 10)
-    let hintColor = ArduinoColorPalette.grayPalette.tint400!
+    let hintColor = ArduinoColorPalette.secondaryLabelColor
 
     let hint = UILabel()
     hint.numberOfLines = 1
