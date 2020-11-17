@@ -32,7 +32,7 @@ class OnboardingPage3ViewController: OnboardingPageViewController {
                           centered: true),
       customSpacing: 48
     )
-    stackView.addArrangedSubview(OnboardingText(text: String.onboarding03Text02))
+    stackView.addArrangedSubview(OnboardingText(htmlText: String.onboarding03Text02))
 
     stackView.addArrangedSubview(OnboardingSpacer())
   }
@@ -53,7 +53,7 @@ private class OnboardingIllustration: UIView {
     topStackView.addArrangedSubview(addImage)
     
     topStackView.addArrangedSubview(
-      OnboardingIllustrationText(text: String.onboarding03Text01)
+      OnboardingText(text: String.onboarding03Text01)
     )
 
     topStackView.widthAnchor.constraint(equalToConstant: 270).isActive = true

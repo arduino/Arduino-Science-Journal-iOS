@@ -26,7 +26,7 @@ class OnboardingPage6ViewController: OnboardingPageViewController {
 
     title = String.onboarding06Title
 
-    stackView.addArrangedSubview(OnboardingText(text: String.onboarding06Text01),
+    stackView.addArrangedSubview(OnboardingText(htmlText: String.onboarding06Text01),
                                  customSpacing: 36)
 
     let image1 = OnboardingImage(imageName: "onboarding_06_01")
@@ -39,8 +39,8 @@ class OnboardingPage6ViewController: OnboardingPageViewController {
     image3.setContentHuggingPriority(.required, for: .horizontal)
     image3.setContentCompressionResistancePriority(.required - 1, for: .horizontal)
     
-    let text1 = OnboardingText(text: String.onboarding06Text02, lineHeight: nil)
-    let text2 = OnboardingText(text: String.onboarding06Text03, lineHeight: nil)
+    let text1 = OnboardingText(htmlText: String.onboarding06Text02, lineHeight: nil)
+    let text2 = OnboardingText(htmlText: String.onboarding06Text03, lineHeight: nil)
 
     var constraints = [NSLayoutConstraint]()
 

@@ -29,7 +29,7 @@ class OnboardingPage1ViewController: OnboardingPageViewController {
     title = String.onboarding01Title
 
     stackView.addArrangedSubview(OnboardingImage(imageName: "onboarding_01"), customSpacing: 32)
-    stackView.addArrangedSubview(OnboardingText(text: String.onboarding01Text01), customSpacing: 28)
+    stackView.addArrangedSubview(OnboardingText(htmlText: String.onboarding01Text01), customSpacing: 28)
     stackView.addArrangedSubview(
       OnboardingContainer(content: OnboardingQuickTip(text: String.onboarding01QuickTip),
                           anchoredTo: [.top, .bottom, .leading],

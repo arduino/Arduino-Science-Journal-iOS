@@ -634,6 +634,11 @@
 		BC80928A255D892D0074E25A /* OnboardingPage5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809289255D892D0074E25A /* OnboardingPage5ViewController.swift */; };
 		BC80928F255D893A0074E25A /* OnboardingPage6ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */; };
 		BC809294255D89460074E25A /* OnboardingPage7ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */; };
+		BC851EBA256417620023178D /* OnboardingPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC851EB9256417620023178D /* OnboardingPageControl.swift */; };
+		BC851EC2256417910023178D /* OnboardingConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC851EC1256417910023178D /* OnboardingConnector.swift */; };
+		BC851ECD256418610023178D /* OnboardingScrollIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC851ECC256418610023178D /* OnboardingScrollIndicator.swift */; };
+		BC851ED22564187D0023178D /* OnboardingQuickTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC851ED12564187D0023178D /* OnboardingQuickTip.swift */; };
+		BC851EDA256418960023178D /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC851ED9256418960023178D /* OnboardingButton.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
 		BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */; };
 		BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */; };
@@ -1382,6 +1387,11 @@
 		BC809289255D892D0074E25A /* OnboardingPage5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage5ViewController.swift; sourceTree = "<group>"; };
 		BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage6ViewController.swift; sourceTree = "<group>"; };
 		BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage7ViewController.swift; sourceTree = "<group>"; };
+		BC851EB9256417620023178D /* OnboardingPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageControl.swift; sourceTree = "<group>"; };
+		BC851EC1256417910023178D /* OnboardingConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingConnector.swift; sourceTree = "<group>"; };
+		BC851ECC256418610023178D /* OnboardingScrollIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScrollIndicator.swift; sourceTree = "<group>"; };
+		BC851ED12564187D0023178D /* OnboardingQuickTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuickTip.swift; sourceTree = "<group>"; };
+		BC851ED9256418960023178D /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
 		BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigViewController.swift; sourceTree = "<group>"; };
 		BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigSelectorView.swift; sourceTree = "<group>"; };
@@ -3163,6 +3173,20 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
+		BC851EB82564172A0023178D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC851ED9256418960023178D /* OnboardingButton.swift */,
+				BC851EC1256417910023178D /* OnboardingConnector.swift */,
+				BC851EB9256417620023178D /* OnboardingPageControl.swift */,
+				BC80924D255C51480074E25A /* OnboardingPageView.swift */,
+				BC809258255C51550074E25A /* OnboardingPageView.xib */,
+				BC851ED12564187D0023178D /* OnboardingQuickTip.swift */,
+				BC851ECC256418610023178D /* OnboardingScrollIndicator.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BC9D3E0A2513B7A4009ACA46 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
@@ -3217,12 +3241,11 @@
 		BCD417E6255ADA6B007546A1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				BC809263255C578A0074E25A /* Pages */,
-				BC80924D255C51480074E25A /* OnboardingPageView.swift */,
-				BC809258255C51550074E25A /* OnboardingPageView.xib */,
 				BC809248255C51350074E25A /* OnboardingPageViewController.swift */,
 				BCD41808255AF639007546A1 /* OnboardingViewController.swift */,
 				BCD41809255AF639007546A1 /* OnboardingViewController.xib */,
+				BC809263255C578A0074E25A /* Pages */,
+				BC851EB82564172A0023178D /* Views */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -3689,6 +3712,7 @@
 				5CD560B820168F700050EDB0 /* ExperimentUpdateListener.swift in Sources */,
 				68E57B2D1EF0DACB0094245F /* TrialDetailAddNoteCell.swift in Sources */,
 				5CA9AE021F9A3CFE007C09EB /* SensorFailedView.swift in Sources */,
+				BC851ECD256418610023178D /* OnboardingScrollIndicator.swift in Sources */,
 				6853104F1EDE84FE00C42696 /* ScienceJournalStrings.swift in Sources */,
 				5C11AE721EB7D92D0077F752 /* MakingScienceSensorInterface.swift in Sources */,
 				8B06406E203E0FDC00F66356 /* RelativeScaleAnimationView.swift in Sources */,
@@ -3743,6 +3767,7 @@
 				68BD95641E8DA45100FEB0B2 /* ScaleSoundType.swift in Sources */,
 				5C7B87C11FCDD6F300EDEF1D /* ErrorDialog.swift in Sources */,
 				5CE6388E20ADC1A4004A712F /* SignInFlowViewController.swift in Sources */,
+				BC851EDA256418960023178D /* OnboardingButton.swift in Sources */,
 				8BA65D70206160A90071C148 /* RecordedTrialCardView.swift in Sources */,
 				6813334E1EC6423200ED7A32 /* SensorPickerView.swift in Sources */,
 				BC809285255D89230074E25A /* OnboardingPage4ViewController.swift in Sources */,
@@ -3779,6 +3804,7 @@
 				5CBD9ABE1F7427E500D22D21 /* ScaleFilter.swift in Sources */,
 				BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */,
 				F366759F24FE5B60004E567D /* Nano33BLESenseGyroscopeXSensor.swift in Sources */,
+				BC851EBA256417620023178D /* OnboardingPageControl.swift in Sources */,
 				5C7EFC5B202E29970007F99E /* OperationCondition.swift in Sources */,
 				D59CA3DC219F51350082A27B /* Int+ScienceJournal.swift in Sources */,
 				5C612F1420AC7E8E0097CCAB /* ExperimentLibrary.swift in Sources */,
@@ -3964,6 +3990,7 @@
 				3FA7052422F8DD8E00753842 /* ActionAreaBarButtonItem.swift in Sources */,
 				687FAA0B202C1162004C1D04 /* SensorLayout.pbobjc.m in Sources */,
 				5CC813CF20D16C8700CC05E9 /* ExperimentLibraryMerger.swift in Sources */,
+				BC851EC2256417910023178D /* OnboardingConnector.swift in Sources */,
 				68FB61111F3A70DA008281DB /* MaterialFloatingSpinner.swift in Sources */,
 				8BC4D5BA1EBB7B160086906D /* RecordButtonView.swift in Sources */,
 				5C2C2A33203780ED007F2FA5 /* ImportExperimentOperation.swift in Sources */,
@@ -4036,6 +4063,7 @@
 				687FAA14202C1162004C1D04 /* IconPath.pbobjc.m in Sources */,
 				48D81BDA2086AD0C00773294 /* DrawerConfigOpen.swift in Sources */,
 				8B9C59481F478A820063FFA9 /* UIScrollView+ScienceJournal.swift in Sources */,
+				BC851ED22564187D0023178D /* OnboardingQuickTip.swift in Sources */,
 				680659261EC39AFE0090670C /* TrialCardSensorView.swift in Sources */,
 				5CA0532D1F2BD60300FEE465 /* BrightnessSensor.swift in Sources */,
 				3F158A0F231DF370005E319E /* FeatureEnabler.swift in Sources */,
