@@ -46,6 +46,7 @@
                     </constraints>
                     <connections>
                         <outlet property="backgroundImageView" destination="Hft-cV-qKB" id="lyS-sn-N2j"/>
+                        <outlet property="indicatorView" destination="Yx5-yc-TA6" id="YcX-SX-aeV"/>
                         <outlet property="safeAreaBackgroundView" destination="cpZ-QM-Q4s" id="vtR-O7-nzX"/>
                     </connections>
                 </view>

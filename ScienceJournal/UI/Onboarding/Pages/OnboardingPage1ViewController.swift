@@ -21,6 +21,8 @@ import UIKit
 
 class OnboardingPage1ViewController: OnboardingPageViewController {
 
+  var navigationHint: OnboardingNavigationHint?
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -46,21 +48,42 @@ class OnboardingPage1ViewController: OnboardingPageViewController {
       customSpacing: 20
     )
 
+    let navigationHint = OnboardingNavigationHint()
     stackView.addArrangedSubview(
-      OnboardingContainer(content: OnboardingNavigationHint(),
+      OnboardingContainer(content: navigationHint,
                           anchoredTo: [.top, .bottom],
                           centered: true)
     )
+
+    self.navigationHint = navigationHint
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+
+    // let's wait a little bit before starting the animation
+    // otherwise it won't run properly
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+      self.navigationHint?.startAnimation()
+    }
+  }
+
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    self.navigationHint?.stopAnimation()
   }
 
   @objc
   private func skip(_ sender: UIButton) {
     onPrimaryAction?()
   }
-
 }
 
 class OnboardingNavigationHint: UIStackView {
+
+  private var arrow: UIView?
+  private var animator: UIViewPropertyAnimator?
+
   init() {
     super.init(frame: .zero)
     backgroundColor = .clear
@@ -83,6 +106,7 @@ class OnboardingNavigationHint: UIStackView {
     image.setContentCompressionResistancePriority(.required, for: .vertical)
     image.setContentHuggingPriority(.required, for: .horizontal)
     image.setContentHuggingPriority(.required, for: .vertical)
+    arrow = image
 
     addArrangedSubview(image)
     addArrangedSubview(hint)
@@ -90,5 +114,28 @@ class OnboardingNavigationHint: UIStackView {
 
   required init(coder: NSCoder) {
     super.init(coder: coder)
+  }
+
+  func startAnimation(_ reversed: Bool = false) {
+    if let animator = animator, animator.isRunning {
+      return
+    }
+
+    let animator = UIViewPropertyAnimator(duration: 1.25,
+                                          timingParameters: UICubicTimingParameters(animationCurve: .easeInOut))
+    animator.addAnimations { [weak arrow] in
+      arrow?.transform =  reversed ? .identity : CGAffineTransform(translationX: -15, y: 0)
+    }
+    animator.addCompletion { [weak self] _ in
+      self?.animator = nil
+      self?.startAnimation(!reversed)
+    }
+    animator.startAnimation()
+
+    self.animator = animator
+  }
+
+  func stopAnimation() {
+    animator?.stopAnimation(true)
   }
 }

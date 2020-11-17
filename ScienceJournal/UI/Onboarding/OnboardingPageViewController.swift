@@ -25,7 +25,7 @@ class OnboardingPageViewController: UIViewController {
 
   var scrollView: UIScrollView { pageView.scrollView }
   var stackView: UIStackView { pageView.stackView }
-  var scrollIndicator: UIView { pageView.scrollIndicator }
+  var scrollIndicator: OnboardingScrollIndicator { pageView.scrollIndicator }
   
   private lazy var pageView: OnboardingPageView = OnboardingPageView.fromNib()
 
@@ -41,5 +41,20 @@ class OnboardingPageViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     pageView.titleLabel.text = self.title
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+
+    // let's wait a little bit before starting the animation
+    // otherwise it won't run properly
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+      self.scrollIndicator.startAnimation()
+    }
+  }
+
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    scrollIndicator.stopAnimation()
   }
 }

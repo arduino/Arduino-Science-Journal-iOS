@@ -454,11 +454,37 @@ class OnboardingQuickTip: UIStackView {
 class OnboardingScrollIndicator: UIView {
   @IBOutlet private weak var safeAreaBackgroundView: UIView!
   @IBOutlet private weak var backgroundImageView: UIImageView!
+  @IBOutlet private weak var indicatorView: UIImageView!
+
+  private var animator: UIViewPropertyAnimator?
 
   override func awakeFromNib() {
     super.awakeFromNib()
 
     safeAreaBackgroundView.backgroundColor = ArduinoColorPalette.grayPalette.tint50
     backgroundImageView.image = UIImage(named: "onboarding_scroll_indicator_bg")?.resizableImage(withCapInsets: .zero)
+  }
+
+  func startAnimation(_ reversed: Bool = false) {
+    if let animator = animator, animator.isRunning {
+      return
+    }
+
+    let animator = UIViewPropertyAnimator(duration: 1.25,
+                                          timingParameters: UICubicTimingParameters(animationCurve: .easeInOut))
+    animator.addAnimations { [weak indicatorView] in
+      indicatorView?.transform =  reversed ? .identity : CGAffineTransform(translationX: 0, y: -15)
+    }
+    animator.addCompletion { [weak self] _ in
+      self?.animator = nil
+      self?.startAnimation(!reversed)
+    }
+    animator.startAnimation()
+
+    self.animator = animator
+  }
+
+  func stopAnimation() {
+    animator?.stopAnimation(true)
   }
 }
