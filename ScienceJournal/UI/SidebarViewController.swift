@@ -29,6 +29,7 @@ enum SidebarRow {
   case settings
   case feedback
   case onboarding
+  case activities
   case about
 
   var title: String {
@@ -37,6 +38,7 @@ enum SidebarRow {
     case .settings: return String.navigationItemSettings
     case .feedback: return String.actionFeedback
     case .onboarding: return String.navigationGettingStarted
+    case .activities: return String.navigationActivities
     case .about: return String.actionAbout
     }
   }
@@ -47,7 +49,15 @@ enum SidebarRow {
     case .settings: return "ic_settings_36pt"
     case .feedback: return "ic_feedback_36pt"
     case .onboarding: return "ic_onboarding_36pt"
+    case .activities: return "ic_activities_36pt"
     case .about: return "ic_info_36pt"
+    }
+  }
+
+  var accessoryIcon: UIImage? {
+    switch self {
+    case .activities: return UIImage(named: "ic_open_in_36pt")
+    default: return nil
     }
   }
 }
@@ -91,6 +101,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
     .experiments,
     //.settings,
     //.feedback,
+    .activities,
     .onboarding,
     .about
   ]
@@ -396,6 +407,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
       cell.titleLabel.text = cellData.title
       cell.accessibilityLabel = cell.titleLabel.text
       cell.iconView.image = UIImage(named: cellData.icon)
+      cell.accessoryIconView.image = cellData.accessoryIcon
     }
     return cell
   }

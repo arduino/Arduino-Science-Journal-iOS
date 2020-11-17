@@ -629,6 +629,7 @@
 "my_devices" = "내 기기";
 /* Title of a dialog to name an experiment that is not yet named [CHAR_LIMIT=50] */
 "name_experiment_dialog_title" = "실험 이름 지정";
+"navigation_activities" = "Activities";
 "navigation_getting_started" = "Getting Started";
 /* Title of the navigation item to go to making science activities [CHAR_LIMIT=25] */
 "navigation_item_activities" = "활동";

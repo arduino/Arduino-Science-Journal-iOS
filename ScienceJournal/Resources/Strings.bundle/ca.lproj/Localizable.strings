@@ -629,6 +629,7 @@
 "my_devices" = "Els meus dispositius";
 /* Title of a dialog to name an experiment that is not yet named [CHAR_LIMIT=50] */
 "name_experiment_dialog_title" = "Posa nom a l'experiment";
+"navigation_activities" = "Activities";
 "navigation_getting_started" = "Getting Started";
 /* Title of the navigation item to go to making science activities [CHAR_LIMIT=25] */
 "navigation_item_activities" = "Activitats";
