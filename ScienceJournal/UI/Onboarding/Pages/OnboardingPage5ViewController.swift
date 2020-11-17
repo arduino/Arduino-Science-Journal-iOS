@@ -31,7 +31,7 @@ class OnboardingPage5ViewController: OnboardingPageViewController {
       image2.setContentHuggingPriority(.required, for: .horizontal)
       image2.setContentCompressionResistancePriority(.required - 1, for: .horizontal)
       
-      let text = OnboardingText(text: String.onboarding05Text01)
+      let text = OnboardingIllustrationText(text: String.onboarding05Text01)
       text.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
 
       let quickTip = OnboardingQuickTip(text: String.onboarding05QuickTip)

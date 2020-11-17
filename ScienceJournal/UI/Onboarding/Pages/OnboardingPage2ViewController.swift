@@ -26,7 +26,7 @@ class OnboardingPage2ViewController: OnboardingPageViewController {
 
     title = String.onboarding02Title
 
-    stackView.addArrangedSubview(OnboardingText(htmlText: String.onboarding02Text01), customSpacing: 28)
+    stackView.addArrangedSubview(OnboardingText(text: String.onboarding02Text01), customSpacing: 28)
 
     let image = OnboardingImage(imageName: "onboarding_02")
     stackView.addArrangedSubview(image, customSpacing: 16)
