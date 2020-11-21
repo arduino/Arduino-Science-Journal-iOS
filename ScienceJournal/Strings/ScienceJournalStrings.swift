@@ -345,6 +345,7 @@ extension String {
   static public var menuItemSetTriggers: String { return "menu_item_set_triggers".localized }
   static public var myDevices: String { return "my_devices".localized }
   static public var nameExperimentDialogTitle: String { return "name_experiment_dialog_title".localized }
+  static public var navigationActivities: String { return "navigation_activities".localized }
   static public var navigationGettingStarted: String { return "navigation_getting_started".localized }
   static public var navigationItemActivities: String { return "navigation_item_activities".localized }
   static public var navigationItemExperiments: String { return "navigation_item_experiments".localized }

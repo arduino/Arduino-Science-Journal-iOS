@@ -388,6 +388,11 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       guard let feedbackViewController = feedbackReporter.feedbackViewController(
           withStyleMatching: navController.topViewController) else { return }
       navController.pushViewController(feedbackViewController, animated: true)
+    case .activities:
+      UIApplication.shared.open(
+        URL(string: "https://science-journal.arduino.cc")!,
+        options: [:],
+        completionHandler: nil)
     case .onboarding:
       showOnboarding()
     default:
