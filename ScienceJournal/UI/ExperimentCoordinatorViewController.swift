@@ -140,6 +140,9 @@ protocol ExperimentCoordinatorViewControllerDelegate: class {
                                                 from presentingViewController: UIViewController,
                                                 sourceView: UIView) -> PopUpMenuAction?
 
+  /// Tells the delegate that the recording either started or stopped programmatically.
+  /// This method isn't called when the user starts/stops the recording via the bar button.
+  func experimentViewControllerDidChangeRecordingState()
 }
 
 // swiftlint:disable type_body_length
@@ -716,14 +719,24 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
 
   // MARK: - ObserveViewControllerDelegate
 
-  func observeViewControllerDidStartRecording(_ observeViewController: ObserveViewController) {
+  func observeViewController(_ observeViewController: ObserveViewController,
+                             didStartRecordingFromUserInteraction userInteraction: Bool) {
     experimentItemsViewController.collectionViewChangeScrollPosition = .bottom
     updateForRecording()
+
+    if !userInteraction {
+      delegate?.experimentViewControllerDidChangeRecordingState()
+    }
   }
 
-  func observeViewControllerDidEndRecording(_ observeViewController: ObserveViewController) {
+  func observeViewController(_ observeViewController: ObserveViewController,
+                             didEndRecordingFromUserInteraction userInteraction: Bool) {
     experimentItemsViewController.collectionViewChangeScrollPosition = .top
     updateForRecording()
+
+    if !userInteraction {
+      delegate?.experimentViewControllerDidChangeRecordingState()
+    }
   }
 
   func observeViewController(_ observeViewController: ObserveViewController,

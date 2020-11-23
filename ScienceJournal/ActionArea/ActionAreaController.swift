@@ -243,7 +243,12 @@ extension ActionArea {
     @discardableResult
     private func initiateLocalTransition(
       completion: @escaping () -> Void = {}
-    ) -> UIViewControllerTransitionCoordinator {
+    ) -> UIViewControllerTransitionCoordinator? {
+      // If there's already a transition coordinator, let's reuse it.
+      if let transitionCoordinator = self.transitionCoordinator {
+        return transitionCoordinator
+      }
+
       let hidden = UIViewController()
       // Hide the view, so the currently visible content won't be affected.
       hidden.view.isHidden = true
@@ -255,10 +260,8 @@ extension ActionArea {
           completion()
         }
       }
-      guard let transitionCoordinator = hidden.transitionCoordinator else {
-        preconditionFailure("Initiating a presentation should create a transition coordinator.")
-      }
-      return transitionCoordinator
+
+      return hidden.transitionCoordinator
     }
 
     private weak var actionEnabler: FeatureEnabler? {

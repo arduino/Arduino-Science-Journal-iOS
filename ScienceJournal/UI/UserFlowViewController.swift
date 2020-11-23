@@ -649,6 +649,17 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
                                       exportCoordinator: exportCoordinator)
   }
 
+  func experimentViewControllerDidChangeRecordingState() {
+    guard let actionAreaController = actionAreaController else { return }
+
+    // This is a bit hacky. In order to handle the transition gracefully from
+    // modal to normal and viceversa, we must simulate the call of the action
+    // associated with the primary button. As the button isn't actually used
+    // in the implementation, we can avoid keeping references and pass any object.
+    let dummyButton = ActionArea.BarButtonItem(title: "", accessibilityHint: nil, image: nil) {}
+    actionAreaController.barButtonItemDidExecuteAction(dummyButton)
+  }
+
   // MARK: - ExperimentItemDelegate
 
   func detailViewControllerDidAddNote(_ note: Note, forTrialID trialID: String?) {
