@@ -31,6 +31,12 @@ protocol ActionAreaBarButtonItemDelegate: class {
   ///   - item: The item that owns the action that was executed.
   func barButtonItemDidExecuteAction(_ item: ActionArea.BarButtonItem)
 
+  /// The action failed execution.
+  ///
+  /// - Parameters:
+  ///   - item: The item that owns the action that failed.
+  func barButtonItem(_ item: ActionArea.BarButtonItem, didFailActionWithError error: Error)
+
 }
 
 extension ActionArea {
@@ -42,7 +48,7 @@ extension ActionArea {
 
     private(set) var title: String
     private(set) var image: UIImage?
-    private(set) var action: () -> Void // TODO: Consider passing the AA controller here.
+    private(set) var action: () throws -> Void
 
     /// Designated initializer.
     ///
@@ -51,7 +57,11 @@ extension ActionArea {
     ///   - accessibilityHint: The accessibility hint for the item.
     ///   - image: The image for the item.
     ///   - action: A block to execute when the item is tapped.
-    init(title: String, accessibilityHint: String?, image: UIImage?, action: @escaping () -> Void) {
+    init(title: String,
+         accessibilityHint: String?,
+         image: UIImage?,
+         action: @escaping () throws -> Void) {
+
       self.title = title
       self.image = image
       self.action = action
@@ -61,8 +71,12 @@ extension ActionArea {
 
     @objc func execute() {
       delegate?.barButtonItemWillExecuteAction(self)
-      action()
-      delegate?.barButtonItemDidExecuteAction(self)
+      do {
+        try action()
+        delegate?.barButtonItemDidExecuteAction(self)
+      } catch {
+        delegate?.barButtonItem(self, didFailActionWithError: error)
+      }
     }
 
   }

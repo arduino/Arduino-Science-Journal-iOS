@@ -430,11 +430,21 @@ extension ActionArea {
     }
 
     func barButtonItemWillExecuteAction(_ item: ActionArea.BarButtonItem) {
-      initiateLocalTransition()
+      
     }
 
     func barButtonItemDidExecuteAction(_ item: ActionArea.BarButtonItem) {
+      // The initiateLocalTransition call was moved here from willExecuteAction
+      // because we don't want to execute it when an action fails (i.e. alerts
+      // cannot be presented because the view controller hierarchy is broken
+      // for a while).
+      initiateLocalTransition()
+
       toggleState()
+    }
+
+    func barButtonItem(_ item: ActionArea.BarButtonItem, didFailActionWithError error: Error) {
+      handle(error)
     }
 
     private func toggleState() {

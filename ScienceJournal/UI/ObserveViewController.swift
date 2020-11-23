@@ -84,6 +84,11 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
                                   SensorCardCellDelegate, TimeAxisControllerDelegate,
                                   RecordingManagerDelegate {
 
+  enum Error: Swift.Error {
+    case recordingManagerIsNotReady
+    case recordingIsMissingData
+  }
+
   // MARK: - Constants
 
   let cellGap: CGFloat = 10.0
@@ -458,36 +463,19 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
     }
   }
 
-  @objc func recordButtonPressed() {
+  @objc func recordButtonPressed() throws {
     if !recordingManager.isRecording {
       guard recordingManager.isReady else {
-        let alertController =
-            MDCAlertController(title: String.recordingStartFailed,
-                               message: String.recordingStartFailedSensorDisconnected)
-        alertController.addAction(MDCAlertAction(title: String.actionOk))
-        present(alertController, animated: true)
-        return
+        throw Error.recordingManagerIsNotReady
       }
 
       startRecording()
       timeAxisController.isPinnedToNow = true
       drawerViewController?.setPositionToFull()
     } else {
-      // If data is missing from at least one sensor, prompt the user to cancel or
-      // continue recording.
+      // If data is missing from at least one sensor, throw the error
       guard !recordingManager.isRecordingMissingData else {
-        let alertController = MDCAlertController(title: String.recordingStopFailedNoDataTitle,
-                                                 message: String.recordingStopFailedNoData)
-        let cancelAction = MDCAlertAction(title: String.recordingStopFailedCancel) { (_) in
-          self.endRecording(isCancelled: true)
-        }
-        let continueAction = MDCAlertAction(title: String.recordingStopFailedContinue,
-                                            handler: nil)
-        alertController.addAction(continueAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
-
-        return
+        throw Error.recordingIsMissingData
       }
 
       endRecording()
