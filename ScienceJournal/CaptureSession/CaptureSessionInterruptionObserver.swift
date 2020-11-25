@@ -46,29 +46,25 @@ class CaptureSessionInterruptionObserver {
   /// recording, during which the camera cannot be used.
   var isCameraUseAllowed: Bool {
     return !isCaptureSessionInterrupted && !isBrightnessSensorInUse &&
-        CameraAccessHandler.checkForPermission()
-  }
-
-  var cameraAvailability: CameraAvailability {
-
-    if isBrightnessSensorInUse {
-      return .blockedByBrightnessSensor
-    }
-
-    if isCaptureSessionInterrupted {
-      return .captureInterrupted
-    }
-
-    // Note: this check will request perms if they are not determined,
-    // so it's not a 1:1 match with permissions denied
-    if CameraAccessHandler.checkForPermission() {
-      return .available
-    } else {
-      return .permissionsDenied
-    }
+        CameraAccessHandler.hasGrantedAccess
   }
 
   // MARK: - Public
+  func checkCameraAvailability(handler: @escaping (CameraAvailability) -> Void) {
+    guard !isBrightnessSensorInUse else {
+      handler(.blockedByBrightnessSensor)
+      return
+    }
+
+    guard !isCaptureSessionInterrupted else {
+      handler(.captureInterrupted)
+      return
+    }
+
+    CameraAccessHandler.checkForPermission {
+      $0 ? handler(.available) : handler(.permissionsDenied)
+    }
+  }
 
   // MARK: - Private
 

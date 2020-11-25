@@ -99,10 +99,14 @@ class PhotoCapturer: NSObject, AVCapturePhotoCaptureDelegate {
 
   /// The permissions state of the capturer.
   var isCameraPermissionGranted: Bool {
-    let granted = CameraAccessHandler.checkForPermission { (permission) in
+    if CameraAccessHandler.hasGrantedAccess {
+      return true
+    }
+
+    CameraAccessHandler.checkForPermission { (permission) in
       self.delegate?.photoCapturerCameraPermissionsDidChange(accessGranted: permission)
     }
-    return granted
+    return false
   }
 
   /// Switches to a camera.

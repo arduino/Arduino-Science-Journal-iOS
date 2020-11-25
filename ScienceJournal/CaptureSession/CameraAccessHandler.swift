@@ -19,23 +19,27 @@ import AVFoundation
 /// Handles checking and asking for camera access permission.
 class CameraAccessHandler {
 
+  /// Returns `true` if the user authorized access to the device camera.
+  static var hasGrantedAccess: Bool {
+    AVCaptureDevice.authorizationStatus(for: .video) == .authorized
+  }
+
   /// Checks the permissions status of the camera, and requests access if needed.
   ///
   /// - Parameter requestCompletion: Called with the status of the permission (true if granted),
-  ///              when access had to be requested.
-  /// - Returns: Whether or not permission has been granted.
-  static func checkForPermission(requestCompletion: ((Bool) -> Void)? = nil) -> Bool {
+  static func checkForPermission(requestCompletion: ((Bool) -> Void)? = nil) {
     let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
     switch authStatus {
-    case .denied, .restricted: return false
-    case .authorized: return true
+    case .denied, .restricted: requestCompletion?(false)
+    case .authorized: requestCompletion?(true)
     case .notDetermined:
       // Prompt user for the permission to use the camera.
       AVCaptureDevice.requestAccess(for: .video) { granted in
-        requestCompletion?(granted)
+        DispatchQueue.main.async {
+          requestCompletion?(granted)
+        }
       }
-      return false
-    @unknown default: return false
+    @unknown default: requestCompletion?(false)
     }
   }
 
