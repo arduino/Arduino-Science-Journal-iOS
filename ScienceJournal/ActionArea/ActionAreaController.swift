@@ -380,7 +380,7 @@ extension ActionArea {
         layout: layout,
         type: transitionType,
         source: .viewWillTransition,
-        with: coordinator, or: nil
+        coordinator: coordinator, animator: nil
       )
 
       super.viewWillTransition(to: size, with: coordinator)
@@ -412,10 +412,10 @@ extension ActionArea {
 
       if isExpanded == false {
         masterBarViewController
-          .transition(.update(with: newActionItem, isEnabled: actionsAreEnabled), with: nil, or: animator)
+          .transition(.update(with: newActionItem, isEnabled: actionsAreEnabled), coordinator: nil, animator: animator)
       } else {
         detailBarViewController
-          .transition(.update(with: newActionItem, isEnabled: actionsAreEnabled), with: nil, or: animator)
+          .transition(.update(with: newActionItem, isEnabled: actionsAreEnabled), coordinator: nil, animator: animator)
       }
     }
 
@@ -641,19 +641,19 @@ private extension ActionArea.Controller {
     layout: Layout,
     type: MasterTransitionType,
     source: TransitionSource,
-    with coordinator: UIViewControllerTransitionCoordinator?,
-    or animator: UIViewPropertyAnimator?
+    coordinator: UIViewControllerTransitionCoordinator?,
+    animator: UIViewPropertyAnimator?
   ) {
     switch (layout, type, source) {
     case (_, .external, _):
       // There is nothing to do here for external transitions.
       break
     case let (_, .size(newLayout), _):
-      transition(from: layout, to: newLayout, source: source, with: coordinator, or: animator)
+      transition(from: layout, to: newLayout, source: source, coordinator: coordinator, animator: animator)
     case (.portrait, _, _):
-      transition(portrait: layout, type: type, source: source, with: coordinator, or: animator)
+      transition(portrait: layout, type: type, source: source, coordinator: coordinator, animator: animator)
     case (.landscape, _, _):
-      transition(landscape: layout, type: type, source: source, with: coordinator, or: animator)
+      transition(landscape: layout, type: type, source: source, coordinator: coordinator, animator: animator)
 
     }
   }
@@ -662,8 +662,8 @@ private extension ActionArea.Controller {
     portrait: Layout,
     type: MasterTransitionType,
     source: TransitionSource,
-    with coordinator: UIViewControllerTransitionCoordinator?,
-    or animator: UIViewPropertyAnimator?
+    coordinator: UIViewControllerTransitionCoordinator?,
+    animator: UIViewPropertyAnimator?
   ) {
     guard case .portrait = portrait else {
       preconditionFailure("This method only handle portrait transitions.")
@@ -675,19 +675,19 @@ private extension ActionArea.Controller {
     case (.enter, .delegate):
       masterBarViewController.transition(
         .raise(with: currentActionItem(), isEnabled: actionsAreEnabled),
-        with: coordinator, or: animator
+        coordinator: coordinator, animator: animator
       )
     case (.internal, .backAction):
       sendOverriddenMasterBackButtonAction()
     case (.internal, .delegate):
       masterBarViewController.transition(
         .update(with: currentActionItem(), isEnabled: actionsAreEnabled),
-        with: coordinator, or: animator
+        coordinator: coordinator, animator: animator
       )
     case (.leave, .backAction):
       sendOverriddenMasterBackButtonAction()
     case (.leave, .delegate):
-      masterBarViewController.transition(.lower, with: coordinator, or: animator)
+      masterBarViewController.transition(.lower, coordinator: coordinator, animator: animator)
     case (.external, _), (.size, _), (_, .viewWillTransition):
       preconditionFailure("This method only handle portrait transitions.")
     }
@@ -697,8 +697,8 @@ private extension ActionArea.Controller {
     landscape: Layout,
     type: MasterTransitionType,
     source: TransitionSource,
-    with coordinator: UIViewControllerTransitionCoordinator?,
-    or animator: UIViewPropertyAnimator?
+    coordinator: UIViewControllerTransitionCoordinator?,
+    animator: UIViewPropertyAnimator?
   ) {
     guard case .landscape = landscape else {
       preconditionFailure("This method only handle landscape transitions.")
@@ -731,7 +731,7 @@ private extension ActionArea.Controller {
         .pushViewController(presentedMasterViewController.emptyState, animated: false)
       detailBarViewController.transition(
         .raise(with: currentActionItem(), isEnabled: actionsAreEnabled),
-        with: coordinator, or: animator
+        coordinator: coordinator, animator: animator
       )
       view.layoutIfNeeded()
 
@@ -797,7 +797,7 @@ private extension ActionArea.Controller {
     case (.leave, .delegate):
       transition(after: { [weak self] in
         self?.presentedMasterViewController?.view.layoutMargins = .zero
-      }, with: coordinator, or: animator)
+      }, coordinator: coordinator, animator: animator)
     case (.external, _), (.size, _), (_, .viewWillTransition):
       preconditionFailure("This method only handle landscape transitions.")
     }
@@ -807,8 +807,8 @@ private extension ActionArea.Controller {
     from oldLayout: Layout,
     to newLayout: Layout,
     source: TransitionSource,
-    with coordinator: UIViewControllerTransitionCoordinator?,
-    or animator: UIViewPropertyAnimator?
+    coordinator: UIViewControllerTransitionCoordinator?,
+    animator: UIViewPropertyAnimator?
   ) {
     func createCurrentSizeConstraint() -> Constraint? {
       var sizeConstraint: Constraint?
@@ -881,12 +881,12 @@ private extension ActionArea.Controller {
 
       masterBarViewController.transition(
         .update(with: .empty, isEnabled: actionsAreEnabled),
-        with: coordinator, or: animator
+        coordinator: coordinator, animator: animator
       )
 
       detailBarViewController.transition(
         .update(with: currentActionItem(), isEnabled: actionsAreEnabled),
-        with: coordinator, or: animator
+        coordinator: coordinator, animator: animator
       )
 
       transition(during: {
@@ -905,7 +905,7 @@ private extension ActionArea.Controller {
         navControllerSnapshot?.removeFromSuperview()
         detailNavControllerSnapshot?.removeFromSuperview()
         self.transitionType.update(for: .didTransition, and: self.masterContent.count)
-      }, with: coordinator, or: animator)
+      }, coordinator: coordinator, animator: animator)
     case let (oldLayout, newLayout, .viewWillTransition)
       where oldLayout.isExpanded && newLayout.isCollapsed: // Collapse.
       guard let topEmptyState = emptyStates.last else {
@@ -943,12 +943,12 @@ private extension ActionArea.Controller {
 
       masterBarViewController.transition(
         .update(with: currentActionItem(), isEnabled: actionsAreEnabled),
-        with: coordinator, or: animator
+        coordinator: coordinator, animator: animator
       )
 
       detailBarViewController.transition(
         .update(with: .empty, isEnabled: actionsAreEnabled),
-        with: coordinator, or: animator
+        coordinator: coordinator, animator: animator
       )
 
       transition(during: {
@@ -962,7 +962,7 @@ private extension ActionArea.Controller {
         navControllerSnapshot?.removeFromSuperview()
         detailNavControllerSnapshot?.removeFromSuperview()
         self.transitionType.update(for: .didTransition, and: self.masterContent.count)
-      }, with: coordinator, or: animator)
+      }, coordinator: coordinator, animator: animator)
     case let (_, newLayout, .viewWillTransition):
       self.layout = newLayout
       self.transitionType.update(for: .didTransition, and: self.masterContent.count)
@@ -978,8 +978,8 @@ private extension ActionArea.Controller {
     before: () -> Void = {},
     during: @escaping () -> Void = {},
     after: @escaping () -> Void = {},
-    with coordinator: UIViewControllerTransitionCoordinator?,
-    or animator: UIViewPropertyAnimator?
+    coordinator: UIViewControllerTransitionCoordinator?,
+    animator: UIViewPropertyAnimator?
   ) {
     if let coordinator = coordinator, coordinator.isAnimated {
       before()
@@ -1008,10 +1008,10 @@ private extension ActionArea.Controller {
 
     let animator = animate()
     if isExpanded {
-      detailBarViewController.transition(.enable(actionsAreEnabled), with: nil, or: animator)
+      detailBarViewController.transition(.enable(actionsAreEnabled), coordinator: nil, animator: animator)
       master.emptyState.isEnabled = actionsAreEnabled
     } else {
-      masterBarViewController.transition(.enable(actionsAreEnabled), with: nil, or: animator)
+      masterBarViewController.transition(.enable(actionsAreEnabled), coordinator: nil, animator: animator)
     }
   }
 
@@ -1084,7 +1084,7 @@ extension ActionArea.Controller: UIGestureRecognizerDelegate {
 
   private func handleBackAction() {
     transitionType.update(for: .back, and: masterContent.count)
-    transition(layout: layout, type: transitionType, source: .backAction, with: transitionCoordinator, or: nil)
+    transition(layout: layout, type: transitionType, source: .backAction, coordinator: transitionCoordinator, animator: nil)
   }
 
   func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -1117,7 +1117,7 @@ extension ActionArea.Controller: UINavigationControllerDelegate {
         layout: layout,
         type: transitionType,
         source: .delegate,
-        with: navigationController.transitionCoordinator, or: nil
+        coordinator: navigationController.transitionCoordinator, animator: nil
       )
     }
 
@@ -1131,7 +1131,7 @@ extension ActionArea.Controller: UINavigationControllerDelegate {
 
       detailBarViewController.transition(
         .update(with: currentActionItem(), isEnabled: actionsAreEnabled),
-        with: navigationController.transitionCoordinator, or: nil
+        coordinator: navigationController.transitionCoordinator, animator: nil
       )
     }
   }
