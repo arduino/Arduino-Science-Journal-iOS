@@ -1157,20 +1157,22 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
       updateAppBarBackgroundColor()
     }
 
-    let isCameraAllowed = CaptureSessionInterruptionObserver.shared.isCameraUseAllowed
-    // Update the camera tab icon.
-    drawerVC?.isCameraItemEnabled = isCameraAllowed
-    if drawerVC?.currentViewController is CameraViewController {
-      // Update the camera disabled view and start the capture session if the camera is currently
-      // visible.
-      drawerVC?.cameraViewController.photoCapturer.startCaptureSessionIfNecessary()
-      drawerVC?.cameraViewController.updateDisabledView(forCameraUseAllowed: isCameraAllowed)
-    }
-    // Update the recording progress bar.
-    if isRecording {
-      drawerVC?.drawerView.recordingBar.startAnimating()
-    } else {
-      drawerVC?.drawerView.recordingBar.stopAnimating()
+    if let drawerVC = drawerVC {
+      let isCameraAllowed = CaptureSessionInterruptionObserver.shared.isCameraUseAllowed
+      // Update the camera tab icon.
+      drawerVC.isCameraItemEnabled = isCameraAllowed
+      if drawerVC.currentViewController is CameraViewController {
+        // Update the camera disabled view and start the capture session if the camera is currently
+        // visible.
+        drawerVC.cameraViewController.photoCapturer.startCaptureSessionIfNecessary()
+        drawerVC.cameraViewController.updateDisabledView(forCameraUseAllowed: isCameraAllowed)
+      }
+      // Update the recording progress bar.
+      if isRecording {
+        drawerVC.drawerView.recordingBar.startAnimating()
+      } else {
+        drawerVC.drawerView.recordingBar.stopAnimating()
+      }
     }
   }
 
@@ -1750,17 +1752,21 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
   }
 
   func cameraButtonPressed() {
-    switch CaptureSessionInterruptionObserver.shared.cameraAvailability {
-    case .permissionsDenied:
-      showCameraPermissionsDeniedAlert()
-    case .blockedByBrightnessSensor:
-      showSnackbar(withMessage: String.inputCameraBlockedByBrightnessSensor,
-                   category: nil,
-                   actionTitle: String.actionOk,
-                   actionHandler: nil
-      )
-    default: // Handles .available and .captureInterrupted
-      present(cameraImageProvider.cameraViewController, animated: true)
+    CaptureSessionInterruptionObserver.shared.checkCameraAvailability { [weak self] in
+      guard let self = self else { return }
+
+      switch $0 {
+      case .permissionsDenied:
+        self.showCameraPermissionsDeniedAlert()
+      case .blockedByBrightnessSensor:
+        showSnackbar(withMessage: String.inputCameraBlockedByBrightnessSensor,
+                     category: nil,
+                     actionTitle: String.actionOk,
+                     actionHandler: nil
+        )
+      default: // Handles .available and .captureInterrupted
+        self.present(self.cameraImageProvider.cameraViewController, animated: true)
+      }
     }
   }
 

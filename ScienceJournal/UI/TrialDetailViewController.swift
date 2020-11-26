@@ -1763,17 +1763,21 @@ class TrialDetailViewController: MaterialHeaderViewController,
   }
 
   func cameraButtonPressed() {
-    switch CaptureSessionInterruptionObserver.shared.cameraAvailability {
-    case .permissionsDenied:
-      showCameraPermissionsDeniedAlert()
-    case .blockedByBrightnessSensor:
-      showSnackbar(withMessage: String.inputCameraBlockedByBrightnessSensor,
-                   category: nil,
-                   actionTitle: String.actionOk,
-                   actionHandler: nil
-      )
-    default: // Handles .available and .captureInterrupted
-      present(cameraImageProvider.cameraViewController, animated: true)
+    CaptureSessionInterruptionObserver.shared.checkCameraAvailability { [weak self] in
+      guard let self = self else { return }
+
+      switch $0 {
+      case .permissionsDenied:
+        self.showCameraPermissionsDeniedAlert()
+      case .blockedByBrightnessSensor:
+        showSnackbar(withMessage: String.inputCameraBlockedByBrightnessSensor,
+                     category: nil,
+                     actionTitle: String.actionOk,
+                     actionHandler: nil
+        )
+      default: // Handles .available and .captureInterrupted
+        self.present(self.cameraImageProvider.cameraViewController, animated: true)
+      }
     }
   }
 
