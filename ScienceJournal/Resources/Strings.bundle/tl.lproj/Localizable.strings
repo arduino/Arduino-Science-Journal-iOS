@@ -161,7 +161,7 @@
 /* The name of this product. [CHAR_LIMIT=40] */
 "app_name" = "Arduino Science Journal";
 /* The app store description for Science Journal, character limit is not flexible [CHAR_LIMIT=4000] */
-"app_store_description" = "Science Journal is the free digital science notebook brought to you by Google.\n\nWhether you're a science educator or a hobbyist doing science at home, you can keep your notes, photos, and observations all in one convenient place. Use the sensors in your iPhone or iPad to measure and graph phenomena such as light, sound, and motion, or connect to external sensors via bluetooth to conduct experiments on the world around you.\n\nWith the Science Journal app, you can:\n• Measure light, sound, acceleration, air pressure, and more using your device’s built-in sensors.\n• Take notes and photos to document your science experiments. More note types coming soon!\n• Connect to external sensors using select Bluetooth-enabled Arduino devices.\n• Create automated triggers for recording data and taking notes.\n• Use sonification to hear the movement of your graphs.\n\nPermissions notice:\n• Bluetooth: needed to scan for bluetooth sensor devices.\n• Camera: needed to take pictures to document experiments and for the brightness sensor.\n• Photo Library: needed to store pictures taken to document experiments and for adding existing photos from your library to experiments.\n• Microphone: needed for sound intensity sensor.\n• Push notifications: needed to inform you of recording status when backgrounding the app.\n\nEducational activities by our partners:\nhttps://makingscience.withgoogle.com/science-journal/activities\nFor support: https://productforums.google.com/forum/#!forum/sciencejournal";
+"app_store_description" = "Science Journal is the free digital science notebook brought to you by Google.\n\nWhether you're a science educator or a hobbyist doing science at home, you can keep your notes, photos, and observations all in one convenient place. Use the sensors in your iPhone or iPad to measure and graph phenomena such as light, sound, and motion, or connect to external sensors via Bluetooth to conduct experiments on the world around you.\n\nWith the Science Journal app, you can:\n• Measure light, sound, acceleration, air pressure, and more using your device’s built-in sensors.\n• Take notes and photos to document your science experiments. More note types coming soon!\n• Connect to external sensors using select Bluetooth-enabled Arduino devices.\n• Create automated triggers for recording data and taking notes.\n• Use sonification to hear the movement of your graphs.\n\nPermissions notice:\n• Bluetooth: needed to scan for Bluetooth sensor devices.\n• Camera: needed to take pictures to document experiments and for the brightness sensor.\n• Photo Library: needed to store pictures taken to document experiments and for adding existing photos from your library to experiments.\n• Microphone: needed for sound intensity sensor.\n• Push notifications: needed to inform you of recording status when backgrounding the app.\n\nEducational activities by our partners:\nhttps://makingscience.withgoogle.com/science-journal/activities\nFor support: https://productforums.google.com/forum/#!forum/sciencejournal";
 /* Change log for the iOS verison of Science Journal (note: this is multiline, with \n to separate lines) [CHAR_LIMIT=3000] */
 "app_store_ios_changelog" = "New features and improvements:\n• Save your experiment as a PDF file with all of your notes, photos, and recordings in one place.";
 /* Generic change log for iOS versions where specific changes will not be noted [CHAR_LIMIT=3000] */
@@ -673,14 +673,14 @@
 "onboarding_04_text_05" = "Document different types of observations through the <b>observation toolbar</b>. You can add a text note or photo to your experiment  or create a sensor recording.";
 "onboarding_04_title" = "Add Observations";
 "onboarding_05_quick_tip" = "You can add multiple sensors to your experiment to observe them simultaneously.";
-"onboarding_05_text_01" = "Pick a built-in phone sensor or connect and Arduino board to see live sensor data";
+"onboarding_05_text_01" = "Pick a built-in phone sensor or connect an Arduino board to see live sensor data.";
 "onboarding_05_title" = "Select a Sensor";
 "onboarding_06_text_01" = "To capture sensor data and save it to your experiment you can either start a <b>recording</b> or you can use the <b>snapshot</b> function.";
 "onboarding_06_text_02" = "Start a <b>recording</b> to capture the change of sensor values over time.";
 "onboarding_06_text_03" = "Create a point-in-time <b>snapshot</b> to capture the current sensor values.";
 "onboarding_06_title" = "Create a Recording";
 "onboarding_07_text_01" = "It can be challenging to look at the display while doing an experiment. Tap “Enable audio” to transform sensor values into audible <b>sound</b>.";
-"onboarding_07_title" = "Transform to sound";
+"onboarding_07_title" = "Transform to Sound";
 "onboarding_finish_button" = "START EXPERIMENTING";
 "onboarding_navigation_hint" = "Swipe left to proceed";
 "onboarding_navigation_title" = "GETTING STARTED";
