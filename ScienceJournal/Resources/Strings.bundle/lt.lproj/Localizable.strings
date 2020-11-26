@@ -673,14 +673,14 @@
 "onboarding_04_text_05" = "Document different types of observations through the <b>observation toolbar</b>. You can add a text note or photo to your experiment  or create a sensor recording.";
 "onboarding_04_title" = "Add Observations";
 "onboarding_05_quick_tip" = "You can add multiple sensors to your experiment to observe them simultaneously.";
-"onboarding_05_text_01" = "Pick a built-in phone sensor or connect and Arduino board to see live sensor data";
+"onboarding_05_text_01" = "Pick a built-in phone sensor or connect an Arduino board to see live sensor data.";
 "onboarding_05_title" = "Select a Sensor";
 "onboarding_06_text_01" = "To capture sensor data and save it to your experiment you can either start a <b>recording</b> or you can use the <b>snapshot</b> function.";
 "onboarding_06_text_02" = "Start a <b>recording</b> to capture the change of sensor values over time.";
 "onboarding_06_text_03" = "Create a point-in-time <b>snapshot</b> to capture the current sensor values.";
 "onboarding_06_title" = "Create a Recording";
 "onboarding_07_text_01" = "It can be challenging to look at the display while doing an experiment. Tap “Enable audio” to transform sensor values into audible <b>sound</b>.";
-"onboarding_07_title" = "Transform to sound";
+"onboarding_07_title" = "Transform to Sound";
 "onboarding_finish_button" = "START EXPERIMENTING";
 "onboarding_navigation_hint" = "Swipe left to proceed";
 "onboarding_navigation_title" = "GETTING STARTED";
