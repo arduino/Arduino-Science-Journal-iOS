@@ -26,10 +26,12 @@ import third_party_sciencejournal_ios_ScienceJournalProtos
 
 protocol ObserveViewControllerDelegate: class {
   /// Tells the delegate recording started.
-  func observeViewControllerDidStartRecording(_ observeViewController: ObserveViewController)
+  func observeViewController(_ observeViewController: ObserveViewController,
+                             didStartRecordingFromUserInteraction userInteraction: Bool)
 
   /// Tells the delegate recording stopped.
-  func observeViewControllerDidEndRecording(_ observeViewController: ObserveViewController)
+  func observeViewController(_ observeViewController: ObserveViewController,
+                             didEndRecordingFromUserInteraction userInteraction: Bool)
 
   /// Tells the delegate sensor snapshots were created.
   func observeViewController(_ observeViewController: ObserveViewController,
@@ -83,6 +85,11 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
                                   ObserveDataSourceDelegate, ObserveFooterCellDelegate,
                                   SensorCardCellDelegate, TimeAxisControllerDelegate,
                                   RecordingManagerDelegate {
+
+  enum Error: Swift.Error {
+    case recordingManagerIsNotReady
+    case recordingIsMissingData
+  }
 
   // MARK: - Constants
 
@@ -458,39 +465,22 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
     }
   }
 
-  @objc func recordButtonPressed() {
+  @objc func recordButtonPressed() throws {
     if !recordingManager.isRecording {
       guard recordingManager.isReady else {
-        let alertController =
-            MDCAlertController(title: String.recordingStartFailed,
-                               message: String.recordingStartFailedSensorDisconnected)
-        alertController.addAction(MDCAlertAction(title: String.actionOk))
-        present(alertController, animated: true)
-        return
+        throw Error.recordingManagerIsNotReady
       }
 
-      startRecording()
+      startRecording(fromUserInteraction: true)
       timeAxisController.isPinnedToNow = true
       drawerViewController?.setPositionToFull()
     } else {
-      // If data is missing from at least one sensor, prompt the user to cancel or
-      // continue recording.
+      // If data is missing from at least one sensor, throw the error
       guard !recordingManager.isRecordingMissingData else {
-        let alertController = MDCAlertController(title: String.recordingStopFailedNoDataTitle,
-                                                 message: String.recordingStopFailedNoData)
-        let cancelAction = MDCAlertAction(title: String.recordingStopFailedCancel) { (_) in
-          self.endRecording(isCancelled: true)
-        }
-        let continueAction = MDCAlertAction(title: String.recordingStopFailedContinue,
-                                            handler: nil)
-        alertController.addAction(continueAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
-
-        return
+        throw Error.recordingIsMissingData
       }
 
-      endRecording()
+      endRecording(fromUserInteraction: true)
       drawerViewController?.minimizeFromFull()
 
       // Increment the successful recording count.
@@ -499,7 +489,7 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
   }
 
   /// Creates a trial and begins recording sensor data.
-  func startRecording() {
+  func startRecording(fromUserInteraction: Bool = false) {
     // Cannot start recording a trial if one is already in progress.
     guard recordingTrial == nil else {
       return
@@ -535,7 +525,7 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
                                      userInfo: nil,
                                      repeats: true)
 
-    delegate?.observeViewControllerDidStartRecording(self)
+    delegate?.observeViewController(self, didStartRecordingFromUserInteraction: fromUserInteraction)
     trial.recordingRange.min = recordingManager.recordingStartDate!
 
     // Do an initial update so that if the app terminates before the recording save timer fires, the
@@ -575,7 +565,7 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
   ///   - removeCancelledData: True if data from a cancelled recording should be removed, otherwise
   ///                          false (data is left in the database). Only has impact if
   ///                          `isCancelled` is true. Default is true.
-  func endRecording(isCancelled: Bool = false, removeCancelledData: Bool = true) {
+  func endRecording(isCancelled: Bool = false, removeCancelledData: Bool = true, fromUserInteraction: Bool = false) {
     guard recordingTrial != nil else {
       print("[ObserveViewController] Recording ended with no valid recording trial.")
       return
@@ -593,7 +583,7 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
                                   removeCancelledData: removeCancelledData)
     recordingSaveTimer?.invalidate()
     recordingSaveTimer = nil
-    delegate?.observeViewControllerDidEndRecording(self)
+    delegate?.observeViewController(self, didEndRecordingFromUserInteraction: fromUserInteraction)
 
     // Show the add sensor card button if it should be (if all sensors have cards, it shouldn't be
     // shown).

@@ -194,7 +194,8 @@ extension ActionArea {
 
     func transition(
       _ type: TransitionType,
-      with coordinator: UIViewControllerTransitionCoordinator?
+      coordinator: UIViewControllerTransitionCoordinator?,
+      animator: UIViewPropertyAnimator?
     ) {
       switch type {
       case let .raise(with: newActionItem, isEnabled: isEnabled):
@@ -211,7 +212,7 @@ extension ActionArea {
           self.primary?.alpha = self.currentAlpha
           self.bar.alpha = self.currentAlpha
           self.updateAdditionalSafeAreaInsets()
-        }, after: {}, with: coordinator)
+        }, after: {}, coordinator: coordinator, animator: animator)
       case let .update(with: newActionItem, isEnabled: isEnabled):
         // We can get an equivalent item when the AA is in the `modal` state in portrait orientation
         // and the modal content VC is hidden or re-shown, which will result in undesired animation.
@@ -221,8 +222,8 @@ extension ActionArea {
         self.isEnabled = isEnabled
 
         let newPrimary = newActionItem.primary.map(create(primary:))
-        transition(from: primary, to: newPrimary, with: coordinator)
-        transition(to: newActionItem.items, with: coordinator)
+        transition(from: primary, to: newPrimary, coordinator: coordinator, animator: animator)
+        transition(to: newActionItem.items, coordinator: coordinator, animator: animator)
       case let .enable(isEnabled):
         transition(before: {
           self.isEnabled = isEnabled
@@ -230,7 +231,7 @@ extension ActionArea {
           self.primary?.alpha = self.currentAlpha
           self.bar.alpha = self.currentAlpha
           self.updateAdditionalSafeAreaInsets()
-        }, after: {}, with: coordinator)
+        }, after: {}, coordinator: coordinator, animator: animator)
       case .lower:
         transition(before: {}, during: {
           self.bar.transform = CGAffineTransform(translationX: 0, y: self.barHeightFromBottomEdge)
@@ -241,19 +242,20 @@ extension ActionArea {
           self.bar.items = []
           self.bar.alpha = self.currentAlpha
           self.primary = nil
-        }, with: coordinator)
+        }, coordinator: coordinator, animator: animator)
       }
     }
 
     private func transition(
       to items: [BarButtonItem],
-      with coordinator: UIViewControllerTransitionCoordinator?
+      coordinator: UIViewControllerTransitionCoordinator?,
+      animator: UIViewPropertyAnimator?
     ) {
       guard !items.isEmpty else {
         transition(during: {
           self.bar.alpha = self.currentAlpha
           self.updateAdditionalSafeAreaInsets()
-        }, with: coordinator)
+        }, coordinator: coordinator, animator: animator)
         return
       }
 
@@ -275,13 +277,14 @@ extension ActionArea {
         self.updateAdditionalSafeAreaInsets()
       }, after: {
         snapshot?.removeFromSuperview()
-      }, with: coordinator)
+      }, coordinator: coordinator, animator: animator)
     }
 
     private func transition(
       from: UIButton?,
       to: UIButton?,
-      with coordinator: UIViewControllerTransitionCoordinator?
+      coordinator: UIViewControllerTransitionCoordinator?,
+      animator: UIViewPropertyAnimator?
     ) {
       switch (from, to) {
       case (.none, .none):
@@ -291,7 +294,7 @@ extension ActionArea {
           from.alpha = 0
         }, after: {
           self.primary = nil
-        }, with: coordinator)
+        }, coordinator: coordinator, animator: animator)
       case let (.none, .some(to)):
         transition(before: {
           to.alpha = 0
@@ -299,10 +302,12 @@ extension ActionArea {
           to.alpha = 1
         }, after: {
           self.primary = to
-        }, with: coordinator)
+        }, coordinator: coordinator, animator: animator)
       case let (.some(from), .some(to)):
         transition(before: {
           to.alpha = 0
+          // this is needed to prevent a glitch
+          to.layoutIfNeeded()
         }, during: {
           UIView.animateKeyframes(withDuration: 0, delay: 0, options: [], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3) {
@@ -320,7 +325,7 @@ extension ActionArea {
           })
         }, after: {
           self.primary = to
-        }, with: coordinator)
+        }, coordinator: coordinator, animator: animator)
       }
     }
 
@@ -328,7 +333,8 @@ extension ActionArea {
       before: () -> Void = {},
       during: @escaping () -> Void = {},
       after: @escaping () -> Void = {},
-      with coordinator: UIViewControllerTransitionCoordinator?
+      coordinator: UIViewControllerTransitionCoordinator?,
+      animator: UIViewPropertyAnimator?
     ) {
       if let coordinator = coordinator, coordinator.isAnimated {
         before()
@@ -337,6 +343,10 @@ extension ActionArea {
         }) { _ in
           after()
         }
+      } else if let animator = animator, animator.state == .active {
+        before()
+        animator.addAnimations(during)
+        animator.addCompletion({ _ in after() })
       } else {
         before()
         during()

@@ -649,6 +649,17 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
                                       exportCoordinator: exportCoordinator)
   }
 
+  func experimentViewControllerDidChangeRecordingState() {
+    guard let actionAreaController = actionAreaController else { return }
+
+    // This is a bit hacky. In order to handle the transition gracefully from
+    // modal to normal and viceversa, we must simulate the call of the action
+    // associated with the primary button. As the button isn't actually used
+    // in the implementation, we can avoid keeping references and pass any object.
+    let dummyButton = ActionArea.BarButtonItem(title: "", accessibilityHint: nil, image: nil) {}
+    actionAreaController.barButtonItemDidExecuteAction(dummyButton)
+  }
+
   // MARK: - ExperimentItemDelegate
 
   func detailViewControllerDidAddNote(_ note: Note, forTrialID trialID: String?) {
@@ -968,7 +979,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
         accessibilityHint: String.actionAreaFabRecordContentDescription,
         image: UIImage(named: "ic_action_area_record_button")
       ) {
-        experimentCoordinator.observeViewController.recordButtonPressed()
+        try experimentCoordinator.observeViewController.recordButtonPressed()
       }
 
       let stopItem = ActionArea.BarButtonItem(
@@ -976,7 +987,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
         accessibilityHint: String.actionAreaFabStopContentDescription,
         image: UIImage(named: "ic_action_area_stop_button")
       ) {
-        experimentCoordinator.observeViewController.recordButtonPressed()
+        try experimentCoordinator.observeViewController.recordButtonPressed()
       }
 
       return .stateful(
@@ -1367,6 +1378,42 @@ extension UserFlowViewController: ExportCoordinatorDelegate {
     presentPDFExportFlow(experiment, completionHandler: completionHandler)
   }
 
+}
+
+// MARK:- Error handling
+extension UserFlowViewController {
+  override func handle(_ error: Error, from viewController: UIViewController?) {
+    let alertController: UIAlertController?
+    switch error {
+    case ObserveViewController.Error.recordingManagerIsNotReady:
+      alertController = UIAlertController(title: String.recordingStartFailed,
+                                          message: String.recordingStartFailedSensorDisconnected,
+                                          preferredStyle: .alert)
+      alertController?.addAction(UIAlertAction(title: String.actionOk, style: .default, handler: nil))
+    case ObserveViewController.Error.recordingIsMissingData:
+      alertController = UIAlertController(title: String.recordingStopFailedNoDataTitle,
+                                          message: String.recordingStopFailedNoData,
+                                          preferredStyle: .alert)
+
+      let observeViewController = experimentCoordinatorVC?.observeViewController
+      let cancelAction = UIAlertAction(title: String.recordingStopFailedCancel,
+                                       style: .destructive,
+                                       handler: { _ in
+                                        observeViewController?.endRecording(isCancelled: true)
+                                       })
+      alertController?.addAction(cancelAction)
+
+      alertController?.addAction(UIAlertAction(title: String.recordingStopFailedContinue,
+                                               style: .default,
+                                               handler: nil))
+    default:
+      alertController = nil
+    }
+
+    if let alert = alertController {
+      viewController?.present(alert, animated: true, completion: nil)
+    }
+  }
 }
 
 // swiftlint:enable file_length, type_body_length

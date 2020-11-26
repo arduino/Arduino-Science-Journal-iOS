@@ -24,8 +24,10 @@ class ObserveViewControllerTest: XCTestCase {
 
     var mockActiveTriggers = [SensorTrigger]()
 
-    func observeViewControllerDidStartRecording(_ observeViewController: ObserveViewController) {}
-    func observeViewControllerDidEndRecording(_ observeViewController: ObserveViewController) {}
+    func observeViewController(_ observeViewController: ObserveViewController,
+                               didStartRecordingFromUserInteraction userInteraction: Bool) {}
+    func observeViewController(_ observeViewController: ObserveViewController,
+                               didEndRecordingFromUserInteraction userInteraction: Bool) {}
     func observeViewController(_ observeViewController: ObserveViewController,
                                didCreateSensorSnapshots sensorSnapshots: [SensorSnapshot]) {}
     func observeViewController(_ observeViewController: ObserveViewController,

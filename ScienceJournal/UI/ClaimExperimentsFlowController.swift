@@ -383,6 +383,8 @@ class ClaimExperimentsFlowController: UIViewController, ClaimExperimentsViewCont
     return nil
   }
 
+  func experimentViewControllerDidChangeRecordingState() {}
+
   // MARK: - TrialDetailViewControllerDelegate
 
   func trialDetailViewControllerShowNote(_ displayNote: DisplayNote, jumpToCaption: Bool) {
