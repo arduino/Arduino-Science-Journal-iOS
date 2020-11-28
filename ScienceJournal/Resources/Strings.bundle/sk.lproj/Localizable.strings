@@ -527,6 +527,10 @@
 "export_pdf_modal_title" = "Preparing PDF";
 /* Dialog title for the chooser that pops up after exporting a photo [CHAR_LIMIT=50] */
 "export_photo_chooser_title" = "Zdieľanie fotky…";
+"first_experiment_note_1" = "Welcome to Science Journal!";
+"first_experiment_note_2" = "Start taking notes and record data using the observation toolbar.";
+"first_experiment_note_3" = "Find activities and inspiration at science-journal.arduino.cc and start exploring the world around you.";
+"first_experiment_note_4" = "If you missed the Getting Started guide or you want to go back to it, you can find it in the sidebar menu.";
 /* Text note contents for first note in first experiment [CHAR_LIMIT=NONE] */
 "first_experiment_picture_note_caption" = "Vitajte vo Vedeckom zápisníku!";
 /* Text note contents for the second text note in the first experiment [CHAR_LIMIT=NONE] */
