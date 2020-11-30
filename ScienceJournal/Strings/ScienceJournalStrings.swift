@@ -290,6 +290,10 @@ extension String {
   static public var exportOptionsTitle: String { return "export_options_title".localized }
   static public var exportPdfModalTitle: String { return "export_pdf_modal_title".localized }
   static public var exportPhotoChooserTitle: String { return "export_photo_chooser_title".localized }
+  static public var firstExperimentNote1: String { return "first_experiment_note_1".localized }
+  static public var firstExperimentNote2: String { return "first_experiment_note_2".localized }
+  static public var firstExperimentNote3: String { return "first_experiment_note_3".localized }
+  static public var firstExperimentNote4: String { return "first_experiment_note_4".localized }
   static public var firstExperimentPictureNoteCaption: String { return "first_experiment_picture_note_caption".localized }
   static public var firstExperimentSecondTextNote: String { return "first_experiment_second_text_note".localized }
   static public var firstExperimentTextNote: String { return "first_experiment_text_note".localized }
