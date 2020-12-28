@@ -19,34 +19,21 @@ import UIKit
 
 import MaterialComponents.MaterialTypography
 
-fileprivate extension MDCTypography {
-
-  static func boldFont(withSize size: CGFloat) -> UIFont {
-    // This font should load unless something is wrong with Material's fonts.
-    return MDCTypography.fontLoader().boldFont!(ofSize: size)
-  }
+fileprivate extension ArduinoTypography {
 
   static var fontName: String {
     // Arbitrary size to get the font name.
-    return boldFont(withSize: 10).fontName
+    return monoBoldFont(forSize: 10).fontName
   }
 
 }
 
-// swiftlint:disable type_body_length
 /// Animation view for the pitch sensor.
 class PitchSensorAnimationView: SensorAnimationView {
 
   // MARK: - Nested
 
   private enum Metrics {
-    static let backgroundColorValueBlueHigh: CGFloat = 175
-    static let backgroundColorValueBlueLow: CGFloat = 248
-    static let backgroundColorValueGreenHigh: CGFloat = 97
-    static let backgroundColorValueGreenLow: CGFloat = 202
-    static let backgroundColorValueRedHigh: CGFloat = 13
-    static let backgroundColorValueRedLow: CGFloat = 113
-    static let backgroundRadiusRatio: CGFloat = 0.38
     static let dotAngleTop = CGFloat(Double.pi / 2)
     static let dotEllipseRadiusRatio: CGFloat = 0.44
     static let dotRadiusRatio: CGFloat = 0.05
@@ -55,21 +42,16 @@ class PitchSensorAnimationView: SensorAnimationView {
     static let noteFontSizeRatio: CGFloat = 0.48
     static let noteRatioX: CGFloat = 0.42
     static let noteRatioY: CGFloat = 0.46
-    static let noteLeftTextColor =
-        UIColor(red: 238 / 255, green: 238 / 255, blue: 238 / 255, alpha: 1).cgColor
-    static let noteRightTextColor =
-        UIColor(red: 220 / 255, green: 220 / 255, blue: 220 / 255, alpha: 1).cgColor
+    static let noteTextColor = UIColor.white.cgColor
     static let numberOfPianoKeys = 88
     static let octaveFontSizeRatio: CGFloat = 0.2
     static let octaveRatioX: CGFloat = 0.67
     static let octaveRatioY: CGFloat = 0.67
-    static let octaveTextColor =
-        UIColor(red: 220 / 255, green: 220 / 255, blue: 220 / 255, alpha: 1).cgColor
-    static let signFontSizeRatio: CGFloat = 0.25
-    static let signRatioX: CGFloat = 0.62
+    static let octaveTextColor = UIColor.white.cgColor
+    static let signFontSizeRatio: CGFloat = 0.3
+    static let signRatioX: CGFloat = 0.68
     static let signRatioY: CGFloat = 0.43
-    static let signTextColor =
-        UIColor(red: 220 / 255, green: 220 / 255, blue: 220 / 255, alpha: 1).cgColor
+    static let signTextColor = UIColor.white.cgColor
     static let textShadowColor = UIColor(white: 0, alpha: 0.61).cgColor
     static let textShadowOffset = CGSize(width: 1, height: 2)
     static let textShadowRadius: CGFloat = 4
@@ -91,8 +73,7 @@ class PitchSensorAnimationView: SensorAnimationView {
 
   private let backgroundShapeLayer = CAShapeLayer()
   private let dotShapeLayer = CAShapeLayer()
-  private let noteLeftTextLayer = CATextLayer()
-  private let noteRightTextLayer = CATextLayer()
+  private let noteTextLayer = CATextLayer()
   private let signTextLayer = CATextLayer()
   private let octaveTextLayer = CATextLayer()
 
@@ -201,14 +182,6 @@ class PitchSensorAnimationView: SensorAnimationView {
   override func layoutSubviews() {
     super.layoutSubviews()
 
-    // Background shape layer.
-    let backgroundShapeRadius = bounds.width * Metrics.backgroundRadiusRatio
-    let backgroundShapeRect = CGRect(x: bounds.midX - backgroundShapeRadius,
-                                     y: bounds.midY - backgroundShapeRadius,
-                                     width: backgroundShapeRadius * 2,
-                                     height: backgroundShapeRadius * 2)
-    backgroundShapeLayer.path = UIBezierPath(ovalIn: backgroundShapeRect).cgPath
-
     // Dot shape layer will be at a point on an invisible ellipse.
     let ellipseRadius = bounds.width * Metrics.dotEllipseRadiusRatio
     let dotX = bounds.midX + ellipseRadius * cos(angleOfDot)
@@ -224,12 +197,11 @@ class PitchSensorAnimationView: SensorAnimationView {
     if let musicalNote = musicalNote {
       // Letter
       let noteFontSize = floor(bounds.height * Metrics.noteFontSizeRatio)
-      noteLeftTextLayer.fontSize = noteFontSize
-      noteRightTextLayer.fontSize = noteFontSize
+      noteTextLayer.fontSize = noteFontSize
       let noteSize = musicalNote.letter.boundingRect(
           with: .zero,
           options: [],
-          attributes: [NSAttributedString.Key.font: MDCTypography.boldFont(withSize: noteFontSize)],
+        attributes: [NSAttributedString.Key.font: ArduinoTypography.monoBoldFont(forSize: noteFontSize)],
           context: nil).size
       var noteX: CGFloat
       var noteY: CGFloat
@@ -242,18 +214,14 @@ class PitchSensorAnimationView: SensorAnimationView {
       }
 
       // The note layer on the left is half width.
-      noteLeftTextLayer.frame = CGRect(x: floor(noteX),
+      noteTextLayer.frame = CGRect(x: floor(noteX),
                                        y: floor(noteY),
-                                       width: ceil(noteSize.width / 2),
+                                       width: ceil(noteSize.width),
                                        height: ceil(noteSize.height))
-      noteRightTextLayer.frame = CGRect(x: floor(noteX),
-                                        y: floor(noteY),
-                                        width: ceil(noteSize.width),
-                                        height: ceil(noteSize.height))
-
+      
       // Sign.
       signTextLayer.fontSize = floor(bounds.height * Metrics.signFontSizeRatio)
-      let signFont = MDCTypography.boldFont(withSize: signTextLayer.fontSize)
+      let signFont = ArduinoTypography.monoBoldFont(forSize: signTextLayer.fontSize)
       let signSize = musicalNote.sign.boundingRect(
           with: .zero,
           options: [],
@@ -267,7 +235,7 @@ class PitchSensorAnimationView: SensorAnimationView {
 
       // Octave
       octaveTextLayer.fontSize = floor(bounds.height * Metrics.octaveFontSizeRatio)
-      let octaveFont = MDCTypography.boldFont(withSize: octaveTextLayer.fontSize)
+      let octaveFont = ArduinoTypography.monoBoldFont(forSize: octaveTextLayer.fontSize)
       let octaveSize =
           musicalNote.octave.boundingRect(with: .zero,
                                           options: [],
@@ -287,17 +255,13 @@ class PitchSensorAnimationView: SensorAnimationView {
     // Store the level.
     self.level = level
 
-    // Set the fill color of the background shape layer.
-    backgroundShapeLayer.fillColor = backgroundColor(forLevel: level).cgColor
-
     // The the angle of the dot.
     let difference = differenceBetween(pitch: value, andLevel: level)
     angleOfDot = CGFloat((1 - 2 * difference) * (Double.pi / 2))
 
     // Set the musical note letter, sign and octave.
     let musicalNote = musicalNotes[level]
-    noteLeftTextLayer.string = musicalNote.letter
-    noteRightTextLayer.string = musicalNote.letter
+    noteTextLayer.string = musicalNote.letter
     signTextLayer.string = musicalNote.sign
     octaveTextLayer.string = musicalNote.octave
 
@@ -327,29 +291,6 @@ class PitchSensorAnimationView: SensorAnimationView {
 
   // MARK: - Private
 
-  private func backgroundColor(forLevel level: Int) -> UIColor {
-    if level == 0 {
-      return UIColor(red: Metrics.backgroundColorValueRedLow / 255,
-                     green: Metrics.backgroundColorValueGreenLow / 255,
-                     blue: Metrics.backgroundColorValueBlueLow / 255, alpha: 1)
-    } else if level == noteFrequencies.endIndex - 1 {
-      return UIColor(red: Metrics.backgroundColorValueRedHigh / 255,
-                     green: Metrics.backgroundColorValueGreenHigh / 255,
-                     blue: Metrics.backgroundColorValueBlueHigh / 255, alpha: 1)
-    } else {
-      let red = round(Metrics.backgroundColorValueRedLow +
-          (Metrics.backgroundColorValueRedHigh - Metrics.backgroundColorValueRedLow) *
-          CGFloat(level) / CGFloat(noteFrequencies.endIndex - 1))
-      let green = round(Metrics.backgroundColorValueGreenLow +
-          (Metrics.backgroundColorValueGreenHigh - Metrics.backgroundColorValueGreenLow) *
-          CGFloat(level) / CGFloat(noteFrequencies.endIndex - 1))
-      let blue = round(Metrics.backgroundColorValueBlueLow +
-          (Metrics.backgroundColorValueBlueHigh - Metrics.backgroundColorValueBlueLow) *
-          CGFloat(level) / CGFloat(noteFrequencies.endIndex - 1))
-      return UIColor(red: red / 255, green: green / 255, blue: blue / 255, alpha: 1)
-    }
-  }
-
   private func configureView() {
     isAccessibilityElement = true
 
@@ -359,31 +300,24 @@ class PitchSensorAnimationView: SensorAnimationView {
     imageView.frame = bounds
     addSubview(imageView)
 
-    // Background shape layer.
-    backgroundShapeLayer.fillColor = backgroundColor(forLevel: 0).cgColor
-    layer.addSublayer(backgroundShapeLayer)
-
     // Dot shape layer.
-    dotShapeLayer.fillColor = UIColor.red.cgColor
+    dotShapeLayer.fillColor = ArduinoColorPalette.warningColor.cgColor
     layer.addSublayer(dotShapeLayer)
 
     // Text layer common configuration.
-    [noteRightTextLayer, noteLeftTextLayer, signTextLayer, octaveTextLayer].forEach {
+    [noteTextLayer, signTextLayer, octaveTextLayer].forEach {
       $0.alignmentMode = .center
       $0.contentsScale = UIScreen.main.scale
-      $0.font = CGFont(MDCTypography.fontName as CFString)
+      $0.font = CGFont(ArduinoTypography.fontName as CFString)
       $0.shadowColor = Metrics.textShadowColor
       $0.shadowOffset = Metrics.textShadowOffset
       $0.shadowRadius = Metrics.textShadowRadius
       layer.addSublayer($0)
     }
 
-    // Right note.
-    noteRightTextLayer.foregroundColor = Metrics.noteRightTextColor
-
     // Left note.
-    noteLeftTextLayer.foregroundColor = Metrics.noteLeftTextColor
-    noteLeftTextLayer.masksToBounds = true
+    noteTextLayer.foregroundColor = Metrics.noteTextColor
+    noteTextLayer.masksToBounds = true
 
     // Sign.
     signTextLayer.foregroundColor = Metrics.signTextColor
