@@ -676,10 +676,8 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     showSnackbar(
       withMessage: String.actionAreaRecordingNoteSavedMessage,
       category: nil,
-      actionTitle: String.actionAreaRecordingNoteSavedViewButton,
-      actionHandler: {
-        self.actionAreaController?.revealMaster()
-    })
+      actionTitle: nil,
+      actionHandler: nil)
   }
 
   func detailViewControllerDidDeleteNote(_ deletedDisplayNote: DisplayNote) {
