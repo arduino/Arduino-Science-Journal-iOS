@@ -64,4 +64,50 @@ extension UIImage {
     return image
   }
 
+  class func stroke(color: UIColor,
+                    size: CGSize = CGSize(width: 1, height: 1),
+                    lineWidth: CGFloat = 1,
+                    cornerRadius: CGFloat = 0) -> UIImage? {
+
+    UIGraphicsBeginImageContextWithOptions(size, false, 0)
+    guard let context = UIGraphicsGetCurrentContext() else { return nil }
+
+    color.setStroke()
+    context.setLineWidth(lineWidth)
+
+    let rect = CGRect(x: 0,
+                      y: 0,
+                      width: size.width,
+                      height: size.height).insetBy(dx: lineWidth / 2.0, dy: lineWidth / 2.0)
+    let path = UIBezierPath(roundedRect: rect,
+                            cornerRadius: cornerRadius)
+
+    path.stroke()
+
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+
+    return image
+  }
+
+  class func fill(color: UIColor,
+                  size: CGSize = CGSize(width: 1, height: 1),
+                  cornerRadius: CGFloat = 0) -> UIImage? {
+
+    UIGraphicsBeginImageContextWithOptions(size, false, 0)
+    color.setFill()
+
+    let rect = CGRect(x: 0,
+                      y: 0,
+                      width: size.width,
+                      height: size.height)
+    let path = UIBezierPath(roundedRect: rect,
+                            cornerRadius: cornerRadius)
+    path.fill()
+
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+
+    return image
+  }
 }

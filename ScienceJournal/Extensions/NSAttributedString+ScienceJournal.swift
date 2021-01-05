@@ -25,6 +25,7 @@ extension NSAttributedString {
                            color: UIColor,
                            tintColor: UIColor? = nil,
                            lineHeight: Float? = nil,
+                           alignment: NSTextAlignment? = nil,
                            layoutDirection: UITraitEnvironmentLayoutDirection = .leftToRight) {
     guard let body = htmlBody else { return nil }
 
@@ -53,6 +54,7 @@ extension NSAttributedString {
                 font-family: \(fontFamily) !important;
                 font-size: \(font.pointSize) !important;
                 line-height: \(lh);
+                \(alignment != nil ? "text-align: \(alignment!.htmlTextAlignment);" : "")
                 direction: \(layoutDirection.htmlDirection);
             }
             a {
@@ -71,6 +73,21 @@ extension NSAttributedString {
                    options: [.documentType: NSAttributedString.DocumentType.html,
                              .characterEncoding: String.Encoding.utf8.rawValue],
                    documentAttributes: nil)
+  }
+}
+
+extension NSTextAlignment {
+  var htmlTextAlignment: String {
+    switch self {
+    case .center:
+      return "center"
+    case .right:
+      return "right"
+    case .justified:
+      return "justify"
+    default:
+      return "left"
+    }
   }
 }
 

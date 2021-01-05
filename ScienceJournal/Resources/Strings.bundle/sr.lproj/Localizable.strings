@@ -427,6 +427,12 @@
 "drive_sync_cannot_reach_google_drive" = "Google диск није доступан. Проверите везу.";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Подаци о експерименту за Научни дневник се чувају на Google диску и одатле су доступни разним уређајима, што захтева пријављивање помоћу Google налога.\n\nАко на овом уређају већ имате податке, кад се пријавите можете да сачувате постојеће експерименте на Google диску. Експерименти се чувају у директоријуму „Научни дневник“ на Google диску.";
+"drive_sync_intro_google_action" = "Google Drive";
+"drive_sync_intro_more" = "LEARN MORE";
+"drive_sync_intro_more_text" = "If you have existing data on this device, once signed in, you can save your existing experiments to Google Drive. Your experiments are stored in a folder of your choice in Google Drive.";
+"drive_sync_intro_skip" = "SKIP";
+"drive_sync_intro_text" = "Experiment data for Science Journal can be saved and made available across devices using Google Drive which requires signing in with a Google Account.";
+"drive_sync_intro_title" = "Cloud Sync";
 /* Content description for the manual edit crop end time menu option [CHAR_LIMIT=30] */
 "edit_crop_end_time" = "Измени време завршетка";
 /* Content description for the manual edit crop start time menu option [CHAR_LIMIT=30] */
@@ -664,7 +670,7 @@
 "onboarding_01_quick_tip" = "You can always get back to this intro later in the sidebar menu.";
 "onboarding_01_text_01" = "This introduction will walk you through the most important functions of Science Journal and show you how to turn your smart device into a pocket science lab. Swipe left to begin.";
 "onboarding_01_title" = "Welcome to Science Journal!";
-"onboarding_02_quick_tip" = "Did you know that smartphones come with various built-in sensors? Connect an Arduino board to add even more advanced sensors. ";
+"onboarding_02_quick_tip" = "Did you know that smartphones come with various built-in sensors? Connect an Arduino board to add even more advanced sensors.";
 "onboarding_02_text_01" = "Science Journal helps you to conduct science experiments by allowing you to observe real time sensor data, <b>record sensor values</b> as well as <b>add notes</b> and <b>observations</b> to your experiments.";
 "onboarding_02_title" = "What is Science Journal?";
 "onboarding_03_text_01" = "Add a new experiment to start exploring & journaling";

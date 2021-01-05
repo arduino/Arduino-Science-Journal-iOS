@@ -240,6 +240,12 @@ extension String {
   static public var driveErrorUnknown: String { return "drive_error_unknown".localized }
   static public var drive: String { return "drive_sync_cannot_reach_google_drive".localized }
   static public var driveSyncInformation: String { return "drive_sync_information".localized }
+  static public var driveSyncIntroGoogleAction: String { return "drive_sync_intro_google_action".localized }
+  static public var driveSyncIntroMore: String { return "drive_sync_intro_more".localized }
+  static public var driveSyncIntroMoreText: String { return "drive_sync_intro_more_text".localized }
+  static public var driveSyncIntroSkip: String { return "drive_sync_intro_skip".localized }
+  static public var driveSyncIntroText: String { return "drive_sync_intro_text".localized }
+  static public var driveSyncIntroTitle: String { return "drive_sync_intro_title".localized }
   static public var editCropEndTime: String { return "edit_crop_end_time".localized }
   static public var editCropStartTime: String { return "edit_crop_start_time".localized }
   static public var editExperimentBtnContentDescription: String { return "edit_experiment_btn_content_description".localized }

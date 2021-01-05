@@ -21,7 +21,13 @@ import UIKit
 
 class WizardViewController: UIViewController {
 
+  let wizardView = WizardView()
+
   var rootViewController: WizardRootViewController?
+
+  override func loadView() {
+    view = wizardView
+  }
 
   @IBAction func close(_ sender: Any) {
     rootViewController?.close()

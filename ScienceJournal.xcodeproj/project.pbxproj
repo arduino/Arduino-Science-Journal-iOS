@@ -641,6 +641,11 @@
 		BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */; };
 		BC968C4A25A30CD300A885AB /* WizardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4925A30CD300A885AB /* WizardFooterView.swift */; };
 		BC968C5225A3586500A885AB /* WizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C5125A3586500A885AB /* WizardViewController.swift */; };
+		BC993DD625A469800001F76D /* DriveSyncIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */; };
+		BC993DE225A46D960001F76D /* WizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DE125A46D960001F76D /* WizardView.swift */; };
+		BC993DF225A47AFA0001F76D /* DriveSyncIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */; };
+		BC993E0525A47BCC0001F76D /* WizardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E0425A47BCC0001F76D /* WizardButton.swift */; };
+		BC993E0D25A4868B0001F76D /* GoogleDriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
 		BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */; };
 		BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */; };
@@ -1397,6 +1402,11 @@
 		BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardRootViewController.swift; sourceTree = "<group>"; };
 		BC968C4925A30CD300A885AB /* WizardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardFooterView.swift; sourceTree = "<group>"; };
 		BC968C5125A3586500A885AB /* WizardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardViewController.swift; sourceTree = "<group>"; };
+		BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncIntroViewController.swift; sourceTree = "<group>"; };
+		BC993DE125A46D960001F76D /* WizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardView.swift; sourceTree = "<group>"; };
+		BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncIntroView.swift; sourceTree = "<group>"; };
+		BC993E0425A47BCC0001F76D /* WizardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardButton.swift; sourceTree = "<group>"; };
+		BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveButton.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
 		BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigViewController.swift; sourceTree = "<group>"; };
 		BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigSelectorView.swift; sourceTree = "<group>"; };
@@ -2396,6 +2406,7 @@
 				680865771EAEC955005F54E1 /* About */,
 				5C6C83CD1FB0D667005F12C4 /* Cropping */,
 				8B84E0291EAFF40F005E9AA0 /* Drawer */,
+				BC993DD325A469370001F76D /* Drive */,
 				8B79B6AA2098BA1B009C7C04 /* ExistingDataOptions */,
 				688F79D31EBBA5230046A970 /* Experiments */,
 				BCD417E6255ADA6B007546A1 /* Onboarding */,
@@ -3186,12 +3197,24 @@
 			isa = PBXGroup;
 			children = (
 				BC968C3725A30B3800A885AB /* Wizard.storyboard */,
+				BC993E0425A47BCC0001F76D /* WizardButton.swift */,
 				BC968C4925A30CD300A885AB /* WizardFooterView.swift */,
 				BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */,
 				BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */,
+				BC993DE125A46D960001F76D /* WizardView.swift */,
 				BC968C5125A3586500A885AB /* WizardViewController.swift */,
 			);
 			path = Wizard;
+			sourceTree = "<group>";
+		};
+		BC993DD325A469370001F76D /* Drive */ = {
+			isa = PBXGroup;
+			children = (
+				BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */,
+				BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */,
+				BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */,
+			);
+			path = Drive;
 			sourceTree = "<group>";
 		};
 		BC9D3E0A2513B7A4009ACA46 /* Sensors */ = {
@@ -3716,6 +3739,7 @@
 				5C3245291EF1D4F100E8664B /* DisplayItem.swift in Sources */,
 				5C95134C20CAD7110033D9FA /* AccountDeleter.swift in Sources */,
 				8BB23E761FFD85B400850148 /* KeyboardObserver.swift in Sources */,
+				BC993E0525A47BCC0001F76D /* WizardButton.swift in Sources */,
 				5CE6389020ADFC5F004A712F /* DevicePreferenceManager.swift in Sources */,
 				8BA975A720FE5DAD00A0306E /* WriteTrialSensorDataToDiskOperation.swift in Sources */,
 				5CFC8E6020488A1C00A674C2 /* ExportDocumentOperation.swift in Sources */,
@@ -3894,6 +3918,7 @@
 				5C7B87C31FCDEFD200EDEF1D /* CropRangeViewController.swift in Sources */,
 				BC7AB10624D0880E00703B2E /* BLEScienceKitGyroscopeXSensor.swift in Sources */,
 				5C2E4E931EA5645700F9AA6D /* BluetoothSensor.swift in Sources */,
+				BC993DF225A47AFA0001F76D /* DriveSyncIntroView.swift in Sources */,
 				8BC909D1200FB1B800B1A053 /* UnifiedSensorTimer.swift in Sources */,
 				8B84E02E1EAFF429005E9AA0 /* DrawerItem.swift in Sources */,
 				5CA232071EB278C4004DDEEC /* MakingScienceServiceInterface.swift in Sources */,
@@ -4104,6 +4129,7 @@
 				687FAA06202C1162004C1D04 /* Version.pbobjc.m in Sources */,
 				5C7D8AA01F0FF2B9005CD61C /* ChartStatsOverlayView.swift in Sources */,
 				D59CA3C2219CEE690082A27B /* FFTAnalyzer.swift in Sources */,
+				BC993DE225A46D960001F76D /* WizardView.swift in Sources */,
 				5C2CE58E1FC5EF440004FF9D /* CropOverlayViewController.swift in Sources */,
 				8B3D1E261F509AD000E32082 /* CameraAccessHandler.swift in Sources */,
 				5CE0477F1F5F4ED000E8EAA1 /* SingleValueSensor.swift in Sources */,
@@ -4141,6 +4167,7 @@
 				8B1F2F912065741100BADCD4 /* TrialCardSensorsView.swift in Sources */,
 				68EACA7E1EB0234000BB5892 /* SettingsViewController.swift in Sources */,
 				583706E822D68D5F002B9F0F /* ExportCoordinator.swift in Sources */,
+				BC993DD625A469800001F76D /* DriveSyncIntroViewController.swift in Sources */,
 				687FAA07202C1162004C1D04 /* ScalarInputConfig.pbobjc.m in Sources */,
 				687FAA18202C1162004C1D04 /* PictureLabelValue.pbobjc.m in Sources */,
 				8BDC027F201F746000BB0059 /* AudioCapture.swift in Sources */,
@@ -4155,6 +4182,7 @@
 				8BB99E6E206BF0B8001A1A58 /* SeparatorView.swift in Sources */,
 				8BBFBC1B213889F9008FFBF4 /* NetworkAvailability.swift in Sources */,
 				68154D3D1F58EBCD000CD3E6 /* PermissionsGuideViewController.swift in Sources */,
+				BC993E0D25A4868B0001F76D /* GoogleDriveButton.swift in Sources */,
 				8B3FA2B621513F5E002241DC /* VisibilityTrackingViewControllers.swift in Sources */,
 				8BB99E76206D7681001A1A58 /* TrialCardNoteViewPool.swift in Sources */,
 				F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */,
