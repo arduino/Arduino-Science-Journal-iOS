@@ -1,5 +1,7 @@
 MINIMUM_IOS_VERSION = '12.0'
 
+RX_SWIFT_VERSION = '6.0.0'
+
 platform :ios, MINIMUM_IOS_VERSION
 
 def shared_test_pods
@@ -11,6 +13,8 @@ target 'ScienceJournal' do
   use_frameworks!
 
   # Pods for ScienceJournal
+  ## RxSwift
+  pod 'RxSwift', RX_SWIFT_VERSION
   ## Drive
   pod 'GoogleAPIClientForREST/Drive', '~> 1.2.1', :inhibit_warnings => true
   ## MDC
@@ -55,6 +59,9 @@ target 'ScienceJournal' do
   target 'ScienceJournalTests' do
     inherit! :search_paths
     shared_test_pods
+    
+    pod 'RxBlocking', RX_SWIFT_VERSION
+    pod 'RxTest', RX_SWIFT_VERSION
   end
 end
 

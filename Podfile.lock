@@ -242,6 +242,11 @@ PODS:
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
   - Protobuf (3.5.0)
+  - RxBlocking (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
+  - RxTest (6.0.0):
+    - RxSwift (= 6.0.0)
   - SnapKit (5.0.0)
   - SSZipArchive (2.1.1)
   - SwiftLint (0.41.0)
@@ -280,6 +285,9 @@ DEPENDENCIES:
   - MaterialComponents/Themes
   - MaterialComponents/Typography
   - Protobuf (~> 3.5.0)
+  - RxBlocking (= 6.0.0)
+  - RxSwift (= 6.0.0)
+  - RxTest (= 6.0.0)
   - SnapKit (= 5.0.0)
   - SSZipArchive (= 2.1.1)
   - SwiftLint
@@ -294,6 +302,9 @@ SPEC REPOS:
     - MotionAnimator
     - MotionInterchange
     - Protobuf
+    - RxBlocking
+    - RxSwift
+    - RxTest
     - SnapKit
     - SSZipArchive
     - SwiftLint
@@ -307,10 +318,13 @@ SPEC CHECKSUMS:
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  RxBlocking: c025b8c6fe08c5b18c039b5b11d41ec413f8a59e
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  RxTest: ddef4052e63cb116f5b73510488c3113c37c62e5
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 7fc20c5c17bd14830e5b0930dfd5f5b75cdf86d3
+PODFILE CHECKSUM: 8ba8ffb61ac3a3293bf7c8b71343a00acceb9bac
 
 COCOAPODS: 1.10.0
