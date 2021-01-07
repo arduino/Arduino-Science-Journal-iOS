@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Science Journal kan inte ansluta till Google Drive. Vissa experiment kanske inte säkerhetskopieras.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Det går inte att nå Google Drive. Kontrollera anslutningen.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Experimentdata för Science Journal sparas och görs tillgängligt på enheter med Google Drive och kräver att du loggar in med ett Google-konto.\n\nOm du har befintlig data på den här enheten kan du, när du är inloggad, spara dina befintliga experiment på Google Drive. Dina experiment lagras i en Science Journal-mapp på Google Drive.";
 "drive_sync_intro_google_action" = "Google Drive";

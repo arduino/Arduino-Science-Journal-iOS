@@ -425,6 +425,9 @@
 "drive_error_unknown" = "科学日志无法连接 Google 云端硬盘。部分实验可能无法备份。";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "无法连接 Google 云端硬盘。请检查你的网络连接。";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "科学日志的实验数据会通过 Google 云端硬盘予以保存并实现跨设备访问，为此需要登录 Google 帐号。\n\n如果您在此设备上有现成的数据，那么登录后即可将现有实验保存到 Google 云端硬盘。您的实验存储在 Google 云端硬盘的“科学日志”文件夹中。";
 "drive_sync_intro_google_action" = "Google Drive";

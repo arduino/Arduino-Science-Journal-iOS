@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Science Journal ne može se povezati s Google diskom. Neki se eksperimenti možda neće sigurnosno kopirati.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Ne možemo pristupiti Google disku. Provjerite vezu.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Podaci o eksperimentima za Science Journal spremaju se i dostupni su na uređajima na kojima je instaliran Google disk, uz prijavu Google računom.\n\nAko imate podatke na ovom uređaju, svoje postojeće eksperimente možete spremiti na Google disk kad se prijavite. Eksperimenti se pohranjuju u mapi \"Science Journal\" na Google disku.";
 "drive_sync_intro_google_action" = "Google Drive";

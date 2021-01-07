@@ -425,6 +425,9 @@
 "drive_error_unknown" = "サイエンス ジャーナルから Google ドライブに接続できません。一部の実験がバックアップされない可能性があります。";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Google ドライブにアクセスできません。接続を確認してください。";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "サイエンス ジャーナル用の実験データを保存して、Google ドライブを使って複数のデバイス間で共有できるようになりました。このデータにアクセスするには Google アカウントへのログインが必要です。\n\nこのデバイスに既存データがある場合は、ログイン後に既存の実験を Google ドライブに保存できます。実験は Google ドライブの「サイエンス ジャーナル」というフォルダに保存されます。";
 "drive_sync_intro_google_action" = "Google Drive";

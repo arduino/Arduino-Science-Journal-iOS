@@ -19,6 +19,13 @@ import Foundation
 /// String constants for common Drive file names.
 public struct Constants {
 
+  public struct GoogleSignInScopes {
+    public static let drive = [
+      "https://www.googleapis.com/auth/drive.appdata",
+      "https://www.googleapis.com/auth/drive"
+    ]
+  }
+  
   public struct Drive {
     public static let appDataFolderName = "appDataFolder"
     public static let defaultFileMetadataItemsFields =

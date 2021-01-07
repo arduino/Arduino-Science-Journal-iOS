@@ -1,9 +1,21 @@
 PODS:
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
   - GoogleAPIClientForREST/Core (1.2.1):
     - GTMSessionFetcher (>= 1.1.7)
   - GoogleAPIClientForREST/Drive (1.2.1):
     - GoogleAPIClientForREST/Core
     - GTMSessionFetcher (>= 1.1.7)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GTMAppAuth (1.1.0):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher (~> 1.4)
   - GTMSessionFetcher (1.5.0):
     - GTMSessionFetcher/Full (= 1.5.0)
   - GTMSessionFetcher/Core (1.5.0)
@@ -253,6 +265,7 @@ PODS:
 
 DEPENDENCIES:
   - GoogleAPIClientForREST/Drive (~> 1.2.1)
+  - GoogleSignIn
   - MaterialComponents/ActionSheet
   - MaterialComponents/ActivityIndicator
   - MaterialComponents/AnimationTiming
@@ -294,7 +307,10 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppAuth
     - GoogleAPIClientForREST
+    - GoogleSignIn
+    - GTMAppAuth
     - GTMSessionFetcher
     - MaterialComponents
     - MDFInternationalization
@@ -310,7 +326,10 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   GoogleAPIClientForREST: a8b95a252014ce2e618df6b75dc72eca2c00b4af
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   MaterialComponents: 69a725e28406a97816441dea4ec6ec38265a08bb
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
@@ -325,6 +344,6 @@ SPEC CHECKSUMS:
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 8ba8ffb61ac3a3293bf7c8b71343a00acceb9bac
+PODFILE CHECKSUM: dc65b0203ea8483c7a503675595500cf065c4c02
 
 COCOAPODS: 1.10.0

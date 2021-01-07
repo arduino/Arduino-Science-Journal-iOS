@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Научни дневник не може да се повеже са Google диском. Можда неће бити направљена резервна копија неких експеримената.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Google диск није доступан. Проверите везу.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Подаци о експерименту за Научни дневник се чувају на Google диску и одатле су доступни разним уређајима, што захтева пријављивање помоћу Google налога.\n\nАко на овом уређају већ имате податке, кад се пријавите можете да сачувате постојеће експерименте на Google диску. Експерименти се чувају у директоријуму „Научни дневник“ на Google диску.";
 "drive_sync_intro_google_action" = "Google Drive";

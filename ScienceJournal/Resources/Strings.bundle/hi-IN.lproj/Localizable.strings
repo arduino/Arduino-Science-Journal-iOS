@@ -425,6 +425,9 @@
 "drive_error_unknown" = "विज्ञान शोध पत्रिका को 'Google डिस्क' से कनेक्ट नहीं किया जा सकता. कुछ प्रयोगों का बैक अप नहीं लिया जा सकता है.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "'Google डिस्क' से कनेक्ट नहीं हो पाया. कृपया अपने कनेक्शन की जाँच करें.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "विज्ञान शोध पत्रिका का प्रयोग डेटा सेव किया जाता है और 'Google डिस्क' का इस्तेमाल करके सभी डिवाइस पर उपलब्ध कराया जाता है. इसके लिए Google खाते से साइन इन करना ज़रूरी है.\n\nअगर इस डिवाइस पर आपका डेटा पहले से मौजूद है, तो साइन इन कर लेने पर आप अपने मौजूदा प्रयोगों को 'Google डिस्क' में सेव कर सकते हैं. आपके प्रयोग 'Google डिस्क' में “विज्ञान शोध पत्रिका” फ़ोल्डर में स्टोर कर लिए जाते हैं.";
 "drive_sync_intro_google_action" = "Google Drive";

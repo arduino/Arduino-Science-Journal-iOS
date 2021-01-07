@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Science Journal kan geen verbinding maken met Google Drive. Van sommige experimenten is mogelijk geen back-up gemaakt.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Kan Google Drive niet bereiken. Controleer je verbinding.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Experimentgegevens voor Science Journal worden met Google Drive op verschillende apparaten opgeslagen en beschikbaar gemaakt. Hiervoor moet je inloggen met een Google-account.\n\nAls er al gegevens op dit apparaat staan, kun je inloggen om je bestaande experimenten op te slaan in Google Drive. Je experimenten worden dan opgeslagen in een Google Drive-map met de naam Science Journal.";
 "drive_sync_intro_google_action" = "Google Drive";

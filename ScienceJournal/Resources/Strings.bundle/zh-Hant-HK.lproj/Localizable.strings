@@ -425,6 +425,9 @@
 "drive_error_unknown" = "科學日誌無法連上 Google 雲端硬碟，部分實驗可能不會建立備份檔案。";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "無法連上 Google 雲端硬碟，請檢查連線狀態。";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "你必須登入 Google 帳戶，才能將科學日誌中的實驗資料儲存至 Google 雲端硬碟，並在不同的裝置上使用這些內容。\n\n如果這部裝置上已有資料，你可以在登入帳戶後將現有的實驗儲存至 Google 雲端硬碟。系統會將你的實驗儲存在 Google 雲端硬碟的「科學日誌」資料夾中。";
 "drive_sync_intro_google_action" = "Google Drive";

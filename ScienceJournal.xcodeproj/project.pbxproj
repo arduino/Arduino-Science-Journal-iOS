@@ -611,6 +611,7 @@
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC42DAB925656013004C1D32 /* UIResponder+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */; };
 		BC42DAC425656393004C1D32 /* UIApplication+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */; };
+		BC4DEE5A25A7136F002BA286 /* DriveSyncFolderPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4DEE5925A7136F002BA286 /* DriveSyncFolderPickerViewController.swift */; };
 		BC55783F249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */; };
 		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
 		BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */; };
@@ -646,6 +647,7 @@
 		BC993DF225A47AFA0001F76D /* DriveSyncIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */; };
 		BC993E0525A47BCC0001F76D /* WizardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E0425A47BCC0001F76D /* WizardButton.swift */; };
 		BC993E0D25A4868B0001F76D /* GoogleDriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */; };
+		BC993E4225A4B16F0001F76D /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E4125A4B16F0001F76D /* AuthenticationManager.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
 		BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */; };
 		BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */; };
@@ -1372,6 +1374,7 @@
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ErrorHandling.swift"; sourceTree = "<group>"; };
 		BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+ScienceJournal.swift"; sourceTree = "<group>"; };
+		BC4DEE5925A7136F002BA286 /* DriveSyncFolderPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderPickerViewController.swift; sourceTree = "<group>"; };
 		BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyOnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
 		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
 		BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerYSensor.swift; sourceTree = "<group>"; };
@@ -1407,6 +1410,7 @@
 		BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncIntroView.swift; sourceTree = "<group>"; };
 		BC993E0425A47BCC0001F76D /* WizardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardButton.swift; sourceTree = "<group>"; };
 		BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveButton.swift; sourceTree = "<group>"; };
+		BC993E4125A4B16F0001F76D /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
 		BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigViewController.swift; sourceTree = "<group>"; };
 		BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigSelectorView.swift; sourceTree = "<group>"; };
@@ -2613,6 +2617,7 @@
 				5C650B0120892A5700CB4656 /* Accounts */,
 				3F71B71422B466D90015074A /* ActionArea */,
 				686E3D2C1F58880300250628 /* Analytics */,
+				BC993E4025A4B15C0001F76D /* Authentication */,
 				BC3B9634249A6A3E000D7646 /* BLEArduino */,
 				5CAD5EF11E952F8C008F50C3 /* BLEMakingScience */,
 				5C11AE6A1EB7D8280077F752 /* BLEProtocols */,
@@ -3210,11 +3215,20 @@
 		BC993DD325A469370001F76D /* Drive */ = {
 			isa = PBXGroup;
 			children = (
+				BC4DEE5925A7136F002BA286 /* DriveSyncFolderPickerViewController.swift */,
 				BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */,
 				BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */,
 				BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */,
 			);
 			path = Drive;
+			sourceTree = "<group>";
+		};
+		BC993E4025A4B15C0001F76D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				BC993E4125A4B16F0001F76D /* AuthenticationManager.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		BC9D3E0A2513B7A4009ACA46 /* Sensors */ = {
@@ -3345,6 +3359,7 @@
 				68EBA6D81E20421E0089FF7F /* Resources */,
 				7E3499D6286B3586851B38AA /* [CP] Embed Pods Frameworks */,
 				D53F6F762268EF8500E1F22B /* Run SwiftLint */,
+				E3A5B1319B92E4F332C394D6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3652,6 +3667,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
@@ -3666,6 +3683,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
@@ -3737,6 +3756,24 @@
 			shellPath = /bin/sh;
 			shellScript = "Scripts/swiftlint.sh\n";
 		};
+		E3A5B1319B92E4F332C394D6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -3756,6 +3793,7 @@
 				5CA9AE021F9A3CFE007C09EB /* SensorFailedView.swift in Sources */,
 				6853104F1EDE84FE00C42696 /* ScienceJournalStrings.swift in Sources */,
 				5C11AE721EB7D92D0077F752 /* MakingScienceSensorInterface.swift in Sources */,
+				BC4DEE5A25A7136F002BA286 /* DriveSyncFolderPickerViewController.swift in Sources */,
 				8B06406E203E0FDC00F66356 /* RelativeScaleAnimationView.swift in Sources */,
 				48282B6C20CB0079007A2102 /* SettingsSwitchCell.swift in Sources */,
 				5C7DB67920E3E8FF00F915CD /* StringConstants.swift in Sources */,
@@ -3907,6 +3945,7 @@
 				BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */,
 				48C767B520F92BA800A67C4A /* SignInViewController.swift in Sources */,
 				BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */,
+				BC993E4225A4B16F0001F76D /* AuthenticationManager.swift in Sources */,
 				BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */,
 				BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */,
 				8BCCDF5F1EB9265800E85517 /* CameraActionBar.swift in Sources */,

@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Научно списание не може да установи връзка с Google Диск. Възможно е някои експерименти да не се архивират.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Няма достъп до Google Диск. Проверете връзката си.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Данните за експериментите в Научно списание се запазват и са налице на устройства с Google Диск. Достъпът до тях изисква вход в профила в Google.\n\nАко имате съществуващи данни на това устройство, можете да запазвате експериментите в Google Диск, след като влезете в профила си. Те се съхраняват в папка „Научно списание“ в профила ви в Google Диск.";
 "drive_sync_intro_google_action" = "Google Drive";

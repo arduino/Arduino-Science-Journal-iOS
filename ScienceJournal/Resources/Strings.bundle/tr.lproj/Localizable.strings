@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Science Journal, Google Drive'a bağlanamıyor. Bazı deneyler yedeklenemeyebilir.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Google Drive'a erişilemiyor. Bağlantınızı kontrol edin.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Science Journal'daki deney verileri Google Drive kullanılarak kaydedilir ve cihazlar genelinde kullanılabilir hale getirilir. Bunun için bir Google hesabıyla oturum açılması gerekir.\n\nBu cihazda mevcut verileriniz varsa oturum açtıktan sonra deneylerinizi Google Drive'a kaydedebilirsiniz. Deneyleriniz, Google Drive'da \"Science Journal\" adlı klasörde depolanır.";
 "drive_sync_intro_google_action" = "Google Drive";

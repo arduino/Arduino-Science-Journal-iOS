@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Science Journal se ne more povezati z Googlom Drive. Nekateri poskusi morda ne bodo varnostno kopirani.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Google Drive ni dosegljiv. Preverite povezavo.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Podatki o poskusih v aplikaciji Science Journal so shranjeni in na voljo v vseh napravah prek Googla Drive. Za dostop do njih se morate prijaviti v račun Google.\n\nČe imate v tej napravi podatke, lahko obstoječe poskuse shranite v Google Drive, ko ste prijavljeni. Poskusi so shranjeni v mapi »Science Journal« v Googlu Drive.";
 "drive_sync_intro_google_action" = "Google Drive";

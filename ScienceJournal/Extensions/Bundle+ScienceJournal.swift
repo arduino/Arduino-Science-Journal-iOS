@@ -56,4 +56,12 @@ extension Bundle {
     return Bundle(url: URL(fileURLWithPath: subBundlePath, isDirectory: true))
   }()
 
+  /// Returns the Google client ID to be used for the authentication
+  public static var googleClientID: String {
+    let dictionary = Bundle.currentBundle.infoDictionary!
+    // swiftlint:disable force_cast
+    return dictionary["GoogleClientID"] as! String
+    // swiftlint:enable force_cast
+  }
+
 }

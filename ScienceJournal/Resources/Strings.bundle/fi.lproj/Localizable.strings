@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Science Journal ei saa yhteyttä Google Driveen. Joitakin kokeita ei välttämättä varmuuskopioida.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Yhteyttä Google Driveen ei saada. Tarkista yhteys.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Science Journalin kokeiden data tallennetaan Google Driveen, josta se on saatavilla eri laitteille. Sen käyttö edellyttää kirjautumista Google-tilille.\n\nJos tällä laitteella on aiemmin tekemiesi kokeiden dataa, voit tallentaa kokeet Google Driveen, kun olet kirjautunut sisään. Kokeesi tallennetaan Google Driveen Science Journal ‑kansioon.";
 "drive_sync_intro_google_action" = "Google Drive";

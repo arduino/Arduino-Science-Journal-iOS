@@ -51,6 +51,9 @@ class AppFlowViewController: UIViewController {
   /// tasks, as well as testing.
   let accountsManager: AccountsManager
 
+  /// The authentication manager.
+  let authenticationManager: AuthenticationManager
+
   private let analyticsReporter: AnalyticsReporter
   private let commonUIComponents: CommonUIComponents
   private let drawerConfig: DrawerConfig
@@ -85,6 +88,7 @@ class AppFlowViewController: UIViewController {
   ///   - sensorController: The sensor controller.
   convenience init(fileSystemLayout: FileSystemLayout,
                    accountsManager: AccountsManager,
+                   authenticationManager: AuthenticationManager,
                    analyticsReporter: AnalyticsReporter,
                    commonUIComponents: CommonUIComponents,
                    drawerConfig: DrawerConfig,
@@ -95,6 +99,7 @@ class AppFlowViewController: UIViewController {
                    sensorController: SensorController) {
     self.init(fileSystemLayout: fileSystemLayout,
               accountsManager: accountsManager,
+              authenticationManager: authenticationManager,
               analyticsReporter: analyticsReporter,
               commonUIComponents: commonUIComponents,
               drawerConfig: drawerConfig,
@@ -110,6 +115,7 @@ class AppFlowViewController: UIViewController {
   ///
   /// - Parameters:
   ///   - fileSystemLayout: The file system layout.
+  ///   - authenticationManager: The authentication manager.
   ///   - accountsManager: The accounts manager.
   ///   - analyticsReporter: The analytics reporter.
   ///   - commonUIComponents: Common UI components.
@@ -120,6 +126,7 @@ class AppFlowViewController: UIViewController {
   ///   - sensorController: The sensor controller.
   init(fileSystemLayout: FileSystemLayout,
        accountsManager: AccountsManager,
+       authenticationManager: AuthenticationManager,
        analyticsReporter: AnalyticsReporter,
        commonUIComponents: CommonUIComponents,
        drawerConfig: DrawerConfig,
@@ -129,6 +136,7 @@ class AppFlowViewController: UIViewController {
        sensorController: SensorController) {
     self.fileSystemLayout = fileSystemLayout
     self.accountsManager = accountsManager
+    self.authenticationManager = authenticationManager
     self.analyticsReporter = analyticsReporter
     self.commonUIComponents = commonUIComponents
     self.drawerConfig = drawerConfig

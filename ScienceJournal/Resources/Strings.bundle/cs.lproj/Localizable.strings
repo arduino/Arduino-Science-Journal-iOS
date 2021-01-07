@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Vědecký žurnál se nemůže připojit k Disku Google. Je možné, že některé experimenty nepůjdou zálohovat.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "S Diskem Google se nelze spojit. Zkontrolujte své připojení.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Údaje o experimentech pro Vědecký žurnál se ukládají a synchronizují mezi zařízeními pomocí Disku Google. Je k tomu potřeba se přihlásit pomocí účtu Google.\n\nPokud už na svém zařízení nějaké údaje máte, po přihlášení můžete své stávající experimenty uložit na Disk Google. Uloží se do složky Vědecký žurnál na vašem Disku Google.";
 "drive_sync_intro_google_action" = "Google Drive";

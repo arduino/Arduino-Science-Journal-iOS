@@ -27,6 +27,10 @@ class WizardNavigationController: UINavigationController {
       navigationBar.barTintColor = ArduinoColorPalette.grayPalette.tint100
       navigationBar.isTranslucent = false
       navigationBar.shadowImage = UIImage()
+
+      let backImage = UIImage(named: "arduino_navigation_back")
+      navigationBar.backIndicatorImage = backImage
+      navigationBar.backIndicatorTransitionMaskImage = backImage
     }
     
 }

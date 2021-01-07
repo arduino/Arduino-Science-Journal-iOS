@@ -16,6 +16,7 @@ target 'ScienceJournal' do
   ## RxSwift
   pod 'RxSwift', RX_SWIFT_VERSION
   ## Drive
+  pod 'GoogleSignIn'
   pod 'GoogleAPIClientForREST/Drive', '~> 1.2.1', :inhibit_warnings => true
   ## MDC
   pod 'MaterialComponents/ActionSheet'

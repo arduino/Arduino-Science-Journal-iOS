@@ -18,10 +18,25 @@
 //  limitations under the License.
 
 import UIKit
+import RxSwift
+import GoogleAPIClientForREST
 import MaterialComponents.MaterialSnackbar
 
 class DriveSyncIntroViewController: WizardViewController {
 
+  let authenticationManager: AuthenticationManager
+
+  private var disposeBag = DisposeBag()
+
+  init(authenticationManager: AuthenticationManager) {
+    self.authenticationManager = authenticationManager
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   private(set) lazy var introView = DriveSyncIntroView()
 
   override func viewDidLoad() {
@@ -45,6 +60,32 @@ class DriveSyncIntroViewController: WizardViewController {
   }
 
   @objc private func setupGoogleDrive(_ sender: UIButton) {
+    sender.isEnabled = false
 
+    authenticationManager.googleScopes = Constants.GoogleSignInScopes.drive
+    authenticationManager.signIn(with: .google, from: self)
+      .withUnretained(self)
+      .subscribe { (owner, user) in
+        owner.handleAuthenticatedUser(user)
+      } onError: { _ in
+        // TODO: show error
+      } onDisposed: {
+        sender.isEnabled = true
+      }
+      .disposed(by: disposeBag)
+  }
+
+  private func handleAuthenticatedUser(_ user: User) {
+    guard let authorizer = user.googleUser.authentication.fetcherAuthorizer() else {
+      // TODO: show error
+      return
+    }
+
+    let service = GTLRDriveService()
+    service.authorizer = authorizer
+    service.shouldFetchNextPages = true
+
+    let folderPicker = DriveSyncFolderPickerViewController(driveService: service)
+    show(folderPicker, sender: nil)
   }
 }

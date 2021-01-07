@@ -104,5 +104,18 @@
 			</dict>
 		</dict>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1046367719961-qrnkhoi59a7t8ibi5ir3u3ijoqm3e1ic</string>
+			</array>
+		</dict>
+	</array>
+	<key>GoogleClientID</key>
+	<string>1046367719961-qrnkhoi59a7t8ibi5ir3u3ijoqm3e1ic.apps.googleusercontent.com</string>
 </dict>
 </plist>

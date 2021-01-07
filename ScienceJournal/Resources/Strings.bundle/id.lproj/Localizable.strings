@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Jurnal Sains tidak dapat terhubung ke Google Drive. Beberapa eksperimen mungkin tidak dapat di-backup.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Tidak dapat terhubung ke Google Drive. Periksa koneksi internet Anda.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Data eksperimen untuk Jurnal Sains disimpan dan tersedia di seluruh perangkat menggunakan Google Drive, yang memerlukan login dengan akun Google.\n\nSetelah login, Anda dapat menyimpan eksperimen yang ada ke Google Drive, jika datanya ada di perangkat ini. Eksperimen akan disimpan di folder \"Jurnal Sains\" di Google Drive.";
 "drive_sync_intro_google_action" = "Google Drive";

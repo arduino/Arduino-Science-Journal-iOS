@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Science Journal không thể kết nối với Google Drive. Một số thử nghiệm có thể sẽ không được sao lưu.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Không thể truy cập vào Google Drive. Bạn nên kiểm tra kết nối Internet.";
+"drive_sync_folder_picker_select" = "SELECT";
+"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Dữ liệu thử nghiệm cho Science Journal được lưu và cung cấp trên các thiết bị sử dụng Google Drive và yêu cầu đăng nhập bằng tài khoản Google.\n\nNếu bạn đang có dữ liệu trên thiết bị này thì sau khi đã đăng nhập, bạn có thể lưu các thử nghiệm hiện có của mình vào Google Drive. Các thử nghiệm của bạn được lưu trữ trong thư mục “Science Journal” trong Google Drive.";
 "drive_sync_intro_google_action" = "Google Drive";
