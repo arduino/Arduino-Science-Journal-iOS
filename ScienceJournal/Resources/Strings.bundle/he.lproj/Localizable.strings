@@ -425,6 +425,7 @@
 "drive_error_unknown" = "יומן המדע לא מצליח להתחבר ל-Google Drive. ייתכן שחלק מהניסויים לא יגובו.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "לא ניתן להתחבר ל-Google Drive. יש לבדוק את החיבור לאינטרנט.";
+"drive_sync_folder_picker_empty" = "This folder is empty.";
 "drive_sync_folder_picker_select" = "SELECT";
 "drive_sync_folder_picker_text" = "Select a folder for your experiments";
 "drive_sync_folder_picker_title" = "Select a folder";

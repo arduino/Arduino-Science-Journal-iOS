@@ -612,6 +612,8 @@
 		BC42DAB925656013004C1D32 /* UIResponder+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */; };
 		BC42DAC425656393004C1D32 /* UIApplication+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */; };
 		BC4DEE5A25A7136F002BA286 /* DriveSyncFolderPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4DEE5925A7136F002BA286 /* DriveSyncFolderPickerViewController.swift */; };
+		BC4DEE6525A72019002BA286 /* DriveSyncFolderPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4DEE6425A72019002BA286 /* DriveSyncFolderPickerView.swift */; };
+		BC4DEE7025A7831C002BA286 /* DriveSyncFolderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4DEE6F25A7831C002BA286 /* DriveSyncFolderListTableViewController.swift */; };
 		BC55783F249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */; };
 		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
 		BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */; };
@@ -637,6 +639,7 @@
 		BC80928A255D892D0074E25A /* OnboardingPage5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809289255D892D0074E25A /* OnboardingPage5ViewController.swift */; };
 		BC80928F255D893A0074E25A /* OnboardingPage6ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */; };
 		BC809294255D89460074E25A /* OnboardingPage7ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */; };
+		BC9164CE25A853CC00E75A56 /* DriveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9164CD25A853CC00E75A56 /* DriveManager.swift */; };
 		BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC968C3725A30B3800A885AB /* Wizard.storyboard */; };
 		BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */; };
 		BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */; };
@@ -658,6 +661,7 @@
 		BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A824C038D40041296C /* BLEScienceKitCurrentSensor.swift */; };
 		BCEC93AB24C0471A0041296C /* BLEScienceKitResistanceSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93AA24C0471A0041296C /* BLEScienceKitResistanceSensor.swift */; };
 		BCF411EC253854E0002D6C73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCF411EE253854E0002D6C73 /* InfoPlist.strings */; };
+		BCFCE2A025A8B24800F1CCB7 /* ActivityTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFCE29F25A8B24800F1CCB7 /* ActivityTableFooterView.swift */; };
 		D54E27EF21A3423A0055743E /* AudioAnalyzerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */; };
 		D54E27F121A346980055743E /* TestResources in Resources */ = {isa = PBXBuildFile; fileRef = D54E27F021A346980055743E /* TestResources */; };
 		D5929B1486B341B6A50367D9 /* libPods-ScienceJournalUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551CFA53B9638874BCF64A15 /* libPods-ScienceJournalUITests.a */; };
@@ -1375,6 +1379,8 @@
 		BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ErrorHandling.swift"; sourceTree = "<group>"; };
 		BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC4DEE5925A7136F002BA286 /* DriveSyncFolderPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderPickerViewController.swift; sourceTree = "<group>"; };
+		BC4DEE6425A72019002BA286 /* DriveSyncFolderPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderPickerView.swift; sourceTree = "<group>"; };
+		BC4DEE6F25A7831C002BA286 /* DriveSyncFolderListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderListTableViewController.swift; sourceTree = "<group>"; };
 		BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyOnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
 		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
 		BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerYSensor.swift; sourceTree = "<group>"; };
@@ -1400,6 +1406,7 @@
 		BC809289255D892D0074E25A /* OnboardingPage5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage5ViewController.swift; sourceTree = "<group>"; };
 		BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage6ViewController.swift; sourceTree = "<group>"; };
 		BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage7ViewController.swift; sourceTree = "<group>"; };
+		BC9164CD25A853CC00E75A56 /* DriveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveManager.swift; sourceTree = "<group>"; };
 		BC968C3725A30B3800A885AB /* Wizard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wizard.storyboard; sourceTree = "<group>"; };
 		BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardNavigationController.swift; sourceTree = "<group>"; };
 		BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardRootViewController.swift; sourceTree = "<group>"; };
@@ -1496,6 +1503,7 @@
 		BCF4124025385901002D6C73 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCF4124125385904002D6C73 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCF4124225385907002D6C73 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCFCE29F25A8B24800F1CCB7 /* ActivityTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableFooterView.swift; sourceTree = "<group>"; };
 		C910BBBCF124BDC00C1BCC07 /* Pods-ScienceJournalUITests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		CD482804BCE6CEED23042379 /* Pods-ScienceJournalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D54E27EE21A3423A0055743E /* AudioAnalyzerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerTest.swift; sourceTree = "<group>"; };
@@ -1889,10 +1897,11 @@
 			children = (
 				5C7BC2DB20C9A00800CACFAB /* DriveConstructor.swift */,
 				5C7BC35120C9ADC800CACFAB /* DriveConstructorDisabled.swift */,
+				BC9164CD25A853CC00E75A56 /* DriveManager.swift */,
 				5C7BC2DD20C9A07900CACFAB /* DriveSyncManager.swift */,
 				8B79EAD221235BB6000D1E21 /* DriveSyncUserInfoConstants.swift */,
-				5C95135020CED4ED0033D9FA /* ExperimentMerger.swift */,
 				5CC813CE20D16C8700CC05E9 /* ExperimentLibraryMerger.swift */,
+				5C95135020CED4ED0033D9FA /* ExperimentMerger.swift */,
 			);
 			path = Drive;
 			sourceTree = "<group>";
@@ -1910,6 +1919,7 @@
 			isa = PBXGroup;
 			children = (
 				8BD7F8041F7D9951004C80B4 /* ActionBar.swift */,
+				BCFCE29F25A8B24800F1CCB7 /* ActivityTableFooterView.swift */,
 				F389279124DC408900843D1D /* ArduinoColorPalette.swift */,
 				BC809202255C4EB90074E25A /* ArduinoTypography.swift */,
 				5C880BA12190D9E900594166 /* ButtonViewController.swift */,
@@ -3215,6 +3225,8 @@
 		BC993DD325A469370001F76D /* Drive */ = {
 			isa = PBXGroup;
 			children = (
+				BC4DEE6F25A7831C002BA286 /* DriveSyncFolderListTableViewController.swift */,
+				BC4DEE6425A72019002BA286 /* DriveSyncFolderPickerView.swift */,
 				BC4DEE5925A7136F002BA286 /* DriveSyncFolderPickerViewController.swift */,
 				BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */,
 				BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */,
@@ -3920,6 +3932,7 @@
 				48D02B7A2220CA750063AC28 /* AnalyticsScreenViews.swift in Sources */,
 				684896E91F0207CD00DF1EE2 /* UIStackView+ScienceJournal.swift in Sources */,
 				8BD3A1071F27B76B00A5DDBD /* MDCPalette+ScienceJournal.swift in Sources */,
+				BC4DEE6525A72019002BA286 /* DriveSyncFolderPickerView.swift in Sources */,
 				F384EA4024FD82E200E1F1DE /* Nano33BLESenseServiceInterface.swift in Sources */,
 				4850DC9C21C979BC00A5C4A0 /* RemoteConfigManagerDisabled.swift in Sources */,
 				5CE047811F60721500E8EAA1 /* SensorSpec+BLESensorInterface.swift in Sources */,
@@ -3957,6 +3970,7 @@
 				687FAA11202C1162004C1D04 /* Trial.pbobjc.m in Sources */,
 				5C804CBA1FDEF02B00F8D1C6 /* TimestampFormatter.swift in Sources */,
 				5CF32A401FA7AFA60035A236 /* CALayer+ScienceJournal.swift in Sources */,
+				BC4DEE7025A7831C002BA286 /* DriveSyncFolderListTableViewController.swift in Sources */,
 				489182C31E4542CE00E91D73 /* ChartView.swift in Sources */,
 				8B994A801F91407000E9A709 /* CameraCaptureSessionManager.swift in Sources */,
 				687FAA15202C1162004C1D04 /* Label.pbobjc.m in Sources */,
@@ -4018,6 +4032,7 @@
 				5CC9046F224438B300F13EF0 /* DocumentManager.swift in Sources */,
 				8B1791CB1F140F22008C0B31 /* TriggerNoteTextEntryView.swift in Sources */,
 				D59CA3D1219CEE690082A27B /* Harmonic.swift in Sources */,
+				BCFCE2A025A8B24800F1CCB7 /* ActivityTableFooterView.swift in Sources */,
 				8B1B2AF71EE84DE100990FE8 /* PopUpMenuAnchor.swift in Sources */,
 				8B92B5701EB90047004C356E /* PhotoLibraryCell.swift in Sources */,
 				BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */,
@@ -4221,6 +4236,7 @@
 				6836532D1F5F9F4300132922 /* EmptyView.swift in Sources */,
 				8B1791931F06B1F4008C0B31 /* TriggerListDataSource.swift in Sources */,
 				5C50F58D1F61F22F00711D28 /* FileVersion.swift in Sources */,
+				BC9164CE25A853CC00E75A56 /* DriveManager.swift in Sources */,
 				5C7219601ED8D04700817F0B /* SensorLayout.swift in Sources */,
 				5C7BC35220C9ADC800CACFAB /* DriveConstructorDisabled.swift in Sources */,
 				68E36193203F7F1500B1B979 /* AnalyticsReporter.swift in Sources */,

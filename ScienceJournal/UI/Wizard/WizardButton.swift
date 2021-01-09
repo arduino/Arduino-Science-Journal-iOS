@@ -31,16 +31,27 @@ class WizardButton: UIButton {
 
     if isSolid {
       tintColor = UIColor.white
-      setBackgroundImage(UIImage.fill(color: tealColor,
-                                      size: CGSize(width: 39, height: 38),
-                                      cornerRadius: 19)?
-                          .resizableImage(withCapInsets: UIEdgeInsets(top: 19,
-                                                                      left: 19,
-                                                                      bottom: 19,
-                                                                      right: 19)),
-                         for: .normal)
+      let backgroundImage = UIImage.fill(color: tealColor,
+                                         size: CGSize(width: 39, height: 38),
+                                         cornerRadius: 19)?
+        .resizableImage(withCapInsets: UIEdgeInsets(top: 19,
+                                                    left: 19,
+                                                    bottom: 19,
+                                                    right: 19))
+
+      let disabledImage = UIImage.fill(color: tealColor.withAlphaComponent(0.4),
+                                       size: CGSize(width: 39, height: 38),
+                                       cornerRadius: 19)?
+        .resizableImage(withCapInsets: UIEdgeInsets(top: 19,
+                                                    left: 19,
+                                                    bottom: 19,
+                                                    right: 19))
+
+      setBackgroundImage(backgroundImage, for: .normal)
+      setBackgroundImage(disabledImage, for: .disabled)
+      setTitleColor(UIColor.white, for: .normal)
+      setTitleColor(UIColor.white, for: .disabled)
       titleLabel?.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
-      titleLabel?.textColor = UIColor.white
       contentEdgeInsets = UIEdgeInsets(top: 0, left: 28, bottom: 0, right: 28)
     } else {
       tintColor = tealColor

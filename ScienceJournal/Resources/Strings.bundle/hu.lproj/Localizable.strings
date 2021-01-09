@@ -425,6 +425,7 @@
 "drive_error_unknown" = "A Science Journal nem tud csatlakozni a Google Drive-hoz. Előfordulhat, hogy egyes kísérletekről nem készül biztonsági másolat.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Nem sikerült csatlakozni a Google Drive-hoz. Ellenőrizd a kapcsolatot.";
+"drive_sync_folder_picker_empty" = "This folder is empty.";
 "drive_sync_folder_picker_select" = "SELECT";
 "drive_sync_folder_picker_text" = "Select a folder for your experiments";
 "drive_sync_folder_picker_title" = "Select a folder";

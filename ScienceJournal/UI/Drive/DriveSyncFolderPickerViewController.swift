@@ -18,14 +18,21 @@
 //  limitations under the License.
 
 import UIKit
-import GoogleAPIClientForREST
 
 class DriveSyncFolderPickerViewController: WizardViewController {
 
-  let driveService: GTLRDriveService
+  let driveManager: DriveManager
 
-  init(driveService: GTLRDriveService) {
-    self.driveService = driveService
+  let selectButton = WizardButton(title: String.driveSyncFolderPickerSelect, isSolid: true)
+
+  private(set) lazy var pickerView = DriveSyncFolderPickerView()
+
+  private lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
+                                                             navigationOrientation: .horizontal,
+                                                             options: nil)
+  
+  init(driveManager: DriveManager) {
+    self.driveManager = driveManager
     super.init(nibName: nil, bundle: nil)
   }
 
@@ -38,5 +45,43 @@ class DriveSyncFolderPickerViewController: WizardViewController {
 
     wizardView.title = String.driveSyncFolderPickerTitle
     wizardView.text = String.driveSyncFolderPickerText
+
+    addContentView()
+    addPageViewController()
+    addSelectButton()
+  }
+
+  override func show(_ vc: UIViewController, sender: Any?) {
+    if vc is DriveSyncFolderListTableViewController {
+      pageViewController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
+    } else {
+      super.show(vc, sender: sender)
+    }
+  }
+  
+  private func addContentView() {
+    wizardView.hasFixedHeight = true
+    wizardView.contentView = pickerView
+  }
+
+  private func addSelectButton() {
+    view.addSubview(selectButton)
+    selectButton.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      selectButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25),
+      selectButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -25)
+    ])
+  }
+
+  private func addPageViewController() {
+    addChild(pageViewController)
+    pickerView.pageView.addSubview(pageViewController.view)
+    pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+    pageViewController.view.pinToEdgesOfView(pickerView.pageView)
+    pageViewController.didMove(toParent: self)
+
+    pageViewController.setViewControllers([
+      DriveSyncFolderListTableViewController(driveManager: driveManager, folder: nil, selectButton: selectButton)
+    ], direction: .forward, animated: false, completion: nil)
   }
 }

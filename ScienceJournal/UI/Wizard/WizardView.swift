@@ -48,6 +48,12 @@ class WizardView: UIView {
     }
   }
 
+  var hasFixedHeight: Bool = false {
+    didSet {
+      heightConstraint.isActive = hasFixedHeight
+    }
+  }
+
   private lazy var scrollView: UIScrollView = {
     let scrollView = UIScrollView()
     scrollView.delaysContentTouches = false
@@ -59,7 +65,6 @@ class WizardView: UIView {
     let stackView = UIStackView()
     stackView.axis = .vertical
     stackView.isLayoutMarginsRelativeArrangement = true
-    stackView.layoutMargins = UIEdgeInsets(top: 46, left: 20, bottom: 20, right: 20)
     stackView.translatesAutoresizingMaskIntoConstraints = false
     return stackView
   }()
@@ -81,6 +86,11 @@ class WizardView: UIView {
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
+
+  private lazy var heightConstraint: NSLayoutConstraint = {
+    let constraint = stackView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor)
+    return constraint
+  }()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -89,6 +99,11 @@ class WizardView: UIView {
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
+  }
+
+  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+    refreshLayoutMargins()
   }
 
   private func setupView() {
@@ -109,6 +124,16 @@ class WizardView: UIView {
     stackView.addArrangedSubview(textLabel)
 
     stackView.setCustomSpacing(20, after: titleLabel)
+
+    refreshLayoutMargins()
+  }
+
+  private func refreshLayoutMargins() {
+    if traitCollection.verticalSizeClass == .compact {
+      stackView.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+    } else {
+      stackView.layoutMargins = UIEdgeInsets(top: 46, left: 20, bottom: 0, right: 20)
+    }
   }
 
 }

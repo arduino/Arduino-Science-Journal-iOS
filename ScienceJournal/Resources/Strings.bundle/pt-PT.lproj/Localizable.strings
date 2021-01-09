@@ -425,6 +425,7 @@
 "drive_error_unknown" = "O Science Journal não consegue estabelecer ligação ao Google Drive. Pode não ter sido criada uma cópia de segurança de algumas experiências.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Não foi possível aceder ao Google Drive. Verifique a sua ligação.";
+"drive_sync_folder_picker_empty" = "This folder is empty.";
 "drive_sync_folder_picker_select" = "SELECT";
 "drive_sync_folder_picker_text" = "Select a folder for your experiments";
 "drive_sync_folder_picker_title" = "Select a folder";

@@ -34,7 +34,14 @@ class GoogleDriveButton: UIButton {
                                 cornerRadius: 25)?
       .resizableImage(withCapInsets: UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25))
 
+    let disabledBorder = UIImage.stroke(color: tintColor.withAlphaComponent(0.4),
+                                        size: CGSize(width: 51, height: 50),
+                                        lineWidth: 2,
+                                        cornerRadius: 25)?
+      .resizableImage(withCapInsets: UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25))
+
     setBackgroundImage(border, for: .normal)
+    setBackgroundImage(disabledBorder, for: .disabled)
 
     titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
     contentEdgeInsets = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 50)

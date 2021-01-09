@@ -425,6 +425,7 @@
 "drive_error_unknown" = "विज्ञान शोध पत्रिका को 'Google डिस्क' से कनेक्ट नहीं किया जा सकता. कुछ प्रयोगों का बैक अप नहीं लिया जा सकता है.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "'Google डिस्क' से कनेक्ट नहीं हो पाया. कृपया अपने कनेक्शन की जाँच करें.";
+"drive_sync_folder_picker_empty" = "This folder is empty.";
 "drive_sync_folder_picker_select" = "SELECT";
 "drive_sync_folder_picker_text" = "Select a folder for your experiments";
 "drive_sync_folder_picker_title" = "Select a folder";
