@@ -22,11 +22,16 @@ import UIKit
 class DriveSyncFolderPickerView: UIStackView {
   let pageView = UIView()
 
-  init() {
+  init(pathView: DriveSyncPathView) {
     super.init(frame: .zero)
 
     axis = .vertical
     spacing = 0
+    isLayoutMarginsRelativeArrangement = true
+    layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+    
+    pathView.setContentHuggingPriority(.required, for: .vertical)
+    addArrangedSubview(pathView)
 
     pageView.translatesAutoresizingMaskIntoConstraints = false
     addArrangedSubview(pageView)

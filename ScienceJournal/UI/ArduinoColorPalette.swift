@@ -104,6 +104,8 @@ class ArduinoColorPalette : Equatable {
       PaletteTint700Name: UIColor(red: 0/255.0, green: 151/255.0, blue: 157/255.0, alpha: 1),
       //Teal3
       PaletteTint800Name: UIColor(red: 0/255.0, green: 129/255.0, blue: 132/255.0, alpha: 1),
+      //Teal5
+      PaletteTint900Name: UIColor(red: 0/255.0, green: 92/255.0, blue: 95/255.0, alpha: 1),
       ],
                          accents: [PaletteAccent700Name : UIColor.white]
     )

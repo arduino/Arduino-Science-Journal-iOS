@@ -437,6 +437,7 @@
 "drive_sync_intro_skip" = "SKIP";
 "drive_sync_intro_text" = "Experiment data for Science Journal can be saved and made available across devices using Google Drive which requires signing in with a Google Account.";
 "drive_sync_intro_title" = "Cloud Sync";
+"drive_sync_root_folder_label" = "My Drive";
 /* Content description for the manual edit crop end time menu option [CHAR_LIMIT=30] */
 "edit_crop_end_time" = "編輯結束時間";
 /* Content description for the manual edit crop start time menu option [CHAR_LIMIT=30] */

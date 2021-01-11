@@ -25,7 +25,8 @@ class DriveSyncFolderPickerViewController: WizardViewController {
 
   let selectButton = WizardButton(title: String.driveSyncFolderPickerSelect, isSolid: true)
 
-  private(set) lazy var pickerView = DriveSyncFolderPickerView()
+  private(set) lazy var pathView = DriveSyncPathView(onBack: goBack, onCreate: createFolder)
+  private(set) lazy var pickerView = DriveSyncFolderPickerView(pathView: pathView)
 
   private lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                              navigationOrientation: .horizontal,
@@ -52,7 +53,8 @@ class DriveSyncFolderPickerViewController: WizardViewController {
   }
 
   override func show(_ vc: UIViewController, sender: Any?) {
-    if vc is DriveSyncFolderListTableViewController {
+    if let folderViewController = vc as? DriveSyncFolderListTableViewController {
+      pathView.folder = folderViewController.folder
       pageViewController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
     } else {
       super.show(vc, sender: sender)
@@ -83,5 +85,26 @@ class DriveSyncFolderPickerViewController: WizardViewController {
     pageViewController.setViewControllers([
       DriveSyncFolderListTableViewController(driveManager: driveManager, folder: nil, selectButton: selectButton)
     ], direction: .forward, animated: false, completion: nil)
+  }
+  
+  private func goBack() {
+    guard let folderViewController = pageViewController.viewControllers?.first
+            as? DriveSyncFolderListTableViewController else {
+      return
+    }
+    
+    guard let folder = folderViewController.folder else {
+      return
+    }
+    
+    pageViewController.setViewControllers([
+      DriveSyncFolderListTableViewController(driveManager: driveManager,
+                                             folder: folder.parent,
+                                             selectButton: selectButton)
+    ], direction: .reverse, animated: true, completion: nil)
+  }
+  
+  private func createFolder() {
+    
   }
 }

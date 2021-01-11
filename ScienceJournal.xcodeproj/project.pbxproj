@@ -639,6 +639,7 @@
 		BC80928A255D892D0074E25A /* OnboardingPage5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809289255D892D0074E25A /* OnboardingPage5ViewController.swift */; };
 		BC80928F255D893A0074E25A /* OnboardingPage6ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */; };
 		BC809294255D89460074E25A /* OnboardingPage7ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */; };
+		BC8621F425A9ECA9002D6B4F /* DriveSyncPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */; };
 		BC9164CE25A853CC00E75A56 /* DriveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9164CD25A853CC00E75A56 /* DriveManager.swift */; };
 		BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC968C3725A30B3800A885AB /* Wizard.storyboard */; };
 		BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */; };
@@ -1406,6 +1407,7 @@
 		BC809289255D892D0074E25A /* OnboardingPage5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage5ViewController.swift; sourceTree = "<group>"; };
 		BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage6ViewController.swift; sourceTree = "<group>"; };
 		BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage7ViewController.swift; sourceTree = "<group>"; };
+		BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncPathView.swift; sourceTree = "<group>"; };
 		BC9164CD25A853CC00E75A56 /* DriveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveManager.swift; sourceTree = "<group>"; };
 		BC968C3725A30B3800A885AB /* Wizard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wizard.storyboard; sourceTree = "<group>"; };
 		BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardNavigationController.swift; sourceTree = "<group>"; };
@@ -3230,6 +3232,7 @@
 				BC4DEE5925A7136F002BA286 /* DriveSyncFolderPickerViewController.swift */,
 				BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */,
 				BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */,
+				BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */,
 				BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */,
 			);
 			path = Drive;
@@ -4226,6 +4229,7 @@
 				6898803D1ED8A5DE000C6FB8 /* ExperimentsListDataSource.swift in Sources */,
 				5C650B0420892A5700CB4656 /* AccountsManagerDisabled.swift in Sources */,
 				8B1791D41F155B91008C0B31 /* TriggerEditDelegate.swift in Sources */,
+				BC8621F425A9ECA9002D6B4F /* DriveSyncPathView.swift in Sources */,
 				8B1F2F912065741100BADCD4 /* TrialCardSensorsView.swift in Sources */,
 				68EACA7E1EB0234000BB5892 /* SettingsViewController.swift in Sources */,
 				583706E822D68D5F002B9F0F /* ExportCoordinator.swift in Sources */,
