@@ -24,7 +24,7 @@ struct BLEScienceKitInput2Sensor: BLEArduinoSensor {
 
   var name: String { "input_2".localized }
 
-  var iconName: String { "ic_sensor_input_2_filled" }
+  var iconName: String { "ic_sensor_input_2" }
   
   var filledIconName: String { "ic_sensor_input_2_filled" }
 
