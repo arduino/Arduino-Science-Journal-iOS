@@ -615,6 +615,8 @@
 		BC4DEE6525A72019002BA286 /* DriveSyncFolderPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4DEE6425A72019002BA286 /* DriveSyncFolderPickerView.swift */; };
 		BC4DEE7025A7831C002BA286 /* DriveSyncFolderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4DEE6F25A7831C002BA286 /* DriveSyncFolderListTableViewController.swift */; };
 		BC55783F249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */; };
+		BC5C50F525ADEF43009B0211 /* DriveSyncSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C50F425ADEF43009B0211 /* DriveSyncSummaryViewController.swift */; };
+		BC5C50FD25ADEF6B009B0211 /* DriveSyncSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C50FC25ADEF6B009B0211 /* DriveSyncSummaryView.swift */; };
 		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
 		BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */; };
 		BC7AB0FD24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */; };
@@ -1384,6 +1386,8 @@
 		BC4DEE6425A72019002BA286 /* DriveSyncFolderPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderPickerView.swift; sourceTree = "<group>"; };
 		BC4DEE6F25A7831C002BA286 /* DriveSyncFolderListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderListTableViewController.swift; sourceTree = "<group>"; };
 		BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyOnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
+		BC5C50F425ADEF43009B0211 /* DriveSyncSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncSummaryViewController.swift; sourceTree = "<group>"; };
+		BC5C50FC25ADEF6B009B0211 /* DriveSyncSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncSummaryView.swift; sourceTree = "<group>"; };
 		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
 		BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerZSensor.swift; sourceTree = "<group>"; };
@@ -3236,6 +3240,8 @@
 				BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */,
 				BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */,
 				BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */,
+				BC5C50FC25ADEF6B009B0211 /* DriveSyncSummaryView.swift */,
+				BC5C50F425ADEF43009B0211 /* DriveSyncSummaryViewController.swift */,
 				BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */,
 			);
 			path = Drive;
@@ -3852,6 +3858,7 @@
 				8BDC0281201FA7DA00BB0059 /* PitchSensor.swift in Sources */,
 				3F158A13231DF7F5005E319E /* CrossDissolveTransitionAnimation.swift in Sources */,
 				8B9F06131EF42CE10030B011 /* TriggerNote.swift in Sources */,
+				BC5C50FD25ADEF6B009B0211 /* DriveSyncSummaryView.swift in Sources */,
 				68C45E7A1EEF51510046E430 /* TrialDetailViewController.swift in Sources */,
 				687FAA0E202C1162004C1D04 /* SnapshotLabelValue.pbobjc.m in Sources */,
 				68ACCC491F9565F800FDCD38 /* NumberFormatter+ScienceJournal.swift in Sources */,
@@ -4017,6 +4024,7 @@
 				8B2053461E8D9BAF00206061 /* RecordingManager.swift in Sources */,
 				5CE521A2209D03DC00767C8E /* UserManager.swift in Sources */,
 				68CD98951F3E47A400E3BF3C /* Snackbars.swift in Sources */,
+				BC5C50F525ADEF43009B0211 /* DriveSyncSummaryViewController.swift in Sources */,
 				686156331EC57A2700E3AE7E /* PictureCardCell.swift in Sources */,
 				687DFEB11F35325B002E668A /* DisabledInputView.swift in Sources */,
 				68E59D471EE9D7BD009241BC /* LearnMoreViewController.swift in Sources */,

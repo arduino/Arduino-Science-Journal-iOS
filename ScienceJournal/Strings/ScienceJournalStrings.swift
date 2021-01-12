@@ -254,6 +254,9 @@ extension String {
   static public var driveSyncIntroText: String { return "drive_sync_intro_text".localized }
   static public var driveSyncIntroTitle: String { return "drive_sync_intro_title".localized }
   static public var driveSyncRootFolderLabel: String { return "drive_sync_root_folder_label".localized }
+  static public var driveSyncSummaryButton: String { return "drive_sync_summary_button".localized }
+  static public var driveSyncSummaryText: String { return "drive_sync_summary_text".localized }
+  static public var driveSyncSummaryTitle: String { return "drive_sync_summary_title".localized }
   static public var editCropEndTime: String { return "edit_crop_end_time".localized }
   static public var editCropStartTime: String { return "edit_crop_start_time".localized }
   static public var editExperimentBtnContentDescription: String { return "edit_experiment_btn_content_description".localized }

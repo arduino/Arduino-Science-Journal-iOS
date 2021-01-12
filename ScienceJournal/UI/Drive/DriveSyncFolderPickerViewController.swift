@@ -61,7 +61,7 @@ class DriveSyncFolderPickerViewController: WizardViewController {
       pathView.folder = folderViewController.folder
       pageViewController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
     } else {
-      super.show(vc, sender: sender)
+      navigationController?.show(vc, sender: sender)
     }
   }
   
@@ -71,6 +71,8 @@ class DriveSyncFolderPickerViewController: WizardViewController {
   }
 
   private func addSelectButton() {
+    selectButton.addTarget(self, action: #selector(selectFolder(_:)), for: .touchUpInside)
+    
     view.addSubview(selectButton)
     selectButton.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -141,5 +143,19 @@ class DriveSyncFolderPickerViewController: WizardViewController {
         folderViewController.stopLoading()
       }
       .disposed(by: disposeBag)
+  }
+  
+  @objc private func selectFolder(_ sender: UIButton) {
+    guard let folderViewController = pageViewController.viewControllers?.first
+            as? DriveSyncFolderListTableViewController else {
+      return
+    }
+    
+    guard let selectedFolder = folderViewController.selectedFolder else {
+      return
+    }
+    
+    let viewController = DriveSyncSummaryViewController(folder: selectedFolder)
+    show(viewController, sender: nil)
   }
 }

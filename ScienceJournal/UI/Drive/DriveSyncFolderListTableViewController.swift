@@ -27,6 +27,18 @@ class DriveSyncFolderListTableViewController: UITableViewController {
   let selectButton: UIButton
 
   var subfolders = [DriveManager.Folder]()
+  
+  var selectedFolder: DriveManager.Folder? {
+    guard let selectedIndexPath = tableView.indexPathForSelectedRow else {
+      return nil
+    }
+    
+    guard selectedIndexPath.row < subfolders.count else {
+      return nil
+    }
+    
+    return subfolders[selectedIndexPath.row]
+  }
 
   private lazy var isLoading = BehaviorSubject(value: false)
   private lazy var isEmpty = BehaviorSubject(value: false)
@@ -50,7 +62,7 @@ class DriveSyncFolderListTableViewController: UITableViewController {
     tableView.allowsSelection = true
     tableView.allowsMultipleSelection = false
     tableView.backgroundColor = UIColor.clear
-    tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 20, right: 0)
+    tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 74, right: 0)
     tableView.delaysContentTouches = false
     tableView.tableFooterView = UIView()
 
@@ -116,7 +128,7 @@ class DriveSyncFolderListTableViewController: UITableViewController {
     
     Observable.combineLatest(isLoading, isEmpty)
       .observe(on: MainScheduler.instance)
-      .subscribe { isLoading, isEmpty in        
+      .subscribe { isLoading, isEmpty in
         if isLoading {
           tableView?.tableFooterView = ActivityTableFooterView()
         } else if isEmpty {
