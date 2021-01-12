@@ -22,7 +22,7 @@ import GoogleAPIClientForREST
 import RxSwift
 
 extension DriveManager {
-  class Folder {
+  class Folder: Equatable {
     let id: String
     let name: String
     let parent: Folder?
@@ -36,6 +36,10 @@ extension DriveManager {
       self.id = id
       self.name = name
       self.parent = parent
+    }
+    
+    static func == (lhs: DriveManager.Folder, rhs: DriveManager.Folder) -> Bool {
+      lhs.id == rhs.id
     }
   }
 }
@@ -98,21 +102,20 @@ class DriveManager {
     }
 
     let query = GTLRDriveQuery_FilesCreate.query(withObject: file, uploadParameters: nil)
-
+    query.fields = "id,name"
+    
     let service = self.service
 
     return Observable.create { observer in
-      let ticket = service.executeQuery(query, completionHandler: { _, files, error in
+      let ticket = service.executeQuery(query, completionHandler: { _, file, error in
         if let error = error {
           observer.onError(error)
           return
         }
-
+        
         defer { observer.onCompleted() }
 
-        guard let filesList = files as? GTLRDrive_FileList,
-              let files = filesList.files,
-              let file = files.first,
+        guard let file = file as? GTLRDrive_File,
               let folder = Folder(file: file, parent: parentFolder) else {
           return
         }

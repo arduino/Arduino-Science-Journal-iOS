@@ -26,11 +26,7 @@ class DriveSyncFolderListTableViewController: UITableViewController {
   let folder: DriveManager.Folder?
   let selectButton: UIButton
 
-  var subfolders = [DriveManager.Folder]() {
-    didSet {
-      tableView.reloadData()
-    }
-  }
+  var subfolders = [DriveManager.Folder]()
 
   private lazy var isLoading = BehaviorSubject(value: false)
   private lazy var isEmpty = BehaviorSubject(value: false)
@@ -73,12 +69,54 @@ class DriveSyncFolderListTableViewController: UITableViewController {
     fetchFolders()
   }
   
+  func add(_ folder: DriveManager.Folder) {
+    tableView.beginUpdates()
+    isEmpty.onNext(false)
+    subfolders.append(folder)
+    subfolders.sort { $0.name < $1.name }
+    guard let index = subfolders.firstIndex(of: folder) else { return }
+    let indexPath = IndexPath(row: index, section: 0)
+    tableView.insertRows(at: [indexPath], with: .automatic)
+    tableView.endUpdates()
+    tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+    tableView(tableView, didSelectRowAt: indexPath)
+  }
+  
+  func startLoading() {
+    isLoading.onNext(true)
+  }
+  
+  func stopLoading() {
+    isLoading.onNext(false)
+  }
+  
+  private func fetchFolders() {
+    startLoading()
+    
+    driveManager.subfolders(in: folder)
+      .withUnretained(self)
+      .observe(on: MainScheduler.instance)
+      .subscribe { owner, folders in
+        owner.tableView.beginUpdates()
+        defer { owner.tableView.endUpdates() }
+        
+        owner.isEmpty.onNext(folders.isEmpty)
+        owner.subfolders = folders
+        owner.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+      } onError: { _ in
+
+      } onDisposed: { [weak self] in
+        self?.stopLoading()
+      }
+      .disposed(by: disposeBag)
+  }
+  
   private func addObservers() {
     let tableView = self.tableView
     
     Observable.combineLatest(isLoading, isEmpty)
       .observe(on: MainScheduler.instance)
-      .subscribe { isLoading, isEmpty in
+      .subscribe { isLoading, isEmpty in        
         if isLoading {
           tableView?.tableFooterView = ActivityTableFooterView()
         } else if isEmpty {
@@ -90,27 +128,10 @@ class DriveSyncFolderListTableViewController: UITableViewController {
       .disposed(by: disposeBag)
   }
 
-  private func fetchFolders() {
-    isLoading.onNext(true)
-    
-    driveManager.subfolders(in: folder)
-      .withUnretained(self)
-      .observe(on: MainScheduler.instance)
-      .subscribe { owner, folders in
-        owner.isEmpty.onNext(folders.isEmpty)
-        owner.subfolders = folders
-      } onError: { _ in
-
-      } onDisposed: { [weak self] in
-        self?.isLoading.onNext(false)
-      }
-      .disposed(by: disposeBag)
-  }
-
   // MARK: - Table view data source
 
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return subfolders.isEmpty ? 0 : 1
+    return 1
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

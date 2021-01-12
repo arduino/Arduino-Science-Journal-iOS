@@ -239,6 +239,9 @@ extension String {
   static public var driveErrorTemporary: String { return "drive_error_temporary".localized }
   static public var driveErrorUnknown: String { return "drive_error_unknown".localized }
   static public var drive: String { return "drive_sync_cannot_reach_google_drive".localized }
+  static public var driveSyncCreateFolderButton: String { return "drive_sync_create_folder_button".localized }
+  static public var driveSyncCreateFolderDefault: String { return "drive_sync_create_folder_default".localized }
+  static public var driveSyncCreateFolderTitle: String { return "drive_sync_create_folder_title".localized }
   static public var driveSyncFolderPickerEmpty: String { return "drive_sync_folder_picker_empty".localized }
   static public var driveSyncFolderPickerSelect: String { return "drive_sync_folder_picker_select".localized }
   static public var driveSyncFolderPickerText: String { return "drive_sync_folder_picker_text".localized }

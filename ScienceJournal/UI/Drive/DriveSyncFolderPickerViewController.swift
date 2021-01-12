@@ -18,6 +18,8 @@
 //  limitations under the License.
 
 import UIKit
+import RxSwift
+import MaterialComponents
 
 class DriveSyncFolderPickerViewController: WizardViewController {
 
@@ -31,6 +33,8 @@ class DriveSyncFolderPickerViewController: WizardViewController {
   private lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                              navigationOrientation: .horizontal,
                                                              options: nil)
+  
+  private lazy var disposeBag = DisposeBag()
   
   init(driveManager: DriveManager) {
     self.driveManager = driveManager
@@ -105,6 +109,37 @@ class DriveSyncFolderPickerViewController: WizardViewController {
   }
   
   private func createFolder() {
+    let title = String.driveSyncCreateFolderTitle
+    let alertController = MDCAlertController(title: title, message: "")
+    alertController.backgroundColor = ArduinoColorPalette.grayPalette.tint50
+    alertController.cornerRadius = 5
+    alertController.titleFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+    alertController.titleColor = ArduinoColorPalette.grayPalette.tint600
+    alertController.accessoryView = DriveSyncFolderCreateView { [weak alertController, weak self] folderName in
+      alertController?.dismiss(animated: true, completion: nil)
+      self?.createFolder(named: folderName)
+    }
+    present(alertController, animated:true)
+  }
+  
+  private func createFolder(named folderName: String) {
+    guard let folderViewController = pageViewController.viewControllers?.first
+            as? DriveSyncFolderListTableViewController else {
+      return
+    }
     
+    let folder = folderViewController.folder
+    
+    folderViewController.startLoading()
+    driveManager.createFolder(named: folderName, in: folder)
+      .observe(on: MainScheduler.instance)
+      .subscribe { folder in
+        folderViewController.add(folder)
+      } onError: { _ in
+        
+      } onDisposed: {
+        folderViewController.stopLoading()
+      }
+      .disposed(by: disposeBag)
   }
 }

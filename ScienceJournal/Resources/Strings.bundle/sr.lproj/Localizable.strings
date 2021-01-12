@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Научни дневник не може да се повеже са Google диском. Можда неће бити направљена резервна копија неких експеримената.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Google диск није доступан. Проверите везу.";
+"drive_sync_create_folder_button" = "CREATE";
+"drive_sync_create_folder_default" = "Science Journal";
+"drive_sync_create_folder_title" = "Create New Folder";
 "drive_sync_folder_picker_empty" = "This folder is empty.";
 "drive_sync_folder_picker_select" = "SELECT";
 "drive_sync_folder_picker_text" = "Select a folder for your experiments";

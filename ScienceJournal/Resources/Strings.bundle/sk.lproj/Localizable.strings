@@ -425,6 +425,9 @@
 "drive_error_unknown" = "Vedecký zápisník sa nemôže pripojiť k Disku Google. Je možné, že niektoré experimenty nie sú zálohované.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Nedá sa pripojiť k Disku Google. Skontrolujte pripojenie.";
+"drive_sync_create_folder_button" = "CREATE";
+"drive_sync_create_folder_default" = "Science Journal";
+"drive_sync_create_folder_title" = "Create New Folder";
 "drive_sync_folder_picker_empty" = "This folder is empty.";
 "drive_sync_folder_picker_select" = "SELECT";
 "drive_sync_folder_picker_text" = "Select a folder for your experiments";
