@@ -33,8 +33,21 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1046367719961-qrnkhoi59a7t8ibi5ir3u3ijoqm3e1ic</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>GoogleClientID</key>
+	<string>1046367719961-qrnkhoi59a7t8ibi5ir3u3ijoqm3e1ic.apps.googleusercontent.com</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -104,18 +117,5 @@
 			</dict>
 		</dict>
 	</array>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.1046367719961-qrnkhoi59a7t8ibi5ir3u3ijoqm3e1ic</string>
-			</array>
-		</dict>
-	</array>
-	<key>GoogleClientID</key>
-	<string>1046367719961-qrnkhoi59a7t8ibi5ir3u3ijoqm3e1ic.apps.googleusercontent.com</string>
 </dict>
 </plist>
