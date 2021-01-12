@@ -99,7 +99,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   let menuStructure: [SidebarRow] = [
     .experiments,
-    //.settings,
+    .settings,
     //.feedback,
     .activities,
     .onboarding,

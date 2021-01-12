@@ -27,6 +27,8 @@ public extension Notification.Name {
   static let DEBUG_destroyCurrentUser = NSNotification.Name("GSJ_DEBUG_DestroyCurrentUser")
   /// Posted when auth should be forced to test the migration flow.
   static let DEBUG_forceAuth = NSNotification.Name("GSJ_DEBUG_ForceAuth")
+  /// Posted when drive wizard should be forced to test the setup flow.
+  static let DEBUG_forceDriveSetup = NSNotification.Name("GSJ_DEBUG_ForceDriveSetup")
 }
 #endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
 
@@ -141,6 +143,14 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     forceAuthSetting.settingAction = #selector(forceAuthSettingPressed(sender:))
     rows.append(forceAuthSetting)
     #endif  // SCIENCEJOURNAL_DEV_BUILD
+    
+    let driveSetupSetting = SettingsItem()
+    driveSetupSetting.title = "Enable Drive Sync"
+    driveSetupSetting.description = "Start the Google Drive Sync setup wizard."
+    driveSetupSetting.actionTitle = "Go"
+    driveSetupSetting.settingType = .settingButton
+    driveSetupSetting.settingAction = #selector(startDriveSyncSetup(sender:))
+    rows.append(driveSetupSetting)
   }
 
   // MARK: - User Actions
@@ -173,6 +183,12 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   }
   #endif  // SCIENCEJOURNAL_DEV_BUILD
 
+  @objc private func startDriveSyncSetup(sender: UIButton) {
+    NotificationCenter.default.post(name: .DEBUG_forceDriveSetup,
+                                    object: nil,
+                                    userInfo: nil)
+  }
+  
   // MARK: - UICollectionViewDataSource
 
   override func collectionView(_ collectionView: UICollectionView,

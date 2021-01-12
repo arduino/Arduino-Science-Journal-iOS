@@ -171,6 +171,11 @@ class AppFlowViewController: UIViewController {
                                            selector: #selector(debug_forceAuth),
                                            name: .DEBUG_forceAuth,
                                            object: nil)
+
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(debug_forceDriveSetup),
+                                           name: .DEBUG_forceDriveSetup,
+                                           object: nil)
     #endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
   }
 
@@ -256,6 +261,28 @@ class AppFlowViewController: UIViewController {
                                               sensorController: sensorController)
     signInFlow.delegate = self
     transitionToViewControllerModally(signInFlow, completion: completion)
+  }
+
+  private func showDriveSetup(completion: (() -> Void)? = nil) {
+    guard let wizardViewController = UIStoryboard(name: "Wizard", bundle: nil).instantiateInitialViewController()
+            as? WizardRootViewController else { return }
+    wizardViewController.initialViewController = DriveSyncIntroViewController(authenticationManager: authenticationManager)
+    wizardViewController.onDismiss = { wizard, _ in
+      wizard.dismiss(animated: true, completion: nil)
+    }
+    if traitCollection.userInterfaceIdiom == .pad {
+      wizardViewController.modalPresentationStyle = .formSheet
+    } else {
+      wizardViewController.modalPresentationStyle = .fullScreen
+    }
+    
+    if let presentedViewController = presentedViewController {
+      presentedViewController.dismiss(animated: true) { [weak self] in
+        self?.present(wizardViewController, animated: true, completion: nil)
+      }
+    } else {
+      present(wizardViewController, animated: true, completion: nil)
+    }
   }
 
   /// Handles a file import URL if possible.
@@ -556,6 +583,10 @@ extension AppFlowViewController {
     devicePreferenceManager.hasAUserCompletedPermissionsGuide = false
     NotificationCenter.default.post(name: .DEBUG_destroyCurrentUser, object: nil, userInfo: nil)
     showSignIn()
+  }
+
+  @objc private func debug_forceDriveSetup() {
+    showDriveSetup()
   }
 
 }
