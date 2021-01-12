@@ -172,11 +172,12 @@ class AppFlowViewController: UIViewController {
                                            name: .DEBUG_forceAuth,
                                            object: nil)
 
+    #endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
+    
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(debug_forceDriveSetup),
                                            name: .DEBUG_forceDriveSetup,
                                            object: nil)
-    #endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -584,10 +585,11 @@ extension AppFlowViewController {
     NotificationCenter.default.post(name: .DEBUG_destroyCurrentUser, object: nil, userInfo: nil)
     showSignIn()
   }
+}
+#endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
 
+extension AppFlowViewController {
   @objc private func debug_forceDriveSetup() {
     showDriveSetup()
   }
-
 }
-#endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
