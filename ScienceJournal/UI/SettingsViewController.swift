@@ -27,10 +27,13 @@ public extension Notification.Name {
   static let DEBUG_destroyCurrentUser = NSNotification.Name("GSJ_DEBUG_DestroyCurrentUser")
   /// Posted when auth should be forced to test the migration flow.
   static let DEBUG_forceAuth = NSNotification.Name("GSJ_DEBUG_ForceAuth")
+}
+#endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
+
+public extension Notification.Name {
   /// Posted when drive wizard should be forced to test the setup flow.
   static let DEBUG_forceDriveSetup = NSNotification.Name("GSJ_DEBUG_ForceDriveSetup")
 }
-#endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
 
 /// A view controller that presents users with a list of various settings.
 class SettingsViewController: MaterialHeaderCollectionViewController {
