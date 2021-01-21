@@ -921,13 +921,14 @@ class TrialDetailViewController: MaterialHeaderViewController,
 
     collectionView.performBatchUpdates({
       let isDisplayTrialArchived = trialDetailDataSource.displayTrial.isArchived
-      isEditable = !isDisplayTrialArchived
+      isEditable = !trial.isArchived
       // If the containing experiment allows additions, only then do we need to insert/delete the
       // "Add Notes" cell. This check is needed because it is possible to enter an archived
       // experiment with an archived trial, that could potentialy be unarchived. Or vice versa.
-      let experimentAllowsAdditions = trialDetailDataSource.experimentAllowsAdditions
       let addNoteIndexPath = trialDetailDataSource.chartAndNotesFirstIndexPath
-
+      let experimentAllowsAdditions = trialDetailDataSource.experimentAllowsAdditions &&
+        trialDetailDataSource.isAddNoteIndexPath(addNoteIndexPath)
+      
       if isDisplayTrialArchived && !trial.isArchived {
         collectionView.deleteItems(at: [trialDetailDataSource.archivedFlagIndexPath])
         if experimentAllowsAdditions {
