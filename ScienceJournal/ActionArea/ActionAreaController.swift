@@ -1142,9 +1142,10 @@ extension ActionArea.Controller: UINavigationControllerDelegate {
     animated: Bool
   ) {
     if navigationController == navController {
-      if viewController is ActionArea.MasterContent {
-        overrideMasterBackBarButtonItem(of: viewController)
+      if let masterContent = viewController as? ActionArea.MasterContent {
+        overrideMasterBackBarButtonItem(of: masterContent)
         navController.interactivePopGestureRecognizer?.delegate = self
+        actionEnabler = masterContent.actionEnabler
       }
 
       // The `transitionType` must be updated last.
