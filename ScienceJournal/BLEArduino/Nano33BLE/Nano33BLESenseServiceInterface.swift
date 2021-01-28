@@ -94,6 +94,10 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
       return BLEArduinoSensorInterface(spec: spec,
                                        sensor: Nano33BLESenseColorTemperatureSensor(),
                                        serviceId: Nano33BLESenseIds.serviceUUID)
+    case Nano33BLESenseResistanceSensor.identifier:
+      return BLEArduinoSensorInterface(spec: spec,
+                                       sensor: Nano33BLESenseResistanceSensor(),
+                                       serviceId: Nano33BLESenseIds.serviceUUID)
     default:
       return nil
     }
@@ -142,6 +146,9 @@ class Nano33BLESenseServiceInterface: BLEServiceInterface {
                                 serviceId: Nano33BLESenseIds.serviceUUID),
       BLEArduinoSensorInterface(peripheral: peripheral,
                                 sensor: Nano33BLESenseColorTemperatureSensor(),
+                                serviceId: Nano33BLESenseIds.serviceUUID),
+      BLEArduinoSensorInterface(peripheral: peripheral,
+                                sensor: Nano33BLESenseResistanceSensor(),
                                 serviceId: Nano33BLESenseIds.serviceUUID)
     ]
   }
