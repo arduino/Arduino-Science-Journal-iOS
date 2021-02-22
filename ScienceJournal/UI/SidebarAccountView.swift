@@ -30,10 +30,9 @@ protocol SidebarAccountViewDelegate: class {
 class SidebarAccountView: UIView {
 
   private enum Metrics {
-    static let arrowDimension: CGFloat = 14.0
-    static let imageDimension: CGFloat = 50.0
+    static let imageDimension: CGFloat = 32.0
     static let imageRadius: CGFloat = ceil(Metrics.imageDimension / 2)
-    static let imageSpacing: CGFloat = 10.0
+    static let imageSpacing: CGFloat = 14.0
     static let viewInsets = UIEdgeInsets(top: 10, left: 18, bottom: 10, right: 18)
   }
 
@@ -98,7 +97,7 @@ class SidebarAccountView: UIView {
   func showAccount(withName name: String, email: String, profileImage: UIImage?) {
     firstLine = name
     secondLine = email
-    self.profileImage = profileImage
+    self.profileImage = profileImage ?? UIImage(named: "ic_account_placeholder")
     profileImageView.tintColor = nil
 
     accessibilityLabel =
@@ -111,7 +110,6 @@ class SidebarAccountView: UIView {
     firstLine = String.signIn
     secondLine = nil
     profileImage = UIImage(named: "ic_account_placeholder")
-    profileImageView.tintColor = MDCPalette.grey.tint700
 
     accessibilityLabel = String.sidebarAccountViewSignedOutContentDescription
     accessibilityHint = nil
@@ -123,7 +121,7 @@ class SidebarAccountView: UIView {
     isAccessibilityElement = true
     accessibilityTraits = .button
 
-    backgroundColor = .white
+    backgroundColor = ArduinoColorPalette.grayPalette.tint50
 
     let separator = SeparatorView(direction: .horizontal, style: .dark)
     addSubview(separator)
@@ -132,12 +130,12 @@ class SidebarAccountView: UIView {
     separator.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
     separator.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
 
-    firstLineLabel.font = MDCTypography.body2Font()
+    firstLineLabel.font = ArduinoTypography.paragraphFont
     secondLineLabel.font = MDCTypography.body1Font()
 
     [firstLineLabel, secondLineLabel].forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
-      $0.textColor = .black
+      $0.textColor = ArduinoColorPalette.grayPalette.tint800
       $0.allowsDefaultTighteningForTruncation = true
       $0.adjustsFontSizeToFitWidth = true
     }
@@ -149,15 +147,7 @@ class SidebarAccountView: UIView {
     labelStack.alignment = .leading
     labelStack.setContentCompressionResistancePriority(.required, for: .horizontal)
 
-    let arrow = UIImageView(image: UIImage(named: "ic_login_arrow"))
-    arrow.tintColor = MDCPalette.grey.tint500
-    arrow.translatesAutoresizingMaskIntoConstraints = false
-    arrow.setContentHuggingPriority(.required, for: .horizontal)
-    arrow.contentMode = .center
-    arrow.widthAnchor.constraint(equalToConstant: Metrics.arrowDimension).isActive = true
-    arrow.heightAnchor.constraint(equalToConstant: Metrics.arrowDimension).isActive = true
-
-    let labelsAndArrowStack = UIStackView(arrangedSubviews: [labelStack, arrow])
+    let labelsAndArrowStack = UIStackView(arrangedSubviews: [labelStack])
     labelsAndArrowStack.translatesAutoresizingMaskIntoConstraints = false
     labelsAndArrowStack.alignment = .top
 

@@ -106,7 +106,7 @@ class SeparatorView: UIView {
 
     fileprivate var backgroundColor: UIColor {
       switch self {
-      case .dark: return MDCPalette.grey.tint300
+      case .dark: return UIColor(red: 218/255.0, green: 227/255.0, blue: 227/255.0, alpha: 1.0)
       case .light: return MDCPalette.grey.tint200
       }
     }

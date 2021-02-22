@@ -17,17 +17,7 @@
 import UIKit
 
 import googlemac_iPhone_Shared_SSOAuth_SSOAuth
-
-public enum SignInResult {
-  /// The account changed.
-  case accountChanged
-
-  /// Sign in failed, the user should be forced to sign in again.
-  case forceSignIn
-
-  /// No change occured while signing in, leave the existing signed in user signed in.
-  case noAccountChange
-}
+import GTMSessionFetcher
 
 public enum SignInType {
   /// A sign in is occuring.
@@ -37,24 +27,13 @@ public enum SignInType {
   case restoreCachedAccount
 }
 
-public enum PermissionState {
-  /// Permission is granted.
-  case granted
-
-  /// Permission is denied.
-  case denied
-}
-
 public protocol AccountsManagerDelegate: class {
   /// Tells the delegate to delete all user data for the identity with the specified ID.
   func deleteAllUserDataForIdentity(withID identityID: String)
 
-  func accountsManagerWillBeginSignIn(signInType: SignInType)
-
-  func accountsManagerSignInComplete(signInResult: SignInResult, signInType: SignInType)
-
-  func accountsManagerPermissionCheckComplete(permissionState: PermissionState,
-                                              signInType: SignInType)
+  func accountsManagerDidSignIn(signInType: SignInType)
+  
+  func accountsManagerDidSignOut()
 }
 
 /// Protocol for managing Google user accounts.

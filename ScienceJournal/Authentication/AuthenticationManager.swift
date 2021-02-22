@@ -36,7 +36,7 @@ public class AuthenticationManager: NSObject {
     (try? _authenticatedUser.value()) != nil
   }
 
-  var authenticatedUser: Observable<User?> { _authenticatedUser.asObservable() }
+  var authenticatedUser: User? { try? _authenticatedUser.value() }
 
   private lazy var _authenticatedUser = BehaviorSubject<User?>(value: nil)
 
@@ -46,7 +46,6 @@ public class AuthenticationManager: NSObject {
     super.init()
     GIDSignIn.sharedInstance()?.clientID = googleClientID
     GIDSignIn.sharedInstance()?.delegate = self
-    GIDSignIn.sharedInstance()?.restorePreviousSignIn()
   }
 
   public func signIn(with account: Account, from viewController: UIViewController) -> Observable<User> {
@@ -54,6 +53,11 @@ public class AuthenticationManager: NSObject {
     case .arduino: return .error(Error.notImplemented)
     case .google: return signInWithGoogle(from: viewController)
     }
+  }
+  
+  public func restorePreviousSignIn() -> Bool {
+    GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+    return isAuthenticated
   }
 
   public func signOut(from account: Account) throws {
@@ -127,6 +131,7 @@ private extension AuthenticationManager {
 
   func signOutFromGoogle() {
     GIDSignIn.sharedInstance()?.signOut()
+    _authenticatedUser.onNext(nil)
   }
 }
 

@@ -21,12 +21,16 @@ import UIKit
 
 class DriveSyncSummaryViewController: WizardViewController {
 
+  let userID: String
   let folder: DriveManager.Folder
-
+  let preferenceManager: PreferenceManager
+  
   private(set) lazy var summaryView = DriveSyncSummaryView(folderName: folder.name)
   
-  init(folder: DriveManager.Folder) {
+  init(userID: String, folder: DriveManager.Folder, preferenceManager: PreferenceManager) {
+    self.userID = userID
     self.folder = folder
+    self.preferenceManager = preferenceManager
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -45,7 +49,9 @@ class DriveSyncSummaryViewController: WizardViewController {
   }
   
   @objc private func start(_ sender: UIButton) {
-    self.close(sender)
+    preferenceManager.driveSyncUserID = userID
+    preferenceManager.driveSyncFolderID = folder.id
+    rootViewController?.close(isCancelled: false)
   }
 
 }

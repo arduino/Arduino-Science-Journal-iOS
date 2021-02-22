@@ -24,7 +24,8 @@ import MaterialComponents
 class DriveSyncFolderPickerViewController: WizardViewController {
 
   let driveManager: DriveManager
-
+  let preferenceManager: PreferenceManager
+  
   let selectButton = WizardButton(title: String.driveSyncFolderPickerSelect, isSolid: true)
 
   private(set) lazy var pathView = DriveSyncPathView(onBack: goBack, onCreate: createFolder)
@@ -36,8 +37,9 @@ class DriveSyncFolderPickerViewController: WizardViewController {
   
   private lazy var disposeBag = DisposeBag()
   
-  init(driveManager: DriveManager) {
+  init(driveManager: DriveManager, preferenceManager: PreferenceManager) {
     self.driveManager = driveManager
+    self.preferenceManager = preferenceManager
     super.init(nibName: nil, bundle: nil)
   }
 
@@ -155,7 +157,13 @@ class DriveSyncFolderPickerViewController: WizardViewController {
       return
     }
     
-    let viewController = DriveSyncSummaryViewController(folder: selectedFolder)
+    guard let userID = driveManager.service.authorizer?.userEmail else {
+      return
+    }
+    
+    let viewController = DriveSyncSummaryViewController(userID: userID,
+                                                        folder: selectedFolder,
+                                                        preferenceManager: preferenceManager)
     show(viewController, sender: nil)
   }
 }

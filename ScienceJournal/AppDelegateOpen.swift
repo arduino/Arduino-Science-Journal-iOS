@@ -35,10 +35,6 @@ open class AppDelegateOpen: AppDelegate {
     return _accountsManager
   }
 
-  open override var authenticationManager: AuthenticationManager {
-    return _authenticationManager
-  }
-
   open override var drawerConfig: DrawerConfig {
     return _drawerConfig
   }
@@ -64,10 +60,9 @@ open class AppDelegateOpen: AppDelegate {
   private let _analyticsReporter = AnalyticsReporterOpen()
   private let _feedbackReporter = FeedbackReporterOpen()
   private let _fileSystemLayout = FileSystemLayout.production
-  private let _accountsManager = AccountsManagerDisabled()
-  private let _authenticationManager = AuthenticationManager()
+  private let _accountsManager = ArduinoAccountsManager(authenticationManager: AuthenticationManager())
   private let _drawerConfig = DrawerConfigOpen()
-  private let _driveConstructor = DriveConstructorDisabled()
+  private let _driveConstructor = ArduinoDriveConstruttor()
   private let _commonUIComponents = CommonUIComponentsOpen()
   private let _networkAvailability = NetworkAvailabilityDisabled()
   #if FEATURE_FIREBASE_RC

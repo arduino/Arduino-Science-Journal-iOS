@@ -16,6 +16,10 @@
 
 import UIKit
 
+protocol ClaimExperimentsFlowControllerDelegate: class {
+  func claimExperimentsDidFinish(_ vc: ClaimExperimentsFlowController)
+}
+
 /// Manages the navigation of the claim experiments flow which begins when a user presses claim
 /// experiments from the experiments list, and includes all management of data such as viewing,
 /// claiming, and deleting experiments.
@@ -25,6 +29,8 @@ class ClaimExperimentsFlowController: UIViewController, ClaimExperimentsViewCont
 
   // MARK: - Properties
 
+  weak var delegate: ClaimExperimentsFlowControllerDelegate?
+  
   /// The experiment coordinator view controller. Exposed for testing.
   var experimentCoordinatorVC: ExperimentCoordinatorViewController?
 
@@ -227,7 +233,7 @@ class ClaimExperimentsFlowController: UIViewController, ClaimExperimentsViewCont
   // for testing purposes.
   @discardableResult func dismissClaimFlowIfComplete() -> Bool {
     guard !existingDataMigrationManager.hasExistingExperiments else { return false }
-    claimExperimentsViewController.dismiss(animated: true)
+    delegate?.claimExperimentsDidFinish(self)
     return true
   }
 
@@ -287,7 +293,7 @@ class ClaimExperimentsFlowController: UIViewController, ClaimExperimentsViewCont
       self.existingDataMigrationManager.migrateAllExperiments(completion: { (errors) in
         spinnerViewController.dismissSpinner(completion: {
           if errors.isEmpty {
-            self.claimExperimentsViewController.dismiss(animated: true)
+            self.delegate?.claimExperimentsDidFinish(self)
           } else {
             if errors.containsDiskSpaceError {
               showSnackbar(withMessage: String.claimExperimentsDiskSpaceErrorMessage)
@@ -304,7 +310,7 @@ class ClaimExperimentsFlowController: UIViewController, ClaimExperimentsViewCont
 
   func claimExperimentsDeleteAllExperiments() {
     existingDataMigrationManager.removeAllExperimentsFromRootUser()
-    claimExperimentsViewController.dismiss(animated: true)
+    delegate?.claimExperimentsDidFinish(self)
     analyticsReporter.track(.claimingDeleteAll)
   }
 

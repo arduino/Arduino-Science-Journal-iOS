@@ -42,6 +42,8 @@ open class PreferenceManager {
     private let deletedExperimentIDsKey = "GSJ_DeletedExperimentIDsKey"
     private let deletedImageAssetsKey = "GSJ_DeletedImageAssetsKey"
     private let deletedSensorDataAssetsKey = "GSJ_DeletedSensorDataAssetsKey"
+    private let driveSyncUserIDKey = "ASJ_DriveSyncUserIDKey"
+    private let driveSyncFolderIDKey = "ASJ_DriveSyncFolderIDKey"
 
     // Legacy keys
     private let userBirthdateKey = "GSJ_UserBirthdate"
@@ -110,6 +112,16 @@ open class PreferenceManager {
     var deletedSensorDataAssets: String {
       return keyAppendingAccountID(deletedSensorDataAssetsKey)
     }
+    
+    /// The key to use for the preference for whether or not the user has setup Drive sync.
+    var driveSyncUserID: String {
+      return keyAppendingAccountID(driveSyncUserIDKey)
+    }
+    
+    /// The key to use for the preference for the Drive sync folder.
+    var driveSyncFolderID: String {
+      return keyAppendingAccountID(driveSyncFolderIDKey)
+    }
 
     /// All keys for preferences, for the current account ID (if one was passed during
     /// initialization.
@@ -122,7 +134,9 @@ open class PreferenceManager {
               hasUserOptedOutOfUsageTracking,
               deletedExperimentIDs,
               deletedImageAssets,
-              deletedSensorDataAssets]
+              deletedSensorDataAssets,
+              driveSyncUserID,
+              driveSyncFolderIDKey]
     }
 
     // All root keys used for preferences, without any account ID appended.
@@ -226,6 +240,22 @@ open class PreferenceManager {
     set { defaults.set(newValue, forKey: keys.deletedSensorDataAssets); sync() }
     get {
       return defaults.object(forKey: keys.deletedSensorDataAssets) as? [[String: String]] ?? [[:]]
+    }
+  }
+  
+  /// The Drive user ID used for sync
+  public var driveSyncUserID: String? {
+    set { defaults.set(newValue, forKey: keys.driveSyncUserID); sync() }
+    get {
+      return defaults.object(forKey: keys.driveSyncUserID) as? String
+    }
+  }
+  
+  /// The Drive folder ID used for sync
+  public var driveSyncFolderID: String? {
+    set { defaults.set(newValue, forKey: keys.driveSyncFolderID); sync() }
+    get {
+      return defaults.object(forKey: keys.driveSyncFolderID) as? String
     }
   }
 

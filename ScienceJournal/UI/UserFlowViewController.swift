@@ -596,6 +596,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
                                        analyticsReporter: analyticsReporter,
                                        existingDataMigrationManager: existingDataMigrationManager,
                                        sensorController: sensorController)
+    claimExperimentsVC.delegate = self
     present(claimExperimentsVC, animated: true)
   }
 
@@ -1411,6 +1412,13 @@ extension UserFlowViewController {
     if let alert = alertController {
       viewController?.present(alert, animated: true, completion: nil)
     }
+  }
+}
+
+extension UserFlowViewController: ClaimExperimentsFlowControllerDelegate {
+  func claimExperimentsDidFinish(_ vc: ClaimExperimentsFlowController) {
+    experimentsListVC?.refresh()
+    vc.dismiss(animated: true, completion: nil)
   }
 }
 

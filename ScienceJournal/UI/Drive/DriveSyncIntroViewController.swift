@@ -86,8 +86,9 @@ class DriveSyncIntroViewController: WizardViewController {
     service.shouldFetchNextPages = true
 
     let driveManager = DriveManager(service: service)
-
-    let folderPicker = DriveSyncFolderPickerViewController(driveManager: driveManager)
+    let preferenceManager = PreferenceManager(accountID: user.googleUser.userID)
+    let folderPicker = DriveSyncFolderPickerViewController(driveManager: driveManager,
+                                                           preferenceManager: preferenceManager)
     show(folderPicker, sender: nil)
   }
 }

@@ -348,12 +348,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
-   // Recreate sections in case experiments were created or modified while view was off screen.
-    experimentsListItemsViewController.updateExperiments()
-    updateEmptyView(animated: false)
-
-    refreshUnclaimedExperiments()
+    refresh()
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -394,6 +389,14 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
     highlightController = nil
   }
 
+  func refresh() {
+    // Recreate sections in case experiments were created or modified while view was off screen.
+    experimentsListItemsViewController.updateExperiments()
+    updateEmptyView(animated: false)
+    
+    refreshUnclaimedExperiments()
+  }
+  
   /// Handles the event that an experiment fails to load.
   func handleExperimentLoadingFailure() {
     experimentsListItemsViewController.handleExperimentLoadingFailure()

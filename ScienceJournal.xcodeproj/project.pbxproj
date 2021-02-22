@@ -648,6 +648,7 @@
 		BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */; };
 		BC968C4A25A30CD300A885AB /* WizardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4925A30CD300A885AB /* WizardFooterView.swift */; };
 		BC968C5225A3586500A885AB /* WizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C5125A3586500A885AB /* WizardViewController.swift */; };
+		BC97004425CC0F510060F79C /* ArduinoDriveConstruttor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97004325CC0F510060F79C /* ArduinoDriveConstruttor.swift */; };
 		BC993DD625A469800001F76D /* DriveSyncIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */; };
 		BC993DE225A46D960001F76D /* WizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DE125A46D960001F76D /* WizardView.swift */; };
 		BC993DF225A47AFA0001F76D /* DriveSyncIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */; };
@@ -655,9 +656,11 @@
 		BC993E0D25A4868B0001F76D /* GoogleDriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */; };
 		BC993E4225A4B16F0001F76D /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E4125A4B16F0001F76D /* AuthenticationManager.swift */; };
 		BC9BB4CB25AC9E9A00F22E71 /* DriveSyncFolderCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB4CA25AC9E9A00F22E71 /* DriveSyncFolderCreateView.swift */; };
+		BCAB7A4125CAFC1F00D85F9A /* ArduinoSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB7A4025CAFC1F00D85F9A /* ArduinoSyncManager.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
 		BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */; };
 		BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */; };
+		BCBA349D25CBE7F9008CC2EA /* ArduinoAccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBA349C25CBE7F9008CC2EA /* ArduinoAccountsManager.swift */; };
 		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
 		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
@@ -1419,6 +1422,7 @@
 		BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardRootViewController.swift; sourceTree = "<group>"; };
 		BC968C4925A30CD300A885AB /* WizardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardFooterView.swift; sourceTree = "<group>"; };
 		BC968C5125A3586500A885AB /* WizardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardViewController.swift; sourceTree = "<group>"; };
+		BC97004325CC0F510060F79C /* ArduinoDriveConstruttor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoDriveConstruttor.swift; sourceTree = "<group>"; };
 		BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncIntroViewController.swift; sourceTree = "<group>"; };
 		BC993DE125A46D960001F76D /* WizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardView.swift; sourceTree = "<group>"; };
 		BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncIntroView.swift; sourceTree = "<group>"; };
@@ -1426,9 +1430,11 @@
 		BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveButton.swift; sourceTree = "<group>"; };
 		BC993E4125A4B16F0001F76D /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		BC9BB4CA25AC9E9A00F22E71 /* DriveSyncFolderCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderCreateView.swift; sourceTree = "<group>"; };
+		BCAB7A4025CAFC1F00D85F9A /* ArduinoSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoSyncManager.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
 		BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigViewController.swift; sourceTree = "<group>"; };
 		BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigSelectorView.swift; sourceTree = "<group>"; };
+		BCBA349C25CBE7F9008CC2EA /* ArduinoAccountsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoAccountsManager.swift; sourceTree = "<group>"; };
 		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
@@ -1834,6 +1840,7 @@
 			children = (
 				5C650B0320892A5700CB4656 /* AccountsManager.swift */,
 				5C650B0220892A5700CB4656 /* AccountsManagerDisabled.swift */,
+				BCBA349C25CBE7F9008CC2EA /* ArduinoAccountsManager.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -1903,6 +1910,8 @@
 		5C7BC2DA20C99FCD00CACFAB /* Drive */ = {
 			isa = PBXGroup;
 			children = (
+				BC97004325CC0F510060F79C /* ArduinoDriveConstruttor.swift */,
+				BCAB7A4025CAFC1F00D85F9A /* ArduinoSyncManager.swift */,
 				5C7BC2DB20C9A00800CACFAB /* DriveConstructor.swift */,
 				5C7BC35120C9ADC800CACFAB /* DriveConstructorDisabled.swift */,
 				BC9164CD25A853CC00E75A56 /* DriveManager.swift */,
@@ -4080,6 +4089,7 @@
 				BC42DAC425656393004C1D32 /* UIApplication+ScienceJournal.swift in Sources */,
 				68EB69FB1E5E3BC10040C06A /* ObserveFooterCell.swift in Sources */,
 				5C85CA5D1F2FD6D9005FADA0 /* AddTrialNoteViewController.swift in Sources */,
+				BCBA349D25CBE7F9008CC2EA /* ArduinoAccountsManager.swift in Sources */,
 				8B1791CA1F140F22008C0B31 /* TriggerEditSectionHeaderView.swift in Sources */,
 				3FCABBAE22AEE82200118021 /* FileSystemLayoutMigrationOperation.swift in Sources */,
 				5C6C62671EE09D7200798989 /* SensorSnapshot.swift in Sources */,
@@ -4143,6 +4153,7 @@
 				5C7ACBA31E9E88C200B22474 /* SensorSettingsViewController.swift in Sources */,
 				689C32171EF9DE84002C824C /* TriggerCardView.swift in Sources */,
 				4845F77A20BE1C0300FCBA71 /* SidebarAccountView.swift in Sources */,
+				BC97004425CC0F510060F79C /* ArduinoDriveConstruttor.swift in Sources */,
 				581140BE22DE9C5200D802A2 /* ExperimentDisplay.swift in Sources */,
 				680E3D731E5516B9009D4A73 /* ObserveViewController.swift in Sources */,
 				F32D236A24FEE75A00C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift in Sources */,
@@ -4260,6 +4271,7 @@
 				8B5114EE20B49F5F005953BD /* ClaimExperimentsViewController.swift in Sources */,
 				8BB99E6E206BF0B8001A1A58 /* SeparatorView.swift in Sources */,
 				8BBFBC1B213889F9008FFBF4 /* NetworkAvailability.swift in Sources */,
+				BCAB7A4125CAFC1F00D85F9A /* ArduinoSyncManager.swift in Sources */,
 				68154D3D1F58EBCD000CD3E6 /* PermissionsGuideViewController.swift in Sources */,
 				BC993E0D25A4868B0001F76D /* GoogleDriveButton.swift in Sources */,
 				8B3FA2B621513F5E002241DC /* VisibilityTrackingViewControllers.swift in Sources */,
@@ -4658,7 +4670,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4672,7 +4684,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.4.0;
+				MARKETING_VERSION = 5.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -4827,7 +4839,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4841,7 +4853,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.4.0;
+				MARKETING_VERSION = 5.0.0;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-iquote",
@@ -5074,7 +5086,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5089,7 +5101,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.4.0;
+				MARKETING_VERSION = 5.0.0;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-iquote",
@@ -5153,7 +5165,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5167,7 +5179,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 4.4.0;
+				MARKETING_VERSION = 5.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

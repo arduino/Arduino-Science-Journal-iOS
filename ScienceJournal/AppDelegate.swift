@@ -24,11 +24,6 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
     fatalError("Subclasses must override and provide an accounts manager instance!")
   }
 
-  /// The authentication manager to inject into clases.
-  open var authenticationManager: AuthenticationManager {
-    fatalError("Subclasses must override and provide an authentication manager instance!")
-  }
-
   /// The analytics reporter to inject into classes.
   open var analyticsReporter: AnalyticsReporter {
     fatalError("Subclasses must override and provide an analytics reporter instance!")
@@ -130,7 +125,6 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
     #if FEATURE_FIREBASE_RC
     appFlowViewController = AppFlowViewController(fileSystemLayout: fileSystemLayout,
                                                   accountsManager: accountsManager,
-                                                  authenticationManager: authenticationManager,
                                                   analyticsReporter: analyticsReporter,
                                                   commonUIComponents: commonUIComponents,
                                                   drawerConfig: drawerConfig,
@@ -142,7 +136,6 @@ open class AppDelegate: UIResponder, UIApplicationDelegate {
     #else
     appFlowViewController = AppFlowViewController(fileSystemLayout: fileSystemLayout,
                                                   accountsManager: accountsManager,
-                                                  authenticationManager: authenticationManager,
                                                   analyticsReporter: analyticsReporter,
                                                   commonUIComponents: commonUIComponents,
                                                   drawerConfig: drawerConfig,

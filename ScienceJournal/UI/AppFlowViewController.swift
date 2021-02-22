@@ -51,9 +51,6 @@ class AppFlowViewController: UIViewController {
   /// tasks, as well as testing.
   let accountsManager: AccountsManager
 
-  /// The authentication manager.
-  let authenticationManager: AuthenticationManager
-
   private let analyticsReporter: AnalyticsReporter
   private let commonUIComponents: CommonUIComponents
   private let drawerConfig: DrawerConfig
@@ -88,7 +85,6 @@ class AppFlowViewController: UIViewController {
   ///   - sensorController: The sensor controller.
   convenience init(fileSystemLayout: FileSystemLayout,
                    accountsManager: AccountsManager,
-                   authenticationManager: AuthenticationManager,
                    analyticsReporter: AnalyticsReporter,
                    commonUIComponents: CommonUIComponents,
                    drawerConfig: DrawerConfig,
@@ -99,7 +95,6 @@ class AppFlowViewController: UIViewController {
                    sensorController: SensorController) {
     self.init(fileSystemLayout: fileSystemLayout,
               accountsManager: accountsManager,
-              authenticationManager: authenticationManager,
               analyticsReporter: analyticsReporter,
               commonUIComponents: commonUIComponents,
               drawerConfig: drawerConfig,
@@ -115,7 +110,6 @@ class AppFlowViewController: UIViewController {
   ///
   /// - Parameters:
   ///   - fileSystemLayout: The file system layout.
-  ///   - authenticationManager: The authentication manager.
   ///   - accountsManager: The accounts manager.
   ///   - analyticsReporter: The analytics reporter.
   ///   - commonUIComponents: Common UI components.
@@ -126,7 +120,6 @@ class AppFlowViewController: UIViewController {
   ///   - sensorController: The sensor controller.
   init(fileSystemLayout: FileSystemLayout,
        accountsManager: AccountsManager,
-       authenticationManager: AuthenticationManager,
        analyticsReporter: AnalyticsReporter,
        commonUIComponents: CommonUIComponents,
        drawerConfig: DrawerConfig,
@@ -136,7 +129,6 @@ class AppFlowViewController: UIViewController {
        sensorController: SensorController) {
     self.fileSystemLayout = fileSystemLayout
     self.accountsManager = accountsManager
-    self.authenticationManager = authenticationManager
     self.analyticsReporter = analyticsReporter
     self.commonUIComponents = commonUIComponents
     self.drawerConfig = drawerConfig
@@ -153,12 +145,6 @@ class AppFlowViewController: UIViewController {
     // Register as the delegate for AccountsManager.
     self.accountsManager.delegate = self
 
-    // If a user should be forced to sign in from outside the sign in flow (e.g. their account was
-    // invalid on foreground or they deleted an account), this notification will be fired.
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(forceSignInViaNotification),
-                                           name: .userWillBeSignedOut,
-                                           object: nil)
     #if SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
     // If we should create root user data to test the claim flow, this notification will be fired.
     NotificationCenter.default.addObserver(self,
@@ -173,11 +159,6 @@ class AppFlowViewController: UIViewController {
                                            object: nil)
 
     #endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
-    
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(debug_forceDriveSetup),
-                                           name: .DEBUG_forceDriveSetup,
-                                           object: nil)
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -187,29 +168,21 @@ class AppFlowViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    func accountsSupported() {
+    if accountsManager.supportsAccounts {
       accountsManager.signInAsCurrentAccount()
     }
-
-    func accountsNotSupported() {
-      showNonAccountUser(animated: false)
-    }
-
-    if accountsManager.supportsAccounts {
-      accountsSupported()
-    } else {
-      accountsNotSupported()
-    }
+    
+    reloadUserFlowViewController()
   }
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return children.last?.preferredStatusBarStyle ?? .lightContent
   }
 
-  private func showCurrentUserOrSignIn() {
+  private func reloadUserFlowViewController() {
     guard let accountUserManager = currentAccountUserManager else {
       print("[AppFlowViewController] No current account user manager, must sign in.")
-      showSignIn()
+      showNonAccountUser(animated: false)
       return
     }
 
@@ -253,39 +226,6 @@ class AppFlowViewController: UIViewController {
     transitionToViewControllerModally(userFlow, animated: animated)
   }
 
-  // Transitions to the sign in flow with an optional completion block to fire when the flow
-  // has been shown.
-  private func showSignIn(completion: (() -> Void)? = nil) {
-    let signInFlow = SignInFlowViewController(accountsManager: accountsManager,
-                                              analyticsReporter: analyticsReporter,
-                                              rootUserManager: rootUserManager,
-                                              sensorController: sensorController)
-    signInFlow.delegate = self
-    transitionToViewControllerModally(signInFlow, completion: completion)
-  }
-
-  private func showDriveSetup(completion: (() -> Void)? = nil) {
-    guard let wizardViewController = UIStoryboard(name: "Wizard", bundle: nil).instantiateInitialViewController()
-            as? WizardRootViewController else { return }
-    wizardViewController.initialViewController = DriveSyncIntroViewController(authenticationManager: authenticationManager)
-    wizardViewController.onDismiss = { wizard, _ in
-      wizard.dismiss(animated: true, completion: nil)
-    }
-    if traitCollection.userInterfaceIdiom == .pad {
-      wizardViewController.modalPresentationStyle = .formSheet
-    } else {
-      wizardViewController.modalPresentationStyle = .fullScreen
-    }
-    
-    if let presentedViewController = presentedViewController {
-      presentedViewController.dismiss(animated: true) { [weak self] in
-        self?.present(wizardViewController, animated: true, completion: nil)
-      }
-    } else {
-      present(wizardViewController, animated: true, completion: nil)
-    }
-  }
-
   /// Handles a file import URL if possible.
   ///
   /// - Parameter url: A file URL.
@@ -300,31 +240,9 @@ class AppFlowViewController: UIViewController {
 
   // MARK: - Private
 
-  // Wrapper method for use with notifications, where notifications would attempt to push their
-  // notification object into the completion argument of `forceUserSignIn` incorrectly.
-  @objc func forceSignInViaNotification() {
-    tearDownCurrentUser()
-    showSignIn()
-  }
-
   private func handlePermissionDenial() {
     // Remove the current account and force the user to sign in.
     accountsManager.signOutCurrentAccount()
-    showSignIn {
-      // Show an alert messaging that permission was denied if we can grab the top view controller.
-      // The top view controller is required to present an alert. It should be the sign in flow view
-      // controller.
-      guard let topVC = self.children.last else { return }
-
-      let alertController = MDCAlertController(title: String.serverPermissionDeniedTitle,
-                                               message: String.serverPermissionDeniedMessage)
-      alertController.addAction(MDCAlertAction(title: String.serverSwitchAccountsTitle,
-                                               handler: { (_) in self.presentAccountSelector() }))
-      alertController.addAction(MDCAlertAction(title: String.actionOk))
-      alertController.accessibilityViewIsModal = true
-      topVC.present(alertController, animated: true)
-    }
-
     analyticsReporter.track(.signInPermissionDenied)
   }
 
@@ -354,9 +272,6 @@ class AppFlowViewController: UIViewController {
     guard let accountID = accountsManager.currentAccount?.ID else {
       sjlog_error("Accounts manager does not have a current account after sign in flow completion.",
                   category: .general)
-      // This method should never be called if the current user doesn't exist but in case of error,
-      // show sign in again.
-      showSignIn()
       return
     }
 
@@ -369,14 +284,11 @@ class AppFlowViewController: UIViewController {
 
     // Show the migration options if a choice has never been selected.
     guard !devicePreferenceManager.hasAUserChosenAnExistingDataMigrationOption else {
-      showCurrentUserOrSignIn()
+      reloadUserFlowViewController()
       return
     }
 
     guard let accountUserManager = currentAccountUserManager else {
-      // This delegate method should never be called if the current user doesn't exist but in case
-      // of error, show sign in again.
-      showSignIn()
       return
     }
 
@@ -392,7 +304,7 @@ class AppFlowViewController: UIViewController {
       existingDataOptionsVC.delegate = self
       transitionToViewControllerModally(existingDataOptionsVC)
     } else {
-      showCurrentUserOrSignIn()
+      reloadUserFlowViewController()
     }
   }
 
@@ -428,7 +340,7 @@ class AppFlowViewController: UIViewController {
         }
       }
     })
-    showViewControllerOp.addCondition(MutuallyExclusive.modalUI)
+//    showViewControllerOp.addCondition(MutuallyExclusive.modalUI)
     queue.addOperation(showViewControllerOp)
   }
   // swiftlint:enable vertical_parameter_alignment
@@ -453,55 +365,20 @@ extension AppFlowViewController: AccountsManagerDelegate {
     }
   }
 
-  func accountsManagerWillBeginSignIn(signInType: SignInType) {
+  func accountsManagerDidSignIn(signInType: SignInType) {
     switch signInType {
     case .newSignIn:
-      transitionToViewControllerModally(LoadingViewController(), withMinimumDisplaySeconds: 0.5)
-    case .restoreCachedAccount:
-      break
-    }
-  }
-
-  func accountsManagerSignInComplete(signInResult: SignInResult, signInType: SignInType) {
-    switch signInResult {
-    case .accountChanged:
-      switch signInType {
-      case .newSignIn:
-        // Wait for the permissions check to finish before showing UI.
-        break
-      case .restoreCachedAccount:
-        showCurrentUserOrSignIn()
-      }
-    case .forceSignIn:
       tearDownCurrentUser()
-      showCurrentUserOrSignIn()
-    case .noAccountChange:
+      reloadUserFlowViewController()
+    case .restoreCachedAccount:
       break
     }
   }
-
-  func accountsManagerPermissionCheckComplete(permissionState: PermissionState,
-                                              signInType: SignInType) {
-    switch signInType {
-    case .newSignIn:
-      switch permissionState {
-      case .granted:
-        tearDownCurrentUser()
-        performMigrationIfNeededAndContinueSignIn()
-      case .denied:
-        handlePermissionDenial()
-      }
-    case .restoreCachedAccount:
-      switch permissionState {
-      case .granted:
-        // UI was shown when sign in completed.
-        break
-      case .denied:
-        handlePermissionDenial()
-      }
-    }
+  
+  func accountsManagerDidSignOut() {
+    tearDownCurrentUser()
+    reloadUserFlowViewController()
   }
-
 }
 
 // MARK: - ExistingDataOptionsDelegate
@@ -515,7 +392,7 @@ extension AppFlowViewController: ExistingDataOptionsDelegate {
     spinnerViewController.present(fromViewController: existingDataOptionsVC) {
       self.existingDataMigrationManager?.migrateAllExperiments(completion: { (errors) in
         spinnerViewController.dismissSpinner {
-          self.showCurrentUserOrSignIn()
+          self.reloadUserFlowViewController()
           if errors.containsDiskSpaceError {
             showSnackbar(withMessage: String.claimExperimentsDiskSpaceErrorMessage)
           } else if !errors.isEmpty {
@@ -529,14 +406,14 @@ extension AppFlowViewController: ExistingDataOptionsDelegate {
   func existingDataOptionsViewControllerDidSelectDeleteAllExperiments() {
     devicePreferenceManager.hasAUserChosenAnExistingDataMigrationOption = true
     existingDataMigrationManager?.removeAllExperimentsFromRootUser()
-    showCurrentUserOrSignIn()
+    reloadUserFlowViewController()
   }
 
   func existingDataOptionsViewControllerDidSelectSelectExperimentsToSave() {
     devicePreferenceManager.hasAUserChosenAnExistingDataMigrationOption = true
     // If the user wants to manually select experiments to claim, nothing needs to be done now. They
     // will see the option to claim experiments in the experiments list.
-    showCurrentUserOrSignIn()
+    reloadUserFlowViewController()
   }
 
 }
@@ -556,7 +433,11 @@ extension AppFlowViewController: SignInFlowViewControllerDelegate {
 extension AppFlowViewController: UserFlowViewControllerDelegate {
 
   func presentAccountSelector() {
-    accountsManager.presentSignIn(fromViewController: self)
+    if accountsManager.currentAccount == nil {
+      accountsManager.presentSignIn(fromViewController: self)
+    } else {
+      accountsManager.signOutCurrentAccount()
+    }
   }
 
 }
@@ -583,13 +464,6 @@ extension AppFlowViewController {
     devicePreferenceManager.hasAUserChosenAnExistingDataMigrationOption = false
     devicePreferenceManager.hasAUserCompletedPermissionsGuide = false
     NotificationCenter.default.post(name: .DEBUG_destroyCurrentUser, object: nil, userInfo: nil)
-    showSignIn()
   }
 }
 #endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
-
-extension AppFlowViewController {
-  @objc private func debug_forceDriveSetup() {
-    showDriveSetup()
-  }
-}

@@ -37,6 +37,6 @@ class WizardViewController: UIViewController {
   }
 
   @IBAction func close(_ sender: Any) {
-    rootViewController?.close()
+    rootViewController?.close(isCancelled: true)
   }
 }

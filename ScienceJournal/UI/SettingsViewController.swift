@@ -30,11 +30,6 @@ public extension Notification.Name {
 }
 #endif  // SCIENCEJOURNAL_DEV_BUILD || SCIENCEJOURNAL_DOGFOOD_BUILD
 
-public extension Notification.Name {
-  /// Posted when drive wizard should be forced to test the setup flow.
-  static let DEBUG_forceDriveSetup = NSNotification.Name("GSJ_DEBUG_ForceDriveSetup")
-}
-
 /// A view controller that presents users with a list of various settings.
 class SettingsViewController: MaterialHeaderCollectionViewController {
 
@@ -146,14 +141,6 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     forceAuthSetting.settingAction = #selector(forceAuthSettingPressed(sender:))
     rows.append(forceAuthSetting)
     #endif  // SCIENCEJOURNAL_DEV_BUILD
-    
-    let driveSetupSetting = SettingsItem()
-    driveSetupSetting.title = "Enable Drive Sync"
-    driveSetupSetting.description = "Start the Google Drive Sync setup wizard."
-    driveSetupSetting.actionTitle = "Go"
-    driveSetupSetting.settingType = .settingButton
-    driveSetupSetting.settingAction = #selector(startDriveSyncSetup(sender:))
-    rows.append(driveSetupSetting)
   }
 
   // MARK: - User Actions
@@ -185,12 +172,6 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
                                     userInfo: nil)
   }
   #endif  // SCIENCEJOURNAL_DEV_BUILD
-
-  @objc private func startDriveSyncSetup(sender: UIButton) {
-    NotificationCenter.default.post(name: .DEBUG_forceDriveSetup,
-                                    object: nil,
-                                    userInfo: nil)
-  }
   
   // MARK: - UICollectionViewDataSource
 

@@ -94,13 +94,13 @@ class WizardRootViewController: UIViewController {
     }
   }
 
-  func close() {
-    onDismiss?(self, true)
+  func close(isCancelled: Bool) {
+    onDismiss?(self, isCancelled)
   }
 
   @objc
   private func close(_ sender: UIBarButtonItem) {
-    close()
+    close(isCancelled: true)
   }
 
   private func createCloseButton() -> UIBarButtonItem {
