@@ -140,7 +140,6 @@ extension AuthenticationManager: GIDSignInDelegate {
                    didSignInFor user: GIDGoogleUser!,
                    withError error: Swift.Error!) {
     let user = User(googleUser: user)
-    _authenticatedUser.onNext(user)
 
     if let error = error {
       if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
@@ -150,6 +149,7 @@ extension AuthenticationManager: GIDSignInDelegate {
       }
       _googleSignIn?.onError(error)
     } else if let user = user {
+      _authenticatedUser.onNext(user)
       _googleSignIn?.onNext(user)
       _googleSignIn?.onCompleted()
     } else {
