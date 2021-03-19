@@ -90,7 +90,7 @@ private func sjlog(_ message: String,
                    category: ScienceJournalLogCategory,
                    file: String,
                    type: OSLogType) {
-  let log = OSLog(subsystem: "com.google.ScienceJournal.app", category: category.rawValue)
+  let log = OSLog(subsystem: "cc.arduino.ScienceJournal", category: category.rawValue)
   let className = String(file.split(separator: "/").last ?? "Unknown")
   os_log("[%@] %@", log: log, type: type, className, message)
 }

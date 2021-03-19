@@ -62,7 +62,7 @@ open class AppDelegateOpen: AppDelegate {
   private let _fileSystemLayout = FileSystemLayout.production
   private let _accountsManager = ArduinoAccountsManager(authenticationManager: AuthenticationManager())
   private let _drawerConfig = DrawerConfigOpen()
-  private let _driveConstructor = ArduinoDriveConstruttor()
+  private let _driveConstructor = ArduinoDriveConstructor()
   private let _commonUIComponents = CommonUIComponentsOpen()
   private let _networkAvailability = NetworkAvailabilityDisabled()
   #if FEATURE_FIREBASE_RC

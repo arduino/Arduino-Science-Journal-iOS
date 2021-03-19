@@ -22,8 +22,7 @@ open class CommonUIComponentsOpen: CommonUIComponents {
   public func pullToRefreshController(forScrollView scrollView: UIScrollView,
                                       actionBlock: @escaping () -> Void) ->
       PullToRefreshController? {
-    // Pull to refresh is nil because there is no Drive sync in open source.
-    return nil
+    return PullToRefreshController(scrollView: scrollView, actionBlock: actionBlock)
   }
 
 }

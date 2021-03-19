@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import GoogleAPIClientForREST
 
 public protocol DriveSyncManagerDelegate: class {
   /// Informs the delegate the experiment library will be updated.
@@ -38,6 +39,11 @@ public protocol DriveSyncManagerDelegate: class {
   /// - Parameter trialID: A trial ID.
   /// - Parameter experimentID: An experimentID from which the trial was deleted.
   func driveSyncDidDeleteTrial(withID trialID: String, experimentID: String)
+  
+  /// Informs the delegate of an error while trying to sync.
+  ///
+  /// - Parameter error: The occurred error.
+  func driveSyncDidFail(with error: DriveSyncManagerError)
 }
 
 extension Notification.Name {
@@ -54,7 +60,10 @@ extension Notification.Name {
 
 /// A protocol that defines a manager object for Drive sync.
 public protocol DriveSyncManager: class {
-
+  
+  /// Whether Drive sync is enabled.
+  var isEnabled: Bool { get }
+  
   /// A delegate that will be informed when Drive Sync changes data.
   var delegate: DriveSyncManagerDelegate? { get set }
 
@@ -106,6 +115,14 @@ public protocol DriveSyncManager: class {
   ///   - url: The local url of the sensor data asset.
   ///   - experimentID: The ID of the experiment the sensor data asset belongs to.
   func deleteSensorDataAsset(atURL url: URL, experimentID: String)
+  
+  /// Resolve a conflict between the local experiment and the Drive one.
+  ///
+  /// - Parameters:
+  ///   - experimentID: The experiment ID.
+  ///   - overwriteRemote: Pass `true` if you want to overwrite the experiment on Drive with the local one,
+  ///                      `false` to download the Drive experiment replacing the local one.
+  func resolveConflictOfExperiment(withID experimentID: String, overwritingRemote: Bool)
 
   /// Prepare for Drive sync shutting down. All sync operations should be cancelled.
   func tearDown()
@@ -119,4 +136,13 @@ public enum DriveExperimentSyncCondition {
   case onlyIfDirty
   /// Sync the experiment regardless of dirty state.
   case always
+}
+
+// MARK: - DriveSyncManagerError
+
+public enum DriveSyncManagerError: Error {
+  /// This error occurs when the Drive token has expired or has been revoked.
+  case invalidToken
+  /// This error occurs when both Drive and local experiments have been modified since last sync.
+  case conflict(_ experiment: SyncExperiment, _ file: GTLRDrive_File)
 }

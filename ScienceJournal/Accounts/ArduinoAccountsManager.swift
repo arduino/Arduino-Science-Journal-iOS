@@ -75,8 +75,13 @@ final class ArduinoAccountsManager: AccountsManager {
   }
   
   func signInAsCurrentAccount() {
-    if authenticationManager.restorePreviousSignIn() {
-      delegate?.accountsManagerDidSignIn(signInType: .restoreCachedAccount)
+    authenticationManager.restorePreviousSignIn { [weak self] result in
+      switch result {
+      case .success:
+        self?.delegate?.accountsManagerDidSignIn(signInType: .restoreCachedAccount)
+      case .failure:
+        self?.delegate?.accountsManagerDidSignOut()
+      }
     }
   }
   

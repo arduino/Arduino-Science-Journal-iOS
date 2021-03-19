@@ -20,6 +20,8 @@ import UIKit
 
 import MaterialComponents.MaterialDialogs
 
+import GoogleAPIClientForREST
+
 protocol UserFlowViewControllerDelegate: class {
   /// Tells the delegate to present the account selector so a user can change or remove accounts.
   func presentAccountSelector()
@@ -1334,6 +1336,16 @@ extension UserFlowViewController: DriveSyncManagerDelegate {
     navController.popToViewController(experimentsListVC, animated: true)
   }
 
+  func driveSyncDidFail(with error: DriveSyncManagerError) {
+    DispatchQueue.main.async {
+      switch error {
+      case .invalidToken:
+        self.handle(error, from: self)
+      case .conflict(let experiment, let file):
+        self.handleConflict(of: experiment, with: file)
+      }
+    }
+  }
 }
 
 // MARK: - ExperimentUpdateManagerDelegate
@@ -1405,6 +1417,20 @@ extension UserFlowViewController {
       alertController?.addAction(UIAlertAction(title: String.recordingStopFailedContinue,
                                                style: .default,
                                                handler: nil))
+    case DriveSyncManagerError.invalidToken:
+      let message = """
+      Science Journal’s permission to access your Google Drive expired or was revoked.
+      To continue syncing your experiments, sign in again with your Google account.
+      """
+      
+      let alert = MDCAlertController(title: "Unable to Access Google Drive", message: message)
+      let claimAction = MDCAlertAction(title: "SIGN IN") { _ in }
+      let cancelAction = MDCAlertAction(title: String.actionCancel)
+      alert.addAction(claimAction)
+      alert.addAction(cancelAction)
+      alert.accessibilityViewIsModal = true
+      self.present(alert, animated: true)
+      alertController = nil
     default:
       alertController = nil
     }
@@ -1412,6 +1438,26 @@ extension UserFlowViewController {
     if let alert = alertController {
       viewController?.present(alert, animated: true, completion: nil)
     }
+  }
+  
+  func handleConflict(of experiment: SyncExperiment, with file: GTLRDrive_File) {
+    guard let driveSyncManager = userManager.driveSyncManager else { return }
+    
+    let message = """
+    The experiment has been modified from another device.
+    """
+    
+    let alert = MDCAlertController(title: "Sync Conflict", message: message)
+    let keepAction = MDCAlertAction(title: "Keep local") { _ in
+      driveSyncManager.resolveConflictOfExperiment(withID: experiment.experimentID, overwritingRemote: true)
+    }
+    let discardAction = MDCAlertAction(title: "Keep remote") { _ in
+      driveSyncManager.resolveConflictOfExperiment(withID: experiment.experimentID, overwritingRemote: false)
+    }
+    alert.addAction(keepAction)
+    alert.addAction(discardAction)
+    alert.accessibilityViewIsModal = true
+    present(alert, animated: true)
   }
 }
 

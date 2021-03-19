@@ -16,20 +16,43 @@
 
 import UIKit
 
-/// Protocol for pull to refresh controllers.
-public protocol PullToRefreshController: class {
+/// Pull to refresh controllers.
+public class PullToRefreshController {
 
+  private let actionBlock: () -> Void
+
+  private let scrollView: UIScrollView
+  private let refreshControl: UIRefreshControl
+  
   /// Initializes the pull to refresh controller for a scroll view with an action block.
   ///
   /// - Parameters:
   ///   - scrollView: The scroll view.
   ///   - actionBlock: The action block.
-  init(scrollView: UIScrollView, actionBlock: @escaping () -> Void)
+  init(scrollView: UIScrollView, actionBlock: @escaping () -> Void) {
+    self.actionBlock = actionBlock
+    self.scrollView = scrollView
+    self.refreshControl = UIRefreshControl()
+    
+    refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    scrollView.refreshControl = refreshControl
+  }
 
   /// Starts the refresh animation.
-  func startRefreshing()
+  func startRefreshing() {
+    if !refreshControl.isRefreshing {
+      refreshControl.beginRefreshing()
+    }
+  }
 
   /// Ends the refresh animation.
-  func endRefreshing()
+  func endRefreshing() {
+    if refreshControl.isRefreshing {
+      refreshControl.endRefreshing()
+    }
+  }
 
+  @objc private func handleRefreshControl() {
+    actionBlock()
+  }
 }

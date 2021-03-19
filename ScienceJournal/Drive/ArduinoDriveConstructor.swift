@@ -1,5 +1,5 @@
 //  
-//  ArduinoDriveConstruttor.swift
+//  ArduinoDriveConstructor.swift
 //  ScienceJournal
 //
 //  Created by Emilio Pavia on 04/02/21.
@@ -18,10 +18,11 @@
 //  limitations under the License.
 
 import Foundation
+import GoogleAPIClientForREST
 
 import googlemac_iPhone_Shared_SSOAuth_SSOAuth
 
-open class ArduinoDriveConstruttor: DriveConstructor {
+open class ArduinoDriveConstructor: DriveConstructor {
 
   public init() {}
 
@@ -38,7 +39,15 @@ open class ArduinoDriveConstruttor: DriveConstructor {
     
     guard userID == authorization.userEmail else { return nil }
     
-    return ArduinoSyncManager(authorization: authorization, folderID: folderID)
+    let service = GTLRDriveService()
+    service.authorizer = authorization
+    service.shouldFetchNextPages = true
+    
+    return ArduinoSyncManager(metadataManager: metadataManager,
+                              sensorDataManager: sensorDataManager,
+                              experimentDataDeleter: experimentDataDeleter,
+                              driveManager: DriveManager(service: service),
+                              folderID: folderID)
   }
 
 }

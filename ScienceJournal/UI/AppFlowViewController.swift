@@ -170,9 +170,9 @@ class AppFlowViewController: UIViewController {
 
     if accountsManager.supportsAccounts {
       accountsManager.signInAsCurrentAccount()
+    } else {
+      reloadUserFlowViewController()
     }
-    
-    reloadUserFlowViewController()
   }
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -371,7 +371,7 @@ extension AppFlowViewController: AccountsManagerDelegate {
       tearDownCurrentUser()
       reloadUserFlowViewController()
     case .restoreCachedAccount:
-      break
+      reloadUserFlowViewController()
     }
   }
   

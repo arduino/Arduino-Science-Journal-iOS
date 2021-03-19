@@ -41,6 +41,8 @@ public class AuthenticationManager: NSObject {
   private lazy var _authenticatedUser = BehaviorSubject<User?>(value: nil)
 
   private var _googleSignIn: PublishSubject<User>?
+  
+  private lazy var disposeBag = DisposeBag()
 
   public init(googleClientID: String = Bundle.googleClientID) {
     super.init()
@@ -55,9 +57,30 @@ public class AuthenticationManager: NSObject {
     }
   }
   
-  public func restorePreviousSignIn() -> Bool {
-    GIDSignIn.sharedInstance()?.restorePreviousSignIn()
-    return isAuthenticated
+  public func restorePreviousSignIn(completion: @escaping (Result<User, Error>) -> Void) {
+    guard let googleSignIn = GIDSignIn.sharedInstance() else {
+      completion(.failure(.notAuthenticated))
+      return
+    }
+
+    guard googleSignIn.hasPreviousSignIn() else {
+      completion(.failure(.notAuthenticated))
+      return
+    }
+
+    let observable = _googleSignIn ?? PublishSubject<User>()
+    _googleSignIn = observable
+    
+    observable
+      .observe(on: MainScheduler.instance)
+      .subscribe(onNext: { user in
+        completion(.success(user))
+      }, onError: { _ in
+        completion(.failure(.notAuthenticated))
+      })
+      .disposed(by: disposeBag)
+    
+    googleSignIn.restorePreviousSignIn()
   }
 
   public func signOut(from account: Account) throws {
@@ -121,11 +144,12 @@ private extension AuthenticationManager {
       return .error(Error.notImplemented)
     }
 
+    let observable = _googleSignIn ?? PublishSubject<User>()
+    _googleSignIn = observable
+    
     authenticator.presentingViewController = presentingViewController
     authenticator.signIn()
 
-    let observable = PublishSubject<User>()
-    _googleSignIn = observable
     return observable
   }
 

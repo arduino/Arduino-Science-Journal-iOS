@@ -34,6 +34,9 @@ class CopyFileOperation: GSJOperation {
 
   override func execute() {
     do {
+      if FileManager.default.fileExists(atPath: toURL.path) {
+        try FileManager.default.removeItem(at: toURL)
+      }
       try FileManager.default.copyItem(at: fromURL, to: toURL)
     } catch {
       print("[MetadataManager] Error copying imported file from '\(fromURL)' to '\(toURL)': " +

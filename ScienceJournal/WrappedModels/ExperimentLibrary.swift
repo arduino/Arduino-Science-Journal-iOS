@@ -143,6 +143,18 @@ public class ExperimentLibrary: CustomDebugStringConvertible {
       syncExperiments.append(experiment)
     }
   }
+  
+  /// Removes an experiment from the experiment library.
+  ///
+  /// - Parameters:
+  ///   - experimentID: The experiment ID.
+  public func removeExperiment(withID experimentID: String) {
+    syncExperimentsQueue.sync {
+      if let index = syncExperiments.firstIndex(where: { $0.experimentID == experimentID }) {
+        syncExperiments.remove(at: index)
+      }
+    }
+  }
 
   /// Adds an experiment to the experiment library if it doesn't already exist.
   ///

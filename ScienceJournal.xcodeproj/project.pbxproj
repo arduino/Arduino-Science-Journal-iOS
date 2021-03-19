@@ -177,7 +177,6 @@
 		5C7B87C31FCDEFD200EDEF1D /* CropRangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B87C21FCDEFD200EDEF1D /* CropRangeViewController.swift */; };
 		5C7BC2DC20C9A00800CACFAB /* DriveConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7BC2DB20C9A00800CACFAB /* DriveConstructor.swift */; };
 		5C7BC2DE20C9A07900CACFAB /* DriveSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7BC2DD20C9A07900CACFAB /* DriveSyncManager.swift */; };
-		5C7BC35220C9ADC800CACFAB /* DriveConstructorDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7BC35120C9ADC800CACFAB /* DriveConstructorDisabled.swift */; };
 		5C7D8AA01F0FF2B9005CD61C /* ChartStatsOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D8A9F1F0FF2B9005CD61C /* ChartStatsOverlayView.swift */; };
 		5C7DB67920E3E8FF00F915CD /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DB67820E3E8FE00F915CD /* StringConstants.swift */; };
 		5C7DB7D220EA974200F915CD /* OperationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DB7D120EA974200F915CD /* OperationResult.swift */; };
@@ -212,7 +211,6 @@
 		5CA28EC61F75966500B9E2B5 /* SensorControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA28EC51F75966500B9E2B5 /* SensorControllerTest.swift */; };
 		5CA3BFE720F53A9300755C7A /* ScienceJournalLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA3BFE620F53A9300755C7A /* ScienceJournalLogs.swift */; };
 		5CA4328C1FACF9DB0048E752 /* SensorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA4328B1FACF9DB0048E752 /* SensorTest.swift */; };
-		5CA7921C2257B894008D62FB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7921B2257B893008D62FB /* Result.swift */; };
 		5CA8DAEF202E59E500247FD8 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8DAEE202E59E500247FD8 /* BlockObserver.swift */; };
 		5CA8DAF22031F94C00247FD8 /* GSJOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8DAF12031F94C00247FD8 /* GSJOperationTest.swift */; };
 		5CA9AE021F9A3CFE007C09EB /* SensorFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA9AE011F9A3CFE007C09EB /* SensorFailedView.swift */; };
@@ -615,6 +613,8 @@
 		BC4DEE6525A72019002BA286 /* DriveSyncFolderPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4DEE6425A72019002BA286 /* DriveSyncFolderPickerView.swift */; };
 		BC4DEE7025A7831C002BA286 /* DriveSyncFolderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4DEE6F25A7831C002BA286 /* DriveSyncFolderListTableViewController.swift */; };
 		BC55783F249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */; };
+		BC58712F25F286FB00531078 /* DriveSyncExportOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58712E25F286FB00531078 /* DriveSyncExportOperation.swift */; };
+		BC58716925F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58716825F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift */; };
 		BC5C50F525ADEF43009B0211 /* DriveSyncSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C50F425ADEF43009B0211 /* DriveSyncSummaryViewController.swift */; };
 		BC5C50FD25ADEF6B009B0211 /* DriveSyncSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C50FC25ADEF6B009B0211 /* DriveSyncSummaryView.swift */; };
 		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
@@ -648,7 +648,7 @@
 		BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */; };
 		BC968C4A25A30CD300A885AB /* WizardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4925A30CD300A885AB /* WizardFooterView.swift */; };
 		BC968C5225A3586500A885AB /* WizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C5125A3586500A885AB /* WizardViewController.swift */; };
-		BC97004425CC0F510060F79C /* ArduinoDriveConstruttor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97004325CC0F510060F79C /* ArduinoDriveConstruttor.swift */; };
+		BC97004425CC0F510060F79C /* ArduinoDriveConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97004325CC0F510060F79C /* ArduinoDriveConstructor.swift */; };
 		BC993DD625A469800001F76D /* DriveSyncIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */; };
 		BC993DE225A46D960001F76D /* WizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DE125A46D960001F76D /* WizardView.swift */; };
 		BC993DF225A47AFA0001F76D /* DriveSyncIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */; };
@@ -918,7 +918,6 @@
 		5C7B87C21FCDEFD200EDEF1D /* CropRangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropRangeViewController.swift; sourceTree = "<group>"; };
 		5C7BC2DB20C9A00800CACFAB /* DriveConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveConstructor.swift; sourceTree = "<group>"; };
 		5C7BC2DD20C9A07900CACFAB /* DriveSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncManager.swift; sourceTree = "<group>"; };
-		5C7BC35120C9ADC800CACFAB /* DriveConstructorDisabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveConstructorDisabled.swift; sourceTree = "<group>"; };
 		5C7D8A9F1F0FF2B9005CD61C /* ChartStatsOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartStatsOverlayView.swift; sourceTree = "<group>"; };
 		5C7DB67820E3E8FE00F915CD /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		5C7DB7D120EA974200F915CD /* OperationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationResult.swift; sourceTree = "<group>"; };
@@ -952,7 +951,6 @@
 		5CA28EC51F75966500B9E2B5 /* SensorControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorControllerTest.swift; sourceTree = "<group>"; };
 		5CA3BFE620F53A9300755C7A /* ScienceJournalLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceJournalLogs.swift; sourceTree = "<group>"; };
 		5CA4328B1FACF9DB0048E752 /* SensorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorTest.swift; sourceTree = "<group>"; };
-		5CA7921B2257B893008D62FB /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5CA8DAEE202E59E500247FD8 /* BlockObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
 		5CA8DAF12031F94C00247FD8 /* GSJOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSJOperationTest.swift; sourceTree = "<group>"; };
 		5CA9AE011F9A3CFE007C09EB /* SensorFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorFailedView.swift; sourceTree = "<group>"; };
@@ -1389,6 +1387,8 @@
 		BC4DEE6425A72019002BA286 /* DriveSyncFolderPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderPickerView.swift; sourceTree = "<group>"; };
 		BC4DEE6F25A7831C002BA286 /* DriveSyncFolderListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderListTableViewController.swift; sourceTree = "<group>"; };
 		BC55783E249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyOnboardingViewController+MetricsFix.swift"; sourceTree = "<group>"; };
+		BC58712E25F286FB00531078 /* DriveSyncExportOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncExportOperation.swift; sourceTree = "<group>"; };
+		BC58716825F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTLRDrive_File+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC5C50F425ADEF43009B0211 /* DriveSyncSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncSummaryViewController.swift; sourceTree = "<group>"; };
 		BC5C50FC25ADEF6B009B0211 /* DriveSyncSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncSummaryView.swift; sourceTree = "<group>"; };
 		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
@@ -1422,7 +1422,7 @@
 		BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardRootViewController.swift; sourceTree = "<group>"; };
 		BC968C4925A30CD300A885AB /* WizardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardFooterView.swift; sourceTree = "<group>"; };
 		BC968C5125A3586500A885AB /* WizardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardViewController.swift; sourceTree = "<group>"; };
-		BC97004325CC0F510060F79C /* ArduinoDriveConstruttor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoDriveConstruttor.swift; sourceTree = "<group>"; };
+		BC97004325CC0F510060F79C /* ArduinoDriveConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoDriveConstructor.swift; sourceTree = "<group>"; };
 		BC993DD425A469800001F76D /* DriveSyncIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncIntroViewController.swift; sourceTree = "<group>"; };
 		BC993DE125A46D960001F76D /* WizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardView.swift; sourceTree = "<group>"; };
 		BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncIntroView.swift; sourceTree = "<group>"; };
@@ -1910,10 +1910,11 @@
 		5C7BC2DA20C99FCD00CACFAB /* Drive */ = {
 			isa = PBXGroup;
 			children = (
-				BC97004325CC0F510060F79C /* ArduinoDriveConstruttor.swift */,
+				BC58716725F2892F00531078 /* Extensions */,
+				BCAECE1325E5110B009A0146 /* Operations */,
+				BC97004325CC0F510060F79C /* ArduinoDriveConstructor.swift */,
 				BCAB7A4025CAFC1F00D85F9A /* ArduinoSyncManager.swift */,
 				5C7BC2DB20C9A00800CACFAB /* DriveConstructor.swift */,
-				5C7BC35120C9ADC800CACFAB /* DriveConstructorDisabled.swift */,
 				BC9164CD25A853CC00E75A56 /* DriveManager.swift */,
 				5C7BC2DD20C9A07900CACFAB /* DriveSyncManager.swift */,
 				8B79EAD221235BB6000D1E21 /* DriveSyncUserInfoConstants.swift */,
@@ -3100,7 +3101,6 @@
 				3F5F35F52296E7F7003C33F9 /* FileSystemLayout.swift */,
 				8BBFBC1A213889F9008FFBF4 /* NetworkAvailability.swift */,
 				8BBFBC1C21388A29008FFBF4 /* NetworkAvailabilityDisabled.swift */,
-				5CA7921B2257B893008D62FB /* Result.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -3211,6 +3211,14 @@
 			path = BLEArduino;
 			sourceTree = "<group>";
 		};
+		BC58716725F2892F00531078 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BC58716825F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BC809263255C578A0074E25A /* Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -3305,6 +3313,14 @@
 				F384EA4124FD833F00E1F1DE /* Nano33BLESenseTemperatureSensor.swift */,
 			);
 			path = Sensors;
+			sourceTree = "<group>";
+		};
+		BCAECE1325E5110B009A0146 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				BC58712E25F286FB00531078 /* DriveSyncExportOperation.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		BCB6953B24C08FA500CFCD9F /* UI */ = {
@@ -3942,7 +3958,6 @@
 				5C7ACB9F1E9D4C9000B22474 /* BLEPeripheralInterface.swift in Sources */,
 				5CB2CF3B223C2B4300F73F6B /* ExperimentDataDeleter.swift in Sources */,
 				8B347446203F4A8A00E73378 /* PitchSensorAnimationView.swift in Sources */,
-				5CA7921C2257B894008D62FB /* Result.swift in Sources */,
 				8B4B60181E44DFAC009AFB1B /* BarometerSensor.swift in Sources */,
 				68D606671F0C109E0077ABCD /* EditExperimentViewController.swift in Sources */,
 				685841301F16D21C000E4F7C /* PreferenceManager.swift in Sources */,
@@ -4037,6 +4052,7 @@
 				686156331EC57A2700E3AE7E /* PictureCardCell.swift in Sources */,
 				687DFEB11F35325B002E668A /* DisabledInputView.swift in Sources */,
 				68E59D471EE9D7BD009241BC /* LearnMoreViewController.swift in Sources */,
+				BC58712F25F286FB00531078 /* DriveSyncExportOperation.swift in Sources */,
 				5CBD9AAF1F6C83D200D22D21 /* TriggerOptionSelectorView.swift in Sources */,
 				8BD7F8051F7D9951004C80B4 /* ActionBar.swift in Sources */,
 				686EA7991F15670C0011F0FF /* ExperimentItemDelegateProtocol.swift in Sources */,
@@ -4153,7 +4169,7 @@
 				5C7ACBA31E9E88C200B22474 /* SensorSettingsViewController.swift in Sources */,
 				689C32171EF9DE84002C824C /* TriggerCardView.swift in Sources */,
 				4845F77A20BE1C0300FCBA71 /* SidebarAccountView.swift in Sources */,
-				BC97004425CC0F510060F79C /* ArduinoDriveConstruttor.swift in Sources */,
+				BC97004425CC0F510060F79C /* ArduinoDriveConstructor.swift in Sources */,
 				581140BE22DE9C5200D802A2 /* ExperimentDisplay.swift in Sources */,
 				680E3D731E5516B9009D4A73 /* ObserveViewController.swift in Sources */,
 				F32D236A24FEE75A00C7E8CE /* Nano33BLESenseColorIlluminanceSensor.swift in Sources */,
@@ -4265,7 +4281,7 @@
 				5C50F58D1F61F22F00711D28 /* FileVersion.swift in Sources */,
 				BC9164CE25A853CC00E75A56 /* DriveManager.swift in Sources */,
 				5C7219601ED8D04700817F0B /* SensorLayout.swift in Sources */,
-				5C7BC35220C9ADC800CACFAB /* DriveConstructorDisabled.swift in Sources */,
+				BC58716925F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift in Sources */,
 				68E36193203F7F1500B1B979 /* AnalyticsReporter.swift in Sources */,
 				8B2FD9BB20C58051007513FE /* String+Pluralize.swift in Sources */,
 				8B5114EE20B49F5F005953BD /* ClaimExperimentsViewController.swift in Sources */,
@@ -4670,7 +4686,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4839,7 +4855,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5086,7 +5102,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5165,7 +5181,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

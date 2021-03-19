@@ -17,6 +17,7 @@
 import Foundation
 
 import googlemac_iPhone_Shared_SSOAuth_SSOAuth
+import GTMSessionFetcher
 
 /// A protocol for an object that builds drive objects.
 public protocol DriveConstructor {
