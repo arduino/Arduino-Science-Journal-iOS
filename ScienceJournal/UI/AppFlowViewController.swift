@@ -418,16 +418,6 @@ extension AppFlowViewController: ExistingDataOptionsDelegate {
 
 }
 
-// MARK: - SignInFlowViewControllerDelegate
-
-extension AppFlowViewController: SignInFlowViewControllerDelegate {
-
-  func signInFlowDidCompleteWithoutAccount() {
-    showNonAccountUser(animated: true)
-  }
-
-}
-
 // MARK: - UserFlowViewControllerDelegate
 
 extension AppFlowViewController: UserFlowViewControllerDelegate {

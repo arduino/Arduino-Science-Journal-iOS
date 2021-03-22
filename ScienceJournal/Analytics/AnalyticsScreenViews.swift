@@ -174,16 +174,6 @@ extension SettingsViewController {
   override open var analyticsViewName: String { return "Settings" }
 }
 
-// MARK: Sign in
-
-extension SignInViewController {
-  override open var analyticsViewName: String { return "SignIn" }
-}
-
-extension WelcomeViewController {
-  override open var analyticsViewName: String { return "Welcome" }
-}
-
 // MARK: Standalone camera
 
 extension StandaloneCameraViewController {

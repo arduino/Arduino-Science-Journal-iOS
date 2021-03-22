@@ -71,8 +71,6 @@
 		48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */ = {isa = PBXBuildFile; fileRef = 48BFD8CB20D065FF00FB5C1A /* google_toolbox_for_mac.html */; };
 		48C1DF2C222477010049629D /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C1DF2B222477010049629D /* AnalyticsEvent.swift */; };
 		48C767B120F7F1BB00A67C4A /* LegacyOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B020F7F1BB00A67C4A /* LegacyOnboardingViewController.swift */; };
-		48C767B520F92BA800A67C4A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B420F92BA800A67C4A /* SignInViewController.swift */; };
-		48C767B820F92BC100A67C4A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C767B720F92BC100A67C4A /* WelcomeViewController.swift */; };
 		48D02B7A2220CA750063AC28 /* AnalyticsScreenViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02B792220CA750063AC28 /* AnalyticsScreenViews.swift */; };
 		48D81BD72086AC9400773294 /* DrawerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D81BD62086AC9400773294 /* DrawerConfig.swift */; };
 		48D81BDA2086AD0C00773294 /* DrawerConfigOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D81BD92086AD0C00773294 /* DrawerConfigOpen.swift */; };
@@ -270,7 +268,6 @@
 		5CE6388820AC8A37004A712F /* LocalSyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6388720AC8A37004A712F /* LocalSyncStatus.swift */; };
 		5CE6388A20ACB0E1004A712F /* ExperimentLibraryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6388920ACB0E1004A712F /* ExperimentLibraryTest.swift */; };
 		5CE6388C20ACB0F2004A712F /* LocalSyncStatusTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6388B20ACB0F2004A712F /* LocalSyncStatusTest.swift */; };
-		5CE6388E20ADC1A4004A712F /* SignInFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6388D20ADC1A4004A712F /* SignInFlowViewController.swift */; };
 		5CE6389020ADFC5F004A712F /* DevicePreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6388F20ADFC5F004A712F /* DevicePreferenceManager.swift */; };
 		5CE6389220AE0073004A712F /* AppFlowViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6389120AE0073004A712F /* AppFlowViewControllerTest.swift */; };
 		5CE6389420AE1F2B004A712F /* DevicePreferenceManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6389320AE1F2B004A712F /* DevicePreferenceManagerTest.swift */; };
@@ -808,8 +805,6 @@
 		48BFD8CB20D065FF00FB5C1A /* google_toolbox_for_mac.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = google_toolbox_for_mac.html; sourceTree = "<group>"; };
 		48C1DF2B222477010049629D /* AnalyticsEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		48C767B020F7F1BB00A67C4A /* LegacyOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyOnboardingViewController.swift; sourceTree = "<group>"; };
-		48C767B420F92BA800A67C4A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		48C767B720F92BC100A67C4A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		48D02B792220CA750063AC28 /* AnalyticsScreenViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsScreenViews.swift; sourceTree = "<group>"; };
 		48D81BD62086AC9400773294 /* DrawerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerConfig.swift; sourceTree = "<group>"; };
 		48D81BD92086AD0C00773294 /* DrawerConfigOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerConfigOpen.swift; sourceTree = "<group>"; };
@@ -1012,7 +1007,6 @@
 		5CE6388720AC8A37004A712F /* LocalSyncStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSyncStatus.swift; sourceTree = "<group>"; };
 		5CE6388920ACB0E1004A712F /* ExperimentLibraryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentLibraryTest.swift; sourceTree = "<group>"; };
 		5CE6388B20ACB0F2004A712F /* LocalSyncStatusTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSyncStatusTest.swift; sourceTree = "<group>"; };
-		5CE6388D20ADC1A4004A712F /* SignInFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFlowViewController.swift; sourceTree = "<group>"; };
 		5CE6388F20ADFC5F004A712F /* DevicePreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePreferenceManager.swift; sourceTree = "<group>"; };
 		5CE6389120AE0073004A712F /* AppFlowViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowViewControllerTest.swift; sourceTree = "<group>"; };
 		5CE6389320AE1F2B004A712F /* DevicePreferenceManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePreferenceManagerTest.swift; sourceTree = "<group>"; };
@@ -1708,9 +1702,6 @@
 		48C767B620F92BAF00A67C4A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				5CE6388D20ADC1A4004A712F /* SignInFlowViewController.swift */,
-				48C767B420F92BA800A67C4A /* SignInViewController.swift */,
-				48C767B720F92BC100A67C4A /* WelcomeViewController.swift */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -3846,7 +3837,6 @@
 				8B06406E203E0FDC00F66356 /* RelativeScaleAnimationView.swift in Sources */,
 				48282B6C20CB0079007A2102 /* SettingsSwitchCell.swift in Sources */,
 				5C7DB67920E3E8FF00F915CD /* StringConstants.swift in Sources */,
-				48C767B820F92BC100A67C4A /* WelcomeViewController.swift in Sources */,
 				6806592E1EC3BE290090670C /* ExperimentCardHeaderView.swift in Sources */,
 				8B06406C203E0FBC00F66356 /* AccelerometerAnimationView.swift in Sources */,
 				8BFCF97C1FAA2B5E0030A6DC /* ArchivedFlagCell.swift in Sources */,
@@ -3895,7 +3885,6 @@
 				5C477B341F192BE90065F7D1 /* GadgetInfo.swift in Sources */,
 				68BD95641E8DA45100FEB0B2 /* ScaleSoundType.swift in Sources */,
 				5C7B87C11FCDD6F300EDEF1D /* ErrorDialog.swift in Sources */,
-				5CE6388E20ADC1A4004A712F /* SignInFlowViewController.swift in Sources */,
 				8BA65D70206160A90071C148 /* RecordedTrialCardView.swift in Sources */,
 				6813334E1EC6423200ED7A32 /* SensorPickerView.swift in Sources */,
 				BC809285255D89230074E25A /* OnboardingPage4ViewController.swift in Sources */,
@@ -3993,7 +3982,6 @@
 				5C6C62631EE07B3800798989 /* BasicSensorAppearance.swift in Sources */,
 				8BA5BF391F44DE7700EB77E8 /* CaptureSessionInterruptionObserver.swift in Sources */,
 				BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */,
-				48C767B520F92BA800A67C4A /* SignInViewController.swift in Sources */,
 				BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */,
 				BC993E4225A4B16F0001F76D /* AuthenticationManager.swift in Sources */,
 				BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */,

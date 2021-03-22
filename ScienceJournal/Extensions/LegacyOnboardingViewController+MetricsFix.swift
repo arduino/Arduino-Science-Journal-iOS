@@ -34,21 +34,3 @@ extension PermissionsGuideViewController.Metrics {
   static var outerPaddingNarrow: CGFloat { LegacyOnboardingViewController.Metrics.outerPaddingNarrow }
   static var outerPaddingWide: CGFloat { LegacyOnboardingViewController.Metrics.outerPaddingWide }
 }
-
-extension SignInViewController.Metrics {
-  static var backgroundColor: UIColor { LegacyOnboardingViewController.Metrics.backgroundColor }
-  static var bodyFont: UIFont { LegacyOnboardingViewController.Metrics.bodyFont }
-  static var buttonSpacing: CGFloat { LegacyOnboardingViewController.Metrics.buttonSpacing }
-  static var buttonSpacingInner: CGFloat { LegacyOnboardingViewController.Metrics.buttonSpacingInner }
-  static var buttonSpacingWide: CGFloat { LegacyOnboardingViewController.Metrics.buttonSpacingWide }
-  static var outerPaddingNarrow: CGFloat { LegacyOnboardingViewController.Metrics.outerPaddingNarrow }
-  static var outerPaddingWide: CGFloat { LegacyOnboardingViewController.Metrics.outerPaddingWide }
-}
-
-extension WelcomeViewController.Metrics {
-  static var bodyFont: UIFont { LegacyOnboardingViewController.Metrics.bodyFont }
-  static var buttonSpacing: CGFloat { LegacyOnboardingViewController.Metrics.buttonSpacing }
-  static var innerSpacing: CGFloat { LegacyOnboardingViewController.Metrics.innerSpacing }
-  static var outerPaddingNarrow: CGFloat { LegacyOnboardingViewController.Metrics.outerPaddingNarrow }
-  static var outerPaddingWide: CGFloat { LegacyOnboardingViewController.Metrics.outerPaddingWide }
-}
