@@ -163,7 +163,6 @@ private extension ArduinoSyncManager {
     sjlog_debug("Drive sync engine started", category: .drive)
     
     syncSubscription = syncRefresh.asObservable()
-      .throttle(.seconds(3), scheduler: MainScheduler.instance)
       .observe(on: MainScheduler.instance)
       .do(onNext: { [unowned self] _ in
         sjlog_debug("Drive sync started", category: .drive)
@@ -204,9 +203,6 @@ private extension ArduinoSyncManager {
       .flatMap { [unowned self] in self.downloadExperiments(files: $0) }
       .catch { error in
         switch error {
-        default: break
-        }
-        switch error {
         case DriveManager.Error.invalidToken:
           self.tearDown()
           self.delegate?.driveSyncDidFail(with: .invalidToken)
@@ -214,7 +210,7 @@ private extension ArduinoSyncManager {
           self.suspend()
           self.delegate?.driveSyncDidFail(with: .conflict(experiment, file))
         default:
-          break
+          self.delegate?.driveSyncDidFail(with: .error(error))
         }
         
         return .just(())

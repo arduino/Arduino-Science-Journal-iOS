@@ -1262,11 +1262,19 @@ extension UserFlowViewController: DriveSyncManagerDelegate {
       experimentsListVC?.startPullToRefreshAnimation()
       shouldShowExperimentListPullToRefreshAnimation = false
     }
+    
+    let message = MDCSnackbarMessage()
+    message.text = "Syncing..."
+    MDCSnackbarManager.default.show(message)
   }
 
   func driveSyncDidUpdateExperimentLibrary() {
     experimentsListVC?.reloadExperiments()
     experimentsListVC?.endPullToRefreshAnimation()
+    
+    let message = MDCSnackbarMessage()
+    message.text = "Sync completed"
+    MDCSnackbarManager.default.show(message)
   }
 
   func driveSyncDidDeleteTrial(withID trialID: String, experimentID: String) {
@@ -1343,6 +1351,10 @@ extension UserFlowViewController: DriveSyncManagerDelegate {
         self.handle(error, from: self)
       case .conflict(let experiment, let file):
         self.handleConflict(of: experiment, with: file)
+      case .error(let error):
+        let message = MDCSnackbarMessage()
+        message.text = "Sync failed! (\(error.localizedDescription))"
+        MDCSnackbarManager.default.show(message)
       }
     }
   }

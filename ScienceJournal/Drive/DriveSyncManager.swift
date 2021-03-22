@@ -145,4 +145,6 @@ public enum DriveSyncManagerError: Error {
   case invalidToken
   /// This error occurs when both Drive and local experiments have been modified since last sync.
   case conflict(_ experiment: SyncExperiment, _ file: GTLRDrive_File)
+  /// This could be any error. For further details you can inspect the passed parameter.
+  case error(_ error: Error)
 }
