@@ -68,17 +68,17 @@ class SignInView: UIStackView {
     passwordRecoveryStackView.addArrangedSubview(UIView())
     addArrangedSubview(passwordRecoveryStackView, customSpacing: 8)
     
-    let signIngButtonStackView = UIStackView()
-    signIngButtonStackView.axis = .horizontal
-    signIngButtonStackView.addArrangedSubview(UIView())
-    signIngButtonStackView.addArrangedSubview(signInButton)
-    addArrangedSubview(signIngButtonStackView, customSpacing: 28)
+    let signInButtonStackView = UIStackView()
+    signInButtonStackView.axis = .horizontal
+    signInButtonStackView.addArrangedSubview(UIView())
+    signInButtonStackView.addArrangedSubview(signInButton)
+    addArrangedSubview(signInButtonStackView, customSpacing: 28)
     
     NSLayoutConstraint.activate([
       usernameTextField.widthAnchor.constraint(greaterThanOrEqualToConstant: 280),
       passwordTextField.widthAnchor.constraint(equalTo: usernameTextField.widthAnchor),
       passwordRecoveryStackView.widthAnchor.constraint(equalTo: passwordTextField.widthAnchor),
-      signIngButtonStackView.widthAnchor.constraint(equalTo: passwordRecoveryStackView.widthAnchor)
+      signInButtonStackView.widthAnchor.constraint(equalTo: passwordRecoveryStackView.widthAnchor)
     ])
     
     if hasSingleSignOn {
