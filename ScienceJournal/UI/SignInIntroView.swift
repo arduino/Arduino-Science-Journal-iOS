@@ -37,6 +37,7 @@ class SignInIntroView: UIStackView {
     label.textAlignment = .center
     label.textColor = .black
     label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Large.rawValue)
+    label.numberOfLines = 0
     return label
   }()
   
@@ -47,6 +48,7 @@ class SignInIntroView: UIStackView {
     label.textAlignment = .center
     label.textColor = .black
     label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    label.numberOfLines = 0
     
     let attributedText = NSMutableAttributedString(string: "\(String.arduinoSignInRegistrationHint) ")
     let cta = NSAttributedString(string: String.arduinoSignInRegistrationCta, attributes: [

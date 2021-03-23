@@ -36,6 +36,7 @@ class SignInView: UIStackView {
     label.textAlignment = .center
     label.textColor = .black
     label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Large.rawValue)
+    label.numberOfLines = 0
     return label
   }()
   
@@ -45,6 +46,7 @@ class SignInView: UIStackView {
     label.textAlignment = .center
     label.textColor = .black
     label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    label.numberOfLines = 0
     return label
   }()
 
