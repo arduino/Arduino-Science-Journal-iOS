@@ -115,6 +115,14 @@ extension String {
   static public var archivedContentDescription: String { return "archived_content_description".localized }
   static public var archivedExperimentMessage: String { return "archived_experiment_message".localized }
   static public var archivedRunMessage: String { return "archived_run_message".localized }
+  static public var arduinoPasswordRecoveryBackButton: String { return "arduino_password_recovery_back_button".localized }
+  static public var arduinoPasswordRecoveryButton: String { return "arduino_password_recovery_button".localized }
+  static public var arduinoPasswordRecoveryConfirmationSubtitle: String { return "arduino_password_recovery_confirmation_subtitle".localized }
+  static public var arduinoPasswordRecoveryConfirmationTitle: String { return "arduino_password_recovery_confirmation_title".localized }
+  static public var arduinoPasswordRecoveryPlaceholder: String { return "arduino_password_recovery_placeholder".localized }
+  static public var arduinoPasswordRecoveryResendButton: String { return "arduino_password_recovery_resend_button".localized }
+  static public var arduinoPasswordRecoverySubtitle: String { return "arduino_password_recovery_subtitle".localized }
+  static public var arduinoPasswordRecoveryTitle: String { return "arduino_password_recovery_title".localized }
   static public var arduinoSignInButton: String { return "arduino_sign_in_button".localized }
   static public var arduinoSignInIntroTitle: String { return "arduino_sign_in_intro_title".localized }
   static public var arduinoSignInJuniorButton: String { return "arduino_sign_in_junior_button".localized }

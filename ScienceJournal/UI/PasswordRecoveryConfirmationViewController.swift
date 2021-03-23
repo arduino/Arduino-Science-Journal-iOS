@@ -1,5 +1,5 @@
 //  
-//  SignInViewController.swift
+//  PasswordRecoveryConfirmationViewController.swift
 //  ScienceJournal
 //
 //  Created by Emilio Pavia on 23/03/21.
@@ -19,16 +19,20 @@
 
 import UIKit
 
-class SignInViewController: WizardViewController {
+class PasswordRecoveryConfirmationViewController: WizardViewController {
 
+  let email: String
   let authenticationManager: AuthenticationManager
-  let isJunior: Bool
+  let completion: () -> Void
   
-  private(set) lazy var signInView = SignInView(hasSingleSignOn: !isJunior)
+  private(set) lazy var confirmationView = PasswordRecoveryConfirmationView()
 
-  init(authenticationManager: AuthenticationManager, isJunior: Bool) {
+  init(email: String,
+       authenticationManager: AuthenticationManager,
+       completion: @escaping () -> Void) {
+    self.email = email
     self.authenticationManager = authenticationManager
-    self.isJunior = isJunior
+    self.completion = completion
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -39,19 +43,14 @@ class SignInViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    wizardView.contentView = signInView
+    wizardView.contentView = confirmationView
     
-    signInView.passwordRecoveryButton.addTarget(self,
-                                                action: #selector(recoverPassword(_:)),
-                                                for: .touchUpInside)
+    confirmationView.backButton.addTarget(self,
+                                          action: #selector(back(_:)),
+                                          for: .touchUpInside)
   }
   
-  @objc private func recoverPassword(_ sender: UIButton) {
-    let viewController = PasswordRecoveryViewController(authenticationManager: authenticationManager) { [weak self] in
-      guard let self = self else { return }
-      self.navigationController?.popToViewController(self, animated: true)
-    }
-    show(viewController, sender: nil)
+  @objc private func back(_ sender: UIButton) {
+    completion()
   }
-
 }

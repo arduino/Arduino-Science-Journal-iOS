@@ -180,6 +180,14 @@
 "archived_experiment_message" = "Experiência arquivada.";
 /* Message of alert when a run is successfully archived [CHAR_LIMIT=100] */
 "archived_run_message" = "Registo arquivado.";
+"arduino_password_recovery_back_button" = "BACK TO LOGIN";
+"arduino_password_recovery_button" = "RECOVER";
+"arduino_password_recovery_confirmation_subtitle" = "Check your email, we just sent you a link to complete the reset of your password.";
+"arduino_password_recovery_confirmation_title" = "Email sent";
+"arduino_password_recovery_placeholder" = "Insert your email";
+"arduino_password_recovery_resend_button" = "RESEND EMAIL";
+"arduino_password_recovery_subtitle" = "Enter the email address associated with your account below.";
+"arduino_password_recovery_title" = "Recover your account";
 "arduino_sign_in_button" = "SIGN IN";
 "arduino_sign_in_intro_title" = "Sign in to Arduino";
 "arduino_sign_in_junior_button" = "JUNIOR ACCOUNT";

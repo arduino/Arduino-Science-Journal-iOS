@@ -609,6 +609,10 @@
 		BC24D31E2609F92000209383 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D31D2609F92000209383 /* SignInView.swift */; };
 		BC24D3262609FD7400209383 /* WizardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D3252609FD7400209383 /* WizardTextField.swift */; };
 		BC24D32E260A47CA00209383 /* SignInSocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D32D260A47CA00209383 /* SignInSocialView.swift */; };
+		BC24D336260A505600209383 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D335260A505600209383 /* PasswordRecoveryViewController.swift */; };
+		BC24D33B260A507000209383 /* PasswordRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D33A260A507000209383 /* PasswordRecoveryView.swift */; };
+		BC24D343260A53FF00209383 /* PasswordRecoveryConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D342260A53FF00209383 /* PasswordRecoveryConfirmationViewController.swift */; };
+		BC24D34B260A541200209383 /* PasswordRecoveryConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D34A260A541200209383 /* PasswordRecoveryConfirmationView.swift */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC42DAB925656013004C1D32 /* UIResponder+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */; };
 		BC42DAC425656393004C1D32 /* UIApplication+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */; };
@@ -1386,6 +1390,10 @@
 		BC24D31D2609F92000209383 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		BC24D3252609FD7400209383 /* WizardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardTextField.swift; sourceTree = "<group>"; };
 		BC24D32D260A47CA00209383 /* SignInSocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSocialView.swift; sourceTree = "<group>"; };
+		BC24D335260A505600209383 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
+		BC24D33A260A507000209383 /* PasswordRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryView.swift; sourceTree = "<group>"; };
+		BC24D342260A53FF00209383 /* PasswordRecoveryConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryConfirmationViewController.swift; sourceTree = "<group>"; };
+		BC24D34A260A541200209383 /* PasswordRecoveryConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryConfirmationView.swift; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ErrorHandling.swift"; sourceTree = "<group>"; };
 		BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+ScienceJournal.swift"; sourceTree = "<group>"; };
@@ -1714,6 +1722,10 @@
 		48C767B620F92BAF00A67C4A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				BC24D34A260A541200209383 /* PasswordRecoveryConfirmationView.swift */,
+				BC24D342260A53FF00209383 /* PasswordRecoveryConfirmationViewController.swift */,
+				BC24D33A260A507000209383 /* PasswordRecoveryView.swift */,
+				BC24D335260A505600209383 /* PasswordRecoveryViewController.swift */,
 				BC24D29A2608991F00209383 /* SignInIntroView.swift */,
 				BC24D295260898EF00209383 /* SignInIntroViewController.swift */,
 				BC24D32D260A47CA00209383 /* SignInSocialView.swift */,
@@ -3861,6 +3873,7 @@
 				8BFCF97C1FAA2B5E0030A6DC /* ArchivedFlagCell.swift in Sources */,
 				68B32A321F9E89BA0067DAF3 /* SettingsCell.swift in Sources */,
 				68CD50D71E57DD4E005E928F /* ObserveDataSource.swift in Sources */,
+				BC24D34B260A541200209383 /* PasswordRecoveryConfirmationView.swift in Sources */,
 				687FAA05202C1162004C1D04 /* Caption.pbobjc.m in Sources */,
 				BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */,
 				5C11AE6E1EB7D8800077F752 /* BLESensorInterface.swift in Sources */,
@@ -3898,6 +3911,7 @@
 				68C45E7A1EEF51510046E430 /* TrialDetailViewController.swift in Sources */,
 				687FAA0E202C1162004C1D04 /* SnapshotLabelValue.pbobjc.m in Sources */,
 				68ACCC491F9565F800FDCD38 /* NumberFormatter+ScienceJournal.swift in Sources */,
+				BC24D33B260A507000209383 /* PasswordRecoveryView.swift in Sources */,
 				680865791EAEC970005F54E1 /* LicensesViewController.swift in Sources */,
 				58C4DB1522D53B4C0029E519 /* PDFExportOperation.swift in Sources */,
 				681688341F32996E00CC2B5F /* UIViewController+ScienceJournal.swift in Sources */,
@@ -4003,6 +4017,7 @@
 				F32D236824FEDDAC00C7E8CE /* Nano33BLESenseProximitySensor.swift in Sources */,
 				5C6C62631EE07B3800798989 /* BasicSensorAppearance.swift in Sources */,
 				8BA5BF391F44DE7700EB77E8 /* CaptureSessionInterruptionObserver.swift in Sources */,
+				BC24D343260A53FF00209383 /* PasswordRecoveryConfirmationViewController.swift in Sources */,
 				BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */,
 				BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */,
 				BC993E4225A4B16F0001F76D /* AuthenticationManager.swift in Sources */,
@@ -4087,6 +4102,7 @@
 				8B92B5701EB90047004C356E /* PhotoLibraryCell.swift in Sources */,
 				BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */,
 				5C880BA22190D9E900594166 /* ButtonViewController.swift in Sources */,
+				BC24D336260A505600209383 /* PasswordRecoveryViewController.swift in Sources */,
 				3FA7052822F8DF6B00753842 /* ActionAreaDetailContentContainerViewController.swift in Sources */,
 				68C3C9491E42B59900F339C4 /* MaterialHeaderViewController.swift in Sources */,
 				8B3ADD73201256FB00DE9611 /* SensorTimer.swift in Sources */,

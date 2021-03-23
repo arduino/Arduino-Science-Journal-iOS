@@ -1,5 +1,5 @@
 //  
-//  SignInViewController.swift
+//  PasswordRecoveryViewController.swift
 //  ScienceJournal
 //
 //  Created by Emilio Pavia on 23/03/21.
@@ -19,16 +19,16 @@
 
 import UIKit
 
-class SignInViewController: WizardViewController {
+class PasswordRecoveryViewController: WizardViewController {
 
   let authenticationManager: AuthenticationManager
-  let isJunior: Bool
+  let completion: () -> Void
   
-  private(set) lazy var signInView = SignInView(hasSingleSignOn: !isJunior)
+  private(set) lazy var passwordRecoveryView = PasswordRecoveryView()
 
-  init(authenticationManager: AuthenticationManager, isJunior: Bool) {
+  init(authenticationManager: AuthenticationManager, completion: @escaping () -> Void) {
     self.authenticationManager = authenticationManager
-    self.isJunior = isJunior
+    self.completion = completion
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -39,19 +39,22 @@ class SignInViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    wizardView.contentView = signInView
+    wizardView.contentView = passwordRecoveryView
     
-    signInView.passwordRecoveryButton.addTarget(self,
-                                                action: #selector(recoverPassword(_:)),
-                                                for: .touchUpInside)
+    passwordRecoveryView.recoverButton.addTarget(self,
+                                                 action: #selector(recover(_:)),
+                                                 for: .touchUpInside)
   }
   
-  @objc private func recoverPassword(_ sender: UIButton) {
-    let viewController = PasswordRecoveryViewController(authenticationManager: authenticationManager) { [weak self] in
-      guard let self = self else { return }
-      self.navigationController?.popToViewController(self, animated: true)
+  @objc private func recover(_ sender: UIButton) {
+    guard let email = passwordRecoveryView.emailTextField.text else {
+      return
     }
+    
+    let viewController =
+      PasswordRecoveryConfirmationViewController(email: email,
+                                                 authenticationManager: authenticationManager,
+                                                 completion: completion)
     show(viewController, sender: nil)
   }
-
 }
