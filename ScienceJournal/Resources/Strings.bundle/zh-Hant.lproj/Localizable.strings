@@ -180,6 +180,11 @@
 "archived_experiment_message" = "已封存實驗。";
 /* Message of alert when a run is successfully archived [CHAR_LIMIT=100] */
 "archived_run_message" = "已封存記錄。";
+"arduino_sign_in_intro_title" = "Sign in to Arduino";
+"arduino_sign_in_junior_button" = "JUNIOR ACCOUNT";
+"arduino_sign_in_registration_cta" = "Create one now";
+"arduino_sign_in_registration_hint" = "Don't have an account?";
+"arduino_sign_in_regular_button" = "REGULAR ACCOUNT";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */
 "available_devices" = "可用的裝置";
 /* Content description for a generic back button [CHAR_LIMIT=NONE] */

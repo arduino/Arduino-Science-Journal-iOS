@@ -38,8 +38,6 @@ class WizardRootViewController: UIViewController {
     }
   }
 
-  @IBOutlet private weak var titleView: UIView!
-
   @IBOutlet private weak var footerView: WizardFooterView! {
     didSet {
       footerView.clipsToBounds = false
@@ -50,30 +48,8 @@ class WizardRootViewController: UIViewController {
     }
   }
 
-  private var titleViewVerticalConstraint: NSLayoutConstraint? {
-    didSet {
-      oldValue?.isActive = false
-      titleViewVerticalConstraint?.isActive = true
-    }
-  }
-
-  private var titleViewHeightConstraint: NSLayoutConstraint? {
-    didSet {
-      oldValue?.isActive = false
-      titleViewHeightConstraint?.isActive = true
-    }
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    if let navigationBar = childNavigationController?.navigationBar {
-      titleViewVerticalConstraint = titleView.centerYAnchor
-        .constraint(equalTo: navigationBar.centerYAnchor)
-
-      titleViewHeightConstraint = titleView.heightAnchor
-        .constraint(lessThanOrEqualTo: navigationBar.heightAnchor, multiplier: 1, constant: -4)
-    }
 
     if let viewController = initialViewController {
       childNavigationController?.setViewControllers([viewController], animated: true)

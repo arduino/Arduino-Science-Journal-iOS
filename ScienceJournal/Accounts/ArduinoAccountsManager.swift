@@ -108,7 +108,7 @@ private extension ArduinoAccountsManager {
   func presentSignIn(from viewController: UIViewController, completion: (() -> Void)? = nil) {
     guard let wizardViewController = UIStoryboard(name: "Wizard", bundle: nil).instantiateInitialViewController()
             as? WizardRootViewController else { return }
-    wizardViewController.initialViewController = DriveSyncIntroViewController(authenticationManager: authenticationManager)
+    wizardViewController.initialViewController = SignInIntroViewController(authenticationManager: authenticationManager)
     wizardViewController.onDismiss = { [weak self] wizard, isCancelled in
       wizard.dismiss(animated: true, completion: nil)
       if !isCancelled {

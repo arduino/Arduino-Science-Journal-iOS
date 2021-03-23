@@ -20,39 +20,63 @@
 import UIKit
 
 class WizardButton: UIButton {
+  
+  enum Size {
+    case regular
+    case big
+    
+    fileprivate var height: CGFloat {
+      switch self {
+      case .big: return 50
+      case .regular: return 38
+      }
+    }
+    
+    fileprivate var inset: CGFloat {
+      switch self {
+      case .big: return 36
+      case .regular: return 28
+      }
+    }
+  }
 
   private var isSolid = false
-
-  convenience init(title: String? = nil, isSolid: Bool = false) {
+  private var size = Size.regular
+  
+  convenience init(title: String? = nil, isSolid: Bool = false, size: Size = .regular) {
     self.init(type: .system)
     self.isSolid = isSolid
-
+    self.size = size
+    
     let tealColor = ArduinoColorPalette.tealPalette.tint800!
-
+    
+    let height = size.height
+    let inset = size.inset
+    
     if isSolid {
       tintColor = UIColor.white
       let backgroundImage = UIImage.fill(color: tealColor,
-                                         size: CGSize(width: 39, height: 38),
-                                         cornerRadius: 19)?
-        .resizableImage(withCapInsets: UIEdgeInsets(top: 19,
-                                                    left: 19,
-                                                    bottom: 19,
-                                                    right: 19))
+                                         size: CGSize(width: height+1, height: height),
+                                         cornerRadius: height/2)?
+        .resizableImage(withCapInsets: UIEdgeInsets(top: height/2,
+                                                    left: height/2,
+                                                    bottom: height/2,
+                                                    right: height/2))
 
       let disabledImage = UIImage.fill(color: tealColor.withAlphaComponent(0.4),
-                                       size: CGSize(width: 39, height: 38),
-                                       cornerRadius: 19)?
-        .resizableImage(withCapInsets: UIEdgeInsets(top: 19,
-                                                    left: 19,
-                                                    bottom: 19,
-                                                    right: 19))
+                                       size: CGSize(width: height+1, height: height),
+                                       cornerRadius: height/2)?
+        .resizableImage(withCapInsets: UIEdgeInsets(top: height/2,
+                                                    left: height/2,
+                                                    bottom: height/2,
+                                                    right: height/2))
 
       setBackgroundImage(backgroundImage, for: .normal)
       setBackgroundImage(disabledImage, for: .disabled)
       setTitleColor(UIColor.white, for: .normal)
       setTitleColor(UIColor.white, for: .disabled)
       titleLabel?.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
-      contentEdgeInsets = UIEdgeInsets(top: 0, left: 28, bottom: 0, right: 28)
+      contentEdgeInsets = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     } else {
       tintColor = tealColor
       titleLabel?.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XXSmall.rawValue)
@@ -64,7 +88,7 @@ class WizardButton: UIButton {
   override var intrinsicContentSize: CGSize {
     var size = super.intrinsicContentSize
     if isSolid {
-      size.height = 38
+      size.height = self.size.height
     }
     return size
   }

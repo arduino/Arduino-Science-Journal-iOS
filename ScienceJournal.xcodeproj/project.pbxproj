@@ -603,6 +603,8 @@
 		8BFCF97C1FAA2B5E0030A6DC /* ArchivedFlagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCF97B1FAA2B5D0030A6DC /* ArchivedFlagCell.swift */; };
 		8BFCF97E1FAA2EDC0030A6DC /* ArchiveFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCF97D1FAA2EDC0030A6DC /* ArchiveFlagView.swift */; };
 		924D434B56557C3367183755 /* Pods_ScienceJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */; };
+		BC24D296260898EF00209383 /* SignInIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D295260898EF00209383 /* SignInIntroViewController.swift */; };
+		BC24D29B2608991F00209383 /* SignInIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D29A2608991F00209383 /* SignInIntroView.swift */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC42DAB925656013004C1D32 /* UIResponder+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */; };
 		BC42DAC425656393004C1D32 /* UIApplication+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */; };
@@ -1374,6 +1376,8 @@
 		8BFCF97D1FAA2EDC0030A6DC /* ArchiveFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveFlagView.swift; sourceTree = "<group>"; };
 		93AFC6D21C987695548ADC66 /* Pods-ScienceJournal.dogfood.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.dogfood.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.dogfood.xcconfig"; sourceTree = "<group>"; };
 		958B33107B78081C00CE9569 /* Pods-ScienceJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC24D295260898EF00209383 /* SignInIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroViewController.swift; sourceTree = "<group>"; };
+		BC24D29A2608991F00209383 /* SignInIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroView.swift; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ErrorHandling.swift"; sourceTree = "<group>"; };
 		BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+ScienceJournal.swift"; sourceTree = "<group>"; };
@@ -1702,6 +1706,8 @@
 		48C767B620F92BAF00A67C4A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				BC24D29A2608991F00209383 /* SignInIntroView.swift */,
+				BC24D295260898EF00209383 /* SignInIntroViewController.swift */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -3858,6 +3864,7 @@
 				8B35F50A1EAA6C220032FE15 /* RotatingExpandButton.swift in Sources */,
 				8B111F641E41212B000400F1 /* Sensor.swift in Sources */,
 				BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */,
+				BC24D296260898EF00209383 /* SignInIntroViewController.swift in Sources */,
 				8BE9CECE20E6CF2C00DE796F /* DrawerItemKeys.swift in Sources */,
 				5CCB62B61F8679ED00F9BB7D /* CSVWriter.swift in Sources */,
 				D59CA3CE219CEE690082A27B /* MovingAverage.swift in Sources */,
@@ -4043,6 +4050,7 @@
 				BC58712F25F286FB00531078 /* DriveSyncExportOperation.swift in Sources */,
 				5CBD9AAF1F6C83D200D22D21 /* TriggerOptionSelectorView.swift in Sources */,
 				8BD7F8051F7D9951004C80B4 /* ActionBar.swift in Sources */,
+				BC24D29B2608991F00209383 /* SignInIntroView.swift in Sources */,
 				686EA7991F15670C0011F0FF /* ExperimentItemDelegateProtocol.swift in Sources */,
 				5C32452D1EF1D70300E8664B /* DisplaySnapshotNoteViewData.swift in Sources */,
 				688F79D21EBBA51D0046A970 /* MaterialCardCell.swift in Sources */,

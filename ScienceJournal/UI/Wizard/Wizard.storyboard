@@ -51,9 +51,6 @@
                                     <outlet property="termsButton" destination="Y8c-V4-gyw" id="O4M-XV-Fob"/>
                                 </connections>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arduino_navigation_title" translatesAutoresizingMaskIntoConstraints="NO" id="QQ6-8b-Dzg">
-                                <rect key="frame" x="167" y="44" width="80" height="39"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xnm-2M-381"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -63,17 +60,14 @@
                             <constraint firstAttribute="bottom" secondItem="vk6-Mo-nlA" secondAttribute="bottom" id="G8a-Oq-pWY"/>
                             <constraint firstItem="Feh-NA-SUV" firstAttribute="leading" secondItem="qU1-Gz-m35" secondAttribute="leading" id="GS8-BW-PLk"/>
                             <constraint firstItem="vk6-Mo-nlA" firstAttribute="top" secondItem="Feh-NA-SUV" secondAttribute="bottom" id="Go8-1T-b6X"/>
-                            <constraint firstItem="QQ6-8b-Dzg" firstAttribute="top" secondItem="xnm-2M-381" secondAttribute="top" priority="250" id="IQl-LM-aaG"/>
                             <constraint firstItem="vk6-Mo-nlA" firstAttribute="leading" secondItem="qU1-Gz-m35" secondAttribute="leading" id="TDW-cO-8Eq"/>
                             <constraint firstItem="Feh-NA-SUV" firstAttribute="top" secondItem="qU1-Gz-m35" secondAttribute="top" id="eoL-nS-dV0"/>
                             <constraint firstItem="xnm-2M-381" firstAttribute="bottom" secondItem="HkH-jQ-8Zf" secondAttribute="bottom" id="nuV-ik-37G"/>
                             <constraint firstAttribute="trailing" secondItem="Feh-NA-SUV" secondAttribute="trailing" id="oAi-y8-IIj"/>
-                            <constraint firstItem="QQ6-8b-Dzg" firstAttribute="centerX" secondItem="qU1-Gz-m35" secondAttribute="centerX" id="pr6-gn-V1p"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="footerView" destination="vk6-Mo-nlA" id="cpW-L1-u9k"/>
-                        <outlet property="titleView" destination="QQ6-8b-Dzg" id="pxr-jU-uq4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znb-3k-VVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -97,7 +91,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arduino_navigation_title" width="80" height="39"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
