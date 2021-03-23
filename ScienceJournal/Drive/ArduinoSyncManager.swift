@@ -488,6 +488,7 @@ private extension ArduinoSyncManager {
         sjlog_debug("Updating experiment on Drive (id = \(experiment.experimentID))",
                     category: .drive)
         return driveManager.updateMultipart(from: url,
+                                            mimeType: "application/zip",
                                             to: fileID,
                                             appProperties: appProperties)
       }

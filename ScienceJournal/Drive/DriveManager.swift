@@ -20,6 +20,7 @@
 import Foundation
 import GoogleAPIClientForREST
 import RxSwift
+import GTMSessionFetcher
 
 extension DriveManager {
   class Folder: Equatable {
@@ -45,7 +46,6 @@ extension DriveManager {
   
   enum Error: Swift.Error {
     case invalidToken(NSError)
-    case unreadableData
     case invalidFile
   }
 }
@@ -55,6 +55,13 @@ class DriveManager {
 
   init(service: GTLRDriveService) {
     self.service = service
+    
+    service.isRetryEnabled = false
+    
+    #if DEBUG
+    GTMSessionFetcher.setLoggingEnabled(true)
+    GTMSessionFetcher.setLoggingDirectory(URL.documentsDirectoryURL.path)
+    #endif
   }
 
   func subfolders(in folder: Folder? = nil) -> Observable<[Folder]> {
@@ -218,12 +225,9 @@ class DriveManager {
     if let folderID = folderID {
       file.parents = [folderID]
     }
-    
-    guard let data = try? Data.init(contentsOf: url) else {
-      return .error(Error.unreadableData)
-    }
-    
-    let uploadParameters = GTLRUploadParameters(data: data, mimeType: mimeType)
+   
+    let uploadParameters = GTLRUploadParameters(fileURL: url, mimeType: mimeType)
+    uploadParameters.useBackgroundSession = true
     
     let query = GTLRDriveQuery_FilesCreate.query(withObject: file, uploadParameters: uploadParameters)
     query.fields = "id,name,appProperties"
@@ -251,6 +255,7 @@ class DriveManager {
   }
   
   func updateMultipart(from url: URL,
+                       mimeType: String,
                        to fileID: String,
                        appProperties: [AnyHashable: Any]?) -> Observable<GTLRDrive_File> {
     
@@ -259,12 +264,8 @@ class DriveManager {
     
     file.appProperties = GTLRDrive_File_AppProperties(json: appProperties)
     
-    guard let data = try? Data.init(contentsOf: url) else {
-      return .error(Error.unreadableData)
-    }
-    
-    let uploadParameters = GTLRUploadParameters()
-    uploadParameters.data = data
+    let uploadParameters = GTLRUploadParameters(fileURL: url, mimeType: mimeType)
+    uploadParameters.useBackgroundSession = true
     
     let query = GTLRDriveQuery_FilesUpdate.query(withObject: file, fileId: fileID, uploadParameters: uploadParameters)
     query.fields = "id,name,appProperties"
@@ -297,11 +298,13 @@ class DriveManager {
     }
     
     let query = GTLRDriveQuery_FilesGet.queryForMedia(withFileId: fileId)
-   
-    let service = self.service
-
+    
+    let downloadRequest = service.request(for: query)
+    
+    let fetcher = service.fetcherService.fetcher(with: downloadRequest as URLRequest)
+    
     return Observable.create { observer in
-      let ticket = service.executeQuery(query, completionHandler: { [weak self] _, object, error in
+      fetcher.beginFetch { [weak self] data, error in
         if let error = error {
           self?.handle(error, with: observer)
           return
@@ -309,14 +312,12 @@ class DriveManager {
         
         defer { observer.onCompleted() }
         
-        guard let object = object as? GTLRDataObject else {
-          return
+        if let data = data {
+          observer.onNext(data)
         }
-        
-        observer.onNext(object.data)
-      })
-
-      return Disposables.create(with: ticket.cancel)
+      }
+      
+      return Disposables.create(with: fetcher.stopFetching)
     }
   }
   
