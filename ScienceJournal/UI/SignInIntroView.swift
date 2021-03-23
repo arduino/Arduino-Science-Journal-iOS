@@ -21,6 +21,14 @@ import UIKit
 
 class SignInIntroView: UIStackView {
   
+  let juniorButton = WizardButton(title: String.arduinoSignInJuniorButton,
+                                  isSolid: true,
+                                  size: .big)
+  
+  let regularButton = WizardButton(title: String.arduinoSignInRegularButton,
+                                   isSolid: true,
+                                   size: .big)
+  
   private let logoImageView = UIImageView(image: UIImage(named: "arduino_navigation_title"))
   
   private let titleLabel: UILabel = {
@@ -31,14 +39,6 @@ class SignInIntroView: UIStackView {
     label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Large.rawValue)
     return label
   }()
-  
-  private let juniorButton = WizardButton(title: String.arduinoSignInJuniorButton,
-                                          isSolid: true,
-                                          size: .big)
-  
-  private let regularButton = WizardButton(title: String.arduinoSignInRegularButton,
-                                           isSolid: true,
-                                           size: .big)
   
   private let separatorView = SeparatorView(direction: .horizontal, style: .dark)
   
@@ -77,7 +77,7 @@ class SignInIntroView: UIStackView {
     addArrangedSubview(registrationLabel)
     
     NSLayoutConstraint.activate([
-      juniorButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 270),
+      juniorButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 280),
       regularButton.widthAnchor.constraint(equalTo: juniorButton.widthAnchor),
       separatorView.widthAnchor.constraint(equalTo: regularButton.widthAnchor)
     ])

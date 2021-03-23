@@ -605,6 +605,10 @@
 		924D434B56557C3367183755 /* Pods_ScienceJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */; };
 		BC24D296260898EF00209383 /* SignInIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D295260898EF00209383 /* SignInIntroViewController.swift */; };
 		BC24D29B2608991F00209383 /* SignInIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D29A2608991F00209383 /* SignInIntroView.swift */; };
+		BC24D3192609F91100209383 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D3182609F91100209383 /* SignInViewController.swift */; };
+		BC24D31E2609F92000209383 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D31D2609F92000209383 /* SignInView.swift */; };
+		BC24D3262609FD7400209383 /* WizardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D3252609FD7400209383 /* WizardTextField.swift */; };
+		BC24D32E260A47CA00209383 /* SignInSocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D32D260A47CA00209383 /* SignInSocialView.swift */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC42DAB925656013004C1D32 /* UIResponder+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */; };
 		BC42DAC425656393004C1D32 /* UIApplication+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */; };
@@ -1378,6 +1382,10 @@
 		958B33107B78081C00CE9569 /* Pods-ScienceJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC24D295260898EF00209383 /* SignInIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroViewController.swift; sourceTree = "<group>"; };
 		BC24D29A2608991F00209383 /* SignInIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroView.swift; sourceTree = "<group>"; };
+		BC24D3182609F91100209383 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		BC24D31D2609F92000209383 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		BC24D3252609FD7400209383 /* WizardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardTextField.swift; sourceTree = "<group>"; };
+		BC24D32D260A47CA00209383 /* SignInSocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSocialView.swift; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ErrorHandling.swift"; sourceTree = "<group>"; };
 		BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+ScienceJournal.swift"; sourceTree = "<group>"; };
@@ -1708,6 +1716,9 @@
 			children = (
 				BC24D29A2608991F00209383 /* SignInIntroView.swift */,
 				BC24D295260898EF00209383 /* SignInIntroViewController.swift */,
+				BC24D32D260A47CA00209383 /* SignInSocialView.swift */,
+				BC24D31D2609F92000209383 /* SignInView.swift */,
+				BC24D3182609F91100209383 /* SignInViewController.swift */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -3238,6 +3249,7 @@
 				BC968C4925A30CD300A885AB /* WizardFooterView.swift */,
 				BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */,
 				BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */,
+				BC24D3252609FD7400209383 /* WizardTextField.swift */,
 				BC993DE125A46D960001F76D /* WizardView.swift */,
 				BC968C5125A3586500A885AB /* WizardViewController.swift */,
 			);
@@ -3844,6 +3856,7 @@
 				48282B6C20CB0079007A2102 /* SettingsSwitchCell.swift in Sources */,
 				5C7DB67920E3E8FF00F915CD /* StringConstants.swift in Sources */,
 				6806592E1EC3BE290090670C /* ExperimentCardHeaderView.swift in Sources */,
+				BC24D32E260A47CA00209383 /* SignInSocialView.swift in Sources */,
 				8B06406C203E0FBC00F66356 /* AccelerometerAnimationView.swift in Sources */,
 				8BFCF97C1FAA2B5E0030A6DC /* ArchivedFlagCell.swift in Sources */,
 				68B32A321F9E89BA0067DAF3 /* SettingsCell.swift in Sources */,
@@ -3881,6 +3894,7 @@
 				3F158A13231DF7F5005E319E /* CrossDissolveTransitionAnimation.swift in Sources */,
 				8B9F06131EF42CE10030B011 /* TriggerNote.swift in Sources */,
 				BC5C50FD25ADEF6B009B0211 /* DriveSyncSummaryView.swift in Sources */,
+				BC24D31E2609F92000209383 /* SignInView.swift in Sources */,
 				68C45E7A1EEF51510046E430 /* TrialDetailViewController.swift in Sources */,
 				687FAA0E202C1162004C1D04 /* SnapshotLabelValue.pbobjc.m in Sources */,
 				68ACCC491F9565F800FDCD38 /* NumberFormatter+ScienceJournal.swift in Sources */,
@@ -3943,6 +3957,7 @@
 				6813334D1EC6423200ED7A32 /* SensorCardHeaderView.swift in Sources */,
 				68CD98921F3E479100E3BF3C /* AudioSession.swift in Sources */,
 				8B3D1E281F5496B000E32082 /* SensorSettingsCell.swift in Sources */,
+				BC24D3192609F91100209383 /* SignInViewController.swift in Sources */,
 				5CA166D71F954CAE00379DE6 /* SensorError.swift in Sources */,
 				5CD47698203F0A72000EDFE2 /* ImportSensorDataFromProtoOperation.swift in Sources */,
 				F36675A024FE5B60004E567D /* Nano33BLESenseGyroscopeYSensor.swift in Sources */,
@@ -4175,6 +4190,7 @@
 				F36675A424FE9D36004E567D /* Nano33BLESenseBarometricPressureSensor.swift in Sources */,
 				5C2C2A3120377F0D007F2FA5 /* RemoveFileOperation.swift in Sources */,
 				BC809203255C4EB90074E25A /* ArduinoTypography.swift in Sources */,
+				BC24D3262609FD7400209383 /* WizardTextField.swift in Sources */,
 				68C6C7871F171F4F00B07C93 /* RecordingBar.swift in Sources */,
 				5CE6388820AC8A37004A712F /* LocalSyncStatus.swift in Sources */,
 				5C19CE301FD09D7F00938D49 /* TrialStatsAdjuster.swift in Sources */,

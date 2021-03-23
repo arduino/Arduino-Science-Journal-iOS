@@ -37,7 +37,17 @@ class SignInIntroViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    introView.juniorButton.addTarget(self, action: #selector(signIn(_:)), for: .touchUpInside)
+    introView.regularButton.addTarget(self, action: #selector(signIn(_:)), for: .touchUpInside)
+    
     wizardView.contentView = introView
   }
 
+  @objc private func signIn(_ sender: UIButton) {
+    let isJunior = sender == introView.juniorButton
+    
+    let signInViewController = SignInViewController(authenticationManager: authenticationManager,
+                                                    isJunior: isJunior)
+    show(signInViewController, sender: nil)
+  }
 }

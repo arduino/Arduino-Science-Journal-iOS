@@ -180,11 +180,16 @@
 "archived_experiment_message" = "실험을 보관처리했습니다.";
 /* Message of alert when a run is successfully archived [CHAR_LIMIT=100] */
 "archived_run_message" = "기록을 보관처리했습니다.";
+"arduino_sign_in_button" = "SIGN IN";
 "arduino_sign_in_intro_title" = "Sign in to Arduino";
 "arduino_sign_in_junior_button" = "JUNIOR ACCOUNT";
+"arduino_sign_in_password_placeholder" = "Password";
+"arduino_sign_in_password_recovery_button" = "Forgot your password?";
 "arduino_sign_in_registration_cta" = "Create one now";
 "arduino_sign_in_registration_hint" = "Don't have an account?";
 "arduino_sign_in_regular_button" = "REGULAR ACCOUNT";
+"arduino_sign_in_sso_hint" = "Or sign in with";
+"arduino_sign_in_username_placeholder" = "Username";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */
 "available_devices" = "사용 가능한 기기";
 /* Content description for a generic back button [CHAR_LIMIT=NONE] */
