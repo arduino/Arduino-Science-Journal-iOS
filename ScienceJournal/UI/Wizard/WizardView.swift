@@ -58,6 +58,7 @@ class WizardView: UIView {
     let scrollView = UIScrollView()
     scrollView.delaysContentTouches = false
     scrollView.translatesAutoresizingMaskIntoConstraints = false
+    scrollView.keyboardDismissMode = .interactive
     return scrollView
   }()
 
@@ -92,6 +93,8 @@ class WizardView: UIView {
     return constraint
   }()
   
+  private var keyboardController: KeyboardController?
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupView()
@@ -107,6 +110,8 @@ class WizardView: UIView {
   }
 
   private func setupView() {
+    keyboardController = KeyboardController(scrollView: scrollView)
+    
     addSubview(scrollView)
     scrollView.pinToEdgesOfView(self)
 

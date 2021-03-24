@@ -40,6 +40,9 @@ class SignInIntroViewController: WizardViewController {
     introView.juniorButton.addTarget(self, action: #selector(signIn(_:)), for: .touchUpInside)
     introView.regularButton.addTarget(self, action: #selector(signIn(_:)), for: .touchUpInside)
     
+    let signUpTap = UITapGestureRecognizer(target: self, action: #selector(signUp(_:)))
+    introView.registrationLabel.addGestureRecognizer(signUpTap)
+    
     wizardView.contentView = introView
   }
 
@@ -49,5 +52,12 @@ class SignInIntroViewController: WizardViewController {
     let signInViewController = SignInViewController(authenticationManager: authenticationManager,
                                                     isJunior: isJunior)
     show(signInViewController, sender: nil)
+  }
+  
+  @objc private func signUp(_ sender: UITapGestureRecognizer) {
+    if sender.state == .ended {
+      let signUpViewController = SignUpBirthdateViewController(authenticationManager: authenticationManager)
+      show(signUpViewController, sender: nil)
+    }
   }
 }

@@ -133,6 +133,11 @@ extension String {
   static public var arduinoSignInRegularButton: String { return "arduino_sign_in_regular_button".localized }
   static public var arduinoSignInSsoHint: String { return "arduino_sign_in_sso_hint".localized }
   static public var arduinoSignInUsernamePlaceholder: String { return "arduino_sign_in_username_placeholder".localized }
+  static public var arduinoSignUpBirthdateInfo: String { return "arduino_sign_up_birthdate_info".localized }
+  static public var arduinoSignUpBirthdatePlaceholder: String { return "arduino_sign_up_birthdate_placeholder".localized }
+  static public var arduinoSignUpBirthdateSubmit: String { return "arduino_sign_up_birthdate_submit".localized }
+  static public var arduinoSignUpBirthdateSubtitle: String { return "arduino_sign_up_birthdate_subtitle".localized }
+  static public var arduinoSignUpTitle: String { return "arduino_sign_up_title".localized }
   static public var availableDevices: String { return "available_devices".localized }
   static public var backBtnContentDescription: String { return "back_btn_content_description".localized }
   static public var backBtnContentDetails: String { return "back_btn_content_details".localized }

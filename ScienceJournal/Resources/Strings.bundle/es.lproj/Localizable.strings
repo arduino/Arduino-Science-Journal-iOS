@@ -198,6 +198,11 @@
 "arduino_sign_in_regular_button" = "REGULAR ACCOUNT";
 "arduino_sign_in_sso_hint" = "Or sign in with";
 "arduino_sign_in_username_placeholder" = "Username";
+"arduino_sign_up_birthdate_info" = "We need to know this in order to create the right account type for you.";
+"arduino_sign_up_birthdate_placeholder" = "Birthday";
+"arduino_sign_up_birthdate_submit" = "NEXT";
+"arduino_sign_up_birthdate_subtitle" = "Enter your birth date below to continue.";
+"arduino_sign_up_title" = "Sign up to Arduino";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */
 "available_devices" = "Dispositivos disponibles";
 /* Content description for a generic back button [CHAR_LIMIT=NONE] */

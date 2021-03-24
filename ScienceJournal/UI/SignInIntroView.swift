@@ -29,6 +29,26 @@ class SignInIntroView: UIStackView {
                                    isSolid: true,
                                    size: .big)
   
+  let registrationLabel: UILabel = {
+    let label = UILabel()
+    label.textAlignment = .center
+    label.textColor = .black
+    label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    label.numberOfLines = 0
+    label.isUserInteractionEnabled = true
+    
+    let attributedText = NSMutableAttributedString(string: "\(String.arduinoSignInRegistrationHint) ")
+    let cta = NSAttributedString(string: String.arduinoSignInRegistrationCta, attributes: [
+      NSAttributedString.Key.font: ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue),
+      NSAttributedString.Key.foregroundColor: ArduinoColorPalette.tealPalette.tint800!,
+    ])
+    attributedText.append(cta)
+    
+    label.attributedText = attributedText
+    
+    return label
+  }()
+  
   private let logoImageView = UIImageView(image: UIImage(named: "arduino_navigation_title"))
   
   private let titleLabel: UILabel = {
@@ -42,25 +62,6 @@ class SignInIntroView: UIStackView {
   }()
   
   private let separatorView = SeparatorView(direction: .horizontal, style: .dark)
-  
-  private let registrationLabel: UILabel = {
-    let label = UILabel()
-    label.textAlignment = .center
-    label.textColor = .black
-    label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
-    label.numberOfLines = 0
-    
-    let attributedText = NSMutableAttributedString(string: "\(String.arduinoSignInRegistrationHint) ")
-    let cta = NSAttributedString(string: String.arduinoSignInRegistrationCta, attributes: [
-      NSAttributedString.Key.font: ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue),
-      NSAttributedString.Key.foregroundColor: ArduinoColorPalette.tealPalette.tint800!,
-    ])
-    attributedText.append(cta)
-    
-    label.attributedText = attributedText
-    
-    return label
-  }()
   
   init() {
     super.init(frame: .zero)
