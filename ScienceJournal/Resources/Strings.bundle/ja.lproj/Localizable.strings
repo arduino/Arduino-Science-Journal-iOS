@@ -202,7 +202,13 @@
 "arduino_sign_up_birthdate_placeholder" = "Birthday";
 "arduino_sign_up_birthdate_submit" = "NEXT";
 "arduino_sign_up_birthdate_subtitle" = "Enter your birth date below to continue.";
+"arduino_sign_up_email_placeholder" = "Enter your email";
+"arduino_sign_up_password_hint" = "Minimum 8 characters";
+"arduino_sign_up_password_placeholder" = "Choose a password";
+"arduino_sign_up_submit_button" = "NEXT";
 "arduino_sign_up_title" = "Sign up to Arduino";
+"arduino_sign_up_username_info" = "Only letters, numbers, hyphen (-) and underscore (_) are allowed. Your username must start with a letter or number and be at least 3 characters long.";
+"arduino_sign_up_username_placeholder" = "Choose a username";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */
 "available_devices" = "接続可能なデバイス";
 /* Content description for a generic back button [CHAR_LIMIT=NONE] */

@@ -137,7 +137,13 @@ extension String {
   static public var arduinoSignUpBirthdatePlaceholder: String { return "arduino_sign_up_birthdate_placeholder".localized }
   static public var arduinoSignUpBirthdateSubmit: String { return "arduino_sign_up_birthdate_submit".localized }
   static public var arduinoSignUpBirthdateSubtitle: String { return "arduino_sign_up_birthdate_subtitle".localized }
+  static public var arduinoSignUpEmailPlaceholder: String { return "arduino_sign_up_email_placeholder".localized }
+  static public var arduinoSignUpPasswordHint: String { return "arduino_sign_up_password_hint".localized }
+  static public var arduinoSignUpPasswordPlaceholder: String { return "arduino_sign_up_password_placeholder".localized }
+  static public var arduinoSignUpSubmitButton: String { return "arduino_sign_up_submit_button".localized }
   static public var arduinoSignUpTitle: String { return "arduino_sign_up_title".localized }
+  static public var arduinoSignUpUsernameInfo: String { return "arduino_sign_up_username_info".localized }
+  static public var arduinoSignUpUsernamePlaceholder: String { return "arduino_sign_up_username_placeholder".localized }
   static public var availableDevices: String { return "available_devices".localized }
   static public var backBtnContentDescription: String { return "back_btn_content_description".localized }
   static public var backBtnContentDetails: String { return "back_btn_content_details".localized }

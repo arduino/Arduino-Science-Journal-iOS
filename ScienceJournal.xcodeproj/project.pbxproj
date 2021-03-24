@@ -618,6 +618,8 @@
 		BC24D363260B84B900209383 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D362260B84B900209383 /* DatePicker.swift */; };
 		BC24D36B260B857200209383 /* KeyboardDismissToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D36A260B857200209383 /* KeyboardDismissToolbar.swift */; };
 		BC24D373260B93EB00209383 /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D372260B93EB00209383 /* KeyboardController.swift */; };
+		BC24D37B260BA07100209383 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D37A260BA07100209383 /* SignUpViewController.swift */; };
+		BC24D380260BA07D00209383 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D37F260BA07D00209383 /* SignUpView.swift */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC42DAB925656013004C1D32 /* UIResponder+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */; };
 		BC42DAC425656393004C1D32 /* UIApplication+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */; };
@@ -1404,6 +1406,8 @@
 		BC24D362260B84B900209383 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		BC24D36A260B857200209383 /* KeyboardDismissToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissToolbar.swift; sourceTree = "<group>"; };
 		BC24D372260B93EB00209383 /* KeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
+		BC24D37A260BA07100209383 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BC24D37F260BA07D00209383 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ErrorHandling.swift"; sourceTree = "<group>"; };
 		BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+ScienceJournal.swift"; sourceTree = "<group>"; };
@@ -1743,6 +1747,8 @@
 				BC24D3182609F91100209383 /* SignInViewController.swift */,
 				BC24D35A260B2E5900209383 /* SignUpBirthdateView.swift */,
 				BC24D352260B2E0C00209383 /* SignUpBirthdateViewController.swift */,
+				BC24D37F260BA07D00209383 /* SignUpView.swift */,
+				BC24D37A260BA07100209383 /* SignUpViewController.swift */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -4262,6 +4268,7 @@
 				D59CA3D8219F46020082A27B /* Double+ScienceJournal.swift in Sources */,
 				68E36191203F7F1500B1B979 /* AnalyticsReporterOpen.swift in Sources */,
 				6880F0171F27D20E00EFF7BC /* RenameViewController.swift in Sources */,
+				BC24D37B260BA07100209383 /* SignUpViewController.swift in Sources */,
 				BC7AB10424D0880E00703B2E /* BLEScienceKitGyroscopeZSensor.swift in Sources */,
 				5C6E575020349FB700EE8457 /* GetSensorDataAsProtoOperation.swift in Sources */,
 				BC80411224CED6310098E17E /* BLEScienceKitInput2Sensor.swift in Sources */,
@@ -4305,6 +4312,7 @@
 				5CB5E11A2075621600249167 /* GSJBlockOperation.swift in Sources */,
 				8B882A5320ADDEA000E93179 /* AddExperimentsToDriveView.swift in Sources */,
 				68BD95671E8DA45100FEB0B2 /* ToneGenerator.swift in Sources */,
+				BC24D380260BA07D00209383 /* SignUpView.swift in Sources */,
 				680D406E1F03083C004E5555 /* SnapshotDetailViewController.swift in Sources */,
 				86EBD8E3234E81B1004DFCB9 /* ScrollViewContentObserver.swift in Sources */,
 				5C878523216E602C0046786D /* GradientView.swift in Sources */,

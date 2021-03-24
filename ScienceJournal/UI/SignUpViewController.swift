@@ -1,5 +1,5 @@
 //  
-//  SignUpBirthdateViewController.swift
+//  SignUpViewController.swift
 //  ScienceJournal
 //
 //  Created by Emilio Pavia on 24/03/21.
@@ -20,14 +20,16 @@
 import UIKit
 import MaterialComponents.MaterialSnackbar
 
-class SignUpBirthdateViewController: WizardViewController {
-
-  let authenticationManager: AuthenticationManager
+class SignUpViewController: WizardViewController {
   
-  private(set) lazy var birthdateView = SignUpBirthdateView()
+  let authenticationManager: AuthenticationManager
+  let isAdult: Bool
+  
+  private(set) lazy var signUpView = SignUpView(hasSingleSignOn: isAdult)
 
-  init(authenticationManager: AuthenticationManager) {
+  init(authenticationManager: AuthenticationManager, isAdult: Bool) {
     self.authenticationManager = authenticationManager
+    self.isAdult = isAdult
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -38,34 +40,16 @@ class SignUpBirthdateViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    wizardView.contentView = birthdateView
+    wizardView.contentView = signUpView
     
-    birthdateView.infoButton.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
-    birthdateView.submitButton.addTarget(self, action: #selector(signUp(_:)), for: .touchUpInside)
+    signUpView.infoButton.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
   }
   
   @objc private func showInfo(_ sender: UIButton) {
     let alertController = MDCAlertController(title: nil,
-                                             message: String.arduinoSignUpBirthdateInfo)
+                                             message: String.arduinoSignUpUsernameInfo)
     alertController.addAction(MDCAlertAction(title: String.actionOk))
     alertController.accessibilityViewIsModal = true
     present(alertController, animated: true)
-  }
-  
-  @objc private func signUp(_ sender: UIButton) {
-    guard let birthdate = birthdateView.birthdate else { return }
-
-    let now = Date()
-    let ageComponents = Calendar.autoupdatingCurrent.dateComponents([.year], from: birthdate, to: now)
-    
-    guard let age = ageComponents.year else { return }
-    
-    if age < 14 {
-      
-    } else {
-      let viewController = SignUpViewController(authenticationManager: authenticationManager,
-                                                isAdult: age >= 16)
-      show(viewController, sender: nil)
-    }
   }
 }
