@@ -38,7 +38,7 @@ class WizardTextField: UITextField {
     return font
   }
   
-  private var reuiredColor: UIColor? {
+  private var requiredColor: UIColor? {
     UIColor(red: 218/255.0, green: 91/255.0, blue: 74/255.0, alpha: 1)
   }
   
@@ -94,7 +94,7 @@ class WizardTextField: UITextField {
                                                           attributes: attributes)
     
     if isRequired {
-      attributes[NSAttributedString.Key.foregroundColor] = reuiredColor
+      attributes[NSAttributedString.Key.foregroundColor] = requiredColor
       attributedPlaceholder.append(NSAttributedString(string: " *", attributes: attributes))
     }
     

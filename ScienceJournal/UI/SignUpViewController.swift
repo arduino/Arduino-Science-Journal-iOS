@@ -43,6 +43,7 @@ class SignUpViewController: WizardViewController {
     wizardView.contentView = signUpView
     
     signUpView.infoButton.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
+    signUpView.submitButton.addTarget(self, action: #selector(submit(_:)), for: .touchUpInside)
   }
   
   @objc private func showInfo(_ sender: UIButton) {
@@ -51,5 +52,10 @@ class SignUpViewController: WizardViewController {
     alertController.addAction(MDCAlertAction(title: String.actionOk))
     alertController.accessibilityViewIsModal = true
     present(alertController, animated: true)
+  }
+  
+  @objc private func submit(_ sender: UIButton) {
+    let viewController = SignUpTermsViewController(authenticationManager: authenticationManager)
+    show(viewController, sender: nil)
   }
 }

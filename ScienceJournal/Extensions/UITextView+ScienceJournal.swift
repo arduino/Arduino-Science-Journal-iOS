@@ -28,4 +28,41 @@ extension UITextView {
     }
   }
 
+  func set(htmlText: String?) {
+    guard let htmlText = htmlText else {
+      self.attributedText = nil
+      return
+    }
+    
+    guard let data = htmlText.data(using: String.Encoding.utf8) else { return }
+    
+    guard let text = try? NSAttributedString(data: data,
+                                             options: [.documentType: NSAttributedString.DocumentType.html,
+                                                       .characterEncoding: String.Encoding.utf8.rawValue],
+                                             documentAttributes: nil) else {
+      return
+    }
+    
+    let attributedText = NSMutableAttributedString(attributedString: text)
+    attributedText.addAttributes([.font: font!, .foregroundColor: textColor!],
+                                 range: NSRange(location: 0, length: attributedText.length))
+    self.attributedText = attributedText
+  }
+  
+  func inject(urls: [URL]) {
+    var values = urls.map { $0 }
+    let injectedString = NSMutableAttributedString(attributedString: attributedText)
+    attributedText.enumerateAttribute(.link,
+                                      in: NSRange(location: 0, length: attributedText.length),
+                                      options: [.reverse]) { value, range, stop in
+      guard value != nil else { return }
+      guard let url = values.popLast() else {
+        stop.pointee = true
+        return
+      }
+      injectedString.removeAttribute(.link, range: range)
+      injectedString.addAttributes([.link: url, .font: self.font?.bold() as Any], range: range)
+    }
+    attributedText = injectedString
+  }
 }

@@ -603,6 +603,9 @@
 		8BFCF97C1FAA2B5E0030A6DC /* ArchivedFlagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCF97B1FAA2B5D0030A6DC /* ArchivedFlagCell.swift */; };
 		8BFCF97E1FAA2EDC0030A6DC /* ArchiveFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCF97D1FAA2EDC0030A6DC /* ArchiveFlagView.swift */; };
 		924D434B56557C3367183755 /* Pods_ScienceJournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D48D49D8CBE15C94637009 /* Pods_ScienceJournalTests.framework */; };
+		BC0F530F2611D9D2002B30D0 /* SignUpTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F530E2611D9D2002B30D0 /* SignUpTermsViewController.swift */; };
+		BC0F53142611D9DE002B30D0 /* SignUpTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F53132611D9DE002B30D0 /* SignUpTermsView.swift */; };
+		BC0F531B261214C5002B30D0 /* UIFont+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F531A261214C5002B30D0 /* UIFont+ScienceJournal.swift */; };
 		BC24D296260898EF00209383 /* SignInIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D295260898EF00209383 /* SignInIntroViewController.swift */; };
 		BC24D29B2608991F00209383 /* SignInIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D29A2608991F00209383 /* SignInIntroView.swift */; };
 		BC24D3192609F91100209383 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D3182609F91100209383 /* SignInViewController.swift */; };
@@ -1391,6 +1394,9 @@
 		8BFCF97D1FAA2EDC0030A6DC /* ArchiveFlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveFlagView.swift; sourceTree = "<group>"; };
 		93AFC6D21C987695548ADC66 /* Pods-ScienceJournal.dogfood.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.dogfood.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.dogfood.xcconfig"; sourceTree = "<group>"; };
 		958B33107B78081C00CE9569 /* Pods-ScienceJournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC0F530E2611D9D2002B30D0 /* SignUpTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTermsViewController.swift; sourceTree = "<group>"; };
+		BC0F53132611D9DE002B30D0 /* SignUpTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTermsView.swift; sourceTree = "<group>"; };
+		BC0F531A261214C5002B30D0 /* UIFont+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC24D295260898EF00209383 /* SignInIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroViewController.swift; sourceTree = "<group>"; };
 		BC24D29A2608991F00209383 /* SignInIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroView.swift; sourceTree = "<group>"; };
 		BC24D3182609F91100209383 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -1747,6 +1753,8 @@
 				BC24D3182609F91100209383 /* SignInViewController.swift */,
 				BC24D35A260B2E5900209383 /* SignUpBirthdateView.swift */,
 				BC24D352260B2E0C00209383 /* SignUpBirthdateViewController.swift */,
+				BC0F53132611D9DE002B30D0 /* SignUpTermsView.swift */,
+				BC0F530E2611D9D2002B30D0 /* SignUpTermsViewController.swift */,
 				BC24D37F260BA07D00209383 /* SignUpView.swift */,
 				BC24D37A260BA07100209383 /* SignUpViewController.swift */,
 			);
@@ -2867,6 +2875,7 @@
 				8B2D60831F27D4F500F21EF9 /* UIViewController+DisplayType.swift */,
 				681688331F32996E00CC2B5F /* UIViewController+ScienceJournal.swift */,
 				8BA722A91F87CCD300F9FF0F /* URL+ScienceJournal.swift */,
+				BC0F531A261214C5002B30D0 /* UIFont+ScienceJournal.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -3988,6 +3997,7 @@
 				687FAA12202C1162004C1D04 /* DeviceSpec.pbobjc.m in Sources */,
 				8B5BE2DE1E942A6700C32B74 /* SensorTriggerEvaluator.swift in Sources */,
 				5C612F0F20AC6A330097CCAB /* ExperimentLibrary.pbobjc.m in Sources */,
+				BC0F531B261214C5002B30D0 /* UIFont+ScienceJournal.swift in Sources */,
 				68279C221ED63FD1003F778B /* MenuButton.swift in Sources */,
 				5C3245241EF090DD00E8664B /* UICollectionView+PerformChanges.swift in Sources */,
 				6813334D1EC6423200ED7A32 /* SensorCardHeaderView.swift in Sources */,
@@ -4208,6 +4218,7 @@
 				5CCB62BC1F8BCFDD00F9BB7D /* TrialDataWriter.swift in Sources */,
 				5C7219611ED8D04700817F0B /* Trial.swift in Sources */,
 				6856C8971EEF0E1500FFCED5 /* MaterialHeaderCollectionViewController.swift in Sources */,
+				BC0F53142611D9DE002B30D0 /* SignUpTermsView.swift in Sources */,
 				BC809249255C51350074E25A /* OnboardingPageViewController.swift in Sources */,
 				BC968C4A25A30CD300A885AB /* WizardFooterView.swift in Sources */,
 				8B244F511E67745A00FC03B5 /* SensorData.swift in Sources */,
@@ -4282,6 +4293,7 @@
 				5CC81C1C1F292EBE00AC9E9E /* TimeSelectionView.swift in Sources */,
 				6856DF791F228F5000EDFB99 /* EditExperimentPhotoLibraryViewController.swift in Sources */,
 				58F1C0DB2315B38900DDDE5F /* TimerView.swift in Sources */,
+				BC0F530F2611D9D2002B30D0 /* SignUpTermsViewController.swift in Sources */,
 				687FAA06202C1162004C1D04 /* Version.pbobjc.m in Sources */,
 				5C7D8AA01F0FF2B9005CD61C /* ChartStatsOverlayView.swift in Sources */,
 				D59CA3C2219CEE690082A27B /* FFTAnalyzer.swift in Sources */,
