@@ -202,6 +202,10 @@
 "arduino_sign_up_birthdate_placeholder" = "Birthday";
 "arduino_sign_up_birthdate_submit" = "NEXT";
 "arduino_sign_up_birthdate_subtitle" = "Enter your birth date below to continue.";
+"arduino_sign_up_email_confirmation_back_button" = "BACK TO LOGIN";
+"arduino_sign_up_email_confirmation_resend_button" = "RESEND EMAIL";
+"arduino_sign_up_email_confirmation_text" = "We sent you an email to finalize your registration. In order to continue, please follow the instructions and activate your account. Once your account is activated, you can login to Science Journal.";
+"arduino_sign_up_email_confirmation_title" = "Confirm your email";
 "arduino_sign_up_email_placeholder" = "Enter your email";
 "arduino_sign_up_marketing_approval" = "I would like to receive emails about special deals and commercial offers from Arduino.";
 "arduino_sign_up_newsletter_approval" = "I would like to receive the Arduino newsletter.";

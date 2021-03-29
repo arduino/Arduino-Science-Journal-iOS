@@ -606,6 +606,10 @@
 		BC0F530F2611D9D2002B30D0 /* SignUpTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F530E2611D9D2002B30D0 /* SignUpTermsViewController.swift */; };
 		BC0F53142611D9DE002B30D0 /* SignUpTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F53132611D9DE002B30D0 /* SignUpTermsView.swift */; };
 		BC0F531B261214C5002B30D0 /* UIFont+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F531A261214C5002B30D0 /* UIFont+ScienceJournal.swift */; };
+		BC0F532026121C20002B30D0 /* SignUpConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F531F26121C20002B30D0 /* SignUpConfirmationView.swift */; };
+		BC0F532526121C30002B30D0 /* SignUpConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F532426121C30002B30D0 /* SignUpConfirmationViewController.swift */; };
+		BC0F532D26121D6A002B30D0 /* UIResponder+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F532C26121D6A002B30D0 /* UIResponder+ScienceJournal.swift */; };
+		BC0F533526121FAD002B30D0 /* WizardRootViewController+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F533426121FAD002B30D0 /* WizardRootViewController+SignIn.swift */; };
 		BC24D296260898EF00209383 /* SignInIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D295260898EF00209383 /* SignInIntroViewController.swift */; };
 		BC24D29B2608991F00209383 /* SignInIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D29A2608991F00209383 /* SignInIntroView.swift */; };
 		BC24D3192609F91100209383 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D3182609F91100209383 /* SignInViewController.swift */; };
@@ -1397,6 +1401,10 @@
 		BC0F530E2611D9D2002B30D0 /* SignUpTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTermsViewController.swift; sourceTree = "<group>"; };
 		BC0F53132611D9DE002B30D0 /* SignUpTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTermsView.swift; sourceTree = "<group>"; };
 		BC0F531A261214C5002B30D0 /* UIFont+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ScienceJournal.swift"; sourceTree = "<group>"; };
+		BC0F531F26121C20002B30D0 /* SignUpConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpConfirmationView.swift; sourceTree = "<group>"; };
+		BC0F532426121C30002B30D0 /* SignUpConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpConfirmationViewController.swift; sourceTree = "<group>"; };
+		BC0F532C26121D6A002B30D0 /* UIResponder+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ScienceJournal.swift"; sourceTree = "<group>"; };
+		BC0F533426121FAD002B30D0 /* WizardRootViewController+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WizardRootViewController+SignIn.swift"; sourceTree = "<group>"; };
 		BC24D295260898EF00209383 /* SignInIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroViewController.swift; sourceTree = "<group>"; };
 		BC24D29A2608991F00209383 /* SignInIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroView.swift; sourceTree = "<group>"; };
 		BC24D3182609F91100209383 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -1753,10 +1761,14 @@
 				BC24D3182609F91100209383 /* SignInViewController.swift */,
 				BC24D35A260B2E5900209383 /* SignUpBirthdateView.swift */,
 				BC24D352260B2E0C00209383 /* SignUpBirthdateViewController.swift */,
+				BC0F531F26121C20002B30D0 /* SignUpConfirmationView.swift */,
+				BC0F532426121C30002B30D0 /* SignUpConfirmationViewController.swift */,
 				BC0F53132611D9DE002B30D0 /* SignUpTermsView.swift */,
 				BC0F530E2611D9D2002B30D0 /* SignUpTermsViewController.swift */,
 				BC24D37F260BA07D00209383 /* SignUpView.swift */,
 				BC24D37A260BA07100209383 /* SignUpViewController.swift */,
+				BC0F532C26121D6A002B30D0 /* UIResponder+ScienceJournal.swift */,
+				BC0F533426121FAD002B30D0 /* WizardRootViewController+SignIn.swift */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -4127,6 +4139,7 @@
 				5C5188A41F3D0F5F001B110A /* ZoomRecorder.swift in Sources */,
 				5CA8DAEF202E59E500247FD8 /* BlockObserver.swift in Sources */,
 				5C32452F1EF1DA5700E8664B /* DisplayTrialViewData.swift in Sources */,
+				BC0F532D26121D6A002B30D0 /* UIResponder+ScienceJournal.swift in Sources */,
 				5CC9046F224438B300F13EF0 /* DocumentManager.swift in Sources */,
 				8B1791CB1F140F22008C0B31 /* TriggerNoteTextEntryView.swift in Sources */,
 				D59CA3D1219CEE690082A27B /* Harmonic.swift in Sources */,
@@ -4228,6 +4241,7 @@
 				5C2C2A282035D3B4007F2FA5 /* GroupOperation.swift in Sources */,
 				68EACA701EAFC96300BB5892 /* SidebarCell.swift in Sources */,
 				5C7ACBA31E9E88C200B22474 /* SensorSettingsViewController.swift in Sources */,
+				BC0F533526121FAD002B30D0 /* WizardRootViewController+SignIn.swift in Sources */,
 				689C32171EF9DE84002C824C /* TriggerCardView.swift in Sources */,
 				4845F77A20BE1C0300FCBA71 /* SidebarAccountView.swift in Sources */,
 				BC97004425CC0F510060F79C /* ArduinoDriveConstructor.swift in Sources */,
@@ -4390,6 +4404,7 @@
 				68E3C8D21FD783FE00255ADF /* Bundle+ScienceJournal.swift in Sources */,
 				68BD95651E8DA45100FEB0B2 /* SoundType.swift in Sources */,
 				3FDE85A322B3FFA600420D25 /* FeatureFlags.swift in Sources */,
+				BC0F532026121C20002B30D0 /* SignUpConfirmationView.swift in Sources */,
 				8BCCAD561EDF593C00278F05 /* PopUpMenuAction.swift in Sources */,
 				687FAA0D202C1162004C1D04 /* SensorTriggerLabelValue.pbobjc.m in Sources */,
 				8BF9DA9D2268BED80052C285 /* ExistingDataMigrationManagerErrorArray+ScienceJournal.swift in Sources */,
@@ -4427,6 +4442,7 @@
 				68E3618C203F7F0900B1B979 /* main.swift in Sources */,
 				5CAD5EEA1E8D7E06008F50C3 /* Clock.swift in Sources */,
 				D59CA3CB219CEE690082A27B /* AudioAnalyzer.swift in Sources */,
+				BC0F532526121C30002B30D0 /* SignUpConfirmationViewController.swift in Sources */,
 				6856C8991EEF0E3E00FFCED5 /* MDCAppBar+ScienceJournal.swift in Sources */,
 				48AAE5DC22D7AD88009D3EFB /* PDFExportOverlayViewController.swift in Sources */,
 				68F14AC21F21801F0054E799 /* TimeInterval+ScienceJournal.swift in Sources */,

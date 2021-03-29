@@ -137,6 +137,10 @@ extension String {
   static public var arduinoSignUpBirthdatePlaceholder: String { return "arduino_sign_up_birthdate_placeholder".localized }
   static public var arduinoSignUpBirthdateSubmit: String { return "arduino_sign_up_birthdate_submit".localized }
   static public var arduinoSignUpBirthdateSubtitle: String { return "arduino_sign_up_birthdate_subtitle".localized }
+  static public var arduinoSignUpEmailConfirmationBackButton: String { return "arduino_sign_up_email_confirmation_back_button".localized }
+  static public var arduinoSignUpEmailConfirmationResendButton: String { return "arduino_sign_up_email_confirmation_resend_button".localized }
+  static public var arduinoSignUpEmailConfirmationText: String { return "arduino_sign_up_email_confirmation_text".localized }
+  static public var arduinoSignUpEmailConfirmationTitle: String { return "arduino_sign_up_email_confirmation_title".localized }
   static public var arduinoSignUpEmailPlaceholder: String { return "arduino_sign_up_email_placeholder".localized }
   static public var arduinoSignUpMarketingApproval: String { return "arduino_sign_up_marketing_approval".localized }
   static public var arduinoSignUpNewsletterApproval: String { return "arduino_sign_up_newsletter_approval".localized }

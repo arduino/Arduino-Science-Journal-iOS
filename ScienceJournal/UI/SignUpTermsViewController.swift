@@ -68,5 +68,12 @@ class SignUpTermsViewController: WizardViewController {
     super.viewDidLoad()
 
     wizardView.contentView = termsView
+    
+    termsView.signUpButton.addTarget(self, action: #selector(signUp(_:)), for: .touchUpInside)
+  }
+  
+  @objc private func signUp(_ sender: UIButton) {
+    let viewController = SignUpConfirmationViewController(authenticationManager: authenticationManager)
+    show(viewController, sender: nil)
   }
 }

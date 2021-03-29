@@ -31,7 +31,7 @@ class WizardRootViewController: UIViewController {
     }
   }
 
-  private var childNavigationController: UINavigationController? {
+  var childNavigationController: UINavigationController? {
     didSet {
       oldValue?.delegate = nil
       childNavigationController?.delegate = self
