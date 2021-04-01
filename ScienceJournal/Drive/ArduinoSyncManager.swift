@@ -46,13 +46,6 @@ final class ArduinoSyncManager: DriveSyncManager {
   let driveFetcher: DriveFetcher
   let folderID: String
   
-  var isEnabled: Bool {
-    guard let isStarted = try? self.isStarted.value() else {
-      return false
-    }
-    return isStarted
-  }
-  
   weak var delegate: DriveSyncManagerDelegate?
   
   private let operationQueue = GSJOperationQueue()

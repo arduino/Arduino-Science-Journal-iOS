@@ -61,9 +61,6 @@ extension Notification.Name {
 /// A protocol that defines a manager object for Drive sync.
 public protocol DriveSyncManager: class {
   
-  /// Whether Drive sync is enabled.
-  var isEnabled: Bool { get }
-  
   /// A delegate that will be informed when Drive Sync changes data.
   var delegate: DriveSyncManagerDelegate? { get set }
 
