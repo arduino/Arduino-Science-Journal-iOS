@@ -16,6 +16,9 @@
 
 import UIKit
 
+import googlemac_iPhone_Shared_SSOAuth_SSOAuth
+import GTMSessionFetcher
+
 /// The export option type to show for the user.
 enum UserExportType {
   /// Show the save to files export option.
@@ -81,6 +84,9 @@ protocol UserManager {
   /// The export type to use for the user.
   var exportType: UserExportType { get }
 
+  /// The authorizer to be used for the Drive sync.
+  var driveSyncAuthorization: GTMFetcherAuthorizationProtocol? { get set }
+  
   /// Whether Drive sync is enabled for the user.
   var isDriveSyncEnabled: Bool { get }
 

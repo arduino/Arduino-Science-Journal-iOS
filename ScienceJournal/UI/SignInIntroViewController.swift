@@ -21,12 +21,12 @@ import UIKit
 
 class SignInIntroViewController: WizardViewController {
 
-  let authenticationManager: AuthenticationManager
+  let accountsManager: ArduinoAccountsManager
 
   private(set) lazy var introView = SignInIntroView()
 
-  init(authenticationManager: AuthenticationManager) {
-    self.authenticationManager = authenticationManager
+  init(accountsManager: ArduinoAccountsManager) {
+    self.accountsManager = accountsManager
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -49,14 +49,14 @@ class SignInIntroViewController: WizardViewController {
   @objc private func signIn(_ sender: UIButton) {
     let isJunior = sender == introView.juniorButton
     
-    let signInViewController = SignInViewController(authenticationManager: authenticationManager,
+    let signInViewController = SignInViewController(accountsManager: accountsManager,
                                                     isJunior: isJunior)
     show(signInViewController, sender: nil)
   }
   
   @objc private func signUp(_ sender: UITapGestureRecognizer) {
     if sender.state == .ended {
-      let signUpViewController = SignUpBirthdateViewController(authenticationManager: authenticationManager)
+      let signUpViewController = SignUpBirthdateViewController(accountsManager: accountsManager)
       show(signUpViewController, sender: nil)
     }
   }

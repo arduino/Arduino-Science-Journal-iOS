@@ -141,7 +141,6 @@
 		5C63842221067BD4008281DF /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63842121067BD4008281DF /* ExclusivityController.swift */; };
 		5C63842421078D77008281DF /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63842321078D77008281DF /* MutuallyExclusive.swift */; };
 		5C6384262107A489008281DF /* GSJOperationQueueTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6384252107A489008281DF /* GSJOperationQueueTest.swift */; };
-		5C650B0420892A5700CB4656 /* AccountsManagerDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C650B0220892A5700CB4656 /* AccountsManagerDisabled.swift */; };
 		5C650B0520892A5700CB4656 /* AccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C650B0320892A5700CB4656 /* AccountsManager.swift */; };
 		5C6622FA1F1D5CF700091602 /* TrialDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6622F91F1D5CF700091602 /* TrialDetailDataSource.swift */; };
 		5C684EF420A4CC50008414C0 /* AppFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C684EF320A4CC50008414C0 /* AppFlowViewController.swift */; };
@@ -610,6 +609,8 @@
 		BC0F532526121C30002B30D0 /* SignUpConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F532426121C30002B30D0 /* SignUpConfirmationViewController.swift */; };
 		BC0F532D26121D6A002B30D0 /* UIResponder+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F532C26121D6A002B30D0 /* UIResponder+ScienceJournal.swift */; };
 		BC0F533526121FAD002B30D0 /* WizardRootViewController+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F533426121FAD002B30D0 /* WizardRootViewController+SignIn.swift */; };
+		BC0F534526135DBD002B30D0 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F534426135DBD002B30D0 /* JWT.swift */; };
+		BC0F534A26137861002B30D0 /* ArduinoAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0F534926137861002B30D0 /* ArduinoAccount.swift */; };
 		BC24D296260898EF00209383 /* SignInIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D295260898EF00209383 /* SignInIntroViewController.swift */; };
 		BC24D29B2608991F00209383 /* SignInIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D29A2608991F00209383 /* SignInIntroView.swift */; };
 		BC24D3192609F91100209383 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D3182609F91100209383 /* SignInViewController.swift */; };
@@ -628,6 +629,7 @@
 		BC24D37B260BA07100209383 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D37A260BA07100209383 /* SignUpViewController.swift */; };
 		BC24D380260BA07D00209383 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D37F260BA07D00209383 /* SignUpView.swift */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
+		BC3F2BD02615FE6E00FCE525 /* URLRequest+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F2BCF2615FE6E00FCE525 /* URLRequest+ScienceJournal.swift */; };
 		BC42DAB925656013004C1D32 /* UIResponder+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */; };
 		BC42DAC425656393004C1D32 /* UIApplication+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */; };
 		BC4DEE5A25A7136F002BA286 /* DriveSyncFolderPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4DEE5925A7136F002BA286 /* DriveSyncFolderPickerViewController.swift */; };
@@ -663,7 +665,7 @@
 		BC80928F255D893A0074E25A /* OnboardingPage6ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */; };
 		BC809294255D89460074E25A /* OnboardingPage7ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */; };
 		BC8621F425A9ECA9002D6B4F /* DriveSyncPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */; };
-		BC9164CE25A853CC00E75A56 /* DriveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9164CD25A853CC00E75A56 /* DriveManager.swift */; };
+		BC9164CE25A853CC00E75A56 /* DriveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */; };
 		BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC968C3725A30B3800A885AB /* Wizard.storyboard */; };
 		BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */; };
 		BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */; };
@@ -675,7 +677,6 @@
 		BC993DF225A47AFA0001F76D /* DriveSyncIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */; };
 		BC993E0525A47BCC0001F76D /* WizardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E0425A47BCC0001F76D /* WizardButton.swift */; };
 		BC993E0D25A4868B0001F76D /* GoogleDriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */; };
-		BC993E4225A4B16F0001F76D /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC993E4125A4B16F0001F76D /* AuthenticationManager.swift */; };
 		BC9BB4CB25AC9E9A00F22E71 /* DriveSyncFolderCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB4CA25AC9E9A00F22E71 /* DriveSyncFolderCreateView.swift */; };
 		BCAB7A4125CAFC1F00D85F9A /* ArduinoSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB7A4025CAFC1F00D85F9A /* ArduinoSyncManager.swift */; };
 		BCB6953A24C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */; };
@@ -902,7 +903,6 @@
 		5C63842121067BD4008281DF /* ExclusivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
 		5C63842321078D77008281DF /* MutuallyExclusive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutuallyExclusive.swift; sourceTree = "<group>"; };
 		5C6384252107A489008281DF /* GSJOperationQueueTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSJOperationQueueTest.swift; sourceTree = "<group>"; };
-		5C650B0220892A5700CB4656 /* AccountsManagerDisabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsManagerDisabled.swift; sourceTree = "<group>"; };
 		5C650B0320892A5700CB4656 /* AccountsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsManager.swift; sourceTree = "<group>"; };
 		5C6622F91F1D5CF700091602 /* TrialDetailDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrialDetailDataSource.swift; sourceTree = "<group>"; };
 		5C684EF320A4CC50008414C0 /* AppFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowViewController.swift; sourceTree = "<group>"; };
@@ -1405,6 +1405,8 @@
 		BC0F532426121C30002B30D0 /* SignUpConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpConfirmationViewController.swift; sourceTree = "<group>"; };
 		BC0F532C26121D6A002B30D0 /* UIResponder+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC0F533426121FAD002B30D0 /* WizardRootViewController+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WizardRootViewController+SignIn.swift"; sourceTree = "<group>"; };
+		BC0F534426135DBD002B30D0 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
+		BC0F534926137861002B30D0 /* ArduinoAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoAccount.swift; sourceTree = "<group>"; };
 		BC24D295260898EF00209383 /* SignInIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroViewController.swift; sourceTree = "<group>"; };
 		BC24D29A2608991F00209383 /* SignInIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroView.swift; sourceTree = "<group>"; };
 		BC24D3182609F91100209383 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -1423,6 +1425,7 @@
 		BC24D37A260BA07100209383 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BC24D37F260BA07D00209383 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
+		BC3F2BCF2615FE6E00FCE525 /* URLRequest+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ErrorHandling.swift"; sourceTree = "<group>"; };
 		BC42DAC325656393004C1D32 /* UIApplication+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC4DEE5925A7136F002BA286 /* DriveSyncFolderPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderPickerViewController.swift; sourceTree = "<group>"; };
@@ -1458,7 +1461,7 @@
 		BC80928E255D893A0074E25A /* OnboardingPage6ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage6ViewController.swift; sourceTree = "<group>"; };
 		BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage7ViewController.swift; sourceTree = "<group>"; };
 		BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncPathView.swift; sourceTree = "<group>"; };
-		BC9164CD25A853CC00E75A56 /* DriveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveManager.swift; sourceTree = "<group>"; };
+		BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveFetcher.swift; sourceTree = "<group>"; };
 		BC968C3725A30B3800A885AB /* Wizard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wizard.storyboard; sourceTree = "<group>"; };
 		BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardNavigationController.swift; sourceTree = "<group>"; };
 		BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardRootViewController.swift; sourceTree = "<group>"; };
@@ -1470,7 +1473,6 @@
 		BC993DF125A47AFA0001F76D /* DriveSyncIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncIntroView.swift; sourceTree = "<group>"; };
 		BC993E0425A47BCC0001F76D /* WizardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardButton.swift; sourceTree = "<group>"; };
 		BC993E0C25A4868B0001F76D /* GoogleDriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveButton.swift; sourceTree = "<group>"; };
-		BC993E4125A4B16F0001F76D /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		BC9BB4CA25AC9E9A00F22E71 /* DriveSyncFolderCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncFolderCreateView.swift; sourceTree = "<group>"; };
 		BCAB7A4025CAFC1F00D85F9A /* ArduinoSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoSyncManager.swift; sourceTree = "<group>"; };
 		BCB6953924C05A2B00CFCD9F /* BLEScienceKitInput1Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitInput1Sensor.swift; sourceTree = "<group>"; };
@@ -1897,8 +1899,10 @@
 			isa = PBXGroup;
 			children = (
 				5C650B0320892A5700CB4656 /* AccountsManager.swift */,
-				5C650B0220892A5700CB4656 /* AccountsManagerDisabled.swift */,
+				BC0F534926137861002B30D0 /* ArduinoAccount.swift */,
 				BCBA349C25CBE7F9008CC2EA /* ArduinoAccountsManager.swift */,
+				BC0F534426135DBD002B30D0 /* JWT.swift */,
+				BC3F2BCF2615FE6E00FCE525 /* URLRequest+ScienceJournal.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -1973,7 +1977,7 @@
 				BC97004325CC0F510060F79C /* ArduinoDriveConstructor.swift */,
 				BCAB7A4025CAFC1F00D85F9A /* ArduinoSyncManager.swift */,
 				5C7BC2DB20C9A00800CACFAB /* DriveConstructor.swift */,
-				BC9164CD25A853CC00E75A56 /* DriveManager.swift */,
+				BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */,
 				5C7BC2DD20C9A07900CACFAB /* DriveSyncManager.swift */,
 				8B79EAD221235BB6000D1E21 /* DriveSyncUserInfoConstants.swift */,
 				5CC813CE20D16C8700CC05E9 /* ExperimentLibraryMerger.swift */,
@@ -2706,7 +2710,6 @@
 				5C650B0120892A5700CB4656 /* Accounts */,
 				3F71B71422B466D90015074A /* ActionArea */,
 				686E3D2C1F58880300250628 /* Analytics */,
-				BC993E4025A4B15C0001F76D /* Authentication */,
 				BC3B9634249A6A3E000D7646 /* BLEArduino */,
 				5CAD5EF11E952F8C008F50C3 /* BLEMakingScience */,
 				5C11AE6A1EB7D8280077F752 /* BLEProtocols */,
@@ -3327,14 +3330,6 @@
 			path = Drive;
 			sourceTree = "<group>";
 		};
-		BC993E4025A4B15C0001F76D /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				BC993E4125A4B16F0001F76D /* AuthenticationManager.swift */,
-			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
 		BC9D3E0A2513B7A4009ACA46 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
@@ -3928,6 +3923,7 @@
 				58BC1BC522C18FEB00DA7EDC /* UIImage+ScienceJournal.swift in Sources */,
 				8B4B60141E44DADA009AFB1B /* AccelerometerSensor.swift in Sources */,
 				687FAA1A202C1162004C1D04 /* SensorConfig.pbobjc.m in Sources */,
+				BC0F534526135DBD002B30D0 /* JWT.swift in Sources */,
 				8B9319641EF9A11900A078F4 /* DrawerPosition.swift in Sources */,
 				8B35F50A1EAA6C220032FE15 /* RotatingExpandButton.swift in Sources */,
 				8B111F641E41212B000400F1 /* Sensor.swift in Sources */,
@@ -4065,7 +4061,6 @@
 				BC24D343260A53FF00209383 /* PasswordRecoveryConfirmationViewController.swift in Sources */,
 				BC80411424CED7B60098E17E /* BLEScienceKitInput3Sensor.swift in Sources */,
 				BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */,
-				BC993E4225A4B16F0001F76D /* AuthenticationManager.swift in Sources */,
 				BCEC93A924C038D40041296C /* BLEScienceKitCurrentSensor.swift in Sources */,
 				BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */,
 				8BCCDF5F1EB9265800E85517 /* CameraActionBar.swift in Sources */,
@@ -4329,6 +4324,7 @@
 				5C7219711EDFA4AB00817F0B /* TextNote.swift in Sources */,
 				5CF371012012906D00AD85D2 /* Bool+ScienceJournal.swift in Sources */,
 				8B06406A203E0F4600F66356 /* ImageAnimationView.swift in Sources */,
+				BC0F534A26137861002B30D0 /* ArduinoAccount.swift in Sources */,
 				8BDC027D201F73AA00BB0059 /* SoundIntensitySensor.swift in Sources */,
 				5C68572E1E5768570083EE3D /* ChartOptions.swift in Sources */,
 				F362AC2A24F41D3600926698 /* DefaultExperimentComposer.swift in Sources */,
@@ -4346,7 +4342,6 @@
 				5C72196F1EDFA2E900817F0B /* PictureNote.swift in Sources */,
 				BC24D36B260B857200209383 /* KeyboardDismissToolbar.swift in Sources */,
 				6898803D1ED8A5DE000C6FB8 /* ExperimentsListDataSource.swift in Sources */,
-				5C650B0420892A5700CB4656 /* AccountsManagerDisabled.swift in Sources */,
 				8B1791D41F155B91008C0B31 /* TriggerEditDelegate.swift in Sources */,
 				BC8621F425A9ECA9002D6B4F /* DriveSyncPathView.swift in Sources */,
 				8B1F2F912065741100BADCD4 /* TrialCardSensorsView.swift in Sources */,
@@ -4359,7 +4354,7 @@
 				6836532D1F5F9F4300132922 /* EmptyView.swift in Sources */,
 				8B1791931F06B1F4008C0B31 /* TriggerListDataSource.swift in Sources */,
 				5C50F58D1F61F22F00711D28 /* FileVersion.swift in Sources */,
-				BC9164CE25A853CC00E75A56 /* DriveManager.swift in Sources */,
+				BC9164CE25A853CC00E75A56 /* DriveFetcher.swift in Sources */,
 				5C7219601ED8D04700817F0B /* SensorLayout.swift in Sources */,
 				BC58716925F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift in Sources */,
 				68E36193203F7F1500B1B979 /* AnalyticsReporter.swift in Sources */,
@@ -4380,6 +4375,7 @@
 				8B257E5D1ED475780065E7D4 /* ViewConstants.swift in Sources */,
 				8B9F061B1EF446130030B011 /* GSJTriggerInformation_TriggerWhen+ScienceJournal.swift in Sources */,
 				5C62DC1A1FFD41A800A4F348 /* ExperimentUpdateManager.swift in Sources */,
+				BC3F2BD02615FE6E00FCE525 /* URLRequest+ScienceJournal.swift in Sources */,
 				489182BC1E45041800E91D73 /* UIView+Animation.swift in Sources */,
 				8BCCAD5E1EE5EDB500278F05 /* ShadowedView.swift in Sources */,
 				8B497DC7204F27C600DFC4E1 /* BackgroundTaskObserver.swift in Sources */,

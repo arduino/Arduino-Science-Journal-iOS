@@ -43,7 +43,7 @@ final class ArduinoSyncManager: DriveSyncManager {
   let metadataManager: MetadataManager
   let sensorDataManager: SensorDataManager
   let experimentDataDeleter: ExperimentDataDeleter
-  let driveManager: DriveManager
+  let driveFetcher: DriveFetcher
   let folderID: String
   
   var isEnabled: Bool {
@@ -70,13 +70,13 @@ final class ArduinoSyncManager: DriveSyncManager {
   init(metadataManager: MetadataManager,
        sensorDataManager: SensorDataManager,
        experimentDataDeleter: ExperimentDataDeleter,
-       driveManager: DriveManager,
+       driveFetcher: DriveFetcher,
        folderID: String) {
     
     self.metadataManager = metadataManager
     self.sensorDataManager = sensorDataManager
     self.experimentDataDeleter = experimentDataDeleter
-    self.driveManager = driveManager
+    self.driveFetcher = driveFetcher
     self.folderID = folderID
     
     Observable.combineLatest(isStarted, isSuspended)
@@ -89,7 +89,7 @@ final class ArduinoSyncManager: DriveSyncManager {
       .disposed(by: disposeBag)
   }
   
-  func syncExperimentLibrary(andReconcile shouldReconcile: Bool, userInitiated: Bool) {
+  func syncExperimentLibrary() {
     syncRefresh.onNext(())
   }
   
@@ -131,7 +131,7 @@ final class ArduinoSyncManager: DriveSyncManager {
         return
       }
       
-      driveManager.file(with: fileID)
+      driveFetcher.file(with: fileID)
         .subscribe { file in
           if let version = file?.lastSyncedVersion {
             metadataManager.localSyncStatus.setExperimentDirty(true, withID: experimentID)
@@ -203,7 +203,7 @@ private extension ArduinoSyncManager {
       .flatMap { [unowned self] in self.downloadExperiments(files: $0) }
       .catch { error in
         switch error {
-        case DriveManager.Error.invalidToken:
+        case DriveFetcher.Error.invalidToken:
           self.tearDown()
           self.delegate?.driveSyncDidFail(with: .invalidToken)
         case ArduinoSyncManagerError.conflict(let experiment, let file):
@@ -224,7 +224,7 @@ private extension ArduinoSyncManager {
       "'\(folderID)' in parents"
     ]
     let query = comps.joined(separator: " and ")
-    return driveManager.find(with: query)
+    return driveFetcher.find(with: query)
       .map {
         $0.filter({ $0.name?.lowercased().hasSuffix(".sj") ?? false })
       }
@@ -437,8 +437,8 @@ private extension ArduinoSyncManager {
       return .error(ArduinoSyncManagerError.missingLastSyncedVersion)
     }
     
-    let driveManager = self.driveManager
-    return driveManager.file(with: fileID)
+    let driveFetcher = self.driveFetcher
+    return driveFetcher.file(with: fileID)
       .map { file -> Int64 in
         guard let file = file else {
           sjlog_error("Unable to find the experiment on Drive (id = \(experiment.experimentID))",
@@ -479,7 +479,7 @@ private extension ArduinoSyncManager {
         guard let fileID = fileID else {
           sjlog_debug("Creating experiment on Drive (id = \(experiment.experimentID))",
                       category: .drive)
-          return driveManager.uploadMultipart(from: url,
+          return driveFetcher.uploadMultipart(from: url,
                                               mimeType: "application/zip",
                                               to: folderID,
                                               appProperties: appProperties)
@@ -487,7 +487,7 @@ private extension ArduinoSyncManager {
         }
         sjlog_debug("Updating experiment on Drive (id = \(experiment.experimentID))",
                     category: .drive)
-        return driveManager.updateMultipart(from: url,
+        return driveFetcher.updateMultipart(from: url,
                                             mimeType: "application/zip",
                                             to: fileID,
                                             appProperties: appProperties)
@@ -526,7 +526,7 @@ private extension ArduinoSyncManager {
       return .error(ArduinoSyncManagerError.missingFileID)
     }
     
-    return driveManager.deleteFile(with: fileID)
+    return driveFetcher.deleteFile(with: fileID)
       .do(onNext: { _ in
         cleanup()
       })
@@ -558,8 +558,12 @@ private extension ArduinoSyncManager {
       title = String(name.dropLast(3))
     }
     
-    return driveManager.download(file)
-      .flatMap { [unowned self] in importExperiment($0, experimentID: experimentID, title: title) }
+    let lastUsedDate = file.modifiedTime?.date
+    
+    return driveFetcher.download(file)
+      .flatMap { [unowned self] in
+        importExperiment($0, experimentID: experimentID, title: title, lastUsedDate: lastUsedDate)
+      }
       .observe(on: MainScheduler.instance)
       .do(onNext: { [unowned self] _ in
         metadataManager.experimentLibrary.setFileID(fileID, forExperimentID: experimentID)
@@ -575,7 +579,7 @@ private extension ArduinoSyncManager {
       })
   }
   
-  func importExperiment(_ data: Data, experimentID: String?, title: String?) -> Observable<SyncExperiment> {
+  func importExperiment(_ data: Data, experimentID: String?, title: String?, lastUsedDate: Date?) -> Observable<SyncExperiment> {
     // Importing when the app is recording is not supported.
     guard !RecordingState.isRecording else {
       return .error(ArduinoSyncManagerError.importingDocumentWhileRecording)
@@ -626,8 +630,12 @@ private extension ArduinoSyncManager {
             metadataManager.addImportedExperiment(withID: experimentID)
           } else {
             metadataManager.setExperimentTitle(title, forID: experimentID)
-            metadataManager.saveUserMetadata()
           }
+          if let date = lastUsedDate {
+            metadataManager.setLastUsedDate(date, forExperimentWithID: experimentID)
+          }
+          metadataManager.saveUserMetadata()
+          
           guard let experiment = metadataManager.experimentLibrary.syncExperiment(forID: experimentID) else {
             observer.onError(ArduinoSyncManagerError.importError)
             return

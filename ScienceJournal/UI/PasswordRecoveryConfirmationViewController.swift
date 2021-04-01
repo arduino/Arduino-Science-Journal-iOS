@@ -22,16 +22,16 @@ import UIKit
 class PasswordRecoveryConfirmationViewController: WizardViewController {
 
   let email: String
-  let authenticationManager: AuthenticationManager
+  let accountsManager: AccountsManager
   let completion: () -> Void
   
   private(set) lazy var confirmationView = PasswordRecoveryConfirmationView()
 
   init(email: String,
-       authenticationManager: AuthenticationManager,
+       accountsManager: AccountsManager,
        completion: @escaping () -> Void) {
     self.email = email
-    self.authenticationManager = authenticationManager
+    self.accountsManager = accountsManager
     self.completion = completion
     super.init(nibName: nil, bundle: nil)
   }

@@ -18,115 +18,380 @@
 //  limitations under the License.
 
 import UIKit
-import RxSwift
+import SafariServices
+import AppAuth
 import googlemac_iPhone_Shared_SSOAuth_SSOAuth
 import GTMSessionFetcher
+import GoogleSignIn
 
-public class ArduinoAccount: AuthAccount {
-  public var ID: String
-  public var email: String
-  public var displayName: String
-  public var profileImage: UIImage?
-  public var isShareRestricted: Bool
-  public var authorization: GTMFetcherAuthorizationProtocol?
+final class ArduinoAccountsManager: NSObject, AccountsManager {
   
-  init(ID: String,
-       email: String,
-       displayName: String,
-       profileImage: UIImage?,
-       isShareRestricted: Bool,
-       authorization: GTMFetcherAuthorizationProtocol?) {
+  public enum Provider: String {
+    case github
+    case google = "google-oauth2"
+    case apple
+  }
   
-    self.ID = ID
-    self.email = email
-    self.displayName = displayName
-    self.profileImage = profileImage
-    self.isShareRestricted = isShareRestricted
-    self.authorization = authorization
+  let devicePreferenceManager: DevicePreferenceManager
+  let urlSession: URLSession
+  
+  weak var delegate: AccountsManagerDelegate?
+  var supportsAccounts: Bool { true }
+  private(set) var currentAccount: AuthAccount? {
+    didSet {
+      restoreDriveSyncIfNeeded()
+    }
+  }
+  
+  private var host: String { Constants.ArduinoSignIn.host }
+  private var clientId: String { Constants.ArduinoSignIn.clientId }
+  private var redirectUri: String { Constants.ArduinoSignIn.redirectUri }
+  private var codeChallenge: String?
+  private var state: String?
+  
+  private var authenticationHandler:((Result<ArduinoAccount, SignInError>) -> Void)?
+  private var googleHandler:((Result<GIDGoogleUser, Error>) -> Void)?
+  
+  init(googleClientID: String = Bundle.googleClientID,
+       googleScopes: [String] = Constants.GoogleSignInScopes.drive,
+       devicePreferenceManager: DevicePreferenceManager = DevicePreferenceManager(),
+       urlSession: URLSession = .shared) {
+    self.devicePreferenceManager = devicePreferenceManager
+    self.urlSession = urlSession
+    super.init()
+    GIDSignIn.sharedInstance()?.clientID = googleClientID
+    GIDSignIn.sharedInstance()?.scopes = googleScopes
+    GIDSignIn.sharedInstance()?.delegate = self
   }
 }
 
-final class ArduinoAccountsManager: AccountsManager {
-  
-  let authenticationManager: AuthenticationManager
-  
-  weak var delegate: AccountsManagerDelegate?
-  
-  var supportsAccounts: Bool { true }
-  
-  var currentAccount: AuthAccount? {
-    guard let user = authenticationManager.authenticatedUser else {
-      return nil
-    }
-    
-    let account = ArduinoAccount(ID: user.googleUser.userID,
-                                 email: user.googleUser.profile.email,
-                                 displayName: user.googleUser.profile.name,
-                                 profileImage: nil,
-                                 isShareRestricted: false,
-                                 authorization: user.googleUser.authentication.fetcherAuthorizer())
-    return account
-  }
-  
-  private lazy var disposeBag = DisposeBag()
-  
-  init(authenticationManager: AuthenticationManager) {
-    self.authenticationManager = authenticationManager
-  }
-  
-  func signInAsCurrentAccount() {
-    authenticationManager.restorePreviousSignIn { [weak self] result in
-      switch result {
-      case .success:
-        self?.delegate?.accountsManagerDidSignIn(signInType: .restoreCachedAccount)
-      case .failure:
-        self?.delegate?.accountsManagerDidSignOut()
-      }
-    }
-  }
-  
-  func signOutCurrentAccount() {
-    NotificationCenter.default.post(name: .userWillBeSignedOut, object: self)
-    try? authenticationManager.signOut(from: .google)
-    delegate?.accountsManagerDidSignOut()
-  }
-  
+// MARK:- AccountsManager
+extension ArduinoAccountsManager {
   func presentSignIn(fromViewController viewController: UIViewController) {
     presentSignIn(from: viewController)
   }
   
+  func signInAsCurrentAccount() {
+    guard let account = devicePreferenceManager.savedAccount else {
+      delegate?.accountsManagerDidSignOut()
+      return
+    }
+    
+    currentAccount = account
+    delegate?.accountsManagerDidSignIn(signInType: .restoreCachedAccount)
+  }
+  
+  func signOutCurrentAccount() {
+    NotificationCenter.default.post(name: .userWillBeSignedOut, object: self)
+    devicePreferenceManager.savedAccount = nil
+    currentAccount = nil
+    delegate?.accountsManagerDidSignOut()
+  }
+  
   func reauthenticateCurrentAccount() -> Bool {
-    return false
+    // as we don't call any API after authentication
+    // there's no need to refresh a token eventually
+    return currentAccount != nil
   }
   
   func removeLingeringAccounts() {
     
   }
+  
+  func handle(redirectURL url: URL) -> Bool {
+    guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+      return false
+    }
+    
+    guard url.absoluteString.hasPrefix(redirectUri) else {
+      return false
+    }
+    
+    guard let code = components.queryItems?.first(where: { $0.name == "code" })?.value else {
+      complete(with: .failure(.notAuthenticated))
+      return true
+    }
+    
+    guard let codeChallenge = codeChallenge else {
+      complete(with: .failure(.notAuthenticated))
+      return true
+    }
+    
+    guard let state = components.queryItems?.first(where: { $0.name == "state" })?.value, state == self.state else {
+      complete(with: .failure(.notAuthenticated))
+      return true
+    }
+    
+    exchange(code: code, codeChallenge: codeChallenge)
+    return true
+  }
+  
+  func setupDriveSync(fromViewController viewController: UIViewController) {
+    setupDriveSync(from: viewController)
+  }
+  
+  func signInWithGoogle(fromViewController viewController: UIViewController,
+                        completion: @escaping (Result<GIDGoogleUser, Error>) -> Void) {
+    guard googleHandler == nil else {
+      completion(.failure(SignInError.alreadyAuthenticating))
+      return
+    }
+    
+    googleHandler = completion
+    GIDSignIn.sharedInstance()?.presentingViewController = viewController
+    GIDSignIn.sharedInstance()?.signIn()
+  }
+  
+  func enableDriveSync(with user: GIDGoogleUser, folderID: String) {
+    guard let account = currentAccount else { return }
+    guard let authorization = user.authentication.fetcherAuthorizer() else { return }
+    
+    currentAccount?.authorization = authorization
+    
+    let preferenceManager = PreferenceManager(accountID: account.ID)
+    preferenceManager.driveSyncUserID = user.userID
+    preferenceManager.driveSyncFolderID = folderID
+    
+    delegate?.accountsManagerDidCompleteDriveSyncSetup(with: authorization)
+  }
 }
 
-private extension ArduinoAccountsManager {
-  func presentSignIn(from viewController: UIViewController, completion: (() -> Void)? = nil) {
-    guard let wizardViewController = UIStoryboard(name: "Wizard", bundle: nil).instantiateInitialViewController()
-            as? WizardRootViewController else { return }
-    wizardViewController.initialViewController = SignInIntroViewController(authenticationManager: authenticationManager)
-    wizardViewController.onDismiss = { [weak self] wizard, isCancelled in
-      wizard.dismiss(animated: true, completion: nil)
-      if !isCancelled {
-        self?.delegate?.accountsManagerDidSignIn(signInType: .newSignIn)
+// MARK:- SSO
+extension ArduinoAccountsManager {
+  func signIn(with provider: Provider,
+              from presentingViewController: UIViewController,
+              completion: @escaping (Result<ArduinoAccount, SignInError>) -> Void) {
+    
+    guard var url = URL(string: "https://\(host)") else {
+      return
+    }
+    
+    url.appendPathComponent("authorize")
+    
+    let codeChallenge = randomString(length: 64)
+    let state = randomString(length: 32)
+    let parameters: [String: String] = [
+      "client_id": clientId,
+      "audience": "https://api.arduino.cc",
+      "scope": "openid profile email offline_access",
+      "response_type": "code",
+      "redirect_uri": redirectUri,
+      "state": state,
+      "code_challenge_method": "S256",
+      "code_challenge": OIDTokenUtilities.encodeBase64urlNoPadding(OIDTokenUtilities.sha256(codeChallenge)),
+      "connection": provider.rawValue
+    ]
+    
+    var queryItems = [URLQueryItem]()
+    for (key, value) in parameters {
+        queryItems.append(URLQueryItem(name: key, value: value))
+    }
+    
+    guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+      return
+    }
+    urlComponents.queryItems = queryItems
+    
+    guard let requestURL = urlComponents.url else {
+      return
+    }
+    
+    let safariViewController = SFSafariViewController(url: requestURL)
+    presentingViewController.present(safariViewController, animated: true) { [weak self] in
+      self?.codeChallenge = codeChallenge
+      self?.state = state
+    }
+    
+    let delegate = self.delegate
+    authenticationHandler = { result in
+      if safariViewController.presentationController != nil {
+        safariViewController.dismiss(animated: true) {
+          completion(result)
+          
+          switch result {
+          case .success(let account):
+            self.devicePreferenceManager.savedAccount = account
+            self.currentAccount = account
+            delegate?.accountsManagerDidSignIn(signInType: .newSignIn)
+          case .failure: delegate?.accountsManagerDidSignOut()
+          }
+        }
+      } else {
+        completion(result)
       }
     }
-    if viewController.traitCollection.userInterfaceIdiom == .pad {
+  }
+}
+
+// MARK:- Helpers
+private extension ArduinoAccountsManager {
+  func restoreDriveSyncIfNeeded() {
+    guard let account = currentAccount else { return }
+    guard account.authorization == nil else { return }
+    
+    let preferenceManager = PreferenceManager(accountID: account.ID)
+    
+    guard preferenceManager.driveSyncUserID != nil else { return }
+    
+    restoreGooglePreviousSignIn()
+  }
+  
+  func restoreGooglePreviousSignIn() {
+    guard let googleSignIn = GIDSignIn.sharedInstance() else {
+      return
+    }
+    guard googleSignIn.hasPreviousSignIn() else {
+      delegate?.accountsManagerDidFailDriveSyncSetup(with: SignInError.notAuthenticated)
+      return
+    }
+    googleSignIn.restorePreviousSignIn()
+  }
+}
+
+// MARK:- GIDSignInDelegate
+extension ArduinoAccountsManager: GIDSignInDelegate {  
+  func sign(_ signIn: GIDSignIn!,
+            didSignInFor user: GIDGoogleUser!,
+            withError error: Error!) {
+    if let handler = googleHandler {
+      googleHandler = nil
+      if let error = error {
+        handler(.failure(error))
+      } else if let user = user {
+        handler(.success(user))
+      } else {
+        handler(.failure(SignInError.notAuthenticated))
+      }
+      return
+    }
+    
+    guard let account = currentAccount else { return }
+    
+    let preferenceManager = PreferenceManager(accountID: account.ID)
+    
+    guard let userID = preferenceManager.driveSyncUserID else { return }
+    
+    if let authorization = user.authentication.fetcherAuthorizer(), userID == user.userID {
+      delegate?.accountsManagerDidCompleteDriveSyncSetup(with: authorization)
+    } else {
+      delegate?.accountsManagerDidFailDriveSyncSetup(with: error ?? SignInError.notAuthenticated)
+    }
+  }
+
+  func sign(_ signIn: GIDSignIn!,
+            didDisconnectWith user: GIDGoogleUser!,
+            withError error: Error!) {
+    
+  }
+}
+
+// MARK:- APIs
+private extension ArduinoAccountsManager {
+  func exchange(code: String, codeChallenge: String) {
+    let data: [String: String] = [
+      "client_id": clientId,
+      "grant_type": "authorization_code",
+      "code": code,
+      "code_verifier": codeChallenge,
+      "redirect_uri": redirectUri
+    ]
+    
+    guard let request = URLRequest.post(host: host, path: "/oauth/token", data: data) else {
+      complete(with: .failure(.notAuthenticated))
+      return
+    }
+    
+    urlSession.dataTask(with: request) { [weak self] data, _, error in
+      guard let self = self else { return }
+      
+      DispatchQueue.main.async {
+        if let error = error {
+          self.complete(with: .failure(.networkError(error)))
+          return
+        }
+        
+        guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+          self.complete(with: .failure(.badResponse))
+          return
+        }
+        
+        guard let token = json["id_token"] as? String else {
+          self.complete(with: .failure(.badResponse))
+          return
+        }
+        
+        guard let jwt = JWT(token: token), let account = ArduinoAccount(jwt: jwt, type: .adult) else {
+          self.complete(with: .failure(.badResponse))
+          return
+        }
+        
+        self.complete(with: .success(account))
+      }
+    }.resume()
+  }
+  
+  func complete(with result: Result<ArduinoAccount, SignInError>) {
+    codeChallenge = nil
+    state = nil
+    
+    if let handler = authenticationHandler {
+      handler(result)
+      authenticationHandler = nil
+    }
+  }
+  
+  func randomString(length: Int) -> String {
+    let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    return String((0..<length).map { _ in chars.randomElement()! })
+  }
+}
+
+// MARK:- UI
+private extension ArduinoAccountsManager {
+  func presentSignIn(from viewController: UIViewController, completion: (() -> Void)? = nil) {
+    guard currentAccount == nil else { return }
+    
+    presentWizard(with: SignInIntroViewController(accountsManager: self),
+                  from: viewController) { wizard, _ in
+      wizard.dismiss(animated: true, completion: nil)
+    }
+  }
+  
+  func setupDriveSync(from viewController: UIViewController, completion: (() -> Void)? = nil) {
+    guard let account = currentAccount, account.supportsDriveSync else { return }
+    
+    presentWizard(with: DriveSyncIntroViewController(accountsManager: self),
+                  from: viewController) { [weak self] wizard, isCancelled in
+      if isCancelled {
+        self?.delegate?.accountsManagerDidSkipDriveSyncSetup()
+      }
+      
+      wizard.dismiss(animated: true, completion: nil)
+    }
+  }
+  
+  func presentWizard(with initialViewController: UIViewController,
+                     from presentingViewController: UIViewController,
+                     onDismiss: @escaping (_ wizard: WizardRootViewController, _ isCancelled: Bool) -> Void) {
+    
+    guard let wizardViewController = UIStoryboard(name: "Wizard", bundle: nil).instantiateInitialViewController()
+            as? WizardRootViewController else { return }
+    
+    wizardViewController.initialViewController = initialViewController
+    wizardViewController.onDismiss = onDismiss
+    
+    if presentingViewController.traitCollection.userInterfaceIdiom == .pad {
       wizardViewController.modalPresentationStyle = .formSheet
     } else {
       wizardViewController.modalPresentationStyle = .fullScreen
     }
     
-    if let presentedViewController = viewController.presentedViewController {
+    if let presentedViewController = presentingViewController.presentedViewController {
       presentedViewController.dismiss(animated: true) {
-        viewController.present(wizardViewController, animated: true, completion: nil)
+        presentingViewController.present(wizardViewController, animated: true, completion: nil)
       }
     } else {
-      viewController.present(wizardViewController, animated: true, completion: nil)
+      presentingViewController.present(wizardViewController, animated: true, completion: nil)
     }
   }
 }

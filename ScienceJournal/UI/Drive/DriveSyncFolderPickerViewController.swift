@@ -18,13 +18,16 @@
 //  limitations under the License.
 
 import UIKit
-import RxSwift
 import MaterialComponents
+import RxSwift
+import GoogleSignIn
+import GoogleAPIClientForREST
 
 class DriveSyncFolderPickerViewController: WizardViewController {
 
-  let driveManager: DriveManager
-  let preferenceManager: PreferenceManager
+  let driveFetcher: DriveFetcher
+  let user: GIDGoogleUser
+  let accountsManager: AccountsManager
   
   let selectButton = WizardButton(title: String.driveSyncFolderPickerSelect, isSolid: true)
 
@@ -37,9 +40,19 @@ class DriveSyncFolderPickerViewController: WizardViewController {
   
   private lazy var disposeBag = DisposeBag()
   
-  init(driveManager: DriveManager, preferenceManager: PreferenceManager) {
-    self.driveManager = driveManager
-    self.preferenceManager = preferenceManager
+  init(user: GIDGoogleUser, accountsManager: AccountsManager) {
+    guard let authorizer = user.authentication.fetcherAuthorizer() else {
+      fatalError("Missing authentication in GIDGoogleUser")
+    }
+
+    let service = GTLRDriveService()
+    service.authorizer = authorizer
+    service.shouldFetchNextPages = true
+
+    self.driveFetcher = DriveFetcher(service: service)
+    self.user = user
+    self.accountsManager = accountsManager
+    
     super.init(nibName: nil, bundle: nil)
   }
 
@@ -91,7 +104,7 @@ class DriveSyncFolderPickerViewController: WizardViewController {
     pageViewController.didMove(toParent: self)
 
     pageViewController.setViewControllers([
-      DriveSyncFolderListTableViewController(driveManager: driveManager, folder: nil, selectButton: selectButton)
+      DriveSyncFolderListTableViewController(driveFetcher: driveFetcher, folder: nil, selectButton: selectButton)
     ], direction: .forward, animated: false, completion: nil)
   }
   
@@ -106,7 +119,7 @@ class DriveSyncFolderPickerViewController: WizardViewController {
     }
     
     pageViewController.setViewControllers([
-      DriveSyncFolderListTableViewController(driveManager: driveManager,
+      DriveSyncFolderListTableViewController(driveFetcher: driveFetcher,
                                              folder: folder.parent,
                                              selectButton: selectButton)
     ], direction: .reverse, animated: true, completion: nil)
@@ -135,12 +148,12 @@ class DriveSyncFolderPickerViewController: WizardViewController {
     let folder = folderViewController.folder
     
     folderViewController.startLoading()
-    driveManager.createFolder(named: folderName, in: folder)
+    driveFetcher.createFolder(named: folderName, in: folder)
       .observe(on: MainScheduler.instance)
       .subscribe { folder in
         folderViewController.add(folder)
       } onError: { _ in
-        
+        // TODO: show error
       } onDisposed: {
         folderViewController.stopLoading()
       }
@@ -157,13 +170,9 @@ class DriveSyncFolderPickerViewController: WizardViewController {
       return
     }
     
-    guard let userID = driveManager.service.authorizer?.userEmail else {
-      return
-    }
-    
-    let viewController = DriveSyncSummaryViewController(userID: userID,
+    let viewController = DriveSyncSummaryViewController(user: user,
                                                         folder: selectedFolder,
-                                                        preferenceManager: preferenceManager)
+                                                        accountsManager: accountsManager)
     show(viewController, sender: nil)
   }
 }

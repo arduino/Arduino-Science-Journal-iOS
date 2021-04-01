@@ -22,12 +22,12 @@ import MaterialComponents.MaterialSnackbar
 
 class SignUpBirthdateViewController: WizardViewController {
 
-  let authenticationManager: AuthenticationManager
+  let accountsManager: ArduinoAccountsManager
   
   private(set) lazy var birthdateView = SignUpBirthdateView()
 
-  init(authenticationManager: AuthenticationManager) {
-    self.authenticationManager = authenticationManager
+  init(accountsManager: ArduinoAccountsManager) {
+    self.accountsManager = accountsManager
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -63,7 +63,7 @@ class SignUpBirthdateViewController: WizardViewController {
     if age < 14 {
       
     } else {
-      let viewController = SignUpViewController(authenticationManager: authenticationManager,
+      let viewController = SignUpViewController(accountsManager: accountsManager,
                                                 isAdult: age >= 16)
       show(viewController, sender: nil)
     }

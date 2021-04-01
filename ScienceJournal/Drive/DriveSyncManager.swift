@@ -67,14 +67,8 @@ public protocol DriveSyncManager: class {
   /// A delegate that will be informed when Drive Sync changes data.
   var delegate: DriveSyncManagerDelegate? { get set }
 
-  /// Syncs the experiment library and uploads new experiments. Also optionally reconciles the
-  /// the new library which includes syncing dirty experiments and downloading experiments missing
-  /// locally.
-  ///
-  /// - Parameters:
-  ///   - shouldReconcile: Whether to sync dirty experiments and download missing experiments.
-  ///   - userInitiated: Whether this sync call was user initiated.
-  func syncExperimentLibrary(andReconcile shouldReconcile: Bool, userInitiated: Bool)
+  /// Syncs the experiment library and uploads new experiments.
+  func syncExperimentLibrary()
 
   /// Syncs one experiment.
   ///

@@ -21,13 +21,13 @@ import UIKit
 
 class SignInViewController: WizardViewController {
 
-  let authenticationManager: AuthenticationManager
+  let accountsManager: ArduinoAccountsManager
   let isJunior: Bool
   
   private(set) lazy var signInView = SignInView(hasSingleSignOn: !isJunior)
 
-  init(authenticationManager: AuthenticationManager, isJunior: Bool) {
-    self.authenticationManager = authenticationManager
+  init(accountsManager: ArduinoAccountsManager, isJunior: Bool) {
+    self.accountsManager = accountsManager
     self.isJunior = isJunior
     super.init(nibName: nil, bundle: nil)
   }
@@ -44,14 +44,36 @@ class SignInViewController: WizardViewController {
     signInView.passwordRecoveryButton.addTarget(self,
                                                 action: #selector(recoverPassword(_:)),
                                                 for: .touchUpInside)
+    
+    signInView.socialView.githubButton.addTarget(self, action: #selector(signInWithGitHub(_:)), for: .touchUpInside)
+    signInView.socialView.googleButton.addTarget(self, action: #selector(signInWithGoogle(_:)), for: .touchUpInside)
+    signInView.socialView.appleButton.addTarget(self, action: #selector(signInWithApple(_:)), for: .touchUpInside)
   }
   
   @objc private func recoverPassword(_ sender: UIButton) {
-    let viewController = PasswordRecoveryViewController(authenticationManager: authenticationManager) { [weak self] in
+    let viewController = PasswordRecoveryViewController(accountsManager: accountsManager) { [weak self] in
       guard let self = self else { return }
       self.navigationController?.popToViewController(self, animated: true)
     }
     show(viewController, sender: nil)
   }
 
+  @objc private func signInWithGitHub(_ sender: UIButton) {
+    accountsManager.signIn(with: .github, from: self, completion: completeWithResult)
+  }
+  
+  @objc private func signInWithGoogle(_ sender: UIButton) {
+    accountsManager.signIn(with: .google, from: self, completion: completeWithResult)
+  }
+  
+  @objc private func signInWithApple(_ sender: UIButton) {
+    accountsManager.signIn(with: .apple, from: self, completion: completeWithResult)
+  }
+  
+  private func completeWithResult(_ result: Result<ArduinoAccount, SignInError>) {
+    switch result {
+    case .success: rootViewController?.close(isCancelled: false)
+    case .failure: break
+    }
+  }
 }

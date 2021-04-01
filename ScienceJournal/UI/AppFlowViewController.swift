@@ -18,6 +18,9 @@ import UIKit
 
 import MaterialComponents.MaterialDialogs
 
+import googlemac_iPhone_Shared_SSOAuth_SSOAuth
+import GTMSessionFetcher
+
 /// The primary view controller for Science Journal which owns the navigation controller and manages
 /// all other flows and view controllers.
 class AppFlowViewController: UIViewController {
@@ -203,7 +206,9 @@ class AppFlowViewController: UIViewController {
         userManager: accountUserManager)
     accountUserFlow.delegate = self
     userFlowViewController = accountUserFlow
-    transitionToViewControllerModally(accountUserFlow)
+    transitionToViewControllerModally(accountUserFlow) { [weak self] in
+      self?.setupDriveSyncIfNeeded()
+    }
 
     // Set to false now so we don't accidently cache true and show it again when we don't want to.
     shouldShowPreferenceMigrationMessage = false
@@ -231,14 +236,40 @@ class AppFlowViewController: UIViewController {
   /// - Parameter url: A file URL.
   /// - Returns: True if the URL can be handled, otherwise false.
   func handleImportURL(_ url: URL) -> Bool {
+    if accountsManager.handle(redirectURL: url) {
+      return true
+    }
+    
     guard let userFlowViewController = userFlowViewController else {
       showSnackbar(withMessage: String.importSignInError)
       return false
     }
+    
     return userFlowViewController.handleImportURL(url)
   }
 
   // MARK: - Private
+  
+  private func setupDriveSyncIfNeeded() {
+    guard let userManager = currentAccountUserManager else {
+      return
+    }
+    
+    guard userManager.account.supportsDriveSync else {
+      return
+    }
+    
+    guard userManager.preferenceManager.driveSyncUserID == nil ||
+            userManager.preferenceManager.driveSyncFolderID == nil else {
+      return
+    }
+    
+    guard !userManager.preferenceManager.driveSyncSetupSkipped else {
+      return
+    }
+    
+    accountsManager.setupDriveSync(fromViewController: self)
+  }
 
   private func handlePermissionDenial() {
     // Remove the current account and force the user to sign in.
@@ -378,6 +409,21 @@ extension AppFlowViewController: AccountsManagerDelegate {
   func accountsManagerDidSignOut() {
     tearDownCurrentUser()
     reloadUserFlowViewController()
+  }
+  
+  func accountsManagerDidSkipDriveSyncSetup() {
+    currentAccountUserManager?.preferenceManager.driveSyncSetupSkipped = true
+  }
+  
+  func accountsManagerDidCompleteDriveSyncSetup(with authorization: GTMFetcherAuthorizationProtocol) {
+    currentAccountUserManager?.driveSyncAuthorization = authorization
+    userFlowViewController?.driveSyncManager = currentAccountUserManager?.driveSyncManager
+  }
+  
+  func accountsManagerDidFailDriveSyncSetup(with error: Error) {
+    currentAccountUserManager?.driveSyncAuthorization = nil
+    userFlowViewController?.driveSyncManager = nil
+    accountsManager.setupDriveSync(fromViewController: self)
   }
 }
 

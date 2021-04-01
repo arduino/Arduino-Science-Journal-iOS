@@ -29,9 +29,11 @@ class DevicePreferenceManager {
     static let hasAUserCompletedPermissionsGuideKey =
         "GSJ_HasUserCompletedPermissionsGuide"
     static let hasAUserViewedOnboardingGuideKey =
-      "GSJ_HasUserViewedOnboarding"
+        "GSJ_HasUserViewedOnboarding"
     static let fileSystemLayoutVersion =
         "GSJ_FileSystemLayoutVersion"
+    static let savedAccount =
+        "ASJ_SavedAccount"
   }
 
   // MARK: - Properties
@@ -78,6 +80,21 @@ class DevicePreferenceManager {
     }
     set {
       defaults.set(newValue.rawValue, forKey: Keys.fileSystemLayoutVersion)
+      defaults.synchronize()
+    }
+  }
+  
+  /// The authenticated user.
+  var savedAccount: ArduinoAccount? {
+    get {
+      guard let data = defaults.object(forKey: Keys.savedAccount) as? Data else {
+        return nil
+      }
+      let savedAccount = try? JSONDecoder().decode(ArduinoAccount.self, from: data)
+      return savedAccount
+    }
+    set {
+      defaults.set(try? JSONEncoder().encode(newValue), forKey: Keys.savedAccount)
       defaults.synchronize()
     }
   }

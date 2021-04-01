@@ -46,6 +46,14 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
   /// The settings view controller.
   weak var settingsVC: SettingsViewController?
+  
+  var driveSyncManager: DriveSyncManager? {
+    didSet {
+      oldValue?.delegate = nil
+      driveSyncManager?.delegate = self
+      experimentsListVC?.shouldAllowManualSync = driveSyncManager != nil
+    }
+  }
 
   private let accountsManager: AccountsManager
   private lazy var _actionAreaController = ActionArea.Controller()
@@ -69,7 +77,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
   private let sensorController: SensorController
   private let sensorDataManager: SensorDataManager
   private let sidebar: SidebarViewController
-  private let userManager: UserManager
+  private let exportType: UserExportType
   private weak var trialDetailVC: TrialDetailViewController?
   private weak var noteDetailController: NoteDetailController?
   private var importSpinnerVC: SpinnerViewController?
@@ -145,7 +153,8 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     self.networkAvailability = networkAvailability
     self.sensorController = sensorController
     self.shouldShowPreferenceMigrationMessage = shouldShowPreferenceMigrationMessage
-    self.userManager = userManager
+    self.exportType = userManager.exportType
+    self.driveSyncManager = userManager.driveSyncManager
     self.documentManager = userManager.documentManager
     self.metadataManager = userManager.metadataManager
     self.preferenceManager = userManager.preferenceManager
@@ -165,7 +174,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     metadataManager.registerBluetoothSensors()
 
     // Get updates for changes based on Drive sync.
-    userManager.driveSyncManager?.delegate = self
+    driveSyncManager?.delegate = self
 
     exportCoordinator.delegate = self
   }
@@ -376,7 +385,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       present(aboutNavController, animated: true)
     case .settings:
       let settingsVC = SettingsViewController(analyticsReporter: analyticsReporter,
-                                              driveSyncManager: userManager.driveSyncManager,
+                                              driveSyncManager: driveSyncManager,
                                               preferenceManager: preferenceManager)
       if UIDevice.current.userInterfaceIdiom == .pad {
         // iPad should present modally.
@@ -421,7 +430,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
   }
 
   func experimentsListManualSync() {
-    userManager.driveSyncManager?.syncExperimentLibrary(andReconcile: true, userInitiated: true)
+    driveSyncManager?.syncExperimentLibrary()
   }
 
   func experimentsListShowExperiment(withID experimentID: String) {
@@ -449,11 +458,11 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
   func experimentsListDeleteExperimentCompleted(_ deletedExperiment: DeletedExperiment) {
     experimentStateManager.confirmDeletion(for: deletedExperiment)
-    userManager.driveSyncManager?.deleteExperiment(withID: deletedExperiment.experimentID)
+    driveSyncManager?.deleteExperiment(withID: deletedExperiment.experimentID)
   }
 
   func experimentsListDidAppear() {
-    userManager.driveSyncManager?.syncExperimentLibrary(andReconcile: true, userInitiated: false)
+    driveSyncManager?.syncExperimentLibrary()
     showPreferenceMigrationMessageIfNeeded()
   }
 
@@ -462,7 +471,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       openExperimentUpdateManager?.setTitle(title)
     } else {
       metadataManager.setExperimentTitle(title, forID: experimentID)
-      userManager.driveSyncManager?.syncExperiment(withID: experimentID, condition: .onlyIfDirty)
+      driveSyncManager?.syncExperiment(withID: experimentID, condition: .onlyIfDirty)
     }
   }
 
@@ -533,7 +542,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
         TrialDetailViewController(trial: trial,
                                   experiment: experiment,
                                   experimentInteractionOptions: experimentInteractionOptions,
-                                  exportType: userManager.exportType,
+                                  exportType: exportType,
                                   delegate: self,
                                   itemDelegate: self,
                                   analyticsReporter: analyticsReporter,
@@ -574,12 +583,12 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     // Delete trial data from Drive.
     let recordingURL =
         metadataManager.recordingURL(forTrialID: trial.ID, experimentID: experiment.ID)
-    userManager.driveSyncManager?.deleteSensorDataAsset(atURL: recordingURL,
-                                                        experimentID: experiment.ID)
+    driveSyncManager?.deleteSensorDataAsset(atURL: recordingURL,
+                                            experimentID: experiment.ID)
 
     // Delete trial image assets from Drive.
     let imageURLs = trial.allImagePaths.map { return URL(fileURLWithPath: $0) }
-    userManager.driveSyncManager?.deleteImageAssets(atURLs: imageURLs, experimentID: experiment.ID)
+    driveSyncManager?.deleteImageAssets(atURLs: imageURLs, experimentID: experiment.ID)
   }
 
   func experimentViewControllerShouldPermanentlyDeleteTrial(_ trial: Trial,
@@ -735,8 +744,8 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       return
     }
 
-    userManager.driveSyncManager?.deleteImageAssets(
-        atURLs: [URL(fileURLWithPath: pictureNoteFilePath)], experimentID: experiment.ID)
+    driveSyncManager?.deleteImageAssets(
+      atURLs: [URL(fileURLWithPath: pictureNoteFilePath)], experimentID: experiment.ID)
   }
 
   // MARK: - Private
@@ -766,8 +775,8 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
                                       preferenceManager: preferenceManager,
                                       sensorDataManager: sensorDataManager,
                                       documentManager: documentManager,
-                                      exportType: userManager.exportType,
-                                      shouldAllowManualSync: userManager.isDriveSyncEnabled)
+                                      exportType: exportType,
+                                      shouldAllowManualSync: driveSyncManager != nil)
     experimentsListVC.delegate = self
 
     // Add as listeners for experiment state changes.
@@ -785,7 +794,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     let experimentCoordinatorVC = ExperimentCoordinatorViewController(
       experiment: experiment,
       experimentInteractionOptions: .readOnly,
-      exportType: userManager.exportType,
+      exportType: exportType,
       drawerViewController: nil,
       analyticsReporter: analyticsReporter,
       metadataManager: metadataManager,
@@ -832,7 +841,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     let experimentCoordinatorVC = ExperimentCoordinatorViewController(
         experiment: experiment,
         experimentInteractionOptions: experimentInteractionOptions,
-        exportType: userManager.exportType,
+        exportType: exportType,
         drawerViewController: drawerVC,
         analyticsReporter: analyticsReporter,
         metadataManager: metadataManager,
@@ -867,7 +876,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     metadataManager.markExperimentOpened(withID: experiment.ID)
 
     // Tell drive manager to sync the experiment.
-    userManager.driveSyncManager?.syncExperiment(withID: experiment.ID, condition: .always)
+    driveSyncManager?.syncExperiment(withID: experiment.ID, condition: .always)
 
     // This is a good time to generate any missing recording protos.
     userAssetManager.writeMissingSensorDataProtos(forExperiment: experiment)
@@ -1047,7 +1056,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       viewController =
           PictureDetailViewController(displayPicture: displayPicture,
                                       experimentInteractionOptions: experimentInteractionOptions,
-                                      exportType: userManager.exportType,
+                                      exportType: exportType,
                                       delegate: self,
                                       jumpToCaption: jumpToCaption,
                                       analyticsReporter: analyticsReporter,
@@ -1116,7 +1125,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
   private func createDefaultExperimentIfNecessary() {
     guard !self.preferenceManager.defaultExperimentWasCreated else { return }
 
-    guard let driveSyncManager = userManager.driveSyncManager else {
+    guard let driveSyncManager = driveSyncManager else {
       // If there is no Drive sync manager, create the default experiment if it has not been
       // created yet.
       metadataManager.createDefaultExperimentIfNecessary()
@@ -1139,8 +1148,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
           // the default experiment.
           if libraryExists == false {
             self.metadataManager.createDefaultExperimentIfNecessary()
-            self.userManager.driveSyncManager?.syncExperimentLibrary(andReconcile: false,
-                                                                     userInitiated: false)
+            self.driveSyncManager?.syncExperimentLibrary()
 
             DispatchQueue.main.async {
               if let spinnerVC = spinnerVC {
@@ -1247,7 +1255,7 @@ extension UserFlowViewController: TrialDetailViewControllerDelegate {
       return
     }
 
-    userManager.driveSyncManager?.deleteImageAssets(
+    driveSyncManager?.deleteImageAssets(
         atURLs: [URL(fileURLWithPath: pictureNoteFilePath)], experimentID: experiment.ID)
   }
 
@@ -1365,13 +1373,13 @@ extension UserFlowViewController: DriveSyncManagerDelegate {
 extension UserFlowViewController: ExperimentUpdateManagerDelegate {
 
   func experimentUpdateManagerDidSaveExperiment(withID experimentID: String) {
-    userManager.driveSyncManager?.syncExperiment(withID: experimentID, condition: .onlyIfDirty)
+    driveSyncManager?.syncExperiment(withID: experimentID, condition: .onlyIfDirty)
   }
 
   func experimentUpdateManagerDidDeleteCoverImageAsset(withPath assetPath: String,
                                                        experimentID: String) {
-    userManager.driveSyncManager?.deleteImageAssets(atURLs: [URL(fileURLWithPath: assetPath)],
-                                                    experimentID: experimentID)
+    driveSyncManager?.deleteImageAssets(atURLs: [URL(fileURLWithPath: assetPath)],
+                                        experimentID: experimentID)
   }
 
 }
@@ -1382,15 +1390,15 @@ extension UserFlowViewController: ExperimentStateListener {
   func experimentStateArchiveStateChanged(forExperiment experiment: Experiment,
                                           overview: ExperimentOverview,
                                           undoBlock: @escaping () -> Void) {
-    userManager.driveSyncManager?.syncExperimentLibrary(andReconcile: true, userInitiated: false)
+    driveSyncManager?.syncExperimentLibrary()
   }
 
   func experimentStateDeleted(_ deletedExperiment: DeletedExperiment, undoBlock: (() -> Void)?) {
-    userManager.driveSyncManager?.syncExperimentLibrary(andReconcile: true, userInitiated: false)
+    driveSyncManager?.syncExperimentLibrary()
   }
 
   func experimentStateRestored(_ experiment: Experiment, overview: ExperimentOverview) {
-    userManager.driveSyncManager?.syncExperimentLibrary(andReconcile: true, userInitiated: false)
+    driveSyncManager?.syncExperimentLibrary()
   }
 }
 
@@ -1453,7 +1461,7 @@ extension UserFlowViewController {
   }
   
   func handleConflict(of experiment: SyncExperiment, with file: GTLRDrive_File) {
-    guard let driveSyncManager = userManager.driveSyncManager else { return }
+    guard let driveSyncManager = driveSyncManager else { return }
     
     let message = """
     The experiment has been modified from another device.
@@ -1476,7 +1484,9 @@ extension UserFlowViewController {
 extension UserFlowViewController: ClaimExperimentsFlowControllerDelegate {
   func claimExperimentsDidFinish(_ vc: ClaimExperimentsFlowController) {
     experimentsListVC?.refresh()
-    vc.dismiss(animated: true, completion: nil)
+    vc.dismiss(animated: true) { [weak self] in
+      self?.driveSyncManager?.syncExperimentLibrary()
+    }
   }
 }
 

@@ -22,13 +22,13 @@ import RxSwift
 
 class DriveSyncFolderListTableViewController: UITableViewController {
 
-  let driveManager: DriveManager
-  let folder: DriveManager.Folder?
+  let driveFetcher: DriveFetcher
+  let folder: DriveFetcher.Folder?
   let selectButton: UIButton
 
-  var subfolders = [DriveManager.Folder]()
+  var subfolders = [DriveFetcher.Folder]()
   
-  var selectedFolder: DriveManager.Folder? {
+  var selectedFolder: DriveFetcher.Folder? {
     guard let selectedIndexPath = tableView.indexPathForSelectedRow else {
       return nil
     }
@@ -45,8 +45,8 @@ class DriveSyncFolderListTableViewController: UITableViewController {
   
   private lazy var disposeBag = DisposeBag()
 
-  init(driveManager: DriveManager, folder: DriveManager.Folder?, selectButton: UIButton) {
-    self.driveManager = driveManager
+  init(driveFetcher: DriveFetcher, folder: DriveFetcher.Folder?, selectButton: UIButton) {
+    self.driveFetcher = driveFetcher
     self.folder = folder
     self.selectButton = selectButton
     super.init(style: .plain)
@@ -81,7 +81,7 @@ class DriveSyncFolderListTableViewController: UITableViewController {
     fetchFolders()
   }
   
-  func add(_ folder: DriveManager.Folder) {
+  func add(_ folder: DriveFetcher.Folder) {
     tableView.beginUpdates()
     isEmpty.onNext(false)
     subfolders.append(folder)
@@ -105,7 +105,7 @@ class DriveSyncFolderListTableViewController: UITableViewController {
   private func fetchFolders() {
     startLoading()
     
-    driveManager.subfolders(in: folder)
+    driveFetcher.subfolders(in: folder)
       .withUnretained(self)
       .observe(on: MainScheduler.instance)
       .subscribe { owner, folders in
@@ -173,7 +173,7 @@ class DriveSyncFolderListTableViewController: UITableViewController {
   private func showFolder(at indexPath: IndexPath) {
     guard indexPath.row < subfolders.count else { return }
     let folder = subfolders[indexPath.row]
-    let viewController = DriveSyncFolderListTableViewController(driveManager: driveManager,
+    let viewController = DriveSyncFolderListTableViewController(driveFetcher: driveFetcher,
                                                                 folder: folder,
                                                                 selectButton: selectButton)
     show(viewController, sender: nil)

@@ -19,6 +19,12 @@ import Foundation
 /// String constants for common Drive file names.
 public struct Constants {
 
+  public struct ArduinoSignIn {
+    public static let host = "login.oniudra.cc"
+    public static let clientId = "y7mbB8KDw20S4XfXRAKRLgfYT9ao0IPx"
+    public static let redirectUri = "arduino.sj://login.arduino.cc/ios/cc.arduino.sciencejournal/callback"
+  }
+  
   public struct GoogleSignInScopes {
     public static let drive = [
       "https://www.googleapis.com/auth/drive.appdata",

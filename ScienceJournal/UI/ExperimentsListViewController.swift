@@ -114,6 +114,14 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
 
   /// The no connection bar button. Exposed for testing.
   let noConnectionBarButton = MaterialBarButtonItem()
+  
+  var shouldAllowManualSync: Bool {
+    didSet {
+      guard shouldAllowManualSync != oldValue else { return }
+      guard isViewLoaded else { return }
+      configurePullToRefresh()
+    }
+  }
 
   private let accountsManager: AccountsManager
   private let commonUIComponents: CommonUIComponents
@@ -128,7 +136,6 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
   private var pullToRefreshControllerForEmptyView: PullToRefreshController?
   private let sensorDataManager: SensorDataManager
   private let exportType: UserExportType
-  private let shouldAllowManualSync: Bool
   private let snackbarCategoryArchivedExperiment = "snackbarCategoryArchivedExperiment"
   private let snackbarCategoryDeletedExperiment = "snackbarCategoryDeletedExperiment"
   private let preferenceManager: PreferenceManager
@@ -298,34 +305,15 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
                                                 constant: -fabPadding).isActive = true
     createExperimentFAB.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                   constant: -fabPadding).isActive = true
+    
+    // Configure the pull to refresh gesture
+    configurePullToRefresh()
 
     experimentsListItemsViewController.collectionView.contentInset =
         UIEdgeInsets(top: experimentsListItemsViewController.collectionView.contentInset.top,
                      left: 0,
                      bottom: MDCFloatingButton.defaultDimension(),
                      right: 0)
-
-    // Pull to refresh.
-    if shouldAllowManualSync {
-      pullToRefreshController = commonUIComponents.pullToRefreshController(
-          forScrollView: experimentsListItemsViewController.collectionView) { [weak self] in
-        self?.performPullToRefresh()
-      }
-      if pullToRefreshController != nil {
-        // Pull to refresh is not visible when allowing the header to expand past its max height.
-        appBar.headerViewController.headerView.canOverExtend = false
-        // Collection view needs to bounce vertical for pull to refresh.
-        experimentsListItemsViewController.collectionView.alwaysBounceVertical = true
-      }
-      pullToRefreshControllerForEmptyView =
-          commonUIComponents.pullToRefreshController(forScrollView: emptyView) { [weak self] in
-        self?.performPullToRefresh()
-      }
-      if pullToRefreshControllerForEmptyView != nil {
-        // Empty view needs to bounce vertical for pull to refresh.
-        emptyView.alwaysBounceVertical = true
-      }
-    }
 
     // Listen to notifications of newly imported experiments.
     NotificationCenter.default.addObserver(self,
@@ -500,6 +488,33 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
     }
   }
 
+  private func configurePullToRefresh() {
+    if shouldAllowManualSync {
+      pullToRefreshController = commonUIComponents.pullToRefreshController(
+          forScrollView: experimentsListItemsViewController.collectionView) { [weak self] in
+        self?.performPullToRefresh()
+      }
+      if pullToRefreshController != nil {
+        // Pull to refresh is not visible when allowing the header to expand past its max height.
+        appBar.headerViewController.headerView.canOverExtend = false
+        // Collection view needs to bounce vertical for pull to refresh.
+        experimentsListItemsViewController.collectionView.alwaysBounceVertical = true
+      }
+      pullToRefreshControllerForEmptyView =
+          commonUIComponents.pullToRefreshController(forScrollView: emptyView) { [weak self] in
+        self?.performPullToRefresh()
+      }
+      if pullToRefreshControllerForEmptyView != nil {
+        // Empty view needs to bounce vertical for pull to refresh.
+        emptyView.alwaysBounceVertical = true
+      }
+    } else {
+      pullToRefreshController = nil
+      pullToRefreshControllerForEmptyView = nil
+      appBar.headerViewController.headerView.canOverExtend = true
+    }
+  }
+  
   private func performPullToRefresh() {
     delegate?.experimentsListManualSync()
     analyticsReporter.track(.syncManualRefresh)

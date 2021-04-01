@@ -94,10 +94,10 @@ class SidebarAccountView: UIView {
   ///   - name: An account name.
   ///   - email: An account email.
   ///   - profileImage: An account profile image.
-  func showAccount(withName name: String, email: String, profileImage: UIImage?) {
+  func showAccount(withName name: String, email: String, profileImage: URL?) {
     firstLine = name
     secondLine = email
-    self.profileImage = profileImage ?? UIImage(named: "ic_account_placeholder")
+    self.profileImage = /*profileImage ?? */UIImage(named: "ic_account_placeholder")
     profileImageView.tintColor = nil
 
     accessibilityLabel =

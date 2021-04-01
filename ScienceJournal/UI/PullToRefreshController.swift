@@ -37,6 +37,10 @@ public class PullToRefreshController {
     refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     scrollView.refreshControl = refreshControl
   }
+  
+  deinit {
+    scrollView.refreshControl = nil
+  }
 
   /// Starts the refresh animation.
   func startRefreshing() {

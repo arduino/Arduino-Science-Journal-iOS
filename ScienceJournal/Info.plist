@@ -41,6 +41,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.1046367719961-qrnkhoi59a7t8ibi5ir3u3ijoqm3e1ic</string>
+				<string>arduino.sj</string>
 			</array>
 		</dict>
 	</array>

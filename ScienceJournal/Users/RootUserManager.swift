@@ -16,9 +16,14 @@
 
 import Foundation
 
+import googlemac_iPhone_Shared_SSOAuth_SSOAuth
+import GTMSessionFetcher
+
 /// Manages data for the pre-accounts root user. This user is not associated with any auth account.
 class RootUserManager: UserManager {
 
+  var driveSyncAuthorization: GTMFetcherAuthorizationProtocol?
+  
   var driveSyncManager: DriveSyncManager? {
     return nil
   }

@@ -21,7 +21,7 @@ import UIKit
 
 class DriveSyncPathView: UIStackView {
 
-  var folder: DriveManager.Folder? {
+  var folder: DriveFetcher.Folder? {
     didSet {
       refreshPath()
     }

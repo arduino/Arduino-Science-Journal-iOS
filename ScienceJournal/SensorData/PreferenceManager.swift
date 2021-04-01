@@ -44,7 +44,8 @@ open class PreferenceManager {
     private let deletedSensorDataAssetsKey = "GSJ_DeletedSensorDataAssetsKey"
     private let driveSyncUserIDKey = "ASJ_DriveSyncUserIDKey"
     private let driveSyncFolderIDKey = "ASJ_DriveSyncFolderIDKey"
-
+    private let driveSyncSetupSkippedKey = "ASJ_DriveSyncSetupSkippedKey"
+    
     // Legacy keys
     private let userBirthdateKey = "GSJ_UserBirthdate"
 
@@ -122,6 +123,11 @@ open class PreferenceManager {
     var driveSyncFolderID: String {
       return keyAppendingAccountID(driveSyncFolderIDKey)
     }
+    
+    /// The key to use for saving the fact that the user skip the Drive Sync setup.
+    var driveSyncSetupSkipped: String {
+      return keyAppendingAccountID(driveSyncSetupSkippedKey)
+    }
 
     /// All keys for preferences, for the current account ID (if one was passed during
     /// initialization.
@@ -136,7 +142,8 @@ open class PreferenceManager {
               deletedImageAssets,
               deletedSensorDataAssets,
               driveSyncUserID,
-              driveSyncFolderIDKey]
+              driveSyncFolderIDKey,
+              driveSyncSetupSkippedKey]
     }
 
     // All root keys used for preferences, without any account ID appended.
@@ -256,6 +263,14 @@ open class PreferenceManager {
     set { defaults.set(newValue, forKey: keys.driveSyncFolderID); sync() }
     get {
       return defaults.object(forKey: keys.driveSyncFolderID) as? String
+    }
+  }
+  
+  /// A bool indicating that the user skipped the Drive Sync setup
+  public var driveSyncSetupSkipped: Bool {
+    set { defaults.set(newValue, forKey: keys.driveSyncSetupSkipped); sync() }
+    get {
+      return defaults.bool(forKey: keys.driveSyncSetupSkipped)
     }
   }
 

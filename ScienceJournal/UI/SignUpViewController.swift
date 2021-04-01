@@ -22,13 +22,13 @@ import MaterialComponents.MaterialSnackbar
 
 class SignUpViewController: WizardViewController {
   
-  let authenticationManager: AuthenticationManager
+  let accountsManager: ArduinoAccountsManager
   let isAdult: Bool
   
   private(set) lazy var signUpView = SignUpView(hasSingleSignOn: isAdult)
 
-  init(authenticationManager: AuthenticationManager, isAdult: Bool) {
-    self.authenticationManager = authenticationManager
+  init(accountsManager: ArduinoAccountsManager, isAdult: Bool) {
+    self.accountsManager = accountsManager
     self.isAdult = isAdult
     super.init(nibName: nil, bundle: nil)
   }
@@ -44,6 +44,10 @@ class SignUpViewController: WizardViewController {
     
     signUpView.infoButton.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)
     signUpView.submitButton.addTarget(self, action: #selector(submit(_:)), for: .touchUpInside)
+    
+    signUpView.socialView.githubButton.addTarget(self, action: #selector(signInWithGitHub(_:)), for: .touchUpInside)
+    signUpView.socialView.googleButton.addTarget(self, action: #selector(signInWithGoogle(_:)), for: .touchUpInside)
+    signUpView.socialView.appleButton.addTarget(self, action: #selector(signInWithApple(_:)), for: .touchUpInside)
   }
   
   @objc private func showInfo(_ sender: UIButton) {
@@ -55,7 +59,26 @@ class SignUpViewController: WizardViewController {
   }
   
   @objc private func submit(_ sender: UIButton) {
-    let viewController = SignUpTermsViewController(authenticationManager: authenticationManager)
+    let viewController = SignUpTermsViewController(accountsManager: accountsManager)
     show(viewController, sender: nil)
+  }
+  
+  @objc private func signInWithGitHub(_ sender: UIButton) {
+    accountsManager.signIn(with: .github, from: self, completion: completeWithResult)
+  }
+  
+  @objc private func signInWithGoogle(_ sender: UIButton) {
+    accountsManager.signIn(with: .google, from: self, completion: completeWithResult)
+  }
+  
+  @objc private func signInWithApple(_ sender: UIButton) {
+    accountsManager.signIn(with: .apple, from: self, completion: completeWithResult)
+  }
+  
+  private func completeWithResult(_ result: Result<ArduinoAccount, SignInError>) {
+    switch result {
+    case .success: rootViewController?.close(isCancelled: false)
+    case .failure: break
+    }
   }
 }

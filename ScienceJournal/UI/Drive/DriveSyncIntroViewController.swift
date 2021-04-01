@@ -18,20 +18,20 @@
 //  limitations under the License.
 
 import UIKit
-import RxSwift
+import GoogleSignIn
 import GoogleAPIClientForREST
-import MaterialComponents.MaterialSnackbar
+import MaterialComponents.MaterialDialogs
 
 class DriveSyncIntroViewController: WizardViewController {
 
-  let authenticationManager: AuthenticationManager
-
+  let accountsManager: AccountsManager
+  
   private(set) lazy var introView = DriveSyncIntroView()
 
-  private var disposeBag = DisposeBag()
-
-  init(authenticationManager: AuthenticationManager) {
-    self.authenticationManager = authenticationManager
+  init(accountsManager: AccountsManager) {
+    
+    self.accountsManager = accountsManager
+    
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -62,33 +62,25 @@ class DriveSyncIntroViewController: WizardViewController {
   @objc private func setupGoogleDrive(_ sender: UIButton) {
     sender.isEnabled = false
 
-    authenticationManager.googleScopes = Constants.GoogleSignInScopes.drive
-    authenticationManager.signIn(with: .google, from: self)
-      .withUnretained(self)
-      .subscribe { (owner, user) in
-        owner.handleAuthenticatedUser(user)
-      } onError: { _ in
+    accountsManager.signInWithGoogle(fromViewController: self) { [weak self] in
+      sender.isEnabled = true
+      switch $0 {
+      case .success(let user):
+        self?.handleAuthenticatedUser(user)
+      case .failure:
         // TODO: show error
-      } onDisposed: {
-        sender.isEnabled = true
+        break
       }
-      .disposed(by: disposeBag)
+    }
   }
 
-  private func handleAuthenticatedUser(_ user: User) {
-    guard let authorizer = user.googleUser.authentication.fetcherAuthorizer() else {
+  private func handleAuthenticatedUser(_ user: GIDGoogleUser) {
+    guard user.authentication.fetcherAuthorizer() != nil else {
       // TODO: show error
       return
     }
 
-    let service = GTLRDriveService()
-    service.authorizer = authorizer
-    service.shouldFetchNextPages = true
-
-    let driveManager = DriveManager(service: service)
-    let preferenceManager = PreferenceManager(accountID: user.googleUser.userID)
-    let folderPicker = DriveSyncFolderPickerViewController(driveManager: driveManager,
-                                                           preferenceManager: preferenceManager)
+    let folderPicker = DriveSyncFolderPickerViewController(user: user, accountsManager: accountsManager)
     show(folderPicker, sender: nil)
   }
 }

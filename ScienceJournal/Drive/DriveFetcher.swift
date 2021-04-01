@@ -1,5 +1,5 @@
 //  
-//  DriveManager.swift
+//  DriveFetcher.swift
 //  ScienceJournal
 //
 //  Created by Emilio Pavia on 08/01/21.
@@ -22,7 +22,7 @@ import GoogleAPIClientForREST
 import RxSwift
 import GTMSessionFetcher
 
-extension DriveManager {
+extension DriveFetcher {
   class Folder: Equatable {
     let id: String
     let name: String
@@ -39,7 +39,7 @@ extension DriveManager {
       self.parent = parent
     }
     
-    static func == (lhs: DriveManager.Folder, rhs: DriveManager.Folder) -> Bool {
+    static func == (lhs: DriveFetcher.Folder, rhs: DriveFetcher.Folder) -> Bool {
       lhs.id == rhs.id
     }
   }
@@ -50,7 +50,7 @@ extension DriveManager {
   }
 }
 
-class DriveManager {
+class DriveFetcher {
   let service: GTLRDriveService
 
   init(service: GTLRDriveService) {
@@ -144,7 +144,7 @@ class DriveManager {
     let query = GTLRDriveQuery_FilesList.query()
     query.pageSize = 100
     query.q = q
-    query.fields = "files(id,name,appProperties),nextPageToken"
+    query.fields = "files(id,name,modifiedTime,appProperties),nextPageToken"
     
     let service = self.service
 
@@ -171,7 +171,7 @@ class DriveManager {
   
   func file(with fileId: String) -> Observable<GTLRDrive_File?> {
     let query = GTLRDriveQuery_FilesGet.query(withFileId: fileId)
-    query.fields = "id,name,appProperties"
+    query.fields = "id,name,modifiedTime,appProperties"
     
     let service = self.service
 
@@ -230,7 +230,7 @@ class DriveManager {
     uploadParameters.useBackgroundSession = true
     
     let query = GTLRDriveQuery_FilesCreate.query(withObject: file, uploadParameters: uploadParameters)
-    query.fields = "id,name,appProperties"
+    query.fields = "id,name,modifiedTime,appProperties"
     
     let service = self.service
 
@@ -268,7 +268,7 @@ class DriveManager {
     uploadParameters.useBackgroundSession = true
     
     let query = GTLRDriveQuery_FilesUpdate.query(withObject: file, fileId: fileID, uploadParameters: uploadParameters)
-    query.fields = "id,name,appProperties"
+    query.fields = "id,name,modifiedTime,appProperties"
     
     let service = self.service
 

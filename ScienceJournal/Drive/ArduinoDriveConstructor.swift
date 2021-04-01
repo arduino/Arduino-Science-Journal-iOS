@@ -34,11 +34,8 @@ open class ArduinoDriveConstructor: DriveConstructor {
                                sensorDataManager: SensorDataManager,
                                analyticsReporter: AnalyticsReporter) -> DriveSyncManager? {
     
-    guard let userID = preferenceManager.driveSyncUserID else { return nil }
     guard let folderID = preferenceManager.driveSyncFolderID else { return nil }
-    
-    guard userID == authorization.userEmail else { return nil }
-    
+  
     let service = GTLRDriveService()
     service.authorizer = authorization
     service.shouldFetchNextPages = true
@@ -46,7 +43,7 @@ open class ArduinoDriveConstructor: DriveConstructor {
     return ArduinoSyncManager(metadataManager: metadataManager,
                               sensorDataManager: sensorDataManager,
                               experimentDataDeleter: experimentDataDeleter,
-                              driveManager: DriveManager(service: service),
+                              driveFetcher: DriveFetcher(service: service),
                               folderID: folderID)
   }
 

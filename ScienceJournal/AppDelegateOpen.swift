@@ -60,7 +60,7 @@ open class AppDelegateOpen: AppDelegate {
   private let _analyticsReporter = AnalyticsReporterOpen()
   private let _feedbackReporter = FeedbackReporterOpen()
   private let _fileSystemLayout = FileSystemLayout.production
-  private let _accountsManager = ArduinoAccountsManager(authenticationManager: AuthenticationManager())
+  private let _accountsManager = ArduinoAccountsManager()
   private let _drawerConfig = DrawerConfigOpen()
   private let _driveConstructor = ArduinoDriveConstructor()
   private let _commonUIComponents = CommonUIComponentsOpen()

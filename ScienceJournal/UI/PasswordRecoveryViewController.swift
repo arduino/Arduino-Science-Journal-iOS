@@ -21,13 +21,13 @@ import UIKit
 
 class PasswordRecoveryViewController: WizardViewController {
 
-  let authenticationManager: AuthenticationManager
+  let accountsManager: ArduinoAccountsManager
   let completion: () -> Void
   
   private(set) lazy var passwordRecoveryView = PasswordRecoveryView()
 
-  init(authenticationManager: AuthenticationManager, completion: @escaping () -> Void) {
-    self.authenticationManager = authenticationManager
+  init(accountsManager: ArduinoAccountsManager, completion: @escaping () -> Void) {
+    self.accountsManager = accountsManager
     self.completion = completion
     super.init(nibName: nil, bundle: nil)
   }
@@ -53,7 +53,7 @@ class PasswordRecoveryViewController: WizardViewController {
     
     let viewController =
       PasswordRecoveryConfirmationViewController(email: email,
-                                                 authenticationManager: authenticationManager,
+                                                 accountsManager: accountsManager,
                                                  completion: completion)
     show(viewController, sender: nil)
   }

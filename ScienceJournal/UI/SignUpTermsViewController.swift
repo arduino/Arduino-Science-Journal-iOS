@@ -51,12 +51,12 @@ enum SignUpTermsItem: CaseIterable, Hashable {
 
 class SignUpTermsViewController: WizardViewController {
   
-  let authenticationManager: AuthenticationManager
+  let accountsManager: ArduinoAccountsManager
   
   private(set) lazy var termsView = SignUpTermsView(terms: SignUpTermsItem.allCases)
   
-  init(authenticationManager: AuthenticationManager) {
-    self.authenticationManager = authenticationManager
+  init(accountsManager: ArduinoAccountsManager) {
+    self.accountsManager = accountsManager
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -73,7 +73,7 @@ class SignUpTermsViewController: WizardViewController {
   }
   
   @objc private func signUp(_ sender: UIButton) {
-    let viewController = SignUpConfirmationViewController(authenticationManager: authenticationManager)
+    let viewController = SignUpConfirmationViewController(accountsManager: accountsManager)
     show(viewController, sender: nil)
   }
 }

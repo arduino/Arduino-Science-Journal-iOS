@@ -21,12 +21,12 @@ import UIKit
 
 class SignUpConfirmationViewController: WizardViewController {
 
-  let authenticationManager: AuthenticationManager
+  let accountsManager: ArduinoAccountsManager
   
   private(set) lazy var confirmationView = SignUpConfirmationView()
 
-  init(authenticationManager: AuthenticationManager) {
-    self.authenticationManager = authenticationManager
+  init(accountsManager: ArduinoAccountsManager) {
+    self.accountsManager = accountsManager
     super.init(nibName: nil, bundle: nil)
   }
   

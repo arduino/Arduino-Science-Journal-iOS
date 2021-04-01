@@ -16,6 +16,9 @@
 
 import Foundation
 
+import googlemac_iPhone_Shared_SSOAuth_SSOAuth
+import GTMSessionFetcher
+
 /// Manages user data for a single account based user.
 class AccountUserManager: UserManager {
 
@@ -34,6 +37,14 @@ class AccountUserManager: UserManager {
     return account.isShareRestricted ? .saveToFiles : .share
   }
 
+  var driveSyncAuthorization: GTMFetcherAuthorizationProtocol? {
+    get { account.authorization }
+    set {
+      account.authorization = newValue
+      setupDriveSyncManager()
+    }
+  }
+  
   var isDriveSyncEnabled: Bool {
     return driveSyncManager != nil
   }
@@ -42,10 +53,13 @@ class AccountUserManager: UserManager {
   let rootURL: URL
 
   /// The user account.
-  let account: AuthAccount
-
+  private(set) var account: AuthAccount
+  
   private let fileSystemLayout: FileSystemLayout
-
+  private let driveConstructor: DriveConstructor
+  private let networkAvailability: NetworkAvailability
+  private let analyticsReporter: AnalyticsReporter
+  
   // MARK: - Public
 
   /// Designated initializer.
@@ -65,7 +79,10 @@ class AccountUserManager: UserManager {
        analyticsReporter: AnalyticsReporter) {
     self.fileSystemLayout = fileSystemLayout
     self.account = account
-
+    self.driveConstructor = driveConstructor
+    self.networkAvailability = networkAvailability
+    self.analyticsReporter = analyticsReporter
+    
     // Create a root URL for this account.
     rootURL = fileSystemLayout.accountURL(for: account.ID)
 
@@ -100,22 +117,12 @@ class AccountUserManager: UserManager {
                                       metadataManager: metadataManager,
                                       sensorDataManager: sensorDataManager)
 
-    // Configure drive sync.
-    if let authorization = account.authorization {
-      driveSyncManager =
-          driveConstructor.driveSyncManager(withAuthorization: authorization,
-                                            experimentDataDeleter: experimentDataDeleter,
-                                            metadataManager: metadataManager,
-                                            networkAvailability: networkAvailability,
-                                            preferenceManager: preferenceManager,
-                                            sensorDataManager: sensorDataManager,
-                                            analyticsReporter: analyticsReporter)
-    }
-
     // Configure user asset manager.
     assetManager = UserAssetManager(driveSyncManager: driveSyncManager,
                                     metadataManager: metadataManager,
                                     sensorDataManager: sensorDataManager)
+    
+    setupDriveSyncManager()
   }
 
   func tearDown() {
@@ -128,6 +135,22 @@ class AccountUserManager: UserManager {
   func deleteAllUserData() throws {
     // TODO: Fix SQLite warning b/132878667
     try AccountDeleter(fileSystemLayout: fileSystemLayout, accountID: account.ID).deleteData()
+  }
+  
+  private func setupDriveSyncManager() {
+    if let authorization = account.authorization {
+      driveSyncManager =
+          driveConstructor.driveSyncManager(withAuthorization: authorization,
+                                            experimentDataDeleter: experimentDataDeleter,
+                                            metadataManager: metadataManager,
+                                            networkAvailability: networkAvailability,
+                                            preferenceManager: preferenceManager,
+                                            sensorDataManager: sensorDataManager,
+                                            analyticsReporter: analyticsReporter)
+    } else {
+      driveSyncManager?.tearDown()
+      driveSyncManager = nil
+    }
   }
 
 }

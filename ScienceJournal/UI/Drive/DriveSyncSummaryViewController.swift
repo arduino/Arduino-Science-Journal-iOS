@@ -18,19 +18,20 @@
 //  limitations under the License.
 
 import UIKit
+import GoogleSignIn
 
 class DriveSyncSummaryViewController: WizardViewController {
 
-  let userID: String
-  let folder: DriveManager.Folder
-  let preferenceManager: PreferenceManager
+  let user: GIDGoogleUser
+  let folder: DriveFetcher.Folder
+  let accountsManager: AccountsManager
   
   private(set) lazy var summaryView = DriveSyncSummaryView(folderName: folder.name)
   
-  init(userID: String, folder: DriveManager.Folder, preferenceManager: PreferenceManager) {
-    self.userID = userID
+  init(user: GIDGoogleUser, folder: DriveFetcher.Folder, accountsManager: AccountsManager) {
+    self.user = user
     self.folder = folder
-    self.preferenceManager = preferenceManager
+    self.accountsManager = accountsManager
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -49,8 +50,7 @@ class DriveSyncSummaryViewController: WizardViewController {
   }
   
   @objc private func start(_ sender: UIButton) {
-    preferenceManager.driveSyncUserID = userID
-    preferenceManager.driveSyncFolderID = folder.id
+    accountsManager.enableDriveSync(with: user, folderID: folder.id)
     rootViewController?.close(isCancelled: false)
   }
 
