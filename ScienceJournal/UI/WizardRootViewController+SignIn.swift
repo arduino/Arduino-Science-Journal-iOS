@@ -26,4 +26,14 @@ extension WizardRootViewController {
     }
     childNavigationController?.popToViewController(vc, animated: true)
   }
+  
+  override func backToSignUp(error: [String: Any]?) {
+    guard let vc = childNavigationController?
+            .viewControllers
+            .first(where: { $0 is SignUpViewController }) as? SignUpViewController else {
+      return
+    }
+    vc.error = error
+    childNavigationController?.popToViewController(vc, animated: true)
+  }
 }

@@ -1,6 +1,6 @@
 MINIMUM_IOS_VERSION = '12.0'
 
-RX_SWIFT_VERSION = '6.0.0'
+RX_SWIFT_VERSION = '6.1.0'
 
 platform :ios, MINIMUM_IOS_VERSION
 
@@ -15,6 +15,7 @@ target 'ScienceJournal' do
   # Pods for ScienceJournal
   ## RxSwift
   pod 'RxSwift', RX_SWIFT_VERSION
+  pod 'RxCocoa', RX_SWIFT_VERSION
   ## Drive
   pod 'GoogleSignIn'
   pod 'GoogleAPIClientForREST/Drive', '~> 1.2.1', :inhibit_warnings => true

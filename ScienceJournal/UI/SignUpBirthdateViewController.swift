@@ -55,16 +55,12 @@ class SignUpBirthdateViewController: WizardViewController {
   @objc private func signUp(_ sender: UIButton) {
     guard let birthdate = birthdateView.birthdate else { return }
 
-    let now = Date()
-    let ageComponents = Calendar.autoupdatingCurrent.dateComponents([.year], from: birthdate, to: now)
-    
-    guard let age = ageComponents.year else { return }
-    
-    if age < 14 {
+    let viewModel = SignUpViewModel(birthdate: birthdate)
+    if viewModel.age < 14 {
       
     } else {
       let viewController = SignUpViewController(accountsManager: accountsManager,
-                                                isAdult: age >= 16)
+                                                viewModel: viewModel)
       show(viewController, sender: nil)
     }
   }

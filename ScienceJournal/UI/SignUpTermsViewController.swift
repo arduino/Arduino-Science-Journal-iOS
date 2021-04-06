@@ -19,7 +19,7 @@
 
 import UIKit
 
-enum SignUpTermsItem: CaseIterable, Hashable {
+enum SignUpTermsItem: String, CaseIterable, Hashable {
   case termsAndPrivacy
   case newsletter
   case marketing
@@ -52,11 +52,16 @@ enum SignUpTermsItem: CaseIterable, Hashable {
 class SignUpTermsViewController: WizardViewController {
   
   let accountsManager: ArduinoAccountsManager
+  private(set) var viewModel: SignUpViewModel
   
-  private(set) lazy var termsView = SignUpTermsView(terms: SignUpTermsItem.allCases)
+  private(set) lazy var termsView = SignUpTermsView(terms: SignUpTermsItem.allCases) { [weak self] in
+    self?.viewModel.acceptedTerms = $0
+    self?.checkTerms()
+  }
   
-  init(accountsManager: ArduinoAccountsManager) {
+  init(accountsManager: ArduinoAccountsManager, viewModel: SignUpViewModel) {
     self.accountsManager = accountsManager
+    self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -70,10 +75,47 @@ class SignUpTermsViewController: WizardViewController {
     wizardView.contentView = termsView
     
     termsView.signUpButton.addTarget(self, action: #selector(signUp(_:)), for: .touchUpInside)
+    
+    checkTerms()
+  }
+  
+  private func checkTerms() {
+    termsView.signUpButton.isEnabled = viewModel.hasAcceptedRequiredTerms
   }
   
   @objc private func signUp(_ sender: UIButton) {
-    let viewController = SignUpConfirmationViewController(accountsManager: accountsManager)
-    show(viewController, sender: nil)
+    guard let email = viewModel.email,
+          let username = viewModel.username,
+          let password = viewModel.password else {
+      return
+    }
+    
+    isLoading.onNext(true)
+    
+    accountsManager.signUp(email: email,
+                           username: username,
+                           password: password,
+                           userMetadata: viewModel.userMetadata) { [weak self] in
+      guard let self = self else { return }
+      
+      self.isLoading.onNext(false)
+      
+      switch $0 {
+      case .failure(let error):
+        switch error {
+        case .notValid(let json):
+          self.backToSignUp(error: json)
+        default:
+          break
+        }
+      case .success(let account):
+        if account.emailVerified {
+          self.rootViewController?.close(isCancelled: false)
+        } else {
+          let viewController = SignUpConfirmationViewController(account: account, accountsManager: self.accountsManager)
+          self.show(viewController, sender: nil)
+        }
+      }
+    }
   }
 }

@@ -1,8 +1,8 @@
 //  
-//  UIResponder+ScienceJournal.swift
+//  NavigationActivityIndicatorView.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 29/03/21.
+//  Created by Emilio Pavia on 06/04/21.
 //  Copyright © 2021 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,27 +19,22 @@
 
 import UIKit
 
-extension UIResponder {
+class NavigationActivityIndicatorView: UIActivityIndicatorView {
 
-  @objc func backToSignIn() {
-
-    guard let nextResponder = next else {
-      return assertionFailure("""
-            Unhandled backToSignIn()
-            """)
+    init() {
+        let style: UIActivityIndicatorView.Style
+        if #available(iOS 13.0, *) {
+            style = .medium
+        } else {
+            style = .gray
+        }
+        super.init(style: style)
+        color = UIColor(named: "Label")
+        startAnimating()
     }
 
-    nextResponder.backToSignIn()
-  }
-  
-  @objc func backToSignUp(error: [String: Any]?) {
-
-    guard let nextResponder = next else {
-      return assertionFailure("""
-            Unhandled backToSignUp(error:)
-            """)
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
     }
 
-    nextResponder.backToSignUp(error: error)
-  }
 }

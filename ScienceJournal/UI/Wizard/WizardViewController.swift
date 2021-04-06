@@ -18,12 +18,15 @@
 //  limitations under the License.
 
 import UIKit
+import RxSwift
 
 class WizardViewController: UIViewController {
 
   let wizardView = WizardView()
 
   var rootViewController: WizardRootViewController?
+  
+  lazy var isLoading = BehaviorSubject(value: false)
 
   override func loadView() {
     view = wizardView

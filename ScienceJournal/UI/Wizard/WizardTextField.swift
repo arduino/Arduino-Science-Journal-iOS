@@ -27,6 +27,12 @@ class WizardTextField: UITextField {
     }
   }
   
+  var hasError: Bool = false {
+    didSet {
+      refreshBorder()
+    }
+  }
+  
   override var placeholder: String? {
     didSet {
       _placeholder = placeholder
@@ -52,11 +58,14 @@ class WizardTextField: UITextField {
     self.tintColor = ArduinoColorPalette.tealPalette.tint700
     
     self.layer.cornerRadius = 3
-    self.layer.borderColor = ArduinoColorPalette.grayPalette.tint200?.cgColor
     self.layer.borderWidth = 1
+    
+    setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     
     self.isRequired = isRequired
     self.placeholder = placeholder
+    
+    refreshBorder()
   }
   
   required init?(coder: NSCoder) {
@@ -71,7 +80,7 @@ class WizardTextField: UITextField {
   
   override func textRect(forBounds bounds: CGRect) -> CGRect {
     let rect = super.textRect(forBounds: bounds)
-    return rect.offsetBy(dx: 20, dy: 0)
+    return rect.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
   }
   
   override func editingRect(forBounds bounds: CGRect) -> CGRect {
@@ -99,5 +108,13 @@ class WizardTextField: UITextField {
     }
     
     self.attributedPlaceholder = attributedPlaceholder
+  }
+  
+  private func refreshBorder() {
+    if hasError {
+      self.layer.borderColor = requiredColor?.cgColor
+    } else {
+      self.layer.borderColor = ArduinoColorPalette.grayPalette.tint200?.cgColor
+    }
   }
 }

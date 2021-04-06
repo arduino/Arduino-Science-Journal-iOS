@@ -18,6 +18,7 @@
 //  limitations under the License.
 
 import UIKit
+import RxSwift
 
 class WizardRootViewController: UIViewController {
 
@@ -48,6 +49,8 @@ class WizardRootViewController: UIViewController {
     }
   }
 
+  private var disposeBag: DisposeBag?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -99,6 +102,18 @@ extension WizardRootViewController: UINavigationControllerDelegate {
 
     if let wizard = viewController as? WizardViewController {
       wizard.rootViewController = self
+      
+      let disposeBag = DisposeBag()
+      
+      wizard.isLoading
+        .distinctUntilChanged()
+        .observe(on: MainScheduler.instance)
+        .subscribe(onNext: {
+          viewController.navigationItem.titleView = $0 ? NavigationActivityIndicatorView() : nil
+        })
+        .disposed(by: disposeBag)
+      
+      self.disposeBag = disposeBag
     }
   }
 }

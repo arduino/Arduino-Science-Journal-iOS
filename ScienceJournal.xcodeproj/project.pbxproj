@@ -628,6 +628,9 @@
 		BC24D373260B93EB00209383 /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D372260B93EB00209383 /* KeyboardController.swift */; };
 		BC24D37B260BA07100209383 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D37A260BA07100209383 /* SignUpViewController.swift */; };
 		BC24D380260BA07D00209383 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D37F260BA07D00209383 /* SignUpView.swift */; };
+		BC310E66261C46D000B59C5E /* NavigationActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC310E65261C46D000B59C5E /* NavigationActivityIndicatorView.swift */; };
+		BC310E90261C51F800B59C5E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC310E8F261C51F800B59C5E /* SignUpViewModel.swift */; };
+		BC310E98261CA7CE00B59C5E /* SignInErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC310E97261CA7CE00B59C5E /* SignInErrorView.swift */; };
 		BC3B9636249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */; };
 		BC3F2BD02615FE6E00FCE525 /* URLRequest+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3F2BCF2615FE6E00FCE525 /* URLRequest+ScienceJournal.swift */; };
 		BC42DAB925656013004C1D32 /* UIResponder+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */; };
@@ -1424,6 +1427,9 @@
 		BC24D372260B93EB00209383 /* KeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
 		BC24D37A260BA07100209383 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BC24D37F260BA07D00209383 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		BC310E65261C46D000B59C5E /* NavigationActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationActivityIndicatorView.swift; sourceTree = "<group>"; };
+		BC310E8F261C51F800B59C5E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		BC310E97261CA7CE00B59C5E /* SignInErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInErrorView.swift; sourceTree = "<group>"; };
 		BC3B9635249A6B6A000D7646 /* MKRWiFi1010ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRWiFi1010ServiceInterface.swift; sourceTree = "<group>"; };
 		BC3F2BCF2615FE6E00FCE525 /* URLRequest+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC42DAB825656013004C1D32 /* UIResponder+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+ErrorHandling.swift"; sourceTree = "<group>"; };
@@ -1756,6 +1762,7 @@
 				BC24D342260A53FF00209383 /* PasswordRecoveryConfirmationViewController.swift */,
 				BC24D33A260A507000209383 /* PasswordRecoveryView.swift */,
 				BC24D335260A505600209383 /* PasswordRecoveryViewController.swift */,
+				BC310E97261CA7CE00B59C5E /* SignInErrorView.swift */,
 				BC24D29A2608991F00209383 /* SignInIntroView.swift */,
 				BC24D295260898EF00209383 /* SignInIntroViewController.swift */,
 				BC24D32D260A47CA00209383 /* SignInSocialView.swift */,
@@ -1769,6 +1776,7 @@
 				BC0F530E2611D9D2002B30D0 /* SignUpTermsViewController.swift */,
 				BC24D37F260BA07D00209383 /* SignUpView.swift */,
 				BC24D37A260BA07100209383 /* SignUpViewController.swift */,
+				BC310E8F261C51F800B59C5E /* SignUpViewModel.swift */,
 				BC0F532C26121D6A002B30D0 /* UIResponder+ScienceJournal.swift */,
 				BC0F533426121FAD002B30D0 /* WizardRootViewController+SignIn.swift */,
 			);
@@ -2020,6 +2028,7 @@
 				68C3C9481E42B59900F339C4 /* MaterialHeaderViewController.swift */,
 				687232221F703F8E0080E57F /* MaterialLeftBarButtonItems.swift */,
 				68279C211ED63FD1003F778B /* MenuButton.swift */,
+				BC310E65261C46D000B59C5E /* NavigationActivityIndicatorView.swift */,
 				5CBD9AAC1F6C836600D22D21 /* OptionSelectorView.swift */,
 				8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */,
 				68C6C7861F171F4F00B07C93 /* RecordingBar.swift */,
@@ -3784,6 +3793,8 @@
 				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf-framework/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -3800,6 +3811,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -3907,6 +3920,7 @@
 				6806592E1EC3BE290090670C /* ExperimentCardHeaderView.swift in Sources */,
 				BC24D32E260A47CA00209383 /* SignInSocialView.swift in Sources */,
 				8B06406C203E0FBC00F66356 /* AccelerometerAnimationView.swift in Sources */,
+				BC310E98261CA7CE00B59C5E /* SignInErrorView.swift in Sources */,
 				8BFCF97C1FAA2B5E0030A6DC /* ArchivedFlagCell.swift in Sources */,
 				68B32A321F9E89BA0067DAF3 /* SettingsCell.swift in Sources */,
 				68CD50D71E57DD4E005E928F /* ObserveDataSource.swift in Sources */,
@@ -4107,6 +4121,7 @@
 				68CD98971F3E47B500E3BF3C /* Timestamp.swift in Sources */,
 				585D619422B1C38100EB2114 /* ChartExportViewController.swift in Sources */,
 				8B5114EF20B49F5F005953BD /* ClaimExperimentsView.swift in Sources */,
+				BC310E66261C46D000B59C5E /* NavigationActivityIndicatorView.swift in Sources */,
 				BC809294255D89460074E25A /* OnboardingPage7ViewController.swift in Sources */,
 				8B54BA181F4F0E85006AADAA /* LocalNotificationManager.swift in Sources */,
 				8B1B2AF51EE84DBB00990FE8 /* PopUpMenuPosition.swift in Sources */,
@@ -4369,6 +4384,7 @@
 				8B3FA2B621513F5E002241DC /* VisibilityTrackingViewControllers.swift in Sources */,
 				8BB99E76206D7681001A1A58 /* TrialCardNoteViewPool.swift in Sources */,
 				F389279224DC408900843D1D /* ArduinoColorPalette.swift in Sources */,
+				BC310E90261C51F800B59C5E /* SignUpViewModel.swift in Sources */,
 				8B84E0311EAFF429005E9AA0 /* DrawerViewController.swift in Sources */,
 				8B1791CC1F140F22008C0B31 /* TriggerOnlyWhenRecordingSwitchView.swift in Sources */,
 				BC809280255D891A0074E25A /* OnboardingPage3ViewController.swift in Sources */,

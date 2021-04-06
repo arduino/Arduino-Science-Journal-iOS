@@ -21,11 +21,13 @@ import UIKit
 
 class SignUpConfirmationViewController: WizardViewController {
 
+  let account: ArduinoAccount
   let accountsManager: ArduinoAccountsManager
   
   private(set) lazy var confirmationView = SignUpConfirmationView()
 
-  init(accountsManager: ArduinoAccountsManager) {
+  init(account: ArduinoAccount, accountsManager: ArduinoAccountsManager) {
+    self.account = account
     self.accountsManager = accountsManager
     super.init(nibName: nil, bundle: nil)
   }
@@ -38,6 +40,9 @@ class SignUpConfirmationViewController: WizardViewController {
     super.viewDidLoad()
 
     wizardView.contentView = confirmationView
+    
+    // As there's no API to implement it, let's hide for now
+    confirmationView.resendButton.isHidden = true
     
     confirmationView.backButton.addTarget(self,
                                           action: #selector(back(_:)),

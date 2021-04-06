@@ -43,6 +43,9 @@ public enum SignInError: Error {
   
   /// Trying to authenticate while another authentication is in progress.
   case alreadyAuthenticating
+  
+  /// Sign in failed the backend validation.
+  case notValid([String : Any])
 }
 
 public protocol AccountsManagerDelegate: class {

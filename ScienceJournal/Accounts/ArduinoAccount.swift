@@ -28,6 +28,7 @@ class ArduinoAccount: AuthAccount, Codable {
   var displayName: String
   var profileImage: URL?
   var isShareRestricted: Bool
+  var emailVerified: Bool
   var authorization: GTMFetcherAuthorizationProtocol?
   
   init(type: AuthAccountType,
@@ -36,6 +37,7 @@ class ArduinoAccount: AuthAccount, Codable {
        displayName: String,
        profileImage: URL?,
        isShareRestricted: Bool,
+       emailVerified: Bool,
        authorization: GTMFetcherAuthorizationProtocol?) {
   
     self.type = type
@@ -44,6 +46,7 @@ class ArduinoAccount: AuthAccount, Codable {
     self.displayName = displayName
     self.profileImage = profileImage
     self.isShareRestricted = isShareRestricted
+    self.emailVerified = emailVerified
     self.authorization = authorization
   }
   
@@ -73,6 +76,7 @@ class ArduinoAccount: AuthAccount, Codable {
               displayName: displayName,
               profileImage: profileImage,
               isShareRestricted: false,
+              emailVerified: true,
               authorization: nil)
   }
   
@@ -83,5 +87,6 @@ class ArduinoAccount: AuthAccount, Codable {
     case displayName
     case profileImage
     case isShareRestricted
+    case emailVerified
   }
 }

@@ -25,6 +25,8 @@ class SignUpTermsView: UIStackView {
     termsItemViews.filter { $0.isChecked }.map { $0.item }
   }
   
+  let onAction: ([SignUpTermsItem]) -> Void
+  
   let signUpButton = WizardButton(title: String.arduinoSignUpTermsSubmitButton, isSolid: true)
   
   private let titleLabel: UILabel = {
@@ -39,7 +41,9 @@ class SignUpTermsView: UIStackView {
   
   private var termsItemViews = [SignUpTermsItemView]()
   
-  init(terms: [SignUpTermsItem]) {
+  init(terms: [SignUpTermsItem], onAction: @escaping ([SignUpTermsItem]) -> Void) {
+    self.onAction = onAction
+    
     super.init(frame: .zero)
 
     axis = .vertical
@@ -56,7 +60,9 @@ class SignUpTermsView: UIStackView {
     addArrangedSubview(termsStackView)
     
     for term in terms {
-      let itemView = SignUpTermsItemView(item: term)
+      let itemView = SignUpTermsItemView(item: term) { [weak self] in
+        self?.onAction(self?.acceptedTerms ?? [])
+      }
       termsItemViews.append(itemView)
       termsStackView.addArrangedSubview(itemView)
     }
@@ -78,13 +84,14 @@ class SignUpTermsView: UIStackView {
   }
 
   required init(coder: NSCoder) {
-    super.init(coder: coder)
+    fatalError("init(coder:) has not been implemented")
   }
 }
 
 class SignUpTermsItemView: UIStackView {
 
   let item: SignUpTermsItem
+  let onAction: () -> Void
   
   var isChecked: Bool = false {
     didSet {
@@ -119,8 +126,9 @@ class SignUpTermsItemView: UIStackView {
     UIColor(red: 218/255.0, green: 91/255.0, blue: 74/255.0, alpha: 1)
   }
   
-  init(item: SignUpTermsItem) {
+  init(item: SignUpTermsItem, onAction: @escaping (() -> Void)) {
     self.item = item
+    self.onAction = onAction
     
     super.init(frame: .zero)
     
@@ -157,6 +165,7 @@ class SignUpTermsItemView: UIStackView {
   @objc private func didTap(_ sender: UITapGestureRecognizer) {
     if sender.state == .ended {
       isChecked.toggle()
+      onAction()
     }
   }
   

@@ -21,8 +21,38 @@ import UIKit
 
 class SignUpView: UIStackView {
   
+  var emailError: String? {
+    didSet {
+      if let error = emailError, !error.isEmpty {
+        emailTextField.hasError = true
+        emailErrorView.errorLabel.text = error
+        emailErrorView.alpha = 1
+      } else {
+        emailTextField.hasError = false
+        emailErrorView.errorLabel.text = nil
+        emailErrorView.alpha = 0
+      }
+    }
+  }
+  
+  var usernameError: String? {
+    didSet {
+      if let error = usernameError, !error.isEmpty {
+        usernameTextField.hasError = true
+        usernameErrorView.errorLabel.text = error
+        usernameErrorView.alpha = 1
+      } else {
+        usernameTextField.hasError = false
+        usernameErrorView.errorLabel.text = nil
+        usernameErrorView.alpha = 0
+      }
+    }
+  }
+  
   let emailTextField = WizardTextField(placeholder: String.arduinoSignUpEmailPlaceholder, isRequired: true)
+  let emailErrorView = SignInErrorView()
   let usernameTextField = WizardTextField(placeholder: String.arduinoSignUpUsernamePlaceholder, isRequired: true)
+  let usernameErrorView = SignInErrorView()
   let passwordTextField = WizardTextField(placeholder: String.arduinoSignUpPasswordPlaceholder, isRequired: true)
   let submitButton = WizardButton(title: String.arduinoSignUpSubmitButton, isSolid: true)
   
@@ -74,7 +104,9 @@ class SignUpView: UIStackView {
     spacing = 16
     
     addArrangedSubview(titleLabel, customSpacing: 32)
-    addArrangedSubview(emailTextField)
+    addArrangedSubview(emailTextField, customSpacing: 4)
+    emailErrorView.alpha = 0
+    addArrangedSubview(emailErrorView, customSpacing: 4)
     
     let usernameStackView = UIStackView()
     usernameStackView.axis = .horizontal
@@ -82,8 +114,12 @@ class SignUpView: UIStackView {
     usernameStackView.addArrangedSubview(UIView())
     usernameStackView.addArrangedSubview(usernameTextField)
     usernameStackView.addArrangedSubview(infoButton)
-    addArrangedSubview(usernameStackView)
+    addArrangedSubview(usernameStackView, customSpacing: 4)
+    usernameErrorView.alpha = 0
+    addArrangedSubview(usernameErrorView, customSpacing: 4)
     
+    passwordTextField.textContentType = .password
+    passwordTextField.isSecureTextEntry = true
     addArrangedSubview(passwordTextField, customSpacing: 2)
     
     let passwordHintStackView = UIStackView()
@@ -100,8 +136,10 @@ class SignUpView: UIStackView {
     
     NSLayoutConstraint.activate([
       emailTextField.widthAnchor.constraint(greaterThanOrEqualToConstant: 260),
+      emailErrorView.widthAnchor.constraint(equalTo: emailTextField.widthAnchor, constant: -4),
       usernameTextField.widthAnchor.constraint(equalTo: emailTextField.widthAnchor),
       usernameTextField.centerXAnchor.constraint(equalTo: emailTextField.centerXAnchor),
+      usernameErrorView.widthAnchor.constraint(equalTo: usernameTextField.widthAnchor, constant: -4),
       passwordTextField.widthAnchor.constraint(equalTo: usernameTextField.widthAnchor),
       passwordHintLabel.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
       submitButtonStackView.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor)

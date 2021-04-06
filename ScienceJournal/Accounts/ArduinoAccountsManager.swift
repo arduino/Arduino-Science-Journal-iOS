@@ -223,6 +223,84 @@ extension ArduinoAccountsManager {
   }
 }
 
+// MARK:- Arduino
+extension ArduinoAccountsManager {
+  func signUp(email: String,
+              username: String,
+              password: String,
+              userMetadata: [String: String],
+              completion: @escaping (Result<ArduinoAccount, SignInError>) -> Void) {
+    
+    var data: [String: String] = [
+      "client_id": clientId,
+      "connection": "arduino",
+      "username": username,
+      "email": email,
+      "password": password
+    ]
+    
+    userMetadata.forEach { key, value in
+      data["user_metadata[\(key)]"] = value
+    }
+    
+    guard let request = URLRequest.post(host: host, path: "/dbconnections/signup", data: data) else {
+      completion(.failure(.notAuthenticated))
+      return
+    }
+    
+    urlSession.dataTask(with: request) { [weak self] data, response, error in
+      guard let self = self else { return }
+      
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(.failure(.networkError(error)))
+          return
+        }
+        
+        guard let response = response as? HTTPURLResponse else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard response.statusCode == 200 else {
+          completion(.failure(.notValid(json)))
+          return
+        }
+        
+        guard let ID = json["user_id"] as? String,
+              let email = json["email"] as? String,
+              let username = json["username"] as? String else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        let emailVerified = json["email_verified"] as? Bool
+        
+        let account = ArduinoAccount(type: .adult,
+                                     ID: ID,
+                                     email: email,
+                                     displayName: username,
+                                     profileImage: nil,
+                                     isShareRestricted: false,
+                                     emailVerified: emailVerified ?? false,
+                                     authorization: nil)
+        completion(.success(account))
+        
+        if account.emailVerified {
+          self.devicePreferenceManager.savedAccount = account
+          self.currentAccount = account
+          self.delegate?.accountsManagerDidSignIn(signInType: .newSignIn)
+        }
+      }
+    }.resume()
+  }
+}
+
 // MARK:- Helpers
 private extension ArduinoAccountsManager {
   func restoreDriveSyncIfNeeded() {
