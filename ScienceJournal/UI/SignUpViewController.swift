@@ -106,14 +106,14 @@ class SignUpViewController: WizardViewController {
   
   private func parseError() {
     if let error = error?["error"] as? String, error.hasPrefix("error in email") {
-      signUpView.emailError = "Must be a valid email."
+      signUpView.emailError = String.arduinoSignUpEmailInvalidError
       signUpView.usernameError = nil
     } else if let code = error?["code"] as? String, code == "user_exists" {
       if let message = error?["message"] as? String, message.contains("username") {
         signUpView.emailError = nil
-        signUpView.usernameError = "Username already in use."
+        signUpView.usernameError = String.arduinoSignUpUsernameExistsError
       } else {
-        signUpView.emailError = "The user already exists."
+        signUpView.emailError = String.arduinoSignUpEmailExistsError
         signUpView.usernameError = nil
       }
     } else {

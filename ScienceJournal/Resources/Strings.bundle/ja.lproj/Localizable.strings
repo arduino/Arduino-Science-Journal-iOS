@@ -206,6 +206,8 @@
 "arduino_sign_up_email_confirmation_resend_button" = "RESEND EMAIL";
 "arduino_sign_up_email_confirmation_text" = "We sent you an email to finalize your registration. In order to continue, please follow the instructions and activate your account. Once your account is activated, you can login to Science Journal.";
 "arduino_sign_up_email_confirmation_title" = "Confirm your email";
+"arduino_sign_up_email_exists_error" = "The user already exists.";
+"arduino_sign_up_email_invalid_error" = "Must be a valid email.";
 "arduino_sign_up_email_placeholder" = "Enter your email";
 "arduino_sign_up_marketing_approval" = "I would like to receive emails about special deals and commercial offers from Arduino.";
 "arduino_sign_up_newsletter_approval" = "I would like to receive the Arduino newsletter.";
@@ -216,6 +218,7 @@
 "arduino_sign_up_terms_submit_button" = "SIGN UP";
 "arduino_sign_up_title" = "Sign up to Arduino";
 "arduino_sign_up_tracking_approval" = "I want to see personalized commercial offers from Arduino based on my browsing and purchasing behavior.";
+"arduino_sign_up_username_exists_error" = "Username already in use.";
 "arduino_sign_up_username_info" = "Only letters, numbers, hyphen (-) and underscore (_) are allowed. Your username must start with a letter or number and be at least 3 characters long.";
 "arduino_sign_up_username_placeholder" = "Choose a username";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */

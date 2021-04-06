@@ -141,6 +141,8 @@ extension String {
   static public var arduinoSignUpEmailConfirmationResendButton: String { return "arduino_sign_up_email_confirmation_resend_button".localized }
   static public var arduinoSignUpEmailConfirmationText: String { return "arduino_sign_up_email_confirmation_text".localized }
   static public var arduinoSignUpEmailConfirmationTitle: String { return "arduino_sign_up_email_confirmation_title".localized }
+  static public var arduinoSignUpEmailExistsError: String { return "arduino_sign_up_email_exists_error".localized }
+  static public var arduinoSignUpEmailInvalidError: String { return "arduino_sign_up_email_invalid_error".localized }
   static public var arduinoSignUpEmailPlaceholder: String { return "arduino_sign_up_email_placeholder".localized }
   static public var arduinoSignUpMarketingApproval: String { return "arduino_sign_up_marketing_approval".localized }
   static public var arduinoSignUpNewsletterApproval: String { return "arduino_sign_up_newsletter_approval".localized }
@@ -151,6 +153,7 @@ extension String {
   static public var arduinoSignUpTermsSubmitButton: String { return "arduino_sign_up_terms_submit_button".localized }
   static public var arduinoSignUpTitle: String { return "arduino_sign_up_title".localized }
   static public var arduinoSignUpTrackingApproval: String { return "arduino_sign_up_tracking_approval".localized }
+  static public var arduinoSignUpUsernameExistsError: String { return "arduino_sign_up_username_exists_error".localized }
   static public var arduinoSignUpUsernameInfo: String { return "arduino_sign_up_username_info".localized }
   static public var arduinoSignUpUsernamePlaceholder: String { return "arduino_sign_up_username_placeholder".localized }
   static public var availableDevices: String { return "available_devices".localized }
