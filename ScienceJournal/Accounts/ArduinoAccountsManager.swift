@@ -299,6 +299,127 @@ extension ArduinoAccountsManager {
       }
     }.resume()
   }
+  
+  func signIn(username: String,
+              password: String,
+              completion: @escaping (Result<ArduinoAccount, SignInError>) -> Void) {
+    
+    let data: [String: String] = [
+      "client_id": clientId,
+      "audience": "https://api.arduino.cc",
+      "scope": "openid profile email offline_access",
+      "grant_type": "password",
+      "username": username,
+      "password": password
+    ]
+  
+    guard let request = URLRequest.post(host: host, path: "/oauth/token", data: data) else {
+      completion(.failure(.notAuthenticated))
+      return
+    }
+    
+    urlSession.dataTask(with: request) { [weak self] data, response, error in
+      guard let self = self else { return }
+      
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(.failure(.networkError(error)))
+          return
+        }
+        
+        guard let response = response as? HTTPURLResponse else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard response.statusCode == 200 else {
+          completion(.failure(.notValid(json)))
+          return
+        }
+        
+        guard let token = json["id_token"] as? String else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard let jwt = JWT(token: token), let account = ArduinoAccount(jwt: jwt, type: .adult) else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        completion(.success(account))
+        
+        self.devicePreferenceManager.savedAccount = account
+        self.currentAccount = account
+        self.delegate?.accountsManagerDidSignIn(signInType: .newSignIn)
+      }
+    }.resume()
+  }
+  
+  func verify(code: String,
+              token: String,
+              completion: @escaping (Result<ArduinoAccount, SignInError>) -> Void) {
+    
+    let data: [String: String] = [
+      "client_id": clientId,
+      "scope": "openid profile email offline_access",
+      "grant_type": "http://auth0.com/oauth/grant-type/mfa-otp",
+      "mfa_token": token,
+      "otp": code
+    ]
+  
+    guard let request = URLRequest.post(host: host, path: "/oauth/token", data: data) else {
+      completion(.failure(.notAuthenticated))
+      return
+    }
+    
+    urlSession.dataTask(with: request) { [weak self] data, response, error in
+      guard let self = self else { return }
+      
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(.failure(.networkError(error)))
+          return
+        }
+        
+        guard let response = response as? HTTPURLResponse else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard response.statusCode == 200 else {
+          completion(.failure(.notValid(json)))
+          return
+        }
+        
+        guard let token = json["id_token"] as? String else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard let jwt = JWT(token: token), let account = ArduinoAccount(jwt: jwt, type: .adult) else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        completion(.success(account))
+        
+        self.devicePreferenceManager.savedAccount = account
+        self.currentAccount = account
+        self.delegate?.accountsManagerDidSignIn(signInType: .newSignIn)
+      }
+    }.resume()
+  }
 }
 
 // MARK:- Helpers

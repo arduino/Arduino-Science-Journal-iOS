@@ -38,7 +38,7 @@ class SignInIntroViewController: WizardViewController {
     super.viewDidLoad()
 
     introView.juniorButton.addTarget(self, action: #selector(signIn(_:)), for: .touchUpInside)
-    introView.regularButton.addTarget(self, action: #selector(signIn(_:)), for: .touchUpInside)
+    introView.adultButton.addTarget(self, action: #selector(signIn(_:)), for: .touchUpInside)
     
     let signUpTap = UITapGestureRecognizer(target: self, action: #selector(signUp(_:)))
     introView.registrationLabel.addGestureRecognizer(signUpTap)
@@ -47,10 +47,10 @@ class SignInIntroViewController: WizardViewController {
   }
 
   @objc private func signIn(_ sender: UIButton) {
-    let isJunior = sender == introView.juniorButton
+    let isAdult = sender == introView.adultButton
     
     let signInViewController = SignInViewController(accountsManager: accountsManager,
-                                                    isJunior: isJunior)
+                                                    isAdult: isAdult)
     show(signInViewController, sender: nil)
   }
   

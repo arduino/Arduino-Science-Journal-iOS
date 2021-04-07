@@ -44,6 +44,10 @@ class WizardTextField: UITextField {
     return font
   }
   
+  var errorColor: UIColor? {
+    requiredColor
+  }
+  
   private var requiredColor: UIColor? {
     UIColor(red: 218/255.0, green: 91/255.0, blue: 74/255.0, alpha: 1)
   }
@@ -112,7 +116,7 @@ class WizardTextField: UITextField {
   
   private func refreshBorder() {
     if hasError {
-      self.layer.borderColor = requiredColor?.cgColor
+      self.layer.borderColor = errorColor?.cgColor
     } else {
       self.layer.borderColor = ArduinoColorPalette.grayPalette.tint200?.cgColor
     }

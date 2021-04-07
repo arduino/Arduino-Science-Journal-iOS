@@ -25,9 +25,9 @@ class SignInIntroView: UIStackView {
                                   isSolid: true,
                                   size: .big)
   
-  let regularButton = WizardButton(title: String.arduinoSignInRegularButton,
-                                   isSolid: true,
-                                   size: .big)
+  let adultButton = WizardButton(title: String.arduinoSignInRegularButton,
+                                 isSolid: true,
+                                 size: .big)
   
   let registrationLabel: UILabel = {
     let label = UILabel()
@@ -75,14 +75,14 @@ class SignInIntroView: UIStackView {
     addArrangedSubview(logoImageView, customSpacing: 20)
     addArrangedSubview(titleLabel, customSpacing: 40)
     addArrangedSubview(juniorButton, customSpacing: 30)
-    addArrangedSubview(regularButton, customSpacing: 48)
+    addArrangedSubview(adultButton, customSpacing: 48)
     addArrangedSubview(separatorView, customSpacing: 16)
     addArrangedSubview(registrationLabel)
     
     NSLayoutConstraint.activate([
       juniorButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 280),
-      regularButton.widthAnchor.constraint(equalTo: juniorButton.widthAnchor),
-      separatorView.widthAnchor.constraint(equalTo: regularButton.widthAnchor)
+      adultButton.widthAnchor.constraint(equalTo: juniorButton.widthAnchor),
+      separatorView.widthAnchor.constraint(equalTo: adultButton.widthAnchor)
     ])
   }
 

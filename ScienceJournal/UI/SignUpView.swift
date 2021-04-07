@@ -50,9 +50,7 @@ class SignUpView: UIStackView {
   }
   
   let emailTextField = WizardTextField(placeholder: String.arduinoSignUpEmailPlaceholder, isRequired: true)
-  let emailErrorView = SignInErrorView()
   let usernameTextField = WizardTextField(placeholder: String.arduinoSignUpUsernamePlaceholder, isRequired: true)
-  let usernameErrorView = SignInErrorView()
   let passwordTextField = WizardTextField(placeholder: String.arduinoSignUpPasswordPlaceholder, isRequired: true)
   let submitButton = WizardButton(title: String.arduinoSignUpSubmitButton, isSolid: true)
   
@@ -94,6 +92,9 @@ class SignUpView: UIStackView {
     return label
   }()
 
+  private let emailErrorView = SignInErrorView()
+  private let usernameErrorView = SignInErrorView()
+  
   init(hasSingleSignOn: Bool) {
     super.init(frame: .zero)
 

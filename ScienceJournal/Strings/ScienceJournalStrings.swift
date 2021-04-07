@@ -123,15 +123,24 @@ extension String {
   static public var arduinoPasswordRecoveryResendButton: String { return "arduino_password_recovery_resend_button".localized }
   static public var arduinoPasswordRecoverySubtitle: String { return "arduino_password_recovery_subtitle".localized }
   static public var arduinoPasswordRecoveryTitle: String { return "arduino_password_recovery_title".localized }
+  static public var arduinoSignIn2faDescription: String { return "arduino_sign_in_2fa_description".localized }
+  static public var arduinoSignIn2faError: String { return "arduino_sign_in_2fa_error".localized }
+  static public var arduinoSignIn2faPlaceholder: String { return "arduino_sign_in_2fa_placeholder".localized }
+  static public var arduinoSignIn2faSubmit: String { return "arduino_sign_in_2fa_submit".localized }
+  static public var arduinoSignIn2faSubtitle: String { return "arduino_sign_in_2fa_subtitle".localized }
+  static public var arduinoSignIn2faTitle: String { return "arduino_sign_in_2fa_title".localized }
   static public var arduinoSignInButton: String { return "arduino_sign_in_button".localized }
+  static public var arduinoSignInErrorMessage: String { return "arduino_sign_in_error_message".localized }
   static public var arduinoSignInIntroTitle: String { return "arduino_sign_in_intro_title".localized }
   static public var arduinoSignInJuniorButton: String { return "arduino_sign_in_junior_button".localized }
+  static public var arduinoSignInJuniorIntroTitle: String { return "arduino_sign_in_junior_intro_title".localized }
   static public var arduinoSignInPasswordPlaceholder: String { return "arduino_sign_in_password_placeholder".localized }
   static public var arduinoSignInPasswordRecoveryButton: String { return "arduino_sign_in_password_recovery_button".localized }
   static public var arduinoSignInRegistrationCta: String { return "arduino_sign_in_registration_cta".localized }
   static public var arduinoSignInRegistrationHint: String { return "arduino_sign_in_registration_hint".localized }
   static public var arduinoSignInRegularButton: String { return "arduino_sign_in_regular_button".localized }
   static public var arduinoSignInSsoHint: String { return "arduino_sign_in_sso_hint".localized }
+  static public var arduinoSignInUsernameOrEmailPlaceholder: String { return "arduino_sign_in_username_or_email_placeholder".localized }
   static public var arduinoSignInUsernamePlaceholder: String { return "arduino_sign_in_username_placeholder".localized }
   static public var arduinoSignUpBirthdateInfo: String { return "arduino_sign_up_birthdate_info".localized }
   static public var arduinoSignUpBirthdatePlaceholder: String { return "arduino_sign_up_birthdate_placeholder".localized }

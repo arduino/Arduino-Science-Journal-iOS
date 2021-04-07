@@ -26,18 +26,40 @@ class SignInView: UIStackView {
   let passwordRecoveryButton = WizardButton(title: String.arduinoSignInPasswordRecoveryButton, isSolid: false)
   let signInButton = WizardButton(title: String.arduinoSignInButton, isSolid: true)
   
+  var error: String? {
+    didSet {
+      let hasError = error != nil
+      usernameTextField.hasError = hasError
+      passwordTextField.hasError = hasError
+      errorView.errorLabel.text = error
+      errorView.isHidden = !hasError
+    }
+  }
+  
   private(set) lazy var socialView = SignInSocialView()
   
   private let logoImageView = UIImageView(image: UIImage(named: "arduino_navigation_title"))
   
   private let titleLabel: UILabel = {
     let label = UILabel()
-    label.text = String.arduinoSignInIntroTitle
     label.textAlignment = .center
     label.textColor = .black
     label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Large.rawValue)
     label.numberOfLines = 0
     return label
+  }()
+  
+  private lazy var errorView: SignInErrorView = {
+    let errorView = SignInErrorView()
+    errorView.isLayoutMarginsRelativeArrangement = true
+    errorView.layoutMargins = UIEdgeInsets(top: 10, left: 12, bottom: 10, right: 12)
+    errorView.backgroundColor = passwordTextField.errorColor?.withAlphaComponent(0.1)
+    errorView.layer.borderColor = passwordTextField.errorColor?.cgColor
+    errorView.layer.borderWidth = 1
+    errorView.layer.cornerRadius = 3
+    errorView.errorLabel.textColor = .black
+    errorView.errorLabel.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XXSmall.rawValue)
+    return errorView
   }()
   
   private lazy var socialHintLabel: UILabel = {
@@ -50,7 +72,7 @@ class SignInView: UIStackView {
     return label
   }()
 
-  init(hasSingleSignOn: Bool) {
+  init(isAdult: Bool) {
     super.init(frame: .zero)
 
     axis = .vertical
@@ -59,9 +81,19 @@ class SignInView: UIStackView {
     layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     spacing = 0
     
+    if isAdult {
+      titleLabel.text = String.arduinoSignInIntroTitle
+      usernameTextField.placeholder = String.arduinoSignInUsernameOrEmailPlaceholder
+    } else {
+      titleLabel.text = String.arduinoSignInJuniorIntroTitle
+    }
+    
     addArrangedSubview(logoImageView, customSpacing: 20)
     addArrangedSubview(titleLabel, customSpacing: 20)
     addArrangedSubview(usernameTextField, customSpacing: 28)
+    
+    passwordTextField.textContentType = .password
+    passwordTextField.isSecureTextEntry = true
     addArrangedSubview(passwordTextField, customSpacing: 8)
     
     let passwordRecoveryStackView = UIStackView()
@@ -69,6 +101,9 @@ class SignInView: UIStackView {
     passwordRecoveryStackView.addArrangedSubview(passwordRecoveryButton)
     passwordRecoveryStackView.addArrangedSubview(UIView())
     addArrangedSubview(passwordRecoveryStackView, customSpacing: 8)
+    
+    errorView.isHidden = true
+    addArrangedSubview(errorView, customSpacing: 26)
     
     let signInButtonStackView = UIStackView()
     signInButtonStackView.axis = .horizontal
@@ -79,11 +114,12 @@ class SignInView: UIStackView {
     NSLayoutConstraint.activate([
       usernameTextField.widthAnchor.constraint(greaterThanOrEqualToConstant: 280),
       passwordTextField.widthAnchor.constraint(equalTo: usernameTextField.widthAnchor),
+      errorView.widthAnchor.constraint(equalTo: passwordTextField.widthAnchor),
       passwordRecoveryStackView.widthAnchor.constraint(equalTo: passwordTextField.widthAnchor),
       signInButtonStackView.widthAnchor.constraint(equalTo: passwordRecoveryStackView.widthAnchor)
     ])
     
-    if hasSingleSignOn {
+    if isAdult {
       let separatorView = SeparatorView(direction: .horizontal, style: .dark)
       addArrangedSubview(separatorView, customSpacing: 12)
       addArrangedSubview(socialHintLabel, customSpacing: 20)

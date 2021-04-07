@@ -643,6 +643,8 @@
 		BC58716925F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58716825F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift */; };
 		BC5C50F525ADEF43009B0211 /* DriveSyncSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C50F425ADEF43009B0211 /* DriveSyncSummaryViewController.swift */; };
 		BC5C50FD25ADEF6B009B0211 /* DriveSyncSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C50FC25ADEF6B009B0211 /* DriveSyncSummaryView.swift */; };
+		BC72115A261DC1F300DCC391 /* SignInVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC721159261DC1F300DCC391 /* SignInVerificationViewController.swift */; };
+		BC72115F261DC20300DCC391 /* SignInVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72115E261DC20300DCC391 /* SignInVerificationView.swift */; };
 		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
 		BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */; };
 		BC7AB0FD24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */; };
@@ -1442,6 +1444,8 @@
 		BC58716825F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTLRDrive_File+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC5C50F425ADEF43009B0211 /* DriveSyncSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncSummaryViewController.swift; sourceTree = "<group>"; };
 		BC5C50FC25ADEF6B009B0211 /* DriveSyncSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncSummaryView.swift; sourceTree = "<group>"; };
+		BC721159261DC1F300DCC391 /* SignInVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVerificationViewController.swift; sourceTree = "<group>"; };
+		BC72115E261DC20300DCC391 /* SignInVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVerificationView.swift; sourceTree = "<group>"; };
 		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
 		BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerZSensor.swift; sourceTree = "<group>"; };
@@ -1766,6 +1770,8 @@
 				BC24D29A2608991F00209383 /* SignInIntroView.swift */,
 				BC24D295260898EF00209383 /* SignInIntroViewController.swift */,
 				BC24D32D260A47CA00209383 /* SignInSocialView.swift */,
+				BC72115E261DC20300DCC391 /* SignInVerificationView.swift */,
+				BC721159261DC1F300DCC391 /* SignInVerificationViewController.swift */,
 				BC24D31D2609F92000209383 /* SignInView.swift */,
 				BC24D3182609F91100209383 /* SignInViewController.swift */,
 				BC24D35A260B2E5900209383 /* SignUpBirthdateView.swift */,
@@ -4374,6 +4380,7 @@
 				BC58716925F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift in Sources */,
 				68E36193203F7F1500B1B979 /* AnalyticsReporter.swift in Sources */,
 				8B2FD9BB20C58051007513FE /* String+Pluralize.swift in Sources */,
+				BC72115A261DC1F300DCC391 /* SignInVerificationViewController.swift in Sources */,
 				8B5114EE20B49F5F005953BD /* ClaimExperimentsViewController.swift in Sources */,
 				BC24D353260B2E0C00209383 /* SignUpBirthdateViewController.swift in Sources */,
 				8BB99E6E206BF0B8001A1A58 /* SeparatorView.swift in Sources */,
@@ -4412,6 +4419,7 @@
 				F366759824FE5697004E567D /* Nano33BLESenseAccelerometerZSensor.swift in Sources */,
 				3F8F55E9234578C600CC6319 /* MaterialHeaderContainerViewController.swift in Sources */,
 				5C52C0AC1FB10072007B4150 /* CropOverlayView.swift in Sources */,
+				BC72115F261DC20300DCC391 /* SignInVerificationView.swift in Sources */,
 				5C650B0520892A5700CB4656 /* AccountsManager.swift in Sources */,
 				68E3C8D21FD783FE00255ADF /* Bundle+ScienceJournal.swift in Sources */,
 				68BD95651E8DA45100FEB0B2 /* SoundType.swift in Sources */,
