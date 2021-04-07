@@ -18,6 +18,8 @@
 //  limitations under the License.
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class PasswordRecoveryViewController: WizardViewController {
 
@@ -26,6 +28,8 @@ class PasswordRecoveryViewController: WizardViewController {
   
   private(set) lazy var passwordRecoveryView = PasswordRecoveryView()
 
+  private lazy var disposeBag = DisposeBag()
+  
   init(accountsManager: ArduinoAccountsManager, completion: @escaping () -> Void) {
     self.accountsManager = accountsManager
     self.completion = completion
@@ -44,6 +48,8 @@ class PasswordRecoveryViewController: WizardViewController {
     passwordRecoveryView.recoverButton.addTarget(self,
                                                  action: #selector(recover(_:)),
                                                  for: .touchUpInside)
+    
+    addObservers()
   }
   
   @objc private func recover(_ sender: UIButton) {
@@ -56,5 +62,14 @@ class PasswordRecoveryViewController: WizardViewController {
                                                  accountsManager: accountsManager,
                                                  completion: completion)
     show(viewController, sender: nil)
+  }
+  
+  private func addObservers() {
+    let hasEmail = passwordRecoveryView.emailTextField.rx.text.orEmpty
+      .map { $0.isValidEmail }
+
+    hasEmail
+      .bind(to: passwordRecoveryView.recoverButton.rx.isEnabled)
+      .disposed(by: disposeBag)
   }
 }

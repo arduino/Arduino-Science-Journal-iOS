@@ -18,17 +18,21 @@
 //  limitations under the License.
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class PasswordRecoveryConfirmationViewController: WizardViewController {
 
   let email: String
-  let accountsManager: AccountsManager
+  let accountsManager: ArduinoAccountsManager
   let completion: () -> Void
   
   private(set) lazy var confirmationView = PasswordRecoveryConfirmationView()
 
+  private lazy var disposeBag = DisposeBag()
+  
   init(email: String,
-       accountsManager: AccountsManager,
+       accountsManager: ArduinoAccountsManager,
        completion: @escaping () -> Void) {
     self.email = email
     self.accountsManager = accountsManager
@@ -45,12 +49,29 @@ class PasswordRecoveryConfirmationViewController: WizardViewController {
 
     wizardView.contentView = confirmationView
     
+    confirmationView.resendButton.addTarget(self,
+                                            action: #selector(recoverPassword),
+                                            for: .touchUpInside)
     confirmationView.backButton.addTarget(self,
                                           action: #selector(back(_:)),
                                           for: .touchUpInside)
+    
+    isLoading
+      .map { !$0 }
+      .bind(to: confirmationView.resendButton.rx.isEnabled)
+      .disposed(by: disposeBag)
+    
+    recoverPassword()
   }
   
   @objc private func back(_ sender: UIButton) {
     completion()
+  }
+  
+  @objc private func recoverPassword() {
+    isLoading.onNext(true)
+    accountsManager.recoverPassword(for: email) { [weak self] _ in
+      self?.isLoading.onNext(false)
+    }
   }
 }

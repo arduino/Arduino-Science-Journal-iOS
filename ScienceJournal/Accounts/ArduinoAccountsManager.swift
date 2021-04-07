@@ -420,6 +420,45 @@ extension ArduinoAccountsManager {
       }
     }.resume()
   }
+  
+  func recoverPassword(for email: String, completion: @escaping (Result<Void, SignInError>) -> Void) {
+    let data: [String: String] = [
+      "client_id": clientId,
+      "connection": "arduino",
+      "email": email
+    ]
+  
+    guard let request = URLRequest.post(host: host, path: "/dbconnections/change_password", data: data) else {
+      completion(.failure(.badRequest))
+      return
+    }
+    
+    urlSession.dataTask(with: request) { data, response, error in
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(.failure(.networkError(error)))
+          return
+        }
+        
+        guard let response = response as? HTTPURLResponse else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard response.statusCode == 200 else {
+          completion(.failure(.notValid(json)))
+          return
+        }
+        
+        completion(.success(()))
+      }
+    }.resume()
+  }
 }
 
 // MARK:- Helpers

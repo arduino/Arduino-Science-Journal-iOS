@@ -64,7 +64,7 @@ class WizardTextField: UITextField {
     self.layer.cornerRadius = 3
     self.layer.borderWidth = 1
     
-    setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+    setContentCompressionResistancePriority(UILayoutPriority(rawValue: 0), for: .horizontal)
     
     self.isRequired = isRequired
     self.placeholder = placeholder
