@@ -150,58 +150,24 @@ class SignUpViewController: WizardViewController {
       })
       .disposed(by: disposeBag)
     
-    Observable.combineLatest(hasEmail, hasUsername, hasPassword)
-      .map { $0.0 && $0.1 && $0.2 }
+    Observable.combineLatest(hasEmail, hasUsername, hasPassword, isLoading)
+      .map { $0.0 && $0.1 && $0.2 && !$0.3 }
       .bind(to: signUpView.submitButton.rx.isEnabled)
       .disposed(by: disposeBag)
     
-    isLoading
-      .map { !$0 }
-      .observe(on: MainScheduler.instance)
-      .bind(to: signUpView.emailTextField.rx.isEnabled)
-      .disposed(by: disposeBag)
-    
-    isLoading
-      .map { !$0 }
-      .observe(on: MainScheduler.instance)
-      .bind(to: signUpView.usernameTextField.rx.isEnabled)
-      .disposed(by: disposeBag)
-    
-    isLoading
-      .map { !$0 }
-      .observe(on: MainScheduler.instance)
-      .bind(to: signUpView.passwordTextField.rx.isEnabled)
-      .disposed(by: disposeBag)
-    
-    isLoading
-      .map { !$0 }
-      .observe(on: MainScheduler.instance)
-      .bind(to: signUpView.socialView.githubButton.rx.isEnabled)
-      .disposed(by: disposeBag)
-    
-    isLoading
-      .map { !$0 }
-      .observe(on: MainScheduler.instance)
-      .bind(to: signUpView.socialView.googleButton.rx.isEnabled)
-      .disposed(by: disposeBag)
-    
-    isLoading
-      .map { !$0 }
-      .observe(on: MainScheduler.instance)
-      .bind(to: signUpView.socialView.appleButton.rx.isEnabled)
-      .disposed(by: disposeBag)
-    
-    isLoading
-      .map { !$0 }
-      .observe(on: MainScheduler.instance)
-      .bind(to: signUpView.usernameTextField.rx.isEnabled)
-      .disposed(by: disposeBag)
-    
-    isLoading
-      .map { !$0 }
-      .observe(on: MainScheduler.instance)
-      .bind(to: signUpView.passwordTextField.rx.isEnabled)
-      .disposed(by: disposeBag)
+    [signUpView.emailTextField,
+     signUpView.usernameTextField,
+     signUpView.passwordTextField,
+     signUpView.socialView.githubButton,
+     signUpView.socialView.googleButton,
+     signUpView.socialView.appleButton].forEach { control in
+      
+      isLoading
+        .map { !$0 }
+        .observe(on: MainScheduler.instance)
+        .bind(to: control.rx.isEnabled)
+        .disposed(by: disposeBag)
+     }
     
     isLoading
       .filter { $0 }
