@@ -184,7 +184,7 @@ extension ArduinoAccountsManager {
     
     var queryItems = [URLQueryItem]()
     for (key, value) in parameters {
-        queryItems.append(URLQueryItem(name: key, value: value))
+      queryItems.append(URLQueryItem(name: key, value: value))
     }
     
     guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
@@ -302,17 +302,24 @@ extension ArduinoAccountsManager {
   
   func signIn(username: String,
               password: String,
+              accountType: AuthAccountType,
               completion: @escaping (Result<ArduinoAccount, SignInError>) -> Void) {
     
-    let data: [String: String] = [
+    var data: [String: String] = [
       "client_id": clientId,
       "audience": "https://api.arduino.cc",
       "scope": "openid profile email offline_access",
-      "grant_type": "password",
       "username": username,
       "password": password
     ]
-  
+    
+    if accountType == .kid {
+      data["grant_type"] = "http://auth0.com/oauth/grant-type/password-realm"
+      data["realm"] = "coppa"
+    } else {
+      data["grant_type"] = "password"
+    }
+    
     guard let request = URLRequest.post(host: host, path: "/oauth/token", data: data) else {
       completion(.failure(.notAuthenticated))
       return
@@ -347,7 +354,7 @@ extension ArduinoAccountsManager {
           return
         }
         
-        guard let jwt = JWT(token: token), let account = ArduinoAccount(jwt: jwt, type: .adult) else {
+        guard let jwt = JWT(token: token), let account = ArduinoAccount(jwt: jwt, type: accountType) else {
           completion(.failure(.badResponse))
           return
         }
@@ -372,7 +379,7 @@ extension ArduinoAccountsManager {
       "mfa_token": token,
       "otp": code
     ]
-  
+    
     guard let request = URLRequest.post(host: host, path: "/oauth/token", data: data) else {
       completion(.failure(.notAuthenticated))
       return
@@ -427,7 +434,7 @@ extension ArduinoAccountsManager {
       "connection": "arduino",
       "email": email
     ]
-  
+    
     guard let request = URLRequest.post(host: host, path: "/dbconnections/change_password", data: data) else {
       completion(.failure(.badRequest))
       return
@@ -515,7 +522,7 @@ extension ArduinoAccountsManager: GIDSignInDelegate {
       delegate?.accountsManagerDidFailDriveSyncSetup(with: error ?? SignInError.notAuthenticated)
     }
   }
-
+  
   func sign(_ signIn: GIDSignIn!,
             didDisconnectWith user: GIDGoogleUser!,
             withError error: Error!) {

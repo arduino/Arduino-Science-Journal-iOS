@@ -79,9 +79,13 @@ class SignInViewController: WizardViewController {
     if isAdult {
       accountsManager.signIn(username: username,
                              password: password,
+                             accountType: .adult,
                              completion: completeWithResult)
     } else {
-      
+      accountsManager.signIn(username: username,
+                             password: password,
+                             accountType: .kid,
+                             completion: completeWithResult)
     }
   }
 
