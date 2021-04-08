@@ -234,6 +234,9 @@
 "arduino_sign_up_email_exists_error" = "The user already exists.";
 "arduino_sign_up_email_invalid_error" = "Must be a valid email.";
 "arduino_sign_up_email_placeholder" = "Enter your email";
+"arduino_sign_up_junior_parent_email_subtitle" = "A parent needs to help you create the account. Enter their email address below and we will send instructions on how to proceed.";
+"arduino_sign_up_junior_title" = "Create a Junior account";
+"arduino_sign_up_junior_username_hint" = "The username is created for you automatically, but you can generate new ones until you find the best one. You will use this username to log in to Arduino, and other users will see it when you post projects.";
 "arduino_sign_up_marketing_approval" = "I would like to receive emails about special deals and commercial offers from Arduino.";
 "arduino_sign_up_newsletter_approval" = "I would like to receive the Arduino newsletter.";
 "arduino_sign_up_password_hint" = "Minimum 8 characters";

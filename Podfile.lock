@@ -253,6 +253,7 @@ PODS:
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
+  - PocketSVG (2.7.0)
   - Protobuf (3.5.0)
   - RxBlocking (6.1.0):
     - RxSwift (= 6.1.0)
@@ -302,6 +303,7 @@ DEPENDENCIES:
   - MaterialComponents/TextFields
   - MaterialComponents/Themes
   - MaterialComponents/Typography
+  - PocketSVG (~> 2.6)
   - Protobuf (~> 3.5.0)
   - RxBlocking (= 6.1.0)
   - RxCocoa (= 6.1.0)
@@ -323,6 +325,7 @@ SPEC REPOS:
     - MDFTextAccessibility
     - MotionAnimator
     - MotionInterchange
+    - PocketSVG
     - Protobuf
     - RxBlocking
     - RxCocoa
@@ -344,6 +347,7 @@ SPEC CHECKSUMS:
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
+  PocketSVG: 5e0ff20c8a661586b2f2c295cd18b3e8f06de552
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   RxBlocking: 602095fba0bce7b16b56ccec89edf780c248b7d9
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
@@ -354,6 +358,6 @@ SPEC CHECKSUMS:
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: ba47718bc82b5e964a35134676784a04dfe340d0
+PODFILE CHECKSUM: 728c9b331945df1c9588e123b1f3e79e107259ee
 
 COCOAPODS: 1.10.1

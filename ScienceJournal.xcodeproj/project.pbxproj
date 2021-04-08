@@ -694,6 +694,10 @@
 		BCCE57FD261F0116002E12FB /* SignUpParentConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE57FC261F0116002E12FB /* SignUpParentConfirmationView.swift */; };
 		BCCE5808261F162A002E12FB /* JuniorRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE5807261F162A002E12FB /* JuniorRecoveryViewController.swift */; };
 		BCCE580D261F1639002E12FB /* JuniorRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE580C261F1639002E12FB /* JuniorRecoveryView.swift */; };
+		BCCE5815261F451F002E12FB /* SignUpJuniorUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE5814261F451F002E12FB /* SignUpJuniorUsernameView.swift */; };
+		BCCE581A261F471D002E12FB /* SignUpJuniorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE5819261F471D002E12FB /* SignUpJuniorViewController.swift */; };
+		BCCE581F261F4736002E12FB /* SignUpJuniorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE581E261F4736002E12FB /* SignUpJuniorView.swift */; };
+		BCCE584D261F5827002E12FB /* SignUpJuniorAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE584C261F5827002E12FB /* SignUpJuniorAvatarView.swift */; };
 		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
 		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
@@ -1501,6 +1505,10 @@
 		BCCE57FC261F0116002E12FB /* SignUpParentConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpParentConfirmationView.swift; sourceTree = "<group>"; };
 		BCCE5807261F162A002E12FB /* JuniorRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuniorRecoveryViewController.swift; sourceTree = "<group>"; };
 		BCCE580C261F1639002E12FB /* JuniorRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuniorRecoveryView.swift; sourceTree = "<group>"; };
+		BCCE5814261F451F002E12FB /* SignUpJuniorUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorUsernameView.swift; sourceTree = "<group>"; };
+		BCCE5819261F471D002E12FB /* SignUpJuniorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorViewController.swift; sourceTree = "<group>"; };
+		BCCE581E261F4736002E12FB /* SignUpJuniorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorView.swift; sourceTree = "<group>"; };
+		BCCE584C261F5827002E12FB /* SignUpJuniorAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorAvatarView.swift; sourceTree = "<group>"; };
 		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
@@ -1792,6 +1800,10 @@
 				BC24D352260B2E0C00209383 /* SignUpBirthdateViewController.swift */,
 				BC0F531F26121C20002B30D0 /* SignUpConfirmationView.swift */,
 				BC0F532426121C30002B30D0 /* SignUpConfirmationViewController.swift */,
+				BCCE584C261F5827002E12FB /* SignUpJuniorAvatarView.swift */,
+				BCCE5814261F451F002E12FB /* SignUpJuniorUsernameView.swift */,
+				BCCE581E261F4736002E12FB /* SignUpJuniorView.swift */,
+				BCCE5819261F471D002E12FB /* SignUpJuniorViewController.swift */,
 				BCCE57FC261F0116002E12FB /* SignUpParentConfirmationView.swift */,
 				BCCE57F7261E1AB4002E12FB /* SignUpParentConfirmationViewController.swift */,
 				BC72116E261DF79700DCC391 /* SignUpParentView.swift */,
@@ -3816,6 +3828,7 @@
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
+				"${BUILT_PRODUCTS_DIR}/PocketSVG/PocketSVG.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf-framework/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
@@ -3834,6 +3847,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PocketSVG.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
@@ -3946,6 +3960,7 @@
 				8B06406C203E0FBC00F66356 /* AccelerometerAnimationView.swift in Sources */,
 				BC310E98261CA7CE00B59C5E /* SignInErrorView.swift in Sources */,
 				8BFCF97C1FAA2B5E0030A6DC /* ArchivedFlagCell.swift in Sources */,
+				BCCE584D261F5827002E12FB /* SignUpJuniorAvatarView.swift in Sources */,
 				68B32A321F9E89BA0067DAF3 /* SettingsCell.swift in Sources */,
 				68CD50D71E57DD4E005E928F /* ObserveDataSource.swift in Sources */,
 				BC24D34B260A541200209383 /* PasswordRecoveryConfirmationView.swift in Sources */,
@@ -4300,6 +4315,7 @@
 				8B84E0301EAFF429005E9AA0 /* DrawerView.swift in Sources */,
 				8B1B2AF91EE9851400990FE8 /* PopUpMenuCell.swift in Sources */,
 				5C7DB7D220EA974200F915CD /* OperationResult.swift in Sources */,
+				BCCE5815261F451F002E12FB /* SignUpJuniorUsernameView.swift in Sources */,
 				BCEC93AB24C0471A0041296C /* BLEScienceKitResistanceSensor.swift in Sources */,
 				5CF7C5FF1E663AFF0029BD28 /* TimeAxisView.swift in Sources */,
 				5C7EFC5D202E36120007F99E /* GSJOperationQueue.swift in Sources */,
@@ -4320,6 +4336,7 @@
 				680659261EC39AFE0090670C /* TrialCardSensorView.swift in Sources */,
 				5CA0532D1F2BD60300FEE465 /* BrightnessSensor.swift in Sources */,
 				BC42DAB925656013004C1D32 /* UIResponder+ErrorHandling.swift in Sources */,
+				BCCE581A261F471D002E12FB /* SignUpJuniorViewController.swift in Sources */,
 				3F158A0F231DF370005E319E /* FeatureEnabler.swift in Sources */,
 				3F56956C228F04130039B84F /* LaunchManager.swift in Sources */,
 				8B2838FB1F8C14A8005CCB01 /* VisualTriggerView.swift in Sources */,
@@ -4356,6 +4373,7 @@
 				5CBD9AB51F71918E00D22D21 /* SensorConfigPinSelectorView.swift in Sources */,
 				8B111F661E412131000400F1 /* SensorController.swift in Sources */,
 				58AB86B62305FEAD00DB5367 /* RecordingDetailEmptyStateViewController.swift in Sources */,
+				BCCE581F261F4736002E12FB /* SignUpJuniorView.swift in Sources */,
 				5C7DE8C61EC22B100015F407 /* ElapsedTimeFormatter.swift in Sources */,
 				8BA5BF3B1F45CEDA00EB77E8 /* AVCaptureSessionInterruptionReason+ScienceJournal.swift in Sources */,
 				68525A441F2BD8F700A41675 /* ExifData.swift in Sources */,

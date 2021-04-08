@@ -25,6 +25,25 @@ extension URLRequest {
     case form = "application/x-www-form-urlencoded"
   }
   
+  static func get(scheme: String = "https",
+                  host: String,
+                  path: String) -> URLRequest? {
+    
+    var urlComponents = URLComponents()
+    urlComponents.scheme = scheme
+    urlComponents.host = host
+    urlComponents.path = path
+    
+    guard let requestURL = urlComponents.url else {
+      return nil
+    }
+    
+    var request = URLRequest(url: requestURL)
+    request.httpMethod = "GET"
+    
+    return request
+  }
+  
   static func post(scheme: String = "https",
                    host: String,
                    path: String,

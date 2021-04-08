@@ -57,7 +57,9 @@ class SignUpBirthdateViewController: WizardViewController {
 
     let viewModel = SignUpViewModel(birthdate: birthdate)
     if viewModel.age < 14 {
-      
+      let viewController = SignUpJuniorViewController(accountsManager: accountsManager,
+                                                      viewModel: viewModel)
+      show(viewController, sender: nil)
     } else {
       let viewController = SignUpViewController(accountsManager: accountsManager,
                                                 viewModel: viewModel)

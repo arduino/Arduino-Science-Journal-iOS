@@ -26,7 +26,7 @@ class SignUpParentViewController: WizardViewController {
   let accountsManager: ArduinoAccountsManager
   private(set) var viewModel: SignUpViewModel
   
-  private(set) lazy var signUpParentView = SignUpParentView()
+  private(set) lazy var signUpParentView = SignUpParentView(isJunior: viewModel.avatar != nil)
   
   private lazy var disposeBag = DisposeBag()
   
@@ -51,10 +51,18 @@ class SignUpParentViewController: WizardViewController {
   }
   
   @objc private func submit(_ sender: UIButton) {
+    if viewModel.avatar != nil {
+      signUpJunior()
+    } else {
+      signUpTeen()
+    }
+  }
+  
+  private func signUpTeen() {
     guard let email = viewModel.email,
           let username = viewModel.username,
           let password = viewModel.password,
-          let parentEmail = signUpParentView.emailTextField.text, !parentEmail.isEmpty else {
+          let parentEmail = signUpParentView.emailTextField.text?.lowercased(), !parentEmail.isEmpty else {
       return
     }
     
@@ -89,6 +97,38 @@ class SignUpParentViewController: WizardViewController {
           let viewController = SignUpConfirmationViewController(account: account, accountsManager: self.accountsManager)
           self.show(viewController, sender: nil)
         }
+      }
+    }
+  }
+  
+  private func signUpJunior() {
+    guard let username = viewModel.username,
+          let password = viewModel.password,
+          let parentEmail = signUpParentView.emailTextField.text?.lowercased(), !parentEmail.isEmpty else {
+      return
+    }
+    
+    isLoading.onNext(true)
+    
+    viewModel.parentEmail = parentEmail
+    accountsManager.signUpJunior(username: username,
+                                 password: password,
+                                 userMetadata: viewModel.userMetadata) { [weak self] in
+      guard let self = self else { return }
+      
+      self.isLoading.onNext(false)
+      
+      switch $0 {
+      case .failure(let error):
+        switch error {
+        case .notValid(let json):
+          self.backToSignUp(error: json)
+        default:
+          break
+        }
+      case .success:
+        let viewController = SignUpParentConfirmationViewController(parentEmail: parentEmail)
+        self.show(viewController, sender: nil)
       }
     }
   }

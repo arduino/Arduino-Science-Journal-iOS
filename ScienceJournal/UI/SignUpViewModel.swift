@@ -26,6 +26,7 @@ struct SignUpViewModel {
   var password: String?
   var acceptedTerms = [SignUpTermsItem]()
   var parentEmail: String?
+  var avatar: String?
   
   var age: Int {
     let now = Date()
@@ -63,6 +64,10 @@ struct SignUpViewModel {
       
       userMetadata["parent_email"] = parentEmail
       userMetadata["birthday"] = dateFormatter.string(from: birthdate)
+    }
+    
+    if let avatar = avatar {
+      userMetadata["avatar"] = avatar
     }
     
     return userMetadata

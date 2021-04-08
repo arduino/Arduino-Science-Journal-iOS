@@ -48,7 +48,7 @@ class SignUpParentView: UIStackView {
     return label
   }()
   
-  init() {
+  init(isJunior: Bool) {
     super.init(frame: .zero)
 
     axis = .vertical
@@ -56,6 +56,12 @@ class SignUpParentView: UIStackView {
     isLayoutMarginsRelativeArrangement = true
     layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     spacing = 20
+    
+    if isJunior {
+      subtitleLabel.text = String.arduinoSignUpJuniorParentEmailSubtitle
+    } else {
+      subtitleLabel.text = String.arduinoParentEmailSubtitle
+    }
     
     addArrangedSubview(titleLabel)
     addArrangedSubview(subtitleLabel)

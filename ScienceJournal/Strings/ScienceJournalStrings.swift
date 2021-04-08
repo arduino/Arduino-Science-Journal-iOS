@@ -169,6 +169,9 @@ extension String {
   static public var arduinoSignUpEmailExistsError: String { return "arduino_sign_up_email_exists_error".localized }
   static public var arduinoSignUpEmailInvalidError: String { return "arduino_sign_up_email_invalid_error".localized }
   static public var arduinoSignUpEmailPlaceholder: String { return "arduino_sign_up_email_placeholder".localized }
+  static public var arduinoSignUpJuniorParentEmailSubtitle: String { return "arduino_sign_up_junior_parent_email_subtitle".localized }
+  static public var arduinoSignUpJuniorTitle: String { return "arduino_sign_up_junior_title".localized }
+  static public var arduinoSignUpJuniorUsernameHint: String { return "arduino_sign_up_junior_username_hint".localized }
   static public var arduinoSignUpMarketingApproval: String { return "arduino_sign_up_marketing_approval".localized }
   static public var arduinoSignUpNewsletterApproval: String { return "arduino_sign_up_newsletter_approval".localized }
   static public var arduinoSignUpPasswordHint: String { return "arduino_sign_up_password_hint".localized }

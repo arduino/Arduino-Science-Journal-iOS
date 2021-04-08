@@ -502,6 +502,121 @@ extension ArduinoAccountsManager {
   }
 }
 
+// MARK:- Junior
+extension ArduinoAccountsManager {
+  func getJuniorUsername(completion: @escaping (Result<String, SignInError>) -> Void) {
+    guard let request = URLRequest.get(host: apiHost, path: "/users/v1/children/username") else {
+      completion(.failure(.badRequest))
+      return
+    }
+    
+    urlSession.dataTask(with: request) { data, response, error in
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(.failure(.networkError(error)))
+          return
+        }
+        
+        guard let response = response as? HTTPURLResponse else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard response.statusCode == 200 else {
+          completion(.failure(.badRequest))
+          return
+        }
+        
+        guard let data = data, let username = String(data: data, encoding: .utf8) else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        completion(.success(username.replacingOccurrences(of: "\"", with: "")))
+      }
+    }.resume()
+  }
+  
+  func getJuniorAvatars(completion: @escaping (Result<[[String: String]], SignInError>) -> Void) {
+    guard let request = URLRequest.get(host: apiHost, path: "/users/v1/children/avatars") else {
+      completion(.failure(.badRequest))
+      return
+    }
+    
+    urlSession.dataTask(with: request) { data, response, error in
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(.failure(.networkError(error)))
+          return
+        }
+        
+        guard let response = response as? HTTPURLResponse else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard response.statusCode == 200 else {
+          completion(.failure(.badRequest))
+          return
+        }
+        
+        guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [[String: String]] else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        completion(.success(json))
+      }
+    }.resume()
+  }
+  
+  func signUpJunior(username: String,
+                    password: String,
+                    userMetadata: [String: String],
+                    completion: @escaping (Result<Void, SignInError>) -> Void) {
+    
+    var data: [String: String] = [
+      "username": username,
+      "password": password
+    ]
+    
+    userMetadata.forEach { key, value in
+      data[key] = value
+    }
+    
+    guard let request = URLRequest.post(host: apiHost, path: "/users/v1/children", data: data, contentType: .json) else {
+      completion(.failure(.badRequest))
+      return
+    }
+    
+    urlSession.dataTask(with: request) { data, response, error in
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(.failure(.networkError(error)))
+          return
+        }
+        
+        guard let response = response as? HTTPURLResponse else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String] else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard response.statusCode == 201 else {
+          completion(.failure(.notValid(json)))
+          return
+        }
+        
+        completion(.success(()))
+      }
+    }.resume()
+  }
+}
+
 // MARK:- Helpers
 private extension ArduinoAccountsManager {
   func restoreDriveSyncIfNeeded() {
