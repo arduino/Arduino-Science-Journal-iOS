@@ -180,6 +180,14 @@
 "archived_experiment_message" = "Eksperimentet er arkiveret.";
 /* Message of alert when a run is successfully archived [CHAR_LIMIT=100] */
 "archived_run_message" = "Registreringen er arkiveret.";
+"arduino_parent_confirmation_button" = "BACK TO SCIENCE JOURNAL";
+"arduino_parent_confirmation_subtitle" = "We sent an email with instructions to your parent’s email %@. You will be able to sign in once they finalize your account.";
+"arduino_parent_confirmation_title" = "Account confirmation";
+"arduino_parent_email_confirmation_placeholder" = "Confirm email address";
+"arduino_parent_email_placeholder" = "Parent’s email address";
+"arduino_parent_email_submit" = "SEND EMAIL";
+"arduino_parent_email_subtitle" = "A parent needs to give consent to create your account. Please enter their email address below and we will send instructions on how to proceed.";
+"arduino_parent_email_title" = "Parent email address";
 "arduino_password_recovery_back_button" = "BACK TO LOGIN";
 "arduino_password_recovery_button" = "RECOVER";
 "arduino_password_recovery_confirmation_subtitle" = "Check your email, we just sent you a link to complete the reset of your password.";

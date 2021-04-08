@@ -115,6 +115,14 @@ extension String {
   static public var archivedContentDescription: String { return "archived_content_description".localized }
   static public var archivedExperimentMessage: String { return "archived_experiment_message".localized }
   static public var archivedRunMessage: String { return "archived_run_message".localized }
+  static public var arduinoParentConfirmationButton: String { return "arduino_parent_confirmation_button".localized }
+  static public var arduinoParentConfirmationSubtitle: String { return "arduino_parent_confirmation_subtitle".localized }
+  static public var arduinoParentConfirmationTitle: String { return "arduino_parent_confirmation_title".localized }
+  static public var arduinoParentEmailConfirmationPlaceholder: String { return "arduino_parent_email_confirmation_placeholder".localized }
+  static public var arduinoParentEmailPlaceholder: String { return "arduino_parent_email_placeholder".localized }
+  static public var arduinoParentEmailSubmit: String { return "arduino_parent_email_submit".localized }
+  static public var arduinoParentEmailSubtitle: String { return "arduino_parent_email_subtitle".localized }
+  static public var arduinoParentEmailTitle: String { return "arduino_parent_email_title".localized }
   static public var arduinoPasswordRecoveryBackButton: String { return "arduino_password_recovery_back_button".localized }
   static public var arduinoPasswordRecoveryButton: String { return "arduino_password_recovery_button".localized }
   static public var arduinoPasswordRecoveryConfirmationSubtitle: String { return "arduino_password_recovery_confirmation_subtitle".localized }

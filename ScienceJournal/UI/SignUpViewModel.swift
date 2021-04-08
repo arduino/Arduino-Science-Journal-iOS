@@ -25,6 +25,7 @@ struct SignUpViewModel {
   var username: String?
   var password: String?
   var acceptedTerms = [SignUpTermsItem]()
+  var parentEmail: String?
   
   var age: Int {
     let now = Date()
@@ -41,6 +42,7 @@ struct SignUpViewModel {
   
   var userMetadata: [String: String] {
     var userMetadata = [String: String]()
+    
     for termsItem in acceptedTerms {
       switch termsItem {
       case .termsAndPrivacy:
@@ -54,6 +56,15 @@ struct SignUpViewModel {
         userMetadata["tracking_approval"] = "true"
       }
     }
+    
+    if let parentEmail = parentEmail {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd"
+      
+      userMetadata["parent_email"] = parentEmail
+      userMetadata["birthday"] = dateFormatter.string(from: birthdate)
+    }
+    
     return userMetadata
   }
   

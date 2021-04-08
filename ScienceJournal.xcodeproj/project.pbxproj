@@ -645,6 +645,8 @@
 		BC5C50FD25ADEF6B009B0211 /* DriveSyncSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C50FC25ADEF6B009B0211 /* DriveSyncSummaryView.swift */; };
 		BC72115A261DC1F300DCC391 /* SignInVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC721159261DC1F300DCC391 /* SignInVerificationViewController.swift */; };
 		BC72115F261DC20300DCC391 /* SignInVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72115E261DC20300DCC391 /* SignInVerificationView.swift */; };
+		BC721167261DF6E300DCC391 /* SignUpParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC721166261DF6E300DCC391 /* SignUpParentViewController.swift */; };
+		BC72116F261DF79700DCC391 /* SignUpParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72116E261DF79700DCC391 /* SignUpParentView.swift */; };
 		BC7AB0F624D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */; };
 		BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */; };
 		BC7AB0FD24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */; };
@@ -688,6 +690,8 @@
 		BCB6953D24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */; };
 		BCB6953F24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */; };
 		BCBA349D25CBE7F9008CC2EA /* ArduinoAccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBA349C25CBE7F9008CC2EA /* ArduinoAccountsManager.swift */; };
+		BCCE57F8261E1AB4002E12FB /* SignUpParentConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE57F7261E1AB4002E12FB /* SignUpParentConfirmationViewController.swift */; };
+		BCCE57FD261F0116002E12FB /* SignUpParentConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE57FC261F0116002E12FB /* SignUpParentConfirmationView.swift */; };
 		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
 		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
@@ -1446,6 +1450,8 @@
 		BC5C50FC25ADEF6B009B0211 /* DriveSyncSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncSummaryView.swift; sourceTree = "<group>"; };
 		BC721159261DC1F300DCC391 /* SignInVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVerificationViewController.swift; sourceTree = "<group>"; };
 		BC72115E261DC20300DCC391 /* SignInVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVerificationView.swift; sourceTree = "<group>"; };
+		BC721166261DF6E300DCC391 /* SignUpParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpParentViewController.swift; sourceTree = "<group>"; };
+		BC72116E261DF79700DCC391 /* SignUpParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpParentView.swift; sourceTree = "<group>"; };
 		BC7AB0F524D056E900703B2E /* BLEScienceKitLinearAccelerometerSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitLinearAccelerometerSensor.swift; sourceTree = "<group>"; };
 		BC7AB0F924D07A6400703B2E /* BLEScienceKitAccelerometerYSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerYSensor.swift; sourceTree = "<group>"; };
 		BC7AB0FA24D07A6500703B2E /* BLEScienceKitAccelerometerZSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScienceKitAccelerometerZSensor.swift; sourceTree = "<group>"; };
@@ -1489,6 +1495,8 @@
 		BCB6953C24C08FBC00CFCD9F /* ScienceKitSensorConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigViewController.swift; sourceTree = "<group>"; };
 		BCB6953E24C0970D00CFCD9F /* ScienceKitSensorConfigSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceKitSensorConfigSelectorView.swift; sourceTree = "<group>"; };
 		BCBA349C25CBE7F9008CC2EA /* ArduinoAccountsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoAccountsManager.swift; sourceTree = "<group>"; };
+		BCCE57F7261E1AB4002E12FB /* SignUpParentConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpParentConfirmationViewController.swift; sourceTree = "<group>"; };
+		BCCE57FC261F0116002E12FB /* SignUpParentConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpParentConfirmationView.swift; sourceTree = "<group>"; };
 		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
@@ -1778,6 +1786,10 @@
 				BC24D352260B2E0C00209383 /* SignUpBirthdateViewController.swift */,
 				BC0F531F26121C20002B30D0 /* SignUpConfirmationView.swift */,
 				BC0F532426121C30002B30D0 /* SignUpConfirmationViewController.swift */,
+				BCCE57FC261F0116002E12FB /* SignUpParentConfirmationView.swift */,
+				BCCE57F7261E1AB4002E12FB /* SignUpParentConfirmationViewController.swift */,
+				BC72116E261DF79700DCC391 /* SignUpParentView.swift */,
+				BC721166261DF6E300DCC391 /* SignUpParentViewController.swift */,
 				BC0F53132611D9DE002B30D0 /* SignUpTermsView.swift */,
 				BC0F530E2611D9D2002B30D0 /* SignUpTermsViewController.swift */,
 				BC24D37F260BA07D00209383 /* SignUpView.swift */,
@@ -3978,6 +3990,7 @@
 				5C477B341F192BE90065F7D1 /* GadgetInfo.swift in Sources */,
 				68BD95641E8DA45100FEB0B2 /* ScaleSoundType.swift in Sources */,
 				5C7B87C11FCDD6F300EDEF1D /* ErrorDialog.swift in Sources */,
+				BC72116F261DF79700DCC391 /* SignUpParentView.swift in Sources */,
 				8BA65D70206160A90071C148 /* RecordedTrialCardView.swift in Sources */,
 				6813334E1EC6423200ED7A32 /* SensorPickerView.swift in Sources */,
 				BC809285255D89230074E25A /* OnboardingPage4ViewController.swift in Sources */,
@@ -4039,6 +4052,7 @@
 				8B2319372097B0C60053181B /* ExistingDataOptionsViewController.swift in Sources */,
 				6806592C1EC3BD330090670C /* SnapshotCardCell.swift in Sources */,
 				689880391ED78BC1000C6FB8 /* TrialCardHeaderView.swift in Sources */,
+				BCCE57F8261E1AB4002E12FB /* SignUpParentConfirmationViewController.swift in Sources */,
 				687FAA08202C1162004C1D04 /* Sensor.pbobjc.m in Sources */,
 				5C7ACB9F1E9D4C9000B22474 /* BLEPeripheralInterface.swift in Sources */,
 				5CB2CF3B223C2B4300F73F6B /* ExperimentDataDeleter.swift in Sources */,
@@ -4087,6 +4101,7 @@
 				3FA7052622F8DF5100753842 /* ActionAreaMasterContentContainerViewController.swift in Sources */,
 				68CD50D81E57DD51005E928F /* SensorCardCell.swift in Sources */,
 				68BD95621E8DA45100FEB0B2 /* NotesSoundType.swift in Sources */,
+				BC721167261DF6E300DCC391 /* SignUpParentViewController.swift in Sources */,
 				3F6D29F2233C14FB004D9318 /* Tinting.swift in Sources */,
 				68BD95611E8DA45100FEB0B2 /* DefaultSoundType.swift in Sources */,
 				687FAA11202C1162004C1D04 /* Trial.pbobjc.m in Sources */,
@@ -4367,6 +4382,7 @@
 				BC8621F425A9ECA9002D6B4F /* DriveSyncPathView.swift in Sources */,
 				8B1F2F912065741100BADCD4 /* TrialCardSensorsView.swift in Sources */,
 				68EACA7E1EB0234000BB5892 /* SettingsViewController.swift in Sources */,
+				BCCE57FD261F0116002E12FB /* SignUpParentConfirmationView.swift in Sources */,
 				583706E822D68D5F002B9F0F /* ExportCoordinator.swift in Sources */,
 				BC993DD625A469800001F76D /* DriveSyncIntroViewController.swift in Sources */,
 				687FAA07202C1162004C1D04 /* ScalarInputConfig.pbobjc.m in Sources */,

@@ -77,7 +77,8 @@ class SignUpViewController: WizardViewController {
       let viewController = SignUpTermsViewController(accountsManager: accountsManager, viewModel: viewModel)
       show(viewController, sender: nil)
     } else {
-      
+      let viewController = SignUpParentViewController(accountsManager: accountsManager, viewModel: viewModel)
+      show(viewController, sender: nil)
     }
   }
   
@@ -109,11 +110,10 @@ class SignUpViewController: WizardViewController {
       signUpView.emailError = String.arduinoSignUpEmailInvalidError
       signUpView.usernameError = nil
     } else if let code = error?["code"] as? String, code == "user_exists" {
+      signUpView.emailError = String.arduinoSignUpEmailExistsError
       if let message = error?["message"] as? String, message.contains("username") {
-        signUpView.emailError = nil
         signUpView.usernameError = String.arduinoSignUpUsernameExistsError
       } else {
-        signUpView.emailError = String.arduinoSignUpEmailExistsError
         signUpView.usernameError = nil
       }
     } else {

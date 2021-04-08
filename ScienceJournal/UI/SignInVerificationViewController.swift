@@ -77,8 +77,7 @@ class SignInVerificationViewController: WizardViewController {
       .bind(to: verificationView.submitButton.rx.isEnabled)
       .disposed(by: disposeBag)
     
-    [verificationView.codeTextField,
-     verificationView.submitButton].forEach { control in
+    [verificationView.codeTextField].forEach { control in
       
       isLoading
         .map { !$0 }
