@@ -60,11 +60,19 @@ class SignInViewController: WizardViewController {
   }
   
   @objc private func recoverPassword(_ sender: UIButton) {
-    let viewController = PasswordRecoveryViewController(accountsManager: accountsManager) { [weak self] in
-      guard let self = self else { return }
-      self.navigationController?.popToViewController(self, animated: true)
+    if isAdult {
+      let viewController = PasswordRecoveryViewController(accountsManager: accountsManager) { [weak self] in
+        guard let self = self else { return }
+        self.navigationController?.popToViewController(self, animated: true)
+      }
+      show(viewController, sender: nil)
+    } else {
+      let viewController = JuniorRecoveryViewController(accountsManager: accountsManager) { [weak self] in
+        guard let self = self else { return }
+        self.navigationController?.popToViewController(self, animated: true)
+      }
+      show(viewController, sender: nil)
     }
-    show(viewController, sender: nil)
   }
   
   @objc private func signIn(_ sender: UIButton) {

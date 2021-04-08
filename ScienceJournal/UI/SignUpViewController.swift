@@ -18,7 +18,7 @@
 //  limitations under the License.
 
 import UIKit
-import MaterialComponents.MaterialSnackbar
+import MaterialComponents.MaterialDialogs
 import RxCocoa
 import RxSwift
 

@@ -692,6 +692,8 @@
 		BCBA349D25CBE7F9008CC2EA /* ArduinoAccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBA349C25CBE7F9008CC2EA /* ArduinoAccountsManager.swift */; };
 		BCCE57F8261E1AB4002E12FB /* SignUpParentConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE57F7261E1AB4002E12FB /* SignUpParentConfirmationViewController.swift */; };
 		BCCE57FD261F0116002E12FB /* SignUpParentConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE57FC261F0116002E12FB /* SignUpParentConfirmationView.swift */; };
+		BCCE5808261F162A002E12FB /* JuniorRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE5807261F162A002E12FB /* JuniorRecoveryViewController.swift */; };
+		BCCE580D261F1639002E12FB /* JuniorRecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE580C261F1639002E12FB /* JuniorRecoveryView.swift */; };
 		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
 		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
@@ -1497,6 +1499,8 @@
 		BCBA349C25CBE7F9008CC2EA /* ArduinoAccountsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoAccountsManager.swift; sourceTree = "<group>"; };
 		BCCE57F7261E1AB4002E12FB /* SignUpParentConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpParentConfirmationViewController.swift; sourceTree = "<group>"; };
 		BCCE57FC261F0116002E12FB /* SignUpParentConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpParentConfirmationView.swift; sourceTree = "<group>"; };
+		BCCE5807261F162A002E12FB /* JuniorRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuniorRecoveryViewController.swift; sourceTree = "<group>"; };
+		BCCE580C261F1639002E12FB /* JuniorRecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuniorRecoveryView.swift; sourceTree = "<group>"; };
 		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
@@ -1770,6 +1774,8 @@
 		48C767B620F92BAF00A67C4A /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				BCCE580C261F1639002E12FB /* JuniorRecoveryView.swift */,
+				BCCE5807261F162A002E12FB /* JuniorRecoveryViewController.swift */,
 				BC24D34A260A541200209383 /* PasswordRecoveryConfirmationView.swift */,
 				BC24D342260A53FF00209383 /* PasswordRecoveryConfirmationViewController.swift */,
 				BC24D33A260A507000209383 /* PasswordRecoveryView.swift */,
@@ -4040,6 +4046,7 @@
 				5C612F0F20AC6A330097CCAB /* ExperimentLibrary.pbobjc.m in Sources */,
 				BC0F531B261214C5002B30D0 /* UIFont+ScienceJournal.swift in Sources */,
 				68279C221ED63FD1003F778B /* MenuButton.swift in Sources */,
+				BCCE580D261F1639002E12FB /* JuniorRecoveryView.swift in Sources */,
 				5C3245241EF090DD00E8664B /* UICollectionView+PerformChanges.swift in Sources */,
 				6813334D1EC6423200ED7A32 /* SensorCardHeaderView.swift in Sources */,
 				68CD98921F3E479100E3BF3C /* AudioSession.swift in Sources */,
@@ -4357,6 +4364,7 @@
 				8B10E9551F87EFCF0060A0AD /* ClosedRange+ScienceJournal.swift in Sources */,
 				BC80927B255D89100074E25A /* OnboardingPage2ViewController.swift in Sources */,
 				BC7AB10524D0880E00703B2E /* BLEScienceKitGyroscopeYSensor.swift in Sources */,
+				BCCE5808261F162A002E12FB /* JuniorRecoveryViewController.swift in Sources */,
 				5C7219711EDFA4AB00817F0B /* TextNote.swift in Sources */,
 				5CF371012012906D00AD85D2 /* Bool+ScienceJournal.swift in Sources */,
 				8B06406A203E0F4600F66356 /* ImageAnimationView.swift in Sources */,

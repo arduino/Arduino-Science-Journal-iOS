@@ -24,17 +24,20 @@ import RxSwift
 class PasswordRecoveryConfirmationViewController: WizardViewController {
 
   let email: String
+  let username: String?
   let accountsManager: ArduinoAccountsManager
   let completion: () -> Void
   
-  private(set) lazy var confirmationView = PasswordRecoveryConfirmationView()
+  private(set) lazy var confirmationView = PasswordRecoveryConfirmationView(isAdult: username == nil)
 
   private lazy var disposeBag = DisposeBag()
   
   init(email: String,
+       username: String? = nil,
        accountsManager: ArduinoAccountsManager,
        completion: @escaping () -> Void) {
     self.email = email
+    self.username = username
     self.accountsManager = accountsManager
     self.completion = completion
     super.init(nibName: nil, bundle: nil)
@@ -70,8 +73,15 @@ class PasswordRecoveryConfirmationViewController: WizardViewController {
   
   @objc private func recoverPassword() {
     isLoading.onNext(true)
-    accountsManager.recoverPassword(for: email) { [weak self] _ in
-      self?.isLoading.onNext(false)
+    
+    if let username = username {
+      accountsManager.recoverPassword(for: username, parentEmail: email) { [weak self] _ in
+        self?.isLoading.onNext(false)
+      }
+    } else {
+      accountsManager.recoverPassword(for: email) { [weak self] _ in
+        self?.isLoading.onNext(false)
+      }
     }
   }
 }

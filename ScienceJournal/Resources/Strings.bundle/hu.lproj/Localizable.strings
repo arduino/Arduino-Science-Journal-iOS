@@ -188,6 +188,14 @@
 "arduino_parent_email_submit" = "SEND EMAIL";
 "arduino_parent_email_subtitle" = "A parent needs to give consent to create your account. Please enter their email address below and we will send instructions on how to proceed.";
 "arduino_parent_email_title" = "Parent email address";
+"arduino_password_junior_recovery_button" = "RECOVER";
+"arduino_password_junior_recovery_confirmation_subtitle" = "Ask your parent to check their email inbox to reset your account’s password.";
+"arduino_password_junior_recovery_confirmation_title" = "Email sent";
+"arduino_password_junior_recovery_email_placeholder" = "Parent's email";
+"arduino_password_junior_recovery_hint" = "The username is the word you used to sign in to your account. If you do not remember your username, ask your parent to restore your account from their Arduino profile page.";
+"arduino_password_junior_recovery_subtitle" = "Enter your username and the parent's email associated with your account below.";
+"arduino_password_junior_recovery_title" = "Recover your account";
+"arduino_password_junior_recovery_username_placeholder" = "Your username";
 "arduino_password_recovery_back_button" = "BACK TO LOGIN";
 "arduino_password_recovery_button" = "RECOVER";
 "arduino_password_recovery_confirmation_subtitle" = "Check your email, we just sent you a link to complete the reset of your password.";

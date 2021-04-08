@@ -21,6 +21,7 @@ public struct Constants {
 
   public struct ArduinoSignIn {
     public static let host = "login.oniudra.cc"
+    public static let apiHost = "api-dev.arduino.cc"
     public static let clientId = "y7mbB8KDw20S4XfXRAKRLgfYT9ao0IPx"
     public static let redirectUri = "arduino.sj://login.arduino.cc/ios/cc.arduino.sciencejournal/callback"
   }

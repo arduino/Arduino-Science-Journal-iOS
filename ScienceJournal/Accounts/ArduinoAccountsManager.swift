@@ -43,7 +43,8 @@ final class ArduinoAccountsManager: NSObject, AccountsManager {
     }
   }
   
-  private var host: String { Constants.ArduinoSignIn.host }
+  private var authHost: String { Constants.ArduinoSignIn.host }
+  private var apiHost: String { Constants.ArduinoSignIn.apiHost }
   private var clientId: String { Constants.ArduinoSignIn.clientId }
   private var redirectUri: String { Constants.ArduinoSignIn.redirectUri }
   private var codeChallenge: String?
@@ -162,7 +163,7 @@ extension ArduinoAccountsManager {
               from presentingViewController: UIViewController,
               completion: @escaping (Result<ArduinoAccount, SignInError>) -> Void) {
     
-    guard var url = URL(string: "https://\(host)") else {
+    guard var url = URL(string: "https://\(authHost)") else {
       return
     }
     
@@ -235,7 +236,7 @@ extension ArduinoAccountsManager {
       "client_id": clientId,
       "connection": "arduino",
       "username": username,
-      "email": email,
+      "email": email.lowercased(),
       "password": password
     ]
     
@@ -243,7 +244,7 @@ extension ArduinoAccountsManager {
       data["user_metadata[\(key)]"] = value
     }
     
-    guard let request = URLRequest.post(host: host, path: "/dbconnections/signup", data: data) else {
+    guard let request = URLRequest.post(host: authHost, path: "/dbconnections/signup", data: data) else {
       completion(.failure(.notAuthenticated))
       return
     }
@@ -320,7 +321,7 @@ extension ArduinoAccountsManager {
       data["grant_type"] = "password"
     }
     
-    guard let request = URLRequest.post(host: host, path: "/oauth/token", data: data) else {
+    guard let request = URLRequest.post(host: authHost, path: "/oauth/token", data: data) else {
       completion(.failure(.notAuthenticated))
       return
     }
@@ -380,7 +381,7 @@ extension ArduinoAccountsManager {
       "otp": code
     ]
     
-    guard let request = URLRequest.post(host: host, path: "/oauth/token", data: data) else {
+    guard let request = URLRequest.post(host: authHost, path: "/oauth/token", data: data) else {
       completion(.failure(.notAuthenticated))
       return
     }
@@ -432,10 +433,10 @@ extension ArduinoAccountsManager {
     let data: [String: String] = [
       "client_id": clientId,
       "connection": "arduino",
-      "email": email
+      "email": email.lowercased()
     ]
     
-    guard let request = URLRequest.post(host: host, path: "/dbconnections/change_password", data: data) else {
+    guard let request = URLRequest.post(host: authHost, path: "/dbconnections/change_password", data: data) else {
       completion(.failure(.badRequest))
       return
     }
@@ -459,6 +460,39 @@ extension ArduinoAccountsManager {
         
         guard response.statusCode == 200 else {
           completion(.failure(.notValid(json)))
+          return
+        }
+        
+        completion(.success(()))
+      }
+    }.resume()
+  }
+  
+  func recoverPassword(for username: String, parentEmail: String, completion: @escaping (Result<Void, SignInError>) -> Void) {
+    let data: [String: String] = [
+      "username": username,
+      "parent_email": parentEmail.lowercased()
+    ]
+    
+    guard let request = URLRequest.post(host: apiHost, path: "/users/v1/children/help", data: data, contentType: .json) else {
+      completion(.failure(.badRequest))
+      return
+    }
+    
+    urlSession.dataTask(with: request) { _, response, error in
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(.failure(.networkError(error)))
+          return
+        }
+        
+        guard let response = response as? HTTPURLResponse else {
+          completion(.failure(.badResponse))
+          return
+        }
+        
+        guard response.statusCode == 200 else {
+          completion(.failure(.badRequest))
           return
         }
         
@@ -541,7 +575,7 @@ private extension ArduinoAccountsManager {
       "redirect_uri": redirectUri
     ]
     
-    guard let request = URLRequest.post(host: host, path: "/oauth/token", data: data) else {
+    guard let request = URLRequest.post(host: authHost, path: "/oauth/token", data: data) else {
       complete(with: .failure(.notAuthenticated))
       return
     }

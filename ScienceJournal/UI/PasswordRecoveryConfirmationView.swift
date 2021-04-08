@@ -26,7 +26,6 @@ class PasswordRecoveryConfirmationView: UIStackView {
   
   private let titleLabel: UILabel = {
     let label = UILabel()
-    label.text = String.arduinoPasswordRecoveryConfirmationTitle
     label.textAlignment = .center
     label.textColor = .black
     label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Large.rawValue)
@@ -36,7 +35,6 @@ class PasswordRecoveryConfirmationView: UIStackView {
   
   private let subtitleLabel: UILabel = {
     let label = UILabel()
-    label.text = String.arduinoPasswordRecoveryConfirmationSubtitle
     label.textAlignment = .center
     label.textColor = .black
     label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
@@ -44,7 +42,7 @@ class PasswordRecoveryConfirmationView: UIStackView {
     return label
   }()
   
-  init() {
+  init(isAdult: Bool) {
     super.init(frame: .zero)
 
     axis = .vertical
@@ -52,6 +50,14 @@ class PasswordRecoveryConfirmationView: UIStackView {
     isLayoutMarginsRelativeArrangement = true
     layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     spacing = 0
+    
+    if isAdult {
+      titleLabel.text = String.arduinoPasswordRecoveryConfirmationTitle
+      subtitleLabel.text = String.arduinoPasswordRecoveryConfirmationSubtitle
+    } else {
+      titleLabel.text = String.arduinoPasswordJuniorRecoveryConfirmationTitle
+      subtitleLabel.text = String.arduinoPasswordJuniorRecoveryConfirmationSubtitle
+    }
     
     addArrangedSubview(titleLabel, customSpacing: 36)
     addArrangedSubview(subtitleLabel, customSpacing: 40)

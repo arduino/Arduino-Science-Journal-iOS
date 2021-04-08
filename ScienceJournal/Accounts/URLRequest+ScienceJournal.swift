@@ -20,10 +20,16 @@
 import Foundation
 
 extension URLRequest {
+  enum ContentType: String {
+    case json = "application/json"
+    case form = "application/x-www-form-urlencoded"
+  }
+  
   static func post(scheme: String = "https",
                    host: String,
                    path: String,
-                   data: [String: String?]) -> URLRequest? {
+                   data: [String: String?],
+                   contentType: ContentType = .form) -> URLRequest? {
     
     var urlComponents = URLComponents()
     urlComponents.scheme = scheme
@@ -35,20 +41,28 @@ extension URLRequest {
     }
     
     var request = URLRequest(url: requestURL)
-    
-    var queryItems = [URLQueryItem]()
-    for (key, value) in data {
-      queryItems.append(URLQueryItem(name: key, value: value))
-    }
-    
-    urlComponents.queryItems = queryItems
-    
     request.httpMethod = "POST"
-    request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-    if let httpBody = urlComponents.query?.data(using: .utf8) {
-      request.httpBody = httpBody
-      request.addValue("\(httpBody.count)", forHTTPHeaderField: "Content-Length")
+    
+    switch contentType {
+    case .form:
+      var queryItems = [URLQueryItem]()
+      for (key, value) in data {
+        queryItems.append(URLQueryItem(name: key, value: value))
+      }
+      
+      urlComponents.queryItems = queryItems
+      
+      if let httpBody = urlComponents.query?.data(using: .utf8) {
+        request.httpBody = httpBody
+        request.addValue("\(httpBody.count)", forHTTPHeaderField: "Content-Length")
+      }
+    case .json:
+      if let httpBody = try? JSONSerialization.data(withJSONObject: data, options: []) {
+        request.httpBody = httpBody
+        request.addValue("\(httpBody.count)", forHTTPHeaderField: "Content-Length")
+      }
     }
+    request.addValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
     
     return request
   }
