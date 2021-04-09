@@ -66,7 +66,8 @@ extension URLRequest {
     case .form:
       var queryItems = [URLQueryItem]()
       for (key, value) in data {
-        queryItems.append(URLQueryItem(name: key, value: value))
+        queryItems.append(URLQueryItem(name: key,
+                                       value: value?.addingPercentEncoding()))
       }
       
       urlComponents.queryItems = queryItems
@@ -84,5 +85,17 @@ extension URLRequest {
     request.addValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
     
     return request
+  }
+}
+
+private extension String {
+  func addingPercentEncoding() -> String {
+    var characterSet = CharacterSet.alphanumerics
+    characterSet.insert(charactersIn: "-._* ")
+    
+    return self
+      .addingPercentEncoding(withAllowedCharacters: characterSet)!
+      .replacingOccurrences(of: " ", with: "+")
+      .replacingOccurrences(of: " ", with: "+", options: [], range: nil)
   }
 }
