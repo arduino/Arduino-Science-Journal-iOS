@@ -1091,6 +1091,7 @@
 "settings_open_source_title" = "Licencje typu open source";
 /* Title of a settings item that displays the app's version [CHAR_LIMIT=30] */
 "settings_privacy_policy_title" = "Polityka prywatności";
+"settings_sign_out_button" = "SIGN OUT";
 /* Title of a settings item that displays the app's terms of service [CHAR_LIMIT=25] */
 "settings_terms_title" = "Warunki usługi";
 /* Title of a settings item that displays the app's version [CHAR_LIMIT=25] */

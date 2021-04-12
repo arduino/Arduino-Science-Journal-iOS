@@ -21,8 +21,8 @@ import UIKit
 
 class PasswordRecoveryConfirmationView: UIStackView {
 
-  let resendButton = WizardButton(title: String.arduinoPasswordRecoveryResendButton, isSolid: false)
-  let backButton = WizardButton(title: String.arduinoPasswordRecoveryBackButton, isSolid: true)
+  let resendButton = WizardButton(title: String.arduinoPasswordRecoveryResendButton, style: .solid)
+  let backButton = WizardButton(title: String.arduinoPasswordRecoveryBackButton, style: .solid)
   
   private let titleLabel: UILabel = {
     let label = UILabel()

@@ -1091,6 +1091,7 @@
 "settings_open_source_title" = "Ліцензії відкритого коду";
 /* Title of a settings item that displays the app's version [CHAR_LIMIT=30] */
 "settings_privacy_policy_title" = "Політика конфіденційності";
+"settings_sign_out_button" = "SIGN OUT";
 /* Title of a settings item that displays the app's terms of service [CHAR_LIMIT=25] */
 "settings_terms_title" = "Умови використання";
 /* Title of a settings item that displays the app's version [CHAR_LIMIT=25] */

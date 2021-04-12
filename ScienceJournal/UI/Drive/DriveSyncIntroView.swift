@@ -22,7 +22,7 @@ import UIKit
 class DriveSyncIntroView: UIStackView {
   let learnMoreButton = WizardButton(title: String.driveSyncIntroMore)
   let googleDriveButton = GoogleDriveButton()
-  let skipButton = WizardButton(title: String.driveSyncIntroSkip, isSolid: true)
+  let skipButton = WizardButton(title: String.driveSyncIntroSkip, style: .solid)
 
   init() {
     super.init(frame: .zero)

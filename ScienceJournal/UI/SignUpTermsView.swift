@@ -27,7 +27,7 @@ class SignUpTermsView: UIStackView {
   
   let onAction: ([SignUpTermsItem]) -> Void
   
-  let signUpButton = WizardButton(title: String.arduinoSignUpTermsSubmitButton, isSolid: true)
+  let signUpButton = WizardButton(title: String.arduinoSignUpTermsSubmitButton, style: .solid)
   
   private let titleLabel: UILabel = {
     let label = UILabel()

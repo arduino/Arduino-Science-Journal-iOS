@@ -386,6 +386,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     case .settings:
       let settingsVC = SettingsViewController(analyticsReporter: analyticsReporter,
                                               driveSyncManager: driveSyncManager,
+                                              accountsManager: accountsManager,
                                               preferenceManager: preferenceManager)
       if UIDevice.current.userInterfaceIdiom == .pad {
         // iPad should present modally.
@@ -412,7 +413,11 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
   }
 
   func sidebarShouldShowSignIn() {
-    delegate?.presentAccountSelector()
+    if accountsManager.currentAccount == nil {
+      delegate?.presentAccountSelector()
+    } else {
+      sidebarShouldShow(.settings)
+    }
   }
 
   func sidebarDidOpen() {

@@ -22,11 +22,11 @@ import UIKit
 class SignInIntroView: UIStackView {
   
   let juniorButton = WizardButton(title: String.arduinoSignInJuniorButton,
-                                  isSolid: true,
+                                  style: .solid,
                                   size: .big)
   
   let adultButton = WizardButton(title: String.arduinoSignInRegularButton,
-                                 isSolid: true,
+                                 style: .solid,
                                  size: .big)
   
   let registrationLabel: UILabel = {

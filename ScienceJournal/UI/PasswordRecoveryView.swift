@@ -22,7 +22,7 @@ import UIKit
 class PasswordRecoveryView: UIStackView {
 
   let emailTextField = WizardTextField(placeholder: String.arduinoPasswordRecoveryPlaceholder)
-  let recoverButton = WizardButton(title: String.arduinoPasswordRecoveryButton, isSolid: true)
+  let recoverButton = WizardButton(title: String.arduinoPasswordRecoveryButton, style: .solid)
   
   private let titleLabel: UILabel = {
     let label = UILabel()

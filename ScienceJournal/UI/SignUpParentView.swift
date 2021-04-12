@@ -26,7 +26,7 @@ class SignUpParentView: UIStackView {
   let emailConfirmationTextField = WizardTextField(placeholder: String.arduinoParentEmailConfirmationPlaceholder,
                                                    isRequired: true)
   
-  let submitButton = WizardButton(title: String.arduinoParentEmailSubmit, isSolid: true)
+  let submitButton = WizardButton(title: String.arduinoParentEmailSubmit, style: .solid)
   
   private let titleLabel: UILabel = {
     let label = UILabel()

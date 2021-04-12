@@ -21,7 +21,7 @@ import UIKit
 
 class SignUpParentConfirmationView: UIStackView {
 
-  let closeButton = WizardButton(title: String.arduinoParentConfirmationButton, isSolid: true)
+  let closeButton = WizardButton(title: String.arduinoParentConfirmationButton, style: .solid)
   
   private let titleLabel: UILabel = {
     let label = UILabel()

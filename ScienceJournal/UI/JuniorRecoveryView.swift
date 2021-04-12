@@ -23,7 +23,7 @@ class JuniorRecoveryView: UIStackView {
 
   let usernameTextField = WizardTextField(placeholder: String.arduinoPasswordJuniorRecoveryUsernamePlaceholder)
   let emailTextField = WizardTextField(placeholder: String.arduinoPasswordJuniorRecoveryEmailPlaceholder)
-  let recoverButton = WizardButton(title: String.arduinoPasswordJuniorRecoveryButton, isSolid: true)
+  let recoverButton = WizardButton(title: String.arduinoPasswordJuniorRecoveryButton, style: .solid)
   
   let infoButton: UIButton = {
     let button = UIButton(type: .system)

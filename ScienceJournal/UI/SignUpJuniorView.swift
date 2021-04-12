@@ -31,7 +31,7 @@ class SignUpJuniorView: UIStackView {
   }()
   
   let passwordTextField = WizardTextField(placeholder: String.arduinoSignUpPasswordPlaceholder, isRequired: true)
-  let submitButton = WizardButton(title: String.arduinoSignUpSubmitButton, isSolid: true)
+  let submitButton = WizardButton(title: String.arduinoSignUpSubmitButton, style: .solid)
   
   private let titleLabel: UILabel = {
     let label = UILabel()

@@ -471,8 +471,6 @@ extension AppFlowViewController: UserFlowViewControllerDelegate {
   func presentAccountSelector() {
     if accountsManager.currentAccount == nil {
       accountsManager.presentSignIn(fromViewController: self)
-    } else {
-      accountsManager.signOutCurrentAccount()
     }
   }
 

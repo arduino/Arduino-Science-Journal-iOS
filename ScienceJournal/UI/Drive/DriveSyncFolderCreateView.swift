@@ -25,7 +25,7 @@ class DriveSyncFolderCreateView: UIStackView {
   let onCreate: (String) -> Void
   
   private let textField = MDCTextField()
-  private let createButton = WizardButton(title: String.driveSyncCreateFolderButton, isSolid: true)
+  private let createButton = WizardButton(title: String.driveSyncCreateFolderButton, style: .solid)
   
   init(onCreate: @escaping (String) -> Void) {
     self.onCreate = onCreate

@@ -29,7 +29,7 @@ class DriveSyncFolderPickerViewController: WizardViewController {
   let user: GIDGoogleUser
   let accountsManager: AccountsManager
   
-  let selectButton = WizardButton(title: String.driveSyncFolderPickerSelect, isSolid: true)
+  let selectButton = WizardButton(title: String.driveSyncFolderPickerSelect, style: .solid)
 
   private(set) lazy var pathView = DriveSyncPathView(onBack: goBack, onCreate: createFolder)
   private(set) lazy var pickerView = DriveSyncFolderPickerView(pathView: pathView)

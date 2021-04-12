@@ -58,6 +58,7 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
 
   private var rows: [SettingsItem] = []
   private let driveSyncManager: DriveSyncManager?
+  private let accountsManager: AccountsManager
   private let preferenceManager: PreferenceManager
 
   // MARK: - Public
@@ -70,9 +71,11 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   ///   - preferenceManager: The preference manager.
   init(analyticsReporter: AnalyticsReporter,
        driveSyncManager: DriveSyncManager?,
+       accountsManager: AccountsManager,
        preferenceManager: PreferenceManager) {
     self.preferenceManager = preferenceManager
     self.driveSyncManager = driveSyncManager
+    self.accountsManager = accountsManager
     super.init(analyticsReporter: analyticsReporter)
   }
 
@@ -105,11 +108,35 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
       navigationItem.leftBarButtonItem = backMenuItem
     }
 
+    addSignOutButton()
     configureSettingsItems()
   }
 
   // MARK: - Private
 
+  private func addSignOutButton() {
+    let button = WizardButton(title: String.settingsSignOutButton,
+                              style: .outlined,
+                              size: .big)
+    button.addTarget(self, action: #selector(signOut), for: .touchUpInside)
+    
+    let buttonContainer = UIView()
+    buttonContainer.backgroundColor = view.backgroundColor
+    buttonContainer.addSubview(button)
+    view.addSubview(buttonContainer)
+    
+    button.translatesAutoresizingMaskIntoConstraints = false
+    buttonContainer.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      button.centerXAnchor.constraint(equalTo: buttonContainer.centerXAnchor),
+      button.topAnchor.constraint(equalTo: buttonContainer.topAnchor, constant: 28),
+      button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -28),
+      buttonContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      buttonContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      buttonContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+    ])
+  }
+  
   // Configure each setting item and add it to the data source.
   private func configureSettingsItems() {
     #if USAGE_TRACKING_ENABLED
@@ -151,6 +178,13 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
 
   @objc private func closeButtonPressed() {
     dismiss(animated: true)
+  }
+  
+  @objc private func signOut() {
+    accountsManager.signOutCurrentAccount()
+    if isPresented {
+      dismiss(animated: true)
+    }
   }
 
   // MARK: - Settings Actions

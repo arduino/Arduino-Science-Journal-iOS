@@ -52,7 +52,7 @@ class SignUpView: UIStackView {
   let emailTextField = WizardTextField(placeholder: String.arduinoSignUpEmailPlaceholder, isRequired: true)
   let usernameTextField = WizardTextField(placeholder: String.arduinoSignUpUsernamePlaceholder, isRequired: true)
   let passwordTextField = WizardTextField(placeholder: String.arduinoSignUpPasswordPlaceholder, isRequired: true)
-  let submitButton = WizardButton(title: String.arduinoSignUpSubmitButton, isSolid: true)
+  let submitButton = WizardButton(title: String.arduinoSignUpSubmitButton, style: .solid)
   
   let infoButton: UIButton = {
     let button = UIButton(type: .system)

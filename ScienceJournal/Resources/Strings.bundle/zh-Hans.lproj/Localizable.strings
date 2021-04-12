@@ -1091,6 +1091,7 @@
 "settings_open_source_title" = "开放源代码软件许可";
 /* Title of a settings item that displays the app's version [CHAR_LIMIT=30] */
 "settings_privacy_policy_title" = "隐私权政策";
+"settings_sign_out_button" = "SIGN OUT";
 /* Title of a settings item that displays the app's terms of service [CHAR_LIMIT=25] */
 "settings_terms_title" = "服务条款";
 /* Title of a settings item that displays the app's version [CHAR_LIMIT=25] */

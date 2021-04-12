@@ -22,7 +22,7 @@ import UIKit
 class SignInVerificationView: UIStackView {
   
   let codeTextField = WizardTextField(placeholder: String.arduinoSignIn2faPlaceholder)
-  let submitButton = WizardButton(title: String.arduinoSignIn2faSubmit, isSolid: true)
+  let submitButton = WizardButton(title: String.arduinoSignIn2faSubmit, style: .solid)
   
   var error: String? {
     didSet {

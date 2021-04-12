@@ -23,8 +23,8 @@ class SignInView: UIStackView {
 
   let usernameTextField = WizardTextField(placeholder: String.arduinoSignInUsernamePlaceholder)
   let passwordTextField = WizardTextField(placeholder: String.arduinoSignInPasswordPlaceholder)
-  let passwordRecoveryButton = WizardButton(title: String.arduinoSignInPasswordRecoveryButton, isSolid: false)
-  let signInButton = WizardButton(title: String.arduinoSignInButton, isSolid: true)
+  let passwordRecoveryButton = WizardButton(title: String.arduinoSignInPasswordRecoveryButton, style: .solid)
+  let signInButton = WizardButton(title: String.arduinoSignInButton, style: .solid)
   
   var error: String? {
     didSet {

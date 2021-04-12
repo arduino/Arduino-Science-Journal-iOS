@@ -644,6 +644,7 @@ extension String {
   static public var settingsDataUsageTitle: String { return "settings_data_usage_title".localized }
   static public var settingsOpenSourceTitle: String { return "settings_open_source_title".localized }
   static public var settingsPrivacyPolicyTitle: String { return "settings_privacy_policy_title".localized }
+  static public var settingsSignOutButton: String { return "settings_sign_out_button".localized }
   static public var settingsTermsTitle: String { return "settings_terms_title".localized }
   static public var settingsVersionTitle: String { return "settings_version_title".localized }
   static public var settingsWebsiteTitle: String { return "settings_website_title".localized }

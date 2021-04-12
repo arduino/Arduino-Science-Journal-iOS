@@ -21,7 +21,7 @@ import UIKit
 
 class SignUpBirthdateView: UIStackView {
 
-  let submitButton = WizardButton(title: String.arduinoSignUpBirthdateSubmit, isSolid: true)
+  let submitButton = WizardButton(title: String.arduinoSignUpBirthdateSubmit, style: .solid)
   
   let infoButton: UIButton = {
     let button = UIButton(type: .system)

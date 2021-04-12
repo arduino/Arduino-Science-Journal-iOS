@@ -44,7 +44,7 @@ class DriveSyncSummaryView: UIStackView {
     return stackView
   }()
   
-  let startButton = WizardButton(title: String.driveSyncSummaryButton, isSolid: true)
+  let startButton = WizardButton(title: String.driveSyncSummaryButton, style: .solid)
 
   private let folderLabel: UILabel = {
     let label = UILabel()
