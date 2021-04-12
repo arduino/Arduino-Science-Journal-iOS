@@ -42,7 +42,7 @@ class ArduinoAccount: AuthAccount, Codable {
   
     self.type = type
     self.ID = ID
-    self.email = email
+    self.email = type == .kid ? "" : email
     self.displayName = displayName
     self.profileImage = profileImage
     self.isShareRestricted = isShareRestricted
