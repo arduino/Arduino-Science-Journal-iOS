@@ -43,7 +43,10 @@ enum SignUpTermsItem: String, CaseIterable, Hashable {
   
   var urls: [URL] {
     switch self {
-    case .termsAndPrivacy: return []
+    case .termsAndPrivacy: return [
+      Constants.ArduinoSignIn.privacyPolicyUrl,
+      Constants.ArduinoSignIn.termsOfServiceUrl
+    ]
     default: return []
     }
   }

@@ -19,6 +19,7 @@
 
 import UIKit
 import RxSwift
+import SafariServices
 
 class WizardRootViewController: UIViewController {
 
@@ -82,6 +83,18 @@ class WizardRootViewController: UIViewController {
     close(isCancelled: true)
   }
 
+  @IBAction
+  func showTermsOfService() {
+    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.termsOfServiceUrl)
+    present(vc, animated: true, completion: nil)
+  }
+  
+  @IBAction
+  func showPrivacyPolicy() {
+    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.termsOfServiceUrl)
+    present(vc, animated: true, completion: nil)
+  }
+  
   private func createCloseButton() -> UIBarButtonItem {
     let button = UIBarButtonItem(image: UIImage(named: "navigation_close"),
                     style: .plain,

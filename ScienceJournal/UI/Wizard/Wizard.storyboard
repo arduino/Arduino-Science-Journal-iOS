@@ -32,10 +32,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8c-V4-gyw">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="42"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="showTermsOfService" destination="7OW-zf-UoC" eventType="touchUpInside" id="HxF-ES-Hr8"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxo-F1-rcT">
                                                 <rect key="frame" x="82" y="0.0" width="46" height="42"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="showPrivacyPolicy" destination="7OW-zf-UoC" eventType="touchUpInside" id="Q4e-27-bsl"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

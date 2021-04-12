@@ -24,6 +24,9 @@ public struct Constants {
     public static let apiHost = "api-dev.arduino.cc"
     public static let clientId = "y7mbB8KDw20S4XfXRAKRLgfYT9ao0IPx"
     public static let redirectUri = "arduino.sj://login.arduino.cc/ios/cc.arduino.sciencejournal/callback"
+    
+    public static let termsOfServiceUrl = URL(string: "https://www.arduino.cc/en/terms-conditions/?embed")!
+    public static let privacyPolicyUrl = URL(string: "https://www.arduino.cc/en/privacy-policy/?embed")!
   }
   
   public struct GoogleSignInScopes {
