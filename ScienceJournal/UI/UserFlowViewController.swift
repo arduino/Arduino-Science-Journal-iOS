@@ -56,6 +56,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
   }
 
   private let accountsManager: AccountsManager
+  private let userManager: UserManager
   private lazy var _actionAreaController = ActionArea.Controller()
   override var actionAreaController: ActionArea.Controller? { return _actionAreaController }
   private let analyticsReporter: AnalyticsReporter
@@ -144,6 +145,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
        shouldShowPreferenceMigrationMessage: Bool,
        userManager: UserManager) {
     self.accountsManager = accountsManager
+    self.userManager = userManager
     self.analyticsReporter = analyticsReporter
     self.commonUIComponents = commonUIComponents
     self.devicePreferenceManager = devicePreferenceManager
@@ -164,7 +166,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     sidebar = SidebarViewController(accountsManager: accountsManager,
                                     analyticsReporter: analyticsReporter)
     exportCoordinator = ExportCoordinator(exportType: userManager.exportType)
-
+  
     super.init(nibName: nil, bundle: nil)
 
     // Set user tracking opt-out.
@@ -387,6 +389,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       let settingsVC = SettingsViewController(analyticsReporter: analyticsReporter,
                                               driveSyncManager: driveSyncManager,
                                               accountsManager: accountsManager,
+                                              userManager: userManager,
                                               preferenceManager: preferenceManager)
       if UIDevice.current.userInterfaceIdiom == .pad {
         // iPad should present modally.
@@ -1276,18 +1279,18 @@ extension UserFlowViewController: DriveSyncManagerDelegate {
       shouldShowExperimentListPullToRefreshAnimation = false
     }
     
-    let message = MDCSnackbarMessage()
-    message.text = "Syncing..."
-    MDCSnackbarManager.default.show(message)
+//    let message = MDCSnackbarMessage()
+//    message.text = "Syncing..."
+//    MDCSnackbarManager.default.show(message)
   }
 
   func driveSyncDidUpdateExperimentLibrary() {
     experimentsListVC?.reloadExperiments()
     experimentsListVC?.endPullToRefreshAnimation()
     
-    let message = MDCSnackbarMessage()
-    message.text = "Sync completed"
-    MDCSnackbarManager.default.show(message)
+//    let message = MDCSnackbarMessage()
+//    message.text = "Sync completed"
+//    MDCSnackbarManager.default.show(message)
   }
 
   func driveSyncDidDeleteTrial(withID trialID: String, experimentID: String) {
@@ -1359,14 +1362,20 @@ extension UserFlowViewController: DriveSyncManagerDelegate {
 
   func driveSyncDidFail(with error: DriveSyncManagerError) {
     DispatchQueue.main.async {
+      self.experimentsListVC?.endPullToRefreshAnimation()
+      
       switch error {
       case .invalidToken:
         self.handle(error, from: self)
+        self.accountsManager.disableDriveSync()
+      case .missingSyncFolder:
+        self.handle(error, from: self)
+        self.accountsManager.disableDriveSync()
       case .conflict(let experiment, let file):
         self.handleConflict(of: experiment, with: file)
-      case .error(let error):
+      case .error:
         let message = MDCSnackbarMessage()
-        message.text = "Sync failed! (\(error.localizedDescription))"
+        message.text = "Sync failed!"
         MDCSnackbarManager.default.show(message)
       }
     }
@@ -1449,7 +1458,26 @@ extension UserFlowViewController {
       """
       
       let alert = MDCAlertController(title: "Unable to Access Google Drive", message: message)
-      let claimAction = MDCAlertAction(title: "SIGN IN") { _ in }
+      let claimAction = MDCAlertAction(title: "SETUP") { [unowned self] _ in
+        self.accountsManager.setupDriveSync(fromViewController: self)
+      }
+      let cancelAction = MDCAlertAction(title: String.actionCancel)
+      alert.addAction(claimAction)
+      alert.addAction(cancelAction)
+      alert.accessibilityViewIsModal = true
+      self.present(alert, animated: true)
+      alertController = nil
+      
+    case DriveSyncManagerError.missingSyncFolder:
+      let message = """
+      Google Drive folder used for syncing experiments is no longer available.
+      To continue syncing your experiments, sign in again with your Google account.
+      """
+      
+      let alert = MDCAlertController(title: "Unable to Access Drive Sync Folder", message: message)
+      let claimAction = MDCAlertAction(title: "SETUP") { [unowned self] _ in
+        self.accountsManager.setupDriveSync(fromViewController: self)
+      }
       let cancelAction = MDCAlertAction(title: String.actionCancel)
       alert.addAction(claimAction)
       alert.addAction(cancelAction)

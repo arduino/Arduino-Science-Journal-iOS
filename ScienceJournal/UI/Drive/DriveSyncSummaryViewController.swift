@@ -50,7 +50,7 @@ class DriveSyncSummaryViewController: WizardViewController {
   }
   
   @objc private func start(_ sender: UIButton) {
-    accountsManager.enableDriveSync(with: user, folderID: folder.id)
+    accountsManager.enableDriveSync(with: user, folderID: folder.id, folderName: folder.name)
     rootViewController?.close(isCancelled: false)
   }
 

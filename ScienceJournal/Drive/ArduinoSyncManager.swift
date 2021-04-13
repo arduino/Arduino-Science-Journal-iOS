@@ -28,6 +28,7 @@ import GoogleAPIClientForREST
 enum ArduinoSyncManagerError: Error {
   case exportError
   case experimentNotDirty
+  case missingSyncFolder
   case missingFileID
   case missingLastSyncedVersion
   case missingExperimentOnDrive
@@ -188,7 +189,8 @@ private extension ArduinoSyncManager {
   }
   
   func sync() -> Observable<Void> {
-    fetchDriveFiles()
+    checkSyncFolder()
+      .flatMap { [unowned self] in self.fetchDriveFiles() }
       .flatMap { [unowned self] in self.cleanDeletedExperiments(files: $0) }
       .flatMap { [unowned self] in self.deleteMissingExperiments(files: $0) }
       .flatMap { [unowned self] in self.uploadNewExperiments(files: $0) }
@@ -199,6 +201,9 @@ private extension ArduinoSyncManager {
         case DriveFetcher.Error.invalidToken:
           self.tearDown()
           self.delegate?.driveSyncDidFail(with: .invalidToken)
+        case ArduinoSyncManagerError.missingSyncFolder:
+          self.tearDown()
+          self.delegate?.driveSyncDidFail(with: .missingSyncFolder)
         case ArduinoSyncManagerError.conflict(let experiment, let file):
           self.suspend()
           self.delegate?.driveSyncDidFail(with: .conflict(experiment, file))
@@ -207,6 +212,17 @@ private extension ArduinoSyncManager {
         }
         
         return .just(())
+      }
+  }
+  
+  func checkSyncFolder() -> Observable<Void> {
+    return driveFetcher.file(with: folderID)
+      .map {
+        if let file = $0, file.trashed != 1 {
+          return ()
+        } else {
+          throw ArduinoSyncManagerError.missingSyncFolder
+        }
       }
   }
   

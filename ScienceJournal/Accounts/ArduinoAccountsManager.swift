@@ -143,7 +143,7 @@ extension ArduinoAccountsManager {
     GIDSignIn.sharedInstance()?.signIn()
   }
   
-  func enableDriveSync(with user: GIDGoogleUser, folderID: String) {
+  func enableDriveSync(with user: GIDGoogleUser, folderID: String, folderName: String) {
     guard let account = currentAccount else { return }
     guard let authorization = user.authentication.fetcherAuthorizer() else { return }
     
@@ -152,8 +152,26 @@ extension ArduinoAccountsManager {
     let preferenceManager = PreferenceManager(accountID: account.ID)
     preferenceManager.driveSyncUserID = user.userID
     preferenceManager.driveSyncFolderID = folderID
+    preferenceManager.driveSyncFolderName = folderName
+    preferenceManager.driveSyncUserEmail = user.profile.email
     
     delegate?.accountsManagerDidCompleteDriveSyncSetup(with: authorization)
+    NotificationCenter.default.post(name: .driveSyncDidEnable, object: self)
+  }
+  
+  func disableDriveSync() {
+    guard let account = currentAccount else { return }
+    
+    currentAccount?.authorization = nil
+    
+    let preferenceManager = PreferenceManager(accountID: account.ID)
+    preferenceManager.driveSyncUserID = nil
+    preferenceManager.driveSyncFolderID = nil
+    preferenceManager.driveSyncFolderName = nil
+    preferenceManager.driveSyncUserEmail = nil
+    
+    delegate?.accountsManagerDidDisableDriveSync()
+    NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
   }
 }
 
@@ -636,6 +654,7 @@ private extension ArduinoAccountsManager {
     }
     guard googleSignIn.hasPreviousSignIn() else {
       delegate?.accountsManagerDidFailDriveSyncSetup(with: SignInError.notAuthenticated)
+      NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
       return
     }
     googleSignIn.restorePreviousSignIn()
@@ -667,8 +686,10 @@ extension ArduinoAccountsManager: GIDSignInDelegate {
     
     if let authorization = user.authentication.fetcherAuthorizer(), userID == user.userID {
       delegate?.accountsManagerDidCompleteDriveSyncSetup(with: authorization)
+      NotificationCenter.default.post(name: .driveSyncDidEnable, object: self)
     } else {
       delegate?.accountsManagerDidFailDriveSyncSetup(with: error ?? SignInError.notAuthenticated)
+      NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
     }
   }
   
@@ -758,6 +779,7 @@ private extension ArduinoAccountsManager {
                   from: viewController) { [weak self] wizard, isCancelled in
       if isCancelled {
         self?.delegate?.accountsManagerDidSkipDriveSyncSetup()
+        NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
       }
       
       wizard.dismiss(animated: true, completion: nil)

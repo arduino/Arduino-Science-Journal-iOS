@@ -425,6 +425,11 @@ extension AppFlowViewController: AccountsManagerDelegate {
     userFlowViewController?.driveSyncManager = nil
     accountsManager.setupDriveSync(fromViewController: self)
   }
+  
+  func accountsManagerDidDisableDriveSync() {
+    currentAccountUserManager?.driveSyncAuthorization = nil
+    userFlowViewController?.driveSyncManager = nil
+  }
 }
 
 // MARK: - ExistingDataOptionsDelegate

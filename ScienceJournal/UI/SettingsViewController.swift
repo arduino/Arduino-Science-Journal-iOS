@@ -39,26 +39,38 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     case settingButton
     case settingSwitch
   }
-
-  class SettingsItem {
-    var title = String()
-    var description: String?
-    var actionTitle: String?
-    var isEnabled = true
-    var settingAction: Selector?
-    var settingType = SettingsItemType.settingSwitch
+  
+  enum SettingsItemAccessory {
+    case button(_ action: Selector, _ title: String)
+    case `switch`(_ action: Selector, _ inOn: Bool)
   }
-
+  
+  enum SettingsItem {
+    case header(_ text: String)
+    case separator
+    case item(_ title: String, _ subtitle: String?, _ accessory: SettingsItemAccessory?)
+    
+    var height: CGFloat {
+      switch self {
+      case .header: return 52
+      case .item: return 52
+      case .separator: return 9
+      }
+    }
+  }
+  
   // MARK: - Constants
 
-  let buttonCellIdentifier = "SettingsButtonCell"
-  let switchCellIdentifier = "SettingsSwitchCell"
+  let headerCellIdentifier = "SettingsHeaderCell"
+  let separatorCellIdentifier = "SettingsSeparatorCell"
+  let itemCellIdentifier = "SettingsItemCell"
 
   // MARK: - Properties
 
   private var rows: [SettingsItem] = []
   private let driveSyncManager: DriveSyncManager?
   private let accountsManager: AccountsManager
+  private let userManager: UserManager
   private let preferenceManager: PreferenceManager
 
   // MARK: - Public
@@ -72,10 +84,12 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   init(analyticsReporter: AnalyticsReporter,
        driveSyncManager: DriveSyncManager?,
        accountsManager: AccountsManager,
+       userManager: UserManager,
        preferenceManager: PreferenceManager) {
     self.preferenceManager = preferenceManager
     self.driveSyncManager = driveSyncManager
     self.accountsManager = accountsManager
+    self.userManager = userManager
     super.init(analyticsReporter: analyticsReporter)
   }
 
@@ -87,11 +101,13 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     super.viewDidLoad()
 
     // Always register collection view cells early to avoid a reload occurring first.
-    collectionView?.register(SettingsButtonCell.self,
-                             forCellWithReuseIdentifier: buttonCellIdentifier)
-    collectionView?.register(SettingsSwitchCell.self,
-                             forCellWithReuseIdentifier: switchCellIdentifier)
-
+    collectionView?.register(UINib(nibName: "SettingsHeaderCell", bundle: nil),
+                             forCellWithReuseIdentifier: headerCellIdentifier)
+    collectionView?.register(UINib(nibName: "SettingsSeparatorCell", bundle: nil),
+                             forCellWithReuseIdentifier: separatorCellIdentifier)
+    collectionView?.register(UINib(nibName: "SettingsItemCell", bundle: nil),
+                             forCellWithReuseIdentifier: itemCellIdentifier)
+    
     styler.cellStyle = .default
     collectionView?.backgroundColor = .white
 
@@ -110,6 +126,21 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
 
     addSignOutButton()
     configureSettingsItems()
+    
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(close),
+                                           name: .userWillBeSignedOut,
+                                           object: nil)
+    
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(configureSettingsItems),
+                                           name: .driveSyncDidEnable,
+                                           object: nil)
+    
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(configureSettingsItems),
+                                           name: .driveSyncDidDisable,
+                                           object: nil)
   }
 
   // MARK: - Private
@@ -137,37 +168,42 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     ])
   }
   
+  @objc private func close() {
+    if isPresented {
+      closeButtonPressed()
+    } else {
+      backButtonPressed()
+    }
+  }
+  
   // Configure each setting item and add it to the data source.
-  private func configureSettingsItems() {
-    #if USAGE_TRACKING_ENABLED
-    // Data usage setting. Unused for the time being.
-    let dataUsageSetting = SettingsItem()
-    dataUsageSetting.title = String.settingsDataUsageTitle
-    dataUsageSetting.description = String.settingsDataUsageDescription
-    dataUsageSetting.isEnabled = !preferenceManager.hasUserOptedOutOfUsageTracking
-    dataUsageSetting.settingAction = #selector(dataUsageSwitchChanged(sender:))
-    rows.append(dataUsageSetting)
-    #endif
+  @objc private func configureSettingsItems() {
+    rows.removeAll()
 
-    #if SCIENCEJOURNAL_DEV_BUILD
-    // Generate root user data for testing the claim existing experiments flow.
-    let generateRootDataSetting = SettingsItem()
-    generateRootDataSetting.title = "Generate root user data"
-    generateRootDataSetting.description = "Useful for testing the unclaimed experiments flow."
-    generateRootDataSetting.actionTitle = "Go"
-    generateRootDataSetting.settingType = .settingButton
-    generateRootDataSetting.settingAction = #selector(generateRootDataSettingPressed(sender:))
-    rows.append(generateRootDataSetting)
-
-    // Generate root user data and force the user to log in to test the migration flow.
-    let forceAuthSetting = SettingsItem()
-    forceAuthSetting.title = "Force login/migration flow"
-    forceAuthSetting.description = "Generate root user data first, if necessary."
-    forceAuthSetting.actionTitle = "Go"
-    forceAuthSetting.settingType = .settingButton
-    forceAuthSetting.settingAction = #selector(forceAuthSettingPressed(sender:))
-    rows.append(forceAuthSetting)
-    #endif  // SCIENCEJOURNAL_DEV_BUILD
+    if let account = accountsManager.currentAccount {
+      rows.append(.header("Arduino Account"))
+      rows.append(.item(account.displayName, account.email, nil))
+      
+      if account.supportsDriveSync {
+        rows.append(.separator)
+        rows.append(.header("Google Drive Sync"))
+        rows.append(.item("Enable Drive Sync",
+                          nil,
+                          .switch(#selector(toggleDriveSync), userManager.isDriveSyncEnabled)))
+        
+        if let email = preferenceManager.driveSyncUserEmail {
+          rows.append(.item("Account", email, .none))
+        }
+        
+        if let folder = preferenceManager.driveSyncFolderName {
+          rows.append(.item("Sync Folder",
+                            folder,
+                            .button(#selector(setupDriveSync), "CHANGE")))
+        }
+      }
+    }
+    
+    collectionView.reloadData()
   }
 
   // MARK: - User Actions
@@ -182,31 +218,28 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   
   @objc private func signOut() {
     accountsManager.signOutCurrentAccount()
-    if isPresented {
-      dismiss(animated: true)
-    }
   }
 
   // MARK: - Settings Actions
 
+  @objc private func toggleDriveSync() {
+    if userManager.isDriveSyncEnabled {
+      accountsManager.disableDriveSync()
+    } else {
+      setupDriveSync()
+    }
+  }
+  
+  @objc private func setupDriveSync() {
+    accountsManager.setupDriveSync(fromViewController: self)
+  }
+  
   @objc private func dataUsageSwitchChanged(sender: UISwitch) {
     let isOptedOut = !sender.isOn
     preferenceManager.hasUserOptedOutOfUsageTracking = isOptedOut
     analyticsReporter.setOptOut(isOptedOut)
   }
 
-  #if SCIENCEJOURNAL_DEV_BUILD
-  @objc private func generateRootDataSettingPressed(sender: UIButton) {
-    NotificationCenter.default.post(name: .DEBUG_createRootUserData, object: nil, userInfo: nil)
-  }
-
-  @objc private func forceAuthSettingPressed(sender: UIButton) {
-    NotificationCenter.default.post(name: .DEBUG_forceAuth,
-                                    object: nil,
-                                    userInfo: nil)
-  }
-  #endif  // SCIENCEJOURNAL_DEV_BUILD
-  
   // MARK: - UICollectionViewDataSource
 
   override func collectionView(_ collectionView: UICollectionView,
@@ -217,54 +250,47 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   override func collectionView(_ collectionView: UICollectionView,
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let settingItem = rows[indexPath.row]
-    switch settingItem.settingType {
-    case .settingButton:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: buttonCellIdentifier,
-                                                    for: indexPath)
-      if let cell = cell as? SettingsButtonCell {
-        cell.titleLabel.text = settingItem.title
-        cell.descriptionLabel.text = settingItem.description
-        cell.aButton.isEnabled = settingItem.isEnabled
-        if let buttonAction = settingItem.settingAction {
-          cell.aButton.setTitle(settingItem.actionTitle, for: .normal)
-          cell.aButton.addTarget(self, action: buttonAction, for: .touchUpInside)
-        }
-      }
+    
+    // swiftlint:disable force_cast
+    switch settingItem {
+    case .header(let text):
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: headerCellIdentifier,
+                                                    for: indexPath) as! SettingsHeaderCell
+      cell.textLabel.text = text
       return cell
-    case .settingSwitch:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: switchCellIdentifier,
-                                                    for: indexPath)
-      if let cell = cell as? SettingsSwitchCell {
-        cell.titleLabel.text = settingItem.title
-        cell.descriptionLabel.text = settingItem.description
-        cell.aSwitch.isOn = settingItem.isEnabled
-        if let switchAction = settingItem.settingAction {
-          cell.aSwitch.addTarget(self, action: switchAction, for: .valueChanged)
-        }
+    case .separator:
+      return collectionView.dequeueReusableCell(withReuseIdentifier: separatorCellIdentifier,
+                                                for: indexPath)
+    case .item(let title, let subtitle, let accessory):
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCellIdentifier,
+                                                    for: indexPath) as! SettingsItemCell
+      cell.titleLabel.text = title
+      cell.subtitleLabel.text = subtitle
+      
+      switch accessory {
+      case .button(let action, let title):
+        let button = WizardButton(title: title, style: .system, size: .regular)
+        button.addTarget(self, action: action, for: .touchUpInside)
+        cell.accessoryView = button
+      case .switch(let action, let isOn):
+        let switchControl = UISwitch()
+        switchControl.addTarget(self, action: action, for: .valueChanged)
+        switchControl.onTintColor = ArduinoColorPalette.tealPalette.tint800
+        switchControl.isOn = isOn
+        cell.accessoryView = switchControl
+      default: break
       }
       return cell
     }
+    // swiftlint:enable force_cast
   }
-
+  
   override func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
     let settingsItem = rows[indexPath.row]
     let viewWidth = collectionView.bounds.size.width - view.safeAreaInsetsOrZero.left -
         view.safeAreaInsetsOrZero.right
-    var viewHeight: CGFloat = 0
-    switch settingsItem.settingType {
-    case .settingButton:
-      viewHeight = SettingsButtonCell.height(inWidth: viewWidth,
-                                             title: settingsItem.title,
-                                             buttonTitle: settingsItem.actionTitle ?? "",
-                                             description: settingsItem.description)
-    case .settingSwitch:
-      viewHeight = SettingsSwitchCell.height(inWidth: viewWidth,
-                                             title: settingsItem.title,
-                                             description: settingsItem.description)
-    }
-    return CGSize(width: viewWidth, height: viewHeight)
+    return CGSize(width: viewWidth, height: settingsItem.height)
   }
-
 }

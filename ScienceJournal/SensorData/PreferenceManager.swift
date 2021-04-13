@@ -44,6 +44,8 @@ open class PreferenceManager {
     private let deletedSensorDataAssetsKey = "GSJ_DeletedSensorDataAssetsKey"
     private let driveSyncUserIDKey = "ASJ_DriveSyncUserIDKey"
     private let driveSyncFolderIDKey = "ASJ_DriveSyncFolderIDKey"
+    private let driveSyncFolderNameKey = "ASJ_DriveSyncFolderNameKey"
+    private let driveSyncUserEmailKey = "ASJ_DriveSyncUserEmailKey"
     private let driveSyncSetupSkippedKey = "ASJ_DriveSyncSetupSkippedKey"
     
     // Legacy keys
@@ -124,6 +126,16 @@ open class PreferenceManager {
       return keyAppendingAccountID(driveSyncFolderIDKey)
     }
     
+    /// The key to use for the preference for the Drive sync folder name.
+    var driveSyncFolderName: String {
+      return keyAppendingAccountID(driveSyncFolderNameKey)
+    }
+    
+    /// The key to use for the preference for Drive sync account's email.
+    var driveSyncUserEmail: String {
+      return keyAppendingAccountID(driveSyncUserEmailKey)
+    }
+    
     /// The key to use for saving the fact that the user skip the Drive Sync setup.
     var driveSyncSetupSkipped: String {
       return keyAppendingAccountID(driveSyncSetupSkippedKey)
@@ -143,6 +155,8 @@ open class PreferenceManager {
               deletedSensorDataAssets,
               driveSyncUserID,
               driveSyncFolderIDKey,
+              driveSyncFolderNameKey,
+              driveSyncUserEmail,
               driveSyncSetupSkippedKey]
     }
 
@@ -263,6 +277,22 @@ open class PreferenceManager {
     set { defaults.set(newValue, forKey: keys.driveSyncFolderID); sync() }
     get {
       return defaults.object(forKey: keys.driveSyncFolderID) as? String
+    }
+  }
+  
+  /// The Drive folder name used for sync
+  public var driveSyncFolderName: String? {
+    set { defaults.set(newValue, forKey: keys.driveSyncFolderName); sync() }
+    get {
+      return defaults.object(forKey: keys.driveSyncFolderName) as? String
+    }
+  }
+  
+  /// The Drive user ID used for sync
+  public var driveSyncUserEmail: String? {
+    set { defaults.set(newValue, forKey: keys.driveSyncUserEmail); sync() }
+    get {
+      return defaults.object(forKey: keys.driveSyncUserEmail) as? String
     }
   }
   

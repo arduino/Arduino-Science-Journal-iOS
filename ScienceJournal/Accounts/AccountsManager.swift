@@ -61,6 +61,8 @@ public protocol AccountsManagerDelegate: class {
   func accountsManagerDidCompleteDriveSyncSetup(with authorization: GTMFetcherAuthorizationProtocol)
   
   func accountsManagerDidFailDriveSyncSetup(with error: Error)
+  
+  func accountsManagerDidDisableDriveSync()
 }
 
 /// Protocol for managing Arduino user accounts.
@@ -127,12 +129,23 @@ public protocol AccountsManager: class {
   ///
   /// - Parameter user: The authenticated Google account.
   /// - Parameter folderID: The ID of the Drive folder where to sync experiments.
-  func enableDriveSync(with user: GIDGoogleUser, folderID: String)
+  /// - Parameter folderName: The name of the Drive folder where to sync experiments. 
+  func enableDriveSync(with user: GIDGoogleUser, folderID: String, folderName: String)
+  
+  /// Disable Drive sync for the current account.
+  ///
+  func disableDriveSync()
 }
 
 public extension Notification.Name {
   /// The name of a notification posted when a user will be signed out immediately.
   static let userWillBeSignedOut = Notification.Name("GSJNotificationUserWillBeSignedOut")
+  
+  /// The name of a notification posted when Drive sync has been enabled.
+  static let driveSyncDidEnable = Notification.Name("ASJNotificationDriveSyncDidEnable")
+  
+  /// The name of a notification posted when Drive sync has been disabled.
+  static let driveSyncDidDisable = Notification.Name("ASJNotificationDriveSyncDidDisable")
 }
 
 /// A protocol representing an auth account.

@@ -134,6 +134,8 @@ public enum DriveExperimentSyncCondition {
 public enum DriveSyncManagerError: Error {
   /// This error occurs when the Drive token has expired or has been revoked.
   case invalidToken
+  /// This error occurs when the Drive folder used for sync has been deleted.
+  case missingSyncFolder
   /// This error occurs when both Drive and local experiments have been modified since last sync.
   case conflict(_ experiment: SyncExperiment, _ file: GTLRDrive_File)
   /// This could be any error. For further details you can inspect the passed parameter.

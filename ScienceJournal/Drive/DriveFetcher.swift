@@ -171,7 +171,7 @@ class DriveFetcher {
   
   func file(with fileId: String) -> Observable<GTLRDrive_File?> {
     let query = GTLRDriveQuery_FilesGet.query(withFileId: fileId)
-    query.fields = "id,name,modifiedTime,appProperties"
+    query.fields = "id,name,modifiedTime,appProperties,trashed"
     
     let service = self.service
 
