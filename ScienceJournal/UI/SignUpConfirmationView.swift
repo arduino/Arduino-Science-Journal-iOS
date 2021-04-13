@@ -21,7 +21,7 @@ import UIKit
 
 class SignUpConfirmationView: UIStackView {
 
-  let resendButton = WizardButton(title: String.arduinoSignUpEmailConfirmationResendButton, style: .solid)
+  let resendButton = WizardButton(title: String.arduinoSignUpEmailConfirmationResendButton, style: .system)
   let backButton = WizardButton(title: String.arduinoSignUpEmailConfirmationBackButton, style: .solid)
   
   private let titleLabel: UILabel = {
