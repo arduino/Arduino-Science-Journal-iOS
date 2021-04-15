@@ -550,7 +550,8 @@ extension ArduinoAccountsManager {
           return
         }
         
-        completion(.success(username.replacingOccurrences(of: "\"", with: "")))
+        let forbiddenCharacters = CharacterSet.alphanumerics.inverted
+        completion(.success(username.trimmingCharacters(in: forbiddenCharacters)))
       }
     }.resume()
   }
