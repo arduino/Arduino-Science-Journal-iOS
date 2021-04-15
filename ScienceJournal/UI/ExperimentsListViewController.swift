@@ -171,8 +171,15 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
                 strongSelf.numberOfUnclaimedExperiments)
           }
         }
-        let headerSizeBlock: ExperimentsListHeaderSizeBlock = { (width) in
-          return CGSize(width: width, height: ClaimExperimentsHeaderView.Metrics.height)
+        let headerSizeBlock: ExperimentsListHeaderSizeBlock = { [weak self] (width) in
+          let claimExperimentsView = ClaimExperimentsView()
+          claimExperimentsView.setNumberOfUnclaimedExperiments(self?.numberOfUnclaimedExperiments ?? 0)
+          let targetSize = CGSize(width: width,
+                                  height: UIView.layoutFittingCompressedSize.height)
+          let size = claimExperimentsView.systemLayoutSizeFitting(targetSize,
+                                                                  withHorizontalFittingPriority: .required,
+                                                                  verticalFittingPriority: .defaultLow)
+          return size
         }
         experimentsListItemsViewController.setCollectionViewHeader(
             configurationBlock: headerConfigurationBlock,

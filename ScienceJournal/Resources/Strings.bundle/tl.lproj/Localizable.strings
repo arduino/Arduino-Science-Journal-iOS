@@ -353,8 +353,7 @@
 "claim_experiments_add_to_drive_subtitle" = "Experiments cannot be edited and will remain on the device until they are either claimed or deleted";
 /* Title for the claiming experiments header view explaining how to add experiments to Google Drive. [CHAR_LIMIT=50] */
 "claim_experiments_add_to_drive_title" = "Add experiments to Google Drive";
-/* Button title for claiming experiments that don't belong to an account. [CHAR_LIMIT=30] */
-"claim_experiments_button_title" = "Claim experiments";
+"claim_experiments_button_title" = "COLLECT";
 /* Menu action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=30] */
 "claim_experiments_delete_all" = "Delete all";
 /* Confirmation dialog action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=15] */
@@ -371,10 +370,8 @@
 "claim_experiments_delete_all_migration_confirmation_title" = "Delete all your experiments?";
 /* Accessibility title for a button that deletes an unclaimed experiment. [CHAR_LIMIT=NONE] */
 "claim_experiments_delete_content_description" = "Delete this experiment";
-/* Text describing that there are experiments to claim that don't belong to an account, with a placeholder for the number of experiments. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count" = "There are %ld unclaimed experiments on this device.";
-/* Text describing that there are experiments to claim that don't belong to an account, when there is one experiment. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count_one" = "There is 1 unclaimed experiment on this device.";
+"claim_experiments_description_with_count" = "There are %ld experiments on the device which don’t belong to anyone. Tap “Collect” to assign yours to your virtual lab.";
+"claim_experiments_description_with_count_one" = "There is one experiment on the device which doesn’t belong to anyone. Tap “Collect” to assign it to your virtual lab.";
 /* A message shown when claiming experiments fails because there is not enough disk space. [CHAR_LIMIT=55] */
 "claim_experiments_disk_space_error_message" = "Not enough disk space to claim experiments";
 /* A message shown when claiming experiments fails. [CHAR_LIMIT=30] */

@@ -353,8 +353,7 @@
 "claim_experiments_add_to_drive_subtitle" = "실험의 소유권이 주장되거나 실험이 삭제될 때까지 실험을 수정할 수 없으며 기기에 남아 있습니다.";
 /* Title for the claiming experiments header view explaining how to add experiments to Google Drive. [CHAR_LIMIT=50] */
 "claim_experiments_add_to_drive_title" = "Google 드라이브에 실험 추가";
-/* Button title for claiming experiments that don't belong to an account. [CHAR_LIMIT=30] */
-"claim_experiments_button_title" = "실험 소유권 주장";
+"claim_experiments_button_title" = "COLLECT";
 /* Menu action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=30] */
 "claim_experiments_delete_all" = "모두 삭제";
 /* Confirmation dialog action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=15] */
@@ -371,10 +370,8 @@
 "claim_experiments_delete_all_migration_confirmation_title" = "모든 실험을 삭제하시겠습니까?";
 /* Accessibility title for a button that deletes an unclaimed experiment. [CHAR_LIMIT=NONE] */
 "claim_experiments_delete_content_description" = "실험 삭제";
-/* Text describing that there are experiments to claim that don't belong to an account, with a placeholder for the number of experiments. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count" = "이 기기에 소유권을 주장하지 않은 실험이 %ld개 있습니다.";
-/* Text describing that there are experiments to claim that don't belong to an account, when there is one experiment. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count_one" = "이 기기에 소유권을 주장하지 않은 실험이 1개 있습니다.";
+"claim_experiments_description_with_count" = "There are %ld experiments on the device which don’t belong to anyone. Tap “Collect” to assign yours to your virtual lab.";
+"claim_experiments_description_with_count_one" = "There is one experiment on the device which doesn’t belong to anyone. Tap “Collect” to assign it to your virtual lab.";
 /* A message shown when claiming experiments fails because there is not enough disk space. [CHAR_LIMIT=55] */
 "claim_experiments_disk_space_error_message" = "실험 소유권을 주장하기에 디스크 공간이 충분하지 않습니다.";
 /* A message shown when claiming experiments fails. [CHAR_LIMIT=30] */

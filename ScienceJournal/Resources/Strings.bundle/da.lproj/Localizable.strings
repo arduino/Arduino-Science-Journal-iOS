@@ -353,8 +353,7 @@
 "claim_experiments_add_to_drive_subtitle" = "Eksperimenter kan ikke redigeres og bliver liggende på enheden, indtil der gøres krav på dem, eller indtil de slettes";
 /* Title for the claiming experiments header view explaining how to add experiments to Google Drive. [CHAR_LIMIT=50] */
 "claim_experiments_add_to_drive_title" = "Føj eksperimenter til Google Drev";
-/* Button title for claiming experiments that don't belong to an account. [CHAR_LIMIT=30] */
-"claim_experiments_button_title" = "Gør krav på eksperimenter";
+"claim_experiments_button_title" = "COLLECT";
 /* Menu action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=30] */
 "claim_experiments_delete_all" = "Slet alle";
 /* Confirmation dialog action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=15] */
@@ -371,10 +370,8 @@
 "claim_experiments_delete_all_migration_confirmation_title" = "Vil du slette alle dine eksperimenter?";
 /* Accessibility title for a button that deletes an unclaimed experiment. [CHAR_LIMIT=NONE] */
 "claim_experiments_delete_content_description" = "Slet dette eksperiment";
-/* Text describing that there are experiments to claim that don't belong to an account, with a placeholder for the number of experiments. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count" = "Der er %ld eksperimenter på enheden, der ikke er gjort krav på.";
-/* Text describing that there are experiments to claim that don't belong to an account, when there is one experiment. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count_one" = "Der er 1 eksperiment på enheden, der ikke er gjort krav på.";
+"claim_experiments_description_with_count" = "There are %ld experiments on the device which don’t belong to anyone. Tap “Collect” to assign yours to your virtual lab.";
+"claim_experiments_description_with_count_one" = "There is one experiment on the device which doesn’t belong to anyone. Tap “Collect” to assign it to your virtual lab.";
 /* A message shown when claiming experiments fails because there is not enough disk space. [CHAR_LIMIT=55] */
 "claim_experiments_disk_space_error_message" = "Ikke nok plads til at gøre krav på eksperimenter";
 /* A message shown when claiming experiments fails. [CHAR_LIMIT=30] */

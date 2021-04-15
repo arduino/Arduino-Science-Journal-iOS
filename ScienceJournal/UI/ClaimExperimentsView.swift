@@ -33,31 +33,10 @@ class ClaimExperimentsView: UIView {
 
   weak var delegate: ClaimExperimentsViewDelegate?
 
-  enum Metrics {
-    /// The height of the claim experiments view.
-    static let height: CGFloat = 180
-
-    /// The maximum width to use for the claim experiments view.
-    static let maxWidth: CGFloat = 400
-
-    fileprivate static let backgroundColor = UIColor.white
-
-    fileprivate static let shadowInsets = UIEdgeInsets(top: -2, left: -4, bottom: -6, right: -4)
-    fileprivate static let cornerRadius: CGFloat = 2
-    fileprivate static let imageViewDimension: CGFloat = 96
-    fileprivate static let contentOuterSideBuffer: CGFloat = 16
-    fileprivate static let imageViewTopBuffer: CGFloat = 16
-    fileprivate static let titleLabelTopBuffer: CGFloat = 32
-    fileprivate static let descriptionLabelTopBuffer: CGFloat = 16
-    fileprivate static let claimButtonSideBuffer: CGFloat = 8
-    fileprivate static let claimButtonTopBuffer: CGFloat = 16
-  }
-
-  private let imageView = UIImageView(image: UIImage(named: "claim_header"))
-  private let titleLabel = UILabel()
   private let descriptionLabel = UILabel()
-  private let claimButton = MDCFlatButton()
-  private let shadow = UIImageView(image: UIImage(named: "shadow_layer_white"))
+  private let claimButton = WizardButton(title: String.claimExperimentsButtonTitle,
+                                         style: .system,
+                                         size: .regular)
 
   // MARK: - Public
 
@@ -75,49 +54,8 @@ class ClaimExperimentsView: UIView {
     super.layoutSubviews()
 
     // Shadow
-    shadow.frame =
-        CGRect(x: Metrics.shadowInsets.left,
-               y: Metrics.shadowInsets.top,
-               width: bounds.width - Metrics.shadowInsets.left - Metrics.shadowInsets.right,
-               height: bounds.height - Metrics.shadowInsets.top - Metrics.shadowInsets.bottom)
-
-    // Image view
-    imageView.frame = CGRect(x: Metrics.contentOuterSideBuffer,
-                             y: Metrics.imageViewTopBuffer,
-                             width: Metrics.imageViewDimension,
-                             height: Metrics.imageViewDimension)
-
-    // Labels
-    let labelWidth = bounds.maxX - imageView.frame.maxX - Metrics.contentOuterSideBuffer * 2
-
-    // Title
-    titleLabel.frame = CGRect(x: imageView.frame.maxX + Metrics.contentOuterSideBuffer,
-                              y: Metrics.titleLabelTopBuffer,
-                              width: labelWidth,
-                              height: 0)
-    titleLabel.sizeToFit()
-
-    // Description
-    descriptionLabel.frame = CGRect(x: titleLabel.frame.minX,
-                                    y: titleLabel.frame.maxY + Metrics.descriptionLabelTopBuffer,
-                                    width: labelWidth,
-                                    height: 0)
-    descriptionLabel.sizeToFit()
-
-    // Claim button
-    claimButton.sizeToFit()
-    claimButton.frame = CGRect(x: Metrics.claimButtonSideBuffer,
-                               y: imageView.frame.maxY + Metrics.claimButtonTopBuffer,
-                               width: claimButton.frame.width,
-                               height: claimButton.frame.height)
-
-    [imageView, titleLabel, descriptionLabel, claimButton].forEach {
-      $0.adjustFrameForLayoutDirection()
-    }
-  }
-
-  override var intrinsicContentSize: CGSize {
-    return CGSize(width: UIView.noIntrinsicMetric, height: Metrics.height)
+    clipsToBounds = false
+    layer.shadowPath = UIBezierPath(rect: bounds).cgPath
   }
 
   /// Sets the number of unclaimed experiments to display.
@@ -135,33 +73,36 @@ class ClaimExperimentsView: UIView {
   // MARK: - Private
 
   private func configureView() {
-    backgroundColor = Metrics.backgroundColor
-    layer.cornerRadius = Metrics.cornerRadius
-
+    backgroundColor = .white
+    
     // Shadow
-    addSubview(shadow)
-
-    // Image view
-    addSubview(imageView)
-
-    // Title label
-    titleLabel.font = MDCTypography.body2Font()
-    titleLabel.numberOfLines = 2
-    titleLabel.text = String.claimExperimentsTitle
-    addSubview(titleLabel)
-
+    layer.shadowColor = UIColor.black.withAlphaComponent(0.08).cgColor
+    layer.shadowRadius = 6
+    layer.shadowOffset = CGSize(width: 0, height: 3)
+    layer.shadowOpacity = 1
+    
+    let stackView = UIStackView()
+    stackView.axis = .horizontal
+    stackView.alignment = .center
+    stackView.spacing = 14
+    stackView.layoutMargins = UIEdgeInsets(top: 6, left: 20, bottom: 6, right: 20)
+    stackView.isLayoutMarginsRelativeArrangement = true
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(stackView)
+    stackView.pinToEdgesOfView(self)
+    
     // Description label
-    descriptionLabel.font = MDCTypography.captionFont()
-    descriptionLabel.numberOfLines = 3
-    addSubview(descriptionLabel)
+    descriptionLabel.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XXSmall.rawValue)
+    descriptionLabel.numberOfLines = 0
+    descriptionLabel.textColor = ArduinoColorPalette.grayPalette.tint700
+    stackView.addArrangedSubview(descriptionLabel)
 
     // Claim button
     claimButton.addTarget(self,
                           action: #selector(claimButtonPressed),
                           for: .touchUpInside)
-    claimButton.setTitle(String.claimExperimentsButtonTitle, for: .normal)
-    claimButton.setTitleColor(MDCPalette.blue.tint500, for: .normal)
-    addSubview(claimButton)
+    claimButton.setContentHuggingPriority(.required, for: .horizontal)
+    stackView.addArrangedSubview(claimButton)
   }
 
   // MARK: - User actions
@@ -181,14 +122,6 @@ class ClaimExperimentsHeaderView: UICollectionReusableView {
   /// The claim experiments view.
   let claimExperimentsView = ClaimExperimentsView()
 
-  enum Metrics {
-    /// The height of the claim experiments header view.
-    static let height = ClaimExperimentsView.Metrics.height + topBuffer
-
-    fileprivate static let sideBuffer: CGFloat = 16
-    fileprivate static let topBuffer: CGFloat = 16
-  }
-
   // MARK: - Public
 
   override init(frame: CGRect) {
@@ -201,20 +134,11 @@ class ClaimExperimentsHeaderView: UICollectionReusableView {
     configureView()
   }
 
-  override func layoutSubviews() {
-    super.layoutSubviews()
-
-    let width = min(bounds.width - Metrics.sideBuffer * 2, ClaimExperimentsView.Metrics.maxWidth)
-    claimExperimentsView.frame = CGRect(x: ceil((bounds.width - width) / 2),
-                                        y: Metrics.topBuffer,
-                                        width: width,
-                                        height: ClaimExperimentsView.Metrics.height)
-  }
-
   // MARK: - Private
 
   private func configureView() {
     addSubview(claimExperimentsView)
+    claimExperimentsView.translatesAutoresizingMaskIntoConstraints = false
+    claimExperimentsView.pinToEdgesOfView(self)
   }
-
 }

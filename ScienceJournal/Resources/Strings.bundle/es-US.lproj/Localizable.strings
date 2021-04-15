@@ -353,8 +353,7 @@
 "claim_experiments_add_to_drive_subtitle" = "No se pueden editar los experimentos. Permanecerán en el dispositivo hasta que alguien los reclame o borre.";
 /* Title for the claiming experiments header view explaining how to add experiments to Google Drive. [CHAR_LIMIT=50] */
 "claim_experiments_add_to_drive_title" = "Agregar experimentos a Google Drive";
-/* Button title for claiming experiments that don't belong to an account. [CHAR_LIMIT=30] */
-"claim_experiments_button_title" = "Reclamar experimentos";
+"claim_experiments_button_title" = "COLLECT";
 /* Menu action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=30] */
 "claim_experiments_delete_all" = "Borrar todos";
 /* Confirmation dialog action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=15] */
@@ -371,10 +370,8 @@
 "claim_experiments_delete_all_migration_confirmation_title" = "¿Quieres borrar todos tus experimentos?";
 /* Accessibility title for a button that deletes an unclaimed experiment. [CHAR_LIMIT=NONE] */
 "claim_experiments_delete_content_description" = "Borrar este experimento";
-/* Text describing that there are experiments to claim that don't belong to an account, with a placeholder for the number of experiments. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count" = "Hay %ld experimentos sin reclamar en este dispositivo.";
-/* Text describing that there are experiments to claim that don't belong to an account, when there is one experiment. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count_one" = "Hay 1 experimento sin reclamar en este dispositivo.";
+"claim_experiments_description_with_count" = "There are %ld experiments on the device which don’t belong to anyone. Tap “Collect” to assign yours to your virtual lab.";
+"claim_experiments_description_with_count_one" = "There is one experiment on the device which doesn’t belong to anyone. Tap “Collect” to assign it to your virtual lab.";
 /* A message shown when claiming experiments fails because there is not enough disk space. [CHAR_LIMIT=55] */
 "claim_experiments_disk_space_error_message" = "No queda espacio para reclamar experimentos";
 /* A message shown when claiming experiments fails. [CHAR_LIMIT=30] */

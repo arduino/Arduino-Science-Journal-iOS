@@ -353,8 +353,7 @@
 "claim_experiments_add_to_drive_subtitle" = "您在申领或删除实验之前无法对实验进行修改，这些实验仍将保留在设备上";
 /* Title for the claiming experiments header view explaining how to add experiments to Google Drive. [CHAR_LIMIT=50] */
 "claim_experiments_add_to_drive_title" = "将实验添加到 Google 云端硬盘";
-/* Button title for claiming experiments that don't belong to an account. [CHAR_LIMIT=30] */
-"claim_experiments_button_title" = "申领实验";
+"claim_experiments_button_title" = "COLLECT";
 /* Menu action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=30] */
 "claim_experiments_delete_all" = "全部删除";
 /* Confirmation dialog action title for deleting all experiments that don't belong to an account. [CHAR_LIMIT=15] */
@@ -371,10 +370,8 @@
 "claim_experiments_delete_all_migration_confirmation_title" = "删除你的所有实验？";
 /* Accessibility title for a button that deletes an unclaimed experiment. [CHAR_LIMIT=NONE] */
 "claim_experiments_delete_content_description" = "删除此实验";
-/* Text describing that there are experiments to claim that don't belong to an account, with a placeholder for the number of experiments. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count" = "此设备上有 %ld 个未申领的实验。";
-/* Text describing that there are experiments to claim that don't belong to an account, when there is one experiment. [CHAR_LIMIT=60] */
-"claim_experiments_description_with_count_one" = "此设备上有 1 个未申领的实验。";
+"claim_experiments_description_with_count" = "There are %ld experiments on the device which don’t belong to anyone. Tap “Collect” to assign yours to your virtual lab.";
+"claim_experiments_description_with_count_one" = "There is one experiment on the device which doesn’t belong to anyone. Tap “Collect” to assign it to your virtual lab.";
 /* A message shown when claiming experiments fails because there is not enough disk space. [CHAR_LIMIT=55] */
 "claim_experiments_disk_space_error_message" = "没有足够多的磁盘空间来申领实验";
 /* A message shown when claiming experiments fails. [CHAR_LIMIT=30] */

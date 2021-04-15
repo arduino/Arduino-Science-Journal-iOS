@@ -65,18 +65,11 @@ class EmptyView: UIScrollView {
     claimExperimentsView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(claimExperimentsView)
     claimExperimentsView.topAnchor.constraint(
-        equalTo: topAnchor,
-        constant: Metrics.claimExperimentsViewTopConstraintConstant).isActive = true
+        equalTo: topAnchor).isActive = true
     claimExperimentsView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-    let claimExperimentsViewWidthConstraint = claimExperimentsView.widthAnchor.constraint(
-        equalTo: widthAnchor, constant: Metrics.claimExperimentsViewWidthConstraintConstant)
-    claimExperimentsViewWidthConstraint.priority = .defaultLow
-    claimExperimentsViewWidthConstraint.isActive = true
     claimExperimentsView.widthAnchor.constraint(
-        lessThanOrEqualToConstant: ClaimExperimentsView.Metrics.maxWidth).isActive = true
-
-    stackViewTopConstraint =
-        stackView.topAnchor.constraint(equalTo: claimExperimentsView.bottomAnchor)
+      equalTo: widthAnchor).isActive = true
+    
     updateForVerticalSizeClass()
 
     return claimExperimentsView
@@ -88,22 +81,6 @@ class EmptyView: UIScrollView {
       claimExperimentsView.isHidden = isClaimExperimentsViewHidden
       imageView.isHidden = !isClaimExperimentsViewHidden &&
           traitCollection.verticalSizeClass == .compact
-
-      if isClaimExperimentsViewHidden {
-        imageViewHeightConstraintForClaimExperimentsViewShowing?.isActive = false
-        imageViewWidthConstraintForClaimExperimentsViewShowing?.isActive = false
-        stackViewTopConstraint?.isActive = false
-        stackViewCenterYConstraint?.isActive = true
-        imageViewHeightConstraint?.isActive = true
-        imageViewWidthConstraint?.isActive = true
-      } else {
-        imageViewHeightConstraint?.isActive = false
-        imageViewWidthConstraint?.isActive = false
-        stackViewCenterYConstraint?.isActive = false
-        stackViewTopConstraint?.isActive = true
-        imageViewHeightConstraintForClaimExperimentsViewShowing?.isActive = true
-        imageViewWidthConstraintForClaimExperimentsViewShowing?.isActive = true
-      }
     }
   }
 
@@ -111,27 +88,7 @@ class EmptyView: UIScrollView {
   private var archivedFlagLeadingConstraint: NSLayoutConstraint?
   private let imageView = UIImageView()
   private let stackView = UIStackView()
-  private var stackViewCenterYConstraint: NSLayoutConstraint?
-  private var stackViewTopConstraint: NSLayoutConstraint?
-  private var imageViewHeightConstraintForClaimExperimentsViewShowing: NSLayoutConstraint?
-  private var imageViewWidthConstraintForClaimExperimentsViewShowing: NSLayoutConstraint?
   private let titleLabel = UILabel()
-
-  // The image view height constraint. Its constant is set to be equal to the image height.
-  private lazy var imageViewHeightConstraint: NSLayoutConstraint? = {
-    guard let imageSize = self.imageView.image?.size else { return nil }
-    let constraint = imageView.heightAnchor.constraint(equalToConstant: imageSize.height)
-    constraint.isActive = true
-    return constraint
-  }()
-
-  // The image view width constraint. Its constant is set to be equal to the image width.
-  private lazy var imageViewWidthConstraint: NSLayoutConstraint? = {
-    guard let imageSize = self.imageView.image?.size else { return nil }
-    let constraint = imageView.widthAnchor.constraint(equalToConstant: imageSize.width)
-    constraint.isActive = true
-    return constraint
-  }()
 
   // MARK: - Public
 
@@ -166,10 +123,7 @@ class EmptyView: UIScrollView {
     stackView.spacing = Metrics.innerSpacing
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-    stackViewCenterYConstraint =
-        stackView.centerYAnchor.constraint(equalTo: centerYAnchor,
-                                           constant: Metrics.verticalOffsetRegular)
-    stackViewCenterYConstraint?.isActive = true
+    stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
     // The title label.
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -184,10 +138,6 @@ class EmptyView: UIScrollView {
     imageView.image = UIImage(named: imageName)
     imageView.translatesAutoresizingMaskIntoConstraints = false
     stackView.addArrangedSubview(imageView)
-    imageViewHeightConstraintForClaimExperimentsViewShowing =
-        imageView.heightAnchor.constraint(equalToConstant: Metrics.imageViewDimensionSmall)
-    imageViewWidthConstraintForClaimExperimentsViewShowing =
-        imageView.widthAnchor.constraint(equalToConstant: Metrics.imageViewDimensionSmall)
 
     // The archived flag.
     addSubview(archivedFlag)
@@ -201,30 +151,6 @@ class EmptyView: UIScrollView {
 
   private func updateForVerticalSizeClass() {
     let verticallyCompact = traitCollection.verticalSizeClass == .compact
-
-    var imageViewDimensionMultiplier: CGFloat {
-      return verticallyCompact ?
-          Metrics.imageViewDimensionMultiplierCompact : Metrics.imageViewDimensionMultiplierRegular
-    }
-
-    var stackViewCenterYConstraintConstant: CGFloat {
-      return verticallyCompact ? Metrics.verticalOffsetCompact : Metrics.verticalOffsetRegular
-    }
-
-    guard let imageSize = imageView.image?.size else { return }
-    imageViewHeightConstraint?.constant = imageSize.height * imageViewDimensionMultiplier
-    imageViewWidthConstraint?.constant = imageSize.width * imageViewDimensionMultiplier
-    stackViewCenterYConstraint?.constant = stackViewCenterYConstraintConstant
-
-    let regularVerticalAndHorizontal = traitCollection.verticalSizeClass == .regular &&
-        traitCollection.horizontalSizeClass == .regular
-    stackViewTopConstraint?.constant = regularVerticalAndHorizontal ?
-        Metrics.stackViewTopConstraintConstantRegular: Metrics.stackViewTopConstraintConstantCompact
-    imageViewHeightConstraintForClaimExperimentsViewShowing?.constant =
-        regularVerticalAndHorizontal ? imageSize.height : Metrics.imageViewDimensionSmall
-    imageViewWidthConstraintForClaimExperimentsViewShowing?.constant =
-        regularVerticalAndHorizontal ? imageSize.width : Metrics.imageViewDimensionSmall
-
     imageView.isHidden = !isClaimExperimentsViewHidden && verticallyCompact
   }
 
