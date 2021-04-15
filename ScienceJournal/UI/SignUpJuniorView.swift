@@ -30,7 +30,7 @@ class SignUpJuniorView: UIStackView {
     return button
   }()
   
-  let passwordTextField = WizardTextField(placeholder: String.arduinoSignUpPasswordPlaceholder, isRequired: true)
+  let passwordTextField = WizardSecureTextField(placeholder: String.arduinoSignUpPasswordPlaceholder, isRequired: true)
   let submitButton = WizardButton(title: String.arduinoSignUpSubmitButton, style: .solid)
   
   private let titleLabel: UILabel = {
@@ -74,8 +74,6 @@ class SignUpJuniorView: UIStackView {
     usernameStackView.addArrangedSubview(infoButton)
     addArrangedSubview(usernameStackView, customSpacing: 25)
     
-    passwordTextField.textContentType = .password
-    passwordTextField.isSecureTextEntry = true
     addArrangedSubview(passwordTextField, customSpacing: 2)
     
     let passwordHintStackView = UIStackView()

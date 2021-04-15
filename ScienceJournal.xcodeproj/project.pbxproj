@@ -670,6 +670,7 @@
 		BC809294255D89460074E25A /* OnboardingPage7ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */; };
 		BC8621F425A9ECA9002D6B4F /* DriveSyncPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */; };
 		BC9164CE25A853CC00E75A56 /* DriveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */; };
+		BC96125826283DAA00DDE0CE /* WizardSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC96125726283DAA00DDE0CE /* WizardSecureTextField.swift */; };
 		BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC968C3725A30B3800A885AB /* Wizard.storyboard */; };
 		BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */; };
 		BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */; };
@@ -1484,6 +1485,7 @@
 		BC809293255D89460074E25A /* OnboardingPage7ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage7ViewController.swift; sourceTree = "<group>"; };
 		BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncPathView.swift; sourceTree = "<group>"; };
 		BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveFetcher.swift; sourceTree = "<group>"; };
+		BC96125726283DAA00DDE0CE /* WizardSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardSecureTextField.swift; sourceTree = "<group>"; };
 		BC968C3725A30B3800A885AB /* Wizard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wizard.storyboard; sourceTree = "<group>"; };
 		BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardNavigationController.swift; sourceTree = "<group>"; };
 		BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardRootViewController.swift; sourceTree = "<group>"; };
@@ -3360,6 +3362,7 @@
 				BC968C4925A30CD300A885AB /* WizardFooterView.swift */,
 				BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */,
 				BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */,
+				BC96125726283DAA00DDE0CE /* WizardSecureTextField.swift */,
 				BC24D3252609FD7400209383 /* WizardTextField.swift */,
 				BC993DE125A46D960001F76D /* WizardView.swift */,
 				BC968C5125A3586500A885AB /* WizardViewController.swift */,
@@ -4046,6 +4049,7 @@
 				8B6EF71E1E538E970026D1E5 /* SensorDataManager.swift in Sources */,
 				8B994A851F9158C300E9A709 /* CaptureSessionUser.swift in Sources */,
 				BC55783F249A4C57005F4FBE /* LegacyOnboardingViewController+MetricsFix.swift in Sources */,
+				BC96125826283DAA00DDE0CE /* WizardSecureTextField.swift in Sources */,
 				680659281EC39B7A0090670C /* TrialCardCell.swift in Sources */,
 				5CBD9AB31F7067AA00D22D21 /* SensorConfigTypeOptionSelectorView.swift in Sources */,
 				8BCCDF631EB9277900E85517 /* PhotoLibraryViewController.swift in Sources */,

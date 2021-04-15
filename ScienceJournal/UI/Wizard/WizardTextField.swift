@@ -91,6 +91,11 @@ class WizardTextField: UITextField {
     textRect(forBounds: bounds)
   }
   
+  override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+    let rect = super.rightViewRect(forBounds: bounds)
+    return rect.offsetBy(dx: -10, dy: 0)
+  }
+  
   private func refreshPlaceholder() {
     guard let text = _placeholder else {
       self.attributedPlaceholder = nil

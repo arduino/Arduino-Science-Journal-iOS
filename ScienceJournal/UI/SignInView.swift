@@ -22,7 +22,7 @@ import UIKit
 class SignInView: UIStackView {
 
   let usernameTextField = WizardTextField(placeholder: String.arduinoSignInUsernamePlaceholder)
-  let passwordTextField = WizardTextField(placeholder: String.arduinoSignInPasswordPlaceholder)
+  let passwordTextField = WizardSecureTextField(placeholder: String.arduinoSignInPasswordPlaceholder)
   let passwordRecoveryButton = WizardButton(title: String.arduinoSignInPasswordRecoveryButton, style: .system)
   let signInButton = WizardButton(title: String.arduinoSignInButton, style: .solid)
   
@@ -92,8 +92,6 @@ class SignInView: UIStackView {
     addArrangedSubview(titleLabel, customSpacing: 20)
     addArrangedSubview(usernameTextField, customSpacing: 28)
     
-    passwordTextField.textContentType = .password
-    passwordTextField.isSecureTextEntry = true
     addArrangedSubview(passwordTextField, customSpacing: 8)
     
     let passwordRecoveryStackView = UIStackView()
