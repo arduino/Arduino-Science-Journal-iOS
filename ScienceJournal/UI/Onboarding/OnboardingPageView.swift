@@ -335,16 +335,16 @@ class OnboardingPolylineConnector: UIView {
 }
 
 class OnboardingHTMLText: UILabel {
-  convenience init(text: String, lineHeight: Float? = 24) {
+  convenience init(text: String, lineHeight: Float? = 24, font: UIFont? = nil) {
     self.init()
 
     numberOfLines = 0
 
-    let font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    let textFont = font ?? ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
     let textColor = ArduinoColorPalette.grayPalette.tint700!
 
     attributedText = NSAttributedString(htmlBody: text,
-                                        font: font,
+                                        font: textFont,
                                         color: textColor,
                                         lineHeight: lineHeight,
                                         layoutDirection: traitCollection.layoutDirection)

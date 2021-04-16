@@ -624,6 +624,9 @@
 		BC24D373260B93EB00209383 /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D372260B93EB00209383 /* KeyboardController.swift */; };
 		BC24D37B260BA07100209383 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D37A260BA07100209383 /* SignUpViewController.swift */; };
 		BC24D380260BA07D00209383 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24D37F260BA07D00209383 /* SignUpView.swift */; };
+		BC2EECF4262985C000575E94 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2EECF3262985C000575E94 /* StackViewController.swift */; };
+		BC2EECFC2629870D00575E94 /* PopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2EECFB2629870D00575E94 /* PopupPresentationController.swift */; };
+		BC2EED0426298EEC00575E94 /* ClaimOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2EED0326298EEC00575E94 /* ClaimOnboardingViewController.swift */; };
 		BC310E66261C46D000B59C5E /* NavigationActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC310E65261C46D000B59C5E /* NavigationActivityIndicatorView.swift */; };
 		BC310E90261C51F800B59C5E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC310E8F261C51F800B59C5E /* SignUpViewModel.swift */; };
 		BC310E98261CA7CE00B59C5E /* SignInErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC310E97261CA7CE00B59C5E /* SignInErrorView.swift */; };
@@ -1438,6 +1441,9 @@
 		BC24D372260B93EB00209383 /* KeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
 		BC24D37A260BA07100209383 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BC24D37F260BA07D00209383 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		BC2EECF3262985C000575E94 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		BC2EECFB2629870D00575E94 /* PopupPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPresentationController.swift; sourceTree = "<group>"; };
+		BC2EED0326298EEC00575E94 /* ClaimOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimOnboardingViewController.swift; sourceTree = "<group>"; };
 		BC310E65261C46D000B59C5E /* NavigationActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationActivityIndicatorView.swift; sourceTree = "<group>"; };
 		BC310E8F261C51F800B59C5E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		BC310E97261CA7CE00B59C5E /* SignInErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInErrorView.swift; sourceTree = "<group>"; };
@@ -2072,12 +2078,14 @@
 				68279C211ED63FD1003F778B /* MenuButton.swift */,
 				BC310E65261C46D000B59C5E /* NavigationActivityIndicatorView.swift */,
 				5CBD9AAC1F6C836600D22D21 /* OptionSelectorView.swift */,
+				BC2EECFB2629870D00575E94 /* PopupPresentationController.swift */,
 				8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */,
 				68C6C7861F171F4F00B07C93 /* RecordingBar.swift */,
 				686E3D381F58999D00250628 /* ScienceJournalViewControllers.swift */,
 				8BB99E6D206BF0B8001A1A58 /* SeparatorView.swift */,
 				8BCCAD5D1EE5EDB500278F05 /* ShadowedView.swift */,
 				5C7DE8C21EC117750015F407 /* ShapeView.swift */,
+				BC2EECF3262985C000575E94 /* StackViewController.swift */,
 				3F158A0A231AD72C005E319E /* UIViewController+MaterialHeader.swift */,
 				8B257E5C1ED475780065E7D4 /* ViewConstants.swift */,
 				8B3FA2B521513F5E002241DC /* VisibilityTrackingViewControllers.swift */,
@@ -3146,6 +3154,7 @@
 				8B5114E820B49F31005953BD /* ClaimExperimentsFlowController.swift */,
 				8B5114ED20B49F5F005953BD /* ClaimExperimentsView.swift */,
 				8B5114EC20B49F5F005953BD /* ClaimExperimentsViewController.swift */,
+				BC2EED0326298EEC00575E94 /* ClaimOnboardingViewController.swift */,
 			);
 			name = ClaimExperiments;
 			sourceTree = "<group>";
@@ -3960,6 +3969,7 @@
 				5CFC8E6020488A1C00A674C2 /* ExportDocumentOperation.swift in Sources */,
 				5CD560B820168F700050EDB0 /* ExperimentUpdateListener.swift in Sources */,
 				68E57B2D1EF0DACB0094245F /* TrialDetailAddNoteCell.swift in Sources */,
+				BC2EECF4262985C000575E94 /* StackViewController.swift in Sources */,
 				5CA9AE021F9A3CFE007C09EB /* SensorFailedView.swift in Sources */,
 				6853104F1EDE84FE00C42696 /* ScienceJournalStrings.swift in Sources */,
 				5C11AE721EB7D92D0077F752 /* MakingScienceSensorInterface.swift in Sources */,
@@ -4216,6 +4226,7 @@
 				3FA7052822F8DF6B00753842 /* ActionAreaDetailContentContainerViewController.swift in Sources */,
 				68C3C9491E42B59900F339C4 /* MaterialHeaderViewController.swift in Sources */,
 				8B3ADD73201256FB00DE9611 /* SensorTimer.swift in Sources */,
+				BC2EED0426298EEC00575E94 /* ClaimOnboardingViewController.swift in Sources */,
 				8B6054822049BC730036C1E4 /* SpinnerViewController.swift in Sources */,
 				5CE521A6209D052A00767C8E /* AccountUserManager.swift in Sources */,
 				689C321A1EF9DE99002C824C /* TriggerCardCell.swift in Sources */,
@@ -4262,6 +4273,7 @@
 				3F158A0D231AFDAD005E319E /* EmptyStateContainerViewController.swift in Sources */,
 				683171581F0DE09100E641B4 /* PictureInfoViewController.swift in Sources */,
 				68BD95661E8DA45100FEB0B2 /* SoundTypeManager.swift in Sources */,
+				BC2EECFC2629870D00575E94 /* PopupPresentationController.swift in Sources */,
 				3FA7052422F8DD8E00753842 /* ActionAreaBarButtonItem.swift in Sources */,
 				687FAA0B202C1162004C1D04 /* SensorLayout.pbobjc.m in Sources */,
 				5CC813CF20D16C8700CC05E9 /* ExperimentLibraryMerger.swift in Sources */,

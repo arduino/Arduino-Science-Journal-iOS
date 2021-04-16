@@ -346,6 +346,13 @@
 "claim_experiment_disk_space_error_message" = "Deneyde hak talebi için disk alanı yetersiz";
 /* A message shown when claiming an experiment fails. [CHAR_LIMIT=30] */
 "claim_experiment_error_message" = "Deney talep edilemedi";
+"claim_experiment_onboarding_button" = "START COLLECTING";
+"claim_experiment_onboarding_hint_1" = "Add an experiment to <b>%@’s Lab</b>";
+"claim_experiment_onboarding_hint_2" = "Export or download an experiment";
+"claim_experiment_onboarding_hint_3" = "Delete an experiment from the device";
+"claim_experiment_onboarding_text_1" = "If you would like to assign previous experiments to <b>%@'s Lab</b> you can collect them here.";
+"claim_experiment_onboarding_text_2" = "You may use the following actions to collect, export or discard those experiments:";
+"claim_experiment_onboarding_title" = "Collect Experiments";
 /* A message shown when claiming an experiment succeeds, with a placeholder for the account email. [CHAR_LIMIT=30] */
 "claim_experiment_snackbar_message" = "Deney şuraya eklendi: %@";
 /* Accessibility title for a button that adds an unclaimed experiment to Google Drive. [CHAR_LIMIT=NONE] */

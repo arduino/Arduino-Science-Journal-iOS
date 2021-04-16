@@ -152,6 +152,11 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     super.viewWillAppear(animated)
     refreshExperiments()
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    showOnboarding()
+  }
 
   /// Handles the event that an experiment fails to load.
   func handleExperimentLoadingFailure() {
@@ -169,6 +174,21 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
   /// Refreshes the experiments.
   func refreshExperiments() {
     experimentsListItemsViewController.updateExperiments()
+  }
+  
+  /// Show the onboarding.
+  private var didShowOnboarding = false
+  
+  func showOnboarding() {
+    guard !didShowOnboarding else { return }
+    
+    let viewController = ClaimOnboardingViewController(displayName: authAccount.displayName)
+    viewController.modalPresentationStyle = .custom
+    viewController.transitioningDelegate = self
+    viewController.modalPresentationCapturesStatusBarAppearance = true
+    present(viewController, animated: true) { [weak self] in
+      self?.didShowOnboarding = true
+    }
   }
 
   // MARK: - User actions
@@ -276,4 +296,14 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     present(alertController, animated: true)
   }
 
+}
+
+// MARK:- UIViewControllerTransitioningDelegate
+extension ClaimExperimentsViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController,
+                                presenting: UIViewController?,
+                                source: UIViewController) -> UIPresentationController? {
+        let controller = PopupPresentationController(presentedViewController: presented, presenting: presenting)
+        return controller
+    }
 }

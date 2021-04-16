@@ -53,6 +53,33 @@ extension UIView {
                               constant: -insets.bottom).isActive = true
     }
   }
+  
+  /// Pin one view's anchors to the edges of a layout guide.
+  ///
+  /// - Parameters:
+  ///   - toLayoutGuide: The layout guide to pin to.
+  ///   - edges: The edges to pin to.
+  ///   - insets: Insets to apply to constant values for constraints.
+  func pinToEdgesOfLayoutGuide(_ toLayoutGuide: UILayoutGuide,
+                               andEdges edges: [Edge] = [.top, .trailing, .leading, .bottom],
+                               withInsets insets: UIEdgeInsets = .zero) {
+    if edges.contains(.top) {
+      topAnchor.constraint(equalTo: toLayoutGuide.topAnchor,
+                           constant: insets.top).isActive = true
+    }
+    if edges.contains(.leading) {
+      leadingAnchor.constraint(equalTo: toLayoutGuide.leadingAnchor,
+                               constant: insets.left).isActive = true
+    }
+    if edges.contains(.trailing) {
+      trailingAnchor.constraint(equalTo: toLayoutGuide.trailingAnchor,
+                                constant: -insets.right).isActive = true
+    }
+    if edges.contains(.bottom) {
+      bottomAnchor.constraint(equalTo: toLayoutGuide.bottomAnchor,
+                              constant: -insets.bottom).isActive = true
+    }
+  }
 
   /// Animates the rotation transform of a view.
   ///

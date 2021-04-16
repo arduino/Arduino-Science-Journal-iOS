@@ -233,6 +233,13 @@ extension String {
   static public var claimExperimentConfirmationTitle: String { return "claim_experiment_confirmation_title".localized }
   static public var claimExperimentDiskSpaceErrorMessage: String { return "claim_experiment_disk_space_error_message".localized }
   static public var claimExperimentErrorMessage: String { return "claim_experiment_error_message".localized }
+  static public var claimExperimentOnboardingButton: String { return "claim_experiment_onboarding_button".localized }
+  static public var claimExperimentOnboardingHint1: String { return "claim_experiment_onboarding_hint_1".localized }
+  static public var claimExperimentOnboardingHint2: String { return "claim_experiment_onboarding_hint_2".localized }
+  static public var claimExperimentOnboardingHint3: String { return "claim_experiment_onboarding_hint_3".localized }
+  static public var claimExperimentOnboardingText1: String { return "claim_experiment_onboarding_text_1".localized }
+  static public var claimExperimentOnboardingText2: String { return "claim_experiment_onboarding_text_2".localized }
+  static public var claimExperimentOnboardingTitle: String { return "claim_experiment_onboarding_title".localized }
   static public var claimExperimentSnackbarMessage: String { return "claim_experiment_snackbar_message".localized }
   static public var claimExperimentsAddToDriveContentDescription: String { return "claim_experiments_add_to_drive_content_description".localized }
   static public var claimExperimentsAddToDriveSubtitle: String { return "claim_experiments_add_to_drive_subtitle".localized }
