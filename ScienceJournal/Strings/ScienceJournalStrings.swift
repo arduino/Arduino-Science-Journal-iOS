@@ -251,6 +251,7 @@ extension String {
   static public var claimExperimentsErrorMessage: String { return "claim_experiments_error_message".localized }
   static public var claimExperimentsShareContentDescription: String { return "claim_experiments_share_content_description".localized }
   static public var claimExperimentsTitle: String { return "claim_experiments_title".localized }
+  static public var claimExperimentsUncollectedTag: String { return "claim_experiments_uncollected_tag".localized }
   static public var claimExperimentsViewTitle: String { return "claim_experiments_view_title".localized }
   static public var closeBtnContentDescription: String { return "close_btn_content_description".localized }
   static public var closeBtnContentDetails: String { return "close_btn_content_details".localized }

@@ -324,11 +324,11 @@
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
 "claim_all_experiments_confirmation_action" = "Alle anfordern";
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
-"claim_all_experiments_confirmation_action_confirm" = "Zu Google Drive hinzufügen";
+"claim_all_experiments_confirmation_action_confirm" = "COLLECT";
 /* Confirmation dialog message for claiming all experiments that don't belong to an account, with a placeholder for the email address. [CHAR_LIMIT=60] */
-"claim_all_experiments_confirmation_message" = "1 ausstehendes Experiment für %@ zu Google Drive hinzufügen?";
+"claim_all_experiments_confirmation_message" = "Are you sure to collect all experiments and add them to your account’s lab: %@’s Lab?";
 /* Confirmation dialog message for claiming all remaining experiments that don't belong to an account. The first placeholder is for the number of experiments and the second is for the email address of the user. [CHAR_LIMIT=60] */
-"claim_all_experiments_confirmation_message_plural" = "%1$@ ausstehende Experimente für %2$@ zu Google Drive hinzufügen?";
+"claim_all_experiments_confirmation_message_plural" = "Are you sure to collect all %@ experiments and add them to your account’s lab: %@’s Lab?";
 /* Accessibility title for the menu action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=NONE] */
 "claim_all_experiments_content_description" = "Alle ausstehenden Experimente anfordern";
 /* Confirmation dialog message for claiming all experiments that don't belong to an account. [CHAR_LIMIT=50] */
@@ -380,8 +380,9 @@
 "claim_experiments_share_content_description" = "Dieses unbeanspruchte Experiment freigeben";
 /* Title of the view that allows a user to claim experiments that don't belong to an account. [CHAR_LIMIT=40] */
 "claim_experiments_title" = "Vorherige Experimente anfordern";
+"claim_experiments_uncollected_tag" = "UNCOLLECTED";
 /* View controller title for claiming experiments that don't belong to an account. [CHAR_LIMIT=30] */
-"claim_experiments_view_title" = "Experimente anfordern";
+"claim_experiments_view_title" = "Collect experiments";
 /* Accessibility description for the close button on a view [CHAR_LIMIT=NONE] */
 "close_btn_content_description" = "Schliessen";
 /* Accessibility details for the close button on a view [CHAR_LIMIT=NONE] */

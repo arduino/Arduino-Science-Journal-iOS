@@ -324,11 +324,11 @@
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
 "claim_all_experiments_confirmation_action" = "תביעת בעלות על כל הניסויים";
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
-"claim_all_experiments_confirmation_action_confirm" = "הוספה ל-Drive";
+"claim_all_experiments_confirmation_action_confirm" = "COLLECT";
 /* Confirmation dialog message for claiming all experiments that don't belong to an account, with a placeholder for the email address. [CHAR_LIMIT=60] */
-"claim_all_experiments_confirmation_message" = "להוסיף את הניסוי האחד שנותר ל-Google Drive עבור חשבון %@?";
+"claim_all_experiments_confirmation_message" = "Are you sure to collect all experiments and add them to your account’s lab: %@’s Lab?";
 /* Confirmation dialog message for claiming all remaining experiments that don't belong to an account. The first placeholder is for the number of experiments and the second is for the email address of the user. [CHAR_LIMIT=60] */
-"claim_all_experiments_confirmation_message_plural" = "להוסיף את %1$@ הניסויים שנותרו ל-Google Drive עבור חשבון %2$@?";
+"claim_all_experiments_confirmation_message_plural" = "Are you sure to collect all %@ experiments and add them to your account’s lab: %@’s Lab?";
 /* Accessibility title for the menu action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=NONE] */
 "claim_all_experiments_content_description" = "תביעת בעלות על כל הניסויים שנותרו";
 /* Confirmation dialog message for claiming all experiments that don't belong to an account. [CHAR_LIMIT=50] */
@@ -380,8 +380,9 @@
 "claim_experiments_share_content_description" = "שיתוף הניסוי שלא נתבעה עליו בעלות";
 /* Title of the view that allows a user to claim experiments that don't belong to an account. [CHAR_LIMIT=40] */
 "claim_experiments_title" = "תביעת בעלות על ניסויים קודמים";
+"claim_experiments_uncollected_tag" = "UNCOLLECTED";
 /* View controller title for claiming experiments that don't belong to an account. [CHAR_LIMIT=30] */
-"claim_experiments_view_title" = "תביעת בעלות על ניסויים";
+"claim_experiments_view_title" = "Collect experiments";
 /* Accessibility description for the close button on a view [CHAR_LIMIT=NONE] */
 "close_btn_content_description" = "סגירה";
 /* Accessibility details for the close button on a view [CHAR_LIMIT=NONE] */

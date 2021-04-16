@@ -42,12 +42,13 @@ class ExperimentsListCellBase: AutoLayoutMaterialCardCell {
         String.actionOk.labelHeight(withConstrainedWidth: 0, font: Metrics.titleFont) * 2
     return ceil(textHeight) + Metrics.titlePadding * 2
   }
-
+  
+  let imageWrapper = UIView()
+  
   private let accessibilityWrapper = UIView()
   private let archivedFlag = ArchivedFlagView()
   private let imageView = UIImageView()
   private var imageViewConstraints = [NSLayoutConstraint]()
-  private let imageWrapper = UIView()
   private let titleLabel = UILabel()
 
   private enum Metrics {

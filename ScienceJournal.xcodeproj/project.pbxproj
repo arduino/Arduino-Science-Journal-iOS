@@ -511,7 +511,6 @@
 		8B84E0301EAFF429005E9AA0 /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B84E02C1EAFF429005E9AA0 /* DrawerView.swift */; };
 		8B84E0311EAFF429005E9AA0 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B84E02D1EAFF429005E9AA0 /* DrawerViewController.swift */; };
 		8B8735221E9D3ACE008B26BB /* SensorTriggerEvaluatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8735211E9D3ACE008B26BB /* SensorTriggerEvaluatorTest.swift */; };
-		8B882A5320ADDEA000E93179 /* AddExperimentsToDriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B882A5220ADDEA000E93179 /* AddExperimentsToDriveView.swift */; };
 		8B88BA6420A5DC99004833B3 /* ExperimentInteractionOptionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88BA6320A5DC99004833B3 /* ExperimentInteractionOptionsTest.swift */; };
 		8B91B7EA21AF1B07002368F7 /* UserAssetManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91B7E921AF1B07002368F7 /* UserAssetManagerTest.swift */; };
 		8B92732521B1AFB6009BDB0E /* ElapsedTimeEventManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B92732421B1AFB6009BDB0E /* ElapsedTimeEventManagerTest.swift */; };
@@ -1325,7 +1324,6 @@
 		8B84E02C1EAFF429005E9AA0 /* DrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
 		8B84E02D1EAFF429005E9AA0 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		8B8735211E9D3ACE008B26BB /* SensorTriggerEvaluatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTriggerEvaluatorTest.swift; sourceTree = "<group>"; };
-		8B882A5220ADDEA000E93179 /* AddExperimentsToDriveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperimentsToDriveView.swift; sourceTree = "<group>"; };
 		8B88BA6320A5DC99004833B3 /* ExperimentInteractionOptionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentInteractionOptionsTest.swift; sourceTree = "<group>"; };
 		8B91B7E921AF1B07002368F7 /* UserAssetManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAssetManagerTest.swift; sourceTree = "<group>"; };
 		8B92732421B1AFB6009BDB0E /* ElapsedTimeEventManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ElapsedTimeEventManagerTest.swift; path = ScienceJournalTests/ElapsedTimeEventManagerTest.swift; sourceTree = SOURCE_ROOT; };
@@ -3144,7 +3142,6 @@
 		8B882A5120ADDE9000E93179 /* ClaimExperiments */ = {
 			isa = PBXGroup;
 			children = (
-				8B882A5220ADDEA000E93179 /* AddExperimentsToDriveView.swift */,
 				8B5114EA20B49F53005953BD /* ClaimExperimentListCell.swift */,
 				8B5114E820B49F31005953BD /* ClaimExperimentsFlowController.swift */,
 				8B5114ED20B49F5F005953BD /* ClaimExperimentsView.swift */,
@@ -4408,7 +4405,6 @@
 				6806591A1EC24EC50090670C /* ExperimentCardView.swift in Sources */,
 				5C4EB9FC2024C372002C285C /* ExperimentStateManager.swift in Sources */,
 				5CB5E11A2075621600249167 /* GSJBlockOperation.swift in Sources */,
-				8B882A5320ADDEA000E93179 /* AddExperimentsToDriveView.swift in Sources */,
 				68BD95671E8DA45100FEB0B2 /* ToneGenerator.swift in Sources */,
 				BC24D380260BA07D00209383 /* SignUpView.swift in Sources */,
 				680D406E1F03083C004E5555 /* SnapshotDetailViewController.swift in Sources */,

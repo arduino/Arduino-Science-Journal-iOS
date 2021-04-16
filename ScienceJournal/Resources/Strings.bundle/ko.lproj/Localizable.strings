@@ -324,11 +324,11 @@
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
 "claim_all_experiments_confirmation_action" = "모두 소유권 주장";
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
-"claim_all_experiments_confirmation_action_confirm" = "Google 드라이브에 추가";
+"claim_all_experiments_confirmation_action_confirm" = "COLLECT";
 /* Confirmation dialog message for claiming all experiments that don't belong to an account, with a placeholder for the email address. [CHAR_LIMIT=60] */
-"claim_all_experiments_confirmation_message" = "%@님의 Google 드라이브에 남은 실험 1개를 추가하시겠습니까?";
+"claim_all_experiments_confirmation_message" = "Are you sure to collect all experiments and add them to your account’s lab: %@’s Lab?";
 /* Confirmation dialog message for claiming all remaining experiments that don't belong to an account. The first placeholder is for the number of experiments and the second is for the email address of the user. [CHAR_LIMIT=60] */
-"claim_all_experiments_confirmation_message_plural" = "%2$@님의 Google 드라이브에 남은 실험 %1$@개를 추가하시겠습니까?";
+"claim_all_experiments_confirmation_message_plural" = "Are you sure to collect all %@ experiments and add them to your account’s lab: %@’s Lab?";
 /* Accessibility title for the menu action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=NONE] */
 "claim_all_experiments_content_description" = "남아 있는 모든 실험의 소유권 주장";
 /* Confirmation dialog message for claiming all experiments that don't belong to an account. [CHAR_LIMIT=50] */
@@ -380,8 +380,9 @@
 "claim_experiments_share_content_description" = "소유권이 주장되지 않은 실험 공유";
 /* Title of the view that allows a user to claim experiments that don't belong to an account. [CHAR_LIMIT=40] */
 "claim_experiments_title" = "이전 실험 소유권 주장";
+"claim_experiments_uncollected_tag" = "UNCOLLECTED";
 /* View controller title for claiming experiments that don't belong to an account. [CHAR_LIMIT=30] */
-"claim_experiments_view_title" = "실험 소유권 주장";
+"claim_experiments_view_title" = "Collect experiments";
 /* Accessibility description for the close button on a view [CHAR_LIMIT=NONE] */
 "close_btn_content_description" = "닫기";
 /* Accessibility details for the close button on a view [CHAR_LIMIT=NONE] */

@@ -62,6 +62,7 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
   weak var delegate: ClaimExperimentsViewControllerDelegate?
 
   private let menuBarButton = MaterialMenuBarButtonItem()
+  private let collectAllButton = WizardButton(title: "COLLECT ALL", style: .outlined, size: .regular)
   private var shouldShowArchivedExperiments = true
   private let authAccount: AuthAccount
 
@@ -83,14 +84,6 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
                                            preferenceManager: preferenceManager)
 
     super.init(analyticsReporter: analyticsReporter)
-
-    // Collection view header.
-    let headerSizeBlock = { (width) in
-      return AddExperimentsToDriveHeaderView.viewSize(inWidth: width)
-    }
-    experimentsListItemsViewController.setCollectionViewHeader(
-        headerSizeBlock: headerSizeBlock,
-        class: AddExperimentsToDriveHeaderView.self)
 
     // Cell configuration.
     experimentsListItemsViewController.cellConfigurationBlock = {
@@ -117,7 +110,8 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     super.viewDidLoad()
 
     title = String.claimExperimentsViewTitle
-
+    appBar.headerViewController.headerView.backgroundColor = ArduinoColorPalette.orangePalette.tint700
+    
     // Experiments list items view controller.
     experimentsListItemsViewController.shouldIncludeArchivedExperiments =
         shouldShowArchivedExperiments
@@ -135,6 +129,21 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     menuBarButton.button.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
     menuBarButton.button.setImage(UIImage(named: "ic_more_horiz"), for: .normal)
     navigationItem.rightBarButtonItem = menuBarButton
+    
+    // Collect all button
+    collectAllButton.backgroundColor = experimentsListItemsViewController.collectionView.backgroundColor
+    collectAllButton.layer.cornerRadius = 19
+    collectAllButton.clipsToBounds = true
+    collectAllButton.addTarget(self, action: #selector(collectAll(_:)), for: .touchUpInside)
+    
+    view.addSubview(collectAllButton)
+    collectAllButton.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      collectAllButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      collectAllButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+    ])
+    
+    experimentsListItemsViewController.collectionView.contentInset.bottom = 78
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -180,25 +189,6 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
           self.shouldShowArchivedExperiments
     })
 
-    // Claim all
-    let claimAllA11yTitle = String.claimAllExperimentsContentDescription
-    popUpMenu.addAction(PopUpMenuAction(title: String.claimAllExperiments,
-                                        accessibilityLabel: claimAllA11yTitle) { _ -> Void in
-      // Prompt the user to confirm claiming all.
-      let message = String.claimExperimentsClaimAllConfirmationMessage(withItemCount:
-          self.experimentsListItemsViewController.itemCount, email: self.authAccount.email)
-      let alertController = MDCAlertController(title: nil, message: message)
-      let claimAction =
-          MDCAlertAction(title: String.claimAllExperimentsConfirmationActionConfirm) { _ in
-        self.delegate?.claimExperimentsClaimAllExperiments()
-      }
-      let cancelAction = MDCAlertAction(title: String.actionCancel)
-      alertController.addAction(claimAction)
-      alertController.addAction(cancelAction)
-      alertController.accessibilityViewIsModal = true
-      self.present(alertController, animated: true)
-    })
-
     // Delete all
     let deleteA11yTitle = String.claimExperimentsDeleteAllContentDescription
     popUpMenu.addAction(PopUpMenuAction(title: String.claimExperimentsDeleteAll,
@@ -219,6 +209,22 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     })
 
     popUpMenu.present(from: self, position: .sourceView(menuBarButton.button))
+  }
+  
+  @objc func collectAll(_ sender: UIButton) {
+    // Prompt the user to confirm claiming all.
+    let message = String.claimExperimentsClaimAllConfirmationMessage(withItemCount:
+        self.experimentsListItemsViewController.itemCount, email: self.authAccount.displayName)
+    let alertController = MDCAlertController(title: nil, message: message)
+    let claimAction =
+        MDCAlertAction(title: String.claimAllExperimentsConfirmationActionConfirm) { _ in
+      self.delegate?.claimExperimentsClaimAllExperiments()
+    }
+    let cancelAction = MDCAlertAction(title: String.actionCancel)
+    alertController.addAction(claimAction)
+    alertController.addAction(cancelAction)
+    alertController.accessibilityViewIsModal = true
+    self.present(alertController, animated: true)
   }
 
   // MARK: - ExperimentsListItemsDelegate

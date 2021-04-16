@@ -93,6 +93,21 @@ class ClaimExperimentListCell: ExperimentsListCellBase {
   // MARK: - Private
 
   private func configureView() {
+    let uncollectedLabel = UILabel()
+    uncollectedLabel.backgroundColor = ArduinoColorPalette.grayPalette.tint500
+    uncollectedLabel.textColor = UIColor.white
+    uncollectedLabel.textAlignment = .center
+    uncollectedLabel.translatesAutoresizingMaskIntoConstraints = false
+    uncollectedLabel.text = String.claimExperimentsUncollectedTag
+    uncollectedLabel.font = ArduinoTypography.monoBoldFont(forSize: 12)
+    imageWrapper.addSubview(uncollectedLabel)
+    NSLayoutConstraint.activate([
+      uncollectedLabel.leadingAnchor.constraint(equalTo: imageWrapper.leadingAnchor),
+      uncollectedLabel.trailingAnchor.constraint(equalTo: imageWrapper.trailingAnchor),
+      uncollectedLabel.bottomAnchor.constraint(equalTo: imageWrapper.bottomAnchor),
+      uncollectedLabel.heightAnchor.constraint(equalToConstant: 18)
+    ])
+      
     outerStack.addArrangedSubview(SeparatorView(direction: .horizontal, style: .dark))
 
     // Claim buttons.
@@ -101,7 +116,7 @@ class ClaimExperimentListCell: ExperimentsListCellBase {
     addButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
     addButton.accessibilityLabel = String.claimExperimentsAddToDriveContentDescription
 
-    saveToFilesButton.setImage(UIImage(named: "ic_save_alt"), for: .normal)
+    saveToFilesButton.setImage(UIImage(named: "ic_export"), for: .normal)
     saveToFilesButton.addTarget(self,
                                 action: #selector(saveToFilesButtonPressed),
                                 for: .touchUpInside)
@@ -109,12 +124,12 @@ class ClaimExperimentListCell: ExperimentsListCellBase {
     saveToFilesButton.accessibilityHint = String.saveToFilesContentDescription
 
     let deleteButton = MDCFlatButton()
-    deleteButton.setImage(UIImage(named: "ic_delete_filled"), for: .normal)
+    deleteButton.setImage(UIImage(named: "ic_delete"), for: .normal)
     deleteButton.addTarget(self, action: #selector(deleteButtonPressed), for: .touchUpInside)
     deleteButton.accessibilityLabel = String.claimExperimentsDeleteContentDescription
 
     [addButton, saveToFilesButton, deleteButton].forEach {
-      $0.setImageTintColor(MDCPalette.grey.tint600, for: .normal)
+      $0.setImageTintColor(ArduinoColorPalette.grayPalette.tint500, for: .normal)
       $0.translatesAutoresizingMaskIntoConstraints = false
       $0.widthAnchor.constraint(equalToConstant: Metrics.iconDimension).isActive = true
       $0.heightAnchor.constraint(equalToConstant: Metrics.iconDimension).isActive = true
@@ -124,8 +139,10 @@ class ClaimExperimentListCell: ExperimentsListCellBase {
 
     let claimButtonsStack =
         UIStackView(arrangedSubviews: [addButton, saveToFilesButton, deleteButton])
+    claimButtonsStack.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    claimButtonsStack.isLayoutMarginsRelativeArrangement = true
     claimButtonsStack.alignment = .center
-    claimButtonsStack.distribution = .equalCentering
+    claimButtonsStack.distribution = .fillEqually
     claimButtonsStack.translatesAutoresizingMaskIntoConstraints = false
     outerStack.addArrangedSubview(claimButtonsStack)
     claimButtonsStack.heightAnchor.constraint(
