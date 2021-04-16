@@ -62,7 +62,9 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
   weak var delegate: ClaimExperimentsViewControllerDelegate?
 
   private let menuBarButton = MaterialMenuBarButtonItem()
-  private let collectAllButton = WizardButton(title: "COLLECT ALL", style: .outlined, size: .regular)
+  private let collectAllButton = WizardButton(title: String.claimAllExperimentsButton,
+                                              style: .outlined,
+                                              size: .regular)
   private var shouldShowArchivedExperiments = true
   private let authAccount: AuthAccount
 
@@ -239,7 +241,7 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     guard let overview = experimentsListItemsViewController.overview(forCell: cell) else { return }
 
     // Prompt the user to confirm adding to Drive.
-    let message = String.claimExperimentConfirmationMessage(withEmail: self.authAccount.email)
+    let message = String.claimExperimentConfirmationMessage(withEmail: self.authAccount.displayName)
     let alertController = MDCAlertController(title: String.claimExperimentConfirmationTitle,
                                              message: message)
     let cancelAction = MDCAlertAction(title: String.actionCancel)

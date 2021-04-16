@@ -321,6 +321,7 @@
 "choose_photo_button_text" = "Vybrať fotku";
 /* Menu action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=30] */
 "claim_all_experiments" = "Nárokovať si všetky";
+"claim_all_experiments_button" = "COLLECT ALL";
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
 "claim_all_experiments_confirmation_action" = "Nárok. všetko";
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
@@ -336,11 +337,11 @@
 /* Confirmation dialog title for claiming all experiments as part of the migration flow. [CHAR_LIMIT=40] */
 "claim_all_experiments_migration_confirmation_title" = "Chcete si nárokovať všetky experimenty?";
 /* Title of the action to confirm claiming a single experiment. [CHAR_LIMIT=30] */
-"claim_experiment_confirmation_action_title" = "Nárokovať si experiment";
+"claim_experiment_confirmation_action_title" = "COLLECT";
 /* A confirmation dialog message shown when attempting to claim a single experiment for an account, with a placeholder for the email address. [CHAR_LIMIT=60] */
-"claim_experiment_confirmation_message" = "Chcete pridať tento experiment na Disk Google účtu %@?";
+"claim_experiment_confirmation_message" = "Are you sure to collect this experiment and add it to your account’s lab: %@’s Lab?";
 /* Title of the confirm dialog claiming a single experiment. [CHAR_LIMIT=30] */
-"claim_experiment_confirmation_title" = "Chcete nárokovať experiment?";
+"claim_experiment_confirmation_title" = "Collect experiment?";
 /* A message shown when claiming an experiment fails because there is not enough disk space. [CHAR_LIMIT=55] */
 "claim_experiment_disk_space_error_message" = "Na disku nemáte miesto na nárokovanie experimentu";
 /* A message shown when claiming an experiment fails. [CHAR_LIMIT=30] */

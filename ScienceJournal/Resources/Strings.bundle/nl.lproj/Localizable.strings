@@ -321,6 +321,7 @@
 "choose_photo_button_text" = "Kies een foto";
 /* Menu action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=30] */
 "claim_all_experiments" = "Alles claimen";
+"claim_all_experiments_button" = "COLLECT ALL";
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
 "claim_all_experiments_confirmation_action" = "Alles claimen";
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
@@ -336,11 +337,11 @@
 /* Confirmation dialog title for claiming all experiments as part of the migration flow. [CHAR_LIMIT=40] */
 "claim_all_experiments_migration_confirmation_title" = "Alle experimenten claimen?";
 /* Title of the action to confirm claiming a single experiment. [CHAR_LIMIT=30] */
-"claim_experiment_confirmation_action_title" = "Experiment claimen";
+"claim_experiment_confirmation_action_title" = "COLLECT";
 /* A confirmation dialog message shown when attempting to claim a single experiment for an account, with a placeholder for the email address. [CHAR_LIMIT=60] */
-"claim_experiment_confirmation_message" = "Dit experiment aan Google Drive toevoegen voor %@?";
+"claim_experiment_confirmation_message" = "Are you sure to collect this experiment and add it to your account’s lab: %@’s Lab?";
 /* Title of the confirm dialog claiming a single experiment. [CHAR_LIMIT=30] */
-"claim_experiment_confirmation_title" = "Experiment claimen?";
+"claim_experiment_confirmation_title" = "Collect experiment?";
 /* A message shown when claiming an experiment fails because there is not enough disk space. [CHAR_LIMIT=55] */
 "claim_experiment_disk_space_error_message" = "Te weinig schijfruimte om experiment te claimen";
 /* A message shown when claiming an experiment fails. [CHAR_LIMIT=30] */

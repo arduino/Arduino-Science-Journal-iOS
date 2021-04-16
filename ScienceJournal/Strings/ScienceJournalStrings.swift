@@ -220,6 +220,7 @@ extension String {
   static public var chartZoomToFitContentDescription: String { return "chart_zoom_to_fit_content_description".localized }
   static public var choosePhotoButtonText: String { return "choose_photo_button_text".localized }
   static public var claimAllExperiments: String { return "claim_all_experiments".localized }
+  static public var claimAllExperimentsButton: String { return "claim_all_experiments_button".localized }
   static public var claimAllExperimentsConfirmationAction: String { return "claim_all_experiments_confirmation_action".localized }
   static public var claimAllExperimentsConfirmationActionConfirm: String { return "claim_all_experiments_confirmation_action_confirm".localized }
   static public var claimAllExperimentsConfirmationMessage: String { return "claim_all_experiments_confirmation_message".localized }
