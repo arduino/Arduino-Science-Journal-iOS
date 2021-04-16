@@ -22,9 +22,9 @@ import RxSwift
 import SafariServices
 
 class WizardRootViewController: UIViewController {
-
+  
   var onDismiss: ((_ wizard: WizardRootViewController, _ isCancelled: Bool) -> Void)?
-
+  
   var initialViewController: UIViewController? {
     didSet {
       guard isViewLoaded else { return }
@@ -32,14 +32,18 @@ class WizardRootViewController: UIViewController {
       childNavigationController?.setViewControllers([viewController], animated: true)
     }
   }
-
+  
   var childNavigationController: UINavigationController? {
     didSet {
       oldValue?.delegate = nil
       childNavigationController?.delegate = self
+      childNavigationController?.navigationBar.titleTextAttributes = [
+        NSAttributedString.Key.font: ArduinoTypography.boldFont(forSize: 20),
+        NSAttributedString.Key.foregroundColor: ArduinoColorPalette.tealPalette.tint800!
+      ]
     }
   }
-
+  
   @IBOutlet private weak var footerView: WizardFooterView! {
     didSet {
       footerView.clipsToBounds = false
@@ -49,22 +53,22 @@ class WizardRootViewController: UIViewController {
       footerView.layer.shadowRadius = 0
     }
   }
-
+  
   private var disposeBag: DisposeBag?
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     if let viewController = initialViewController {
       childNavigationController?.setViewControllers([viewController], animated: true)
     }
   }
-
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     footerView.layer.shadowPath = UIBezierPath(rect: footerView.bounds).cgPath
   }
-
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "childNavigationController",
        let navigationController = segue.destination as? UINavigationController {
@@ -73,16 +77,16 @@ class WizardRootViewController: UIViewController {
       super.prepare(for: segue, sender: sender)
     }
   }
-
+  
   func close(isCancelled: Bool) {
     onDismiss?(self, isCancelled)
   }
-
+  
   @objc
   private func close(_ sender: UIBarButtonItem) {
     close(isCancelled: true)
   }
-
+  
   @IBAction
   func showTermsOfService() {
     let vc = SFSafariViewController(url: Constants.ArduinoSignIn.termsOfServiceUrl)
@@ -97,22 +101,21 @@ class WizardRootViewController: UIViewController {
   
   private func createCloseButton() -> UIBarButtonItem {
     let button = UIBarButtonItem(image: UIImage(named: "navigation_close"),
-                    style: .plain,
-                    target: self,
-                    action: #selector(close(_:)))
+                                 style: .plain,
+                                 target: self,
+                                 action: #selector(close(_:)))
     return button
   }
-
+  
 }
 
 extension WizardRootViewController: UINavigationControllerDelegate {
   func navigationController(_ navigationController: UINavigationController,
                             willShow viewController: UIViewController,
                             animated: Bool) {
-    viewController.navigationItem.title = nil
     viewController.navigationItem.rightBarButtonItem = createCloseButton()
     viewController.view.backgroundColor = navigationController.navigationBar.barTintColor
-
+    
     if let wizard = viewController as? WizardViewController {
       wizard.rootViewController = self
       

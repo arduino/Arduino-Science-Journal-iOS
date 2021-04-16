@@ -504,8 +504,8 @@
 "drive_sync_create_folder_default" = "Science Journal";
 "drive_sync_create_folder_title" = "Create New Folder";
 "drive_sync_folder_picker_empty" = "This folder is empty.";
-"drive_sync_folder_picker_select" = "SELECT";
-"drive_sync_folder_picker_text" = "Select a folder for your experiments";
+"drive_sync_folder_picker_select" = "SYNC HERE";
+"drive_sync_folder_picker_text" = "Choose where you would like to save your experiments";
 "drive_sync_folder_picker_title" = "Select a folder";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "विज्ञान शोध पत्रिका का प्रयोग डेटा सेव किया जाता है और 'Google डिस्क' का इस्तेमाल करके सभी डिवाइस पर उपलब्ध कराया जाता है. इसके लिए Google खाते से साइन इन करना ज़रूरी है.\n\nअगर इस डिवाइस पर आपका डेटा पहले से मौजूद है, तो साइन इन कर लेने पर आप अपने मौजूदा प्रयोगों को 'Google डिस्क' में सेव कर सकते हैं. आपके प्रयोग 'Google डिस्क' में “विज्ञान शोध पत्रिका” फ़ोल्डर में स्टोर कर लिए जाते हैं.";
@@ -516,7 +516,7 @@
 "drive_sync_intro_text" = "Experiment data for Science Journal can be saved and made available across devices using Google Drive which requires signing in with a Google Account.";
 "drive_sync_intro_title" = "Cloud Sync";
 "drive_sync_root_folder_label" = "My Drive";
-"drive_sync_summary_button" = "START EXPERIMENTING";
+"drive_sync_summary_button" = "SYNC NOW";
 "drive_sync_summary_text" = "Your experiments will be automatically synced in the folder “%@” on your Drive.";
 "drive_sync_summary_title" = "Google Drive";
 /* Content description for the manual edit crop end time menu option [CHAR_LIMIT=30] */

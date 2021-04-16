@@ -63,7 +63,8 @@ class DriveSyncFolderPickerViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    wizardView.title = String.driveSyncFolderPickerTitle
+    title = String.driveSyncFolderPickerTitle
+    
     wizardView.text = String.driveSyncFolderPickerText
 
     addContentView()
@@ -166,7 +167,7 @@ class DriveSyncFolderPickerViewController: WizardViewController {
       return
     }
     
-    guard let selectedFolder = folderViewController.selectedFolder else {
+    guard let selectedFolder = folderViewController.folder else {
       return
     }
     

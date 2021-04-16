@@ -27,18 +27,6 @@ class DriveSyncFolderListTableViewController: UITableViewController {
   let selectButton: UIButton
 
   var subfolders = [DriveFetcher.Folder]()
-  
-  var selectedFolder: DriveFetcher.Folder? {
-    guard let selectedIndexPath = tableView.indexPathForSelectedRow else {
-      return nil
-    }
-    
-    guard selectedIndexPath.row < subfolders.count else {
-      return nil
-    }
-    
-    return subfolders[selectedIndexPath.row]
-  }
 
   private lazy var isLoading = BehaviorSubject(value: false)
   private lazy var isEmpty = BehaviorSubject(value: false)
@@ -73,9 +61,9 @@ class DriveSyncFolderListTableViewController: UITableViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    selectButton.isEnabled = tableView.indexPathForSelectedRow != nil
+    selectButton.isEnabled = folder != nil
   }
-
+  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     fetchFolders()
@@ -159,15 +147,11 @@ class DriveSyncFolderListTableViewController: UITableViewController {
     cell.backgroundColor = UIColor.clear
     cell.textLabel?.text = folder.name
     
-    cell.onAccessoryTap = { [weak self] in
-      self?.showFolder(at: indexPath)
-    }
-    
     return cell
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    selectButton.isEnabled = true
+    showFolder(at: indexPath)
   }
   
   private func showFolder(at indexPath: IndexPath) {
@@ -183,49 +167,23 @@ class DriveSyncFolderListTableViewController: UITableViewController {
 extension DriveSyncFolderListTableViewController {
   class Cell: UITableViewCell {
     
-    var onAccessoryTap: (() -> Void)?
+    private let cellColor = ArduinoColorPalette.grayPalette.tint500
     
-    private let normalColor = ArduinoColorPalette.grayPalette.tint500
-    private let selectedColor = ArduinoColorPalette.tealPalette.tint800
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
       super.init(style: style, reuseIdentifier: reuseIdentifier)
 
       selectionStyle = .none
       separatorInset = .zero
       textLabel?.font = ArduinoTypography.paragraphFont
-      textLabel?.textColor = ArduinoColorPalette.grayPalette.tint500
+      textLabel?.textColor = cellColor
       imageView?.image = UIImage(named: "google_drive_folder")
-      
-      let button = UIButton(type: .system)
-      button.setImage(UIImage(named: "arduino_navigation_detail"), for: .normal)
-      button.addTarget(self, action: #selector(didTapAccessoryView(_:)), for: .touchUpInside)
-      button.sizeToFit()
-      accessoryView = button
+      imageView?.tintColor = cellColor
+      accessoryView = UIImageView(image: UIImage(named: "arduino_navigation_detail"))
+      accessoryView?.tintColor = cellColor
     }
 
     required init?(coder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-      super.setSelected(selected, animated: animated)
-
-      if selected {
-        textLabel?.textColor = selectedColor
-        accessoryView?.tintColor = selectedColor
-        imageView?.tintColor = selectedColor
-        imageView?.image = UIImage(named: "google_drive_selected")
-      } else {
-        textLabel?.textColor = normalColor
-        accessoryView?.tintColor = normalColor
-        imageView?.tintColor = normalColor
-        imageView?.image = UIImage(named: "google_drive_folder")
-      }
-    }
-    
-    @objc private func didTapAccessoryView(_ sender: UIButton) {
-      onAccessoryTap?()
     }
   }
 }

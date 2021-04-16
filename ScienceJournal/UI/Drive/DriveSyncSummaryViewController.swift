@@ -42,7 +42,8 @@ class DriveSyncSummaryViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    wizardView.title = String.driveSyncSummaryTitle
+    title = String.driveSyncSummaryTitle
+    
     wizardView.text = String(format: String.driveSyncSummaryText, folder.name)
     wizardView.contentView = summaryView
     

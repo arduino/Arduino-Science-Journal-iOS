@@ -23,21 +23,22 @@ class GoogleDriveButton: UIButton {
 
   convenience init() {
     self.init(type: .system)
-    tintColor = ArduinoColorPalette.grayPalette.tint700
+    
+    let backgroundColor = ArduinoColorPalette.tealPalette.tint800 ?? .black
+    
+    tintColor = .white
     titleLabel?.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Medium.rawValue)
     setTitle(String.driveSyncIntroGoogleAction, for: .normal)
-    setImage(UIImage(named: "google_drive"), for: .normal)
+    setImage(UIImage(named: "google_drive")?.withRenderingMode(.alwaysTemplate), for: .normal)
 
-    let border = UIImage.stroke(color: tintColor,
-                                size: CGSize(width: 51, height: 50),
-                                lineWidth: 2,
-                                cornerRadius: 25)?
+    let border = UIImage.fill(color: backgroundColor,
+                              size: CGSize(width: 51, height: 50),
+                              cornerRadius: 25)?
       .resizableImage(withCapInsets: UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25))
-
-    let disabledBorder = UIImage.stroke(color: tintColor.withAlphaComponent(0.4),
-                                        size: CGSize(width: 51, height: 50),
-                                        lineWidth: 2,
-                                        cornerRadius: 25)?
+    
+    let disabledBorder = UIImage.fill(color: backgroundColor.withAlphaComponent(0.4),
+                                      size: CGSize(width: 51, height: 50),
+                                      cornerRadius: 25)?
       .resizableImage(withCapInsets: UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25))
 
     setBackgroundImage(border, for: .normal)

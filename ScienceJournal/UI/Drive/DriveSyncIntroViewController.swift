@@ -42,7 +42,8 @@ class DriveSyncIntroViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    wizardView.title = String.driveSyncIntroTitle
+    title = String.driveSyncIntroTitle
+    
     wizardView.text = String.driveSyncIntroText
     wizardView.contentView = introView
 

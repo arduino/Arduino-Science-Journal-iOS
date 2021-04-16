@@ -21,11 +21,6 @@ import UIKit
 
 class WizardView: UIView {
 
-  var title: String? {
-    get { titleLabel.text }
-    set { titleLabel.text = newValue }
-  }
-
   var text: String? {
     get { textLabel.text }
     set {
@@ -43,7 +38,7 @@ class WizardView: UIView {
     didSet {
       oldValue?.removeFromSuperview()
       if let contentView = contentView {
-        stackView.insertArrangedSubview(contentView, at: 2)
+        stackView.insertArrangedSubview(contentView, at: 1)
       }
     }
   }
@@ -68,15 +63,6 @@ class WizardView: UIView {
     stackView.isLayoutMarginsRelativeArrangement = true
     stackView.translatesAutoresizingMaskIntoConstraints = false
     return stackView
-  }()
-
-  private lazy var titleLabel: UILabel = {
-    let label = UILabel()
-    label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Large.rawValue)
-    label.numberOfLines = 0
-    label.textAlignment = .center
-    label.translatesAutoresizingMaskIntoConstraints = false
-    return label
   }()
 
   private lazy var textLabel: UILabel = {
@@ -125,10 +111,7 @@ class WizardView: UIView {
       stackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor)
     ])
 
-    stackView.addArrangedSubview(titleLabel)
     stackView.addArrangedSubview(textLabel)
-
-    stackView.setCustomSpacing(20, after: titleLabel)
 
     refreshLayoutMargins()
   }
