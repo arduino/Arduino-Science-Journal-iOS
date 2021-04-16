@@ -91,7 +91,7 @@ class WizardRootViewController: UIViewController {
   
   @IBAction
   func showPrivacyPolicy() {
-    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.termsOfServiceUrl)
+    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.privacyPolicyUrl)
     present(vc, animated: true, completion: nil)
   }
   
