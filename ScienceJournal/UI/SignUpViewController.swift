@@ -50,6 +50,8 @@ class SignUpViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.hidesBackButton = true
+    
     wizardView.contentView = signUpView
     
     signUpView.infoButton.addTarget(self, action: #selector(showInfo(_:)), for: .touchUpInside)

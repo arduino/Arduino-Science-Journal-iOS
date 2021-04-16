@@ -55,6 +55,8 @@ class SignUpJuniorViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.hidesBackButton = true
+    
     wizardView.contentView = signUpView
     
     signUpView.usernameView.reloadButton.addTarget(self, action: #selector(reloadUsername), for: .touchUpInside)
