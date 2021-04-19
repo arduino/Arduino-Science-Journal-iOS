@@ -37,6 +37,8 @@ class SignUpParentConfirmationViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    navigationItem.hidesBackButton = true
+    
     wizardView.contentView = confirmationView
     
     confirmationView.closeButton.addTarget(self,

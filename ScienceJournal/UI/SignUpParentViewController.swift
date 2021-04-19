@@ -43,6 +43,8 @@ class SignUpParentViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.hidesBackButton = true
+    
     wizardView.contentView = signUpParentView
     
     signUpParentView.submitButton.addTarget(self, action: #selector(submit(_:)), for: .touchUpInside)

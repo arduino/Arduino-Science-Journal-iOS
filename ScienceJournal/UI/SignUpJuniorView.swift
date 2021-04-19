@@ -64,7 +64,8 @@ class SignUpJuniorView: UIStackView {
     
     addArrangedSubview(titleLabel)
     
-    addArrangedSubview(avatarView)
+    // FIXME: uncomment this when a good SVG library is found
+    // addArrangedSubview(avatarView)
     
     let usernameStackView = UIStackView()
     usernameStackView.axis = .horizontal

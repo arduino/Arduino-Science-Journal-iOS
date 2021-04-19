@@ -39,6 +39,8 @@ class SignUpConfirmationViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    navigationItem.hidesBackButton = true
+    
     wizardView.contentView = confirmationView
     
     // As there's no API to implement it, let's hide for now
