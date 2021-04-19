@@ -138,6 +138,8 @@ public enum DriveSyncManagerError: Error {
   case missingSyncFolder
   /// This error occurs when both Drive and local experiments have been modified since last sync.
   case conflict(_ experiment: SyncExperiment, _ file: GTLRDrive_File)
+  /// This error occurs when a local experiment cannot be exported.
+  case exportError(_ experiment: SyncExperiment)
   /// This could be any error. For further details you can inspect the passed parameter.
   case error(_ error: Error)
 }

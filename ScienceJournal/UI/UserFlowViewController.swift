@@ -1383,6 +1383,8 @@ extension UserFlowViewController: DriveSyncManagerDelegate {
         self.accountsManager.disableDriveSync()
       case .conflict(let experiment, let file):
         self.handleConflict(of: experiment, with: file)
+      case .exportError(let experiment):
+        self.handleExportError(of: experiment)
       case .error:
         let message = MDCSnackbarMessage()
         message.text = "Sync failed!"
@@ -1519,6 +1521,28 @@ extension UserFlowViewController {
     }
     alert.addAction(keepAction)
     alert.addAction(discardAction)
+    alert.accessibilityViewIsModal = true
+    present(alert, animated: true)
+  }
+  
+  func handleExportError(of syncExperiment: SyncExperiment) {
+    guard let driveSyncManager = driveSyncManager else { return }
+    
+    guard let experiment = metadataManager.experiment(withID: syncExperiment.experimentID) else {
+      // The experiment is a dirty state, so let's remove it silently
+      metadataManager.experimentLibrary.removeExperiment(withID: syncExperiment.experimentID)
+      driveSyncManager.syncExperimentLibrary()
+      return
+    }
+    
+    let message = """
+    The experiment "\(experiment.titleOrDefault)" could not be exported for syncing (it could be damaged).
+    Please fix it or delete before syncing again.
+    """
+    
+    let alert = MDCAlertController(title: "Sync Error", message: message)
+    let okAction = MDCAlertAction(title: String.actionOk) { _ in }
+    alert.addAction(okAction)
     alert.accessibilityViewIsModal = true
     present(alert, animated: true)
   }

@@ -26,7 +26,7 @@ import GTMSessionFetcher
 import GoogleAPIClientForREST
 
 enum ArduinoSyncManagerError: Error {
-  case exportError
+  case exportError(_ experiment: SyncExperiment)
   case experimentNotDirty
   case missingSyncFolder
   case missingFileID
@@ -207,6 +207,8 @@ private extension ArduinoSyncManager {
         case ArduinoSyncManagerError.conflict(let experiment, let file):
           self.suspend()
           self.delegate?.driveSyncDidFail(with: .conflict(experiment, file))
+        case ArduinoSyncManagerError.exportError(let experiment):
+          self.delegate?.driveSyncDidFail(with: .exportError(experiment))
         default:
           self.delegate?.driveSyncDidFail(with: .error(error))
         }
@@ -385,7 +387,7 @@ private extension ArduinoSyncManager {
     guard let archiveOperation = DriveSyncExportOperation(experimentID: experiment.experimentID,
                                                           metadataManager: metadataManager,
                                                           sensorDataManager: sensorDataManager) else {
-      return .error(ArduinoSyncManagerError.exportError)
+      return .error(ArduinoSyncManagerError.exportError(experiment))
     }
     
     let operationQueue = self.operationQueue
@@ -395,7 +397,7 @@ private extension ArduinoSyncManager {
         if !errors.isEmpty, let error = errors.first {
           sjlog_error("Error archiving experiment (id = \(experiment.experimentID)): \(error.localizedDescription)",
                       category: .drive)
-          observer.onError(error)
+          observer.onError(ArduinoSyncManagerError.exportError(experiment))
           return
         }
         defer { observer.onCompleted() }
