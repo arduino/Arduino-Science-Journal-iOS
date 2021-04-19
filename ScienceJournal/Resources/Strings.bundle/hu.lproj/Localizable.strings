@@ -726,7 +726,12 @@
 "my_devices" = "Saját eszközök";
 /* Title of a dialog to name an experiment that is not yet named [CHAR_LIMIT=50] */
 "name_experiment_dialog_title" = "Adj nevet a kísérletnek";
-"navigation_activities" = "Activities";
+"navigation_activities" = "SJ Activities";
+"navigation_activities_link" = "https://science-journal.arduino.cc/";
+"navigation_get_help" = "Get Help";
+"navigation_get_help_link" = "https://support.arduino.cc/hc/en-us/sections/360004584459-Science-Journal-App";
+"navigation_get_science_kit" = "Get Science Kit";
+"navigation_get_science_kit_link" = "https://www.arduino.cc/education/science-kit";
 "navigation_getting_started" = "Getting Started";
 /* Title of the navigation item to go to making science activities [CHAR_LIMIT=25] */
 "navigation_item_activities" = "Tevékenységek";

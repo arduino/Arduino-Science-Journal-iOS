@@ -405,7 +405,17 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       navController.pushViewController(feedbackViewController, animated: true)
     case .activities:
       UIApplication.shared.open(
-        URL(string: "https://science-journal.arduino.cc")!,
+        Constants.ArduinoURLs.activities,
+        options: [:],
+        completionHandler: nil)
+    case .help:
+      UIApplication.shared.open(
+        Constants.ArduinoURLs.help,
+        options: [:],
+        completionHandler: nil)
+    case .scienceKit:
+      UIApplication.shared.open(
+        Constants.ArduinoURLs.scienceKit,
         options: [:],
         completionHandler: nil)
     case .onboarding:

@@ -16,6 +16,8 @@
 
 import UIKit
 
+import SafariServices
+
 protocol SidebarDelegate: class {
   func sidebarShouldShow(_ item: SidebarRow)
   func sidebarShouldShowSignIn()
@@ -30,6 +32,8 @@ enum SidebarRow {
   case feedback
   case onboarding
   case activities
+  case help
+  case scienceKit
   case about
 
   var title: String {
@@ -39,6 +43,8 @@ enum SidebarRow {
     case .feedback: return String.actionFeedback
     case .onboarding: return String.navigationGettingStarted
     case .activities: return String.navigationActivities
+    case .help: return String.navigationGetHelp
+    case .scienceKit: return String.navigationGetScienceKit
     case .about: return String.actionAbout
     }
   }
@@ -50,13 +56,16 @@ enum SidebarRow {
     case .feedback: return "ic_feedback_36pt"
     case .onboarding: return "ic_onboarding_36pt"
     case .activities: return "ic_activities_36pt"
+    case .help: return "ic_help_36pt"
+    case .scienceKit: return "ic_science_kit_36pt"
     case .about: return "ic_info_36pt"
     }
   }
 
   var accessoryIcon: UIImage? {
     switch self {
-    case .activities: return UIImage(named: "ic_open_in_36pt")
+    case .activities, .help, .scienceKit:
+      return UIImage(named: "ic_open_in_36pt")
     default: return nil
     }
   }
@@ -99,9 +108,9 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   let menuStructure: [SidebarRow] = [
     .experiments,
-    //.settings,
-    //.feedback,
     .activities,
+    .scienceKit,
+    .help,
     .onboarding,
     .about
   ]
@@ -136,7 +145,23 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   private let dimmingView = UIView()
   private let wrapperView = ShadowedView()
   private let accountView = SidebarAccountView()
-
+  
+  private let privacyPolicyButton: UIButton = {
+    let button = UIButton(type: .system)
+    
+    let title = NSMutableAttributedString(string: String.settingsPrivacyPolicyTitle,
+                                          attributes: [
+                                            .font: ArduinoTypography.regularFont(forSize: 14),
+                                            .foregroundColor: ArduinoColorPalette.grayPalette.tint500!,
+                                            .underlineStyle: NSUnderlineStyle.single.rawValue
+                                          ])
+    button.setAttributedTitle(title, for: .normal)
+    
+    button.addTarget(self, action: #selector(showPrivacyPolicy(_:)), for: .touchUpInside)
+    
+    return button
+  }()
+  
   private var collectionEdgeInsets: UIEdgeInsets {
     // In RTL, this will add right side inset to the items.
     return UIEdgeInsets(top: 0, left: view.safeAreaInsetsOrZero.left, bottom: 0, right: 0)
@@ -224,6 +249,13 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
       } else {
         accountView.showNoAccount()
       }
+      
+      wrapperView.addSubview(privacyPolicyButton)
+      privacyPolicyButton.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+        privacyPolicyButton.centerXAnchor.constraint(equalTo: wrapperView.centerXAnchor),
+        privacyPolicyButton.bottomAnchor.constraint(equalTo: accountView.topAnchor, constant: -16),
+      ])
     } else {
       // Without an account footer, the collectionView is pinned to the bottom of the wrapper.
       collectionView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true
@@ -271,6 +303,11 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
     return true
   }
 
+  @objc func showPrivacyPolicy(_ sender: UIButton) {
+    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.privacyPolicyUrl)
+    present(vc, animated: true, completion: nil)
+  }
+  
   // MARK: - Private
 
   private func updateVisibilityConstraint(show: Bool) {

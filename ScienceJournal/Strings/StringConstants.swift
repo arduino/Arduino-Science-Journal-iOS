@@ -29,6 +29,12 @@ public struct Constants {
     public static let privacyPolicyUrl = URL(string: "https://www.arduino.cc/en/privacy-policy/?embed")!
   }
   
+  public struct ArduinoURLs {
+    public static let activities = URL(string: String.navigationActivitiesLink)!
+    public static let help = URL(string: String.navigationGetHelpLink)!
+    public static let scienceKit = URL(string: String.navigationGetScienceKitLink)!
+  }
+  
   public struct GoogleSignInScopes {
     public static let drive = [
       "https://www.googleapis.com/auth/drive.appdata",

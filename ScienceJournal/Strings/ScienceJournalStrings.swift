@@ -445,6 +445,11 @@ extension String {
   static public var myDevices: String { return "my_devices".localized }
   static public var nameExperimentDialogTitle: String { return "name_experiment_dialog_title".localized }
   static public var navigationActivities: String { return "navigation_activities".localized }
+  static public var navigationActivitiesLink: String { return "navigation_activities_link".localized }
+  static public var navigationGetHelp: String { return "navigation_get_help".localized }
+  static public var navigationGetHelpLink: String { return "navigation_get_help_link".localized }
+  static public var navigationGetScienceKit: String { return "navigation_get_science_kit".localized }
+  static public var navigationGetScienceKitLink: String { return "navigation_get_science_kit_link".localized }
   static public var navigationGettingStarted: String { return "navigation_getting_started".localized }
   static public var navigationItemActivities: String { return "navigation_item_activities".localized }
   static public var navigationItemExperiments: String { return "navigation_item_experiments".localized }
