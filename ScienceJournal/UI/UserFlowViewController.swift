@@ -1288,19 +1288,11 @@ extension UserFlowViewController: DriveSyncManagerDelegate {
       experimentsListVC?.startPullToRefreshAnimation()
       shouldShowExperimentListPullToRefreshAnimation = false
     }
-    
-//    let message = MDCSnackbarMessage()
-//    message.text = "Syncing..."
-//    MDCSnackbarManager.default.show(message)
   }
 
   func driveSyncDidUpdateExperimentLibrary() {
     experimentsListVC?.reloadExperiments()
     experimentsListVC?.endPullToRefreshAnimation()
-    
-//    let message = MDCSnackbarMessage()
-//    message.text = "Sync completed"
-//    MDCSnackbarManager.default.show(message)
   }
 
   func driveSyncDidDeleteTrial(withID trialID: String, experimentID: String) {
@@ -1464,34 +1456,26 @@ extension UserFlowViewController {
                                                style: .default,
                                                handler: nil))
     case DriveSyncManagerError.invalidToken:
-      let message = """
-      Science Journal’s permission to access your Google Drive expired or was revoked.
-      To continue syncing your experiments, sign in again with your Google account.
-      """
-      
-      let alert = MDCAlertController(title: "Unable to Access Google Drive", message: message)
-      let claimAction = MDCAlertAction(title: "SETUP") { [unowned self] _ in
+      let alert = MDCAlertController(title: String.driveSyncInvalidTokenErrorTitle,
+                                     message: String.driveSyncInvalidTokenErrorMessage)
+      let setupAction = MDCAlertAction(title: String.driveSyncErrorSetupAction) { [unowned self] _ in
         self.accountsManager.setupDriveSync(fromViewController: self)
       }
       let cancelAction = MDCAlertAction(title: String.actionCancel)
-      alert.addAction(claimAction)
+      alert.addAction(setupAction)
       alert.addAction(cancelAction)
       alert.accessibilityViewIsModal = true
       self.present(alert, animated: true)
       alertController = nil
       
     case DriveSyncManagerError.missingSyncFolder:
-      let message = """
-      Google Drive folder used for syncing experiments is no longer available.
-      To continue syncing your experiments, sign in again with your Google account.
-      """
-      
-      let alert = MDCAlertController(title: "Unable to Access Drive Sync Folder", message: message)
-      let claimAction = MDCAlertAction(title: "SETUP") { [unowned self] _ in
+      let alert = MDCAlertController(title: String.driveSyncMissingFolderErrorTitle,
+                                     message: String.driveSyncMissingFolderErrorMessage)
+      let setupAction = MDCAlertAction(title: String.driveSyncErrorSetupAction) { [unowned self] _ in
         self.accountsManager.setupDriveSync(fromViewController: self)
       }
       let cancelAction = MDCAlertAction(title: String.actionCancel)
-      alert.addAction(claimAction)
+      alert.addAction(setupAction)
       alert.addAction(cancelAction)
       alert.accessibilityViewIsModal = true
       self.present(alert, animated: true)
@@ -1505,19 +1489,22 @@ extension UserFlowViewController {
     }
   }
   
-  func handleConflict(of experiment: SyncExperiment, with file: GTLRDrive_File) {
+  func handleConflict(of syncExperiment: SyncExperiment, with file: GTLRDrive_File) {
     guard let driveSyncManager = driveSyncManager else { return }
     
-    let message = """
-    The experiment has been modified from another device.
-    """
-    
-    let alert = MDCAlertController(title: "Sync Conflict", message: message)
-    let keepAction = MDCAlertAction(title: "Keep local") { _ in
-      driveSyncManager.resolveConflictOfExperiment(withID: experiment.experimentID, overwritingRemote: true)
+    guard let experiment = metadataManager.experiment(withID: syncExperiment.experimentID) else {
+      return
     }
-    let discardAction = MDCAlertAction(title: "Keep remote") { _ in
-      driveSyncManager.resolveConflictOfExperiment(withID: experiment.experimentID, overwritingRemote: false)
+    
+    let message = String(format: String.driveSyncConflictMessage, experiment.titleOrDefault)
+    
+    let alert = MDCAlertController(title: String.driveSyncConflictTitle,
+                                   message: message)
+    let keepAction = MDCAlertAction(title: String.driveSyncConflictKeepLocal) { _ in
+      driveSyncManager.resolveConflictOfExperiment(withID: syncExperiment.experimentID, overwritingRemote: true)
+    }
+    let discardAction = MDCAlertAction(title: String.driveSyncConflictKeepRemote) { _ in
+      driveSyncManager.resolveConflictOfExperiment(withID: syncExperiment.experimentID, overwritingRemote: false)
     }
     alert.addAction(keepAction)
     alert.addAction(discardAction)
@@ -1535,12 +1522,9 @@ extension UserFlowViewController {
       return
     }
     
-    let message = """
-    The experiment "\(experiment.titleOrDefault)" could not be exported for syncing (it could be damaged).
-    Please fix it or delete before syncing again.
-    """
+    let message = String(format: String.driveSyncExportErrorMessage, experiment.titleOrDefault)
     
-    let alert = MDCAlertController(title: "Sync Error", message: message)
+    let alert = MDCAlertController(title: String.driveSyncErrorTitle, message: message)
     let okAction = MDCAlertAction(title: String.actionOk) { _ in }
     alert.addAction(okAction)
     alert.accessibilityViewIsModal = true

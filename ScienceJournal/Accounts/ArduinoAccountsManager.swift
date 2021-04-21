@@ -36,7 +36,9 @@ final class ArduinoAccountsManager: NSObject, AccountsManager {
   let urlSession: URLSession
   
   weak var delegate: AccountsManagerDelegate?
+  
   var supportsAccounts: Bool { true }
+  
   private(set) var currentAccount: AuthAccount? {
     didSet {
       restoreDriveSyncIfNeeded()
@@ -47,9 +49,9 @@ final class ArduinoAccountsManager: NSObject, AccountsManager {
   private var apiHost: String { Constants.ArduinoSignIn.apiHost }
   private var clientId: String { Constants.ArduinoSignIn.clientId }
   private var redirectUri: String { Constants.ArduinoSignIn.redirectUri }
+  
   private var codeChallenge: String?
   private var state: String?
-  
   private var authenticationHandler:((Result<ArduinoAccount, SignInError>) -> Void)?
   private var googleHandler:((Result<GIDGoogleUser, Error>) -> Void)?
   

@@ -317,9 +317,16 @@ extension String {
   static public var driveErrorTemporary: String { return "drive_error_temporary".localized }
   static public var driveErrorUnknown: String { return "drive_error_unknown".localized }
   static public var drive: String { return "drive_sync_cannot_reach_google_drive".localized }
+  static public var driveSyncConflictKeepLocal: String { return "drive_sync_conflict_keep_local".localized }
+  static public var driveSyncConflictKeepRemote: String { return "drive_sync_conflict_keep_remote".localized }
+  static public var driveSyncConflictMessage: String { return "drive_sync_conflict_message".localized }
+  static public var driveSyncConflictTitle: String { return "drive_sync_conflict_title".localized }
   static public var driveSyncCreateFolderButton: String { return "drive_sync_create_folder_button".localized }
   static public var driveSyncCreateFolderDefault: String { return "drive_sync_create_folder_default".localized }
   static public var driveSyncCreateFolderTitle: String { return "drive_sync_create_folder_title".localized }
+  static public var driveSyncErrorSetupAction: String { return "drive_sync_error_setup_action".localized }
+  static public var driveSyncErrorTitle: String { return "drive_sync_error_title".localized }
+  static public var driveSyncExportErrorMessage: String { return "drive_sync_export_error_message".localized }
   static public var driveSyncFolderPickerEmpty: String { return "drive_sync_folder_picker_empty".localized }
   static public var driveSyncFolderPickerSelect: String { return "drive_sync_folder_picker_select".localized }
   static public var driveSyncFolderPickerText: String { return "drive_sync_folder_picker_text".localized }
@@ -331,6 +338,10 @@ extension String {
   static public var driveSyncIntroSkip: String { return "drive_sync_intro_skip".localized }
   static public var driveSyncIntroText: String { return "drive_sync_intro_text".localized }
   static public var driveSyncIntroTitle: String { return "drive_sync_intro_title".localized }
+  static public var driveSyncInvalidTokenErrorMessage: String { return "drive_sync_invalid_token_error_message".localized }
+  static public var driveSyncInvalidTokenErrorTitle: String { return "drive_sync_invalid_token_error_title".localized }
+  static public var driveSyncMissingFolderErrorMessage: String { return "drive_sync_missing_folder_error_message".localized }
+  static public var driveSyncMissingFolderErrorTitle: String { return "drive_sync_missing_folder_error_title".localized }
   static public var driveSyncRootFolderLabel: String { return "drive_sync_root_folder_label".localized }
   static public var driveSyncSummaryButton: String { return "drive_sync_summary_button".localized }
   static public var driveSyncSummaryText: String { return "drive_sync_summary_text".localized }
