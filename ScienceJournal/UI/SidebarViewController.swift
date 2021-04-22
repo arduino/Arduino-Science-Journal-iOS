@@ -106,14 +106,24 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   // MARK: - DataSource
 
-  let menuStructure: [SidebarRow] = [
-    .experiments,
-    .activities,
-    .scienceKit,
-    .help,
-    .onboarding,
-    .about
-  ]
+  var menuStructure: [SidebarRow] {
+    if let account = accountsManager.currentAccount, account.type == .kid {
+      return [
+        .experiments,
+        .activities,
+        .onboarding,
+        .about
+      ]
+    }
+    return [
+      .experiments,
+      .activities,
+      .scienceKit,
+      .help,
+      .onboarding,
+      .about
+    ]
+  }
 
   // MARK: - Constants
 
