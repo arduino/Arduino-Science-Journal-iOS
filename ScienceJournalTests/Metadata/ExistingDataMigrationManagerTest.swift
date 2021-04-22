@@ -589,47 +589,6 @@ class ExistingDataMigrationManagerTest: XCTestCase {
     waitForExpectations(timeout: 1)
   }
 
-  func testRemoveAllExperimentsForRootUser() {
-    // Create two experiments with trials and sensor data.
-    let (experiment1, _) = rootUserManager.metadataManager.createExperiment()
-    let experimentID1 = experiment1.ID
-    let trial1 = Trial()
-    populateRootUserManagerWithSensorData(forTrialID: trial1.ID)
-    experiment1.trials.append(trial1)
-    rootUserManager.metadataManager.saveExperiment(experiment1)
-
-    let (experiment2, _) = rootUserManager.metadataManager.createExperiment()
-    let experimentID2 = experiment2.ID
-    let trial2 = Trial()
-    populateRootUserManagerWithSensorData(forTrialID: trial2.ID)
-    experiment2.trials.append(trial2)
-    rootUserManager.metadataManager.saveExperiment(experiment2)
-
-    // Assert the experiments are there.
-    let experimentAndOverview1 =
-        rootUserManager.metadataManager.experimentAndOverview(forExperimentID: experimentID1)
-    XCTAssertNotNil(experimentAndOverview1)
-    let experimentAndOverview2 =
-        rootUserManager.metadataManager.experimentAndOverview(forExperimentID: experimentID2)
-    XCTAssertNotNil(experimentAndOverview2)
-
-    // Remove all experiments.
-    existingDataMigrationManager.removeAllExperimentsFromRootUser()
-
-    // Confirm the two experiments are gone.
-    let experimentAndOverview1a =
-        rootUserManager.metadataManager.experimentAndOverview(forExperimentID: experimentID1)
-    XCTAssertNil(experimentAndOverview1a)
-    let experimentAndOverview2a =
-        rootUserManager.metadataManager.experimentAndOverview(forExperimentID: experimentID2)
-    XCTAssertNil(experimentAndOverview2a)
-
-    // Confirm there are no existing experiments.
-    XCTAssertEqual(existingDataMigrationManager.numberOfExistingExperiments,
-                   0,
-                   "There should be no existing experiments.")
-  }
-
   func testMigratePreferences() {
     // This test will use the preference for data tracking to confirm that preference migration is
     // occuring.

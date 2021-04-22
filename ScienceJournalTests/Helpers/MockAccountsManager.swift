@@ -18,6 +18,10 @@ import UIKit
 
 @testable import third_party_sciencejournal_ios_ScienceJournalOpen
 
+import googlemac_iPhone_Shared_SSOAuth_SSOAuth
+import GTMSessionFetcher
+import GoogleSignIn
+
 /// An accounts manager that can return a mock auth account.
 class MockAccountsManager: AccountsManager {
   var mockAuthAccount: MockAuthAccount?
@@ -43,7 +47,18 @@ class MockAccountsManager: AccountsManager {
 
   func presentSignIn(fromViewController viewController: UIViewController) {}
 
+  func signInWithGoogle(fromViewController viewController: UIViewController,
+                        completion: @escaping (Result<GIDGoogleUser, Error>) -> Void) {}
+  
   @discardableResult func reauthenticateCurrentAccount() -> Bool { return false }
 
   func removeLingeringAccounts() {}
+  
+  func handle(redirectURL url: URL) -> Bool { return false }
+  
+  func setupDriveSync(fromViewController viewController: UIViewController) {}
+  
+  func enableDriveSync(with user: GIDGoogleUser, folderID: String, folderName: String) {}
+  
+  func disableDriveSync() {}
 }

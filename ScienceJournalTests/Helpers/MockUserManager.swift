@@ -18,6 +18,9 @@ import Foundation
 
 @testable import third_party_sciencejournal_ios_ScienceJournalOpen
 
+import googlemac_iPhone_Shared_SSOAuth_SSOAuth
+import GTMSessionFetcher
+
 /// A mock user manager that allows for injecting dependencies.
 class MockUserManager: UserManager {
   var driveSyncManager: DriveSyncManager?
@@ -25,13 +28,16 @@ class MockUserManager: UserManager {
   var preferenceManager: PreferenceManager
   var sensorDataManager: SensorDataManager
   var assetManager: UserAssetManager
+  var documentManager: DocumentManager
   let experimentDataDeleter: ExperimentDataDeleter
-  let documentManager: DocumentManager
+  
 
   var exportType: UserExportType {
     return .saveToFiles
   }
 
+  var driveSyncAuthorization: GTMFetcherAuthorizationProtocol?
+  
   var isDriveSyncEnabled: Bool {
     return false
   }

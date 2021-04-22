@@ -21,17 +21,18 @@ import googlemac_iPhone_Shared_SSOAuth_SSOAuth
 
 /// An auth account that uses a mock ID, email, display name and profile image.
 class MockAuthAccount: AuthAccount {
+  var type: AuthAccountType { .adult }
   var ID: String
   var email: String
   var displayName: String
-  var profileImage: UIImage?
+  var profileImage: URL?
   var isShareRestricted: Bool = true
   var authorization: GTMFetcherAuthorizationProtocol? = MockAuthorization()
 
   init(ID: String = "MockAuthAccountID",
        email: String = "",
        displayName: String = "",
-       profileImage: UIImage? = nil,
+       profileImage: URL? = nil,
        isShareRestricted: Bool = true) {
     self.ID = ID
     self.email = email

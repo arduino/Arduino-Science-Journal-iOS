@@ -21,19 +21,6 @@ import XCTest
 class String_PluralizeTest: XCTestCase {
   let email = "hello@example.com"
 
-  func testClaimExperimentsClaimAllConfirmationMessage() {
-    var count = 1
-    var message = String.claimExperimentsClaimAllConfirmationMessage(withItemCount: count,
-                                                                     email: email)
-    var expected = "Add 1 remaining experiment to Google Drive for \(email)?"
-    XCTAssertEqual(message, expected)
-
-    count = 42
-    message = String.claimExperimentsClaimAllConfirmationMessage(withItemCount: count, email: email)
-    expected = "Add \(count) remaining experiments to Google Drive for \(email)?"
-    XCTAssertEqual(message, expected)
-  }
-
   func testClaimExperimentsDeleteAllConfirmationMessage() {
     var count = 1
     var message = String.claimExperimentsDeleteAllConfirmationMessage(withItemCount: count)
@@ -43,12 +30,6 @@ class String_PluralizeTest: XCTestCase {
     count = 42
     message = String.claimExperimentsDeleteAllConfirmationMessage(withItemCount: count)
     expected = "Delete \(count) remaining experiments?"
-    XCTAssertEqual(message, expected)
-  }
-
-  func testClaimExperimentConfirmationMessage() {
-    let message = String.claimExperimentConfirmationMessage(withEmail: email)
-    let expected = "Add this experiment to Google Drive for \(email)?"
     XCTAssertEqual(message, expected)
   }
 

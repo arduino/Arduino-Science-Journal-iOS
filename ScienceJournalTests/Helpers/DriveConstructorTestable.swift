@@ -39,14 +39,14 @@ class MockDriveConstructor: DriveConstructor {
 /// called.
 class MockDriveSyncManager: DriveSyncManager {
   var delegate: DriveSyncManagerDelegate?
-  func syncExperimentLibrary(andReconcile shouldReconcile: Bool, userInitiated: Bool) {}
+  func syncExperimentLibrary() {}
   func syncExperiment(withID experimentID: String,
                       condition: DriveExperimentSyncCondition) {}
   func syncTrialSensorData(atURL url: URL, experimentID: String) {}
   func deleteExperiment(withID experimentID: String) {}
   func deleteImageAssets(atURLs urls: [URL], experimentID: String) {}
   func deleteSensorDataAsset(atURL url: URL, experimentID: String) {}
-  func debug_removeAllUserDriveData(completion: @escaping (Int, [Error]) -> Void) {}
+  func resolveConflictOfExperiment(withID experimentID: String, overwritingRemote: Bool) {}
 
   var mockExperimentLibraryExistsValue: Bool?
   var tearDownCalled = false
