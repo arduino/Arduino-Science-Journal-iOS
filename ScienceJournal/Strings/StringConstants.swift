@@ -20,9 +20,9 @@ import Foundation
 public struct Constants {
 
   public struct ArduinoSignIn {
-    public static let host = "login.oniudra.cc"
-    public static let apiHost = "api-dev.arduino.cc"
-    public static let clientId = "y7mbB8KDw20S4XfXRAKRLgfYT9ao0IPx"
+    public static let host = "login.arduino.cc"
+    public static let apiHost = "api2.arduino.cc"
+    public static let clientId = "yKi4AvWQnzyNTphKbHOXXlz53z8nSftN"
     public static let redirectUri = "arduino.sj://login.arduino.cc/ios/cc.arduino.sciencejournal/callback"
     
     public static let termsOfServiceUrl = URL(string: "https://www.arduino.cc/en/terms-conditions/?embed")!
