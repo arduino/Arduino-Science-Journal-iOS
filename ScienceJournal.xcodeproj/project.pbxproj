@@ -3527,6 +3527,7 @@
 				C790AD8CF306522DBC5993A0 /* [CP] Check Pods Manifest.lock */,
 				68836E631EDF3D5D004CE69B /* Generate Strings */,
 				686E3D311F5888DA00250628 /* FIXMEs to Warnings */,
+				611E781B2639874E0012EC38 /* Generate Protos */,
 				68EBA6D61E20421E0089FF7F /* Sources */,
 				68EBA6D71E20421E0089FF7F /* Frameworks */,
 				68EBA6D81E20421E0089FF7F /* Resources */,
@@ -3789,6 +3790,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		611E781B2639874E0012EC38 /* Generate Protos */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Protos";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "Protos/generate.sh\n";
 		};
 		686E3D311F5888DA00250628 /* FIXMEs to Warnings */ = {
 			isa = PBXShellScriptBuildPhase;
