@@ -227,6 +227,12 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
       alertController.addAction(deleteAction)
       alertController.addAction(cancelAction)
       alertController.accessibilityViewIsModal = true
+      
+      if let cancelButton = alertController.button(for: cancelAction),
+         let deleteButton = alertController.button(for: deleteAction) {
+        self.styleAlertCancel(button: cancelButton)
+        self.styleAlertOk(button: deleteButton)
+      }
       self.present(alertController, animated: true)
     })
 
@@ -237,7 +243,7 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     // Prompt the user to confirm claiming all.
     let message = String.claimExperimentsClaimAllConfirmationMessage(withItemCount:
         self.experimentsListItemsViewController.itemCount, email: self.authAccount.displayName)
-    let alertController = MDCAlertController(title: nil, message: message)
+    let alertController = MDCAlertController(title: String.claimAllExperimentsConfirmationTitle, message: message)
     let claimAction =
         MDCAlertAction(title: String.claimAllExperimentsConfirmationActionConfirm) { _ in
       self.delegate?.claimExperimentsClaimAllExperiments()
@@ -246,6 +252,12 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     alertController.addAction(claimAction)
     alertController.addAction(cancelAction)
     alertController.accessibilityViewIsModal = true
+    
+    if let cancelButton = alertController.button(for: cancelAction),
+       let claimButton = alertController.button(for: claimAction) {
+      styleAlertCancel(button: cancelButton)
+      styleAlertOk(button: claimButton)
+    }
     self.present(alertController, animated: true)
   }
 
@@ -272,6 +284,12 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     alertController.addAction(claimAction)
     alertController.addAction(cancelAction)
     alertController.accessibilityViewIsModal = true
+    
+    if let cancelButton = alertController.button(for: cancelAction),
+       let claimAction = alertController.button(for: claimAction) {
+      styleAlertCancel(button: cancelButton)
+      styleAlertOk(button: claimAction)
+    }
     present(alertController, animated: true)
   }
 
@@ -293,9 +311,48 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     alertController.addAction(cancelAction)
     alertController.addAction(deleteAction)
     alertController.accessibilityViewIsModal = true
+    
+    if let cancelButton = alertController.button(for: cancelAction),
+       let deleteButton = alertController.button(for: deleteAction) {
+      styleAlertCancel(button: cancelButton)
+      styleAlertOk(button: deleteButton)
+    }
     present(alertController, animated: true)
   }
-
+  
+  private func styleAlertOk(button: MDCButton){
+    let tealColor = ArduinoColorPalette.tealPalette.tint800!
+    let buttonFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+    
+    button.layer.cornerRadius = 18
+    button.setBackgroundColor(tealColor, for: .normal)
+    button.setTitleColor(.white, for: .normal)
+    button.clipsToBounds = true
+    button.setTitleFont(buttonFont, for: .normal)
+  }
+  
+  private func styleAlertCancel(button: MDCButton){
+    let tealColor = ArduinoColorPalette.tealPalette.tint800!
+    let buttonFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+    
+    button.layer.cornerRadius = 18
+    button.setTitleColor(tealColor, for: .normal)
+    button.setTitleFont(buttonFont, for: .normal)
+    button.clipsToBounds = true
+    
+    let border = UIView()
+    border.isUserInteractionEnabled = false
+    border.translatesAutoresizingMaskIntoConstraints = false
+    border.backgroundColor = .clear
+    border.layer.cornerRadius = 18
+    border.layer.borderWidth = 1
+    border.layer.borderColor = tealColor.cgColor
+    button.addSubview(border)
+    border.topAnchor.constraint(equalTo: button.topAnchor, constant: 5).isActive = true
+    border.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: -5).isActive = true
+    border.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 0).isActive = true
+    border.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 0).isActive = true
+  }
 }
 
 // MARK:- UIViewControllerTransitioningDelegate

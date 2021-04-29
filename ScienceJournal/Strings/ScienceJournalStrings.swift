@@ -223,6 +223,7 @@ extension String {
   static public var claimAllExperimentsButton: String { return "claim_all_experiments_button".localized }
   static public var claimAllExperimentsConfirmationAction: String { return "claim_all_experiments_confirmation_action".localized }
   static public var claimAllExperimentsConfirmationActionConfirm: String { return "claim_all_experiments_confirmation_action_confirm".localized }
+  static public var claimAllExperimentsConfirmationTitle: String { return "claim_all_experiments_confirmation_title".localized }
   static public var claimAllExperimentsConfirmationMessage: String { return "claim_all_experiments_confirmation_message".localized }
   static public var claimAllExperimentsConfirmationMessagePlural: String { return "claim_all_experiments_confirmation_message_plural".localized }
   static public var claimAllExperimentsContentDescription: String { return "claim_all_experiments_content_description".localized }
