@@ -85,5 +85,4 @@ post_install do |installer|
     end
   end
   puts "Generating Science Journal protos..."
-  system("cd Protos && ./generate.sh")
 end
