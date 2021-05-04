@@ -326,12 +326,12 @@
 "claim_all_experiments_confirmation_action" = "Claim all";
 /* Confirmation dialog action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=15] */
 "claim_all_experiments_confirmation_action_confirm" = "COLLECT";
-/* Title of the confirm dialog claiming a all experiments. [CHAR_LIMIT=30] */
-"claim_all_experiments_confirmation_title" = "Collect all experiments";
 /* Confirmation dialog message for claiming all experiments that don't belong to an account, with a placeholder for the email address. [CHAR_LIMIT=60] */
 "claim_all_experiments_confirmation_message" = "Are you sure to collect all experiments and add them to your account’s lab: %@’s Lab?";
 /* Confirmation dialog message for claiming all remaining experiments that don't belong to an account. The first placeholder is for the number of experiments and the second is for the email address of the user. [CHAR_LIMIT=60] */
 "claim_all_experiments_confirmation_message_plural" = "Are you sure to collect all %@ experiments and add them to your account’s lab: %@’s Lab?";
+/* Title of the confirm dialog claiming a all experiments. [CHAR_LIMIT=30] */
+"claim_all_experiments_confirmation_title" = "Collect all experiments";
 /* Accessibility title for the menu action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=NONE] */
 "claim_all_experiments_content_description" = "Claim all remaining experiments";
 /* Confirmation dialog message for claiming all experiments that don't belong to an account. [CHAR_LIMIT=50] */
@@ -709,7 +709,8 @@
 "linear_accelerometer" = "Linear accelerometer";
 /* Reusable partial string for changelog mentioning that we fixed bugs.  This should start with two newlines to give it space  [CHAR LIMIT=75] */
 "listing_changelog_bug_fixes" = "Performance improvements and bug fixes.";
-/* Reusable partial string for changelog introducing new features [CHAR LIMIT=50] */
+/* Reusable partial string for changelog introducing new features [CHAR LIMIT=50]
+Reusable partial string for changelog introducing new features [CHAR LIMIT=50] */
 "listing_changelog_features" = "New features:";
 /* Separator between features and bugs in release notes when both are present.  Should be two newlines  [CHAR LIMIT=5] */
 "listing_changelog_separator" = "\n\n";
@@ -770,6 +771,11 @@
 "notes" = "Notes";
 /* Accessibility hint describing the notes tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "notes_tab_content_description" = "Notes, Add a text note to this experiment";
+"NSBluetoothAlwaysUsageDescription" = "Science Journal uses Bluetooth to connect to external sensors and capture their data in experiments.";
+"NSBluetoothPeripheralUsageDescription" = "Science Journal uses Bluetooth to connect to external sensors and capture their data in experiments.";
+"NSCameraUsageDescription" = "Science Journal uses the camera to include photos in experiment notes or to measure ambient light.";
+"NSMicrophoneUsageDescription" = "Science Journal uses the microphone to measure sound intensity.";
+"NSPhotoLibraryUsageDescription" = "Science Journal uses the photo library to include photos in experiment notes.";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Observe, Use sensors to add value snapshots or recordings to this experiment";
 "onboarding_01_quick_tip" = "You can always get back to this intro later in the sidebar menu.";
