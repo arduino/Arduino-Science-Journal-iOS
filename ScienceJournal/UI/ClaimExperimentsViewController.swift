@@ -320,7 +320,7 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     present(alertController, animated: true)
   }
   
-  private func styleAlertOk(button: MDCButton){
+  private func styleAlertOk(button: MDCButton) {
     let tealColor = ArduinoColorPalette.tealPalette.tint800!
     let buttonFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
     
@@ -331,7 +331,7 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     button.setTitleFont(buttonFont, for: .normal)
   }
   
-  private func styleAlertCancel(button: MDCButton){
+  private func styleAlertCancel(button: MDCButton) {
     let tealColor = ArduinoColorPalette.tealPalette.tint800!
     let buttonFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
     
