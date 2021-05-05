@@ -751,6 +751,11 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
       alertController.addAction(cancelAction)
       alertController.addAction(deleteAction)
       alertController.accessibilityViewIsModal = true
+      if let cancelButton = alertController.button(for: cancelAction),
+         let okButton = alertController.button(for: deleteAction) {
+        alertController.styleAlertCancel(button: cancelButton)
+        alertController.styleAlertOk(button: okButton)
+      }
       self.present(alertController, animated: true)
     })
 
