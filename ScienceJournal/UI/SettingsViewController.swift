@@ -105,7 +105,7 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
                              forCellWithReuseIdentifier: headerCellIdentifier)
     collectionView?.register(UINib(nibName: "SettingsSeparatorCell", bundle: nil),
                              forCellWithReuseIdentifier: separatorCellIdentifier)
-    collectionView?.register(UINib(nibName: "SettingsItemCell", bundle: nil),
+    collectionView?.register(SettingsItemCell.self,
                              forCellWithReuseIdentifier: itemCellIdentifier)
     
     styler.cellStyle = .default

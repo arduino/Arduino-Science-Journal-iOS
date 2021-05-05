@@ -704,7 +704,6 @@
 		BCD8385726259270002AE4BC /* SettingsSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */; };
 		BCD8385826259270002AE4BC /* SettingsSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */; };
 		BCD83861262593CC002AE4BC /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */; };
-		BCD83862262593CC002AE4BC /* SettingsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD83860262593CC002AE4BC /* SettingsItemCell.xib */; };
 		BCEA323A2631AE87009B25A2 /* DriveConstructorDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA32392631AE87009B25A2 /* DriveConstructorDisabled.swift */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
 		BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */; };
@@ -1521,7 +1520,6 @@
 		BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSeparatorCell.swift; sourceTree = "<group>"; };
 		BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsSeparatorCell.xib; sourceTree = "<group>"; };
 		BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
-		BCD83860262593CC002AE4BC /* SettingsItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsItemCell.xib; sourceTree = "<group>"; };
 		BCEA32392631AE87009B25A2 /* DriveConstructorDisabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveConstructorDisabled.swift; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
 		BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensor.swift; sourceTree = "<group>"; };
@@ -2718,7 +2716,6 @@
 			children = (
 				BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */,
 				BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */,
-				BCD83860262593CC002AE4BC /* SettingsItemCell.xib */,
 				BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */,
 				BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */,
 				68EACA7D1EB0234000BB5892 /* SettingsViewController.swift */,
@@ -3736,7 +3733,6 @@
 				8BDD4C2D1EA687FD00FCCA30 /* trigger_sound1.mp3 in Resources */,
 				48BFD8CC20D065FF00FB5C1A /* gtm_session_fetcher.html in Resources */,
 				48BFD8D020D065FF00FB5C1A /* gtm_oauth_2.html in Resources */,
-				BCD83862262593CC002AE4BC /* SettingsItemCell.xib in Resources */,
 				5C7EFC53202A5BAC0007F99E /* mdf_text.html in Resources */,
 				48BFD8CE20D065FF00FB5C1A /* motion_interchange.html in Resources */,
 				F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */,
