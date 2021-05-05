@@ -101,7 +101,7 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     super.viewDidLoad()
 
     // Always register collection view cells early to avoid a reload occurring first.
-    collectionView?.register(UINib(nibName: "SettingsHeaderCell", bundle: nil),
+    collectionView?.register(SettingsHeaderCell.self,
                              forCellWithReuseIdentifier: headerCellIdentifier)
     collectionView?.register(UINib(nibName: "SettingsSeparatorCell", bundle: nil),
                              forCellWithReuseIdentifier: separatorCellIdentifier)

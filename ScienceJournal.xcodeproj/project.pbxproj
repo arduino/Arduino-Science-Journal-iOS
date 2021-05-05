@@ -701,7 +701,6 @@
 		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
 		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCD8384D262590BB002AE4BC /* SettingsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */; };
-		BCD8384E262590BB002AE4BC /* SettingsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD8384C262590BB002AE4BC /* SettingsHeaderCell.xib */; };
 		BCD8385726259270002AE4BC /* SettingsSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */; };
 		BCD8385826259270002AE4BC /* SettingsSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */; };
 		BCD83861262593CC002AE4BC /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */; };
@@ -1519,7 +1518,6 @@
 		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderCell.swift; sourceTree = "<group>"; };
-		BCD8384C262590BB002AE4BC /* SettingsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsHeaderCell.xib; sourceTree = "<group>"; };
 		BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSeparatorCell.swift; sourceTree = "<group>"; };
 		BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsSeparatorCell.xib; sourceTree = "<group>"; };
 		BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
@@ -2719,7 +2717,6 @@
 			isa = PBXGroup;
 			children = (
 				BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */,
-				BCD8384C262590BB002AE4BC /* SettingsHeaderCell.xib */,
 				BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */,
 				BCD83860262593CC002AE4BC /* SettingsItemCell.xib */,
 				BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */,
@@ -3727,7 +3724,6 @@
 				5C7EFC50202A5BAC0007F99E /* material_components.html in Resources */,
 				BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */,
 				5C7EFC52202A5BAC0007F99E /* ziparchive.html in Resources */,
-				BCD8384E262590BB002AE4BC /* SettingsHeaderCell.xib in Resources */,
 				BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */,
 				BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */,
 				48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */,
