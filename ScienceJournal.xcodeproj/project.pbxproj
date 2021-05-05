@@ -702,7 +702,6 @@
 		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCD8384D262590BB002AE4BC /* SettingsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */; };
 		BCD8385726259270002AE4BC /* SettingsSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */; };
-		BCD8385826259270002AE4BC /* SettingsSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */; };
 		BCD83861262593CC002AE4BC /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */; };
 		BCEA323A2631AE87009B25A2 /* DriveConstructorDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA32392631AE87009B25A2 /* DriveConstructorDisabled.swift */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
@@ -1518,7 +1517,6 @@
 		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderCell.swift; sourceTree = "<group>"; };
 		BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSeparatorCell.swift; sourceTree = "<group>"; };
-		BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsSeparatorCell.xib; sourceTree = "<group>"; };
 		BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
 		BCEA32392631AE87009B25A2 /* DriveConstructorDisabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveConstructorDisabled.swift; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
@@ -2717,7 +2715,6 @@
 				BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */,
 				BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */,
 				BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */,
-				BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */,
 				68EACA7D1EB0234000BB5892 /* SettingsViewController.swift */,
 			);
 			name = Settings;
@@ -3712,7 +3709,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCD8385826259270002AE4BC /* SettingsSeparatorCell.xib in Resources */,
 				4878E93E22974D21004B61AF /* Strings.bundle in Resources */,
 				5C7EFC51202A5BAC0007F99E /* protobuf.html in Resources */,
 				48BFD8CD20D065FF00FB5C1A /* motion_animator.html in Resources */,
