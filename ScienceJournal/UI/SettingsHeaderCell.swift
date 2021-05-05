@@ -49,7 +49,7 @@ class SettingsHeaderCell: UICollectionViewCell {
     textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,
                                        constant: SettingsHeaderCell.textLabelMargin).isActive = true
     textLabel.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor,
-                                        constant: SettingsHeaderCell.textLabelMargin).isActive = true
+                                        constant: SettingsHeaderCell.textLabelMargin * -1).isActive = true
     textLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
   }
 }
