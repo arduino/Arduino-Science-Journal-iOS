@@ -672,7 +672,6 @@
 		BC8621F425A9ECA9002D6B4F /* DriveSyncPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */; };
 		BC9164CE25A853CC00E75A56 /* DriveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */; };
 		BC96125826283DAA00DDE0CE /* WizardSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC96125726283DAA00DDE0CE /* WizardSecureTextField.swift */; };
-		BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC968C3725A30B3800A885AB /* Wizard.storyboard */; };
 		BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */; };
 		BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */; };
 		BC968C4A25A30CD300A885AB /* WizardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4925A30CD300A885AB /* WizardFooterView.swift */; };
@@ -1485,7 +1484,6 @@
 		BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncPathView.swift; sourceTree = "<group>"; };
 		BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveFetcher.swift; sourceTree = "<group>"; };
 		BC96125726283DAA00DDE0CE /* WizardSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardSecureTextField.swift; sourceTree = "<group>"; };
-		BC968C3725A30B3800A885AB /* Wizard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wizard.storyboard; sourceTree = "<group>"; };
 		BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardNavigationController.swift; sourceTree = "<group>"; };
 		BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardRootViewController.swift; sourceTree = "<group>"; };
 		BC968C4925A30CD300A885AB /* WizardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardFooterView.swift; sourceTree = "<group>"; };
@@ -3353,7 +3351,6 @@
 		BC968C3025A30AFB00A885AB /* Wizard */ = {
 			isa = PBXGroup;
 			children = (
-				BC968C3725A30B3800A885AB /* Wizard.storyboard */,
 				BC993E0425A47BCC0001F76D /* WizardButton.swift */,
 				BC968C4925A30CD300A885AB /* WizardFooterView.swift */,
 				BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */,
@@ -3710,7 +3707,6 @@
 				48FDC26B20AB51B600C472DA /* oss_licenses_index.txt in Resources */,
 				5C7EFC50202A5BAC0007F99E /* material_components.html in Resources */,
 				5C7EFC52202A5BAC0007F99E /* ziparchive.html in Resources */,
-				BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */,
 				48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */,
 				BC809184255BDFDB0074E25A /* RobotoMono-Regular.ttf in Resources */,
 				48BFD8D120D065FF00FB5C1A /* google_api_client_for_rest.html in Resources */,
