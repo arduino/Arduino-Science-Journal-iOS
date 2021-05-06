@@ -699,7 +699,6 @@
 		BCCE581F261F4736002E12FB /* SignUpJuniorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE581E261F4736002E12FB /* SignUpJuniorView.swift */; };
 		BCCE584D261F5827002E12FB /* SignUpJuniorAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE584C261F5827002E12FB /* SignUpJuniorAvatarView.swift */; };
 		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
-		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCD8384D262590BB002AE4BC /* SettingsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */; };
 		BCD8385726259270002AE4BC /* SettingsSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */; };
 		BCD83861262593CC002AE4BC /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */; };
@@ -1514,7 +1513,6 @@
 		BCCE581E261F4736002E12FB /* SignUpJuniorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorView.swift; sourceTree = "<group>"; };
 		BCCE584C261F5827002E12FB /* SignUpJuniorAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorAvatarView.swift; sourceTree = "<group>"; };
 		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderCell.swift; sourceTree = "<group>"; };
 		BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSeparatorCell.swift; sourceTree = "<group>"; };
 		BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
@@ -3455,7 +3453,6 @@
 				BC809258255C51550074E25A /* OnboardingPageView.xib */,
 				BC809248255C51350074E25A /* OnboardingPageViewController.swift */,
 				BCD41808255AF639007546A1 /* OnboardingViewController.swift */,
-				BCD41809255AF639007546A1 /* OnboardingViewController.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -3717,7 +3714,6 @@
 				5C7EFC50202A5BAC0007F99E /* material_components.html in Resources */,
 				BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */,
 				5C7EFC52202A5BAC0007F99E /* ziparchive.html in Resources */,
-				BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */,
 				BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */,
 				48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */,
 				BC809184255BDFDB0074E25A /* RobotoMono-Regular.ttf in Resources */,

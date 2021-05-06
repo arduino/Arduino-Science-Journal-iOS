@@ -1233,7 +1233,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
   }
 
   private func showOnboarding() {
-    let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
+    let onboardingVC: OnboardingViewController = OnboardingViewController()
     onboardingVC.modalPresentationStyle = .formSheet
     onboardingVC.onClose = { [weak onboardingVC] in
       onboardingVC?.dismiss(animated: true, completion: nil)
