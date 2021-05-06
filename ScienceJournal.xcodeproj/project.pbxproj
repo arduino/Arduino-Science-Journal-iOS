@@ -661,7 +661,6 @@
 		BC809203255C4EB90074E25A /* ArduinoTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809202255C4EB90074E25A /* ArduinoTypography.swift */; };
 		BC809249255C51350074E25A /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809248255C51350074E25A /* OnboardingPageViewController.swift */; };
 		BC80924E255C51480074E25A /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80924D255C51480074E25A /* OnboardingPageView.swift */; };
-		BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC809258255C51550074E25A /* OnboardingPageView.xib */; };
 		BC809265255C57C80074E25A /* OnboardingPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809264255C57C80074E25A /* OnboardingPage1ViewController.swift */; };
 		BC809273255C623C0074E25A /* NSAttributedString+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809272255C623C0074E25A /* NSAttributedString+ScienceJournal.swift */; };
 		BC80927B255D89100074E25A /* OnboardingPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80927A255D89100074E25A /* OnboardingPage2ViewController.swift */; };
@@ -1475,7 +1474,6 @@
 		BC809202255C4EB90074E25A /* ArduinoTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoTypography.swift; sourceTree = "<group>"; };
 		BC809248255C51350074E25A /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		BC80924D255C51480074E25A /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
-		BC809258255C51550074E25A /* OnboardingPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingPageView.xib; sourceTree = "<group>"; };
 		BC809264255C57C80074E25A /* OnboardingPage1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage1ViewController.swift; sourceTree = "<group>"; };
 		BC809272255C623C0074E25A /* NSAttributedString+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC80927A255D89100074E25A /* OnboardingPage2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage2ViewController.swift; sourceTree = "<group>"; };
@@ -3450,7 +3448,6 @@
 			children = (
 				BC809263255C578A0074E25A /* Pages */,
 				BC80924D255C51480074E25A /* OnboardingPageView.swift */,
-				BC809258255C51550074E25A /* OnboardingPageView.xib */,
 				BC809248255C51350074E25A /* OnboardingPageViewController.swift */,
 				BCD41808255AF639007546A1 /* OnboardingViewController.swift */,
 			);
@@ -3712,7 +3709,6 @@
 				F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */,
 				48FDC26B20AB51B600C472DA /* oss_licenses_index.txt in Resources */,
 				5C7EFC50202A5BAC0007F99E /* material_components.html in Resources */,
-				BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */,
 				5C7EFC52202A5BAC0007F99E /* ziparchive.html in Resources */,
 				BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */,
 				48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */,
