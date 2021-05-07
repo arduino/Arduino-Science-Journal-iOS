@@ -83,7 +83,6 @@ final class TimerView: UIView {
   // MARK: - Private
 
   private func configureView() {
-    snp.setLabel("TimerView")
     layoutMargins = Metrics.overallLayoutMargins
 
     let contentView : UIView = {
