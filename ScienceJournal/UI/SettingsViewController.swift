@@ -111,7 +111,7 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     styler.cellStyle = .default
     collectionView?.backgroundColor = .white
 
-    title = String.navigationItemSettings
+    title = String.actionAccountSettings
 
     if isPresented {
       appBar.hideStatusBarOverlay()

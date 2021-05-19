@@ -29,6 +29,7 @@ extension String {
   static public var accY: String { return "acc_y".localized }
   static public var accZ: String { return "acc_z".localized }
   static public var actionAbout: String { return "action_about".localized }
+  static public var actionAccountSettings: String { return "action_account_settings".localized }
   static public var actionAddCaption: String { return "action_add_caption".localized }
   static public var actionArchive: String { return "action_archive".localized }
   static public var actionArchiveExperimentContentDescription: String { return "action_archive_experiment_content_description".localized }
@@ -225,6 +226,7 @@ extension String {
   static public var claimAllExperimentsConfirmationActionConfirm: String { return "claim_all_experiments_confirmation_action_confirm".localized }
   static public var claimAllExperimentsConfirmationMessage: String { return "claim_all_experiments_confirmation_message".localized }
   static public var claimAllExperimentsConfirmationMessagePlural: String { return "claim_all_experiments_confirmation_message_plural".localized }
+  static public var claimAllExperimentsConfirmationTitle: String { return "claim_all_experiments_confirmation_title".localized }
   static public var claimAllExperimentsContentDescription: String { return "claim_all_experiments_content_description".localized }
   static public var claimAllExperimentsImmediatelyConfirmationMessage: String { return "claim_all_experiments_immediately_confirmation_message".localized }
   static public var claimAllExperimentsMigrationConfirmationTitle: String { return "claim_all_experiments_migration_confirmation_title".localized }
@@ -462,6 +464,7 @@ extension String {
   static public var navigationGetScienceKit: String { return "navigation_get_science_kit".localized }
   static public var navigationGetScienceKitLink: String { return "navigation_get_science_kit_link".localized }
   static public var navigationGettingStarted: String { return "navigation_getting_started".localized }
+  static public var navigationItemAccountSettings: String { return "navigation_item_account_settings".localized }
   static public var navigationItemActivities: String { return "navigation_item_activities".localized }
   static public var navigationItemExperiments: String { return "navigation_item_experiments".localized }
   static public var navigationItemSettings: String { return "navigation_item_settings".localized }
@@ -474,6 +477,11 @@ extension String {
   static public var noteContentDescriptionTrigger: String { return "note_content_description_trigger".localized }
   static public var notes: String { return "notes".localized }
   static public var notesTabContentDescription: String { return "notes_tab_content_description".localized }
+  static public var nsbluetoothalwaysusagedescription: String { return "NSBluetoothAlwaysUsageDescription".localized }
+  static public var nsbluetoothperipheralusagedescription: String { return "NSBluetoothPeripheralUsageDescription".localized }
+  static public var nscamerausagedescription: String { return "NSCameraUsageDescription".localized }
+  static public var nsmicrophoneusagedescription: String { return "NSMicrophoneUsageDescription".localized }
+  static public var nsphotolibraryusagedescription: String { return "NSPhotoLibraryUsageDescription".localized }
   static public var observeTabContentDescription: String { return "observe_tab_content_description".localized }
   static public var onboarding01QuickTip: String { return "onboarding_01_quick_tip".localized }
   static public var onboarding01Text01: String { return "onboarding_01_text_01".localized }

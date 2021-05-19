@@ -27,38 +27,36 @@ protocol SidebarDelegate: class {
 
 /// Represents rows in the sidebar that provides titles and icons for each item.
 enum SidebarRow {
-  case experiments
   case settings
   case feedback
   case onboarding
   case activities
   case help
   case scienceKit
-  case about
+  case privacy
 
   var title: String {
+
     switch self {
-    case .experiments: return String.navigationItemExperiments
     case .settings: return String.navigationItemSettings
     case .feedback: return String.actionFeedback
     case .onboarding: return String.navigationGettingStarted
     case .activities: return String.navigationActivities
     case .help: return String.navigationGetHelp
     case .scienceKit: return String.navigationGetScienceKit
-    case .about: return String.actionAbout
+    case .privacy: return String.settingsPrivacyPolicyTitle
     }
   }
 
   var icon: String {
     switch self {
-    case .experiments: return "ic_experiment_36pt"
     case .settings: return "ic_settings_36pt"
     case .feedback: return "ic_feedback_36pt"
     case .onboarding: return "ic_onboarding_36pt"
     case .activities: return "ic_activities_36pt"
     case .help: return "ic_help_36pt"
     case .scienceKit: return "ic_science_kit_36pt"
-    case .about: return "ic_info_36pt"
+    case .privacy: return "ic_privacy_36pt"
     }
   }
 
@@ -109,19 +107,18 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   var menuStructure: [SidebarRow] {
     if let account = accountsManager.currentAccount, account.type == .kid {
       return [
-        .experiments,
-        .activities,
         .onboarding,
-        .about
+        .settings,
+        .privacy,
       ]
     }
     return [
-      .experiments,
       .activities,
       .scienceKit,
       .help,
       .onboarding,
-      .about
+      .settings,
+      .privacy,
     ]
   }
 
@@ -155,22 +152,6 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   private let dimmingView = UIView()
   private let wrapperView = ShadowedView()
   private let accountView = SidebarAccountView()
-  
-  private let privacyPolicyButton: UIButton = {
-    let button = UIButton(type: .system)
-    
-    let title = NSMutableAttributedString(string: String.settingsPrivacyPolicyTitle,
-                                          attributes: [
-                                            .font: ArduinoTypography.regularFont(forSize: 14),
-                                            .foregroundColor: ArduinoColorPalette.grayPalette.tint500!,
-                                            .underlineStyle: NSUnderlineStyle.single.rawValue
-                                          ])
-    button.setAttributedTitle(title, for: .normal)
-    
-    button.addTarget(self, action: #selector(showPrivacyPolicy(_:)), for: .touchUpInside)
-    
-    return button
-  }()
   
   private var collectionEdgeInsets: UIEdgeInsets {
     // In RTL, this will add right side inset to the items.
@@ -260,12 +241,6 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
         accountView.showNoAccount()
       }
       
-      wrapperView.addSubview(privacyPolicyButton)
-      privacyPolicyButton.translatesAutoresizingMaskIntoConstraints = false
-      NSLayoutConstraint.activate([
-        privacyPolicyButton.centerXAnchor.constraint(equalTo: wrapperView.centerXAnchor),
-        privacyPolicyButton.bottomAnchor.constraint(equalTo: accountView.topAnchor, constant: -16),
-      ])
     } else {
       // Without an account footer, the collectionView is pinned to the bottom of the wrapper.
       collectionView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true
@@ -311,11 +286,6 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   override func accessibilityPerformEscape() -> Bool {
     hide()
     return true
-  }
-
-  @objc func showPrivacyPolicy(_ sender: UIButton) {
-    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.privacyPolicyUrl)
-    present(vc, animated: true, completion: nil)
   }
   
   // MARK: - Private
