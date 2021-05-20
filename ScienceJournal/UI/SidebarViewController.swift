@@ -104,22 +104,47 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   // MARK: - DataSource
 
-  var menuStructure: [SidebarRow] {
-    if let account = accountsManager.currentAccount, account.type == .kid {
+  var menuFirstSection: [SidebarRow] {
+    let account = accountsManager.currentAccount
+    if account?.type == .adult {
+      return [
+        .activities,
+        .scienceKit,
+        .help,
+      ]
+    } else if account?.type == .kid {
       return [
         .onboarding,
         .settings,
         .privacy,
       ]
+    } else {
+      // not logged in
+      return [
+        .activities,
+        .scienceKit,
+        .help,
+      ]
     }
-    return [
-      .activities,
-      .scienceKit,
-      .help,
-      .onboarding,
-      .settings,
-      .privacy,
-    ]
+  }
+
+  var menuSecondSection: [SidebarRow] {
+    let account = accountsManager.currentAccount
+    if account?.type == .adult {
+      return [
+        .onboarding,
+        .settings,
+        .privacy,
+      ]
+    } else if account?.type == .kid {
+      return []
+    } else {
+      // not logged in
+      return [
+        .onboarding,
+        .privacy,
+      ]
+    }
   }
 
   // MARK: - Constants
@@ -130,6 +155,8 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   let dragWidthThresholdClose: CGFloat = -125.0
   let headerCellIdentifier = "SidebarHeaderCell"
   let headerHeight: CGFloat = 150  // image plus a 10.0 inner vertical gap.
+  let separatorCellIdentifier = "SidebarSeparatorCell"
+  let separatorHeight: CGFloat = 40
   let sidebarMaxWidth: CGFloat = 290.0
   let velocityCap: CGFloat = 600.0
   var wrapperViewTopConstraint: NSLayoutConstraint?
@@ -180,6 +207,9 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
     collectionView.register(SidebarHeaderCell.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                             withReuseIdentifier: headerCellIdentifier)
+    collectionView.register(SidebarSeparatorCell.self,
+                            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                            withReuseIdentifier: separatorCellIdentifier)
 
     view.backgroundColor = .clear
     accessibilityViewIsModal = true
@@ -390,8 +420,12 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   @objc func collectionView(_ collectionView: UICollectionView,
                             layout: UICollectionViewLayout,
-                            referenceSizeForHeaderInSection: Int) -> CGSize {
-    return CGSize(width: view.bounds.size.width, height: headerHeight)
+                            referenceSizeForHeaderInSection section: Int) -> CGSize {
+    if section == 0 {
+      return CGSize(width: view.bounds.size.width, height: headerHeight)
+    } else {
+      return CGSize(width: view.bounds.size.width, height: separatorHeight)
+    }
   }
 
   @objc func collectionView(_ collectionView: UICollectionView,
@@ -403,16 +437,33 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int {
-    return menuStructure.count
+
+    if section == 0 {
+      return menuFirstSection.count
+    } else {
+      return menuSecondSection.count
+    }
+  }
+
+  func numberOfSections(in collectionView: UICollectionView) -> Int { 
+    return 2
   }
 
   func collectionView(_ collectionView: UICollectionView,
                       viewForSupplementaryElementOfKind kind: String,
                       at indexPath: IndexPath) -> UICollectionReusableView {
-    return collectionView.dequeueReusableSupplementaryView(
-        ofKind: UICollectionView.elementKindSectionHeader,
-        withReuseIdentifier: headerCellIdentifier,
-        for: indexPath)
+    
+    if indexPath.section == 0 {
+      return collectionView.dequeueReusableSupplementaryView(
+          ofKind: UICollectionView.elementKindSectionHeader,
+          withReuseIdentifier: headerCellIdentifier,
+          for: indexPath)
+    } else {
+      return collectionView.dequeueReusableSupplementaryView(
+          ofKind: UICollectionView.elementKindSectionHeader,
+          withReuseIdentifier: separatorCellIdentifier,
+          for: indexPath)
+    }
   }
 
   func collectionView(_ collectionView: UICollectionView,
@@ -420,7 +471,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
                                                   for: indexPath)
     if let cell = cell as? SidebarCell {
-      let cellData = menuStructure[indexPath.item]
+      let cellData = indexPath.section == 0 ? menuFirstSection[indexPath.item] : menuSecondSection[indexPath.item]
       cell.titleLabel.text = cellData.title
       cell.accessibilityLabel = cell.titleLabel.text
       cell.iconView.image = UIImage(named: cellData.icon)
@@ -432,7 +483,11 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   func collectionView(_ collectionView: UICollectionView,
                       didSelectItemAt indexPath: IndexPath) {
     hide {
-      self.delegate?.sidebarShouldShow(self.menuStructure[indexPath.item])
+      if indexPath.section == 0 {
+        self.delegate?.sidebarShouldShow(self.menuFirstSection[indexPath.item])
+      } else {
+        self.delegate?.sidebarShouldShow(self.menuSecondSection[indexPath.item])
+      }
     }
   }
 
