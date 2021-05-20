@@ -1,8 +1,7 @@
 //  
-//  SettingsItemCell.swift
+//  SettingsAccountCell.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 13/04/21.
 //  Copyright © 2021 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +18,7 @@
 
 import UIKit
 
-class SettingsItemCell: UICollectionViewCell {
+class SettingsAccountCell: UICollectionViewCell {
 
   var accessoryView: UIView? {
     didSet {
@@ -33,6 +32,10 @@ class SettingsItemCell: UICollectionViewCell {
   
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var subtitleLabel: UILabel!
+  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var externalLink: UIButton!
+  @IBOutlet weak var button: UIButton!
+  @IBOutlet weak var separator: UIView!
   
   @IBOutlet private var stackView: UIStackView!
   
@@ -40,17 +43,24 @@ class SettingsItemCell: UICollectionViewCell {
     super.awakeFromNib()
   
     titleLabel.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
-    titleLabel.textColor = ArduinoColorPalette.grayPalette.tint400
+    titleLabel.textColor = ArduinoColorPalette.tealPalette.tint800
     subtitleLabel.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XXSmall.rawValue)
     subtitleLabel.textColor = ArduinoColorPalette.grayPalette.tint500
+
+    externalLink.setTitleColor(ArduinoColorPalette.tealPalette.tint800, for: .normal)
+    button.setTitleColor(ArduinoColorPalette.tealPalette.tint800, for: .normal)
+    externalLink.titleLabel?.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    button.titleLabel?.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+
+    separator.backgroundColor = ArduinoColorPalette.grayPalette.tint100
   }
   
   override func prepareForReuse() {
     super.prepareForReuse()
     titleLabel.text = nil
     subtitleLabel.text = nil
-    titleLabel.textColor = ArduinoColorPalette.grayPalette.tint400
     accessoryView = nil
+    imageView.image = nil
   }
 
 }

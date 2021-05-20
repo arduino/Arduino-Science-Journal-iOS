@@ -38,7 +38,7 @@ enum SidebarRow {
   var title: String {
 
     switch self {
-    case .settings: return String.navigationItemSettings
+    case .settings: return String.actionAccountSettings
     case .feedback: return String.actionFeedback
     case .onboarding: return String.navigationGettingStarted
     case .activities: return String.navigationActivities

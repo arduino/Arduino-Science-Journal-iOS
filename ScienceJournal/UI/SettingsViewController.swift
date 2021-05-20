@@ -43,18 +43,24 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   enum SettingsItemAccessory {
     case button(_ action: Selector, _ title: String)
     case `switch`(_ action: Selector, _ inOn: Bool)
+    case icon(_ action: Selector)
   }
   
   enum SettingsItem {
     case header(_ text: String)
     case separator
-    case item(_ title: String, _ subtitle: String?, _ accessory: SettingsItemAccessory?)
+    case item(_ title: String, _ subtitle: String?, _ accessory: SettingsItemAccessory?, _ isColored: Bool)
+    case accountItem(_ title: String, _ subtitle: String?, _ image: UIImage?, _ externalLinkLabel: String, 
+    _ buttonLabel: String, _ externalLinkAction: Selector, _ buttonAction: Selector)
+    case button(_ title: String, _ buttonAction: Selector)
     
     var height: CGFloat {
       switch self {
       case .header: return 52
       case .item: return 52
       case .separator: return 9
+      case .accountItem: return 160
+      case .button: return 52
       }
     }
   }
@@ -64,6 +70,8 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   let headerCellIdentifier = "SettingsHeaderCell"
   let separatorCellIdentifier = "SettingsSeparatorCell"
   let itemCellIdentifier = "SettingsItemCell"
+  let accountCellIdentifier = "SettingsAccountCell"
+  let buttonCellIdentifier = "SettingsButtonCell"
 
   // MARK: - Properties
 
@@ -107,6 +115,10 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
                              forCellWithReuseIdentifier: separatorCellIdentifier)
     collectionView?.register(UINib(nibName: "SettingsItemCell", bundle: nil),
                              forCellWithReuseIdentifier: itemCellIdentifier)
+    collectionView?.register(UINib(nibName: "SettingsAccountCell", bundle: nil),
+                              forCellWithReuseIdentifier: accountCellIdentifier)
+    collectionView?.register(UINib(nibName: "SettingsButtonCell", bundle: nil),
+                              forCellWithReuseIdentifier: buttonCellIdentifier)
     
     styler.cellStyle = .default
     collectionView?.backgroundColor = .white
@@ -124,7 +136,6 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
       navigationItem.leftBarButtonItem = backMenuItem
     }
 
-    addSignOutButton()
     configureSettingsItems()
     
     NotificationCenter.default.addObserver(self,
@@ -144,29 +155,6 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   }
 
   // MARK: - Private
-
-  private func addSignOutButton() {
-    let button = WizardButton(title: String.settingsSignOutButton,
-                              style: .outlined,
-                              size: .big)
-    button.addTarget(self, action: #selector(signOut), for: .touchUpInside)
-    
-    let buttonContainer = UIView()
-    buttonContainer.backgroundColor = view.backgroundColor
-    buttonContainer.addSubview(button)
-    view.addSubview(buttonContainer)
-    
-    button.translatesAutoresizingMaskIntoConstraints = false
-    buttonContainer.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      button.centerXAnchor.constraint(equalTo: buttonContainer.centerXAnchor),
-      button.topAnchor.constraint(equalTo: buttonContainer.topAnchor, constant: 28),
-      button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -28),
-      buttonContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      buttonContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      buttonContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-    ])
-  }
   
   @objc private func close() {
     if isPresented {
@@ -181,24 +169,33 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     rows.removeAll()
 
     if let account = accountsManager.currentAccount {
-      rows.append(.header("Arduino Account"))
-      rows.append(.item(account.displayName, account.email, nil))
+
+      let accountImage = UIImage(named: "ic_account_placeholder")
+      let externalLinkLabel = "Advanced settings".uppercased()
+      let buttonLabel = String.settingsSignOutButton.uppercased()
+
+      rows.append(.accountItem(account.displayName, account.email, accountImage, 
+          externalLinkLabel, buttonLabel, #selector(openAdvancedSettings), #selector(signOut)))
+      rows.append(.separator)
       
       if account.supportsDriveSync {
-        rows.append(.separator)
-        rows.append(.header("Google Drive Sync"))
-        rows.append(.item("Enable Drive Sync",
+        rows.append(.item("Google Drive Sync",
                           nil,
-                          .switch(#selector(toggleDriveSync), userManager.isDriveSyncEnabled)))
+                          .switch(#selector(toggleDriveSync), userManager.isDriveSyncEnabled),
+                          true))
         
         if let email = preferenceManager.driveSyncUserEmail {
-          rows.append(.item("Account", email, .none))
+          rows.append(.item("Google Account", email, .icon(#selector(showMoreInfo)), false))
+        } else {
+          rows.append(.item("Sign in with your Google account to start using Drive Sync", nil, nil, false))
+          rows.append(.button("Learn more".uppercased(), #selector(showMoreInfo)))
         }
         
         if let folder = preferenceManager.driveSyncFolderName {
           rows.append(.item("Sync Folder",
                             folder,
-                            .button(#selector(setupDriveSync), "CHANGE")))
+                            .button(#selector(setupDriveSync), "CHANGE"), 
+                            false))
         }
       }
     }
@@ -222,6 +219,10 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
 
   // MARK: - Settings Actions
 
+  @objc private func openAdvancedSettings() {
+    print("Open advanced settings url")
+  }
+
   @objc private func toggleDriveSync() {
     if userManager.isDriveSyncEnabled {
       accountsManager.disableDriveSync()
@@ -240,6 +241,14 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     analyticsReporter.setOptOut(isOptedOut)
   }
 
+  @objc private func showMoreInfo(_ sender: UIButton) {
+    let alertController = MDCAlertController(title: nil,
+                                             message: String.driveSyncIntroMoreText)
+    alertController.addAction(MDCAlertAction(title: String.actionOk))
+    alertController.accessibilityViewIsModal = true
+    present(alertController, animated: true)
+  }
+
   // MARK: - UICollectionViewDataSource
 
   override func collectionView(_ collectionView: UICollectionView,
@@ -253,6 +262,19 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     
     // swiftlint:disable force_cast
     switch settingItem {
+    case .accountItem(let title, let subtitle, let image, let externalLinkLabel, let buttonLabel, 
+                      let externalLinkAction, let buttonAction):
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: accountCellIdentifier,
+                                                    for: indexPath) as! SettingsAccountCell
+      cell.titleLabel.text = title
+      cell.subtitleLabel.text = subtitle
+      cell.imageView.image = image
+      cell.externalLink.setTitle(externalLinkLabel, for: .normal)
+      cell.button.setTitle(buttonLabel, for: .normal)
+      cell.externalLink.addTarget(self, action: externalLinkAction, for: .touchUpInside)
+      cell.button.addTarget(self, action: buttonAction, for: .touchUpInside)
+      return cell
+
     case .header(let text):
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: headerCellIdentifier,
                                                     for: indexPath) as! SettingsHeaderCell
@@ -261,11 +283,16 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     case .separator:
       return collectionView.dequeueReusableCell(withReuseIdentifier: separatorCellIdentifier,
                                                 for: indexPath)
-    case .item(let title, let subtitle, let accessory):
+    case .item(let title, let subtitle, let accessory, let isColored):
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCellIdentifier,
                                                     for: indexPath) as! SettingsItemCell
       cell.titleLabel.text = title
       cell.subtitleLabel.text = subtitle
+      cell.titleLabel.numberOfLines = 0
+
+      if isColored {
+        cell.titleLabel.textColor = ArduinoColorPalette.tealPalette.tint800
+      }
       
       switch accessory {
       case .button(let action, let title):
@@ -278,8 +305,23 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
         switchControl.onTintColor = ArduinoColorPalette.tealPalette.tint800
         switchControl.isOn = isOn
         cell.accessoryView = switchControl
+      case .icon(let action):
+        let icon = UIButton()
+        icon.tintColor = ArduinoColorPalette.grayPalette.tint400
+        if let image = UIImage(named: "ic_info_36pt") {
+          icon.setImage(image, for: UIControl.State.normal)
+        }
+        icon.addTarget(self, action: action, for: .touchUpInside)
+        cell.accessoryView = icon
       default: break
       }
+      return cell
+    
+    case .button(let title, let buttonAction):
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: buttonCellIdentifier,
+                                                    for: indexPath) as! SettingsButtonCell
+      cell.button.setTitle(title, for: .normal)
+      cell.button.addTarget(self, action: buttonAction, for: .touchUpInside)
       return cell
     }
     // swiftlint:enable force_cast
