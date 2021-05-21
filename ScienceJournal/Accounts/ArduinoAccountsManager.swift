@@ -129,8 +129,8 @@ extension ArduinoAccountsManager {
     return true
   }
   
-  func setupDriveSync(fromViewController viewController: UIViewController) {
-    setupDriveSync(from: viewController)
+  func setupDriveSync(fromViewController viewController: UIViewController, isSignup: Bool) {    
+    setupDriveSync(from: viewController, isSignup: isSignup)
   }
   
   func signInWithGoogle(fromViewController viewController: UIViewController,
@@ -775,10 +775,10 @@ private extension ArduinoAccountsManager {
     }
   }
   
-  func setupDriveSync(from viewController: UIViewController, completion: (() -> Void)? = nil) {
+  func setupDriveSync(from viewController: UIViewController, isSignup: Bool? = nil, completion: (() -> Void)? = nil) {
     guard let account = currentAccount, account.supportsDriveSync else { return }
     
-    presentWizard(with: DriveSyncIntroViewController(accountsManager: self),
+    presentWizard(with: DriveSyncIntroViewController(accountsManager: self, isSignup: isSignup),
                   from: viewController) { [weak self] wizard, isCancelled in
       if isCancelled {
         self?.delegate?.accountsManagerDidSkipDriveSyncSetup()

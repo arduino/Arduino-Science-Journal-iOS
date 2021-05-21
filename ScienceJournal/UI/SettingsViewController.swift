@@ -264,7 +264,7 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   }
   
   @objc private func setupDriveSync() {
-    accountsManager.setupDriveSync(fromViewController: self)
+    accountsManager.setupDriveSync(fromViewController: self, isSignup: false)
   }
   
   @objc private func dataUsageSwitchChanged(sender: UISwitch) {

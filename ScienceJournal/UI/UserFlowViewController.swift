@@ -1451,7 +1451,7 @@ extension UserFlowViewController {
       let alert = MDCAlertController(title: String.driveSyncInvalidTokenErrorTitle,
                                      message: String.driveSyncInvalidTokenErrorMessage)
       let setupAction = MDCAlertAction(title: String.driveSyncErrorSetupAction) { [unowned self] _ in
-        self.accountsManager.setupDriveSync(fromViewController: self)
+        self.accountsManager.setupDriveSync(fromViewController: self, isSignup: false)
       }
       let cancelAction = MDCAlertAction(title: String.actionCancel)
       alert.addAction(setupAction)
@@ -1464,7 +1464,7 @@ extension UserFlowViewController {
       let alert = MDCAlertController(title: String.driveSyncMissingFolderErrorTitle,
                                      message: String.driveSyncMissingFolderErrorMessage)
       let setupAction = MDCAlertAction(title: String.driveSyncErrorSetupAction) { [unowned self] _ in
-        self.accountsManager.setupDriveSync(fromViewController: self)
+        self.accountsManager.setupDriveSync(fromViewController: self, isSignup: false)
       }
       let cancelAction = MDCAlertAction(title: String.actionCancel)
       alert.addAction(setupAction)

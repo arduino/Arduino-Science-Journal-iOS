@@ -123,7 +123,7 @@ public protocol AccountsManager: class {
   ///
   /// - Parameter viewController: The view controller from which to present the Drive Sync
   ///                             wizard.
-  func setupDriveSync(fromViewController viewController: UIViewController)
+  func setupDriveSync(fromViewController viewController: UIViewController, isSignup: Bool)
   
   /// Enable Drive sync for the current account, using the provided Google account and folder ID.
   ///
