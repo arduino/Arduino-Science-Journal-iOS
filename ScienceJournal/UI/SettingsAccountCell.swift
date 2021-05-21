@@ -37,6 +37,7 @@ class SettingsAccountCell: UICollectionViewCell {
   @IBOutlet weak var button: UIButton!
   @IBOutlet weak var separator: UIView!
   
+  @IBOutlet weak var externalLinkView: UIStackView!
   @IBOutlet private var stackView: UIStackView!
   
   override func awakeFromNib() {

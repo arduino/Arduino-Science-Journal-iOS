@@ -33,6 +33,7 @@ public struct Constants {
     public static let activities = URL(string: String.navigationActivitiesLink)!
     public static let help = URL(string: String.navigationGetHelpLink)!
     public static let scienceKit = URL(string: String.navigationGetScienceKitLink)!
+    public static let advancedSettings = "https://id.arduino.cc/"
   }
   
   public struct GoogleSignInScopes {

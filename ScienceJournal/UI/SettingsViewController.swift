@@ -220,7 +220,10 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   // MARK: - Settings Actions
 
   @objc private func openAdvancedSettings() {
-    print("Open advanced settings url")
+    UIApplication.shared.open(
+      URL(string: Constants.ArduinoURLs.advancedSettings + (accountsManager.currentAccount?.ID ?? ""))!,
+      options: [:],
+      completionHandler: nil)
   }
 
   @objc private func toggleDriveSync() {
@@ -273,6 +276,12 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
       cell.button.setTitle(buttonLabel, for: .normal)
       cell.externalLink.addTarget(self, action: externalLinkAction, for: .touchUpInside)
       cell.button.addTarget(self, action: buttonAction, for: .touchUpInside)
+
+      // hide external link for junior accounts
+      if accountsManager.currentAccount?.type != .adult {
+        cell.externalLinkView.isHidden = true
+      }
+
       return cell
 
     case .header(let text):

@@ -105,6 +105,7 @@
             <connections>
                 <outlet property="button" destination="02r-0S-Wbr" id="ryY-JZ-mHy"/>
                 <outlet property="externalLink" destination="j9t-b3-cYw" id="xCk-M4-Jgj"/>
+                <outlet property="externalLinkView" destination="c4B-GX-2vh" id="tTu-iB-n9h"/>
                 <outlet property="imageView" destination="HBZ-Ug-jYH" id="ZAs-D6-mbH"/>
                 <outlet property="separator" destination="O4H-Ef-X3V" id="HbE-MP-zcG"/>
                 <outlet property="stackView" destination="0Yo-Me-BEx" id="kBm-F1-eKW"/>
