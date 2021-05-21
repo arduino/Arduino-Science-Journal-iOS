@@ -226,12 +226,41 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
       completionHandler: nil)
   }
 
-  @objc private func toggleDriveSync() {
+  @objc private func toggleDriveSync(sender: UISwitch) {
     if userManager.isDriveSyncEnabled {
-      accountsManager.disableDriveSync()
+      confirmDisableDriveSync(switchButton: sender)
     } else {
       setupDriveSync()
     }
+  }
+
+  @objc private func confirmDisableDriveSync(switchButton: UISwitch) {
+    let messageString = "Are you sure you wish to disable your Google Drive Sync? If you confirm"
+    let messageString2 = "If you confirm, your experiments will no longer be saved, and backed up to your Google Drive."
+
+    // custom style for alert message
+    let attributedString = NSMutableAttributedString(string: messageString + messageString2)
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.lineSpacing = 8
+    attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, 
+    value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+    
+    let alertController = MDCAlertController(title: "Disable Google Drive Sync", 
+                                            message: "")
+    alertController.setValue(attributedString, forKey: "attributedMessage")
+
+    let confirmAction = MDCAlertAction(title: "Confirm") { (_) in self.accountsManager.disableDriveSync() }
+    let cancelAction = MDCAlertAction(title:"Cancel") { (_) in switchButton.isOn = true }
+
+    alertController.addAction(confirmAction)
+    alertController.addAction(cancelAction)
+    if let cancelButton = alertController.button(for: cancelAction),
+       let confirmButton = alertController.button(for: confirmAction) {
+      // custom style for alert buttons
+      styleAlertCancel(button: cancelButton)
+      styleAlertConfirm(button: confirmButton)
+    }
+    present(alertController, animated:true, completion:nil)
   }
   
   @objc private func setupDriveSync() {
@@ -250,6 +279,42 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     alertController.addAction(MDCAlertAction(title: String.actionOk))
     alertController.accessibilityViewIsModal = true
     present(alertController, animated: true)
+  }
+
+  // Style alert buttons
+
+  private func styleAlertConfirm(button: MDCButton) {
+    let tealColor = ArduinoColorPalette.tealPalette.tint800!
+    let buttonFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+    
+    button.layer.cornerRadius = 18
+    button.setBackgroundColor(tealColor, for: .normal)
+    button.setTitleColor(.white, for: .normal)
+    button.clipsToBounds = true
+    button.setTitleFont(buttonFont, for: .normal)
+  }
+
+  private func styleAlertCancel(button: MDCButton) {
+    let tealColor = ArduinoColorPalette.tealPalette.tint800!
+    let buttonFont = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+    
+    button.layer.cornerRadius = 18
+    button.setTitleColor(tealColor, for: .normal)
+    button.setTitleFont(buttonFont, for: .normal)
+    button.clipsToBounds = true
+    
+    let border = UIView()
+    border.isUserInteractionEnabled = false
+    border.translatesAutoresizingMaskIntoConstraints = false
+    border.backgroundColor = .clear
+    border.layer.cornerRadius = 18
+    border.layer.borderWidth = 1
+    border.layer.borderColor = tealColor.cgColor
+    button.addSubview(border)
+    border.topAnchor.constraint(equalTo: button.topAnchor, constant: 5).isActive = true
+    border.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: -5).isActive = true
+    border.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 0).isActive = true
+    border.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 0).isActive = true
   }
 
   // MARK: - UICollectionViewDataSource
