@@ -171,7 +171,7 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     if let account = accountsManager.currentAccount {
 
       let accountImage = UIImage(named: "ic_account_placeholder")
-      let externalLinkLabel = "Advanced settings".uppercased()
+      let externalLinkLabel = String.settingsButton.uppercased()
       let buttonLabel = String.settingsSignOutButton.uppercased()
 
       rows.append(.accountItem(account.displayName, account.email, accountImage, 
@@ -187,8 +187,8 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
         if let email = preferenceManager.driveSyncUserEmail {
           rows.append(.item("Google Account", email, .icon(#selector(showMoreInfo)), false))
         } else {
-          rows.append(.item("Sign in with your Google account to start using Drive Sync", nil, nil, false))
-          rows.append(.button("Learn more".uppercased(), #selector(showMoreInfo)))
+          rows.append(.item(String.driveSyncInfo, nil, nil, false))
+          rows.append(.button(String.driveSyncIntroMore.uppercased(), #selector(showMoreInfo)))
         }
         
         if let folder = preferenceManager.driveSyncFolderName {
@@ -235,22 +235,19 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
   }
 
   @objc private func confirmDisableDriveSync(switchButton: UISwitch) {
-    let messageString = "Are you sure you wish to disable your Google Drive Sync? If you confirm"
-    let messageString2 = "If you confirm, your experiments will no longer be saved, and backed up to your Google Drive."
-
     // custom style for alert message
-    let attributedString = NSMutableAttributedString(string: messageString + messageString2)
+    let attributedString = NSMutableAttributedString(string: String.driveSyncDisableMessage)
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = 8
     attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, 
     value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
     
-    let alertController = MDCAlertController(title: "Disable Google Drive Sync", 
-                                            message: "")
+   let alertController = MDCAlertController(title: String.driveSyncDisableTitle,
+                                           message: "")
     alertController.setValue(attributedString, forKey: "attributedMessage")
 
-    let confirmAction = MDCAlertAction(title: "Confirm") { (_) in self.accountsManager.disableDriveSync() }
-    let cancelAction = MDCAlertAction(title:"Cancel") { (_) in switchButton.isOn = true }
+   let confirmAction = MDCAlertAction(title: String.driveSyncDisableConfirm) { (_) in self.accountsManager.disableDriveSync() }
+   let cancelAction = MDCAlertAction(title: String.driveSyncDisableCancel) { (_) in switchButton.isOn = true }
 
     alertController.addAction(confirmAction)
     alertController.addAction(cancelAction)

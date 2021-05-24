@@ -326,6 +326,10 @@ extension String {
   static public var driveSyncCreateFolderButton: String { return "drive_sync_create_folder_button".localized }
   static public var driveSyncCreateFolderDefault: String { return "drive_sync_create_folder_default".localized }
   static public var driveSyncCreateFolderTitle: String { return "drive_sync_create_folder_title".localized }
+  static public var driveSyncDisableCancel: String { return "drive_sync_disable_cancel".localized }
+  static public var driveSyncDisableConfirm: String { return "drive_sync_disable_confirm".localized }
+  static public var driveSyncDisableMessage: String { return "drive_sync_disable_message".localized }
+  static public var driveSyncDisableTitle: String { return "drive_sync_disable_title".localized }
   static public var driveSyncErrorSetupAction: String { return "drive_sync_error_setup_action".localized }
   static public var driveSyncErrorTitle: String { return "drive_sync_error_title".localized }
   static public var driveSyncExportErrorMessage: String { return "drive_sync_export_error_message".localized }
@@ -333,6 +337,7 @@ extension String {
   static public var driveSyncFolderPickerSelect: String { return "drive_sync_folder_picker_select".localized }
   static public var driveSyncFolderPickerText: String { return "drive_sync_folder_picker_text".localized }
   static public var driveSyncFolderPickerTitle: String { return "drive_sync_folder_picker_title".localized }
+  static public var driveSyncInfo: String { return "drive_sync_info".localized }
   static public var driveSyncInformation: String { return "drive_sync_information".localized }
   static public var driveSyncIntroGoogleAction: String { return "drive_sync_intro_google_action".localized }
   static public var driveSyncIntroMore: String { return "drive_sync_intro_more".localized }
@@ -344,10 +349,12 @@ extension String {
   static public var driveSyncInvalidTokenErrorTitle: String { return "drive_sync_invalid_token_error_title".localized }
   static public var driveSyncMissingFolderErrorMessage: String { return "drive_sync_missing_folder_error_message".localized }
   static public var driveSyncMissingFolderErrorTitle: String { return "drive_sync_missing_folder_error_title".localized }
+  static public var driveSyncPrivacyPolicy: String { return "drive_sync_privacy_policy".localized }
   static public var driveSyncRootFolderLabel: String { return "drive_sync_root_folder_label".localized }
   static public var driveSyncSummaryButton: String { return "drive_sync_summary_button".localized }
   static public var driveSyncSummaryText: String { return "drive_sync_summary_text".localized }
   static public var driveSyncSummaryTitle: String { return "drive_sync_summary_title".localized }
+  static public var driveSyncTermsOfService: String { return "drive_sync_terms_of_service".localized }
   static public var editCropEndTime: String { return "edit_crop_end_time".localized }
   static public var editCropStartTime: String { return "edit_crop_start_time".localized }
   static public var editExperimentBtnContentDescription: String { return "edit_experiment_btn_content_description".localized }
@@ -673,6 +680,7 @@ extension String {
   static public var serverPermissionDeniedMessage: String { return "server_permission_denied_message".localized }
   static public var serverPermissionDeniedTitle: String { return "server_permission_denied_title".localized }
   static public var serverSwitchAccountsTitle: String { return "server_switch_accounts_title".localized }
+  static public var settingsButton: String { return "settings_advanced_settings_button".localized }
   static public var settingsDataUsageDescription: String { return "settings_data_usage_description".localized }
   static public var settingsDataUsageTitle: String { return "settings_data_usage_title".localized }
   static public var settingsOpenSourceTitle: String { return "settings_open_source_title".localized }
