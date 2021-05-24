@@ -46,5 +46,34 @@ class DriveSyncLearnMoreViewController: ModalViewController {
     value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
 
     learnMoreView.label.attributedText = attributedString
+    learnMoreView.termsLink.setTitle(String.driveSyncTermsOfService, for: .normal)
+    learnMoreView.termsLink.setTitleColor(ArduinoColorPalette.tealPalette.tint800, for: .normal)
+    learnMoreView.termsLink.contentHorizontalAlignment = .left
+
+    learnMoreView.privacyLink.setTitle(String.driveSyncPrivacyPolicy, for: .normal)
+    learnMoreView.privacyLink.setTitleColor(ArduinoColorPalette.tealPalette.tint800, for: .normal)
+    learnMoreView.privacyLink.contentHorizontalAlignment = .left
+
+    learnMoreView.termsLink.addTarget(self,
+                 action: #selector(openTerms),
+                 for: .touchUpInside)
+
+    learnMoreView.privacyLink.addTarget(self,
+                 action: #selector(openPrivacy),
+                 for: .touchUpInside)
+  }
+
+  @objc private func openTerms() {
+    UIApplication.shared.open(
+      Constants.Drive.driveTermsOfServiceUrl,
+      options: [:],
+      completionHandler: nil)
+  }
+
+  @objc private func openPrivacy() {
+    UIApplication.shared.open(
+      Constants.Drive.drivePrivacyPolicyUrl,
+      options: [:],
+      completionHandler: nil)
   }
 }

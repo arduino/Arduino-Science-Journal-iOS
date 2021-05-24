@@ -45,6 +45,8 @@ public struct Constants {
   
   public struct Drive {
     public static let experimentLibraryProtoFilename = "experiment_library.proto"
+    public static let driveTermsOfServiceUrl = URL(string: "https://www.google.com/drive/terms-of-service/")!
+    public static let drivePrivacyPolicyUrl = URL(string: "https://policies.google.com/privacy")!
   }
 
 }

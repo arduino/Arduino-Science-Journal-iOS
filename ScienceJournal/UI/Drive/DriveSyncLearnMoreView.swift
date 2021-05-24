@@ -21,6 +21,8 @@ import UIKit
 class DriveSyncLearnMoreView: UIStackView {
 
   let label = UILabel()
+  let termsLink = UIButton()
+  let privacyLink = UIButton()
 
   init() {
     super.init(frame: .zero)
@@ -32,12 +34,22 @@ class DriveSyncLearnMoreView: UIStackView {
     spacing = 40
 
     addArrangedSubview(label)
+    addArrangedSubview(termsLink)
+    addArrangedSubview(privacyLink)
 
     label.translatesAutoresizingMaskIntoConstraints = false
     label.topAnchor.constraint(equalTo: topAnchor).isActive = true
     label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
 
     label.numberOfLines = 0
+
+    termsLink.translatesAutoresizingMaskIntoConstraints = false
+    termsLink.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20).isActive = true
+    termsLink.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+
+    privacyLink.translatesAutoresizingMaskIntoConstraints = false
+    privacyLink.topAnchor.constraint(equalTo: termsLink.bottomAnchor).isActive = true
+    privacyLink.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
   }
 
   required init(coder: NSCoder) {
