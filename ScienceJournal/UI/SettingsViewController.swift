@@ -141,6 +141,11 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
                                            selector: #selector(configureSettingsItems),
                                            name: .driveSyncDidDisable,
                                            object: nil)
+
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(close),
+                                           name: .settingsShouldClose,
+                                           object: nil)                                           
   }
 
   // MARK: - Private

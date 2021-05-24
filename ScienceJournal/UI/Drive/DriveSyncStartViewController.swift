@@ -54,6 +54,7 @@ class DriveSyncStartViewController: WizardViewController {
   @objc private func start(_ sender: UIButton) {
     accountsManager.enableDriveSync(with: user, folderID: folder.id, folderName: folder.name)
     rootViewController?.close(isCancelled: false)
+    NotificationCenter.default.post(name: .settingsShouldClose, object: self)
   }
 
 }
