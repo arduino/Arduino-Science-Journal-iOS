@@ -132,6 +132,10 @@ extension ArduinoAccountsManager {
   func setupDriveSync(fromViewController viewController: UIViewController, isSignup: Bool) {    
     setupDriveSync(from: viewController, isSignup: isSignup)
   }
+
+  func learnMoreDriveSync(fromViewController viewController: UIViewController) {
+    learnMoreDriveSync(from: viewController)
+  }
   
   func signInWithGoogle(fromViewController viewController: UIViewController,
                         completion: @escaping (Result<GIDGoogleUser, Error>) -> Void) {
@@ -788,6 +792,13 @@ private extension ArduinoAccountsManager {
       wizard.dismiss(animated: true, completion: nil)
     }
   }
+
+  func learnMoreDriveSync(from viewController: UIViewController, completion: (() -> Void)? = nil) {
+    presentModal(with: DriveSyncLearnMoreViewController(), from: viewController) {modal, _ in 
+    
+    modal.dismiss(animated: true, completion: nil)
+    }
+  }
   
   func presentWizard(with initialViewController: UIViewController,
                      from presentingViewController: UIViewController,
@@ -811,6 +822,31 @@ private extension ArduinoAccountsManager {
       }
     } else {
       presentingViewController.present(wizardViewController, animated: true, completion: nil)
+    }
+  }
+
+  func presentModal(with initialViewController: UIViewController,
+                    from presentingViewController: UIViewController,
+                    onDismiss: @escaping (_ modal: ModalRootViewController, _ isCancelled: Bool) -> Void) {
+    
+    guard let modalViewController = UIStoryboard(name: "Modal", bundle: nil).instantiateInitialViewController()
+            as? ModalRootViewController else { return }
+    
+    modalViewController.initialViewController = initialViewController
+    modalViewController.onDismiss = onDismiss
+    
+    if presentingViewController.traitCollection.userInterfaceIdiom == .pad {
+      modalViewController.modalPresentationStyle = .formSheet
+    } else {
+      modalViewController.modalPresentationStyle = .fullScreen
+    }
+    
+    if let presentedViewController = presentingViewController.presentedViewController {
+      presentedViewController.dismiss(animated: true) {
+        presentingViewController.present(modalViewController, animated: true, completion: nil)
+      }
+    } else {
+      presentingViewController.present(modalViewController, animated: true, completion: nil)
     }
   }
 }

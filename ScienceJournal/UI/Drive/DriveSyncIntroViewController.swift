@@ -60,11 +60,7 @@ class DriveSyncIntroViewController: WizardViewController {
   }
 
   @objc private func showMoreInfo(_ sender: UIButton) {
-    let alertController = MDCAlertController(title: nil,
-                                             message: String.driveSyncIntroMoreText)
-    alertController.addAction(MDCAlertAction(title: String.actionOk))
-    alertController.accessibilityViewIsModal = true
-    present(alertController, animated: true)
+    accountsManager.learnMoreDriveSync(fromViewController: self)
   }
 
   @objc private func setupGoogleDrive(_ sender: UIButton) {
