@@ -1,8 +1,7 @@
 //  
-//  DriveSyncSummaryViewController.swift
+//  DriveSyncStartViewController.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 12/01/21.
 //  Copyright © 2021 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,13 +19,13 @@
 import UIKit
 import GoogleSignIn
 
-class DriveSyncSummaryViewController: WizardViewController {
+class DriveSyncStartViewController: WizardViewController {
 
   let user: GIDGoogleUser
   let folder: DriveFetcher.Folder
   let accountsManager: AccountsManager
   
-  private(set) lazy var summaryView = DriveSyncSummaryView(folderName: folder.name)
+  private(set) lazy var startView = DriveSyncStartView(folderName: folder.name)
   
   init(user: GIDGoogleUser, folder: DriveFetcher.Folder, accountsManager: AccountsManager) {
     self.user = user
@@ -42,17 +41,19 @@ class DriveSyncSummaryViewController: WizardViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    title = String.driveSyncSummaryTitle
+    title = String.driveSyncStartTitle
     
-    wizardView.text = String(format: String.driveSyncSummaryText, folder.name)
-    wizardView.contentView = summaryView
+    wizardView.text = String.driveSyncStartText
+    wizardView.contentView = startView
     
-    summaryView.confirmButton.addTarget(self, action: #selector(confirm(_:)), for: .touchUpInside)
-  }
+    startView.confirmButton.addTarget(self, action: #selector(start(_:)), for: .touchUpInside)
 
-  @objc private func confirm(_ sender: UIButton) {
-    let vc = DriveSyncStartViewController(user: user, folder: folder, accountsManager: accountsManager)
-    navigationController?.show(vc, sender: sender)
+    startView.notice.text = String.driveSyncStartNotice
+  }
+  
+  @objc private func start(_ sender: UIButton) {
+    accountsManager.enableDriveSync(with: user, folderID: folder.id, folderName: folder.name)
+    rootViewController?.close(isCancelled: false)
   }
 
 }
