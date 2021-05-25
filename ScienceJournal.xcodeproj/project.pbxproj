@@ -662,7 +662,6 @@
 		BC809203255C4EB90074E25A /* ArduinoTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809202255C4EB90074E25A /* ArduinoTypography.swift */; };
 		BC809249255C51350074E25A /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809248255C51350074E25A /* OnboardingPageViewController.swift */; };
 		BC80924E255C51480074E25A /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80924D255C51480074E25A /* OnboardingPageView.swift */; };
-		BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC809258255C51550074E25A /* OnboardingPageView.xib */; };
 		BC809265255C57C80074E25A /* OnboardingPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809264255C57C80074E25A /* OnboardingPage1ViewController.swift */; };
 		BC809273255C623C0074E25A /* NSAttributedString+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809272255C623C0074E25A /* NSAttributedString+ScienceJournal.swift */; };
 		BC80927B255D89100074E25A /* OnboardingPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80927A255D89100074E25A /* OnboardingPage2ViewController.swift */; };
@@ -674,7 +673,6 @@
 		BC8621F425A9ECA9002D6B4F /* DriveSyncPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */; };
 		BC9164CE25A853CC00E75A56 /* DriveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */; };
 		BC96125826283DAA00DDE0CE /* WizardSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC96125726283DAA00DDE0CE /* WizardSecureTextField.swift */; };
-		BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC968C3725A30B3800A885AB /* Wizard.storyboard */; };
 		BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */; };
 		BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */; };
 		BC968C4A25A30CD300A885AB /* WizardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4925A30CD300A885AB /* WizardFooterView.swift */; };
@@ -700,13 +698,9 @@
 		BCCE581F261F4736002E12FB /* SignUpJuniorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE581E261F4736002E12FB /* SignUpJuniorView.swift */; };
 		BCCE584D261F5827002E12FB /* SignUpJuniorAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE584C261F5827002E12FB /* SignUpJuniorAvatarView.swift */; };
 		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
-		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCD8384D262590BB002AE4BC /* SettingsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */; };
-		BCD8384E262590BB002AE4BC /* SettingsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD8384C262590BB002AE4BC /* SettingsHeaderCell.xib */; };
 		BCD8385726259270002AE4BC /* SettingsSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */; };
-		BCD8385826259270002AE4BC /* SettingsSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */; };
 		BCD83861262593CC002AE4BC /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */; };
-		BCD83862262593CC002AE4BC /* SettingsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD83860262593CC002AE4BC /* SettingsItemCell.xib */; };
 		BCEA323A2631AE87009B25A2 /* DriveConstructorDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA32392631AE87009B25A2 /* DriveConstructorDisabled.swift */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
 		BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */; };
@@ -1481,7 +1475,6 @@
 		BC809202255C4EB90074E25A /* ArduinoTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoTypography.swift; sourceTree = "<group>"; };
 		BC809248255C51350074E25A /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		BC80924D255C51480074E25A /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
-		BC809258255C51550074E25A /* OnboardingPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingPageView.xib; sourceTree = "<group>"; };
 		BC809264255C57C80074E25A /* OnboardingPage1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage1ViewController.swift; sourceTree = "<group>"; };
 		BC809272255C623C0074E25A /* NSAttributedString+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC80927A255D89100074E25A /* OnboardingPage2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage2ViewController.swift; sourceTree = "<group>"; };
@@ -1493,7 +1486,6 @@
 		BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncPathView.swift; sourceTree = "<group>"; };
 		BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveFetcher.swift; sourceTree = "<group>"; };
 		BC96125726283DAA00DDE0CE /* WizardSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardSecureTextField.swift; sourceTree = "<group>"; };
-		BC968C3725A30B3800A885AB /* Wizard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wizard.storyboard; sourceTree = "<group>"; };
 		BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardNavigationController.swift; sourceTree = "<group>"; };
 		BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardRootViewController.swift; sourceTree = "<group>"; };
 		BC968C4925A30CD300A885AB /* WizardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardFooterView.swift; sourceTree = "<group>"; };
@@ -1519,13 +1511,9 @@
 		BCCE581E261F4736002E12FB /* SignUpJuniorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorView.swift; sourceTree = "<group>"; };
 		BCCE584C261F5827002E12FB /* SignUpJuniorAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorAvatarView.swift; sourceTree = "<group>"; };
 		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderCell.swift; sourceTree = "<group>"; };
-		BCD8384C262590BB002AE4BC /* SettingsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsHeaderCell.xib; sourceTree = "<group>"; };
 		BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSeparatorCell.swift; sourceTree = "<group>"; };
-		BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsSeparatorCell.xib; sourceTree = "<group>"; };
 		BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
-		BCD83860262593CC002AE4BC /* SettingsItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsItemCell.xib; sourceTree = "<group>"; };
 		BCEA32392631AE87009B25A2 /* DriveConstructorDisabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveConstructorDisabled.swift; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
 		BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensor.swift; sourceTree = "<group>"; };
@@ -2722,11 +2710,8 @@
 			isa = PBXGroup;
 			children = (
 				BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */,
-				BCD8384C262590BB002AE4BC /* SettingsHeaderCell.xib */,
 				BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */,
-				BCD83860262593CC002AE4BC /* SettingsItemCell.xib */,
 				BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */,
-				BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */,
 				68EACA7D1EB0234000BB5892 /* SettingsViewController.swift */,
 			);
 			name = Settings;
@@ -3369,7 +3354,6 @@
 		BC968C3025A30AFB00A885AB /* Wizard */ = {
 			isa = PBXGroup;
 			children = (
-				BC968C3725A30B3800A885AB /* Wizard.storyboard */,
 				BC993E0425A47BCC0001F76D /* WizardButton.swift */,
 				BC968C4925A30CD300A885AB /* WizardFooterView.swift */,
 				BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */,
@@ -3464,10 +3448,8 @@
 			children = (
 				BC809263255C578A0074E25A /* Pages */,
 				BC80924D255C51480074E25A /* OnboardingPageView.swift */,
-				BC809258255C51550074E25A /* OnboardingPageView.xib */,
 				BC809248255C51350074E25A /* OnboardingPageViewController.swift */,
 				BCD41808255AF639007546A1 /* OnboardingViewController.swift */,
-				BCD41809255AF639007546A1 /* OnboardingViewController.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -3722,18 +3704,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCD8385826259270002AE4BC /* SettingsSeparatorCell.xib in Resources */,
 				4878E93E22974D21004B61AF /* Strings.bundle in Resources */,
 				5C7EFC51202A5BAC0007F99E /* protobuf.html in Resources */,
 				48BFD8CD20D065FF00FB5C1A /* motion_animator.html in Resources */,
 				F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */,
 				48FDC26B20AB51B600C472DA /* oss_licenses_index.txt in Resources */,
 				5C7EFC50202A5BAC0007F99E /* material_components.html in Resources */,
-				BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */,
 				5C7EFC52202A5BAC0007F99E /* ziparchive.html in Resources */,
-				BCD8384E262590BB002AE4BC /* SettingsHeaderCell.xib in Resources */,
-				BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */,
-				BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */,
 				48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */,
 				BC809184255BDFDB0074E25A /* RobotoMono-Regular.ttf in Resources */,
 				48BFD8D120D065FF00FB5C1A /* google_api_client_for_rest.html in Resources */,
@@ -3744,7 +3721,6 @@
 				8BDD4C2D1EA687FD00FCCA30 /* trigger_sound1.mp3 in Resources */,
 				48BFD8CC20D065FF00FB5C1A /* gtm_session_fetcher.html in Resources */,
 				48BFD8D020D065FF00FB5C1A /* gtm_oauth_2.html in Resources */,
-				BCD83862262593CC002AE4BC /* SettingsItemCell.xib in Resources */,
 				5C7EFC53202A5BAC0007F99E /* mdf_text.html in Resources */,
 				48BFD8CE20D065FF00FB5C1A /* motion_interchange.html in Resources */,
 				F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */,

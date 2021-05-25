@@ -793,9 +793,7 @@ private extension ArduinoAccountsManager {
                      from presentingViewController: UIViewController,
                      onDismiss: @escaping (_ wizard: WizardRootViewController, _ isCancelled: Bool) -> Void) {
     
-    guard let wizardViewController = UIStoryboard(name: "Wizard", bundle: nil).instantiateInitialViewController()
-            as? WizardRootViewController else { return }
-    
+    let wizardViewController = WizardRootViewController()
     wizardViewController.initialViewController = initialViewController
     wizardViewController.onDismiss = onDismiss
     
