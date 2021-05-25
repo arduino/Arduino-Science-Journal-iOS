@@ -123,7 +123,8 @@ public protocol AccountsManager: class {
   ///
   /// - Parameter viewController: The view controller from which to present the Drive Sync
   ///                             wizard.
-  func setupDriveSync(fromViewController viewController: UIViewController)
+  /// - Parameter isSignup: `true` if the controller is presented during the signup flow, `false` otherwise 
+  func setupDriveSync(fromViewController viewController: UIViewController, isSignup: Bool)
   
   /// Enable Drive sync for the current account, using the provided Google account and folder ID.
   ///
@@ -135,6 +136,11 @@ public protocol AccountsManager: class {
   /// Disable Drive sync for the current account.
   ///
   func disableDriveSync()
+
+  /// Display additional information about Drive Sync integration 
+  /// - Parameter viewController: The view controller from which to present the Drive Sync
+  ///                             Learn More wizard.
+  func learnMoreDriveSync(fromViewController viewController: UIViewController)
 }
 
 public extension Notification.Name {

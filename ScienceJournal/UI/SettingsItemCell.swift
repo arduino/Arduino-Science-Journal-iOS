@@ -52,6 +52,7 @@ class SettingsItemCell: UICollectionViewCell {
     super.prepareForReuse()
     titleLabel.text = nil
     subtitleLabel.text = nil
+    titleLabel.textColor = ArduinoColorPalette.grayPalette.tint400
     accessoryView = nil
   }
 

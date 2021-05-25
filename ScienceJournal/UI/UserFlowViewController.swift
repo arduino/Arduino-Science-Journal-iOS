@@ -22,6 +22,8 @@ import MaterialComponents.MaterialDialogs
 
 import GoogleAPIClientForREST
 
+import SafariServices
+
 protocol UserFlowViewControllerDelegate: class {
   /// Tells the delegate to present the account selector so a user can change or remove accounts.
   func presentAccountSelector()
@@ -375,19 +377,6 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
   func sidebarShouldShow(_ item: SidebarRow) {
     switch item {
-    case .about:
-      let aboutVC = AboutViewController(analyticsReporter: analyticsReporter)
-      guard UIDevice.current.userInterfaceIdiom == .pad else {
-        navController.pushViewController(aboutVC, animated: true)
-        return
-      }
-      // iPad should present modally in a navigation controller of its own since About has
-      // sub-navigation items.
-      let aboutNavController = UINavigationController()
-      aboutNavController.viewControllers = [ aboutVC ]
-      aboutNavController.isNavigationBarHidden = true
-      aboutNavController.modalPresentationStyle = .formSheet
-      present(aboutNavController, animated: true)
     case .settings:
       let settingsVC = SettingsViewController(analyticsReporter: analyticsReporter,
                                               driveSyncManager: driveSyncManager,
@@ -423,6 +412,9 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
         completionHandler: nil)
     case .onboarding:
       showOnboarding()
+    case .privacy:
+      let privacyVC = SFSafariViewController(url: Constants.ArduinoSignIn.privacyPolicyUrl)
+      present(privacyVC, animated: true, completion: nil)
     default:
       break
     }
@@ -1466,7 +1458,7 @@ extension UserFlowViewController {
       let alert = MDCAlertController(title: String.driveSyncInvalidTokenErrorTitle,
                                      message: String.driveSyncInvalidTokenErrorMessage)
       let setupAction = MDCAlertAction(title: String.driveSyncErrorSetupAction) { [unowned self] _ in
-        self.accountsManager.setupDriveSync(fromViewController: self)
+        self.accountsManager.setupDriveSync(fromViewController: self, isSignup: false)
       }
       let cancelAction = MDCAlertAction(title: String.actionCancel)
       alert.addAction(setupAction)
@@ -1484,7 +1476,7 @@ extension UserFlowViewController {
       let alert = MDCAlertController(title: String.driveSyncMissingFolderErrorTitle,
                                      message: String.driveSyncMissingFolderErrorMessage)
       let setupAction = MDCAlertAction(title: String.driveSyncErrorSetupAction) { [unowned self] _ in
-        self.accountsManager.setupDriveSync(fromViewController: self)
+        self.accountsManager.setupDriveSync(fromViewController: self, isSignup: false)
       }
       let cancelAction = MDCAlertAction(title: String.actionCancel)
       alert.addAction(setupAction)
