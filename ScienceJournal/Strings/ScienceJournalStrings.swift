@@ -348,6 +348,7 @@ extension String {
   static public var driveSyncIntroTitle: String { return "drive_sync_intro_title".localized }
   static public var driveSyncInvalidTokenErrorMessage: String { return "drive_sync_invalid_token_error_message".localized }
   static public var driveSyncInvalidTokenErrorTitle: String { return "drive_sync_invalid_token_error_title".localized }
+  static public var driveSyncLoadingIndicatorText: String { return "drive_sync_loading_indicator_text".localized }
   static public var driveSyncMissingFolderErrorMessage: String { return "drive_sync_missing_folder_error_message".localized }
   static public var driveSyncMissingFolderErrorTitle: String { return "drive_sync_missing_folder_error_title".localized }
   static public var driveSyncPrivacyPolicy: String { return "drive_sync_privacy_policy".localized }

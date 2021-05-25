@@ -38,7 +38,7 @@ public class PullToRefreshController {
     self.shouldShowLabel = shouldShowLabel
 
     if shouldShowLabel {
-      let mutableAttributedString = NSMutableAttributedString.init(string: "Syncing")
+      let mutableAttributedString = NSMutableAttributedString.init(string: String.driveSyncLoadingIndicatorText)
       mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, 
               value: ArduinoColorPalette.grayPalette.tint400,
               range: NSRange(location: 0, length: mutableAttributedString.length))
