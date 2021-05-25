@@ -225,6 +225,7 @@ extension String {
   static public var claimAllExperimentsConfirmationActionConfirm: String { return "claim_all_experiments_confirmation_action_confirm".localized }
   static public var claimAllExperimentsConfirmationMessage: String { return "claim_all_experiments_confirmation_message".localized }
   static public var claimAllExperimentsConfirmationMessagePlural: String { return "claim_all_experiments_confirmation_message_plural".localized }
+  static public var claimAllExperimentsConfirmationTitle: String { return "claim_all_experiments_confirmation_title".localized }
   static public var claimAllExperimentsContentDescription: String { return "claim_all_experiments_content_description".localized }
   static public var claimAllExperimentsImmediatelyConfirmationMessage: String { return "claim_all_experiments_immediately_confirmation_message".localized }
   static public var claimAllExperimentsMigrationConfirmationTitle: String { return "claim_all_experiments_migration_confirmation_title".localized }
@@ -474,6 +475,11 @@ extension String {
   static public var noteContentDescriptionTrigger: String { return "note_content_description_trigger".localized }
   static public var notes: String { return "notes".localized }
   static public var notesTabContentDescription: String { return "notes_tab_content_description".localized }
+  static public var nsbluetoothalwaysusagedescription: String { return "NSBluetoothAlwaysUsageDescription".localized }
+  static public var nsbluetoothperipheralusagedescription: String { return "NSBluetoothPeripheralUsageDescription".localized }
+  static public var nscamerausagedescription: String { return "NSCameraUsageDescription".localized }
+  static public var nsmicrophoneusagedescription: String { return "NSMicrophoneUsageDescription".localized }
+  static public var nsphotolibraryusagedescription: String { return "NSPhotoLibraryUsageDescription".localized }
   static public var observeTabContentDescription: String { return "observe_tab_content_description".localized }
   static public var onboarding01QuickTip: String { return "onboarding_01_quick_tip".localized }
   static public var onboarding01Text01: String { return "onboarding_01_text_01".localized }

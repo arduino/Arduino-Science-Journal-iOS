@@ -277,6 +277,7 @@
 		5CFC8E6420488C4B00A674C2 /* ExportExperimentSensorDataOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC8E6320488C4B00A674C2 /* ExportExperimentSensorDataOperationTest.swift */; };
 		5CFC8E66204A076800A674C2 /* PopUpMenuAction+CommonActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC8E65204A076800A674C2 /* PopUpMenuAction+CommonActions.swift */; };
 		61B8BD06CFD2682C120CB31E /* Pods_ScienceJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBA0D9917CD7B3AFD64321B /* Pods_ScienceJournal.framework */; };
+		61E516042642952A00B7CB0A /* MDCAlertController+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E516032642952A00B7CB0A /* MDCAlertController+Styles.swift */; };
 		680659161EC24EBD0090670C /* String+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680659151EC24EBD0090670C /* String+ScienceJournal.swift */; };
 		680659191EC24EC50090670C /* SnapshotCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680659171EC24EC50090670C /* SnapshotCardView.swift */; };
 		6806591A1EC24EC50090670C /* ExperimentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680659181EC24EC50090670C /* ExperimentCardView.swift */; };
@@ -1062,6 +1063,7 @@
 		5CFC8E6120488A3500A674C2 /* ZipOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipOperation.swift; sourceTree = "<group>"; };
 		5CFC8E6320488C4B00A674C2 /* ExportExperimentSensorDataOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportExperimentSensorDataOperationTest.swift; sourceTree = "<group>"; };
 		5CFC8E65204A076800A674C2 /* PopUpMenuAction+CommonActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopUpMenuAction+CommonActions.swift"; sourceTree = "<group>"; };
+		61E516032642952A00B7CB0A /* MDCAlertController+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MDCAlertController+Styles.swift"; sourceTree = "<group>"; };
 		680659151EC24EBD0090670C /* String+ScienceJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ScienceJournal.swift"; sourceTree = "<group>"; };
 		680659171EC24EC50090670C /* SnapshotCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotCardView.swift; sourceTree = "<group>"; };
 		680659181EC24EC50090670C /* ExperimentCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperimentCardView.swift; sourceTree = "<group>"; };
@@ -2579,6 +2581,7 @@
 				8BD3A0F91F263BF100A5DDBD /* Snackbars */,
 				8B17918F1F06AAA6008C0B31 /* Triggers */,
 				BC968C3025A30AFB00A885AB /* Wizard */,
+				61E516032642952A00B7CB0A /* MDCAlertController+Styles.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -3997,6 +4000,7 @@
 				5C11AE721EB7D92D0077F752 /* MakingScienceSensorInterface.swift in Sources */,
 				BC4DEE5A25A7136F002BA286 /* DriveSyncFolderPickerViewController.swift in Sources */,
 				8B06406E203E0FDC00F66356 /* RelativeScaleAnimationView.swift in Sources */,
+				61E516042642952A00B7CB0A /* MDCAlertController+Styles.swift in Sources */,
 				5C7DB67920E3E8FF00F915CD /* StringConstants.swift in Sources */,
 				6806592E1EC3BE290090670C /* ExperimentCardHeaderView.swift in Sources */,
 				BC24D32E260A47CA00209383 /* SignInSocialView.swift in Sources */,

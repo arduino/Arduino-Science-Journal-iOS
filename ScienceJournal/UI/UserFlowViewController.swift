@@ -349,6 +349,9 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
         let alert = MDCAlertController(title: nil, message: errorMessage)
         let cancelAction = MDCAlertAction(title: String.actionOk)
         alert.addAction(cancelAction)
+        if let cancelButton = alert.button(for: cancelAction) {
+          alert.styleAlertCancel(button: cancelButton)
+        }
         guard var topViewController = self.navController.topViewController else { return }
         if let presentedViewController = topViewController.presentedViewController {
           // On iPad, the welcome flow is in a presented view controller, so the alert must be
@@ -885,8 +888,12 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     if isExperimentTooNewToEdit(experiment) {
       let alertController = MDCAlertController(title: nil,
                                                message: String.experimentVersionTooNewToEdit)
-      alertController.addAction(MDCAlertAction(title: String.actionOk))
+      let okAction = MDCAlertAction(title: String.actionOk)
+      alertController.addAction(okAction)
       alertController.accessibilityViewIsModal = true
+      if let okButton = alertController.button(for: okAction) {
+        alertController.styleAlertOk(button: okButton)
+      }
       experimentCoordinatorVC.present(alertController, animated: true)
     }
 
@@ -1465,6 +1472,11 @@ extension UserFlowViewController {
       alert.addAction(setupAction)
       alert.addAction(cancelAction)
       alert.accessibilityViewIsModal = true
+      if let cancelButton = alert.button(for: cancelAction),
+         let okButton = alert.button(for: setupAction) {
+        alert.styleAlertCancel(button: cancelButton)
+        alert.styleAlertOk(button: okButton)
+      }
       self.present(alert, animated: true)
       alertController = nil
       
@@ -1478,6 +1490,11 @@ extension UserFlowViewController {
       alert.addAction(setupAction)
       alert.addAction(cancelAction)
       alert.accessibilityViewIsModal = true
+      if let cancelButton = alert.button(for: cancelAction),
+         let okButton = alert.button(for: setupAction) {
+        alert.styleAlertCancel(button: cancelButton)
+        alert.styleAlertOk(button: okButton)
+      }
       self.present(alert, animated: true)
       alertController = nil
     default:
@@ -1509,6 +1526,11 @@ extension UserFlowViewController {
     alert.addAction(keepAction)
     alert.addAction(discardAction)
     alert.accessibilityViewIsModal = true
+    if let cancelButton = alert.button(for: keepAction),
+       let okButton = alert.button(for: discardAction) {
+      alert.styleAlertCancel(button: cancelButton)
+      alert.styleAlertOk(button: okButton)
+    }
     present(alert, animated: true)
   }
   
@@ -1528,6 +1550,9 @@ extension UserFlowViewController {
     let okAction = MDCAlertAction(title: String.actionOk) { _ in }
     alert.addAction(okAction)
     alert.accessibilityViewIsModal = true
+    if let okButton = alert.button(for: okAction) {
+      alert.styleAlertOk(button: okButton)
+    }
     present(alert, animated: true)
   }
 }
