@@ -1,8 +1,7 @@
 //  
-//  DriveSyncSummaryView.swift
+//  DriveSyncStartView.swift
 //  ScienceJournal
 //
-//  Created by Emilio Pavia on 12/01/21.
 //  Copyright © 2021 Arduino. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +18,7 @@
 
 import UIKit
 
-class DriveSyncSummaryView: UIStackView {
+class DriveSyncStartView: UIStackView {
 
   lazy var folderView: UIView = {
     let stackView = UIStackView()
@@ -44,11 +43,20 @@ class DriveSyncSummaryView: UIStackView {
     return stackView
   }()
   
-  let confirmButton = WizardButton(title: String.driveSyncConfirmButton.uppercased(), style: .solid)
+  let confirmButton = WizardButton(title: String.driveSyncStartButton.uppercased(), style: .solid)
+
+  let notice: UILabel = {
+    let label = UILabel()
+    label.textColor = ArduinoColorPalette.grayPalette.tint500
+    label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    label.numberOfLines = 0
+    label.textAlignment = .center
+    return label
+  }()
 
   private let folderLabel: UILabel = {
     let label = UILabel()
-    label.textColor = ArduinoColorPalette.grayPalette.tint500
+    label.textColor = ArduinoColorPalette.grayPalette.tint400
     label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
     return label
   }()
@@ -66,6 +74,7 @@ class DriveSyncSummaryView: UIStackView {
     
     addArrangedSubview(folderView)
     addArrangedSubview(confirmButton)
+    addArrangedSubview(notice)
   }
 
   required init(coder: NSCoder) {

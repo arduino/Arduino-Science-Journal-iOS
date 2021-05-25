@@ -152,6 +152,9 @@ public extension Notification.Name {
   
   /// The name of a notification posted when Drive sync has been disabled.
   static let driveSyncDidDisable = Notification.Name("ASJNotificationDriveSyncDidDisable")
+
+  /// The name of a notification posted when Settings should be dismissed automatically.
+  static let settingsShouldClose = Notification.Name("ASJNotificationSettingsShouldClose")
 }
 
 /// A protocol representing an auth account.

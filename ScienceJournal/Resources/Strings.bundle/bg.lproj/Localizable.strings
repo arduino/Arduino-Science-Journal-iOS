@@ -503,6 +503,7 @@
 "drive_error_unknown" = "Научно списание не може да установи връзка с Google Диск. Възможно е някои експерименти да не се архивират.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Няма достъп до Google Диск. Проверете връзката си.";
+"drive_sync_confirm_button" = "Confirm";
 "drive_sync_conflict_keep_local" = "Keep local";
 "drive_sync_conflict_keep_remote" = "Keep remote";
 "drive_sync_conflict_message" = "The experiment \"%@\" has been modified from another device.";
@@ -532,10 +533,15 @@
 "drive_sync_intro_title" = "Cloud Sync";
 "drive_sync_invalid_token_error_message" = "Science Journal’s permission to access your Google Drive expired or was revoked. To continue syncing your experiments, sign in again with your Google account.";
 "drive_sync_invalid_token_error_title" = "Unable to Access Google Drive";
+"drive_sync_loading_indicator_text" = "Syncing";
 "drive_sync_missing_folder_error_message" = "Google Drive folder used for syncing experiments is no longer available. To continue syncing your experiments, sign in again with your Google account.";
 "drive_sync_missing_folder_error_title" = "Unable to Access Drive Sync Folder";
 "drive_sync_privacy_policy" = "Privacy Policy";
 "drive_sync_root_folder_label" = "My Drive";
+"drive_sync_start_button" = "Sync now";
+"drive_sync_start_notice" = "The Cloud Sync will start shortly. It may take some minutes to complete.";
+"drive_sync_start_text" = "Congrats! Your Google Drive Account has been successfully set up. All your experiments will now be saved and backed up in the folder below.";
+"drive_sync_start_title" = "Google Drive";
 "drive_sync_summary_button" = "SYNC NOW";
 "drive_sync_summary_text" = "Your experiments will be automatically synced in the folder “%@” on your Drive.";
 "drive_sync_summary_title" = "Google Drive";

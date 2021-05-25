@@ -319,6 +319,7 @@ extension String {
   static public var driveErrorTemporary: String { return "drive_error_temporary".localized }
   static public var driveErrorUnknown: String { return "drive_error_unknown".localized }
   static public var drive: String { return "drive_sync_cannot_reach_google_drive".localized }
+  static public var driveSyncConfirmButton: String { return "drive_sync_confirm_button".localized }
   static public var driveSyncConflictKeepLocal: String { return "drive_sync_conflict_keep_local".localized }
   static public var driveSyncConflictKeepRemote: String { return "drive_sync_conflict_keep_remote".localized }
   static public var driveSyncConflictMessage: String { return "drive_sync_conflict_message".localized }
@@ -347,10 +348,15 @@ extension String {
   static public var driveSyncIntroTitle: String { return "drive_sync_intro_title".localized }
   static public var driveSyncInvalidTokenErrorMessage: String { return "drive_sync_invalid_token_error_message".localized }
   static public var driveSyncInvalidTokenErrorTitle: String { return "drive_sync_invalid_token_error_title".localized }
+  static public var driveSyncLoadingIndicatorText: String { return "drive_sync_loading_indicator_text".localized }
   static public var driveSyncMissingFolderErrorMessage: String { return "drive_sync_missing_folder_error_message".localized }
   static public var driveSyncMissingFolderErrorTitle: String { return "drive_sync_missing_folder_error_title".localized }
   static public var driveSyncPrivacyPolicy: String { return "drive_sync_privacy_policy".localized }
   static public var driveSyncRootFolderLabel: String { return "drive_sync_root_folder_label".localized }
+  static public var driveSyncStartButton: String { return "drive_sync_start_button".localized }
+  static public var driveSyncStartNotice: String { return "drive_sync_start_notice".localized }
+  static public var driveSyncStartText: String { return "drive_sync_start_text".localized }
+  static public var driveSyncStartTitle: String { return "drive_sync_start_title".localized }
   static public var driveSyncSummaryButton: String { return "drive_sync_summary_button".localized }
   static public var driveSyncSummaryText: String { return "drive_sync_summary_text".localized }
   static public var driveSyncSummaryTitle: String { return "drive_sync_summary_title".localized }
