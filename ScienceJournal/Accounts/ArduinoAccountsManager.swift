@@ -781,15 +781,29 @@ private extension ArduinoAccountsManager {
   
   func setupDriveSync(from viewController: UIViewController, isSignup: Bool? = nil, completion: (() -> Void)? = nil) {
     guard let account = currentAccount, account.supportsDriveSync else { return }
-    
-    presentWizard(with: DriveSyncIntroViewController(accountsManager: self, isSignup: isSignup),
-                  from: viewController) { [weak self] wizard, isCancelled in
-      if isCancelled {
-        self?.delegate?.accountsManagerDidSkipDriveSyncSetup()
-        NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
+    let preferenceManager = PreferenceManager(accountID: account.ID)
+    let googleUser = GIDSignIn.sharedInstance().currentUser
+
+    if preferenceManager.driveSyncUserID != nil {
+      presentWizard(with: DriveSyncFolderPickerViewController(user: googleUser!, accountsManager: self),
+                    from: viewController) { [weak self] wizard, isCancelled in
+        if isCancelled {
+          self?.delegate?.accountsManagerDidSkipDriveSyncSetup()
+          NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
+        }
+        
+        wizard.dismiss(animated: true, completion: nil)
       }
-      
-      wizard.dismiss(animated: true, completion: nil)
+    } else {
+      presentWizard(with: DriveSyncIntroViewController(accountsManager: self, isSignup: isSignup),
+                    from: viewController) { [weak self] wizard, isCancelled in
+        if isCancelled {
+          self?.delegate?.accountsManagerDidSkipDriveSyncSetup()
+          NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
+        }
+        
+        wizard.dismiss(animated: true, completion: nil)
+      }
     }
   }
 
