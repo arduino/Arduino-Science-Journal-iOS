@@ -339,6 +339,7 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
       cell.button.setTitle(buttonLabel, for: .normal)
       cell.externalLink.addTarget(self, action: externalLinkAction, for: .touchUpInside)
       cell.button.addTarget(self, action: buttonAction, for: .touchUpInside)
+      cell.iconButton.addTarget(self, action: externalLinkAction, for: .touchUpInside)
 
       // hide external link for junior accounts
       if accountsManager.currentAccount?.type != .adult {
