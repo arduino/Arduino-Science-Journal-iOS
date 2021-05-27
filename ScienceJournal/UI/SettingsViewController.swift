@@ -50,7 +50,7 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
     case header(_ text: String)
     case separator
     case item(_ title: String, _ subtitle: String?, _ accessory: SettingsItemAccessory?, _ isColored: Bool)
-    case accountItem(_ title: String, _ subtitle: String?, _ image: UIImage?, _ externalLinkLabel: String, 
+    case accountItem(_ title: String, _ subtitle: String?, _ image: URL?, _ externalLinkLabel: String, 
     _ buttonLabel: String, _ externalLinkAction: Selector, _ buttonAction: Selector)
     case button(_ title: String, _ buttonAction: Selector)
     
@@ -175,7 +175,7 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
 
     if let account = accountsManager.currentAccount {
 
-      let accountImage = UIImage(named: "ic_account_placeholder")
+      let accountImage = account.profileImage
       let externalLinkLabel = String.settingsButton.uppercased()
       let buttonLabel = String.settingsSignOutButton.uppercased()
 
@@ -334,12 +334,21 @@ class SettingsViewController: MaterialHeaderCollectionViewController {
                                                     for: indexPath) as! SettingsAccountCell
       cell.titleLabel.text = title
       cell.subtitleLabel.text = subtitle
-      cell.imageView.image = image
       cell.externalLink.setTitle(externalLinkLabel, for: .normal)
       cell.button.setTitle(buttonLabel, for: .normal)
       cell.externalLink.addTarget(self, action: externalLinkAction, for: .touchUpInside)
       cell.button.addTarget(self, action: buttonAction, for: .touchUpInside)
       cell.iconButton.addTarget(self, action: externalLinkAction, for: .touchUpInside)
+      cell.imageView.layer.cornerRadius = ceil(48.0 / 2)
+      cell.imageView.clipsToBounds = true
+
+      if image == nil {
+        cell.imageView.image = UIImage(named: "ic_account_placeholder")
+      } else if image?.absoluteString.range(of: "default.svg") != nil {
+        cell.imageView.image = UIImage(named: "ic_account_placeholder")
+      } else {
+        cell.imageView.load(urlString: image!)
+      }
 
       // hide external link for junior accounts
       if accountsManager.currentAccount?.type != .adult {

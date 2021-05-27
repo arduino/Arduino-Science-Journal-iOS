@@ -80,7 +80,15 @@ class SidebarAccountView: UIView {
   ///   - profileImage: An account profile image.
   func showAccount(withName name: String, email: String, profileImage: URL?) {
     firstLine = name
-    self.profileImage = /*profileImage ?? */UIImage(named: "ic_account_placeholder")
+
+    if profileImage == nil {
+      self.profileImage = UIImage(named: "ic_account_placeholder")
+    } else if profileImage?.absoluteString.range(of: "default.svg") != nil {
+      self.profileImage = UIImage(named: "ic_account_placeholder")
+    } else {
+      self.profileImageView.load(urlString: profileImage!)
+    }
+
     profileImageView.tintColor = nil
 
     accessibilityLabel =
