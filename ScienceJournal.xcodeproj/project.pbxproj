@@ -422,6 +422,7 @@
 		7640AF47265D228000D18FB3 /* SettingsAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF43265D228000D18FB3 /* SettingsAccountCell.swift */; };
 		7640AF48265D228000D18FB3 /* SettingsButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7640AF44265D228000D18FB3 /* SettingsButtonCell.xib */; };
 		7640AF4D265D228A00D18FB3 /* SidebarSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF4C265D228A00D18FB3 /* SidebarSeparatorCell.swift */; };
+		76800552265FC09500C69B84 /* UIImageView+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76800551265FC09500C69B84 /* UIImageView+ScienceJournal.swift */; };
 		86EBD8E3234E81B1004DFCB9 /* ScrollViewContentObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */; };
 		8B00318021346C1500B9BBFB /* PullToRefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */; };
 		8B031EEC2098BA6D008F6F28 /* ExistingDataOptionsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B031EEB2098BA6D008F6F28 /* ExistingDataOptionsHeaderView.swift */; };
@@ -1247,6 +1248,7 @@
 		7640AF43265D228000D18FB3 /* SettingsAccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsAccountCell.swift; sourceTree = "<group>"; };
 		7640AF44265D228000D18FB3 /* SettingsButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsButtonCell.xib; sourceTree = "<group>"; };
 		7640AF4C265D228A00D18FB3 /* SidebarSeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarSeparatorCell.swift; sourceTree = "<group>"; };
+		76800551265FC09500C69B84 /* UIImageView+ScienceJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ScienceJournal.swift"; sourceTree = "<group>"; };
 		81B6ADB3C8B55839B4C266D2 /* Pods-ScienceJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.debug.xcconfig"; sourceTree = "<group>"; };
 		8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScrollViewContentObserver.swift; path = ../UI/ScrollViewContentObserver.swift; sourceTree = "<group>"; };
 		8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshController.swift; sourceTree = "<group>"; };
@@ -2946,6 +2948,7 @@
 		8B111F691E41225A000400F1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				76800551265FC09500C69B84 /* UIImageView+ScienceJournal.swift */,
 				5C62CBA02229A7F700E63538 /* Array+ScienceJournal.swift */,
 				8B29D3A81F9E48A700D1DDA9 /* AVAudioSessionRouteChangeReason+ScienceJournal.swift */,
 				8BA5BF3A1F45CEDA00EB77E8 /* AVCaptureSessionInterruptionReason+ScienceJournal.swift */,
@@ -4294,6 +4297,7 @@
 				489182C11E4542CE00E91D73 /* ChartController.swift in Sources */,
 				688509571F0712AD00D3A1A3 /* TextNoteDetailViewController.swift in Sources */,
 				68CA86371EC4F06900E13AE0 /* TextNoteCardCell.swift in Sources */,
+				76800552265FC09500C69B84 /* UIImageView+ScienceJournal.swift in Sources */,
 				5C612F1220AC6A430097CCAB /* LocalSyncStatus.pbobjc.m in Sources */,
 				8B111F6D1E4122B9000400F1 /* AudioSensor.swift in Sources */,
 				8B5938A31ECB59B600531928 /* ExperimentCardCaptionView.swift in Sources */,
@@ -4921,7 +4925,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5090,7 +5094,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5338,7 +5342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "Apple Development: Serena Falchieri (NNSD8N7W7H)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5417,7 +5421,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 60;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
