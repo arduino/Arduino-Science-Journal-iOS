@@ -34,6 +34,7 @@ enum SidebarRow {
   case help
   case scienceKit
   case privacy
+  case terms
 
   var title: String {
 
@@ -45,6 +46,7 @@ enum SidebarRow {
     case .help: return String.navigationGetHelp
     case .scienceKit: return String.navigationGetScienceKit
     case .privacy: return String.settingsPrivacyPolicyTitle
+    case .terms: return String.driveSyncTermsOfService
     }
   }
 
@@ -57,6 +59,7 @@ enum SidebarRow {
     case .help: return "ic_help_36pt"
     case .scienceKit: return "ic_science_kit_36pt"
     case .privacy: return "ic_privacy_36pt"
+    case .terms: return "ic_info_36pt"
     }
   }
 
@@ -117,6 +120,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
         .onboarding,
         .settings,
         .privacy,
+        .terms,
       ]
     } else {
       // not logged in
@@ -135,6 +139,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
         .onboarding,
         .settings,
         .privacy,
+        .terms,
       ]
     } else if account?.type == .kid {
       return []
@@ -143,6 +148,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
       return [
         .onboarding,
         .privacy,
+        .terms,
       ]
     }
   }

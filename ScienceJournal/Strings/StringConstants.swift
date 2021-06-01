@@ -35,6 +35,10 @@ public struct Constants {
     public static let scienceKit = URL(string: String.navigationGetScienceKitLink)!
     public static let advancedSettings = "https://id.arduino.cc/"
   }
+
+  public struct ArduinoScienceJournalURLs {
+    public static let sjPrivacyPolicyUrl = URL(string: "https://www.arduino.cc/en/sj-terms-conditions/?embed")!
+  }
   
   public struct GoogleSignInScopes {
     public static let drive = [
