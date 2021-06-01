@@ -111,7 +111,7 @@ class WizardRootViewController: UIViewController {
   
   @objc
   func showTermsOfService() {
-    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.sjTermsOfServiceUrl)
+    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.termsOfServiceUrl)
     present(vc, animated: true, completion: nil)
   }
   
