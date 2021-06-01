@@ -40,6 +40,16 @@ class SignUpTermsView: UIStackView {
   }()
   
   private var termsItemViews = [SignUpTermsItemView]()
+
+  private let termsNotice: UILabel = {
+    let label = UILabel()
+    label.text = String.arduinoSignUpTermsAndPrivacyNotice 
+    label.textAlignment = .center
+    label.textColor = ArduinoColorPalette.grayPalette.tint500
+    label.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.XSmall.rawValue)
+    label.numberOfLines = 0
+    return label
+  }()
   
   init(terms: [SignUpTermsItem], onAction: @escaping ([SignUpTermsItem]) -> Void) {
     self.onAction = onAction
@@ -66,6 +76,8 @@ class SignUpTermsView: UIStackView {
       termsItemViews.append(itemView)
       termsStackView.addArrangedSubview(itemView)
     }
+
+    addArrangedSubview(termsNotice)
     
     let signUpButtonStackView = UIStackView()
     signUpButtonStackView.axis = .horizontal

@@ -244,6 +244,7 @@
 "arduino_sign_up_password_placeholder" = "Choose a password";
 "arduino_sign_up_submit_button" = "NEXT";
 "arduino_sign_up_terms_and_privacy" = "I have read the <a href=\"[%1]\" style=\"text-decoration: none\">Privacy Policy</a> and accept the <a href=\"[%2]\" style=\"text-decoration: none\">Terms of Service</a>.";
+"arduino_sign_up_terms_and_privacy_notice" = "By signing up you are agreeing to Arduino Terms of Service, and Privacy Policy";
 "arduino_sign_up_terms_submit_button" = "SIGN UP";
 "arduino_sign_up_title" = "Sign up to Arduino";
 "arduino_sign_up_tracking_approval" = "I want to see personalized commercial offers from Arduino based on my browsing and purchasing behavior.";
@@ -513,7 +514,7 @@
 "drive_sync_create_folder_title" = "Create New Folder";
 "drive_sync_disable_cancel" = "Cancel";
 "drive_sync_disable_confirm" = "Confirm";
-"drive_sync_disable_message" = "Are you sure you wish to disable your Google Drive Sync?  If you confirm, your experiments will no longer be saved, and backed up to your Google Drive.";
+"drive_sync_disable_message" = "Are you sure you wish to disable your Google Drive Sync? If you confirm, your experiments will no longer be saved, and backed up to your Google Drive.";
 "drive_sync_disable_title" = "Disable Google Drive Sync";
 "drive_sync_error_setup_action" = "SETUP";
 "drive_sync_error_title" = "Sync Error";
@@ -723,8 +724,7 @@
 "linear_accelerometer" = "Linear accelerometer";
 /* Reusable partial string for changelog mentioning that we fixed bugs.  This should start with two newlines to give it space  [CHAR LIMIT=75] */
 "listing_changelog_bug_fixes" = "Mga pagpapabuti sa performance at mga pag-aayos ng bug";
-/* Reusable partial string for changelog introducing new features [CHAR LIMIT=50]
-Reusable partial string for changelog introducing new features [CHAR LIMIT=50] */
+/* Reusable partial string for changelog introducing new features [CHAR LIMIT=50] */
 "listing_changelog_features" = "Mga bagong feature:";
 /* Separator between features and bugs in release notes when both are present.  Should be two newlines  [CHAR LIMIT=5] */
 "listing_changelog_separator" = "\n\n";

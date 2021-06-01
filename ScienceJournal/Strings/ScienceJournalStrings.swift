@@ -179,6 +179,7 @@ extension String {
   static public var arduinoSignUpPasswordPlaceholder: String { return "arduino_sign_up_password_placeholder".localized }
   static public var arduinoSignUpSubmitButton: String { return "arduino_sign_up_submit_button".localized }
   static public var arduinoSignUpTermsAndPrivacy: String { return "arduino_sign_up_terms_and_privacy".localized }
+  static public var arduinoSignUpTermsAndPrivacyNotice: String { return "arduino_sign_up_terms_and_privacy_notice".localized }
   static public var arduinoSignUpTermsSubmitButton: String { return "arduino_sign_up_terms_submit_button".localized }
   static public var arduinoSignUpTitle: String { return "arduino_sign_up_title".localized }
   static public var arduinoSignUpTrackingApproval: String { return "arduino_sign_up_tracking_approval".localized }
