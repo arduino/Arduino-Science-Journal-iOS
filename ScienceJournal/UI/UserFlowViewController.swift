@@ -416,7 +416,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
       let privacyVC = SFSafariViewController(url: Constants.ArduinoSignIn.privacyPolicyUrl)
       present(privacyVC, animated: true, completion: nil)
     case .terms: 
-      let termsVC = SFSafariViewController(url: Constants.ArduinoScienceJournalURLs.sjPrivacyPolicyUrl)
+      let termsVC = SFSafariViewController(url: Constants.ArduinoScienceJournalURLs.sjTermsOfServiceUrl)
       present(termsVC, animated: true, completion: nil)
     default:
       break

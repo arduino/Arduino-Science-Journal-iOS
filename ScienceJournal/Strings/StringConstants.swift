@@ -37,7 +37,7 @@ public struct Constants {
   }
 
   public struct ArduinoScienceJournalURLs {
-    public static let sjPrivacyPolicyUrl = URL(string: "https://www.arduino.cc/en/sj-terms-conditions/?embed")!
+    public static let sjTermsOfServiceUrl = URL(string: "https://www.arduino.cc/en/sj-terms-conditions/?embed")!
   }
   
   public struct GoogleSignInScopes {
