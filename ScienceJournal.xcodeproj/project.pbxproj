@@ -423,6 +423,8 @@
 		7640AF48265D228000D18FB3 /* SettingsButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7640AF44265D228000D18FB3 /* SettingsButtonCell.xib */; };
 		7640AF4D265D228A00D18FB3 /* SidebarSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF4C265D228A00D18FB3 /* SidebarSeparatorCell.swift */; };
 		76800552265FC09500C69B84 /* UIImageView+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76800551265FC09500C69B84 /* UIImageView+ScienceJournal.swift */; };
+		76A1670526A18ECE005EC585 /* TermsAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1670326A18ECE005EC585 /* TermsAgreementView.swift */; };
+		76A1670626A18ECE005EC585 /* TermsAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1670426A18ECE005EC585 /* TermsAgreementViewController.swift */; };
 		86EBD8E3234E81B1004DFCB9 /* ScrollViewContentObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */; };
 		8B00318021346C1500B9BBFB /* PullToRefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */; };
 		8B031EEC2098BA6D008F6F28 /* ExistingDataOptionsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B031EEB2098BA6D008F6F28 /* ExistingDataOptionsHeaderView.swift */; };
@@ -1249,6 +1251,8 @@
 		7640AF44265D228000D18FB3 /* SettingsButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsButtonCell.xib; sourceTree = "<group>"; };
 		7640AF4C265D228A00D18FB3 /* SidebarSeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarSeparatorCell.swift; sourceTree = "<group>"; };
 		76800551265FC09500C69B84 /* UIImageView+ScienceJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ScienceJournal.swift"; sourceTree = "<group>"; };
+		76A1670326A18ECE005EC585 /* TermsAgreementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAgreementView.swift; sourceTree = "<group>"; };
+		76A1670426A18ECE005EC585 /* TermsAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAgreementViewController.swift; sourceTree = "<group>"; };
 		81B6ADB3C8B55839B4C266D2 /* Pods-ScienceJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.debug.xcconfig"; sourceTree = "<group>"; };
 		8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScrollViewContentObserver.swift; path = ../UI/ScrollViewContentObserver.swift; sourceTree = "<group>"; };
 		8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshController.swift; sourceTree = "<group>"; };
@@ -2576,6 +2580,8 @@
 		689906211E5CDD3100419E1F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				76A1670326A18ECE005EC585 /* TermsAgreementView.swift */,
+				76A1670426A18ECE005EC585 /* TermsAgreementViewController.swift */,
 				7640AF33265D225600D18FB3 /* Modal */,
 				8B6054832049C4840036C1E4 /* AlphaFadeTransitionController.swift */,
 				5C684EF320A4CC50008414C0 /* AppFlowViewController.swift */,
@@ -4528,6 +4534,7 @@
 				8B9F061B1EF446130030B011 /* GSJTriggerInformation_TriggerWhen+ScienceJournal.swift in Sources */,
 				5C62DC1A1FFD41A800A4F348 /* ExperimentUpdateManager.swift in Sources */,
 				BC3F2BD02615FE6E00FCE525 /* URLRequest+ScienceJournal.swift in Sources */,
+				76A1670526A18ECE005EC585 /* TermsAgreementView.swift in Sources */,
 				489182BC1E45041800E91D73 /* UIView+Animation.swift in Sources */,
 				8BCCAD5E1EE5EDB500278F05 /* ShadowedView.swift in Sources */,
 				8B497DC7204F27C600DFC4E1 /* BackgroundTaskObserver.swift in Sources */,
@@ -4557,6 +4564,7 @@
 				BC0F532026121C20002B30D0 /* SignUpConfirmationView.swift in Sources */,
 				8BCCAD561EDF593C00278F05 /* PopUpMenuAction.swift in Sources */,
 				687FAA0D202C1162004C1D04 /* SensorTriggerLabelValue.pbobjc.m in Sources */,
+				76A1670626A18ECE005EC585 /* TermsAgreementViewController.swift in Sources */,
 				8BF9DA9D2268BED80052C285 /* ExistingDataMigrationManagerErrorArray+ScienceJournal.swift in Sources */,
 				BCD8384D262590BB002AE4BC /* SettingsHeaderCell.swift in Sources */,
 				8B0682D220A33E39003DA2A3 /* ExperimentInteractionOptions.swift in Sources */,
