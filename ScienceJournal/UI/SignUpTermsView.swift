@@ -125,9 +125,6 @@ class SignUpTermsItemView: UIStackView {
     textView.font = ArduinoTypography.labelFont
     textView.textColor = .black
     textView.backgroundColor = .clear
-    textView.linkTextAttributes = [
-      .foregroundColor: ArduinoColorPalette.tealPalette.tint800!,
-    ]
     return textView
   }()
   

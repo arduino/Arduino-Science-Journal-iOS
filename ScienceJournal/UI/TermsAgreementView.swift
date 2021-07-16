@@ -41,6 +41,7 @@ let textView: UITextView = {
     textView.font = ArduinoTypography.paragraphFont
     textView.textColor = .black
     textView.backgroundColor = .clear
+    textView.textAlignment = .center
     textView.linkTextAttributes = [
       .foregroundColor: ArduinoColorPalette.tealPalette.tint800!,
       .font: ArduinoTypography.boldFont(forSize: 16)

@@ -56,15 +56,31 @@ class TermsAgreementViewController: UIViewController {
    termsAgreementView.textView.inject(urls: [Constants.ArduinoScienceJournalURLs.sjTermsOfServiceUrl])
 
     let textViewAttributedString = NSMutableAttributedString(attributedString: termsAgreementView.textView.attributedText!)
+    let formattedString = NSMutableAttributedString(attributedString: textViewAttributedString)
+    let types: NSTextCheckingResult.CheckingType = [.link]
+    
+    // detect links in text and apply bold font
+    guard let linkDetector = try? NSDataDetector(types: types.rawValue) else { return }
+    let range = NSRange(location: 0, length: textViewAttributedString.length)
+
+    linkDetector.enumerateMatches(in: textViewAttributedString.string, options: [],
+                                  range: range, using: { (match: NSTextCheckingResult?,
+                                                          _: NSRegularExpression.MatchingFlags, _) in
+        if let matchRange = match?.range {
+            formattedString.removeAttribute(NSAttributedString.Key.font, range: matchRange)
+            formattedString.addAttribute(NSAttributedString.Key.font, value: ArduinoTypography.boldFont(forSize: 16),
+                                   range: matchRange)
+        }
+    })
+
+    // apply a paragraph attribute to set alignment and lineSpacing
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = 8
     paragraphStyle.alignment = .center
-    textViewAttributedString.addAttribute(NSAttributedString.Key.paragraphStyle,
+    formattedString.addAttribute(NSAttributedString.Key.paragraphStyle,
     value: paragraphStyle, range: NSRange(location: 0, length: textViewAttributedString.length))
-    textViewAttributedString.addAttribute(NSAttributedString.Key.font,
-    value: ArduinoTypography.regularFont(forSize: 16), range: NSRange(location: 0, length: textViewAttributedString.length))
-
-    termsAgreementView.textView.attributedText = textViewAttributedString
+    
+    termsAgreementView.textView.attributedText = formattedString
 
     termsAgreementView.acceptButton.setTitle(String.arduinoTermsAgreementCta, for: .normal)
     termsAgreementView.acceptButton.setTitleColor(UIColor.white, for: .normal)
