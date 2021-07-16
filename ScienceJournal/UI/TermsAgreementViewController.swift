@@ -42,7 +42,7 @@ class TermsAgreementViewController: UIViewController {
     termsAgreementView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     termsAgreementView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
 
-    let titleText = "Terms and Conditions"
+    let titleText = String.arduinoTermsAgreementTitle
 
     let titleAttributedString = NSMutableAttributedString(string: titleText)
     titleAttributedString.addAttribute(NSAttributedString.Key.font,
@@ -52,21 +52,21 @@ class TermsAgreementViewController: UIViewController {
 
     termsAgreementView.title.attributedText = titleAttributedString
 
-    let labelText = "We have updated the app Terms and Conditions. By tapping here you indicate" +
-      "that you have read and agree to the new Terms presented in the agreement"
+    termsAgreementView.textView.set(htmlText: String.arduinoTermsAgreement)
+   termsAgreementView.textView.inject(urls: [Constants.ArduinoScienceJournalURLs.sjTermsOfServiceUrl])
 
-    let labelAttributedString = NSMutableAttributedString(string: labelText)
+    let textViewAttributedString = NSMutableAttributedString(attributedString: termsAgreementView.textView.attributedText!)
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = 8
     paragraphStyle.alignment = .center
-    labelAttributedString.addAttribute(NSAttributedString.Key.paragraphStyle,
-    value: paragraphStyle, range: NSRange(location: 0, length: labelAttributedString.length))
-    labelAttributedString.addAttribute(NSAttributedString.Key.font,
-    value: ArduinoTypography.regularFont(forSize: 16), range: NSRange(location: 0, length: labelAttributedString.length))
+    textViewAttributedString.addAttribute(NSAttributedString.Key.paragraphStyle,
+    value: paragraphStyle, range: NSRange(location: 0, length: textViewAttributedString.length))
+    textViewAttributedString.addAttribute(NSAttributedString.Key.font,
+    value: ArduinoTypography.regularFont(forSize: 16), range: NSRange(location: 0, length: textViewAttributedString.length))
 
-    termsAgreementView.label.attributedText = labelAttributedString
+    termsAgreementView.textView.attributedText = textViewAttributedString
 
-    termsAgreementView.acceptButton.setTitle("Accept", for: .normal)
+    termsAgreementView.acceptButton.setTitle(String.arduinoTermsAgreementCta, for: .normal)
     termsAgreementView.acceptButton.setTitleColor(UIColor.white, for: .normal)
     termsAgreementView.acceptButton.contentHorizontalAlignment = .center
 

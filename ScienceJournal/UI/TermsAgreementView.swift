@@ -27,11 +27,25 @@ let title: UILabel = {
     return label
 }()
 
-let label: UILabel = {
-    let label = UILabel()
-    label.numberOfLines = 0
-    label.textAlignment = .center
-    return label
+let textView: UITextView = {
+    let textView = UITextView()
+    textView.textContainer.lineFragmentPadding = 0
+    textView.textContainerInset = .zero
+    textView.textAlignment = .center
+    textView.isScrollEnabled = false
+    textView.scrollsToTop = false
+    textView.isSelectable = true
+    textView.isEditable = false
+    textView.delaysContentTouches = false
+    textView.dataDetectorTypes = [.link]
+    textView.font = ArduinoTypography.paragraphFont
+    textView.textColor = .black
+    textView.backgroundColor = .clear
+    textView.linkTextAttributes = [
+      .foregroundColor: ArduinoColorPalette.tealPalette.tint800!,
+      .font: ArduinoTypography.boldFont(forSize: 16)
+    ]
+    return textView
 }()
 
   let acceptButton = WizardButton(title: "Accept", style: .solid)
@@ -42,17 +56,17 @@ let label: UILabel = {
     backgroundColor = ArduinoColorPalette.grayPalette.tint100
 
     addSubview(title)
-    addSubview(label)
+    addSubview(textView)
     addSubview(acceptButton)
 
     title.translatesAutoresizingMaskIntoConstraints = false
     title.topAnchor.constraint(equalTo: topAnchor, constant: 50).isActive = true
     title.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
 
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.topAnchor.constraint(equalTo: title.topAnchor, constant: 68).isActive = true
-    label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-    label.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
+    textView.translatesAutoresizingMaskIntoConstraints = false
+    textView.topAnchor.constraint(equalTo: title.topAnchor, constant: 68).isActive = true
+    textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+    textView.widthAnchor.constraint(equalTo: widthAnchor, constant: -40).isActive = true
 
     acceptButton.translatesAutoresizingMaskIntoConstraints = false
     acceptButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80).isActive = true
