@@ -253,7 +253,7 @@
 "arduino_sign_up_username_info" = "Only letters, numbers, hyphen (-) and underscore (_) are allowed. Your username must start with a letter or number and be at least 3 characters long.";
 "arduino_sign_up_username_placeholder" = "Choose a username";
 "arduino_terms_agreement" = "We have updated the app <a href=\"[%1]\" style=\"text-decoration: none\">Terms and Conditions</a>. By tapping here you indicate that you have read and agree to the new Terms presented in the agreement";
-"arduino_terms_agreement_cta" = "Accept";
+"arduino_terms_agreement_cta" = "Agree";
 "arduino_terms_agreement_title" = "Terms & Conditions";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */
 "available_devices" = "Available Devices";
