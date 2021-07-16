@@ -155,6 +155,9 @@ public extension Notification.Name {
 
   /// The name of a notification posted when Settings should be dismissed automatically.
   static let settingsShouldClose = Notification.Name("ASJNotificationSettingsShouldClose")
+
+  /// The name of a notification posted when the user has accepted the T&C's
+  static let userHasAcceptedTerms = Notification.Name("ASJUserHasAcceptedTerms")
 }
 
 /// A protocol representing an auth account.

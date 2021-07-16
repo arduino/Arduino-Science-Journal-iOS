@@ -23,7 +23,7 @@ import MaterialComponents.MaterialDialogs
 
 class TermsAgreementViewController: UIViewController {
   
-   private(set) lazy var termsAgreementView = TermsAgreementView()
+  private(set) lazy var termsAgreementView = TermsAgreementView()
 
   init() {
     super.init(nibName: nil, bundle: nil)
@@ -95,6 +95,7 @@ class TermsAgreementViewController: UIViewController {
   @objc private func acceptTerms() {
     UserDefaults.standard.set(true, forKey: "termsAccepted")
     self.dismiss(animated: true)
+    NotificationCenter.default.post(name: .userHasAcceptedTerms, object: self)
   }
 
 }

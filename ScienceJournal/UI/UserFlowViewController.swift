@@ -189,7 +189,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
   override open func viewDidLoad() {
     super.viewDidLoad()
-
+    
     if FeatureFlags.isActionAreaEnabled {
       addChild(_actionAreaController)
       view.addSubview(_actionAreaController.view)
@@ -221,6 +221,11 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
                                            name: UIApplication.didEnterBackgroundNotification,
                                            object: nil)
 
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(showOnboardingAfterTerms),
+                                           name: .userHasAcceptedTerms,
+                                           object: nil) 
+
     // Listen to notifications of newly imported experiments.
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(experimentImportBegan),
@@ -242,6 +247,21 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     // Generate the default experiment if necessary.
     createDefaultExperimentIfNecessary()
 
+    let userHasAcceptedTerms = UserDefaults.standard.string(forKey: "termsAccepted")
+
+    // If the user hasn't accepted the new T&C's, show modal
+    if userHasAcceptedTerms == nil {
+     let vc = TermsAgreementViewController()
+      vc.modalPresentationStyle = .fullScreen
+      self.present(vc, animated: true, completion: nil)
+    } else if !devicePreferenceManager.hasAUserViewedOnboarding {
+      // if the user has acceppted the T&C's but hasn't seen the Onboarding yet
+      // Present the Onboarding
+      showOnboarding()
+    }
+  }
+
+  @objc private func showOnboardingAfterTerms() {
     if !devicePreferenceManager.hasAUserViewedOnboarding {
       showOnboarding()
     }

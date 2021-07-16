@@ -176,17 +176,7 @@ class AppFlowViewController: UIViewController {
     } else {
       reloadUserFlowViewController()
     }
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    let userHasAcceptedTerms = UserDefaults.standard.string(forKey: "termsAccepted")
-    // If the user hasn't accepted the new T&C's, show modal
-    if userHasAcceptedTerms == nil {
-     let vc = TermsAgreementViewController()
-      self.present(vc, animated: true, completion: nil)
-    }
-  }
+  } 
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return children.last?.preferredStatusBarStyle ?? .lightContent
