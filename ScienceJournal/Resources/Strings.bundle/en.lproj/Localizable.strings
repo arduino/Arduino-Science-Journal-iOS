@@ -161,18 +161,19 @@
 "amplitude" = "Amplitude";
 /* The name of this product. [CHAR_LIMIT=40] */
 "app_name" = "Arduino Science Journal";
-/* The app store description for Science Journal, character limit is not flexible [CHAR_LIMIT=4000] */
-"app_store_description" = "Science Journal is the free digital science notebook brought to you by Google.\n\nWhether you're a science educator or a hobbyist doing science at home, you can keep your notes, photos, and observations all in one convenient place. Use the sensors in your iPhone or iPad to measure and graph phenomena such as light, sound, and motion, or connect to external sensors via Bluetooth to conduct experiments on the world around you.\n\nWith the Science Journal app, you can:\n• Measure light, sound, acceleration, air pressure, and more using your device’s built-in sensors.\n• Take notes and photos to document your science experiments. More note types coming soon!\n• Connect to external sensors using select Bluetooth-enabled Arduino devices.\n• Create automated triggers for recording data and taking notes.\n• Use sonification to hear the movement of your graphs.\n\nPermissions notice:\n• Bluetooth: needed to scan for Bluetooth sensor devices.\n• Camera: needed to take pictures to document experiments and for the brightness sensor.\n• Photo Library: needed to store pictures taken to document experiments and for adding existing photos from your library to experiments.\n• Microphone: needed for sound intensity sensor.\n• Push notifications: needed to inform you of recording status when backgrounding the app.\n\nEducational activities by our partners:\nhttps://makingscience.withgoogle.com/science-journal/activities\nFor support: https://productforums.google.com/forum/#!forum/sciencejournal";
-/* Change log for the iOS verison of Science Journal (note: this is multiline, with \n to separate lines) [CHAR_LIMIT=3000] */
-"app_store_ios_changelog" = "New features and improvements:\n• Save your experiment as a PDF file with all of your notes, photos, and recordings in one place.";
+"app_store_description" = "The Arduino Science Journal is one of the BETT Award 2021 Finalist in the \"FREE DIGITAL CONTENT OR OPEN EDUCATIONAL RESOURCES\" category.\n\nThe Arduino Science Journal (formerly Science Journal, an initiative by Google) is free and open-source, and allows you to gather data about the world around you by harnessing the sensors in your smartphone as well as sensors connected to Arduino, or other third party hardware. The Science Journal transforms smartphones and tablets into science notebooks that encourage students to explore their world.\n\nThe Arduino Science Journal app is recommended for students from 10 to 18 years of age, and is available in 45 languages.\n\nAbout Arduino Science Journal\n\nWith the Arduino Science Journal, you can learn interactively, conduct experiments and iterate on findings.\n\nEnhance your existing lesson plans: use the Science Journal with activities and assignments you have already prepared\n\nClassroom & home-school friendly: you don’t have to be in a classroom setting to start exploring. The Arduino Science Journal can be used to run experiments straight away, as long as you have your smartphone or tablet with you!\n\nMove learning outside: the use of mobile devices along with the types of experiments we offer encourage students to get out of their seats and open their eyes to the world around them through the power of science\n\nScience and data have no secrets: you can easily record your observations, store your data sensors in real-time and analyse them, just as a proper scientist!\n\nConnect the digital and the physical world from your pocket: go through a series of simple tutorials and start having fun with science\n\n\nWith built-in device sensors as well as external hardware, you can measure light, sound, movement, and much more. You can also compare results, and even set triggers.\n\nTogether with the external hardware, (not included with the app), students are enabled to conduct more complex experiments, and advance in their scientific studies. As long as the external sensors are compatible with a Bluetooth-connecting device such as a microcontroller, there is no end to what experiments the students can make. Some popular sensors that the app can work with are: light, conductivity, temperature, force, gas, heart rate, respiration, radiation, pressure, magnetism, and many more.\n\n\nThe app is classroom-friendly, since students can sign in on any device and access their experiments to continue exploring the world, wherever they are!\n\nPermissions notice:\n\n• Bluetooth: needed to scan for Bluetooth sensor devices.\n\n• Camera: needed to take pictures to document experiments and for the brightness sensor.\n\n• Photo Library: needed to store pictures taken to document experiments and for adding existing photos from your library to experiments.\n\n• Microphone: needed for sound intensity sensor.\n\n• Push notifications: needed to inform you of recording status when backgrounding the app.\n\nBenefits of using the Arduino Science Journal\n\nIt’s free and simple to use\n\nEasy setup: download the app and start exploring with your phone’s built-in sensors\n\nPortable: enhance your home learning or bring your device outside to study the world around you\n\nSafe for children to use: COPPA Compliance underway\n\nFully compatible with Arduino hardware: keep experimenting with the Arduino Science Kit Physics Lab, as well as the Arduino Nano 33 BLE Sense board\n\nCompatible with third-party hardware\n\nFully open-source: you can develop your own hardware support as the app is open-source";
+/* What’s New - Change log for the iOS verison of Science Journal (note: this is multiline, with \n to separate lines) [CHAR_LIMIT=3000] */
+"app_store_ios_changelog" = "- Arduino authentication available for Adult and Junior Accounts\n\n- Integration with Google Drive to allow experiments backup\n\n- New external links";
 /* Generic change log for iOS versions where specific changes will not be noted [CHAR_LIMIT=3000] */
 "app_store_ios_generic_changelog" = "Many performance improvements and bug fixes";
 /* The app store keywords list, comma-separated, character limit is NOT FLEXIBLE and INCLUDES commas, DO NOT use spaces or newlines [CHAR_LIMIT=98] */
 "app_store_keywords" = "Google,science,education,stem,experiments,sensors,graphing,journal,notebook,notes,documenting,ngss";
-/* The app store localizable app name (should include "by Google" to ensure uniqueness), character limit is not flexible [CHAR_LIMIT=30] */
-"app_store_name" = "Science Journal by Google";
+/* The app store localizable app name (should include "Arduino" to ensure uniqueness), character limit is not flexible [CHAR_LIMIT=30] */
+"app_store_name" = "Arduino Science Journal";
+/* Screenshots description inside the App store and Google store */
+"app_store_screenshots" = "The official companion app for Arduino Science Kit\n\nRecord your experiments and break them down";
 /* The app store subtitle, appears below the app name in the app store on iOS 11, character limit is not flexible [CHAR_LIMIT=30] */
-"app_store_subtitle" = "Explore Your World";
+"app_store_subtitle" = "Think like a real scientist!";
 /* Label for an item which is archived. This displays over the top of the other elements so must be short [CHAR_LIMIT=20] */
 "archived_badge" = "Archived";
 /* Accessibility hint describing an item which is archived [CHAR_LIMIT=NONE] */
@@ -251,6 +252,9 @@
 "arduino_sign_up_username_exists_error" = "Username already in use.";
 "arduino_sign_up_username_info" = "Only letters, numbers, hyphen (-) and underscore (_) are allowed. Your username must start with a letter or number and be at least 3 characters long.";
 "arduino_sign_up_username_placeholder" = "Choose a username";
+"arduino_terms_agreement" = "We have updated the app <a href=\"[%1]\" style=\"text-decoration: none\">Terms and Conditions</a>. By tapping here you indicate that you have read and agree to the new Terms presented in the agreement";
+"arduino_terms_agreement_cta" = "Accept";
+"arduino_terms_agreement_title" = "Terms & Conditions";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */
 "available_devices" = "Available Devices";
 /* Content description for a generic back button [CHAR_LIMIT=NONE] */
@@ -523,7 +527,7 @@
 "drive_sync_folder_picker_select" = "SYNC HERE";
 "drive_sync_folder_picker_text" = "Choose where you would like to save your experiments";
 "drive_sync_folder_picker_title" = "Select a folder";
-"drive_sync_info" = "Sign in with your google account to start using drive sync";
+"drive_sync_info" = "Sign in with your Google account to start using drive sync";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Experiment data for Science Journal is saved and made available across devices using Google Drive and requires signing in with a Google account.\n\nIf you have existing data on this device, once signed in, you can save your existing experiments to Google Drive. Your experiments are stored in a “Science Journal” folder in Google Drive.";
 "drive_sync_intro_google_action" = "Google Drive";
@@ -806,7 +810,7 @@
 "onboarding_04_text_02" = "Take a new photo";
 "onboarding_04_text_03" = "Make a sensor recording";
 "onboarding_04_text_04" = "Add a picture from your gallery";
-"onboarding_04_text_05" = "Document different types of observations through the <b>observation toolbar</b>. You can add a text note or photo to your experiment  or create a sensor recording.";
+"onboarding_04_text_05" = "Document different types of observations through the <b>observation toolbar</b>. You can add a text note or photo to your experiment or create a sensor recording.";
 "onboarding_04_title" = "Add Observations";
 "onboarding_05_quick_tip" = "You can add multiple sensors to your experiment to observe them simultaneously.";
 "onboarding_05_text_01" = "Pick a built-in phone sensor or connect an Arduino board to see live sensor data.";
@@ -1177,6 +1181,8 @@
 "snapshot_label_details_title" = "Snapshot details";
 /* Accessibility announcement when a snapshot is added to an experiment or recording [CHAR_LIMIT=NONE] */
 "snapshot_note_added_content_description" = "Snapshot added";
+/* Screenshots description inside the App store and Google store */
+"spp_store_screenshots" = "Understand physical properties using sensors\n\nObserve how sensor values change over time\n\nSnap pictures to document your process\n\nTake notes of your experiment findings";
 /* Content description for the average stat icon [CHAR_LIMIT=NONE] */
 "stat_average" = "Average";
 /* Content description for the maximum stat icon [CHAR_LIMIT=NONE] */

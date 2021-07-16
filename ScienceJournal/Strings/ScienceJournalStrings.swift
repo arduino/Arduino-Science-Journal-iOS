@@ -111,6 +111,7 @@ extension String {
   static public var appStoreIosGenericChangelog: String { return "app_store_ios_generic_changelog".localized }
   static public var appStoreKeywords: String { return "app_store_keywords".localized }
   static public var appStoreName: String { return "app_store_name".localized }
+  static public var appStoreScreenshots: String { return "app_store_screenshots".localized }
   static public var appStoreSubtitle: String { return "app_store_subtitle".localized }
   static public var archivedBadge: String { return "archived_badge".localized }
   static public var archivedContentDescription: String { return "archived_content_description".localized }
@@ -186,6 +187,9 @@ extension String {
   static public var arduinoSignUpUsernameExistsError: String { return "arduino_sign_up_username_exists_error".localized }
   static public var arduinoSignUpUsernameInfo: String { return "arduino_sign_up_username_info".localized }
   static public var arduinoSignUpUsernamePlaceholder: String { return "arduino_sign_up_username_placeholder".localized }
+  static public var arduinoTermsAgreement: String { return "arduino_terms_agreement".localized }
+  static public var arduinoTermsAgreementCta: String { return "arduino_terms_agreement_cta".localized }
+  static public var arduinoTermsAgreementTitle: String { return "arduino_terms_agreement_title".localized }
   static public var availableDevices: String { return "available_devices".localized }
   static public var backBtnContentDescription: String { return "back_btn_content_description".localized }
   static public var backBtnContentDetails: String { return "back_btn_content_details".localized }
@@ -712,6 +716,7 @@ extension String {
   static public var snapshotFailedDisconnected: String { return "snapshot_failed_disconnected".localized }
   static public var snapshotLabelDetailsTitle: String { return "snapshot_label_details_title".localized }
   static public var snapshotNoteAddedContentDescription: String { return "snapshot_note_added_content_description".localized }
+  static public var sppStoreScreenshots: String { return "spp_store_screenshots".localized }
   static public var statAverage: String { return "stat_average".localized }
   static public var statMax: String { return "stat_max".localized }
   static public var statMin: String { return "stat_min".localized }
