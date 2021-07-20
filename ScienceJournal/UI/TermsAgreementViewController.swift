@@ -20,8 +20,9 @@ import UIKit
 import GoogleSignIn
 import GoogleAPIClientForREST
 import MaterialComponents.MaterialDialogs
+import SafariServices
 
-class TermsAgreementViewController: UIViewController {
+class TermsAgreementViewController: UIViewController, UITextViewDelegate {
   
   private(set) lazy var termsAgreementView = TermsAgreementView()
 
@@ -36,11 +37,15 @@ class TermsAgreementViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    termsAgreementView.textView.delegate = self
+
     self.view.addSubview(termsAgreementView)
 
     termsAgreementView.translatesAutoresizingMaskIntoConstraints = false
     termsAgreementView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     termsAgreementView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+
+    // Title formatting
 
     let titleText = String.arduinoTermsAgreementTitle
 
@@ -52,35 +57,26 @@ class TermsAgreementViewController: UIViewController {
 
     termsAgreementView.title.attributedText = titleAttributedString
 
-    termsAgreementView.textView.set(htmlText: String.arduinoTermsAgreement)
-   termsAgreementView.textView.inject(urls: [Constants.ArduinoScienceJournalURLs.sjTermsOfServiceUrl])
+    // Textview formatting
+
+    termsAgreementView.textView.text = String.arduinoTermsAgreement
 
     let textViewAttributedString = NSMutableAttributedString(attributedString: termsAgreementView.textView.attributedText!)
-    let formattedString = NSMutableAttributedString(attributedString: textViewAttributedString)
-    let types: NSTextCheckingResult.CheckingType = [.link]
-    
-    // detect links in text and apply bold font
-    guard let linkDetector = try? NSDataDetector(types: types.rawValue) else { return }
-    let range = NSRange(location: 0, length: textViewAttributedString.length)
 
-    linkDetector.enumerateMatches(in: textViewAttributedString.string, options: [],
-                                  range: range, using: { (match: NSTextCheckingResult?,
-                                                          _: NSRegularExpression.MatchingFlags, _) in
-        if let matchRange = match?.range {
-            formattedString.removeAttribute(NSAttributedString.Key.font, range: matchRange)
-            formattedString.addAttribute(NSAttributedString.Key.font, value: ArduinoTypography.boldFont(forSize: 16),
-                                   range: matchRange)
-        }
-    })
+    termsAgreementView.textView.makeBold(originalText: textViewAttributedString, boldText: String.arduinoTermsAgreementLinkLabel)
+    termsAgreementView.textView.addLink(originalText: textViewAttributedString, 
+                                        value: "openTerms", selectedText: String.arduinoTermsAgreementLinkLabel)
 
     // apply a paragraph attribute to set alignment and lineSpacing
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = 8
     paragraphStyle.alignment = .center
-    formattedString.addAttribute(NSAttributedString.Key.paragraphStyle,
+    textViewAttributedString.addAttribute(NSAttributedString.Key.paragraphStyle,
     value: paragraphStyle, range: NSRange(location: 0, length: textViewAttributedString.length))
     
-    termsAgreementView.textView.attributedText = formattedString
+    termsAgreementView.textView.attributedText = textViewAttributedString
+
+    // Button style
 
     termsAgreementView.acceptButton.setTitle(String.arduinoTermsAgreementCta, for: .normal)
     termsAgreementView.acceptButton.setTitleColor(UIColor.white, for: .normal)
@@ -92,10 +88,21 @@ class TermsAgreementViewController: UIViewController {
 
   }
 
+  // Handle click on link inside textView
+  func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange,
+                interaction: UITextItemInteraction) -> Bool {
+    openTerms()
+    return false
+  }
+
   @objc private func acceptTerms() {
     UserDefaults.standard.set(true, forKey: "termsAccepted")
     self.dismiss(animated: true)
     NotificationCenter.default.post(name: .userHasAcceptedTerms, object: self)
   }
 
+  @objc private func openTerms() {
+    let privacyVC = SFSafariViewController(url: Constants.ArduinoScienceJournalURLs.sjTermsOfServiceUrl)
+    present(privacyVC, animated: true, completion: nil)
+  }
 }
