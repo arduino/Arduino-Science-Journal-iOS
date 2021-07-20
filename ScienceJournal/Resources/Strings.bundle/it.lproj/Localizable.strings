@@ -253,8 +253,9 @@
 "arduino_sign_up_username_info" = "Sono consentiti solo lettere, numeri, trattino (-) e trattino basso (_). Il tuo nome utente deve iniziare con una lettera o un numero ed essere lungo almeno 3 caratteri.";
 "arduino_sign_up_username_placeholder" = "Scegli un nome utente";
 "arduino_terms_agreement" = "Ho letto la <a href=\"[%1]\" style=\"text-decoration: none\"> Informativa sulla privacy </a> e accetto i <a href=\"[%2]\" style=\"text-decoration: none\"> Termini di servizio </a> .";
-"arduino_terms_agreement_cta" = "";
-"arduino_terms_agreement_title" = "";
+"arduino_terms_agreement_cta" = "Accetto";
+"arduino_terms_agreement_link_label" = "Ho letto la <a href=\"[%1]\" style=\"text-decoration: none\"> Informativa sulla privacy </a> e accetto i <a href=\"[%2]\" style=\"text-decoration: none\"> Termini di servizio </a> .";
+"arduino_terms_agreement_title" = "Termini di servizio";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */
 "available_devices" = "Dispositivi disponibili";
 /* Content description for a generic back button [CHAR_LIMIT=NONE] */

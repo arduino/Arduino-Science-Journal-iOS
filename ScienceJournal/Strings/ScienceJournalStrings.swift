@@ -189,6 +189,7 @@ extension String {
   static public var arduinoSignUpUsernamePlaceholder: String { return "arduino_sign_up_username_placeholder".localized }
   static public var arduinoTermsAgreement: String { return "arduino_terms_agreement".localized }
   static public var arduinoTermsAgreementCta: String { return "arduino_terms_agreement_cta".localized }
+  static public var arduinoTermsAgreementLinkLabel: String { return "arduino_terms_agreement_link_label".localized }
   static public var arduinoTermsAgreementTitle: String { return "arduino_terms_agreement_title".localized }
   static public var availableDevices: String { return "available_devices".localized }
   static public var backBtnContentDescription: String { return "back_btn_content_description".localized }

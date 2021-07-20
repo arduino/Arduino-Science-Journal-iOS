@@ -254,6 +254,7 @@
 "arduino_sign_up_username_placeholder" = "";
 "arduino_terms_agreement" = "";
 "arduino_terms_agreement_cta" = "";
+"arduino_terms_agreement_link_label" = "";
 "arduino_terms_agreement_title" = "";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */
 "available_devices" = "Razpoložljive naprave";
