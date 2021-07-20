@@ -2795,7 +2795,6 @@
 		68EBA6DC1E20421E0089FF7F /* ScienceJournal */ = {
 			isa = PBXGroup;
 			children = (
-				68EBA6E91E20421E0089FF7F /* Info.plist */,
 				68EBA6DD1E20421E0089FF7F /* AppDelegate.swift */,
 				68E3618B203F7F0900B1B979 /* AppDelegateOpen.swift */,
 				8BCB0F8D21A32593003FB9E7 /* ElapsedTimeEventManager.swift */,
@@ -3328,6 +3327,7 @@
 		8BDD4C2B1EA6879000FCCA30 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				68EBA6E91E20421E0089FF7F /* Info.plist */,
 				68EBA6E41E20421E0089FF7F /* Assets.xcassets */,
 				F31242AF24EECE37000146F5 /* Fonts */,
 				BCF411EE253854E0002D6C73 /* InfoPlist.strings */,
@@ -4943,7 +4943,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
 				);
-				INFOPLIST_FILE = ScienceJournal/Info.plist;
+				INFOPLIST_FILE = ScienceJournal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -5112,7 +5112,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
 				);
-				INFOPLIST_FILE = ScienceJournal/Info.plist;
+				INFOPLIST_FILE = ScienceJournal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -5361,7 +5361,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
 				);
-				INFOPLIST_FILE = ScienceJournal/Info.plist;
+				INFOPLIST_FILE = ScienceJournal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -5439,7 +5439,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
 				);
-				INFOPLIST_FILE = ScienceJournal/Info.plist;
+				INFOPLIST_FILE = ScienceJournal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
