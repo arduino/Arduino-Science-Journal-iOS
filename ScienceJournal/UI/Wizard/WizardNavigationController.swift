@@ -1,4 +1,4 @@
-//  
+//
 //  WizardNavigationController.swift
 //  ScienceJournalg
 //
@@ -25,6 +25,21 @@ class WizardNavigationController: UINavigationController {
       super.viewDidLoad()
 
       navigationBar.barTintColor = ArduinoColorPalette.grayPalette.tint100
+
+      if #available(iOS 13.0, *) {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = ArduinoColorPalette.grayPalette.tint100
+
+        appearance.titleTextAttributes = [
+          NSAttributedString.Key.font: ArduinoTypography.boldFont(forSize: 20),
+          NSAttributedString.Key.foregroundColor: ArduinoColorPalette.tealPalette.tint800!
+        ]
+
+        navigationBar.standardAppearance = appearance
+        navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+      }
+
       navigationBar.isTranslucent = false
       navigationBar.shadowImage = UIImage()
 
@@ -32,5 +47,5 @@ class WizardNavigationController: UINavigationController {
       navigationBar.backIndicatorImage = backImage
       navigationBar.backIndicatorTransitionMaskImage = backImage
     }
-    
+
 }
